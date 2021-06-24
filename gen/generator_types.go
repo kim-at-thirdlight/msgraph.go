@@ -6,9 +6,13 @@ import (
 )
 
 const (
-	nsPrefix  = "microsoft.graph."
 	colPrefix = "Collection("
 )
+
+var nsPrefixes = map[string]struct{}{
+	"microsoft.graph.": {},
+	"graph.":           {},
+}
 
 var reservedTypeTable = map[string]string{
 	"Edm.Boolean":          "bool",
@@ -38,12 +42,18 @@ func ptrType(t string) string {
 	return "*" + t
 }
 
-func stripNSPrefix(t string) (string, bool) {
-	ok := strings.HasPrefix(t, nsPrefix)
-	if ok {
-		t = t[len(nsPrefix):]
+func formatNS(t string) (string, bool) {
+	for ns := range nsPrefixes {
+		if strings.HasPrefix(t, ns) {
+			return strings.Replace(
+				t[len(ns):],
+				".",
+				"",
+				-1,
+			), true
+		}
 	}
-	return t, ok
+	return t, false
 }
 
 func exported(n string) string {
@@ -58,7 +68,7 @@ func (g *Generator) SymBaseType(t string) string {
 	if x, ok := g.SymTypeMap[t]; ok {
 		return x
 	}
-	if x, ok := stripNSPrefix(t); ok {
+	if x, ok := formatNS(t); ok {
 		return exported(x)
 	}
 	if strings.HasPrefix(t, colPrefix) {
@@ -71,7 +81,7 @@ func (g *Generator) SymFromType(t string) string {
 	if x, ok := g.SymTypeMap[t]; ok {
 		return x
 	}
-	if x, ok := stripNSPrefix(t); ok {
+	if x, ok := formatNS(t); ok {
 		return exported(x)
 	}
 	if strings.HasPrefix(t, colPrefix) {
@@ -87,7 +97,7 @@ func (g *Generator) TypeFromType(t string) string {
 	if x, ok := g.SymTypeMap[t]; ok {
 		return ptrType(x)
 	}
-	if x, ok := stripNSPrefix(t); ok {
+	if x, ok := formatNS(t); ok {
 		return ptrType(exported(x))
 	}
 	if strings.HasPrefix(t, colPrefix) {

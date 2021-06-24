@@ -133,7 +133,7 @@ func (g *Generator) Generate() error {
 			if _, ok := reservedTypeTable[n]; ok {
 				continue
 			}
-			t := nsPrefix + n
+			t := "microsoft.graph." + n // ensure we exit on formatNS()
 			b, _ := m["BaseType"]
 			et := &EntityType{Name: n, Sym: exported(n), Type: t, Base: b, Description: "undocumented"}
 			if strings.HasSuffix(et.Sym, "Request") {
@@ -203,7 +203,7 @@ func (g *Generator) Generate() error {
 			}
 		case "Annotations":
 			mas := x.AttrMap()
-			target, _ := stripNSPrefix(mas["Target"])
+			target, _ := formatNS(mas["Target"])
 			targetList := strings.Split(target, "/")
 			targetMember := ""
 			if len(targetList) > 1 {
