@@ -2,10 +2,12 @@
 
 package msgraph
 
-// ResetPasscodeActionResult undocumented
+// ResetPasscodeActionResult Reset passcode action result
 type ResetPasscodeActionResult struct {
 	// DeviceActionResult is the base model of ResetPasscodeActionResult
 	DeviceActionResult
+	// ErrorCode RotateBitLockerKeys action error code. Valid values 0 to 2147483647
+	ErrorCode *int `json:"errorCode,omitempty"`
 	// Passcode Newly generated passcode for the device
 	Passcode *string `json:"passcode,omitempty"`
 }

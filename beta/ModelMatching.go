@@ -6,46 +6,46 @@ package msgraph
 type MatchingDlpRule struct {
 	// Object is the base model of MatchingDlpRule
 	Object
-	// RuleID undocumented
-	RuleID *string `json:"ruleId,omitempty"`
-	// RuleName undocumented
-	RuleName *string `json:"ruleName,omitempty"`
+	// Actions undocumented
+	Actions []DlpActionInfo `json:"actions,omitempty"`
+	// IsMostRestrictive undocumented
+	IsMostRestrictive *bool `json:"isMostRestrictive,omitempty"`
 	// PolicyID undocumented
 	PolicyID *string `json:"policyId,omitempty"`
 	// PolicyName undocumented
 	PolicyName *string `json:"policyName,omitempty"`
-	// IsMostRestrictive undocumented
-	IsMostRestrictive *bool `json:"isMostRestrictive,omitempty"`
 	// Priority undocumented
 	Priority *int `json:"priority,omitempty"`
-	// Actions undocumented
-	Actions []DlpActionInfo `json:"actions,omitempty"`
+	// RuleID undocumented
+	RuleID *string `json:"ruleId,omitempty"`
 	// RuleMode undocumented
 	RuleMode *RuleMode `json:"ruleMode,omitempty"`
+	// RuleName undocumented
+	RuleName *string `json:"ruleName,omitempty"`
 }
 
 // MatchingLabel undocumented
 type MatchingLabel struct {
 	// Object is the base model of MatchingLabel
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// ToolTip undocumented
-	ToolTip *string `json:"toolTip,omitempty"`
-	// PolicyTip undocumented
-	PolicyTip *string `json:"policyTip,omitempty"`
-	// IsEndpointProtectionEnabled undocumented
-	IsEndpointProtectionEnabled *bool `json:"isEndpointProtectionEnabled,omitempty"`
 	// ApplicationMode undocumented
 	ApplicationMode *ApplicationMode `json:"applicationMode,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// IsEndpointProtectionEnabled undocumented
+	IsEndpointProtectionEnabled *bool `json:"isEndpointProtectionEnabled,omitempty"`
 	// LabelActions undocumented
 	LabelActions []LabelActionBase `json:"labelActions,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// PolicyTip undocumented
+	PolicyTip *string `json:"policyTip,omitempty"`
 	// Priority undocumented
 	Priority *int `json:"priority,omitempty"`
+	// ToolTip undocumented
+	ToolTip *string `json:"toolTip,omitempty"`
 }

@@ -102,3 +102,36 @@ func (r *ChatMessageHostedContentRequest) Update(ctx context.Context, reqObj *Ch
 func (r *ChatMessageHostedContentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// ChatMessageInfoRequestBuilder is request builder for ChatMessageInfo
+type ChatMessageInfoRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ChatMessageInfoRequest
+func (b *ChatMessageInfoRequestBuilder) Request() *ChatMessageInfoRequest {
+	return &ChatMessageInfoRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ChatMessageInfoRequest is request for ChatMessageInfo
+type ChatMessageInfoRequest struct{ BaseRequest }
+
+// Get performs GET request for ChatMessageInfo
+func (r *ChatMessageInfoRequest) Get(ctx context.Context) (resObj *ChatMessageInfo, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ChatMessageInfo
+func (r *ChatMessageInfoRequest) Update(ctx context.Context, reqObj *ChatMessageInfo) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ChatMessageInfo
+func (r *ChatMessageInfoRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}

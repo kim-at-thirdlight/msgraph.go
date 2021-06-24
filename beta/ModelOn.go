@@ -8,10 +8,10 @@ import "time"
 type OnPremisesAgent struct {
 	// Entity is the base model of OnPremisesAgent
 	Entity
-	// MachineName undocumented
-	MachineName *string `json:"machineName,omitempty"`
 	// ExternalIP undocumented
 	ExternalIP *string `json:"externalIp,omitempty"`
+	// MachineName undocumented
+	MachineName *string `json:"machineName,omitempty"`
 	// Status undocumented
 	Status *AgentStatus `json:"status,omitempty"`
 	// SupportedPublishingTypes undocumented
@@ -26,10 +26,10 @@ type OnPremisesAgentGroup struct {
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// PublishingType undocumented
-	PublishingType *OnPremisesPublishingType `json:"publishingType,omitempty"`
 	// IsDefault undocumented
 	IsDefault *bool `json:"isDefault,omitempty"`
+	// PublishingType undocumented
+	PublishingType *OnPremisesPublishingType `json:"publishingType,omitempty"`
 	// Agents undocumented
 	Agents []OnPremisesAgent `json:"agents,omitempty"`
 	// PublishedResources undocumented
@@ -42,10 +42,10 @@ type OnPremisesConditionalAccessSettings struct {
 	Entity
 	// Enabled Indicates if on premises conditional access is enabled for this organization
 	Enabled *bool `json:"enabled,omitempty"`
-	// IncludedGroups User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-	IncludedGroups []UUID `json:"includedGroups,omitempty"`
 	// ExcludedGroups User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
 	ExcludedGroups []UUID `json:"excludedGroups,omitempty"`
+	// IncludedGroups User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+	IncludedGroups []UUID `json:"includedGroups,omitempty"`
 	// OverrideDefaultRule Override the default access rule when allowing a device to ensure access is granted.
 	OverrideDefaultRule *bool `json:"overrideDefaultRule,omitempty"`
 }
@@ -56,6 +56,18 @@ type OnPremisesExtensionAttributes struct {
 	Object
 	// ExtensionAttribute1 undocumented
 	ExtensionAttribute1 *string `json:"extensionAttribute1,omitempty"`
+	// ExtensionAttribute10 undocumented
+	ExtensionAttribute10 *string `json:"extensionAttribute10,omitempty"`
+	// ExtensionAttribute11 undocumented
+	ExtensionAttribute11 *string `json:"extensionAttribute11,omitempty"`
+	// ExtensionAttribute12 undocumented
+	ExtensionAttribute12 *string `json:"extensionAttribute12,omitempty"`
+	// ExtensionAttribute13 undocumented
+	ExtensionAttribute13 *string `json:"extensionAttribute13,omitempty"`
+	// ExtensionAttribute14 undocumented
+	ExtensionAttribute14 *string `json:"extensionAttribute14,omitempty"`
+	// ExtensionAttribute15 undocumented
+	ExtensionAttribute15 *string `json:"extensionAttribute15,omitempty"`
 	// ExtensionAttribute2 undocumented
 	ExtensionAttribute2 *string `json:"extensionAttribute2,omitempty"`
 	// ExtensionAttribute3 undocumented
@@ -72,32 +84,62 @@ type OnPremisesExtensionAttributes struct {
 	ExtensionAttribute8 *string `json:"extensionAttribute8,omitempty"`
 	// ExtensionAttribute9 undocumented
 	ExtensionAttribute9 *string `json:"extensionAttribute9,omitempty"`
-	// ExtensionAttribute10 undocumented
-	ExtensionAttribute10 *string `json:"extensionAttribute10,omitempty"`
-	// ExtensionAttribute11 undocumented
-	ExtensionAttribute11 *string `json:"extensionAttribute11,omitempty"`
-	// ExtensionAttribute12 undocumented
-	ExtensionAttribute12 *string `json:"extensionAttribute12,omitempty"`
-	// ExtensionAttribute13 undocumented
-	ExtensionAttribute13 *string `json:"extensionAttribute13,omitempty"`
-	// ExtensionAttribute14 undocumented
-	ExtensionAttribute14 *string `json:"extensionAttribute14,omitempty"`
-	// ExtensionAttribute15 undocumented
-	ExtensionAttribute15 *string `json:"extensionAttribute15,omitempty"`
 }
 
 // OnPremisesProvisioningError undocumented
 type OnPremisesProvisioningError struct {
 	// Object is the base model of OnPremisesProvisioningError
 	Object
-	// Value undocumented
-	Value *string `json:"value,omitempty"`
 	// Category undocumented
 	Category *string `json:"category,omitempty"`
-	// PropertyCausingError undocumented
-	PropertyCausingError *string `json:"propertyCausingError,omitempty"`
 	// OccurredDateTime undocumented
 	OccurredDateTime *time.Time `json:"occurredDateTime,omitempty"`
+	// PropertyCausingError undocumented
+	PropertyCausingError *string `json:"propertyCausingError,omitempty"`
+	// Value undocumented
+	Value *string `json:"value,omitempty"`
+}
+
+// OnPremisesPublishing undocumented
+type OnPremisesPublishing struct {
+	// Object is the base model of OnPremisesPublishing
+	Object
+	// AlternateURL undocumented
+	AlternateURL *string `json:"alternateUrl,omitempty"`
+	// ApplicationServerTimeout undocumented
+	ApplicationServerTimeout *string `json:"applicationServerTimeout,omitempty"`
+	// ApplicationType undocumented
+	ApplicationType *string `json:"applicationType,omitempty"`
+	// ExternalAuthenticationType undocumented
+	ExternalAuthenticationType *ExternalAuthenticationType `json:"externalAuthenticationType,omitempty"`
+	// ExternalURL undocumented
+	ExternalURL *string `json:"externalUrl,omitempty"`
+	// InternalURL undocumented
+	InternalURL *string `json:"internalUrl,omitempty"`
+	// IsBackendCertificateValidationEnabled undocumented
+	IsBackendCertificateValidationEnabled *bool `json:"isBackendCertificateValidationEnabled,omitempty"`
+	// IsHTTPOnlyCookieEnabled undocumented
+	IsHTTPOnlyCookieEnabled *bool `json:"isHttpOnlyCookieEnabled,omitempty"`
+	// IsOnPremPublishingEnabled undocumented
+	IsOnPremPublishingEnabled *bool `json:"isOnPremPublishingEnabled,omitempty"`
+	// IsPersistentCookieEnabled undocumented
+	IsPersistentCookieEnabled *bool `json:"isPersistentCookieEnabled,omitempty"`
+	// IsSecureCookieEnabled undocumented
+	IsSecureCookieEnabled *bool `json:"isSecureCookieEnabled,omitempty"`
+	// IsTranslateHostHeaderEnabled undocumented
+	IsTranslateHostHeaderEnabled *bool `json:"isTranslateHostHeaderEnabled,omitempty"`
+	// IsTranslateLinksInBodyEnabled undocumented
+	IsTranslateLinksInBodyEnabled *bool `json:"isTranslateLinksInBodyEnabled,omitempty"`
+	// SingleSignOnSettings undocumented
+	SingleSignOnSettings *OnPremisesPublishingSingleSignOn `json:"singleSignOnSettings,omitempty"`
+	// UseAlternateURLForTranslationAndRedirect undocumented
+	UseAlternateURLForTranslationAndRedirect *bool `json:"useAlternateUrlForTranslationAndRedirect,omitempty"`
+	// VerifiedCustomDomainCertificatesMetadata undocumented
+	VerifiedCustomDomainCertificatesMetadata *VerifiedCustomDomainCertificatesMetadata `json:"verifiedCustomDomainCertificatesMetadata,omitempty"`
+	// VerifiedCustomDomainKeyCredential undocumented
+	VerifiedCustomDomainKeyCredential *KeyCredential `json:"verifiedCustomDomainKeyCredential,omitempty"`
+	// VerifiedCustomDomainPasswordCredential undocumented
+	VerifiedCustomDomainPasswordCredential *PasswordCredential `json:"verifiedCustomDomainPasswordCredential,omitempty"`
 }
 
 // OnPremisesPublishingProfile undocumented
@@ -106,10 +148,26 @@ type OnPremisesPublishingProfile struct {
 	Entity
 	// HybridAgentUpdaterConfiguration undocumented
 	HybridAgentUpdaterConfiguration *HybridAgentUpdaterConfiguration `json:"hybridAgentUpdaterConfiguration,omitempty"`
-	// Agents undocumented
-	Agents []OnPremisesAgent `json:"agents,omitempty"`
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// AgentGroups undocumented
 	AgentGroups []OnPremisesAgentGroup `json:"agentGroups,omitempty"`
+	// Agents undocumented
+	Agents []OnPremisesAgent `json:"agents,omitempty"`
+	// ConnectorGroups undocumented
+	ConnectorGroups []ConnectorGroup `json:"connectorGroups,omitempty"`
+	// Connectors undocumented
+	Connectors []Connector `json:"connectors,omitempty"`
 	// PublishedResources undocumented
 	PublishedResources []PublishedResource `json:"publishedResources,omitempty"`
+}
+
+// OnPremisesPublishingSingleSignOn undocumented
+type OnPremisesPublishingSingleSignOn struct {
+	// Object is the base model of OnPremisesPublishingSingleSignOn
+	Object
+	// KerberosSignOnSettings undocumented
+	KerberosSignOnSettings *KerberosSignOnSettings `json:"kerberosSignOnSettings,omitempty"`
+	// SingleSignOnMode undocumented
+	SingleSignOnMode *SingleSignOnMode `json:"singleSignOnMode,omitempty"`
 }

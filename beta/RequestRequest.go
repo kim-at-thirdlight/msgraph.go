@@ -4,21 +4,21 @@ package msgraph
 
 import "context"
 
-// RequestObjectRequestBuilder is request builder for RequestObject
-type RequestObjectRequestBuilder struct{ BaseRequestBuilder }
+// RequestRequestBuilder is request builder for Request
+type RequestRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns RequestObjectRequest
-func (b *RequestObjectRequestBuilder) Request() *RequestObjectRequest {
-	return &RequestObjectRequest{
+// Request returns RequestRequest
+func (b *RequestRequestBuilder) Request() *RequestRequest {
+	return &RequestRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// RequestObjectRequest is request for RequestObject
-type RequestObjectRequest struct{ BaseRequest }
+// RequestRequest is request for Request
+type RequestRequest struct{ BaseRequest }
 
-// Get performs GET request for RequestObject
-func (r *RequestObjectRequest) Get(ctx context.Context) (resObj *RequestObject, err error) {
+// Get performs GET request for Request
+func (r *RequestRequest) Get(ctx context.Context) (resObj *Request, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,64 +27,12 @@ func (r *RequestObjectRequest) Get(ctx context.Context) (resObj *RequestObject, 
 	return
 }
 
-// Update performs PATCH request for RequestObject
-func (r *RequestObjectRequest) Update(ctx context.Context, reqObj *RequestObject) error {
+// Update performs PATCH request for Request
+func (r *RequestRequest) Update(ctx context.Context, reqObj *Request) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for RequestObject
-func (r *RequestObjectRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for Request
+func (r *RequestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-//
-type RequestObjectStopRequestBuilder struct{ BaseRequestBuilder }
-
-// Stop action undocumented
-func (b *RequestObjectRequestBuilder) Stop(reqObj *RequestObjectStopRequestParameter) *RequestObjectStopRequestBuilder {
-	bb := &RequestObjectStopRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/stop"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RequestObjectStopRequest struct{ BaseRequest }
-
-//
-func (b *RequestObjectStopRequestBuilder) Request() *RequestObjectStopRequest {
-	return &RequestObjectStopRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *RequestObjectStopRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type RequestObjectRecordDecisionsRequestBuilder struct{ BaseRequestBuilder }
-
-// RecordDecisions action undocumented
-func (b *RequestObjectRequestBuilder) RecordDecisions(reqObj *RequestObjectRecordDecisionsRequestParameter) *RequestObjectRecordDecisionsRequestBuilder {
-	bb := &RequestObjectRecordDecisionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/recordDecisions"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type RequestObjectRecordDecisionsRequest struct{ BaseRequest }
-
-//
-func (b *RequestObjectRecordDecisionsRequestBuilder) Request() *RequestObjectRecordDecisionsRequest {
-	return &RequestObjectRecordDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *RequestObjectRecordDecisionsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

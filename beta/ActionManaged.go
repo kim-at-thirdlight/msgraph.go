@@ -11,6 +11,12 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ManagedDeviceCollectionBulkReprovisionCloudPcRequestParameter undocumented
+type ManagedDeviceCollectionBulkReprovisionCloudPcRequestParameter struct {
+	// ManagedDeviceIDs undocumented
+	ManagedDeviceIDs []string `json:"managedDeviceIds,omitempty"`
+}
+
 // ManagedDeviceCollectionExecuteActionRequestParameter undocumented
 type ManagedDeviceCollectionExecuteActionRequestParameter struct {
 	// ActionName undocumented
@@ -41,12 +47,54 @@ type ManagedAppProtectionTargetAppsRequestParameter struct {
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 }
 
+// ManagedDeviceReprovisionCloudPcRequestParameter undocumented
+type ManagedDeviceReprovisionCloudPcRequestParameter struct {
+}
+
+// ManagedDeviceResizeCloudPcRequestParameter undocumented
+type ManagedDeviceResizeCloudPcRequestParameter struct {
+	// TargetServicePlanID undocumented
+	TargetServicePlanID *string `json:"targetServicePlanId,omitempty"`
+}
+
 // ManagedDeviceOverrideComplianceStateRequestParameter undocumented
 type ManagedDeviceOverrideComplianceStateRequestParameter struct {
 	// ComplianceState undocumented
 	ComplianceState *AdministratorConfiguredDeviceComplianceState `json:"complianceState,omitempty"`
 	// RemediationURL undocumented
 	RemediationURL *string `json:"remediationUrl,omitempty"`
+}
+
+// ManagedDeviceActivateDeviceEsimRequestParameter undocumented
+type ManagedDeviceActivateDeviceEsimRequestParameter struct {
+	// CarrierURL undocumented
+	CarrierURL *string `json:"carrierUrl,omitempty"`
+}
+
+// ManagedDeviceBypassActivationLockRequestParameter undocumented
+type ManagedDeviceBypassActivationLockRequestParameter struct {
+}
+
+// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
+type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+}
+
+// ManagedDeviceCreateDeviceLogCollectionRequestActionRequestParameter undocumented
+type ManagedDeviceCreateDeviceLogCollectionRequestActionRequestParameter struct {
+	// TemplateType undocumented
+	TemplateType *DeviceLogCollectionRequest `json:"templateType,omitempty"`
+}
+
+// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// ManagedDeviceDisableLostModeRequestParameter undocumented
+type ManagedDeviceDisableLostModeRequestParameter struct {
 }
 
 // ManagedDeviceEnableLostModeRequestParameter undocumented
@@ -59,36 +107,24 @@ type ManagedDeviceEnableLostModeRequestParameter struct {
 	Footer *string `json:"footer,omitempty"`
 }
 
+// ManagedDeviceLocateDeviceRequestParameter undocumented
+type ManagedDeviceLocateDeviceRequestParameter struct {
+}
+
+// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
+}
+
 // ManagedDevicePlayLostModeSoundRequestParameter undocumented
 type ManagedDevicePlayLostModeSoundRequestParameter struct {
 }
 
-// ManagedDeviceSetDeviceNameRequestParameter undocumented
-type ManagedDeviceSetDeviceNameRequestParameter struct {
-	// DeviceName undocumented
-	DeviceName *string `json:"deviceName,omitempty"`
+// ManagedDeviceRebootNowRequestParameter undocumented
+type ManagedDeviceRebootNowRequestParameter struct {
 }
 
-// ManagedDeviceRotateFileVaultKeyRequestParameter undocumented
-type ManagedDeviceRotateFileVaultKeyRequestParameter struct {
-}
-
-// ManagedDeviceRetireRequestParameter undocumented
-type ManagedDeviceRetireRequestParameter struct {
-}
-
-// ManagedDeviceWipeRequestParameter undocumented
-type ManagedDeviceWipeRequestParameter struct {
-	// KeepEnrollmentData undocumented
-	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-	// MacOsUnlockCode undocumented
-	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
-}
-
-// ManagedDeviceResetPasscodeRequestParameter undocumented
-type ManagedDeviceResetPasscodeRequestParameter struct {
+// ManagedDeviceRecoverPasscodeRequestParameter undocumented
+type ManagedDeviceRecoverPasscodeRequestParameter struct {
 }
 
 // ManagedDeviceRemoteLockRequestParameter undocumented
@@ -99,48 +135,58 @@ type ManagedDeviceRemoteLockRequestParameter struct {
 type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
 }
 
-// ManagedDeviceDisableLostModeRequestParameter undocumented
-type ManagedDeviceDisableLostModeRequestParameter struct {
+// ManagedDeviceResetPasscodeRequestParameter undocumented
+type ManagedDeviceResetPasscodeRequestParameter struct {
 }
 
-// ManagedDeviceLocateDeviceRequestParameter undocumented
-type ManagedDeviceLocateDeviceRequestParameter struct {
+// ManagedDeviceRetireRequestParameter undocumented
+type ManagedDeviceRetireRequestParameter struct {
 }
 
-// ManagedDeviceBypassActivationLockRequestParameter undocumented
-type ManagedDeviceBypassActivationLockRequestParameter struct {
+// ManagedDeviceRevokeAppleVPPLicensesRequestParameter undocumented
+type ManagedDeviceRevokeAppleVPPLicensesRequestParameter struct {
 }
 
-// ManagedDeviceRebootNowRequestParameter undocumented
-type ManagedDeviceRebootNowRequestParameter struct {
+// ManagedDeviceRotateBitLockerKeysRequestParameter undocumented
+type ManagedDeviceRotateBitLockerKeysRequestParameter struct {
+}
+
+// ManagedDeviceRotateFileVaultKeyRequestParameter undocumented
+type ManagedDeviceRotateFileVaultKeyRequestParameter struct {
+}
+
+// ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter undocumented
+type ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter struct {
+	// NotificationTitle undocumented
+	NotificationTitle *string `json:"notificationTitle,omitempty"`
+	// NotificationBody undocumented
+	NotificationBody *string `json:"notificationBody,omitempty"`
+}
+
+// ManagedDeviceSetDeviceNameRequestParameter undocumented
+type ManagedDeviceSetDeviceNameRequestParameter struct {
+	// DeviceName undocumented
+	DeviceName *string `json:"deviceName,omitempty"`
 }
 
 // ManagedDeviceShutDownRequestParameter undocumented
 type ManagedDeviceShutDownRequestParameter struct {
 }
 
-// ManagedDeviceRecoverPasscodeRequestParameter undocumented
-type ManagedDeviceRecoverPasscodeRequestParameter struct {
-}
-
-// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
-type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-}
-
-// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
-}
-
-// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-}
-
 // ManagedDeviceSyncDeviceRequestParameter undocumented
 type ManagedDeviceSyncDeviceRequestParameter struct {
+}
+
+// ManagedDeviceTriggerConfigurationManagerActionRequestParameter undocumented
+type ManagedDeviceTriggerConfigurationManagerActionRequestParameter struct {
+	// ConfigurationManagerAction undocumented
+	ConfigurationManagerAction *ConfigurationManagerAction `json:"configurationManagerAction,omitempty"`
+}
+
+// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
+type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
+	// UpdateWindowsDeviceAccountActionParameter undocumented
+	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
 }
 
 // ManagedDeviceWindowsDefenderScanRequestParameter undocumented
@@ -153,32 +199,18 @@ type ManagedDeviceWindowsDefenderScanRequestParameter struct {
 type ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter struct {
 }
 
-// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
-type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
-	// UpdateWindowsDeviceAccountActionParameter undocumented
-	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
-}
-
-// ManagedDeviceRevokeAppleVPPLicensesRequestParameter undocumented
-type ManagedDeviceRevokeAppleVPPLicensesRequestParameter struct {
-}
-
-// ManagedDeviceRotateBitLockerKeysRequestParameter undocumented
-type ManagedDeviceRotateBitLockerKeysRequestParameter struct {
-}
-
-// ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter undocumented
-type ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter struct {
-	// NotificationTitle undocumented
-	NotificationTitle *string `json:"notificationTitle,omitempty"`
-	// NotificationBody undocumented
-	NotificationBody *string `json:"notificationBody,omitempty"`
-}
-
-// ManagedDeviceTriggerConfigurationManagerActionRequestParameter undocumented
-type ManagedDeviceTriggerConfigurationManagerActionRequestParameter struct {
-	// ConfigurationManagerAction undocumented
-	ConfigurationManagerAction *ConfigurationManagerAction `json:"configurationManagerAction,omitempty"`
+// ManagedDeviceWipeRequestParameter undocumented
+type ManagedDeviceWipeRequestParameter struct {
+	// KeepEnrollmentData undocumented
+	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+	// MacOsUnlockCode undocumented
+	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
+	// PersistEsimDataPlan undocumented
+	PersistEsimDataPlan *bool `json:"persistEsimDataPlan,omitempty"`
+	// UseProtectedWipe undocumented
+	UseProtectedWipe *bool `json:"useProtectedWipe,omitempty"`
 }
 
 // ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
@@ -502,6 +534,109 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// AssignmentFilterEvaluationStatusDetails returns request builder for AssignmentFilterEvaluationStatusDetails collection
+func (b *ManagedDeviceRequestBuilder) AssignmentFilterEvaluationStatusDetails() *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder {
+	bb := &ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignmentFilterEvaluationStatusDetails"
+	return bb
+}
+
+// ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder is request builder for AssignmentFilterEvaluationStatusDetails collection
+type ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AssignmentFilterEvaluationStatusDetails collection
+func (b *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder) Request() *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest {
+	return &ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AssignmentFilterEvaluationStatusDetails item
+func (b *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder) ID(id string) *AssignmentFilterEvaluationStatusDetailsRequestBuilder {
+	bb := &AssignmentFilterEvaluationStatusDetailsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest is request for AssignmentFilterEvaluationStatusDetails collection
+type ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AssignmentFilterEvaluationStatusDetails
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AssignmentFilterEvaluationStatusDetails
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AssignmentFilterEvaluationStatusDetails collection, max N pages
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Get(ctx context.Context) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Add(ctx context.Context, reqObj *AssignmentFilterEvaluationStatusDetails) (resObj *AssignmentFilterEvaluationStatusDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // DetectedApps returns request builder for DetectedApp collection
 func (b *ManagedDeviceRequestBuilder) DetectedApps() *ManagedDeviceDetectedAppsCollectionRequestBuilder {
 	bb := &ManagedDeviceDetectedAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -814,6 +949,109 @@ func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Get(ctx contex
 
 // Add performs POST request for DeviceConfigurationState collection
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfigurationState) (resObj *DeviceConfigurationState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// LogCollectionRequests returns request builder for DeviceLogCollectionResponse collection
+func (b *ManagedDeviceRequestBuilder) LogCollectionRequests() *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder {
+	bb := &ManagedDeviceLogCollectionRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/logCollectionRequests"
+	return bb
+}
+
+// ManagedDeviceLogCollectionRequestsCollectionRequestBuilder is request builder for DeviceLogCollectionResponse collection
+type ManagedDeviceLogCollectionRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceLogCollectionResponse collection
+func (b *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder) Request() *ManagedDeviceLogCollectionRequestsCollectionRequest {
+	return &ManagedDeviceLogCollectionRequestsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceLogCollectionResponse item
+func (b *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder) ID(id string) *DeviceLogCollectionResponseRequestBuilder {
+	bb := &DeviceLogCollectionResponseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedDeviceLogCollectionRequestsCollectionRequest is request for DeviceLogCollectionResponse collection
+type ManagedDeviceLogCollectionRequestsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceLogCollectionResponse, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceLogCollectionResponse
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceLogCollectionResponse
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceLogCollectionResponse collection, max N pages
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceLogCollectionResponse, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Get(ctx context.Context) ([]DeviceLogCollectionResponse, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Add(ctx context.Context, reqObj *DeviceLogCollectionResponse) (resObj *DeviceLogCollectionResponse, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

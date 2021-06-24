@@ -75,6 +75,8 @@ const (
 	VPPTokenStateVInvalid VPPTokenState = "invalid"
 	// VPPTokenStateVAssignedToExternalMDM undocumented
 	VPPTokenStateVAssignedToExternalMDM VPPTokenState = "assignedToExternalMDM"
+	// VPPTokenStateVDuplicateLocationID undocumented
+	VPPTokenStateVDuplicateLocationID VPPTokenState = "duplicateLocationId"
 )
 
 var (
@@ -88,6 +90,8 @@ var (
 	VPPTokenStatePInvalid = &_VPPTokenStatePInvalid
 	// VPPTokenStatePAssignedToExternalMDM is a pointer to VPPTokenStateVAssignedToExternalMDM
 	VPPTokenStatePAssignedToExternalMDM = &_VPPTokenStatePAssignedToExternalMDM
+	// VPPTokenStatePDuplicateLocationID is a pointer to VPPTokenStateVDuplicateLocationID
+	VPPTokenStatePDuplicateLocationID = &_VPPTokenStatePDuplicateLocationID
 )
 
 var (
@@ -96,6 +100,7 @@ var (
 	_VPPTokenStatePExpired               = VPPTokenStateVExpired
 	_VPPTokenStatePInvalid               = VPPTokenStateVInvalid
 	_VPPTokenStatePAssignedToExternalMDM = VPPTokenStateVAssignedToExternalMDM
+	_VPPTokenStatePDuplicateLocationID   = VPPTokenStateVDuplicateLocationID
 )
 
 // VPPTokenSyncStatus undocumented

@@ -2,7 +2,7 @@
 
 package msgraph
 
-// RotateBitLockerKeysDeviceActionResult undocumented
+// RotateBitLockerKeysDeviceActionResult RotateBitLockerKeys device action result
 type RotateBitLockerKeysDeviceActionResult struct {
 	// DeviceActionResult is the base model of RotateBitLockerKeysDeviceActionResult
 	DeviceActionResult

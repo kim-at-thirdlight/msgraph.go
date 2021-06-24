@@ -12,7 +12,7 @@ type ResourceAccess struct {
 	Type *string `json:"type,omitempty"`
 }
 
-// ResourceAction undocumented
+// ResourceAction Set of allowed and not allowed actions for a resource.
 type ResourceAction struct {
 	// Object is the base model of ResourceAction
 	Object
@@ -22,20 +22,26 @@ type ResourceAction struct {
 	NotAllowedResourceActions []string `json:"notAllowedResourceActions,omitempty"`
 }
 
+// ResourceData undocumented
+type ResourceData struct {
+	// Object is the base model of ResourceData
+	Object
+}
+
 // ResourceOperation Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC).
 type ResourceOperation struct {
 	// Entity is the base model of ResourceOperation
 	Entity
-	// Resource Resource category to which this Operation belongs.
-	Resource *string `json:"resource,omitempty"`
-	// ResourceName Name of the Resource this operation is performed on.
-	ResourceName *string `json:"resourceName,omitempty"`
 	// ActionName Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
 	ActionName *string `json:"actionName,omitempty"`
 	// Description Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
 	Description *string `json:"description,omitempty"`
 	// EnabledForScopeValidation Determines whether the Permission is validated for Scopes defined per Role Assignment.
 	EnabledForScopeValidation *bool `json:"enabledForScopeValidation,omitempty"`
+	// Resource Resource category to which this Operation belongs.
+	Resource *string `json:"resource,omitempty"`
+	// ResourceName Name of the Resource this operation is performed on.
+	ResourceName *string `json:"resourceName,omitempty"`
 }
 
 // ResourcePermission undocumented
@@ -48,38 +54,16 @@ type ResourcePermission struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// ResourcePropertiesModel undocumented
-type ResourcePropertiesModel struct {
-	// Object is the base model of ResourcePropertiesModel
-	Object
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Label undocumented
-	Label *string `json:"label,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// Capacity undocumented
-	Capacity *int `json:"capacity,omitempty"`
-	// IsManaged undocumented
-	IsManaged *bool `json:"isManaged,omitempty"`
-	// BookingType undocumented
-	BookingType *BookingType `json:"bookingType,omitempty"`
-	// Building undocumented
-	Building *string `json:"building,omitempty"`
-	// Floor undocumented
-	Floor *string `json:"floor,omitempty"`
-}
-
 // ResourceReference undocumented
 type ResourceReference struct {
 	// Object is the base model of ResourceReference
 	Object
-	// WebURL undocumented
-	WebURL *string `json:"webUrl,omitempty"`
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Type undocumented
 	Type *string `json:"type,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // ResourceSpecificPermission undocumented
@@ -102,36 +86,36 @@ type ResourceSpecificPermission struct {
 type ResourceSpecificPermissionGrant struct {
 	// DirectoryObject is the base model of ResourceSpecificPermissionGrant
 	DirectoryObject
-	// ClientID undocumented
-	ClientID *string `json:"clientId,omitempty"`
 	// ClientAppID undocumented
 	ClientAppID *string `json:"clientAppId,omitempty"`
-	// ResourceAppID undocumented
-	ResourceAppID *string `json:"resourceAppId,omitempty"`
-	// PermissionType undocumented
-	PermissionType *string `json:"permissionType,omitempty"`
+	// ClientID undocumented
+	ClientID *string `json:"clientId,omitempty"`
 	// Permission undocumented
 	Permission *string `json:"permission,omitempty"`
+	// PermissionType undocumented
+	PermissionType *string `json:"permissionType,omitempty"`
+	// ResourceAppID undocumented
+	ResourceAppID *string `json:"resourceAppId,omitempty"`
 }
 
 // ResourceVisualization undocumented
 type ResourceVisualization struct {
 	// Object is the base model of ResourceVisualization
 	Object
-	// Title undocumented
-	Title *string `json:"title,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
+	// ContainerDisplayName undocumented
+	ContainerDisplayName *string `json:"containerDisplayName,omitempty"`
+	// ContainerType undocumented
+	ContainerType *string `json:"containerType,omitempty"`
+	// ContainerWebURL undocumented
+	ContainerWebURL *string `json:"containerWebUrl,omitempty"`
 	// MediaType undocumented
 	MediaType *string `json:"mediaType,omitempty"`
 	// PreviewImageURL undocumented
 	PreviewImageURL *string `json:"previewImageUrl,omitempty"`
 	// PreviewText undocumented
 	PreviewText *string `json:"previewText,omitempty"`
-	// ContainerWebURL undocumented
-	ContainerWebURL *string `json:"containerWebUrl,omitempty"`
-	// ContainerDisplayName undocumented
-	ContainerDisplayName *string `json:"containerDisplayName,omitempty"`
-	// ContainerType undocumented
-	ContainerType *string `json:"containerType,omitempty"`
+	// Title undocumented
+	Title *string `json:"title,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }

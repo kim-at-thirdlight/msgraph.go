@@ -2,6 +2,43 @@
 
 package msgraph
 
+// ConfigurationManagerActionDeliveryStatus undocumented
+type ConfigurationManagerActionDeliveryStatus string
+
+const (
+	// ConfigurationManagerActionDeliveryStatusVUnknown undocumented
+	ConfigurationManagerActionDeliveryStatusVUnknown ConfigurationManagerActionDeliveryStatus = "unknown"
+	// ConfigurationManagerActionDeliveryStatusVPendingDelivery undocumented
+	ConfigurationManagerActionDeliveryStatusVPendingDelivery ConfigurationManagerActionDeliveryStatus = "pendingDelivery"
+	// ConfigurationManagerActionDeliveryStatusVDeliveredToConnectorService undocumented
+	ConfigurationManagerActionDeliveryStatusVDeliveredToConnectorService ConfigurationManagerActionDeliveryStatus = "deliveredToConnectorService"
+	// ConfigurationManagerActionDeliveryStatusVFailedToDeliverToConnectorService undocumented
+	ConfigurationManagerActionDeliveryStatusVFailedToDeliverToConnectorService ConfigurationManagerActionDeliveryStatus = "failedToDeliverToConnectorService"
+	// ConfigurationManagerActionDeliveryStatusVDeliveredToOnPremisesServer undocumented
+	ConfigurationManagerActionDeliveryStatusVDeliveredToOnPremisesServer ConfigurationManagerActionDeliveryStatus = "deliveredToOnPremisesServer"
+)
+
+var (
+	// ConfigurationManagerActionDeliveryStatusPUnknown is a pointer to ConfigurationManagerActionDeliveryStatusVUnknown
+	ConfigurationManagerActionDeliveryStatusPUnknown = &_ConfigurationManagerActionDeliveryStatusPUnknown
+	// ConfigurationManagerActionDeliveryStatusPPendingDelivery is a pointer to ConfigurationManagerActionDeliveryStatusVPendingDelivery
+	ConfigurationManagerActionDeliveryStatusPPendingDelivery = &_ConfigurationManagerActionDeliveryStatusPPendingDelivery
+	// ConfigurationManagerActionDeliveryStatusPDeliveredToConnectorService is a pointer to ConfigurationManagerActionDeliveryStatusVDeliveredToConnectorService
+	ConfigurationManagerActionDeliveryStatusPDeliveredToConnectorService = &_ConfigurationManagerActionDeliveryStatusPDeliveredToConnectorService
+	// ConfigurationManagerActionDeliveryStatusPFailedToDeliverToConnectorService is a pointer to ConfigurationManagerActionDeliveryStatusVFailedToDeliverToConnectorService
+	ConfigurationManagerActionDeliveryStatusPFailedToDeliverToConnectorService = &_ConfigurationManagerActionDeliveryStatusPFailedToDeliverToConnectorService
+	// ConfigurationManagerActionDeliveryStatusPDeliveredToOnPremisesServer is a pointer to ConfigurationManagerActionDeliveryStatusVDeliveredToOnPremisesServer
+	ConfigurationManagerActionDeliveryStatusPDeliveredToOnPremisesServer = &_ConfigurationManagerActionDeliveryStatusPDeliveredToOnPremisesServer
+)
+
+var (
+	_ConfigurationManagerActionDeliveryStatusPUnknown                           = ConfigurationManagerActionDeliveryStatusVUnknown
+	_ConfigurationManagerActionDeliveryStatusPPendingDelivery                   = ConfigurationManagerActionDeliveryStatusVPendingDelivery
+	_ConfigurationManagerActionDeliveryStatusPDeliveredToConnectorService       = ConfigurationManagerActionDeliveryStatusVDeliveredToConnectorService
+	_ConfigurationManagerActionDeliveryStatusPFailedToDeliverToConnectorService = ConfigurationManagerActionDeliveryStatusVFailedToDeliverToConnectorService
+	_ConfigurationManagerActionDeliveryStatusPDeliveredToOnPremisesServer       = ConfigurationManagerActionDeliveryStatusVDeliveredToOnPremisesServer
+)
+
 // ConfigurationManagerActionType undocumented
 type ConfigurationManagerActionType string
 
@@ -86,6 +123,8 @@ const (
 	ConfigurationUsageVRequired ConfigurationUsage = "required"
 	// ConfigurationUsageVAllowed undocumented
 	ConfigurationUsageVAllowed ConfigurationUsage = "allowed"
+	// ConfigurationUsageVNotConfigured undocumented
+	ConfigurationUsageVNotConfigured ConfigurationUsage = "notConfigured"
 )
 
 var (
@@ -95,10 +134,13 @@ var (
 	ConfigurationUsagePRequired = &_ConfigurationUsagePRequired
 	// ConfigurationUsagePAllowed is a pointer to ConfigurationUsageVAllowed
 	ConfigurationUsagePAllowed = &_ConfigurationUsagePAllowed
+	// ConfigurationUsagePNotConfigured is a pointer to ConfigurationUsageVNotConfigured
+	ConfigurationUsagePNotConfigured = &_ConfigurationUsagePNotConfigured
 )
 
 var (
-	_ConfigurationUsagePBlocked  = ConfigurationUsageVBlocked
-	_ConfigurationUsagePRequired = ConfigurationUsageVRequired
-	_ConfigurationUsagePAllowed  = ConfigurationUsageVAllowed
+	_ConfigurationUsagePBlocked       = ConfigurationUsageVBlocked
+	_ConfigurationUsagePRequired      = ConfigurationUsageVRequired
+	_ConfigurationUsagePAllowed       = ConfigurationUsageVAllowed
+	_ConfigurationUsagePNotConfigured = ConfigurationUsageVNotConfigured
 )

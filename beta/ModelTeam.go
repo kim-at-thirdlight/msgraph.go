@@ -2,56 +2,76 @@
 
 package msgraph
 
+import "time"
+
 // Team undocumented
 type Team struct {
 	// Entity is the base model of Team
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// InternalID undocumented
-	InternalID *string `json:"internalId,omitempty"`
 	// Classification undocumented
 	Classification *string `json:"classification,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DiscoverySettings undocumented
+	DiscoverySettings *TeamDiscoverySettings `json:"discoverySettings,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// FunSettings undocumented
+	FunSettings *TeamFunSettings `json:"funSettings,omitempty"`
+	// GuestSettings undocumented
+	GuestSettings *TeamGuestSettings `json:"guestSettings,omitempty"`
+	// InternalID undocumented
+	InternalID *string `json:"internalId,omitempty"`
+	// IsArchived undocumented
+	IsArchived *bool `json:"isArchived,omitempty"`
+	// IsMembershipLimitedToOwners undocumented
+	IsMembershipLimitedToOwners *bool `json:"isMembershipLimitedToOwners,omitempty"`
+	// MemberSettings undocumented
+	MemberSettings *TeamMemberSettings `json:"memberSettings,omitempty"`
+	// MessagingSettings undocumented
+	MessagingSettings *TeamMessagingSettings `json:"messagingSettings,omitempty"`
 	// Specialization undocumented
 	Specialization *TeamSpecialization `json:"specialization,omitempty"`
 	// Visibility undocumented
 	Visibility *TeamVisibilityType `json:"visibility,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
-	// MemberSettings undocumented
-	MemberSettings *TeamMemberSettings `json:"memberSettings,omitempty"`
-	// GuestSettings undocumented
-	GuestSettings *TeamGuestSettings `json:"guestSettings,omitempty"`
-	// MessagingSettings undocumented
-	MessagingSettings *TeamMessagingSettings `json:"messagingSettings,omitempty"`
-	// FunSettings undocumented
-	FunSettings *TeamFunSettings `json:"funSettings,omitempty"`
-	// DiscoverySettings undocumented
-	DiscoverySettings *TeamDiscoverySettings `json:"discoverySettings,omitempty"`
-	// IsArchived undocumented
-	IsArchived *bool `json:"isArchived,omitempty"`
-	// Schedule undocumented
-	Schedule *Schedule `json:"schedule,omitempty"`
-	// Group undocumented
-	Group *Group `json:"group,omitempty"`
-	// Template undocumented
-	Template *TeamsTemplate `json:"template,omitempty"`
-	// Photo undocumented
-	Photo *ProfilePhoto `json:"photo,omitempty"`
-	// Owners undocumented
-	Owners []User `json:"owners,omitempty"`
 	// Channels undocumented
 	Channels []Channel `json:"channels,omitempty"`
-	// PrimaryChannel undocumented
-	PrimaryChannel *Channel `json:"primaryChannel,omitempty"`
-	// Apps undocumented
-	Apps []TeamsCatalogApp `json:"apps,omitempty"`
+	// Group undocumented
+	Group *Group `json:"group,omitempty"`
 	// InstalledApps undocumented
 	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
+	// Members undocumented
+	Members []ConversationMember `json:"members,omitempty"`
 	// Operations undocumented
 	Operations []TeamsAsyncOperation `json:"operations,omitempty"`
+	// Owners undocumented
+	Owners []User `json:"owners,omitempty"`
+	// PermissionGrants undocumented
+	PermissionGrants []ResourceSpecificPermissionGrant `json:"permissionGrants,omitempty"`
+	// Photo undocumented
+	Photo *ProfilePhoto `json:"photo,omitempty"`
+	// PrimaryChannel undocumented
+	PrimaryChannel *Channel `json:"primaryChannel,omitempty"`
+	// Tags undocumented
+	Tags []TeamworkTag `json:"tags,omitempty"`
+	// Template undocumented
+	Template *TeamsTemplate `json:"template,omitempty"`
+	// Schedule undocumented
+	Schedule *Schedule `json:"schedule,omitempty"`
+}
+
+// TeamArchivedEventMessageDetail undocumented
+type TeamArchivedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamArchivedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
 }
 
 // TeamClassSettings undocumented
@@ -60,6 +80,32 @@ type TeamClassSettings struct {
 	Object
 	// NotifyGuardiansAboutAssignments undocumented
 	NotifyGuardiansAboutAssignments *bool `json:"notifyGuardiansAboutAssignments,omitempty"`
+}
+
+// TeamCreatedEventMessageDetail undocumented
+type TeamCreatedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamCreatedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamDescription undocumented
+	TeamDescription *string `json:"teamDescription,omitempty"`
+	// TeamDisplayName undocumented
+	TeamDisplayName *string `json:"teamDisplayName,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
+}
+
+// TeamDescriptionUpdatedEventMessageDetail undocumented
+type TeamDescriptionUpdatedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamDescriptionUpdatedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamDescription undocumented
+	TeamDescription *string `json:"teamDescription,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
 }
 
 // TeamDiscoverySettings undocumented
@@ -74,14 +120,14 @@ type TeamDiscoverySettings struct {
 type TeamFunSettings struct {
 	// Object is the base model of TeamFunSettings
 	Object
-	// AllowGiphy undocumented
-	AllowGiphy *bool `json:"allowGiphy,omitempty"`
-	// GiphyContentRating undocumented
-	GiphyContentRating *GiphyRatingType `json:"giphyContentRating,omitempty"`
-	// AllowStickersAndMemes undocumented
-	AllowStickersAndMemes *bool `json:"allowStickersAndMemes,omitempty"`
 	// AllowCustomMemes undocumented
 	AllowCustomMemes *bool `json:"allowCustomMemes,omitempty"`
+	// AllowGiphy undocumented
+	AllowGiphy *bool `json:"allowGiphy,omitempty"`
+	// AllowStickersAndMemes undocumented
+	AllowStickersAndMemes *bool `json:"allowStickersAndMemes,omitempty"`
+	// GiphyContentRating undocumented
+	GiphyContentRating *GiphyRatingType `json:"giphyContentRating,omitempty"`
 }
 
 // TeamGuestSettings undocumented
@@ -94,36 +140,86 @@ type TeamGuestSettings struct {
 	AllowDeleteChannels *bool `json:"allowDeleteChannels,omitempty"`
 }
 
+// TeamJoiningDisabledEventMessageDetail undocumented
+type TeamJoiningDisabledEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamJoiningDisabledEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
+}
+
+// TeamJoiningEnabledEventMessageDetail undocumented
+type TeamJoiningEnabledEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamJoiningEnabledEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
+}
+
 // TeamMemberSettings undocumented
 type TeamMemberSettings struct {
 	// Object is the base model of TeamMemberSettings
 	Object
-	// AllowCreateUpdateChannels undocumented
-	AllowCreateUpdateChannels *bool `json:"allowCreateUpdateChannels,omitempty"`
-	// AllowCreatePrivateChannels undocumented
-	AllowCreatePrivateChannels *bool `json:"allowCreatePrivateChannels,omitempty"`
-	// AllowDeleteChannels undocumented
-	AllowDeleteChannels *bool `json:"allowDeleteChannels,omitempty"`
 	// AllowAddRemoveApps undocumented
 	AllowAddRemoveApps *bool `json:"allowAddRemoveApps,omitempty"`
-	// AllowCreateUpdateRemoveTabs undocumented
-	AllowCreateUpdateRemoveTabs *bool `json:"allowCreateUpdateRemoveTabs,omitempty"`
+	// AllowCreatePrivateChannels undocumented
+	AllowCreatePrivateChannels *bool `json:"allowCreatePrivateChannels,omitempty"`
+	// AllowCreateUpdateChannels undocumented
+	AllowCreateUpdateChannels *bool `json:"allowCreateUpdateChannels,omitempty"`
 	// AllowCreateUpdateRemoveConnectors undocumented
 	AllowCreateUpdateRemoveConnectors *bool `json:"allowCreateUpdateRemoveConnectors,omitempty"`
+	// AllowCreateUpdateRemoveTabs undocumented
+	AllowCreateUpdateRemoveTabs *bool `json:"allowCreateUpdateRemoveTabs,omitempty"`
+	// AllowDeleteChannels undocumented
+	AllowDeleteChannels *bool `json:"allowDeleteChannels,omitempty"`
+}
+
+// TeamMembersNotificationRecipient undocumented
+type TeamMembersNotificationRecipient struct {
+	// TeamworkNotificationRecipient is the base model of TeamMembersNotificationRecipient
+	TeamworkNotificationRecipient
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
 }
 
 // TeamMessagingSettings undocumented
 type TeamMessagingSettings struct {
 	// Object is the base model of TeamMessagingSettings
 	Object
-	// AllowUserEditMessages undocumented
-	AllowUserEditMessages *bool `json:"allowUserEditMessages,omitempty"`
-	// AllowUserDeleteMessages undocumented
-	AllowUserDeleteMessages *bool `json:"allowUserDeleteMessages,omitempty"`
+	// AllowChannelMentions undocumented
+	AllowChannelMentions *bool `json:"allowChannelMentions,omitempty"`
 	// AllowOwnerDeleteMessages undocumented
 	AllowOwnerDeleteMessages *bool `json:"allowOwnerDeleteMessages,omitempty"`
 	// AllowTeamMentions undocumented
 	AllowTeamMentions *bool `json:"allowTeamMentions,omitempty"`
-	// AllowChannelMentions undocumented
-	AllowChannelMentions *bool `json:"allowChannelMentions,omitempty"`
+	// AllowUserDeleteMessages undocumented
+	AllowUserDeleteMessages *bool `json:"allowUserDeleteMessages,omitempty"`
+	// AllowUserEditMessages undocumented
+	AllowUserEditMessages *bool `json:"allowUserEditMessages,omitempty"`
+}
+
+// TeamRenamedEventMessageDetail undocumented
+type TeamRenamedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamRenamedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamDisplayName undocumented
+	TeamDisplayName *string `json:"teamDisplayName,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
+}
+
+// TeamUnarchivedEventMessageDetail undocumented
+type TeamUnarchivedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamUnarchivedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamID undocumented
+	TeamID *string `json:"teamId,omitempty"`
 }

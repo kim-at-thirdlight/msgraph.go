@@ -30,6 +30,10 @@ const (
 	ManagementAgentTypeVGoogleCloudDevicePolicyController ManagementAgentType = "googleCloudDevicePolicyController"
 	// ManagementAgentTypeVMicrosoft365ManagedMDM undocumented
 	ManagementAgentTypeVMicrosoft365ManagedMDM ManagementAgentType = "microsoft365ManagedMdm"
+	// ManagementAgentTypeVWindowsManagementCloudAPI undocumented
+	ManagementAgentTypeVWindowsManagementCloudAPI ManagementAgentType = "windowsManagementCloudApi"
+	// ManagementAgentTypeVIntuneAosp undocumented
+	ManagementAgentTypeVIntuneAosp ManagementAgentType = "intuneAosp"
 )
 
 var (
@@ -57,6 +61,10 @@ var (
 	ManagementAgentTypePGoogleCloudDevicePolicyController = &_ManagementAgentTypePGoogleCloudDevicePolicyController
 	// ManagementAgentTypePMicrosoft365ManagedMDM is a pointer to ManagementAgentTypeVMicrosoft365ManagedMDM
 	ManagementAgentTypePMicrosoft365ManagedMDM = &_ManagementAgentTypePMicrosoft365ManagedMDM
+	// ManagementAgentTypePWindowsManagementCloudAPI is a pointer to ManagementAgentTypeVWindowsManagementCloudAPI
+	ManagementAgentTypePWindowsManagementCloudAPI = &_ManagementAgentTypePWindowsManagementCloudAPI
+	// ManagementAgentTypePIntuneAosp is a pointer to ManagementAgentTypeVIntuneAosp
+	ManagementAgentTypePIntuneAosp = &_ManagementAgentTypePIntuneAosp
 )
 
 var (
@@ -72,6 +80,8 @@ var (
 	_ManagementAgentTypePJamf                              = ManagementAgentTypeVJamf
 	_ManagementAgentTypePGoogleCloudDevicePolicyController = ManagementAgentTypeVGoogleCloudDevicePolicyController
 	_ManagementAgentTypePMicrosoft365ManagedMDM            = ManagementAgentTypeVMicrosoft365ManagedMDM
+	_ManagementAgentTypePWindowsManagementCloudAPI         = ManagementAgentTypeVWindowsManagementCloudAPI
+	_ManagementAgentTypePIntuneAosp                        = ManagementAgentTypeVIntuneAosp
 )
 
 // ManagementState undocumented

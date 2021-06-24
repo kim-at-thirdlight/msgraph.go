@@ -6,10 +6,10 @@ package msgraph
 type RecordOperation struct {
 	// CommsOperation is the base model of RecordOperation
 	CommsOperation
-	// RecordingLocation undocumented
-	RecordingLocation *string `json:"recordingLocation,omitempty"`
-	// RecordingAccessToken undocumented
-	RecordingAccessToken *string `json:"recordingAccessToken,omitempty"`
 	// CompletionReason undocumented
 	CompletionReason *RecordCompletionReason `json:"completionReason,omitempty"`
+	// RecordingAccessToken undocumented
+	RecordingAccessToken *string `json:"recordingAccessToken,omitempty"`
+	// RecordingLocation undocumented
+	RecordingLocation *string `json:"recordingLocation,omitempty"`
 }

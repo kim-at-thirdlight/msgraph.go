@@ -125,6 +125,63 @@ var (
 	_UserExperienceAnalyticsInsightSeverityPError         = UserExperienceAnalyticsInsightSeverityVError
 )
 
+// UserExperienceAnalyticsOperatingSystemRestartCategory undocumented
+type UserExperienceAnalyticsOperatingSystemRestartCategory string
+
+const (
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVUnknown undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVUnknown UserExperienceAnalyticsOperatingSystemRestartCategory = "unknown"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithUpdate undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithUpdate UserExperienceAnalyticsOperatingSystemRestartCategory = "restartWithUpdate"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithoutUpdate undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithoutUpdate UserExperienceAnalyticsOperatingSystemRestartCategory = "restartWithoutUpdate"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVBlueScreen undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVBlueScreen UserExperienceAnalyticsOperatingSystemRestartCategory = "blueScreen"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithUpdate undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithUpdate UserExperienceAnalyticsOperatingSystemRestartCategory = "shutdownWithUpdate"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithoutUpdate undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithoutUpdate UserExperienceAnalyticsOperatingSystemRestartCategory = "shutdownWithoutUpdate"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVLongPowerButtonPress undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVLongPowerButtonPress UserExperienceAnalyticsOperatingSystemRestartCategory = "longPowerButtonPress"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVBootError undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVBootError UserExperienceAnalyticsOperatingSystemRestartCategory = "bootError"
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryVUpdate undocumented
+	UserExperienceAnalyticsOperatingSystemRestartCategoryVUpdate UserExperienceAnalyticsOperatingSystemRestartCategory = "update"
+)
+
+var (
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPUnknown is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVUnknown
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPUnknown = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPUnknown
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithUpdate is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithUpdate
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithUpdate = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithUpdate
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithoutUpdate is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithoutUpdate
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithoutUpdate = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithoutUpdate
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPBlueScreen is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVBlueScreen
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPBlueScreen = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPBlueScreen
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithUpdate is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithUpdate
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithUpdate = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithUpdate
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithoutUpdate is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithoutUpdate
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithoutUpdate = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithoutUpdate
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPLongPowerButtonPress is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVLongPowerButtonPress
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPLongPowerButtonPress = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPLongPowerButtonPress
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPBootError is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVBootError
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPBootError = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPBootError
+	// UserExperienceAnalyticsOperatingSystemRestartCategoryPUpdate is a pointer to UserExperienceAnalyticsOperatingSystemRestartCategoryVUpdate
+	UserExperienceAnalyticsOperatingSystemRestartCategoryPUpdate = &_UserExperienceAnalyticsOperatingSystemRestartCategoryPUpdate
+)
+
+var (
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPUnknown               = UserExperienceAnalyticsOperatingSystemRestartCategoryVUnknown
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithUpdate     = UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithUpdate
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPRestartWithoutUpdate  = UserExperienceAnalyticsOperatingSystemRestartCategoryVRestartWithoutUpdate
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPBlueScreen            = UserExperienceAnalyticsOperatingSystemRestartCategoryVBlueScreen
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithUpdate    = UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithUpdate
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPShutdownWithoutUpdate = UserExperienceAnalyticsOperatingSystemRestartCategoryVShutdownWithoutUpdate
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPLongPowerButtonPress  = UserExperienceAnalyticsOperatingSystemRestartCategoryVLongPowerButtonPress
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPBootError             = UserExperienceAnalyticsOperatingSystemRestartCategoryVBootError
+	_UserExperienceAnalyticsOperatingSystemRestartCategoryPUpdate                = UserExperienceAnalyticsOperatingSystemRestartCategoryVUpdate
+)
+
 // UserExperienceAnalyticsSummarizedBy undocumented
 type UserExperienceAnalyticsSummarizedBy string
 
@@ -214,36 +271,36 @@ var (
 	_UserFlowTypePUnknownFutureValue = UserFlowTypeVUnknownFutureValue
 )
 
-// UserIdentityType undocumented
-type UserIdentityType string
+// UserNewMessageRestriction undocumented
+type UserNewMessageRestriction string
 
 const (
-	// UserIdentityTypeVAadUser undocumented
-	UserIdentityTypeVAadUser UserIdentityType = "aadUser"
-	// UserIdentityTypeVOnPremiseAadUser undocumented
-	UserIdentityTypeVOnPremiseAadUser UserIdentityType = "onPremiseAadUser"
-	// UserIdentityTypeVAnonymousGuest undocumented
-	UserIdentityTypeVAnonymousGuest UserIdentityType = "anonymousGuest"
-	// UserIdentityTypeVFederatedUser undocumented
-	UserIdentityTypeVFederatedUser UserIdentityType = "federatedUser"
+	// UserNewMessageRestrictionVEveryone undocumented
+	UserNewMessageRestrictionVEveryone UserNewMessageRestriction = "everyone"
+	// UserNewMessageRestrictionVEveryoneExceptGuests undocumented
+	UserNewMessageRestrictionVEveryoneExceptGuests UserNewMessageRestriction = "everyoneExceptGuests"
+	// UserNewMessageRestrictionVModerators undocumented
+	UserNewMessageRestrictionVModerators UserNewMessageRestriction = "moderators"
+	// UserNewMessageRestrictionVUnknownFutureValue undocumented
+	UserNewMessageRestrictionVUnknownFutureValue UserNewMessageRestriction = "unknownFutureValue"
 )
 
 var (
-	// UserIdentityTypePAadUser is a pointer to UserIdentityTypeVAadUser
-	UserIdentityTypePAadUser = &_UserIdentityTypePAadUser
-	// UserIdentityTypePOnPremiseAadUser is a pointer to UserIdentityTypeVOnPremiseAadUser
-	UserIdentityTypePOnPremiseAadUser = &_UserIdentityTypePOnPremiseAadUser
-	// UserIdentityTypePAnonymousGuest is a pointer to UserIdentityTypeVAnonymousGuest
-	UserIdentityTypePAnonymousGuest = &_UserIdentityTypePAnonymousGuest
-	// UserIdentityTypePFederatedUser is a pointer to UserIdentityTypeVFederatedUser
-	UserIdentityTypePFederatedUser = &_UserIdentityTypePFederatedUser
+	// UserNewMessageRestrictionPEveryone is a pointer to UserNewMessageRestrictionVEveryone
+	UserNewMessageRestrictionPEveryone = &_UserNewMessageRestrictionPEveryone
+	// UserNewMessageRestrictionPEveryoneExceptGuests is a pointer to UserNewMessageRestrictionVEveryoneExceptGuests
+	UserNewMessageRestrictionPEveryoneExceptGuests = &_UserNewMessageRestrictionPEveryoneExceptGuests
+	// UserNewMessageRestrictionPModerators is a pointer to UserNewMessageRestrictionVModerators
+	UserNewMessageRestrictionPModerators = &_UserNewMessageRestrictionPModerators
+	// UserNewMessageRestrictionPUnknownFutureValue is a pointer to UserNewMessageRestrictionVUnknownFutureValue
+	UserNewMessageRestrictionPUnknownFutureValue = &_UserNewMessageRestrictionPUnknownFutureValue
 )
 
 var (
-	_UserIdentityTypePAadUser          = UserIdentityTypeVAadUser
-	_UserIdentityTypePOnPremiseAadUser = UserIdentityTypeVOnPremiseAadUser
-	_UserIdentityTypePAnonymousGuest   = UserIdentityTypeVAnonymousGuest
-	_UserIdentityTypePFederatedUser    = UserIdentityTypeVFederatedUser
+	_UserNewMessageRestrictionPEveryone             = UserNewMessageRestrictionVEveryone
+	_UserNewMessageRestrictionPEveryoneExceptGuests = UserNewMessageRestrictionVEveryoneExceptGuests
+	_UserNewMessageRestrictionPModerators           = UserNewMessageRestrictionVModerators
+	_UserNewMessageRestrictionPUnknownFutureValue   = UserNewMessageRestrictionVUnknownFutureValue
 )
 
 // UserPfxIntendedPurpose undocumented
@@ -323,41 +380,4 @@ var (
 	_UserPfxPaddingSchemePOaepSha256 = UserPfxPaddingSchemeVOaepSha256
 	_UserPfxPaddingSchemePOaepSha384 = UserPfxPaddingSchemeVOaepSha384
 	_UserPfxPaddingSchemePOaepSha512 = UserPfxPaddingSchemeVOaepSha512
-)
-
-// UserRiskLevel undocumented
-type UserRiskLevel string
-
-const (
-	// UserRiskLevelVUnknown undocumented
-	UserRiskLevelVUnknown UserRiskLevel = "unknown"
-	// UserRiskLevelVNone undocumented
-	UserRiskLevelVNone UserRiskLevel = "none"
-	// UserRiskLevelVLow undocumented
-	UserRiskLevelVLow UserRiskLevel = "low"
-	// UserRiskLevelVMedium undocumented
-	UserRiskLevelVMedium UserRiskLevel = "medium"
-	// UserRiskLevelVHigh undocumented
-	UserRiskLevelVHigh UserRiskLevel = "high"
-)
-
-var (
-	// UserRiskLevelPUnknown is a pointer to UserRiskLevelVUnknown
-	UserRiskLevelPUnknown = &_UserRiskLevelPUnknown
-	// UserRiskLevelPNone is a pointer to UserRiskLevelVNone
-	UserRiskLevelPNone = &_UserRiskLevelPNone
-	// UserRiskLevelPLow is a pointer to UserRiskLevelVLow
-	UserRiskLevelPLow = &_UserRiskLevelPLow
-	// UserRiskLevelPMedium is a pointer to UserRiskLevelVMedium
-	UserRiskLevelPMedium = &_UserRiskLevelPMedium
-	// UserRiskLevelPHigh is a pointer to UserRiskLevelVHigh
-	UserRiskLevelPHigh = &_UserRiskLevelPHigh
-)
-
-var (
-	_UserRiskLevelPUnknown = UserRiskLevelVUnknown
-	_UserRiskLevelPNone    = UserRiskLevelVNone
-	_UserRiskLevelPLow     = UserRiskLevelVLow
-	_UserRiskLevelPMedium  = UserRiskLevelVMedium
-	_UserRiskLevelPHigh    = UserRiskLevelVHigh
 )

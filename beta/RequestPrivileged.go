@@ -169,6 +169,39 @@ func (r *PrivilegedRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// PrivilegedRoleAssignmentRequestRequestBuilder is request builder for PrivilegedRoleAssignmentRequest
+type PrivilegedRoleAssignmentRequestRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns PrivilegedRoleAssignmentRequestRequest
+func (b *PrivilegedRoleAssignmentRequestRequestBuilder) Request() *PrivilegedRoleAssignmentRequestRequest {
+	return &PrivilegedRoleAssignmentRequestRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// PrivilegedRoleAssignmentRequestRequest is request for PrivilegedRoleAssignmentRequest
+type PrivilegedRoleAssignmentRequestRequest struct{ BaseRequest }
+
+// Get performs GET request for PrivilegedRoleAssignmentRequest
+func (r *PrivilegedRoleAssignmentRequestRequest) Get(ctx context.Context) (resObj *PrivilegedRoleAssignmentRequest, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for PrivilegedRoleAssignmentRequest
+func (r *PrivilegedRoleAssignmentRequestRequest) Update(ctx context.Context, reqObj *PrivilegedRoleAssignmentRequest) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for PrivilegedRoleAssignmentRequest
+func (r *PrivilegedRoleAssignmentRequestRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // PrivilegedRoleAssignmentRequestObjectRequestBuilder is request builder for PrivilegedRoleAssignmentRequestObject
 type PrivilegedRoleAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -299,139 +332,4 @@ func (r *PrivilegedSignupStatusRequest) Update(ctx context.Context, reqObj *Priv
 // Delete performs DELETE request for PrivilegedSignupStatus
 func (r *PrivilegedSignupStatusRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-//
-type PrivilegedRoleSelfActivateRequestBuilder struct{ BaseRequestBuilder }
-
-// SelfActivate action undocumented
-func (b *PrivilegedRoleRequestBuilder) SelfActivate(reqObj *PrivilegedRoleSelfActivateRequestParameter) *PrivilegedRoleSelfActivateRequestBuilder {
-	bb := &PrivilegedRoleSelfActivateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/selfActivate"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PrivilegedRoleSelfActivateRequest struct{ BaseRequest }
-
-//
-func (b *PrivilegedRoleSelfActivateRequestBuilder) Request() *PrivilegedRoleSelfActivateRequest {
-	return &PrivilegedRoleSelfActivateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PrivilegedRoleSelfActivateRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type PrivilegedRoleSelfDeactivateRequestBuilder struct{ BaseRequestBuilder }
-
-// SelfDeactivate action undocumented
-func (b *PrivilegedRoleRequestBuilder) SelfDeactivate(reqObj *PrivilegedRoleSelfDeactivateRequestParameter) *PrivilegedRoleSelfDeactivateRequestBuilder {
-	bb := &PrivilegedRoleSelfDeactivateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/selfDeactivate"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PrivilegedRoleSelfDeactivateRequest struct{ BaseRequest }
-
-//
-func (b *PrivilegedRoleSelfDeactivateRequestBuilder) Request() *PrivilegedRoleSelfDeactivateRequest {
-	return &PrivilegedRoleSelfDeactivateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PrivilegedRoleSelfDeactivateRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type PrivilegedRoleAssignmentMakePermanentRequestBuilder struct{ BaseRequestBuilder }
-
-// MakePermanent action undocumented
-func (b *PrivilegedRoleAssignmentRequestBuilder) MakePermanent(reqObj *PrivilegedRoleAssignmentMakePermanentRequestParameter) *PrivilegedRoleAssignmentMakePermanentRequestBuilder {
-	bb := &PrivilegedRoleAssignmentMakePermanentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/makePermanent"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PrivilegedRoleAssignmentMakePermanentRequest struct{ BaseRequest }
-
-//
-func (b *PrivilegedRoleAssignmentMakePermanentRequestBuilder) Request() *PrivilegedRoleAssignmentMakePermanentRequest {
-	return &PrivilegedRoleAssignmentMakePermanentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PrivilegedRoleAssignmentMakePermanentRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type PrivilegedRoleAssignmentMakeEligibleRequestBuilder struct{ BaseRequestBuilder }
-
-// MakeEligible action undocumented
-func (b *PrivilegedRoleAssignmentRequestBuilder) MakeEligible(reqObj *PrivilegedRoleAssignmentMakeEligibleRequestParameter) *PrivilegedRoleAssignmentMakeEligibleRequestBuilder {
-	bb := &PrivilegedRoleAssignmentMakeEligibleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/makeEligible"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PrivilegedRoleAssignmentMakeEligibleRequest struct{ BaseRequest }
-
-//
-func (b *PrivilegedRoleAssignmentMakeEligibleRequestBuilder) Request() *PrivilegedRoleAssignmentMakeEligibleRequest {
-	return &PrivilegedRoleAssignmentMakeEligibleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PrivilegedRoleAssignmentMakeEligibleRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignment, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder struct{ BaseRequestBuilder }
-
-// Cancel action undocumented
-func (b *PrivilegedRoleAssignmentRequestObjectRequestBuilder) Cancel(reqObj *PrivilegedRoleAssignmentRequestObjectCancelRequestParameter) *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder {
-	bb := &PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cancel"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PrivilegedRoleAssignmentRequestObjectCancelRequest struct{ BaseRequest }
-
-//
-func (b *PrivilegedRoleAssignmentRequestObjectCancelRequestBuilder) Request() *PrivilegedRoleAssignmentRequestObjectCancelRequest {
-	return &PrivilegedRoleAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PrivilegedRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Context) (resObj *PrivilegedRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
 }

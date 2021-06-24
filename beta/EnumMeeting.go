@@ -24,6 +24,38 @@ var (
 	_MeetingCapabilitiesPUnknownFutureValue = MeetingCapabilitiesVUnknownFutureValue
 )
 
+// MeetingChatMode undocumented
+type MeetingChatMode string
+
+const (
+	// MeetingChatModeVEnabled undocumented
+	MeetingChatModeVEnabled MeetingChatMode = "enabled"
+	// MeetingChatModeVDisabled undocumented
+	MeetingChatModeVDisabled MeetingChatMode = "disabled"
+	// MeetingChatModeVLimited undocumented
+	MeetingChatModeVLimited MeetingChatMode = "limited"
+	// MeetingChatModeVUnknownFutureValue undocumented
+	MeetingChatModeVUnknownFutureValue MeetingChatMode = "unknownFutureValue"
+)
+
+var (
+	// MeetingChatModePEnabled is a pointer to MeetingChatModeVEnabled
+	MeetingChatModePEnabled = &_MeetingChatModePEnabled
+	// MeetingChatModePDisabled is a pointer to MeetingChatModeVDisabled
+	MeetingChatModePDisabled = &_MeetingChatModePDisabled
+	// MeetingChatModePLimited is a pointer to MeetingChatModeVLimited
+	MeetingChatModePLimited = &_MeetingChatModePLimited
+	// MeetingChatModePUnknownFutureValue is a pointer to MeetingChatModeVUnknownFutureValue
+	MeetingChatModePUnknownFutureValue = &_MeetingChatModePUnknownFutureValue
+)
+
+var (
+	_MeetingChatModePEnabled            = MeetingChatModeVEnabled
+	_MeetingChatModePDisabled           = MeetingChatModeVDisabled
+	_MeetingChatModePLimited            = MeetingChatModeVLimited
+	_MeetingChatModePUnknownFutureValue = MeetingChatModeVUnknownFutureValue
+)
+
 // MeetingMessageType undocumented
 type MeetingMessageType string
 

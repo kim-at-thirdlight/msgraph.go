@@ -6,58 +6,60 @@ package msgraph
 type Calendar struct {
 	// Entity is the base model of Calendar
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Color undocumented
-	Color *CalendarColor `json:"color,omitempty"`
-	// HexColor undocumented
-	HexColor *string `json:"hexColor,omitempty"`
-	// IsDefaultCalendar undocumented
-	IsDefaultCalendar *bool `json:"isDefaultCalendar,omitempty"`
-	// ChangeKey undocumented
-	ChangeKey *string `json:"changeKey,omitempty"`
+	// AllowedOnlineMeetingProviders undocumented
+	AllowedOnlineMeetingProviders []OnlineMeetingProviderType `json:"allowedOnlineMeetingProviders,omitempty"`
+	// CalendarGroupID undocumented
+	CalendarGroupID *string `json:"calendarGroupId,omitempty"`
+	// CanEdit undocumented
+	CanEdit *bool `json:"canEdit,omitempty"`
 	// CanShare undocumented
 	CanShare *bool `json:"canShare,omitempty"`
 	// CanViewPrivateItems undocumented
 	CanViewPrivateItems *bool `json:"canViewPrivateItems,omitempty"`
+	// ChangeKey undocumented
+	ChangeKey *string `json:"changeKey,omitempty"`
+	// Color undocumented
+	Color *CalendarColor `json:"color,omitempty"`
+	// DefaultOnlineMeetingProvider undocumented
+	DefaultOnlineMeetingProvider *OnlineMeetingProviderType `json:"defaultOnlineMeetingProvider,omitempty"`
+	// HexColor undocumented
+	HexColor *string `json:"hexColor,omitempty"`
+	// IsDefaultCalendar undocumented
+	IsDefaultCalendar *bool `json:"isDefaultCalendar,omitempty"`
+	// IsRemovable undocumented
+	IsRemovable *bool `json:"isRemovable,omitempty"`
 	// IsShared undocumented
 	IsShared *bool `json:"isShared,omitempty"`
 	// IsSharedWithMe undocumented
 	IsSharedWithMe *bool `json:"isSharedWithMe,omitempty"`
-	// CanEdit undocumented
-	CanEdit *bool `json:"canEdit,omitempty"`
-	// Owner undocumented
-	Owner *EmailAddress `json:"owner,omitempty"`
-	// AllowedOnlineMeetingProviders undocumented
-	AllowedOnlineMeetingProviders []OnlineMeetingProviderType `json:"allowedOnlineMeetingProviders,omitempty"`
-	// DefaultOnlineMeetingProvider undocumented
-	DefaultOnlineMeetingProvider *OnlineMeetingProviderType `json:"defaultOnlineMeetingProvider,omitempty"`
 	// IsTallyingResponses undocumented
 	IsTallyingResponses *bool `json:"isTallyingResponses,omitempty"`
-	// IsRemovable undocumented
-	IsRemovable *bool `json:"isRemovable,omitempty"`
-	// SingleValueExtendedProperties undocumented
-	SingleValueExtendedProperties []SingleValueLegacyExtendedProperty `json:"singleValueExtendedProperties,omitempty"`
-	// MultiValueExtendedProperties undocumented
-	MultiValueExtendedProperties []MultiValueLegacyExtendedProperty `json:"multiValueExtendedProperties,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Owner undocumented
+	Owner *EmailAddress `json:"owner,omitempty"`
 	// CalendarPermissions undocumented
 	CalendarPermissions []CalendarPermission `json:"calendarPermissions,omitempty"`
-	// Events undocumented
-	Events []Event `json:"events,omitempty"`
 	// CalendarView undocumented
 	CalendarView []Event `json:"calendarView,omitempty"`
+	// Events undocumented
+	Events []Event `json:"events,omitempty"`
+	// MultiValueExtendedProperties undocumented
+	MultiValueExtendedProperties []MultiValueLegacyExtendedProperty `json:"multiValueExtendedProperties,omitempty"`
+	// SingleValueExtendedProperties undocumented
+	SingleValueExtendedProperties []SingleValueLegacyExtendedProperty `json:"singleValueExtendedProperties,omitempty"`
 }
 
 // CalendarGroup undocumented
 type CalendarGroup struct {
 	// Entity is the base model of CalendarGroup
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// ClassID undocumented
-	ClassID *UUID `json:"classId,omitempty"`
 	// ChangeKey undocumented
 	ChangeKey *string `json:"changeKey,omitempty"`
+	// ClassID undocumented
+	ClassID *UUID `json:"classId,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 	// Calendars undocumented
 	Calendars []Calendar `json:"calendars,omitempty"`
 }
@@ -66,16 +68,16 @@ type CalendarGroup struct {
 type CalendarPermission struct {
 	// Entity is the base model of CalendarPermission
 	Entity
-	// EmailAddress undocumented
-	EmailAddress *EmailAddress `json:"emailAddress,omitempty"`
-	// IsRemovable undocumented
-	IsRemovable *bool `json:"isRemovable,omitempty"`
-	// IsInsideOrganization undocumented
-	IsInsideOrganization *bool `json:"isInsideOrganization,omitempty"`
-	// Role undocumented
-	Role *CalendarRoleType `json:"role,omitempty"`
 	// AllowedRoles undocumented
 	AllowedRoles []CalendarRoleType `json:"allowedRoles,omitempty"`
+	// EmailAddress undocumented
+	EmailAddress *EmailAddress `json:"emailAddress,omitempty"`
+	// IsInsideOrganization undocumented
+	IsInsideOrganization *bool `json:"isInsideOrganization,omitempty"`
+	// IsRemovable undocumented
+	IsRemovable *bool `json:"isRemovable,omitempty"`
+	// Role undocumented
+	Role *CalendarRoleType `json:"role,omitempty"`
 }
 
 // CalendarSharingMessage undocumented
@@ -84,22 +86,22 @@ type CalendarSharingMessage struct {
 	Message
 	// CanAccept undocumented
 	CanAccept *bool `json:"canAccept,omitempty"`
-	// SuggestedCalendarName undocumented
-	SuggestedCalendarName *string `json:"suggestedCalendarName,omitempty"`
 	// SharingMessageAction undocumented
 	SharingMessageAction *CalendarSharingMessageAction `json:"sharingMessageAction,omitempty"`
 	// SharingMessageActions undocumented
 	SharingMessageActions []CalendarSharingMessageAction `json:"sharingMessageActions,omitempty"`
+	// SuggestedCalendarName undocumented
+	SuggestedCalendarName *string `json:"suggestedCalendarName,omitempty"`
 }
 
 // CalendarSharingMessageAction undocumented
 type CalendarSharingMessageAction struct {
 	// Object is the base model of CalendarSharingMessageAction
 	Object
-	// Importance undocumented
-	Importance *CalendarSharingActionImportance `json:"importance,omitempty"`
-	// ActionType undocumented
-	ActionType *CalendarSharingActionType `json:"actionType,omitempty"`
 	// Action undocumented
 	Action *CalendarSharingAction `json:"action,omitempty"`
+	// ActionType undocumented
+	ActionType *CalendarSharingActionType `json:"actionType,omitempty"`
+	// Importance undocumented
+	Importance *CalendarSharingActionImportance `json:"importance,omitempty"`
 }

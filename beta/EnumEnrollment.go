@@ -2,6 +2,33 @@
 
 package msgraph
 
+// EnrollmentAvailabilityOptions undocumented
+type EnrollmentAvailabilityOptions string
+
+const (
+	// EnrollmentAvailabilityOptionsVAvailableWithPrompts undocumented
+	EnrollmentAvailabilityOptionsVAvailableWithPrompts EnrollmentAvailabilityOptions = "availableWithPrompts"
+	// EnrollmentAvailabilityOptionsVAvailableWithoutPrompts undocumented
+	EnrollmentAvailabilityOptionsVAvailableWithoutPrompts EnrollmentAvailabilityOptions = "availableWithoutPrompts"
+	// EnrollmentAvailabilityOptionsVUnavailable undocumented
+	EnrollmentAvailabilityOptionsVUnavailable EnrollmentAvailabilityOptions = "unavailable"
+)
+
+var (
+	// EnrollmentAvailabilityOptionsPAvailableWithPrompts is a pointer to EnrollmentAvailabilityOptionsVAvailableWithPrompts
+	EnrollmentAvailabilityOptionsPAvailableWithPrompts = &_EnrollmentAvailabilityOptionsPAvailableWithPrompts
+	// EnrollmentAvailabilityOptionsPAvailableWithoutPrompts is a pointer to EnrollmentAvailabilityOptionsVAvailableWithoutPrompts
+	EnrollmentAvailabilityOptionsPAvailableWithoutPrompts = &_EnrollmentAvailabilityOptionsPAvailableWithoutPrompts
+	// EnrollmentAvailabilityOptionsPUnavailable is a pointer to EnrollmentAvailabilityOptionsVUnavailable
+	EnrollmentAvailabilityOptionsPUnavailable = &_EnrollmentAvailabilityOptionsPUnavailable
+)
+
+var (
+	_EnrollmentAvailabilityOptionsPAvailableWithPrompts    = EnrollmentAvailabilityOptionsVAvailableWithPrompts
+	_EnrollmentAvailabilityOptionsPAvailableWithoutPrompts = EnrollmentAvailabilityOptionsVAvailableWithoutPrompts
+	_EnrollmentAvailabilityOptionsPUnavailable             = EnrollmentAvailabilityOptionsVUnavailable
+)
+
 // EnrollmentState undocumented
 type EnrollmentState string
 

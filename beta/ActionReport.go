@@ -114,6 +114,13 @@ func (r *ReportRootApplicationSignInDetailedSummaryCollectionRequest) Add(ctx co
 	return
 }
 
+// AuthenticationMethods is navigation property
+func (b *ReportRootRequestBuilder) AuthenticationMethods() *AuthenticationMethodsRootRequestBuilder {
+	bb := &AuthenticationMethodsRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/authenticationMethods"
+	return bb
+}
+
 // CredentialUserRegistrationDetails returns request builder for CredentialUserRegistrationDetails collection
 func (b *ReportRootRequestBuilder) CredentialUserRegistrationDetails() *ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder {
 	bb := &ReportRootCredentialUserRegistrationDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -213,6 +220,830 @@ func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Get(ctx c
 
 // Add performs POST request for CredentialUserRegistrationDetails collection
 func (r *ReportRootCredentialUserRegistrationDetailsCollectionRequest) Add(ctx context.Context, reqObj *CredentialUserRegistrationDetails) (resObj *CredentialUserRegistrationDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DailyPrintUsageByPrinter returns request builder for PrintUsageByPrinter collection
+func (b *ReportRootRequestBuilder) DailyPrintUsageByPrinter() *ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder {
+	bb := &ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/dailyPrintUsageByPrinter"
+	return bb
+}
+
+// ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder is request builder for PrintUsageByPrinter collection
+type ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByPrinter collection
+func (b *ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder) Request() *ReportRootDailyPrintUsageByPrinterCollectionRequest {
+	return &ReportRootDailyPrintUsageByPrinterCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByPrinter item
+func (b *ReportRootDailyPrintUsageByPrinterCollectionRequestBuilder) ID(id string) *PrintUsageByPrinterRequestBuilder {
+	bb := &PrintUsageByPrinterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootDailyPrintUsageByPrinterCollectionRequest is request for PrintUsageByPrinter collection
+type ReportRootDailyPrintUsageByPrinterCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageByPrinterCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByPrinter, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByPrinter
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByPrinter
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByPrinter collection, max N pages
+func (r *ReportRootDailyPrintUsageByPrinterCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByPrinter, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageByPrinterCollectionRequest) Get(ctx context.Context) ([]PrintUsageByPrinter, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageByPrinterCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByPrinter) (resObj *PrintUsageByPrinter, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DailyPrintUsageByUser returns request builder for PrintUsageByUser collection
+func (b *ReportRootRequestBuilder) DailyPrintUsageByUser() *ReportRootDailyPrintUsageByUserCollectionRequestBuilder {
+	bb := &ReportRootDailyPrintUsageByUserCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/dailyPrintUsageByUser"
+	return bb
+}
+
+// ReportRootDailyPrintUsageByUserCollectionRequestBuilder is request builder for PrintUsageByUser collection
+type ReportRootDailyPrintUsageByUserCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByUser collection
+func (b *ReportRootDailyPrintUsageByUserCollectionRequestBuilder) Request() *ReportRootDailyPrintUsageByUserCollectionRequest {
+	return &ReportRootDailyPrintUsageByUserCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByUser item
+func (b *ReportRootDailyPrintUsageByUserCollectionRequestBuilder) ID(id string) *PrintUsageByUserRequestBuilder {
+	bb := &PrintUsageByUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootDailyPrintUsageByUserCollectionRequest is request for PrintUsageByUser collection
+type ReportRootDailyPrintUsageByUserCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageByUserCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByUser collection, max N pages
+func (r *ReportRootDailyPrintUsageByUserCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageByUserCollectionRequest) Get(ctx context.Context) ([]PrintUsageByUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageByUserCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByUser) (resObj *PrintUsageByUser, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DailyPrintUsageSummariesByPrinter returns request builder for PrintUsageByPrinter collection
+func (b *ReportRootRequestBuilder) DailyPrintUsageSummariesByPrinter() *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder {
+	bb := &ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/dailyPrintUsageSummariesByPrinter"
+	return bb
+}
+
+// ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder is request builder for PrintUsageByPrinter collection
+type ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByPrinter collection
+func (b *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder) Request() *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest {
+	return &ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByPrinter item
+func (b *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequestBuilder) ID(id string) *PrintUsageByPrinterRequestBuilder {
+	bb := &PrintUsageByPrinterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest is request for PrintUsageByPrinter collection
+type ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByPrinter, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByPrinter
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByPrinter
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByPrinter collection, max N pages
+func (r *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByPrinter, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest) Get(ctx context.Context) ([]PrintUsageByPrinter, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByPrinter collection
+func (r *ReportRootDailyPrintUsageSummariesByPrinterCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByPrinter) (resObj *PrintUsageByPrinter, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DailyPrintUsageSummariesByUser returns request builder for PrintUsageByUser collection
+func (b *ReportRootRequestBuilder) DailyPrintUsageSummariesByUser() *ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder {
+	bb := &ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/dailyPrintUsageSummariesByUser"
+	return bb
+}
+
+// ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder is request builder for PrintUsageByUser collection
+type ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByUser collection
+func (b *ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder) Request() *ReportRootDailyPrintUsageSummariesByUserCollectionRequest {
+	return &ReportRootDailyPrintUsageSummariesByUserCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByUser item
+func (b *ReportRootDailyPrintUsageSummariesByUserCollectionRequestBuilder) ID(id string) *PrintUsageByUserRequestBuilder {
+	bb := &PrintUsageByUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootDailyPrintUsageSummariesByUserCollectionRequest is request for PrintUsageByUser collection
+type ReportRootDailyPrintUsageSummariesByUserCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageSummariesByUserCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByUser collection, max N pages
+func (r *ReportRootDailyPrintUsageSummariesByUserCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageSummariesByUserCollectionRequest) Get(ctx context.Context) ([]PrintUsageByUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByUser collection
+func (r *ReportRootDailyPrintUsageSummariesByUserCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByUser) (resObj *PrintUsageByUser, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MonthlyPrintUsageByPrinter returns request builder for PrintUsageByPrinter collection
+func (b *ReportRootRequestBuilder) MonthlyPrintUsageByPrinter() *ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder {
+	bb := &ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/monthlyPrintUsageByPrinter"
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder is request builder for PrintUsageByPrinter collection
+type ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByPrinter collection
+func (b *ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder) Request() *ReportRootMonthlyPrintUsageByPrinterCollectionRequest {
+	return &ReportRootMonthlyPrintUsageByPrinterCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByPrinter item
+func (b *ReportRootMonthlyPrintUsageByPrinterCollectionRequestBuilder) ID(id string) *PrintUsageByPrinterRequestBuilder {
+	bb := &PrintUsageByPrinterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageByPrinterCollectionRequest is request for PrintUsageByPrinter collection
+type ReportRootMonthlyPrintUsageByPrinterCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageByPrinterCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByPrinter, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByPrinter
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByPrinter
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByPrinter collection, max N pages
+func (r *ReportRootMonthlyPrintUsageByPrinterCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByPrinter, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageByPrinterCollectionRequest) Get(ctx context.Context) ([]PrintUsageByPrinter, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageByPrinterCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByPrinter) (resObj *PrintUsageByPrinter, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MonthlyPrintUsageByUser returns request builder for PrintUsageByUser collection
+func (b *ReportRootRequestBuilder) MonthlyPrintUsageByUser() *ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder {
+	bb := &ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/monthlyPrintUsageByUser"
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder is request builder for PrintUsageByUser collection
+type ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByUser collection
+func (b *ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder) Request() *ReportRootMonthlyPrintUsageByUserCollectionRequest {
+	return &ReportRootMonthlyPrintUsageByUserCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByUser item
+func (b *ReportRootMonthlyPrintUsageByUserCollectionRequestBuilder) ID(id string) *PrintUsageByUserRequestBuilder {
+	bb := &PrintUsageByUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageByUserCollectionRequest is request for PrintUsageByUser collection
+type ReportRootMonthlyPrintUsageByUserCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageByUserCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByUser collection, max N pages
+func (r *ReportRootMonthlyPrintUsageByUserCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageByUserCollectionRequest) Get(ctx context.Context) ([]PrintUsageByUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageByUserCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByUser) (resObj *PrintUsageByUser, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MonthlyPrintUsageSummariesByPrinter returns request builder for PrintUsageByPrinter collection
+func (b *ReportRootRequestBuilder) MonthlyPrintUsageSummariesByPrinter() *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder {
+	bb := &ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/monthlyPrintUsageSummariesByPrinter"
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder is request builder for PrintUsageByPrinter collection
+type ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByPrinter collection
+func (b *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder) Request() *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest {
+	return &ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByPrinter item
+func (b *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequestBuilder) ID(id string) *PrintUsageByPrinterRequestBuilder {
+	bb := &PrintUsageByPrinterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest is request for PrintUsageByPrinter collection
+type ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByPrinter, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByPrinter
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByPrinter
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByPrinter collection, max N pages
+func (r *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByPrinter, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest) Get(ctx context.Context) ([]PrintUsageByPrinter, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByPrinter collection
+func (r *ReportRootMonthlyPrintUsageSummariesByPrinterCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByPrinter) (resObj *PrintUsageByPrinter, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MonthlyPrintUsageSummariesByUser returns request builder for PrintUsageByUser collection
+func (b *ReportRootRequestBuilder) MonthlyPrintUsageSummariesByUser() *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder {
+	bb := &ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/monthlyPrintUsageSummariesByUser"
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder is request builder for PrintUsageByUser collection
+type ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PrintUsageByUser collection
+func (b *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder) Request() *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest {
+	return &ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PrintUsageByUser item
+func (b *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequestBuilder) ID(id string) *PrintUsageByUserRequestBuilder {
+	bb := &PrintUsageByUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest is request for PrintUsageByUser collection
+type ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PrintUsageByUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PrintUsageByUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PrintUsageByUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PrintUsageByUser collection, max N pages
+func (r *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest) GetN(ctx context.Context, n int) ([]PrintUsageByUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest) Get(ctx context.Context) ([]PrintUsageByUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PrintUsageByUser collection
+func (r *ReportRootMonthlyPrintUsageSummariesByUserCollectionRequest) Add(ctx context.Context, reqObj *PrintUsageByUser) (resObj *PrintUsageByUser, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

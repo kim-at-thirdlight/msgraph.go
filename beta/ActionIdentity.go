@@ -11,6 +11,549 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// IdentityUserFlowAttributeAssignmentCollectionSetOrderRequestParameter undocumented
+type IdentityUserFlowAttributeAssignmentCollectionSetOrderRequestParameter struct {
+	// NewAssignmentOrder undocumented
+	NewAssignmentOrder *AssignmentOrder `json:"newAssignmentOrder,omitempty"`
+}
+
+// IdentityAPIConnectorUploadClientCertificateRequestParameter undocumented
+type IdentityAPIConnectorUploadClientCertificateRequestParameter struct {
+	// Pkcs12Value undocumented
+	Pkcs12Value *string `json:"pkcs12Value,omitempty"`
+	// Password undocumented
+	Password *string `json:"password,omitempty"`
+}
+
+// APIConnectors returns request builder for IdentityAPIConnector collection
+func (b *IdentityContainerRequestBuilder) APIConnectors() *IdentityContainerAPIConnectorsCollectionRequestBuilder {
+	bb := &IdentityContainerAPIConnectorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/apiConnectors"
+	return bb
+}
+
+// IdentityContainerAPIConnectorsCollectionRequestBuilder is request builder for IdentityAPIConnector collection
+type IdentityContainerAPIConnectorsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for IdentityAPIConnector collection
+func (b *IdentityContainerAPIConnectorsCollectionRequestBuilder) Request() *IdentityContainerAPIConnectorsCollectionRequest {
+	return &IdentityContainerAPIConnectorsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for IdentityAPIConnector item
+func (b *IdentityContainerAPIConnectorsCollectionRequestBuilder) ID(id string) *IdentityAPIConnectorRequestBuilder {
+	bb := &IdentityAPIConnectorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityContainerAPIConnectorsCollectionRequest is request for IdentityAPIConnector collection
+type IdentityContainerAPIConnectorsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for IdentityAPIConnector collection
+func (r *IdentityContainerAPIConnectorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IdentityAPIConnector, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []IdentityAPIConnector
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []IdentityAPIConnector
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for IdentityAPIConnector collection, max N pages
+func (r *IdentityContainerAPIConnectorsCollectionRequest) GetN(ctx context.Context, n int) ([]IdentityAPIConnector, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for IdentityAPIConnector collection
+func (r *IdentityContainerAPIConnectorsCollectionRequest) Get(ctx context.Context) ([]IdentityAPIConnector, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for IdentityAPIConnector collection
+func (r *IdentityContainerAPIConnectorsCollectionRequest) Add(ctx context.Context, reqObj *IdentityAPIConnector) (resObj *IdentityAPIConnector, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// B2cUserFlows returns request builder for B2cIdentityUserFlow collection
+func (b *IdentityContainerRequestBuilder) B2cUserFlows() *IdentityContainerB2cUserFlowsCollectionRequestBuilder {
+	bb := &IdentityContainerB2cUserFlowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/b2cUserFlows"
+	return bb
+}
+
+// IdentityContainerB2cUserFlowsCollectionRequestBuilder is request builder for B2cIdentityUserFlow collection
+type IdentityContainerB2cUserFlowsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for B2cIdentityUserFlow collection
+func (b *IdentityContainerB2cUserFlowsCollectionRequestBuilder) Request() *IdentityContainerB2cUserFlowsCollectionRequest {
+	return &IdentityContainerB2cUserFlowsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for B2cIdentityUserFlow item
+func (b *IdentityContainerB2cUserFlowsCollectionRequestBuilder) ID(id string) *B2cIdentityUserFlowRequestBuilder {
+	bb := &B2cIdentityUserFlowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityContainerB2cUserFlowsCollectionRequest is request for B2cIdentityUserFlow collection
+type IdentityContainerB2cUserFlowsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for B2cIdentityUserFlow collection
+func (r *IdentityContainerB2cUserFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]B2cIdentityUserFlow, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []B2cIdentityUserFlow
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []B2cIdentityUserFlow
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for B2cIdentityUserFlow collection, max N pages
+func (r *IdentityContainerB2cUserFlowsCollectionRequest) GetN(ctx context.Context, n int) ([]B2cIdentityUserFlow, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for B2cIdentityUserFlow collection
+func (r *IdentityContainerB2cUserFlowsCollectionRequest) Get(ctx context.Context) ([]B2cIdentityUserFlow, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for B2cIdentityUserFlow collection
+func (r *IdentityContainerB2cUserFlowsCollectionRequest) Add(ctx context.Context, reqObj *B2cIdentityUserFlow) (resObj *B2cIdentityUserFlow, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// B2xUserFlows returns request builder for B2xIdentityUserFlow collection
+func (b *IdentityContainerRequestBuilder) B2xUserFlows() *IdentityContainerB2xUserFlowsCollectionRequestBuilder {
+	bb := &IdentityContainerB2xUserFlowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/b2xUserFlows"
+	return bb
+}
+
+// IdentityContainerB2xUserFlowsCollectionRequestBuilder is request builder for B2xIdentityUserFlow collection
+type IdentityContainerB2xUserFlowsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for B2xIdentityUserFlow collection
+func (b *IdentityContainerB2xUserFlowsCollectionRequestBuilder) Request() *IdentityContainerB2xUserFlowsCollectionRequest {
+	return &IdentityContainerB2xUserFlowsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for B2xIdentityUserFlow item
+func (b *IdentityContainerB2xUserFlowsCollectionRequestBuilder) ID(id string) *B2xIdentityUserFlowRequestBuilder {
+	bb := &B2xIdentityUserFlowRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityContainerB2xUserFlowsCollectionRequest is request for B2xIdentityUserFlow collection
+type IdentityContainerB2xUserFlowsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for B2xIdentityUserFlow collection
+func (r *IdentityContainerB2xUserFlowsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]B2xIdentityUserFlow, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []B2xIdentityUserFlow
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []B2xIdentityUserFlow
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for B2xIdentityUserFlow collection, max N pages
+func (r *IdentityContainerB2xUserFlowsCollectionRequest) GetN(ctx context.Context, n int) ([]B2xIdentityUserFlow, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for B2xIdentityUserFlow collection
+func (r *IdentityContainerB2xUserFlowsCollectionRequest) Get(ctx context.Context) ([]B2xIdentityUserFlow, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for B2xIdentityUserFlow collection
+func (r *IdentityContainerB2xUserFlowsCollectionRequest) Add(ctx context.Context, reqObj *B2xIdentityUserFlow) (resObj *B2xIdentityUserFlow, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConditionalAccess is navigation property
+func (b *IdentityContainerRequestBuilder) ConditionalAccess() *ConditionalAccessRootRequestBuilder {
+	bb := &ConditionalAccessRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/conditionalAccess"
+	return bb
+}
+
+// ContinuousAccessEvaluationPolicy is navigation property
+func (b *IdentityContainerRequestBuilder) ContinuousAccessEvaluationPolicy() *ContinuousAccessEvaluationPolicyRequestBuilder {
+	bb := &ContinuousAccessEvaluationPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/continuousAccessEvaluationPolicy"
+	return bb
+}
+
+// IdentityProviders returns request builder for IdentityProviderBase collection
+func (b *IdentityContainerRequestBuilder) IdentityProviders() *IdentityContainerIdentityProvidersCollectionRequestBuilder {
+	bb := &IdentityContainerIdentityProvidersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/identityProviders"
+	return bb
+}
+
+// IdentityContainerIdentityProvidersCollectionRequestBuilder is request builder for IdentityProviderBase collection
+type IdentityContainerIdentityProvidersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for IdentityProviderBase collection
+func (b *IdentityContainerIdentityProvidersCollectionRequestBuilder) Request() *IdentityContainerIdentityProvidersCollectionRequest {
+	return &IdentityContainerIdentityProvidersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for IdentityProviderBase item
+func (b *IdentityContainerIdentityProvidersCollectionRequestBuilder) ID(id string) *IdentityProviderBaseRequestBuilder {
+	bb := &IdentityProviderBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityContainerIdentityProvidersCollectionRequest is request for IdentityProviderBase collection
+type IdentityContainerIdentityProvidersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for IdentityProviderBase collection
+func (r *IdentityContainerIdentityProvidersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IdentityProviderBase, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []IdentityProviderBase
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []IdentityProviderBase
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for IdentityProviderBase collection, max N pages
+func (r *IdentityContainerIdentityProvidersCollectionRequest) GetN(ctx context.Context, n int) ([]IdentityProviderBase, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for IdentityProviderBase collection
+func (r *IdentityContainerIdentityProvidersCollectionRequest) Get(ctx context.Context) ([]IdentityProviderBase, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for IdentityProviderBase collection
+func (r *IdentityContainerIdentityProvidersCollectionRequest) Add(ctx context.Context, reqObj *IdentityProviderBase) (resObj *IdentityProviderBase, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserFlowAttributes returns request builder for IdentityUserFlowAttribute collection
+func (b *IdentityContainerRequestBuilder) UserFlowAttributes() *IdentityContainerUserFlowAttributesCollectionRequestBuilder {
+	bb := &IdentityContainerUserFlowAttributesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userFlowAttributes"
+	return bb
+}
+
+// IdentityContainerUserFlowAttributesCollectionRequestBuilder is request builder for IdentityUserFlowAttribute collection
+type IdentityContainerUserFlowAttributesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for IdentityUserFlowAttribute collection
+func (b *IdentityContainerUserFlowAttributesCollectionRequestBuilder) Request() *IdentityContainerUserFlowAttributesCollectionRequest {
+	return &IdentityContainerUserFlowAttributesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for IdentityUserFlowAttribute item
+func (b *IdentityContainerUserFlowAttributesCollectionRequestBuilder) ID(id string) *IdentityUserFlowAttributeRequestBuilder {
+	bb := &IdentityUserFlowAttributeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityContainerUserFlowAttributesCollectionRequest is request for IdentityUserFlowAttribute collection
+type IdentityContainerUserFlowAttributesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for IdentityUserFlowAttribute collection
+func (r *IdentityContainerUserFlowAttributesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IdentityUserFlowAttribute, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []IdentityUserFlowAttribute
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []IdentityUserFlowAttribute
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for IdentityUserFlowAttribute collection, max N pages
+func (r *IdentityContainerUserFlowAttributesCollectionRequest) GetN(ctx context.Context, n int) ([]IdentityUserFlowAttribute, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for IdentityUserFlowAttribute collection
+func (r *IdentityContainerUserFlowAttributesCollectionRequest) Get(ctx context.Context) ([]IdentityUserFlowAttribute, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for IdentityUserFlowAttribute collection
+func (r *IdentityContainerUserFlowAttributesCollectionRequest) Add(ctx context.Context, reqObj *IdentityUserFlowAttribute) (resObj *IdentityUserFlowAttribute, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // UserFlows returns request builder for IdentityUserFlow collection
 func (b *IdentityContainerRequestBuilder) UserFlows() *IdentityContainerUserFlowsCollectionRequestBuilder {
 	bb := &IdentityContainerUserFlowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -114,6 +657,20 @@ func (r *IdentityContainerUserFlowsCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// AccessReviews is navigation property
+func (b *IdentityGovernanceRequestBuilder) AccessReviews() *AccessReviewSetRequestBuilder {
+	bb := &AccessReviewSetRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/accessReviews"
+	return bb
+}
+
+// AppConsent is navigation property
+func (b *IdentityGovernanceRequestBuilder) AppConsent() *AppConsentApprovalRouteRequestBuilder {
+	bb := &AppConsentApprovalRouteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/appConsent"
+	return bb
+}
+
 // EntitlementManagement is navigation property
 func (b *IdentityGovernanceRequestBuilder) EntitlementManagement() *EntitlementManagementRequestBuilder {
 	bb := &EntitlementManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -121,9 +678,222 @@ func (b *IdentityGovernanceRequestBuilder) EntitlementManagement() *EntitlementM
 	return bb
 }
 
-// ImpactedUser is navigation property
-func (b *IdentityRiskEventRequestBuilder) ImpactedUser() *UserRequestBuilder {
-	bb := &UserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/impactedUser"
+// TermsOfUse is navigation property
+func (b *IdentityGovernanceRequestBuilder) TermsOfUse() *TermsOfUseContainerRequestBuilder {
+	bb := &TermsOfUseContainerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/termsOfUse"
+	return bb
+}
+
+// RiskDetections returns request builder for RiskDetection collection
+func (b *IdentityProtectionRootRequestBuilder) RiskDetections() *IdentityProtectionRootRiskDetectionsCollectionRequestBuilder {
+	bb := &IdentityProtectionRootRiskDetectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/riskDetections"
+	return bb
+}
+
+// IdentityProtectionRootRiskDetectionsCollectionRequestBuilder is request builder for RiskDetection collection
+type IdentityProtectionRootRiskDetectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for RiskDetection collection
+func (b *IdentityProtectionRootRiskDetectionsCollectionRequestBuilder) Request() *IdentityProtectionRootRiskDetectionsCollectionRequest {
+	return &IdentityProtectionRootRiskDetectionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for RiskDetection item
+func (b *IdentityProtectionRootRiskDetectionsCollectionRequestBuilder) ID(id string) *RiskDetectionRequestBuilder {
+	bb := &RiskDetectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityProtectionRootRiskDetectionsCollectionRequest is request for RiskDetection collection
+type IdentityProtectionRootRiskDetectionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for RiskDetection collection
+func (r *IdentityProtectionRootRiskDetectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RiskDetection, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []RiskDetection
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []RiskDetection
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for RiskDetection collection, max N pages
+func (r *IdentityProtectionRootRiskDetectionsCollectionRequest) GetN(ctx context.Context, n int) ([]RiskDetection, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RiskDetection collection
+func (r *IdentityProtectionRootRiskDetectionsCollectionRequest) Get(ctx context.Context) ([]RiskDetection, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for RiskDetection collection
+func (r *IdentityProtectionRootRiskDetectionsCollectionRequest) Add(ctx context.Context, reqObj *RiskDetection) (resObj *RiskDetection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RiskyUsers returns request builder for RiskyUser collection
+func (b *IdentityProtectionRootRequestBuilder) RiskyUsers() *IdentityProtectionRootRiskyUsersCollectionRequestBuilder {
+	bb := &IdentityProtectionRootRiskyUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/riskyUsers"
+	return bb
+}
+
+// IdentityProtectionRootRiskyUsersCollectionRequestBuilder is request builder for RiskyUser collection
+type IdentityProtectionRootRiskyUsersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for RiskyUser collection
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) Request() *IdentityProtectionRootRiskyUsersCollectionRequest {
+	return &IdentityProtectionRootRiskyUsersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for RiskyUser item
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) ID(id string) *RiskyUserRequestBuilder {
+	bb := &RiskyUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// IdentityProtectionRootRiskyUsersCollectionRequest is request for RiskyUser collection
+type IdentityProtectionRootRiskyUsersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for RiskyUser collection
+func (r *IdentityProtectionRootRiskyUsersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RiskyUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []RiskyUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []RiskyUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for RiskyUser collection, max N pages
+func (r *IdentityProtectionRootRiskyUsersCollectionRequest) GetN(ctx context.Context, n int) ([]RiskyUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RiskyUser collection
+func (r *IdentityProtectionRootRiskyUsersCollectionRequest) Get(ctx context.Context) ([]RiskyUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for RiskyUser collection
+func (r *IdentityProtectionRootRiskyUsersCollectionRequest) Add(ctx context.Context, reqObj *RiskyUser) (resObj *RiskyUser, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserAttribute is navigation property
+func (b *IdentityUserFlowAttributeAssignmentRequestBuilder) UserAttribute() *IdentityUserFlowAttributeRequestBuilder {
+	bb := &IdentityUserFlowAttributeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userAttribute"
 	return bb
 }

@@ -2,6 +2,48 @@
 
 package msgraph
 
+// AssignmentFilterEvaluationResult undocumented
+type AssignmentFilterEvaluationResult string
+
+const (
+	// AssignmentFilterEvaluationResultVUnknown undocumented
+	AssignmentFilterEvaluationResultVUnknown AssignmentFilterEvaluationResult = "unknown"
+	// AssignmentFilterEvaluationResultVMatch undocumented
+	AssignmentFilterEvaluationResultVMatch AssignmentFilterEvaluationResult = "match"
+	// AssignmentFilterEvaluationResultVNotMatch undocumented
+	AssignmentFilterEvaluationResultVNotMatch AssignmentFilterEvaluationResult = "notMatch"
+	// AssignmentFilterEvaluationResultVInconclusive undocumented
+	AssignmentFilterEvaluationResultVInconclusive AssignmentFilterEvaluationResult = "inconclusive"
+	// AssignmentFilterEvaluationResultVFailure undocumented
+	AssignmentFilterEvaluationResultVFailure AssignmentFilterEvaluationResult = "failure"
+	// AssignmentFilterEvaluationResultVNotEvaluated undocumented
+	AssignmentFilterEvaluationResultVNotEvaluated AssignmentFilterEvaluationResult = "notEvaluated"
+)
+
+var (
+	// AssignmentFilterEvaluationResultPUnknown is a pointer to AssignmentFilterEvaluationResultVUnknown
+	AssignmentFilterEvaluationResultPUnknown = &_AssignmentFilterEvaluationResultPUnknown
+	// AssignmentFilterEvaluationResultPMatch is a pointer to AssignmentFilterEvaluationResultVMatch
+	AssignmentFilterEvaluationResultPMatch = &_AssignmentFilterEvaluationResultPMatch
+	// AssignmentFilterEvaluationResultPNotMatch is a pointer to AssignmentFilterEvaluationResultVNotMatch
+	AssignmentFilterEvaluationResultPNotMatch = &_AssignmentFilterEvaluationResultPNotMatch
+	// AssignmentFilterEvaluationResultPInconclusive is a pointer to AssignmentFilterEvaluationResultVInconclusive
+	AssignmentFilterEvaluationResultPInconclusive = &_AssignmentFilterEvaluationResultPInconclusive
+	// AssignmentFilterEvaluationResultPFailure is a pointer to AssignmentFilterEvaluationResultVFailure
+	AssignmentFilterEvaluationResultPFailure = &_AssignmentFilterEvaluationResultPFailure
+	// AssignmentFilterEvaluationResultPNotEvaluated is a pointer to AssignmentFilterEvaluationResultVNotEvaluated
+	AssignmentFilterEvaluationResultPNotEvaluated = &_AssignmentFilterEvaluationResultPNotEvaluated
+)
+
+var (
+	_AssignmentFilterEvaluationResultPUnknown      = AssignmentFilterEvaluationResultVUnknown
+	_AssignmentFilterEvaluationResultPMatch        = AssignmentFilterEvaluationResultVMatch
+	_AssignmentFilterEvaluationResultPNotMatch     = AssignmentFilterEvaluationResultVNotMatch
+	_AssignmentFilterEvaluationResultPInconclusive = AssignmentFilterEvaluationResultVInconclusive
+	_AssignmentFilterEvaluationResultPFailure      = AssignmentFilterEvaluationResultVFailure
+	_AssignmentFilterEvaluationResultPNotEvaluated = AssignmentFilterEvaluationResultVNotEvaluated
+)
+
 // AssignmentMethod undocumented
 type AssignmentMethod string
 

@@ -10,12 +10,16 @@ type ProjectParticipation struct {
 	Categories []string `json:"categories,omitempty"`
 	// Client undocumented
 	Client *CompanyDetail `json:"client,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Detail undocumented
-	Detail *PositionDetail `json:"detail,omitempty"`
+	// CollaborationTags undocumented
+	CollaborationTags []string `json:"collaborationTags,omitempty"`
 	// Colleagues undocumented
 	Colleagues []RelatedPerson `json:"colleagues,omitempty"`
+	// Detail undocumented
+	Detail *PositionDetail `json:"detail,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Sponsors undocumented
 	Sponsors []RelatedPerson `json:"sponsors,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 }

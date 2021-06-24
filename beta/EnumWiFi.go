@@ -97,3 +97,40 @@ var (
 	_WiFiSecurityTypePWpa2Personal   = WiFiSecurityTypeVWpa2Personal
 	_WiFiSecurityTypePWpa2Enterprise = WiFiSecurityTypeVWpa2Enterprise
 )
+
+// WiFiAuthenticationType undocumented
+type WiFiAuthenticationType string
+
+const (
+	// WiFiAuthenticationTypeVNone undocumented
+	WiFiAuthenticationTypeVNone WiFiAuthenticationType = "none"
+	// WiFiAuthenticationTypeVUser undocumented
+	WiFiAuthenticationTypeVUser WiFiAuthenticationType = "user"
+	// WiFiAuthenticationTypeVMachine undocumented
+	WiFiAuthenticationTypeVMachine WiFiAuthenticationType = "machine"
+	// WiFiAuthenticationTypeVMachineOrUser undocumented
+	WiFiAuthenticationTypeVMachineOrUser WiFiAuthenticationType = "machineOrUser"
+	// WiFiAuthenticationTypeVGuest undocumented
+	WiFiAuthenticationTypeVGuest WiFiAuthenticationType = "guest"
+)
+
+var (
+	// WiFiAuthenticationTypePNone is a pointer to WiFiAuthenticationTypeVNone
+	WiFiAuthenticationTypePNone = &_WiFiAuthenticationTypePNone
+	// WiFiAuthenticationTypePUser is a pointer to WiFiAuthenticationTypeVUser
+	WiFiAuthenticationTypePUser = &_WiFiAuthenticationTypePUser
+	// WiFiAuthenticationTypePMachine is a pointer to WiFiAuthenticationTypeVMachine
+	WiFiAuthenticationTypePMachine = &_WiFiAuthenticationTypePMachine
+	// WiFiAuthenticationTypePMachineOrUser is a pointer to WiFiAuthenticationTypeVMachineOrUser
+	WiFiAuthenticationTypePMachineOrUser = &_WiFiAuthenticationTypePMachineOrUser
+	// WiFiAuthenticationTypePGuest is a pointer to WiFiAuthenticationTypeVGuest
+	WiFiAuthenticationTypePGuest = &_WiFiAuthenticationTypePGuest
+)
+
+var (
+	_WiFiAuthenticationTypePNone          = WiFiAuthenticationTypeVNone
+	_WiFiAuthenticationTypePUser          = WiFiAuthenticationTypeVUser
+	_WiFiAuthenticationTypePMachine       = WiFiAuthenticationTypeVMachine
+	_WiFiAuthenticationTypePMachineOrUser = WiFiAuthenticationTypeVMachineOrUser
+	_WiFiAuthenticationTypePGuest         = WiFiAuthenticationTypeVGuest
+)

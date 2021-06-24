@@ -70,3 +70,35 @@ var (
 	_MDMAuthorityPSccm      = MDMAuthorityVSccm
 	_MDMAuthorityPOffice365 = MDMAuthorityVOffice365
 )
+
+// MDMSupportedState undocumented
+type MDMSupportedState string
+
+const (
+	// MDMSupportedStateVUnknown undocumented
+	MDMSupportedStateVUnknown MDMSupportedState = "unknown"
+	// MDMSupportedStateVSupported undocumented
+	MDMSupportedStateVSupported MDMSupportedState = "supported"
+	// MDMSupportedStateVUnsupported undocumented
+	MDMSupportedStateVUnsupported MDMSupportedState = "unsupported"
+	// MDMSupportedStateVDeprecated undocumented
+	MDMSupportedStateVDeprecated MDMSupportedState = "deprecated"
+)
+
+var (
+	// MDMSupportedStatePUnknown is a pointer to MDMSupportedStateVUnknown
+	MDMSupportedStatePUnknown = &_MDMSupportedStatePUnknown
+	// MDMSupportedStatePSupported is a pointer to MDMSupportedStateVSupported
+	MDMSupportedStatePSupported = &_MDMSupportedStatePSupported
+	// MDMSupportedStatePUnsupported is a pointer to MDMSupportedStateVUnsupported
+	MDMSupportedStatePUnsupported = &_MDMSupportedStatePUnsupported
+	// MDMSupportedStatePDeprecated is a pointer to MDMSupportedStateVDeprecated
+	MDMSupportedStatePDeprecated = &_MDMSupportedStatePDeprecated
+)
+
+var (
+	_MDMSupportedStatePUnknown     = MDMSupportedStateVUnknown
+	_MDMSupportedStatePSupported   = MDMSupportedStateVSupported
+	_MDMSupportedStatePUnsupported = MDMSupportedStateVUnsupported
+	_MDMSupportedStatePDeprecated  = MDMSupportedStateVDeprecated
+)

@@ -10,8 +10,8 @@ const (
 	AdvancedBitLockerStateVSuccess AdvancedBitLockerState = "success"
 	// AdvancedBitLockerStateVNoUserConsent undocumented
 	AdvancedBitLockerStateVNoUserConsent AdvancedBitLockerState = "noUserConsent"
-	// AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch undocumented
-	AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch AdvancedBitLockerState = "osVolumeEncryptionMethodMismatch"
+	// AdvancedBitLockerStateVOsVolumeUnprotected undocumented
+	AdvancedBitLockerStateVOsVolumeUnprotected AdvancedBitLockerState = "osVolumeUnprotected"
 	// AdvancedBitLockerStateVOsVolumeTpmRequired undocumented
 	AdvancedBitLockerStateVOsVolumeTpmRequired AdvancedBitLockerState = "osVolumeTpmRequired"
 	// AdvancedBitLockerStateVOsVolumeTpmOnlyRequired undocumented
@@ -22,8 +22,8 @@ const (
 	AdvancedBitLockerStateVOsVolumeTpmStartupKeyRequired AdvancedBitLockerState = "osVolumeTpmStartupKeyRequired"
 	// AdvancedBitLockerStateVOsVolumeTpmPinStartupKeyRequired undocumented
 	AdvancedBitLockerStateVOsVolumeTpmPinStartupKeyRequired AdvancedBitLockerState = "osVolumeTpmPinStartupKeyRequired"
-	// AdvancedBitLockerStateVOsVolumeUnprotected undocumented
-	AdvancedBitLockerStateVOsVolumeUnprotected AdvancedBitLockerState = "osVolumeUnprotected"
+	// AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch undocumented
+	AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch AdvancedBitLockerState = "osVolumeEncryptionMethodMismatch"
 	// AdvancedBitLockerStateVRecoveryKeyBackupFailed undocumented
 	AdvancedBitLockerStateVRecoveryKeyBackupFailed AdvancedBitLockerState = "recoveryKeyBackupFailed"
 	// AdvancedBitLockerStateVFixedDriveNotEncrypted undocumented
@@ -47,8 +47,8 @@ var (
 	AdvancedBitLockerStatePSuccess = &_AdvancedBitLockerStatePSuccess
 	// AdvancedBitLockerStatePNoUserConsent is a pointer to AdvancedBitLockerStateVNoUserConsent
 	AdvancedBitLockerStatePNoUserConsent = &_AdvancedBitLockerStatePNoUserConsent
-	// AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch is a pointer to AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch
-	AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch = &_AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch
+	// AdvancedBitLockerStatePOsVolumeUnprotected is a pointer to AdvancedBitLockerStateVOsVolumeUnprotected
+	AdvancedBitLockerStatePOsVolumeUnprotected = &_AdvancedBitLockerStatePOsVolumeUnprotected
 	// AdvancedBitLockerStatePOsVolumeTpmRequired is a pointer to AdvancedBitLockerStateVOsVolumeTpmRequired
 	AdvancedBitLockerStatePOsVolumeTpmRequired = &_AdvancedBitLockerStatePOsVolumeTpmRequired
 	// AdvancedBitLockerStatePOsVolumeTpmOnlyRequired is a pointer to AdvancedBitLockerStateVOsVolumeTpmOnlyRequired
@@ -59,8 +59,8 @@ var (
 	AdvancedBitLockerStatePOsVolumeTpmStartupKeyRequired = &_AdvancedBitLockerStatePOsVolumeTpmStartupKeyRequired
 	// AdvancedBitLockerStatePOsVolumeTpmPinStartupKeyRequired is a pointer to AdvancedBitLockerStateVOsVolumeTpmPinStartupKeyRequired
 	AdvancedBitLockerStatePOsVolumeTpmPinStartupKeyRequired = &_AdvancedBitLockerStatePOsVolumeTpmPinStartupKeyRequired
-	// AdvancedBitLockerStatePOsVolumeUnprotected is a pointer to AdvancedBitLockerStateVOsVolumeUnprotected
-	AdvancedBitLockerStatePOsVolumeUnprotected = &_AdvancedBitLockerStatePOsVolumeUnprotected
+	// AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch is a pointer to AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch
+	AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch = &_AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch
 	// AdvancedBitLockerStatePRecoveryKeyBackupFailed is a pointer to AdvancedBitLockerStateVRecoveryKeyBackupFailed
 	AdvancedBitLockerStatePRecoveryKeyBackupFailed = &_AdvancedBitLockerStatePRecoveryKeyBackupFailed
 	// AdvancedBitLockerStatePFixedDriveNotEncrypted is a pointer to AdvancedBitLockerStateVFixedDriveNotEncrypted
@@ -82,13 +82,13 @@ var (
 var (
 	_AdvancedBitLockerStatePSuccess                                 = AdvancedBitLockerStateVSuccess
 	_AdvancedBitLockerStatePNoUserConsent                           = AdvancedBitLockerStateVNoUserConsent
-	_AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch        = AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch
+	_AdvancedBitLockerStatePOsVolumeUnprotected                     = AdvancedBitLockerStateVOsVolumeUnprotected
 	_AdvancedBitLockerStatePOsVolumeTpmRequired                     = AdvancedBitLockerStateVOsVolumeTpmRequired
 	_AdvancedBitLockerStatePOsVolumeTpmOnlyRequired                 = AdvancedBitLockerStateVOsVolumeTpmOnlyRequired
 	_AdvancedBitLockerStatePOsVolumeTpmPinRequired                  = AdvancedBitLockerStateVOsVolumeTpmPinRequired
 	_AdvancedBitLockerStatePOsVolumeTpmStartupKeyRequired           = AdvancedBitLockerStateVOsVolumeTpmStartupKeyRequired
 	_AdvancedBitLockerStatePOsVolumeTpmPinStartupKeyRequired        = AdvancedBitLockerStateVOsVolumeTpmPinStartupKeyRequired
-	_AdvancedBitLockerStatePOsVolumeUnprotected                     = AdvancedBitLockerStateVOsVolumeUnprotected
+	_AdvancedBitLockerStatePOsVolumeEncryptionMethodMismatch        = AdvancedBitLockerStateVOsVolumeEncryptionMethodMismatch
 	_AdvancedBitLockerStatePRecoveryKeyBackupFailed                 = AdvancedBitLockerStateVRecoveryKeyBackupFailed
 	_AdvancedBitLockerStatePFixedDriveNotEncrypted                  = AdvancedBitLockerStateVFixedDriveNotEncrypted
 	_AdvancedBitLockerStatePFixedDriveEncryptionMethodMismatch      = AdvancedBitLockerStateVFixedDriveEncryptionMethodMismatch
@@ -97,4 +97,36 @@ var (
 	_AdvancedBitLockerStatePTpmNotAvailable                         = AdvancedBitLockerStateVTpmNotAvailable
 	_AdvancedBitLockerStatePTpmNotReady                             = AdvancedBitLockerStateVTpmNotReady
 	_AdvancedBitLockerStatePNetworkError                            = AdvancedBitLockerStateVNetworkError
+)
+
+// AdvancedConfigState undocumented
+type AdvancedConfigState string
+
+const (
+	// AdvancedConfigStateVDefault undocumented
+	AdvancedConfigStateVDefault AdvancedConfigState = "default"
+	// AdvancedConfigStateVEnabled undocumented
+	AdvancedConfigStateVEnabled AdvancedConfigState = "enabled"
+	// AdvancedConfigStateVDisabled undocumented
+	AdvancedConfigStateVDisabled AdvancedConfigState = "disabled"
+	// AdvancedConfigStateVUnknownFutureValue undocumented
+	AdvancedConfigStateVUnknownFutureValue AdvancedConfigState = "unknownFutureValue"
+)
+
+var (
+	// AdvancedConfigStatePDefault is a pointer to AdvancedConfigStateVDefault
+	AdvancedConfigStatePDefault = &_AdvancedConfigStatePDefault
+	// AdvancedConfigStatePEnabled is a pointer to AdvancedConfigStateVEnabled
+	AdvancedConfigStatePEnabled = &_AdvancedConfigStatePEnabled
+	// AdvancedConfigStatePDisabled is a pointer to AdvancedConfigStateVDisabled
+	AdvancedConfigStatePDisabled = &_AdvancedConfigStatePDisabled
+	// AdvancedConfigStatePUnknownFutureValue is a pointer to AdvancedConfigStateVUnknownFutureValue
+	AdvancedConfigStatePUnknownFutureValue = &_AdvancedConfigStatePUnknownFutureValue
+)
+
+var (
+	_AdvancedConfigStatePDefault            = AdvancedConfigStateVDefault
+	_AdvancedConfigStatePEnabled            = AdvancedConfigStateVEnabled
+	_AdvancedConfigStatePDisabled           = AdvancedConfigStateVDisabled
+	_AdvancedConfigStatePUnknownFutureValue = AdvancedConfigStateVUnknownFutureValue
 )

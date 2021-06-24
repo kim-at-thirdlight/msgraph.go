@@ -38,3 +38,90 @@ var (
 	_DataPolicyOperationStatusPFailed             = DataPolicyOperationStatusVFailed
 	_DataPolicyOperationStatusPUnknownFutureValue = DataPolicyOperationStatusVUnknownFutureValue
 )
+
+// DataType undocumented
+type DataType string
+
+const (
+	// DataTypeVNone undocumented
+	DataTypeVNone DataType = "none"
+	// DataTypeVBoolean undocumented
+	DataTypeVBoolean DataType = "boolean"
+	// DataTypeVInt64 undocumented
+	DataTypeVInt64 DataType = "int64"
+	// DataTypeVDouble undocumented
+	DataTypeVDouble DataType = "double"
+	// DataTypeVString undocumented
+	DataTypeVString DataType = "string"
+	// DataTypeVDateTime undocumented
+	DataTypeVDateTime DataType = "dateTime"
+	// DataTypeVVersion undocumented
+	DataTypeVVersion DataType = "version"
+	// DataTypeVBase64 undocumented
+	DataTypeVBase64 DataType = "base64"
+	// DataTypeVXML undocumented
+	DataTypeVXML DataType = "xml"
+	// DataTypeVBooleanArray undocumented
+	DataTypeVBooleanArray DataType = "booleanArray"
+	// DataTypeVInt64Array undocumented
+	DataTypeVInt64Array DataType = "int64Array"
+	// DataTypeVDoubleArray undocumented
+	DataTypeVDoubleArray DataType = "doubleArray"
+	// DataTypeVStringArray undocumented
+	DataTypeVStringArray DataType = "stringArray"
+	// DataTypeVDateTimeArray undocumented
+	DataTypeVDateTimeArray DataType = "dateTimeArray"
+	// DataTypeVVersionArray undocumented
+	DataTypeVVersionArray DataType = "versionArray"
+)
+
+var (
+	// DataTypePNone is a pointer to DataTypeVNone
+	DataTypePNone = &_DataTypePNone
+	// DataTypePBoolean is a pointer to DataTypeVBoolean
+	DataTypePBoolean = &_DataTypePBoolean
+	// DataTypePInt64 is a pointer to DataTypeVInt64
+	DataTypePInt64 = &_DataTypePInt64
+	// DataTypePDouble is a pointer to DataTypeVDouble
+	DataTypePDouble = &_DataTypePDouble
+	// DataTypePString is a pointer to DataTypeVString
+	DataTypePString = &_DataTypePString
+	// DataTypePDateTime is a pointer to DataTypeVDateTime
+	DataTypePDateTime = &_DataTypePDateTime
+	// DataTypePVersion is a pointer to DataTypeVVersion
+	DataTypePVersion = &_DataTypePVersion
+	// DataTypePBase64 is a pointer to DataTypeVBase64
+	DataTypePBase64 = &_DataTypePBase64
+	// DataTypePXML is a pointer to DataTypeVXML
+	DataTypePXML = &_DataTypePXML
+	// DataTypePBooleanArray is a pointer to DataTypeVBooleanArray
+	DataTypePBooleanArray = &_DataTypePBooleanArray
+	// DataTypePInt64Array is a pointer to DataTypeVInt64Array
+	DataTypePInt64Array = &_DataTypePInt64Array
+	// DataTypePDoubleArray is a pointer to DataTypeVDoubleArray
+	DataTypePDoubleArray = &_DataTypePDoubleArray
+	// DataTypePStringArray is a pointer to DataTypeVStringArray
+	DataTypePStringArray = &_DataTypePStringArray
+	// DataTypePDateTimeArray is a pointer to DataTypeVDateTimeArray
+	DataTypePDateTimeArray = &_DataTypePDateTimeArray
+	// DataTypePVersionArray is a pointer to DataTypeVVersionArray
+	DataTypePVersionArray = &_DataTypePVersionArray
+)
+
+var (
+	_DataTypePNone          = DataTypeVNone
+	_DataTypePBoolean       = DataTypeVBoolean
+	_DataTypePInt64         = DataTypeVInt64
+	_DataTypePDouble        = DataTypeVDouble
+	_DataTypePString        = DataTypeVString
+	_DataTypePDateTime      = DataTypeVDateTime
+	_DataTypePVersion       = DataTypeVVersion
+	_DataTypePBase64        = DataTypeVBase64
+	_DataTypePXML           = DataTypeVXML
+	_DataTypePBooleanArray  = DataTypeVBooleanArray
+	_DataTypePInt64Array    = DataTypeVInt64Array
+	_DataTypePDoubleArray   = DataTypeVDoubleArray
+	_DataTypePStringArray   = DataTypeVStringArray
+	_DataTypePDateTimeArray = DataTypeVDateTimeArray
+	_DataTypePVersionArray  = DataTypeVVersionArray
+)

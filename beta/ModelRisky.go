@@ -10,18 +10,16 @@ type RiskyUser struct {
 	Entity
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	// IsGuest undocumented
-	IsGuest *bool `json:"isGuest,omitempty"`
 	// IsProcessing undocumented
 	IsProcessing *bool `json:"isProcessing,omitempty"`
+	// RiskDetail undocumented
+	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
 	// RiskLastUpdatedDateTime undocumented
 	RiskLastUpdatedDateTime *time.Time `json:"riskLastUpdatedDateTime,omitempty"`
 	// RiskLevel undocumented
 	RiskLevel *RiskLevel `json:"riskLevel,omitempty"`
 	// RiskState undocumented
 	RiskState *RiskState `json:"riskState,omitempty"`
-	// RiskDetail undocumented
-	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
 	// UserDisplayName undocumented
 	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// UserPrincipalName undocumented
@@ -34,10 +32,10 @@ type RiskyUser struct {
 type RiskyUserHistoryItem struct {
 	// RiskyUser is the base model of RiskyUserHistoryItem
 	RiskyUser
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// InitiatedBy undocumented
-	InitiatedBy *string `json:"initiatedBy,omitempty"`
 	// Activity undocumented
 	Activity *RiskUserActivity `json:"activity,omitempty"`
+	// InitiatedBy undocumented
+	InitiatedBy *string `json:"initiatedBy,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 }

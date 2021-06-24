@@ -2,14 +2,7 @@
 
 package msgraph
 
-import (
-	"context"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-
-	"github.com/yaegashi/msgraph.go/jsonx"
-)
+import "context"
 
 // CalendarRequestBuilder is request builder for Calendar
 type CalendarRequestBuilder struct{ BaseRequestBuilder }
@@ -77,89 +70,68 @@ func (r *CalendarGroupRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type CalendarGetScheduleRequestBuilder struct{ BaseRequestBuilder }
+// CalendarPermissionRequestBuilder is request builder for CalendarPermission
+type CalendarPermissionRequestBuilder struct{ BaseRequestBuilder }
 
-// GetSchedule action undocumented
-func (b *CalendarRequestBuilder) GetSchedule(reqObj *CalendarGetScheduleRequestParameter) *CalendarGetScheduleRequestBuilder {
-	bb := &CalendarGetScheduleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getSchedule"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CalendarGetScheduleRequest struct{ BaseRequest }
-
-//
-func (b *CalendarGetScheduleRequestBuilder) Request() *CalendarGetScheduleRequest {
-	return &CalendarGetScheduleRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns CalendarPermissionRequest
+func (b *CalendarPermissionRequestBuilder) Request() *CalendarPermissionRequest {
+	return &CalendarPermissionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *CalendarGetScheduleRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ScheduleInformation, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
+// CalendarPermissionRequest is request for CalendarPermission
+type CalendarPermissionRequest struct{ BaseRequest }
+
+// Get performs GET request for CalendarPermission
+func (r *CalendarPermissionRequest) Get(ctx context.Context) (resObj *CalendarPermission, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
 	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ScheduleInformation
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ScheduleInformation
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CalendarPermission
+func (r *CalendarPermissionRequest) Update(ctx context.Context, reqObj *CalendarPermission) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CalendarPermission
+func (r *CalendarPermissionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CalendarSharingMessageRequestBuilder is request builder for CalendarSharingMessage
+type CalendarSharingMessageRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CalendarSharingMessageRequest
+func (b *CalendarSharingMessageRequestBuilder) Request() *CalendarSharingMessageRequest {
+	return &CalendarSharingMessageRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *CalendarGetScheduleRequest) PostN(ctx context.Context, n int) ([]ScheduleInformation, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
+// CalendarSharingMessageRequest is request for CalendarSharingMessage
+type CalendarSharingMessageRequest struct{ BaseRequest }
+
+// Get performs GET request for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) Get(ctx context.Context) (resObj *CalendarSharingMessage, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
 }
 
-//
-func (r *CalendarGetScheduleRequest) Post(ctx context.Context) ([]ScheduleInformation, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+// Update performs PATCH request for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) Update(ctx context.Context, reqObj *CalendarSharingMessage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CalendarSharingMessage
+func (r *CalendarSharingMessageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

@@ -12,6 +12,30 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// DriveItemRestoreRequestParameter undocumented
+type DriveItemRestoreRequestParameter struct {
+	// ParentReference undocumented
+	ParentReference *ItemReference `json:"parentReference,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
+// DriveItemCopyRequestParameter undocumented
+type DriveItemCopyRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// ParentReference undocumented
+	ParentReference *ItemReference `json:"parentReference,omitempty"`
+}
+
+// DriveItemCreateUploadSessionRequestParameter undocumented
+type DriveItemCreateUploadSessionRequestParameter struct {
+	// Item undocumented
+	Item *DriveItemUploadableProperties `json:"item,omitempty"`
+	// DeferCommit undocumented
+	DeferCommit *bool `json:"deferCommit,omitempty"`
+}
+
 // DriveItemCheckinRequestParameter undocumented
 type DriveItemCheckinRequestParameter struct {
 	// CheckInAs undocumented
@@ -22,14 +46,6 @@ type DriveItemCheckinRequestParameter struct {
 
 // DriveItemCheckoutRequestParameter undocumented
 type DriveItemCheckoutRequestParameter struct {
-}
-
-// DriveItemCopyRequestParameter undocumented
-type DriveItemCopyRequestParameter struct {
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// ParentReference undocumented
-	ParentReference *ItemReference `json:"parentReference,omitempty"`
 }
 
 // DriveItemCreateLinkRequestParameter undocumented
@@ -48,20 +64,8 @@ type DriveItemCreateLinkRequestParameter struct {
 	Recipients []DriveRecipient `json:"recipients,omitempty"`
 }
 
-// DriveItemCreateUploadSessionRequestParameter undocumented
-type DriveItemCreateUploadSessionRequestParameter struct {
-	// Item undocumented
-	Item *DriveItemUploadableProperties `json:"item,omitempty"`
-	// DeferCommit undocumented
-	DeferCommit *bool `json:"deferCommit,omitempty"`
-}
-
 // DriveItemFollowRequestParameter undocumented
 type DriveItemFollowRequestParameter struct {
-}
-
-// DriveItemUnfollowRequestParameter undocumented
-type DriveItemUnfollowRequestParameter struct {
 }
 
 // DriveItemInviteRequestParameter undocumented
@@ -96,12 +100,8 @@ type DriveItemPreviewRequestParameter struct {
 	Zoom *float64 `json:"zoom,omitempty"`
 }
 
-// DriveItemRestoreRequestParameter undocumented
-type DriveItemRestoreRequestParameter struct {
-	// ParentReference undocumented
-	ParentReference *ItemReference `json:"parentReference,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
+// DriveItemUnfollowRequestParameter undocumented
+type DriveItemUnfollowRequestParameter struct {
 }
 
 // DriveItemValidatePermissionRequestParameter undocumented
@@ -856,13 +856,6 @@ func (r *DriveItemChildrenCollectionRequest) Get(ctx context.Context) ([]DriveIt
 func (r *DriveItemChildrenCollectionRequest) Add(ctx context.Context, reqObj *DriveItem) (resObj *DriveItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
-}
-
-// Document is navigation property
-func (b *DriveItemRequestBuilder) Document() *DocumentRequestBuilder {
-	bb := &DocumentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/document"
-	return bb
 }
 
 // ListItem is navigation property

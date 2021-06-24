@@ -10,24 +10,22 @@ type DataClassificationService struct {
 	Entity
 	// ExactMatchDataStores undocumented
 	ExactMatchDataStores []ExactMatchDataStore `json:"exactMatchDataStores,omitempty"`
-	// SensitiveTypes undocumented
-	SensitiveTypes []SensitiveType `json:"sensitiveTypes,omitempty"`
-	// Jobs undocumented
-	Jobs []JobResponseBase `json:"jobs,omitempty"`
+	// ClassifyFile undocumented
+	ClassifyFile []FileClassificationRequest `json:"classifyFile,omitempty"`
 	// ClassifyFileJobs undocumented
 	ClassifyFileJobs []JobResponseBase `json:"classifyFileJobs,omitempty"`
+	// ClassifyText undocumented
+	ClassifyText []TextClassificationRequest `json:"classifyText,omitempty"`
 	// ClassifyTextJobs undocumented
 	ClassifyTextJobs []JobResponseBase `json:"classifyTextJobs,omitempty"`
-	// EvaluateLabelJobs undocumented
-	EvaluateLabelJobs []JobResponseBase `json:"evaluateLabelJobs,omitempty"`
 	// EvaluateDlpPoliciesJobs undocumented
 	EvaluateDlpPoliciesJobs []JobResponseBase `json:"evaluateDlpPoliciesJobs,omitempty"`
-	// LabelsAndPoliciesEvaluationJobs undocumented
-	LabelsAndPoliciesEvaluationJobs []JobResponseBase `json:"labelsAndPoliciesEvaluationJobs,omitempty"`
-	// ClassifyText undocumented
-	ClassifyText []TextClassificationRequestObject `json:"classifyText,omitempty"`
-	// ClassifyFile undocumented
-	ClassifyFile []FileClassificationRequestObject `json:"classifyFile,omitempty"`
+	// EvaluateLabelJobs undocumented
+	EvaluateLabelJobs []JobResponseBase `json:"evaluateLabelJobs,omitempty"`
+	// Jobs undocumented
+	Jobs []JobResponseBase `json:"jobs,omitempty"`
+	// SensitiveTypes undocumented
+	SensitiveTypes []SensitiveType `json:"sensitiveTypes,omitempty"`
 	// SensitivityLabels undocumented
 	SensitivityLabels []SensitivityLabel `json:"sensitivityLabels,omitempty"`
 	// ExactMatchUploadAgents undocumented
@@ -40,8 +38,6 @@ type DataLossPreventionPolicy struct {
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
 }
 
 // DataPolicyOperation undocumented
@@ -50,34 +46,34 @@ type DataPolicyOperation struct {
 	Entity
 	// CompletedDateTime undocumented
 	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
+	// Progress undocumented
+	Progress *float64 `json:"progress,omitempty"`
 	// Status undocumented
 	Status *DataPolicyOperationStatus `json:"status,omitempty"`
 	// StorageLocation undocumented
 	StorageLocation *string `json:"storageLocation,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
 	// SubmittedDateTime undocumented
 	SubmittedDateTime *time.Time `json:"submittedDateTime,omitempty"`
-	// Progress undocumented
-	Progress *float64 `json:"progress,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 }
 
 // DataSharingConsent Data sharing consent information.
 type DataSharingConsent struct {
 	// Entity is the base model of DataSharingConsent
 	Entity
-	// ServiceDisplayName The display name of the service work flow
-	ServiceDisplayName *string `json:"serviceDisplayName,omitempty"`
-	// TermsURL The TermsUrl for the data sharing consent
-	TermsURL *string `json:"termsUrl,omitempty"`
-	// Granted The granted state for the data sharing consent
-	Granted *bool `json:"granted,omitempty"`
 	// GrantDateTime The time consent was granted for this account
 	GrantDateTime *time.Time `json:"grantDateTime,omitempty"`
+	// Granted The granted state for the data sharing consent
+	Granted *bool `json:"granted,omitempty"`
 	// GrantedByUpn The Upn of the user that granted consent for this account
 	GrantedByUpn *string `json:"grantedByUpn,omitempty"`
 	// GrantedByUserID The UserId of the user that granted consent for this account
 	GrantedByUserID *string `json:"grantedByUserId,omitempty"`
+	// ServiceDisplayName The display name of the service work flow
+	ServiceDisplayName *string `json:"serviceDisplayName,omitempty"`
+	// TermsURL The TermsUrl for the data sharing consent
+	TermsURL *string `json:"termsUrl,omitempty"`
 }
 
 // DataStoreField undocumented
@@ -86,8 +82,8 @@ type DataStoreField struct {
 	Object
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Unique undocumented
-	Unique *bool `json:"unique,omitempty"`
 	// Searchable undocumented
 	Searchable *bool `json:"searchable,omitempty"`
+	// Unique undocumented
+	Unique *bool `json:"unique,omitempty"`
 }

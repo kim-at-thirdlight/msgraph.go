@@ -1566,3 +1566,106 @@ func (r *SecurityBaselineTemplateDeviceStatesCollectionRequest) Add(ctx context.
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
+
+// ManagedDevices returns request builder for VulnerableManagedDevice collection
+func (b *SecurityConfigurationTaskRequestBuilder) ManagedDevices() *SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder {
+	bb := &SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDevices"
+	return bb
+}
+
+// SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder is request builder for VulnerableManagedDevice collection
+type SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for VulnerableManagedDevice collection
+func (b *SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder) Request() *SecurityConfigurationTaskManagedDevicesCollectionRequest {
+	return &SecurityConfigurationTaskManagedDevicesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for VulnerableManagedDevice item
+func (b *SecurityConfigurationTaskManagedDevicesCollectionRequestBuilder) ID(id string) *VulnerableManagedDeviceRequestBuilder {
+	bb := &VulnerableManagedDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// SecurityConfigurationTaskManagedDevicesCollectionRequest is request for VulnerableManagedDevice collection
+type SecurityConfigurationTaskManagedDevicesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for VulnerableManagedDevice collection
+func (r *SecurityConfigurationTaskManagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]VulnerableManagedDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []VulnerableManagedDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []VulnerableManagedDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for VulnerableManagedDevice collection, max N pages
+func (r *SecurityConfigurationTaskManagedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]VulnerableManagedDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for VulnerableManagedDevice collection
+func (r *SecurityConfigurationTaskManagedDevicesCollectionRequest) Get(ctx context.Context) ([]VulnerableManagedDevice, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for VulnerableManagedDevice collection
+func (r *SecurityConfigurationTaskManagedDevicesCollectionRequest) Add(ctx context.Context, reqObj *VulnerableManagedDevice) (resObj *VulnerableManagedDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}

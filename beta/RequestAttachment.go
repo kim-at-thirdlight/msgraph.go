@@ -57,6 +57,14 @@ func (b *MessageAttachmentsCollectionRequestBuilder) CreateUploadSession(reqObj 
 }
 
 // CreateUploadSession action undocumented
+func (b *NoteAttachmentsCollectionRequestBuilder) CreateUploadSession(reqObj *AttachmentCollectionCreateUploadSessionRequestParameter) *AttachmentCollectionCreateUploadSessionRequestBuilder {
+	bb := &AttachmentCollectionCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/createUploadSession"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// CreateUploadSession action undocumented
 func (b *OutlookTaskAttachmentsCollectionRequestBuilder) CreateUploadSession(reqObj *AttachmentCollectionCreateUploadSessionRequestParameter) *AttachmentCollectionCreateUploadSessionRequestBuilder {
 	bb := &AttachmentCollectionCreateUploadSessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/createUploadSession"

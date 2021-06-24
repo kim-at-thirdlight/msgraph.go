@@ -76,6 +76,8 @@ const (
 	RoutingTypeVLookup RoutingType = "lookup"
 	// RoutingTypeVSelfFork undocumented
 	RoutingTypeVSelfFork RoutingType = "selfFork"
+	// RoutingTypeVUnknownFutureValue undocumented
+	RoutingTypeVUnknownFutureValue RoutingType = "unknownFutureValue"
 )
 
 var (
@@ -85,10 +87,13 @@ var (
 	RoutingTypePLookup = &_RoutingTypePLookup
 	// RoutingTypePSelfFork is a pointer to RoutingTypeVSelfFork
 	RoutingTypePSelfFork = &_RoutingTypePSelfFork
+	// RoutingTypePUnknownFutureValue is a pointer to RoutingTypeVUnknownFutureValue
+	RoutingTypePUnknownFutureValue = &_RoutingTypePUnknownFutureValue
 )
 
 var (
-	_RoutingTypePForwarded = RoutingTypeVForwarded
-	_RoutingTypePLookup    = RoutingTypeVLookup
-	_RoutingTypePSelfFork  = RoutingTypeVSelfFork
+	_RoutingTypePForwarded          = RoutingTypeVForwarded
+	_RoutingTypePLookup             = RoutingTypeVLookup
+	_RoutingTypePSelfFork           = RoutingTypeVSelfFork
+	_RoutingTypePUnknownFutureValue = RoutingTypeVUnknownFutureValue
 )

@@ -2,10 +2,24 @@
 
 package msgraph
 
+import "time"
+
 // MembershipRuleEvaluationDetails undocumented
 type MembershipRuleEvaluationDetails struct {
 	// Object is the base model of MembershipRuleEvaluationDetails
 	Object
 	// MembershipRuleEvaluationDetails undocumented
 	MembershipRuleEvaluationDetails *ExpressionEvaluationDetails `json:"membershipRuleEvaluationDetails,omitempty"`
+}
+
+// MembershipRuleProcessingStatus undocumented
+type MembershipRuleProcessingStatus struct {
+	// Object is the base model of MembershipRuleProcessingStatus
+	Object
+	// ErrorMessage undocumented
+	ErrorMessage *string `json:"errorMessage,omitempty"`
+	// LastMembershipUpdated undocumented
+	LastMembershipUpdated *time.Time `json:"lastMembershipUpdated,omitempty"`
+	// Status undocumented
+	Status *MembershipRuleProcessingStatusDetails `json:"status,omitempty"`
 }

@@ -145,6 +145,12 @@ const (
 	DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin DeviceEnrollmentType = "windowsBulkAzureDomainJoin"
 	// DeviceEnrollmentTypeVWindowsCoManagement undocumented
 	DeviceEnrollmentTypeVWindowsCoManagement DeviceEnrollmentType = "windowsCoManagement"
+	// DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth undocumented
+	DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth DeviceEnrollmentType = "windowsAzureADJoinUsingDeviceAuth"
+	// DeviceEnrollmentTypeVAppleUserEnrollment undocumented
+	DeviceEnrollmentTypeVAppleUserEnrollment DeviceEnrollmentType = "appleUserEnrollment"
+	// DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount undocumented
+	DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount DeviceEnrollmentType = "appleUserEnrollmentWithServiceAccount"
 )
 
 var (
@@ -168,19 +174,28 @@ var (
 	DeviceEnrollmentTypePWindowsBulkAzureDomainJoin = &_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin
 	// DeviceEnrollmentTypePWindowsCoManagement is a pointer to DeviceEnrollmentTypeVWindowsCoManagement
 	DeviceEnrollmentTypePWindowsCoManagement = &_DeviceEnrollmentTypePWindowsCoManagement
+	// DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth is a pointer to DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth
+	DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth = &_DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth
+	// DeviceEnrollmentTypePAppleUserEnrollment is a pointer to DeviceEnrollmentTypeVAppleUserEnrollment
+	DeviceEnrollmentTypePAppleUserEnrollment = &_DeviceEnrollmentTypePAppleUserEnrollment
+	// DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount is a pointer to DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
+	DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount = &_DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount
 )
 
 var (
-	_DeviceEnrollmentTypePUnknown                    = DeviceEnrollmentTypeVUnknown
-	_DeviceEnrollmentTypePUserEnrollment             = DeviceEnrollmentTypeVUserEnrollment
-	_DeviceEnrollmentTypePDeviceEnrollmentManager    = DeviceEnrollmentTypeVDeviceEnrollmentManager
-	_DeviceEnrollmentTypePAppleBulkWithUser          = DeviceEnrollmentTypeVAppleBulkWithUser
-	_DeviceEnrollmentTypePAppleBulkWithoutUser       = DeviceEnrollmentTypeVAppleBulkWithoutUser
-	_DeviceEnrollmentTypePWindowsAzureADJoin         = DeviceEnrollmentTypeVWindowsAzureADJoin
-	_DeviceEnrollmentTypePWindowsBulkUserless        = DeviceEnrollmentTypeVWindowsBulkUserless
-	_DeviceEnrollmentTypePWindowsAutoEnrollment      = DeviceEnrollmentTypeVWindowsAutoEnrollment
-	_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin = DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
-	_DeviceEnrollmentTypePWindowsCoManagement        = DeviceEnrollmentTypeVWindowsCoManagement
+	_DeviceEnrollmentTypePUnknown                               = DeviceEnrollmentTypeVUnknown
+	_DeviceEnrollmentTypePUserEnrollment                        = DeviceEnrollmentTypeVUserEnrollment
+	_DeviceEnrollmentTypePDeviceEnrollmentManager               = DeviceEnrollmentTypeVDeviceEnrollmentManager
+	_DeviceEnrollmentTypePAppleBulkWithUser                     = DeviceEnrollmentTypeVAppleBulkWithUser
+	_DeviceEnrollmentTypePAppleBulkWithoutUser                  = DeviceEnrollmentTypeVAppleBulkWithoutUser
+	_DeviceEnrollmentTypePWindowsAzureADJoin                    = DeviceEnrollmentTypeVWindowsAzureADJoin
+	_DeviceEnrollmentTypePWindowsBulkUserless                   = DeviceEnrollmentTypeVWindowsBulkUserless
+	_DeviceEnrollmentTypePWindowsAutoEnrollment                 = DeviceEnrollmentTypeVWindowsAutoEnrollment
+	_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin            = DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
+	_DeviceEnrollmentTypePWindowsCoManagement                   = DeviceEnrollmentTypeVWindowsCoManagement
+	_DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth     = DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth
+	_DeviceEnrollmentTypePAppleUserEnrollment                   = DeviceEnrollmentTypeVAppleUserEnrollment
+	_DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount = DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
 )
 
 // DeviceManagementExchangeAccessState undocumented

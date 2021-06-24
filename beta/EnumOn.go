@@ -6,8 +6,8 @@ package msgraph
 type OnPremisesPublishingType string
 
 const (
-	// OnPremisesPublishingTypeVAppProxy undocumented
-	OnPremisesPublishingTypeVAppProxy OnPremisesPublishingType = "appProxy"
+	// OnPremisesPublishingTypeVApplicationProxy undocumented
+	OnPremisesPublishingTypeVApplicationProxy OnPremisesPublishingType = "applicationProxy"
 	// OnPremisesPublishingTypeVExchangeOnline undocumented
 	OnPremisesPublishingTypeVExchangeOnline OnPremisesPublishingType = "exchangeOnline"
 	// OnPremisesPublishingTypeVAuthentication undocumented
@@ -23,8 +23,8 @@ const (
 )
 
 var (
-	// OnPremisesPublishingTypePAppProxy is a pointer to OnPremisesPublishingTypeVAppProxy
-	OnPremisesPublishingTypePAppProxy = &_OnPremisesPublishingTypePAppProxy
+	// OnPremisesPublishingTypePApplicationProxy is a pointer to OnPremisesPublishingTypeVApplicationProxy
+	OnPremisesPublishingTypePApplicationProxy = &_OnPremisesPublishingTypePApplicationProxy
 	// OnPremisesPublishingTypePExchangeOnline is a pointer to OnPremisesPublishingTypeVExchangeOnline
 	OnPremisesPublishingTypePExchangeOnline = &_OnPremisesPublishingTypePExchangeOnline
 	// OnPremisesPublishingTypePAuthentication is a pointer to OnPremisesPublishingTypeVAuthentication
@@ -40,7 +40,7 @@ var (
 )
 
 var (
-	_OnPremisesPublishingTypePAppProxy           = OnPremisesPublishingTypeVAppProxy
+	_OnPremisesPublishingTypePApplicationProxy   = OnPremisesPublishingTypeVApplicationProxy
 	_OnPremisesPublishingTypePExchangeOnline     = OnPremisesPublishingTypeVExchangeOnline
 	_OnPremisesPublishingTypePAuthentication     = OnPremisesPublishingTypeVAuthentication
 	_OnPremisesPublishingTypePProvisioning       = OnPremisesPublishingTypeVProvisioning

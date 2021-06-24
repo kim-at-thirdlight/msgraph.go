@@ -95,6 +95,10 @@ const (
 	WindowsAutopilotDeploymentStateVFailure WindowsAutopilotDeploymentState = "failure"
 	// WindowsAutopilotDeploymentStateVSuccessWithTimeout undocumented
 	WindowsAutopilotDeploymentStateVSuccessWithTimeout WindowsAutopilotDeploymentState = "successWithTimeout"
+	// WindowsAutopilotDeploymentStateVNotAttempted undocumented
+	WindowsAutopilotDeploymentStateVNotAttempted WindowsAutopilotDeploymentState = "notAttempted"
+	// WindowsAutopilotDeploymentStateVDisabled undocumented
+	WindowsAutopilotDeploymentStateVDisabled WindowsAutopilotDeploymentState = "disabled"
 )
 
 var (
@@ -108,6 +112,10 @@ var (
 	WindowsAutopilotDeploymentStatePFailure = &_WindowsAutopilotDeploymentStatePFailure
 	// WindowsAutopilotDeploymentStatePSuccessWithTimeout is a pointer to WindowsAutopilotDeploymentStateVSuccessWithTimeout
 	WindowsAutopilotDeploymentStatePSuccessWithTimeout = &_WindowsAutopilotDeploymentStatePSuccessWithTimeout
+	// WindowsAutopilotDeploymentStatePNotAttempted is a pointer to WindowsAutopilotDeploymentStateVNotAttempted
+	WindowsAutopilotDeploymentStatePNotAttempted = &_WindowsAutopilotDeploymentStatePNotAttempted
+	// WindowsAutopilotDeploymentStatePDisabled is a pointer to WindowsAutopilotDeploymentStateVDisabled
+	WindowsAutopilotDeploymentStatePDisabled = &_WindowsAutopilotDeploymentStatePDisabled
 )
 
 var (
@@ -116,6 +124,8 @@ var (
 	_WindowsAutopilotDeploymentStatePInProgress         = WindowsAutopilotDeploymentStateVInProgress
 	_WindowsAutopilotDeploymentStatePFailure            = WindowsAutopilotDeploymentStateVFailure
 	_WindowsAutopilotDeploymentStatePSuccessWithTimeout = WindowsAutopilotDeploymentStateVSuccessWithTimeout
+	_WindowsAutopilotDeploymentStatePNotAttempted       = WindowsAutopilotDeploymentStateVNotAttempted
+	_WindowsAutopilotDeploymentStatePDisabled           = WindowsAutopilotDeploymentStateVDisabled
 )
 
 // WindowsAutopilotDeviceType undocumented
@@ -126,6 +136,8 @@ const (
 	WindowsAutopilotDeviceTypeVWindowsPc WindowsAutopilotDeviceType = "windowsPc"
 	// WindowsAutopilotDeviceTypeVSurfaceHub2 undocumented
 	WindowsAutopilotDeviceTypeVSurfaceHub2 WindowsAutopilotDeviceType = "surfaceHub2"
+	// WindowsAutopilotDeviceTypeVHoloLens undocumented
+	WindowsAutopilotDeviceTypeVHoloLens WindowsAutopilotDeviceType = "holoLens"
 )
 
 var (
@@ -133,11 +145,14 @@ var (
 	WindowsAutopilotDeviceTypePWindowsPc = &_WindowsAutopilotDeviceTypePWindowsPc
 	// WindowsAutopilotDeviceTypePSurfaceHub2 is a pointer to WindowsAutopilotDeviceTypeVSurfaceHub2
 	WindowsAutopilotDeviceTypePSurfaceHub2 = &_WindowsAutopilotDeviceTypePSurfaceHub2
+	// WindowsAutopilotDeviceTypePHoloLens is a pointer to WindowsAutopilotDeviceTypeVHoloLens
+	WindowsAutopilotDeviceTypePHoloLens = &_WindowsAutopilotDeviceTypePHoloLens
 )
 
 var (
 	_WindowsAutopilotDeviceTypePWindowsPc   = WindowsAutopilotDeviceTypeVWindowsPc
 	_WindowsAutopilotDeviceTypePSurfaceHub2 = WindowsAutopilotDeviceTypeVSurfaceHub2
+	_WindowsAutopilotDeviceTypePHoloLens    = WindowsAutopilotDeviceTypeVHoloLens
 )
 
 // WindowsAutopilotEnrollmentType undocumented
@@ -205,6 +220,12 @@ const (
 	WindowsAutopilotProfileAssignmentDetailedStatusVNone WindowsAutopilotProfileAssignmentDetailedStatus = "none"
 	// WindowsAutopilotProfileAssignmentDetailedStatusVHardwareRequirementsNotMet undocumented
 	WindowsAutopilotProfileAssignmentDetailedStatusVHardwareRequirementsNotMet WindowsAutopilotProfileAssignmentDetailedStatus = "hardwareRequirementsNotMet"
+	// WindowsAutopilotProfileAssignmentDetailedStatusVSurfaceHubProfileNotSupported undocumented
+	WindowsAutopilotProfileAssignmentDetailedStatusVSurfaceHubProfileNotSupported WindowsAutopilotProfileAssignmentDetailedStatus = "surfaceHubProfileNotSupported"
+	// WindowsAutopilotProfileAssignmentDetailedStatusVHoloLensProfileNotSupported undocumented
+	WindowsAutopilotProfileAssignmentDetailedStatusVHoloLensProfileNotSupported WindowsAutopilotProfileAssignmentDetailedStatus = "holoLensProfileNotSupported"
+	// WindowsAutopilotProfileAssignmentDetailedStatusVWindowsPcProfileNotSupported undocumented
+	WindowsAutopilotProfileAssignmentDetailedStatusVWindowsPcProfileNotSupported WindowsAutopilotProfileAssignmentDetailedStatus = "windowsPcProfileNotSupported"
 )
 
 var (
@@ -212,11 +233,20 @@ var (
 	WindowsAutopilotProfileAssignmentDetailedStatusPNone = &_WindowsAutopilotProfileAssignmentDetailedStatusPNone
 	// WindowsAutopilotProfileAssignmentDetailedStatusPHardwareRequirementsNotMet is a pointer to WindowsAutopilotProfileAssignmentDetailedStatusVHardwareRequirementsNotMet
 	WindowsAutopilotProfileAssignmentDetailedStatusPHardwareRequirementsNotMet = &_WindowsAutopilotProfileAssignmentDetailedStatusPHardwareRequirementsNotMet
+	// WindowsAutopilotProfileAssignmentDetailedStatusPSurfaceHubProfileNotSupported is a pointer to WindowsAutopilotProfileAssignmentDetailedStatusVSurfaceHubProfileNotSupported
+	WindowsAutopilotProfileAssignmentDetailedStatusPSurfaceHubProfileNotSupported = &_WindowsAutopilotProfileAssignmentDetailedStatusPSurfaceHubProfileNotSupported
+	// WindowsAutopilotProfileAssignmentDetailedStatusPHoloLensProfileNotSupported is a pointer to WindowsAutopilotProfileAssignmentDetailedStatusVHoloLensProfileNotSupported
+	WindowsAutopilotProfileAssignmentDetailedStatusPHoloLensProfileNotSupported = &_WindowsAutopilotProfileAssignmentDetailedStatusPHoloLensProfileNotSupported
+	// WindowsAutopilotProfileAssignmentDetailedStatusPWindowsPcProfileNotSupported is a pointer to WindowsAutopilotProfileAssignmentDetailedStatusVWindowsPcProfileNotSupported
+	WindowsAutopilotProfileAssignmentDetailedStatusPWindowsPcProfileNotSupported = &_WindowsAutopilotProfileAssignmentDetailedStatusPWindowsPcProfileNotSupported
 )
 
 var (
-	_WindowsAutopilotProfileAssignmentDetailedStatusPNone                       = WindowsAutopilotProfileAssignmentDetailedStatusVNone
-	_WindowsAutopilotProfileAssignmentDetailedStatusPHardwareRequirementsNotMet = WindowsAutopilotProfileAssignmentDetailedStatusVHardwareRequirementsNotMet
+	_WindowsAutopilotProfileAssignmentDetailedStatusPNone                          = WindowsAutopilotProfileAssignmentDetailedStatusVNone
+	_WindowsAutopilotProfileAssignmentDetailedStatusPHardwareRequirementsNotMet    = WindowsAutopilotProfileAssignmentDetailedStatusVHardwareRequirementsNotMet
+	_WindowsAutopilotProfileAssignmentDetailedStatusPSurfaceHubProfileNotSupported = WindowsAutopilotProfileAssignmentDetailedStatusVSurfaceHubProfileNotSupported
+	_WindowsAutopilotProfileAssignmentDetailedStatusPHoloLensProfileNotSupported   = WindowsAutopilotProfileAssignmentDetailedStatusVHoloLensProfileNotSupported
+	_WindowsAutopilotProfileAssignmentDetailedStatusPWindowsPcProfileNotSupported  = WindowsAutopilotProfileAssignmentDetailedStatusVWindowsPcProfileNotSupported
 )
 
 // WindowsAutopilotProfileAssignmentStatus undocumented
@@ -333,6 +363,148 @@ var (
 	_WindowsDefenderApplicationControlSupplementalPolicyStatusesPTokenError           = WindowsDefenderApplicationControlSupplementalPolicyStatusesVTokenError
 	_WindowsDefenderApplicationControlSupplementalPolicyStatusesPNotAuthorizedByToken = WindowsDefenderApplicationControlSupplementalPolicyStatusesVNotAuthorizedByToken
 	_WindowsDefenderApplicationControlSupplementalPolicyStatusesPPolicyNotFound       = WindowsDefenderApplicationControlSupplementalPolicyStatusesVPolicyNotFound
+)
+
+// WindowsDefenderProductStatus undocumented
+type WindowsDefenderProductStatus string
+
+const (
+	// WindowsDefenderProductStatusVNoStatus undocumented
+	WindowsDefenderProductStatusVNoStatus WindowsDefenderProductStatus = "noStatus"
+	// WindowsDefenderProductStatusVServiceNotRunning undocumented
+	WindowsDefenderProductStatusVServiceNotRunning WindowsDefenderProductStatus = "serviceNotRunning"
+	// WindowsDefenderProductStatusVServiceStartedWithoutMalwareProtection undocumented
+	WindowsDefenderProductStatusVServiceStartedWithoutMalwareProtection WindowsDefenderProductStatus = "serviceStartedWithoutMalwareProtection"
+	// WindowsDefenderProductStatusVPendingFullScanDueToThreatAction undocumented
+	WindowsDefenderProductStatusVPendingFullScanDueToThreatAction WindowsDefenderProductStatus = "pendingFullScanDueToThreatAction"
+	// WindowsDefenderProductStatusVPendingRebootDueToThreatAction undocumented
+	WindowsDefenderProductStatusVPendingRebootDueToThreatAction WindowsDefenderProductStatus = "pendingRebootDueToThreatAction"
+	// WindowsDefenderProductStatusVPendingManualStepsDueToThreatAction undocumented
+	WindowsDefenderProductStatusVPendingManualStepsDueToThreatAction WindowsDefenderProductStatus = "pendingManualStepsDueToThreatAction"
+	// WindowsDefenderProductStatusVAvSignaturesOutOfDate undocumented
+	WindowsDefenderProductStatusVAvSignaturesOutOfDate WindowsDefenderProductStatus = "avSignaturesOutOfDate"
+	// WindowsDefenderProductStatusVAsSignaturesOutOfDate undocumented
+	WindowsDefenderProductStatusVAsSignaturesOutOfDate WindowsDefenderProductStatus = "asSignaturesOutOfDate"
+	// WindowsDefenderProductStatusVNoQuickScanHappenedForSpecifiedPeriod undocumented
+	WindowsDefenderProductStatusVNoQuickScanHappenedForSpecifiedPeriod WindowsDefenderProductStatus = "noQuickScanHappenedForSpecifiedPeriod"
+	// WindowsDefenderProductStatusVNoFullScanHappenedForSpecifiedPeriod undocumented
+	WindowsDefenderProductStatusVNoFullScanHappenedForSpecifiedPeriod WindowsDefenderProductStatus = "noFullScanHappenedForSpecifiedPeriod"
+	// WindowsDefenderProductStatusVSystemInitiatedScanInProgress undocumented
+	WindowsDefenderProductStatusVSystemInitiatedScanInProgress WindowsDefenderProductStatus = "systemInitiatedScanInProgress"
+	// WindowsDefenderProductStatusVSystemInitiatedCleanInProgress undocumented
+	WindowsDefenderProductStatusVSystemInitiatedCleanInProgress WindowsDefenderProductStatus = "systemInitiatedCleanInProgress"
+	// WindowsDefenderProductStatusVSamplesPendingSubmission undocumented
+	WindowsDefenderProductStatusVSamplesPendingSubmission WindowsDefenderProductStatus = "samplesPendingSubmission"
+	// WindowsDefenderProductStatusVProductRunningInEvaluationMode undocumented
+	WindowsDefenderProductStatusVProductRunningInEvaluationMode WindowsDefenderProductStatus = "productRunningInEvaluationMode"
+	// WindowsDefenderProductStatusVProductRunningInNonGenuineMode undocumented
+	WindowsDefenderProductStatusVProductRunningInNonGenuineMode WindowsDefenderProductStatus = "productRunningInNonGenuineMode"
+	// WindowsDefenderProductStatusVProductExpired undocumented
+	WindowsDefenderProductStatusVProductExpired WindowsDefenderProductStatus = "productExpired"
+	// WindowsDefenderProductStatusVOfflineScanRequired undocumented
+	WindowsDefenderProductStatusVOfflineScanRequired WindowsDefenderProductStatus = "offlineScanRequired"
+	// WindowsDefenderProductStatusVServiceShutdownAsPartOfSystemShutdown undocumented
+	WindowsDefenderProductStatusVServiceShutdownAsPartOfSystemShutdown WindowsDefenderProductStatus = "serviceShutdownAsPartOfSystemShutdown"
+	// WindowsDefenderProductStatusVThreatRemediationFailedCritically undocumented
+	WindowsDefenderProductStatusVThreatRemediationFailedCritically WindowsDefenderProductStatus = "threatRemediationFailedCritically"
+	// WindowsDefenderProductStatusVThreatRemediationFailedNonCritically undocumented
+	WindowsDefenderProductStatusVThreatRemediationFailedNonCritically WindowsDefenderProductStatus = "threatRemediationFailedNonCritically"
+	// WindowsDefenderProductStatusVNoStatusFlagsSet undocumented
+	WindowsDefenderProductStatusVNoStatusFlagsSet WindowsDefenderProductStatus = "noStatusFlagsSet"
+	// WindowsDefenderProductStatusVPlatformOutOfDate undocumented
+	WindowsDefenderProductStatusVPlatformOutOfDate WindowsDefenderProductStatus = "platformOutOfDate"
+	// WindowsDefenderProductStatusVPlatformUpdateInProgress undocumented
+	WindowsDefenderProductStatusVPlatformUpdateInProgress WindowsDefenderProductStatus = "platformUpdateInProgress"
+	// WindowsDefenderProductStatusVPlatformAboutToBeOutdated undocumented
+	WindowsDefenderProductStatusVPlatformAboutToBeOutdated WindowsDefenderProductStatus = "platformAboutToBeOutdated"
+	// WindowsDefenderProductStatusVSignatureOrPlatformEndOfLifeIsPastOrIsImpending undocumented
+	WindowsDefenderProductStatusVSignatureOrPlatformEndOfLifeIsPastOrIsImpending WindowsDefenderProductStatus = "signatureOrPlatformEndOfLifeIsPastOrIsImpending"
+	// WindowsDefenderProductStatusVWindowsSModeSignaturesInUseOnNonWin10SInstall undocumented
+	WindowsDefenderProductStatusVWindowsSModeSignaturesInUseOnNonWin10SInstall WindowsDefenderProductStatus = "windowsSModeSignaturesInUseOnNonWin10SInstall"
+)
+
+var (
+	// WindowsDefenderProductStatusPNoStatus is a pointer to WindowsDefenderProductStatusVNoStatus
+	WindowsDefenderProductStatusPNoStatus = &_WindowsDefenderProductStatusPNoStatus
+	// WindowsDefenderProductStatusPServiceNotRunning is a pointer to WindowsDefenderProductStatusVServiceNotRunning
+	WindowsDefenderProductStatusPServiceNotRunning = &_WindowsDefenderProductStatusPServiceNotRunning
+	// WindowsDefenderProductStatusPServiceStartedWithoutMalwareProtection is a pointer to WindowsDefenderProductStatusVServiceStartedWithoutMalwareProtection
+	WindowsDefenderProductStatusPServiceStartedWithoutMalwareProtection = &_WindowsDefenderProductStatusPServiceStartedWithoutMalwareProtection
+	// WindowsDefenderProductStatusPPendingFullScanDueToThreatAction is a pointer to WindowsDefenderProductStatusVPendingFullScanDueToThreatAction
+	WindowsDefenderProductStatusPPendingFullScanDueToThreatAction = &_WindowsDefenderProductStatusPPendingFullScanDueToThreatAction
+	// WindowsDefenderProductStatusPPendingRebootDueToThreatAction is a pointer to WindowsDefenderProductStatusVPendingRebootDueToThreatAction
+	WindowsDefenderProductStatusPPendingRebootDueToThreatAction = &_WindowsDefenderProductStatusPPendingRebootDueToThreatAction
+	// WindowsDefenderProductStatusPPendingManualStepsDueToThreatAction is a pointer to WindowsDefenderProductStatusVPendingManualStepsDueToThreatAction
+	WindowsDefenderProductStatusPPendingManualStepsDueToThreatAction = &_WindowsDefenderProductStatusPPendingManualStepsDueToThreatAction
+	// WindowsDefenderProductStatusPAvSignaturesOutOfDate is a pointer to WindowsDefenderProductStatusVAvSignaturesOutOfDate
+	WindowsDefenderProductStatusPAvSignaturesOutOfDate = &_WindowsDefenderProductStatusPAvSignaturesOutOfDate
+	// WindowsDefenderProductStatusPAsSignaturesOutOfDate is a pointer to WindowsDefenderProductStatusVAsSignaturesOutOfDate
+	WindowsDefenderProductStatusPAsSignaturesOutOfDate = &_WindowsDefenderProductStatusPAsSignaturesOutOfDate
+	// WindowsDefenderProductStatusPNoQuickScanHappenedForSpecifiedPeriod is a pointer to WindowsDefenderProductStatusVNoQuickScanHappenedForSpecifiedPeriod
+	WindowsDefenderProductStatusPNoQuickScanHappenedForSpecifiedPeriod = &_WindowsDefenderProductStatusPNoQuickScanHappenedForSpecifiedPeriod
+	// WindowsDefenderProductStatusPNoFullScanHappenedForSpecifiedPeriod is a pointer to WindowsDefenderProductStatusVNoFullScanHappenedForSpecifiedPeriod
+	WindowsDefenderProductStatusPNoFullScanHappenedForSpecifiedPeriod = &_WindowsDefenderProductStatusPNoFullScanHappenedForSpecifiedPeriod
+	// WindowsDefenderProductStatusPSystemInitiatedScanInProgress is a pointer to WindowsDefenderProductStatusVSystemInitiatedScanInProgress
+	WindowsDefenderProductStatusPSystemInitiatedScanInProgress = &_WindowsDefenderProductStatusPSystemInitiatedScanInProgress
+	// WindowsDefenderProductStatusPSystemInitiatedCleanInProgress is a pointer to WindowsDefenderProductStatusVSystemInitiatedCleanInProgress
+	WindowsDefenderProductStatusPSystemInitiatedCleanInProgress = &_WindowsDefenderProductStatusPSystemInitiatedCleanInProgress
+	// WindowsDefenderProductStatusPSamplesPendingSubmission is a pointer to WindowsDefenderProductStatusVSamplesPendingSubmission
+	WindowsDefenderProductStatusPSamplesPendingSubmission = &_WindowsDefenderProductStatusPSamplesPendingSubmission
+	// WindowsDefenderProductStatusPProductRunningInEvaluationMode is a pointer to WindowsDefenderProductStatusVProductRunningInEvaluationMode
+	WindowsDefenderProductStatusPProductRunningInEvaluationMode = &_WindowsDefenderProductStatusPProductRunningInEvaluationMode
+	// WindowsDefenderProductStatusPProductRunningInNonGenuineMode is a pointer to WindowsDefenderProductStatusVProductRunningInNonGenuineMode
+	WindowsDefenderProductStatusPProductRunningInNonGenuineMode = &_WindowsDefenderProductStatusPProductRunningInNonGenuineMode
+	// WindowsDefenderProductStatusPProductExpired is a pointer to WindowsDefenderProductStatusVProductExpired
+	WindowsDefenderProductStatusPProductExpired = &_WindowsDefenderProductStatusPProductExpired
+	// WindowsDefenderProductStatusPOfflineScanRequired is a pointer to WindowsDefenderProductStatusVOfflineScanRequired
+	WindowsDefenderProductStatusPOfflineScanRequired = &_WindowsDefenderProductStatusPOfflineScanRequired
+	// WindowsDefenderProductStatusPServiceShutdownAsPartOfSystemShutdown is a pointer to WindowsDefenderProductStatusVServiceShutdownAsPartOfSystemShutdown
+	WindowsDefenderProductStatusPServiceShutdownAsPartOfSystemShutdown = &_WindowsDefenderProductStatusPServiceShutdownAsPartOfSystemShutdown
+	// WindowsDefenderProductStatusPThreatRemediationFailedCritically is a pointer to WindowsDefenderProductStatusVThreatRemediationFailedCritically
+	WindowsDefenderProductStatusPThreatRemediationFailedCritically = &_WindowsDefenderProductStatusPThreatRemediationFailedCritically
+	// WindowsDefenderProductStatusPThreatRemediationFailedNonCritically is a pointer to WindowsDefenderProductStatusVThreatRemediationFailedNonCritically
+	WindowsDefenderProductStatusPThreatRemediationFailedNonCritically = &_WindowsDefenderProductStatusPThreatRemediationFailedNonCritically
+	// WindowsDefenderProductStatusPNoStatusFlagsSet is a pointer to WindowsDefenderProductStatusVNoStatusFlagsSet
+	WindowsDefenderProductStatusPNoStatusFlagsSet = &_WindowsDefenderProductStatusPNoStatusFlagsSet
+	// WindowsDefenderProductStatusPPlatformOutOfDate is a pointer to WindowsDefenderProductStatusVPlatformOutOfDate
+	WindowsDefenderProductStatusPPlatformOutOfDate = &_WindowsDefenderProductStatusPPlatformOutOfDate
+	// WindowsDefenderProductStatusPPlatformUpdateInProgress is a pointer to WindowsDefenderProductStatusVPlatformUpdateInProgress
+	WindowsDefenderProductStatusPPlatformUpdateInProgress = &_WindowsDefenderProductStatusPPlatformUpdateInProgress
+	// WindowsDefenderProductStatusPPlatformAboutToBeOutdated is a pointer to WindowsDefenderProductStatusVPlatformAboutToBeOutdated
+	WindowsDefenderProductStatusPPlatformAboutToBeOutdated = &_WindowsDefenderProductStatusPPlatformAboutToBeOutdated
+	// WindowsDefenderProductStatusPSignatureOrPlatformEndOfLifeIsPastOrIsImpending is a pointer to WindowsDefenderProductStatusVSignatureOrPlatformEndOfLifeIsPastOrIsImpending
+	WindowsDefenderProductStatusPSignatureOrPlatformEndOfLifeIsPastOrIsImpending = &_WindowsDefenderProductStatusPSignatureOrPlatformEndOfLifeIsPastOrIsImpending
+	// WindowsDefenderProductStatusPWindowsSModeSignaturesInUseOnNonWin10SInstall is a pointer to WindowsDefenderProductStatusVWindowsSModeSignaturesInUseOnNonWin10SInstall
+	WindowsDefenderProductStatusPWindowsSModeSignaturesInUseOnNonWin10SInstall = &_WindowsDefenderProductStatusPWindowsSModeSignaturesInUseOnNonWin10SInstall
+)
+
+var (
+	_WindowsDefenderProductStatusPNoStatus                                        = WindowsDefenderProductStatusVNoStatus
+	_WindowsDefenderProductStatusPServiceNotRunning                               = WindowsDefenderProductStatusVServiceNotRunning
+	_WindowsDefenderProductStatusPServiceStartedWithoutMalwareProtection          = WindowsDefenderProductStatusVServiceStartedWithoutMalwareProtection
+	_WindowsDefenderProductStatusPPendingFullScanDueToThreatAction                = WindowsDefenderProductStatusVPendingFullScanDueToThreatAction
+	_WindowsDefenderProductStatusPPendingRebootDueToThreatAction                  = WindowsDefenderProductStatusVPendingRebootDueToThreatAction
+	_WindowsDefenderProductStatusPPendingManualStepsDueToThreatAction             = WindowsDefenderProductStatusVPendingManualStepsDueToThreatAction
+	_WindowsDefenderProductStatusPAvSignaturesOutOfDate                           = WindowsDefenderProductStatusVAvSignaturesOutOfDate
+	_WindowsDefenderProductStatusPAsSignaturesOutOfDate                           = WindowsDefenderProductStatusVAsSignaturesOutOfDate
+	_WindowsDefenderProductStatusPNoQuickScanHappenedForSpecifiedPeriod           = WindowsDefenderProductStatusVNoQuickScanHappenedForSpecifiedPeriod
+	_WindowsDefenderProductStatusPNoFullScanHappenedForSpecifiedPeriod            = WindowsDefenderProductStatusVNoFullScanHappenedForSpecifiedPeriod
+	_WindowsDefenderProductStatusPSystemInitiatedScanInProgress                   = WindowsDefenderProductStatusVSystemInitiatedScanInProgress
+	_WindowsDefenderProductStatusPSystemInitiatedCleanInProgress                  = WindowsDefenderProductStatusVSystemInitiatedCleanInProgress
+	_WindowsDefenderProductStatusPSamplesPendingSubmission                        = WindowsDefenderProductStatusVSamplesPendingSubmission
+	_WindowsDefenderProductStatusPProductRunningInEvaluationMode                  = WindowsDefenderProductStatusVProductRunningInEvaluationMode
+	_WindowsDefenderProductStatusPProductRunningInNonGenuineMode                  = WindowsDefenderProductStatusVProductRunningInNonGenuineMode
+	_WindowsDefenderProductStatusPProductExpired                                  = WindowsDefenderProductStatusVProductExpired
+	_WindowsDefenderProductStatusPOfflineScanRequired                             = WindowsDefenderProductStatusVOfflineScanRequired
+	_WindowsDefenderProductStatusPServiceShutdownAsPartOfSystemShutdown           = WindowsDefenderProductStatusVServiceShutdownAsPartOfSystemShutdown
+	_WindowsDefenderProductStatusPThreatRemediationFailedCritically               = WindowsDefenderProductStatusVThreatRemediationFailedCritically
+	_WindowsDefenderProductStatusPThreatRemediationFailedNonCritically            = WindowsDefenderProductStatusVThreatRemediationFailedNonCritically
+	_WindowsDefenderProductStatusPNoStatusFlagsSet                                = WindowsDefenderProductStatusVNoStatusFlagsSet
+	_WindowsDefenderProductStatusPPlatformOutOfDate                               = WindowsDefenderProductStatusVPlatformOutOfDate
+	_WindowsDefenderProductStatusPPlatformUpdateInProgress                        = WindowsDefenderProductStatusVPlatformUpdateInProgress
+	_WindowsDefenderProductStatusPPlatformAboutToBeOutdated                       = WindowsDefenderProductStatusVPlatformAboutToBeOutdated
+	_WindowsDefenderProductStatusPSignatureOrPlatformEndOfLifeIsPastOrIsImpending = WindowsDefenderProductStatusVSignatureOrPlatformEndOfLifeIsPastOrIsImpending
+	_WindowsDefenderProductStatusPWindowsSModeSignaturesInUseOnNonWin10SInstall   = WindowsDefenderProductStatusVWindowsSModeSignaturesInUseOnNonWin10SInstall
 )
 
 // WindowsDefenderTamperProtectionOptions undocumented
@@ -510,6 +682,28 @@ var (
 	_WindowsDeviceUsageTypePShared     = WindowsDeviceUsageTypeVShared
 )
 
+// WindowsEdgeKioskType undocumented
+type WindowsEdgeKioskType string
+
+const (
+	// WindowsEdgeKioskTypeVPublicBrowsing undocumented
+	WindowsEdgeKioskTypeVPublicBrowsing WindowsEdgeKioskType = "publicBrowsing"
+	// WindowsEdgeKioskTypeVFullScreen undocumented
+	WindowsEdgeKioskTypeVFullScreen WindowsEdgeKioskType = "fullScreen"
+)
+
+var (
+	// WindowsEdgeKioskTypePPublicBrowsing is a pointer to WindowsEdgeKioskTypeVPublicBrowsing
+	WindowsEdgeKioskTypePPublicBrowsing = &_WindowsEdgeKioskTypePPublicBrowsing
+	// WindowsEdgeKioskTypePFullScreen is a pointer to WindowsEdgeKioskTypeVFullScreen
+	WindowsEdgeKioskTypePFullScreen = &_WindowsEdgeKioskTypePFullScreen
+)
+
+var (
+	_WindowsEdgeKioskTypePPublicBrowsing = WindowsEdgeKioskTypeVPublicBrowsing
+	_WindowsEdgeKioskTypePFullScreen     = WindowsEdgeKioskTypeVFullScreen
+)
+
 // WindowsFirewallRuleInterfaceTypes undocumented
 type WindowsFirewallRuleInterfaceTypes string
 
@@ -611,8 +805,8 @@ const (
 	WindowsHealthMonitoringScopeVHealthMonitoring WindowsHealthMonitoringScope = "healthMonitoring"
 	// WindowsHealthMonitoringScopeVBootPerformance undocumented
 	WindowsHealthMonitoringScopeVBootPerformance WindowsHealthMonitoringScope = "bootPerformance"
-	// WindowsHealthMonitoringScopeVUserExperienceAnalytics undocumented
-	WindowsHealthMonitoringScopeVUserExperienceAnalytics WindowsHealthMonitoringScope = "userExperienceAnalytics"
+	// WindowsHealthMonitoringScopeVWindowsUpdates undocumented
+	WindowsHealthMonitoringScopeVWindowsUpdates WindowsHealthMonitoringScope = "windowsUpdates"
 )
 
 var (
@@ -622,15 +816,15 @@ var (
 	WindowsHealthMonitoringScopePHealthMonitoring = &_WindowsHealthMonitoringScopePHealthMonitoring
 	// WindowsHealthMonitoringScopePBootPerformance is a pointer to WindowsHealthMonitoringScopeVBootPerformance
 	WindowsHealthMonitoringScopePBootPerformance = &_WindowsHealthMonitoringScopePBootPerformance
-	// WindowsHealthMonitoringScopePUserExperienceAnalytics is a pointer to WindowsHealthMonitoringScopeVUserExperienceAnalytics
-	WindowsHealthMonitoringScopePUserExperienceAnalytics = &_WindowsHealthMonitoringScopePUserExperienceAnalytics
+	// WindowsHealthMonitoringScopePWindowsUpdates is a pointer to WindowsHealthMonitoringScopeVWindowsUpdates
+	WindowsHealthMonitoringScopePWindowsUpdates = &_WindowsHealthMonitoringScopePWindowsUpdates
 )
 
 var (
-	_WindowsHealthMonitoringScopePUndefined               = WindowsHealthMonitoringScopeVUndefined
-	_WindowsHealthMonitoringScopePHealthMonitoring        = WindowsHealthMonitoringScopeVHealthMonitoring
-	_WindowsHealthMonitoringScopePBootPerformance         = WindowsHealthMonitoringScopeVBootPerformance
-	_WindowsHealthMonitoringScopePUserExperienceAnalytics = WindowsHealthMonitoringScopeVUserExperienceAnalytics
+	_WindowsHealthMonitoringScopePUndefined        = WindowsHealthMonitoringScopeVUndefined
+	_WindowsHealthMonitoringScopePHealthMonitoring = WindowsHealthMonitoringScopeVHealthMonitoring
+	_WindowsHealthMonitoringScopePBootPerformance  = WindowsHealthMonitoringScopeVBootPerformance
+	_WindowsHealthMonitoringScopePWindowsUpdates   = WindowsHealthMonitoringScopeVWindowsUpdates
 )
 
 // WindowsHelloForBusinessPinUsage undocumented
@@ -1368,6 +1562,33 @@ var (
 	_WindowsPrivacyDataCategoryPTasks               = WindowsPrivacyDataCategoryVTasks
 	_WindowsPrivacyDataCategoryPSyncWithDevices     = WindowsPrivacyDataCategoryVSyncWithDevices
 	_WindowsPrivacyDataCategoryPTrustedDevices      = WindowsPrivacyDataCategoryVTrustedDevices
+)
+
+// WindowsQualityUpdateClassification undocumented
+type WindowsQualityUpdateClassification string
+
+const (
+	// WindowsQualityUpdateClassificationVAll undocumented
+	WindowsQualityUpdateClassificationVAll WindowsQualityUpdateClassification = "all"
+	// WindowsQualityUpdateClassificationVSecurity undocumented
+	WindowsQualityUpdateClassificationVSecurity WindowsQualityUpdateClassification = "security"
+	// WindowsQualityUpdateClassificationVNonSecurity undocumented
+	WindowsQualityUpdateClassificationVNonSecurity WindowsQualityUpdateClassification = "nonSecurity"
+)
+
+var (
+	// WindowsQualityUpdateClassificationPAll is a pointer to WindowsQualityUpdateClassificationVAll
+	WindowsQualityUpdateClassificationPAll = &_WindowsQualityUpdateClassificationPAll
+	// WindowsQualityUpdateClassificationPSecurity is a pointer to WindowsQualityUpdateClassificationVSecurity
+	WindowsQualityUpdateClassificationPSecurity = &_WindowsQualityUpdateClassificationPSecurity
+	// WindowsQualityUpdateClassificationPNonSecurity is a pointer to WindowsQualityUpdateClassificationVNonSecurity
+	WindowsQualityUpdateClassificationPNonSecurity = &_WindowsQualityUpdateClassificationPNonSecurity
+)
+
+var (
+	_WindowsQualityUpdateClassificationPAll         = WindowsQualityUpdateClassificationVAll
+	_WindowsQualityUpdateClassificationPSecurity    = WindowsQualityUpdateClassificationVSecurity
+	_WindowsQualityUpdateClassificationPNonSecurity = WindowsQualityUpdateClassificationVNonSecurity
 )
 
 // WindowsSModeConfiguration undocumented

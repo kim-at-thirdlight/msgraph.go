@@ -43,6 +43,8 @@ const (
 	NetworkTypeVTrusted NetworkType = "trusted"
 	// NetworkTypeVUnknownFutureValue undocumented
 	NetworkTypeVUnknownFutureValue NetworkType = "unknownFutureValue"
+	// NetworkTypeVTrustedNamedLocation undocumented
+	NetworkTypeVTrustedNamedLocation NetworkType = "trustedNamedLocation"
 )
 
 var (
@@ -56,12 +58,15 @@ var (
 	NetworkTypePTrusted = &_NetworkTypePTrusted
 	// NetworkTypePUnknownFutureValue is a pointer to NetworkTypeVUnknownFutureValue
 	NetworkTypePUnknownFutureValue = &_NetworkTypePUnknownFutureValue
+	// NetworkTypePTrustedNamedLocation is a pointer to NetworkTypeVTrustedNamedLocation
+	NetworkTypePTrustedNamedLocation = &_NetworkTypePTrustedNamedLocation
 )
 
 var (
-	_NetworkTypePIntranet           = NetworkTypeVIntranet
-	_NetworkTypePExtranet           = NetworkTypeVExtranet
-	_NetworkTypePNamedNetwork       = NetworkTypeVNamedNetwork
-	_NetworkTypePTrusted            = NetworkTypeVTrusted
-	_NetworkTypePUnknownFutureValue = NetworkTypeVUnknownFutureValue
+	_NetworkTypePIntranet             = NetworkTypeVIntranet
+	_NetworkTypePExtranet             = NetworkTypeVExtranet
+	_NetworkTypePNamedNetwork         = NetworkTypeVNamedNetwork
+	_NetworkTypePTrusted              = NetworkTypeVTrusted
+	_NetworkTypePUnknownFutureValue   = NetworkTypeVUnknownFutureValue
+	_NetworkTypePTrustedNamedLocation = NetworkTypeVTrustedNamedLocation
 )

@@ -18,182 +18,204 @@ type EmailActivityStatistics struct {
 type EmailActivitySummary struct {
 	// Entity is the base model of EmailActivitySummary
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// Send undocumented
-	Send *int `json:"send,omitempty"`
-	// Receive undocumented
-	Receive *int `json:"receive,omitempty"`
 	// Read undocumented
 	Read *int `json:"read,omitempty"`
+	// Receive undocumented
+	Receive *int `json:"receive,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// Send undocumented
+	Send *int `json:"send,omitempty"`
 }
 
 // EmailActivityUserDetail undocumented
 type EmailActivityUserDetail struct {
 	// Entity is the base model of EmailActivityUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AssignedProducts undocumented
+	AssignedProducts []string `json:"assignedProducts,omitempty"`
+	// DeletedDate undocumented
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	// DeletedDate undocumented
-	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// LastActivityDate undocumented
 	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
-	// SendCount undocumented
-	SendCount *int `json:"sendCount,omitempty"`
-	// ReceiveCount undocumented
-	ReceiveCount *int `json:"receiveCount,omitempty"`
 	// ReadCount undocumented
 	ReadCount *int `json:"readCount,omitempty"`
-	// AssignedProducts undocumented
-	AssignedProducts []string `json:"assignedProducts,omitempty"`
+	// ReceiveCount undocumented
+	ReceiveCount *int `json:"receiveCount,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// SendCount undocumented
+	SendCount *int `json:"sendCount,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // EmailAddress undocumented
 type EmailAddress struct {
 	// Object is the base model of EmailAddress
 	Object
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
 	// Address undocumented
 	Address *string `json:"address,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 }
 
 // EmailAppUsageAppsUserCounts undocumented
 type EmailAppUsageAppsUserCounts struct {
 	// Entity is the base model of EmailAppUsageAppsUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// MailForMac undocumented
-	MailForMac *int `json:"mailForMac,omitempty"`
-	// OutlookForMac undocumented
-	OutlookForMac *int `json:"outlookForMac,omitempty"`
-	// OutlookForWindows undocumented
-	OutlookForWindows *int `json:"outlookForWindows,omitempty"`
-	// OutlookForMobile undocumented
-	OutlookForMobile *int `json:"outlookForMobile,omitempty"`
-	// OtherForMobile undocumented
-	OtherForMobile *int `json:"otherForMobile,omitempty"`
-	// OutlookForWeb undocumented
-	OutlookForWeb *int `json:"outlookForWeb,omitempty"`
-	// Pop3App undocumented
-	Pop3App *int `json:"pop3App,omitempty"`
 	// Imap4App undocumented
 	Imap4App *int `json:"imap4App,omitempty"`
-	// SMTPApp undocumented
-	SMTPApp *int `json:"smtpApp,omitempty"`
+	// MailForMac undocumented
+	MailForMac *int `json:"mailForMac,omitempty"`
+	// OtherForMobile undocumented
+	OtherForMobile *int `json:"otherForMobile,omitempty"`
+	// OutlookForMac undocumented
+	OutlookForMac *int `json:"outlookForMac,omitempty"`
+	// OutlookForMobile undocumented
+	OutlookForMobile *int `json:"outlookForMobile,omitempty"`
+	// OutlookForWeb undocumented
+	OutlookForWeb *int `json:"outlookForWeb,omitempty"`
+	// OutlookForWindows undocumented
+	OutlookForWindows *int `json:"outlookForWindows,omitempty"`
+	// Pop3App undocumented
+	Pop3App *int `json:"pop3App,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// SMTPApp undocumented
+	SMTPApp *int `json:"smtpApp,omitempty"`
 }
 
 // EmailAppUsageUserCounts undocumented
 type EmailAppUsageUserCounts struct {
 	// Entity is the base model of EmailAppUsageUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// MailForMac undocumented
-	MailForMac *int `json:"mailForMac,omitempty"`
-	// OutlookForMac undocumented
-	OutlookForMac *int `json:"outlookForMac,omitempty"`
-	// OutlookForWindows undocumented
-	OutlookForWindows *int `json:"outlookForWindows,omitempty"`
-	// OutlookForMobile undocumented
-	OutlookForMobile *int `json:"outlookForMobile,omitempty"`
-	// OtherForMobile undocumented
-	OtherForMobile *int `json:"otherForMobile,omitempty"`
-	// OutlookForWeb undocumented
-	OutlookForWeb *int `json:"outlookForWeb,omitempty"`
-	// Pop3App undocumented
-	Pop3App *int `json:"pop3App,omitempty"`
 	// Imap4App undocumented
 	Imap4App *int `json:"imap4App,omitempty"`
-	// SMTPApp undocumented
-	SMTPApp *int `json:"smtpApp,omitempty"`
+	// MailForMac undocumented
+	MailForMac *int `json:"mailForMac,omitempty"`
+	// OtherForMobile undocumented
+	OtherForMobile *int `json:"otherForMobile,omitempty"`
+	// OutlookForMac undocumented
+	OutlookForMac *int `json:"outlookForMac,omitempty"`
+	// OutlookForMobile undocumented
+	OutlookForMobile *int `json:"outlookForMobile,omitempty"`
+	// OutlookForWeb undocumented
+	OutlookForWeb *int `json:"outlookForWeb,omitempty"`
+	// OutlookForWindows undocumented
+	OutlookForWindows *int `json:"outlookForWindows,omitempty"`
+	// Pop3App undocumented
+	Pop3App *int `json:"pop3App,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// SMTPApp undocumented
+	SMTPApp *int `json:"smtpApp,omitempty"`
 }
 
 // EmailAppUsageUserDetail undocumented
 type EmailAppUsageUserDetail struct {
 	// Entity is the base model of EmailAppUsageUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// IsDeleted undocumented
-	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
 	DeletedDate *Date `json:"deletedDate,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Imap4App undocumented
+	Imap4App []string `json:"imap4App,omitempty"`
+	// IsDeleted undocumented
+	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// LastActivityDate undocumented
 	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// MailForMac undocumented
 	MailForMac []string `json:"mailForMac,omitempty"`
-	// OutlookForMac undocumented
-	OutlookForMac []string `json:"outlookForMac,omitempty"`
-	// OutlookForWindows undocumented
-	OutlookForWindows []string `json:"outlookForWindows,omitempty"`
-	// OutlookForMobile undocumented
-	OutlookForMobile []string `json:"outlookForMobile,omitempty"`
 	// OtherForMobile undocumented
 	OtherForMobile []string `json:"otherForMobile,omitempty"`
+	// OutlookForMac undocumented
+	OutlookForMac []string `json:"outlookForMac,omitempty"`
+	// OutlookForMobile undocumented
+	OutlookForMobile []string `json:"outlookForMobile,omitempty"`
 	// OutlookForWeb undocumented
 	OutlookForWeb []string `json:"outlookForWeb,omitempty"`
+	// OutlookForWindows undocumented
+	OutlookForWindows []string `json:"outlookForWindows,omitempty"`
 	// Pop3App undocumented
 	Pop3App []string `json:"pop3App,omitempty"`
-	// Imap4App undocumented
-	Imap4App []string `json:"imap4App,omitempty"`
-	// SMTPApp undocumented
-	SMTPApp []string `json:"smtpApp,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// SMTPApp undocumented
+	SMTPApp []string `json:"smtpApp,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // EmailAppUsageVersionsUserCounts undocumented
 type EmailAppUsageVersionsUserCounts struct {
 	// Entity is the base model of EmailAppUsageVersionsUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// Outlook2016 undocumented
-	Outlook2016 *int `json:"outlook2016,omitempty"`
-	// Outlook2013 undocumented
-	Outlook2013 *int `json:"outlook2013,omitempty"`
-	// Outlook2010 undocumented
-	Outlook2010 *int `json:"outlook2010,omitempty"`
 	// Outlook2007 undocumented
 	Outlook2007 *int `json:"outlook2007,omitempty"`
-	// Undetermined undocumented
-	Undetermined *int `json:"undetermined,omitempty"`
+	// Outlook2010 undocumented
+	Outlook2010 *int `json:"outlook2010,omitempty"`
+	// Outlook2013 undocumented
+	Outlook2013 *int `json:"outlook2013,omitempty"`
+	// Outlook2016 undocumented
+	Outlook2016 *int `json:"outlook2016,omitempty"`
+	// Outlook2019 undocumented
+	Outlook2019 *int `json:"outlook2019,omitempty"`
+	// OutlookM365 undocumented
+	OutlookM365 *int `json:"outlookM365,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// Undetermined undocumented
+	Undetermined *int `json:"undetermined,omitempty"`
+}
+
+// EmailAuthenticationMethod undocumented
+type EmailAuthenticationMethod struct {
+	// AuthenticationMethod is the base model of EmailAuthenticationMethod
+	AuthenticationMethod
+	// EmailAddress undocumented
+	EmailAddress *string `json:"emailAddress,omitempty"`
+}
+
+// EmailAuthenticationMethodConfiguration undocumented
+type EmailAuthenticationMethodConfiguration struct {
+	// AuthenticationMethodConfiguration is the base model of EmailAuthenticationMethodConfiguration
+	AuthenticationMethodConfiguration
+	// AllowExternalIDToUseEmailOtp undocumented
+	AllowExternalIDToUseEmailOtp *ExternalEmailOtpState `json:"allowExternalIdToUseEmailOtp,omitempty"`
+	// IncludeTargets undocumented
+	IncludeTargets []AuthenticationMethodTarget `json:"includeTargets,omitempty"`
 }
 
 // EmailFileAssessmentRequestObject undocumented
 type EmailFileAssessmentRequestObject struct {
-	// ThreatAssessmentRequestObject is the base model of EmailFileAssessmentRequestObject
-	ThreatAssessmentRequestObject
-	// RecipientEmail undocumented
-	RecipientEmail *string `json:"recipientEmail,omitempty"`
-	// DestinationRoutingReason undocumented
-	DestinationRoutingReason *MailDestinationRoutingReason `json:"destinationRoutingReason,omitempty"`
+	// ThreatAssessmentRequest is the base model of EmailFileAssessmentRequestObject
+	ThreatAssessmentRequest
 	// ContentData undocumented
 	ContentData *string `json:"contentData,omitempty"`
+	// DestinationRoutingReason undocumented
+	DestinationRoutingReason *MailDestinationRoutingReason `json:"destinationRoutingReason,omitempty"`
+	// RecipientEmail undocumented
+	RecipientEmail *string `json:"recipientEmail,omitempty"`
 }

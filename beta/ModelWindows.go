@@ -4,6 +4,14 @@ package msgraph
 
 import "time"
 
+// WindowsAppIdentifier The identifier for a Windows app.
+type WindowsAppIdentifier struct {
+	// MobileAppIdentifier is the base model of WindowsAppIdentifier
+	MobileAppIdentifier
+	// WindowsAppID The identifier for an app, as specified in the app store.
+	WindowsAppID *string `json:"windowsAppId,omitempty"`
+}
+
 // WindowsAppX Contains properties and inherited properties for Windows AppX Line Of Business apps.
 type WindowsAppX struct {
 	// MobileLobApp is the base model of WindowsAppX
@@ -16,15 +24,15 @@ type WindowsAppX struct {
 	IdentityPublisherHash *string `json:"identityPublisherHash,omitempty"`
 	// IdentityResourceIdentifier The Identity Resource Identifier.
 	IdentityResourceIdentifier *string `json:"identityResourceIdentifier,omitempty"`
+	// IdentityVersion The identity version.
+	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// IsBundle Whether or not the app is a bundle.
 	IsBundle *bool `json:"isBundle,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *WindowsMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
-	// IdentityVersion The identity version.
-	IdentityVersion *string `json:"identityVersion,omitempty"`
 }
 
-// WindowsAppXAppAssignmentSettings undocumented
+// WindowsAppXAppAssignmentSettings Contains properties used when assigning a Windows AppX mobile app to a group.
 type WindowsAppXAppAssignmentSettings struct {
 	// MobileAppAssignmentSettings is the base model of WindowsAppXAppAssignmentSettings
 	MobileAppAssignmentSettings
@@ -36,46 +44,46 @@ type WindowsAppXAppAssignmentSettings struct {
 type WindowsAssignedAccessProfile struct {
 	// Entity is the base model of WindowsAssignedAccessProfile
 	Entity
-	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-	ProfileName *string `json:"profileName,omitempty"`
-	// ShowTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
-	ShowTaskBar *bool `json:"showTaskBar,omitempty"`
 	// AppUserModelIDs These are the only Windows Store Apps that will be available to launch from the Start menu.
 	AppUserModelIDs []string `json:"appUserModelIds,omitempty"`
 	// DesktopAppPaths These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
 	DesktopAppPaths []string `json:"desktopAppPaths,omitempty"`
+	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+	ProfileName *string `json:"profileName,omitempty"`
+	// ShowTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
+	ShowTaskBar *bool `json:"showTaskBar,omitempty"`
+	// StartMenuLayoutXML Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+	StartMenuLayoutXML *Binary `json:"startMenuLayoutXml,omitempty"`
 	// UserAccounts The user accounts that will be locked to this kiosk configuration.
 	UserAccounts []string `json:"userAccounts,omitempty"`
-	// StartMenuLayoutXML Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-	StartMenuLayoutXML *Binary `json:"startMenuLayoutXml,omitempty"`
 }
 
 // WindowsAutopilotDeploymentProfile Windows Autopilot Deployment Profile
 type WindowsAutopilotDeploymentProfile struct {
 	// Entity is the base model of WindowsAutopilotDeploymentProfile
 	Entity
-	// DisplayName Name of the profile
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Description of the profile
-	Description *string `json:"description,omitempty"`
-	// Language Language configured on the device
-	Language *string `json:"language,omitempty"`
 	// CreatedDateTime Profile creation time
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime Profile last modified time
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// OutOfBoxExperienceSettings Out of box experience setting
-	OutOfBoxExperienceSettings *OutOfBoxExperienceSettings `json:"outOfBoxExperienceSettings,omitempty"`
-	// EnrollmentStatusScreenSettings Enrollment status screen setting
-	EnrollmentStatusScreenSettings *WindowsEnrollmentStatusScreenSettings `json:"enrollmentStatusScreenSettings,omitempty"`
-	// ExtractHardwareHash HardwareHash Extraction for the profile
-	ExtractHardwareHash *bool `json:"extractHardwareHash,omitempty"`
+	// Description Description of the profile
+	Description *string `json:"description,omitempty"`
 	// DeviceNameTemplate The template used to name the AutoPilot Device. This can be a custom text and can also contain either the serial number of the device, or a randomly generated number. The total length of the text generated by the template can be no more than 15 characters.
 	DeviceNameTemplate *string `json:"deviceNameTemplate,omitempty"`
 	// DeviceType The AutoPilot device type that this profile is applicable to.
 	DeviceType *WindowsAutopilotDeviceType `json:"deviceType,omitempty"`
+	// DisplayName Name of the profile
+	DisplayName *string `json:"displayName,omitempty"`
 	// EnableWhiteGlove Enable Autopilot White Glove for the profile.
 	EnableWhiteGlove *bool `json:"enableWhiteGlove,omitempty"`
+	// EnrollmentStatusScreenSettings Enrollment status screen setting
+	EnrollmentStatusScreenSettings *WindowsEnrollmentStatusScreenSettings `json:"enrollmentStatusScreenSettings,omitempty"`
+	// ExtractHardwareHash HardwareHash Extraction for the profile
+	ExtractHardwareHash *bool `json:"extractHardwareHash,omitempty"`
+	// Language Language configured on the device
+	Language *string `json:"language,omitempty"`
+	// LastModifiedDateTime Profile last modified time
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// OutOfBoxExperienceSettings Out of box experience setting
+	OutOfBoxExperienceSettings *OutOfBoxExperienceSettings `json:"outOfBoxExperienceSettings,omitempty"`
 	// RoleScopeTagIDs Scope tags for the profile.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// AssignedDevices undocumented
@@ -88,12 +96,12 @@ type WindowsAutopilotDeploymentProfile struct {
 type WindowsAutopilotDeploymentProfileAssignment struct {
 	// Entity is the base model of WindowsAutopilotDeploymentProfileAssignment
 	Entity
-	// Target The assignment target for the Windows Autopilot deployment profile.
-	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// Source Type of resource used for deployment to a group, direct or parcel/policySet
 	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
 	// SourceID Identifier for resource used for deployment to a group
 	SourceID *string `json:"sourceId,omitempty"`
+	// Target The assignment target for the Windows Autopilot deployment profile.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
 // WindowsAutopilotDeploymentProfilePolicySetItem A class containing the properties used for windows autopilot deployment profile PolicySetItem.
@@ -106,46 +114,46 @@ type WindowsAutopilotDeploymentProfilePolicySetItem struct {
 type WindowsAutopilotDeviceIdentity struct {
 	// Entity is the base model of WindowsAutopilotDeviceIdentity
 	Entity
-	// DeploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device.
-	DeploymentProfileAssignmentStatus *WindowsAutopilotProfileAssignmentStatus `json:"deploymentProfileAssignmentStatus,omitempty"`
-	// DeploymentProfileAssignmentDetailedStatus Profile assignment detailed status of the Windows autopilot device.
-	DeploymentProfileAssignmentDetailedStatus *WindowsAutopilotProfileAssignmentDetailedStatus `json:"deploymentProfileAssignmentDetailedStatus,omitempty"`
+	// AddressableUserName Addressable user name.
+	AddressableUserName *string `json:"addressableUserName,omitempty"`
+	// AzureActiveDirectoryDeviceID AAD Device ID - to be deprecated
+	AzureActiveDirectoryDeviceID *string `json:"azureActiveDirectoryDeviceId,omitempty"`
+	// AzureAdDeviceID AAD Device ID
+	AzureAdDeviceID *string `json:"azureAdDeviceId,omitempty"`
 	// DeploymentProfileAssignedDateTime Profile set time of the Windows autopilot device.
 	DeploymentProfileAssignedDateTime *time.Time `json:"deploymentProfileAssignedDateTime,omitempty"`
-	// OrderIdentifier Order Identifier of the Windows autopilot device - Deprecated
-	OrderIdentifier *string `json:"orderIdentifier,omitempty"`
+	// DeploymentProfileAssignmentDetailedStatus Profile assignment detailed status of the Windows autopilot device.
+	DeploymentProfileAssignmentDetailedStatus *WindowsAutopilotProfileAssignmentDetailedStatus `json:"deploymentProfileAssignmentDetailedStatus,omitempty"`
+	// DeploymentProfileAssignmentStatus Profile assignment status of the Windows autopilot device.
+	DeploymentProfileAssignmentStatus *WindowsAutopilotProfileAssignmentStatus `json:"deploymentProfileAssignmentStatus,omitempty"`
+	// DisplayName Display Name
+	DisplayName *string `json:"displayName,omitempty"`
+	// EnrollmentState Intune enrollment state of the Windows autopilot device.
+	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
 	// GroupTag Group Tag of the Windows autopilot device.
 	GroupTag *string `json:"groupTag,omitempty"`
-	// PurchaseOrderIdentifier Purchase Order Identifier of the Windows autopilot device.
-	PurchaseOrderIdentifier *string `json:"purchaseOrderIdentifier,omitempty"`
-	// SerialNumber Serial number of the Windows autopilot device.
-	SerialNumber *string `json:"serialNumber,omitempty"`
-	// ProductKey Product Key of the Windows autopilot device.
-	ProductKey *string `json:"productKey,omitempty"`
+	// LastContactedDateTime Intune Last Contacted Date Time of the Windows autopilot device.
+	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
+	// ManagedDeviceID Managed Device ID
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
 	// Manufacturer Oem manufacturer of the Windows autopilot device.
 	Manufacturer *string `json:"manufacturer,omitempty"`
 	// Model Model name of the Windows autopilot device.
 	Model *string `json:"model,omitempty"`
-	// EnrollmentState Intune enrollment state of the Windows autopilot device.
-	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
-	// LastContactedDateTime Intune Last Contacted Date Time of the Windows autopilot device.
-	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
-	// AddressableUserName Addressable user name.
-	AddressableUserName *string `json:"addressableUserName,omitempty"`
-	// UserPrincipalName User Principal Name.
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// ProductKey Product Key of the Windows autopilot device.
+	ProductKey *string `json:"productKey,omitempty"`
+	// PurchaseOrderIdentifier Purchase Order Identifier of the Windows autopilot device.
+	PurchaseOrderIdentifier *string `json:"purchaseOrderIdentifier,omitempty"`
 	// ResourceName Resource Name.
 	ResourceName *string `json:"resourceName,omitempty"`
+	// SerialNumber Serial number of the Windows autopilot device.
+	SerialNumber *string `json:"serialNumber,omitempty"`
 	// SKUNumber SKU Number
 	SKUNumber *string `json:"skuNumber,omitempty"`
 	// SystemFamily System Family
 	SystemFamily *string `json:"systemFamily,omitempty"`
-	// AzureActiveDirectoryDeviceID AAD Device ID
-	AzureActiveDirectoryDeviceID *string `json:"azureActiveDirectoryDeviceId,omitempty"`
-	// ManagedDeviceID Managed Device ID
-	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
-	// DisplayName Display Name
-	DisplayName *string `json:"displayName,omitempty"`
+	// UserPrincipalName User Principal Name.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DeploymentProfile undocumented
 	DeploymentProfile *WindowsAutopilotDeploymentProfile `json:"deploymentProfile,omitempty"`
 	// IntendedDeploymentProfile undocumented
@@ -156,10 +164,10 @@ type WindowsAutopilotDeviceIdentity struct {
 type WindowsAutopilotSettings struct {
 	// Entity is the base model of WindowsAutopilotSettings
 	Entity
-	// LastSyncDateTime Last data sync date time with DDS service.
-	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
 	// LastManualSyncTriggerDateTime Last data sync date time with DDS service.
 	LastManualSyncTriggerDateTime *time.Time `json:"lastManualSyncTriggerDateTime,omitempty"`
+	// LastSyncDateTime Last data sync date time with DDS service.
+	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
 	// SyncStatus Indicates the status of sync with Device data sync (DDS) service.
 	SyncStatus *WindowsAutopilotSyncStatus `json:"syncStatus,omitempty"`
 }
@@ -168,60 +176,60 @@ type WindowsAutopilotSettings struct {
 type WindowsCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of WindowsCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// KeyStorageProvider Key Storage Provider (KSP)
-	KeyStorageProvider *KeyStorageProviderOption `json:"keyStorageProvider,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// SubjectAlternativeNameType Certificate Subject Alternative Name Type
-	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
+	// KeyStorageProvider Key Storage Provider (KSP)
+	KeyStorageProvider *KeyStorageProviderOption `json:"keyStorageProvider,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
+	// SubjectAlternativeNameType Certificate Subject Alternative Name Type
+	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 }
 
 // WindowsDefenderAdvancedThreatProtectionConfiguration Windows Defender AdvancedThreatProtection Configuration.
 type WindowsDefenderAdvancedThreatProtectionConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsDefenderAdvancedThreatProtectionConfiguration
 	DeviceConfiguration
-	// AdvancedThreatProtectionOnboardingBlob Windows Defender AdvancedThreatProtection Onboarding Blob.
-	AdvancedThreatProtectionOnboardingBlob *string `json:"advancedThreatProtectionOnboardingBlob,omitempty"`
-	// AdvancedThreatProtectionOnboardingFilename Name of the file from which AdvancedThreatProtectionOnboardingBlob was obtained.
-	AdvancedThreatProtectionOnboardingFilename *string `json:"advancedThreatProtectionOnboardingFilename,omitempty"`
 	// AdvancedThreatProtectionAutoPopulateOnboardingBlob Auto populate onboarding blob programmatically from Advanced Threat protection service
 	AdvancedThreatProtectionAutoPopulateOnboardingBlob *bool `json:"advancedThreatProtectionAutoPopulateOnboardingBlob,omitempty"`
-	// AllowSampleSharing Windows Defender AdvancedThreatProtection "Allow Sample Sharing" Rule
-	AllowSampleSharing *bool `json:"allowSampleSharing,omitempty"`
-	// EnableExpeditedTelemetryReporting Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
-	EnableExpeditedTelemetryReporting *bool `json:"enableExpeditedTelemetryReporting,omitempty"`
 	// AdvancedThreatProtectionOffboardingBlob Windows Defender AdvancedThreatProtection Offboarding Blob.
 	AdvancedThreatProtectionOffboardingBlob *string `json:"advancedThreatProtectionOffboardingBlob,omitempty"`
 	// AdvancedThreatProtectionOffboardingFilename Name of the file from which AdvancedThreatProtectionOffboardingBlob was obtained.
 	AdvancedThreatProtectionOffboardingFilename *string `json:"advancedThreatProtectionOffboardingFilename,omitempty"`
+	// AdvancedThreatProtectionOnboardingBlob Windows Defender AdvancedThreatProtection Onboarding Blob.
+	AdvancedThreatProtectionOnboardingBlob *string `json:"advancedThreatProtectionOnboardingBlob,omitempty"`
+	// AdvancedThreatProtectionOnboardingFilename Name of the file from which AdvancedThreatProtectionOnboardingBlob was obtained.
+	AdvancedThreatProtectionOnboardingFilename *string `json:"advancedThreatProtectionOnboardingFilename,omitempty"`
+	// AllowSampleSharing Windows Defender AdvancedThreatProtection "Allow Sample Sharing" Rule
+	AllowSampleSharing *bool `json:"allowSampleSharing,omitempty"`
+	// EnableExpeditedTelemetryReporting Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
+	EnableExpeditedTelemetryReporting *bool `json:"enableExpeditedTelemetryReporting,omitempty"`
 }
 
 // WindowsDefenderApplicationControlSupplementalPolicy undocumented
 type WindowsDefenderApplicationControlSupplementalPolicy struct {
 	// Entity is the base model of WindowsDefenderApplicationControlSupplementalPolicy
 	Entity
-	// DisplayName The display name of WindowsDefenderApplicationControl supplemental policy.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The description of WindowsDefenderApplicationControl supplemental policy.
-	Description *string `json:"description,omitempty"`
 	// Content The WindowsDefenderApplicationControl supplemental policy content in byte array format.
 	Content *Binary `json:"content,omitempty"`
 	// ContentFileName The WindowsDefenderApplicationControl supplemental policy content's file name.
 	ContentFileName *string `json:"contentFileName,omitempty"`
-	// Version The WindowsDefenderApplicationControl supplemental policy's version.
-	Version *string `json:"version,omitempty"`
 	// CreationDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was uploaded.
 	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// Description The description of WindowsDefenderApplicationControl supplemental policy.
+	Description *string `json:"description,omitempty"`
+	// DisplayName The display name of WindowsDefenderApplicationControl supplemental policy.
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastModifiedDateTime The date and time when the WindowsDefenderApplicationControl supplemental policy was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this WindowsDefenderApplicationControl supplemental policy entity.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// Version The WindowsDefenderApplicationControl supplemental policy's version.
+	Version *string `json:"version,omitempty"`
 	// Assignments undocumented
 	Assignments []WindowsDefenderApplicationControlSupplementalPolicyAssignment `json:"assignments,omitempty"`
 	// DeploySummary undocumented
@@ -242,24 +250,24 @@ type WindowsDefenderApplicationControlSupplementalPolicyAssignment struct {
 type WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus struct {
 	// Entity is the base model of WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatus
 	Entity
-	// DeviceName Device name.
-	DeviceName *string `json:"deviceName,omitempty"`
-	// DeviceID Device ID.
-	DeviceID *string `json:"deviceId,omitempty"`
-	// LastSyncDateTime Last sync date time.
-	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// OsVersion Windows OS Version.
-	OsVersion *string `json:"osVersion,omitempty"`
-	// OsDescription Windows OS Version Description.
-	OsDescription *string `json:"osDescription,omitempty"`
 	// DeploymentStatus The deployment state of the policy.
 	DeploymentStatus *WindowsDefenderApplicationControlSupplementalPolicyStatuses `json:"deploymentStatus,omitempty"`
+	// DeviceID Device ID.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceName Device name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// LastSyncDateTime Last sync date time.
+	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
+	// OsDescription Windows OS Version Description.
+	OsDescription *string `json:"osDescription,omitempty"`
+	// OsVersion Windows OS Version.
+	OsVersion *string `json:"osVersion,omitempty"`
+	// PolicyVersion Human readable version of the WindowsDefenderApplicationControl supplemental policy.
+	PolicyVersion *string `json:"policyVersion,omitempty"`
 	// UserName The name of the user of this device.
 	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName User Principal Name.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// PolicyVersion Human readable version of the WindowsDefenderApplicationControl supplemental policy.
-	PolicyVersion *string `json:"policyVersion,omitempty"`
 	// Policy undocumented
 	Policy *WindowsDefenderApplicationControlSupplementalPolicy `json:"policy,omitempty"`
 }
@@ -274,7 +282,7 @@ type WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary struct
 	FailedDeviceCount *int `json:"failedDeviceCount,omitempty"`
 }
 
-// WindowsDefenderScanActionResult undocumented
+// WindowsDefenderScanActionResult Windows Defender last scan result
 type WindowsDefenderScanActionResult struct {
 	// DeviceActionResult is the base model of WindowsDefenderScanActionResult
 	DeviceActionResult
@@ -286,40 +294,40 @@ type WindowsDefenderScanActionResult struct {
 type WindowsDeliveryOptimizationConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsDeliveryOptimizationConfiguration
 	DeviceConfiguration
-	// DeliveryOptimizationMode Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios.
-	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`
-	// RestrictPeerSelectionBy Specifies to restrict peer selection via selected option.
-	RestrictPeerSelectionBy *DeliveryOptimizationRestrictPeerSelectionByOptions `json:"restrictPeerSelectionBy,omitempty"`
-	// GroupIDSource Specifies to restrict peer selection to a specfic source.
-	GroupIDSource *DeliveryOptimizationGroupIDSource `json:"groupIdSource,omitempty"`
-	// BandwidthMode Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.
-	BandwidthMode *DeliveryOptimizationBandwidth `json:"bandwidthMode,omitempty"`
 	// BackgroundDownloadFromHTTPDelayInSeconds Specifies number of seconds to delay an HTTP source in a background download that is allowed to use peer-to-peer. Valid values 0 to 4294967295
 	BackgroundDownloadFromHTTPDelayInSeconds *int `json:"backgroundDownloadFromHttpDelayInSeconds,omitempty"`
+	// BandwidthMode Specifies foreground and background bandwidth usage using percentages, absolutes, or hours.
+	BandwidthMode *DeliveryOptimizationBandwidth `json:"bandwidthMode,omitempty"`
+	// CacheServerBackgroundDownloadFallbackToHTTPDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.
+	CacheServerBackgroundDownloadFallbackToHTTPDelayInSeconds *int `json:"cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds,omitempty"`
+	// CacheServerForegroundDownloadFallbackToHTTPDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a foreground download. Valid values 0 to 2592000.​
+	CacheServerForegroundDownloadFallbackToHTTPDelayInSeconds *int `json:"cacheServerForegroundDownloadFallbackToHttpDelayInSeconds,omitempty"`
+	// CacheServerHostNames Specifies cache servers host names.
+	CacheServerHostNames []string `json:"cacheServerHostNames,omitempty"`
+	// DeliveryOptimizationMode Specifies the download method that delivery optimization can use to manage network bandwidth consumption for large content distribution scenarios.
+	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`
 	// ForegroundDownloadFromHTTPDelayInSeconds Specifies number of seconds to delay an HTTP source in a foreground download that is allowed to use peer-to-peer (0-86400). Valid values 0 to 86400
 	ForegroundDownloadFromHTTPDelayInSeconds *int `json:"foregroundDownloadFromHttpDelayInSeconds,omitempty"`
-	// MinimumRAMAllowedToPeerInGigabytes Specifies the minimum RAM size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-	MinimumRAMAllowedToPeerInGigabytes *int `json:"minimumRamAllowedToPeerInGigabytes,omitempty"`
-	// MinimumDiskSizeAllowedToPeerInGigabytes Specifies the minimum disk size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
-	MinimumDiskSizeAllowedToPeerInGigabytes *int `json:"minimumDiskSizeAllowedToPeerInGigabytes,omitempty"`
-	// MinimumFileSizeToCacheInMegabytes Specifies the minimum content file size in MB enabled to use Peer Caching (1-100000). Valid values 1 to 100000
-	MinimumFileSizeToCacheInMegabytes *int `json:"minimumFileSizeToCacheInMegabytes,omitempty"`
-	// MinimumBatteryPercentageAllowedToUpload Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100
-	MinimumBatteryPercentageAllowedToUpload *int `json:"minimumBatteryPercentageAllowedToUpload,omitempty"`
-	// ModifyCacheLocation Specifies the drive that Delivery Optimization should use for its cache.
-	ModifyCacheLocation *string `json:"modifyCacheLocation,omitempty"`
+	// GroupIDSource Specifies to restrict peer selection to a specfic source.
+	GroupIDSource *DeliveryOptimizationGroupIDSource `json:"groupIdSource,omitempty"`
 	// MaximumCacheAgeInDays Specifies the maximum time in days that each file is held in the Delivery Optimization cache after downloading successfully (0-3650). Valid values 0 to 3650
 	MaximumCacheAgeInDays *int `json:"maximumCacheAgeInDays,omitempty"`
 	// MaximumCacheSize Specifies the maximum cache size that Delivery Optimization either as a percentage or in GB.
 	MaximumCacheSize *DeliveryOptimizationMaxCacheSize `json:"maximumCacheSize,omitempty"`
+	// MinimumBatteryPercentageAllowedToUpload Specifies the minimum battery percentage to allow the device to upload data (0-100). Valid values 0 to 100
+	MinimumBatteryPercentageAllowedToUpload *int `json:"minimumBatteryPercentageAllowedToUpload,omitempty"`
+	// MinimumDiskSizeAllowedToPeerInGigabytes Specifies the minimum disk size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
+	MinimumDiskSizeAllowedToPeerInGigabytes *int `json:"minimumDiskSizeAllowedToPeerInGigabytes,omitempty"`
+	// MinimumFileSizeToCacheInMegabytes Specifies the minimum content file size in MB enabled to use Peer Caching (1-100000). Valid values 1 to 100000
+	MinimumFileSizeToCacheInMegabytes *int `json:"minimumFileSizeToCacheInMegabytes,omitempty"`
+	// MinimumRAMAllowedToPeerInGigabytes Specifies the minimum RAM size in GB to use Peer Caching (1-100000). Valid values 1 to 100000
+	MinimumRAMAllowedToPeerInGigabytes *int `json:"minimumRamAllowedToPeerInGigabytes,omitempty"`
+	// ModifyCacheLocation Specifies the drive that Delivery Optimization should use for its cache.
+	ModifyCacheLocation *string `json:"modifyCacheLocation,omitempty"`
+	// RestrictPeerSelectionBy Specifies to restrict peer selection via selected option.
+	RestrictPeerSelectionBy *DeliveryOptimizationRestrictPeerSelectionByOptions `json:"restrictPeerSelectionBy,omitempty"`
 	// VPNPeerCaching Specifies whether the device is allowed to participate in Peer Caching while connected via VPN to the domain network.
 	VPNPeerCaching *Enablement `json:"vpnPeerCaching,omitempty"`
-	// CacheServerHostNames Specifies cache servers host names.
-	CacheServerHostNames []string `json:"cacheServerHostNames,omitempty"`
-	// CacheServerForegroundDownloadFallbackToHTTPDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a foreground download. Valid values 0 to 2592000.​
-	CacheServerForegroundDownloadFallbackToHTTPDelayInSeconds *int `json:"cacheServerForegroundDownloadFallbackToHttpDelayInSeconds,omitempty"`
-	// CacheServerBackgroundDownloadFallbackToHTTPDelayInSeconds Specifies number of seconds to delay a fall back from cache servers to an HTTP source for a background download. Valid values 0 to 2592000.
-	CacheServerBackgroundDownloadFallbackToHTTPDelayInSeconds *int `json:"cacheServerBackgroundDownloadFallbackToHttpDelayInSeconds,omitempty"`
 }
 
 // WindowsDeviceADAccount undocumented
@@ -352,80 +360,92 @@ type WindowsDeviceAzureADAccount struct {
 type WindowsDeviceMalwareState struct {
 	// Entity is the base model of WindowsDeviceMalwareState
 	Entity
-	// DisplayName Malware name
-	DisplayName *string `json:"displayName,omitempty"`
 	// AdditionalInformationURL Information URL to learn more about the malware
 	AdditionalInformationURL *string `json:"additionalInformationUrl,omitempty"`
-	// Severity Severity of the malware
-	Severity *WindowsMalwareSeverity `json:"severity,omitempty"`
-	// Catetgory Category of the malware
-	Catetgory *WindowsMalwareCategory `json:"catetgory,omitempty"`
+	// Category Category of the malware
+	Category *WindowsMalwareCategory `json:"category,omitempty"`
+	// DetectionCount Number of times the malware is detected
+	DetectionCount *int `json:"detectionCount,omitempty"`
+	// DisplayName Malware name
+	DisplayName *string `json:"displayName,omitempty"`
 	// ExecutionState Execution status of the malware like blocked/executing etc
 	ExecutionState *WindowsMalwareExecutionState `json:"executionState,omitempty"`
-	// State Current status of the malware like cleaned/quarantined/allowed etc
-	State *WindowsMalwareState `json:"state,omitempty"`
-	// ThreatState Current status of the malware like cleaned/quarantined/allowed etc
-	ThreatState *WindowsMalwareThreatState `json:"threatState,omitempty"`
 	// InitialDetectionDateTime Initial detection datetime of the malware
 	InitialDetectionDateTime *time.Time `json:"initialDetectionDateTime,omitempty"`
 	// LastStateChangeDateTime The last time this particular threat was changed
 	LastStateChangeDateTime *time.Time `json:"lastStateChangeDateTime,omitempty"`
-	// DetectionCount Number of times the malware is detected
-	DetectionCount *int `json:"detectionCount,omitempty"`
-	// Category Category of the malware
-	Category *WindowsMalwareCategory `json:"category,omitempty"`
+	// Severity Severity of the malware
+	Severity *WindowsMalwareSeverity `json:"severity,omitempty"`
+	// State Current status of the malware like cleaned/quarantined/allowed etc
+	State *WindowsMalwareState `json:"state,omitempty"`
+	// ThreatState Current status of the malware like cleaned/quarantined/allowed etc
+	ThreatState *WindowsMalwareThreatState `json:"threatState,omitempty"`
 }
 
 // WindowsDomainJoinConfiguration Windows Domain Join device configuration.
 type WindowsDomainJoinConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsDomainJoinConfiguration
 	DeviceConfiguration
+	// ActiveDirectoryDomainName Active Directory domain name to join.
+	ActiveDirectoryDomainName *string `json:"activeDirectoryDomainName,omitempty"`
 	// ComputerNameStaticPrefix Fixed prefix to be used for computer name.
 	ComputerNameStaticPrefix *string `json:"computerNameStaticPrefix,omitempty"`
 	// ComputerNameSuffixRandomCharCount Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
 	ComputerNameSuffixRandomCharCount *int `json:"computerNameSuffixRandomCharCount,omitempty"`
-	// ActiveDirectoryDomainName Active Directory domain name to join.
-	ActiveDirectoryDomainName *string `json:"activeDirectoryDomainName,omitempty"`
 	// OrganizationalUnit Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
 	OrganizationalUnit *string `json:"organizationalUnit,omitempty"`
 	// NetworkAccessConfigurations undocumented
 	NetworkAccessConfigurations []DeviceConfiguration `json:"networkAccessConfigurations,omitempty"`
 }
 
-// WindowsEnrollmentStatusScreenSettings undocumented
+// WindowsEnrollmentStatusScreenSettings Enrollment status screen setting
 type WindowsEnrollmentStatusScreenSettings struct {
 	// Object is the base model of WindowsEnrollmentStatusScreenSettings
 	Object
-	// HideInstallationProgress Show or hide installation progress to user
-	HideInstallationProgress *bool `json:"hideInstallationProgress,omitempty"`
 	// AllowDeviceUseBeforeProfileAndAppInstallComplete Allow or block user to use device before profile and app installation complete
 	AllowDeviceUseBeforeProfileAndAppInstallComplete *bool `json:"allowDeviceUseBeforeProfileAndAppInstallComplete,omitempty"`
-	// BlockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
-	BlockDeviceSetupRetryByUser *bool `json:"blockDeviceSetupRetryByUser,omitempty"`
-	// AllowLogCollectionOnInstallFailure Allow or block log collection on installation failure
-	AllowLogCollectionOnInstallFailure *bool `json:"allowLogCollectionOnInstallFailure,omitempty"`
-	// CustomErrorMessage Set custom error message to show upon installation failure
-	CustomErrorMessage *string `json:"customErrorMessage,omitempty"`
-	// InstallProgressTimeoutInMinutes Set installation progress timeout in minutes
-	InstallProgressTimeoutInMinutes *int `json:"installProgressTimeoutInMinutes,omitempty"`
 	// AllowDeviceUseOnInstallFailure Allow the user to continue using the device on installation failure
 	AllowDeviceUseOnInstallFailure *bool `json:"allowDeviceUseOnInstallFailure,omitempty"`
+	// AllowLogCollectionOnInstallFailure Allow or block log collection on installation failure
+	AllowLogCollectionOnInstallFailure *bool `json:"allowLogCollectionOnInstallFailure,omitempty"`
+	// BlockDeviceSetupRetryByUser Allow the user to retry the setup on installation failure
+	BlockDeviceSetupRetryByUser *bool `json:"blockDeviceSetupRetryByUser,omitempty"`
+	// CustomErrorMessage Set custom error message to show upon installation failure
+	CustomErrorMessage *string `json:"customErrorMessage,omitempty"`
+	// HideInstallationProgress Show or hide installation progress to user
+	HideInstallationProgress *bool `json:"hideInstallationProgress,omitempty"`
+	// InstallProgressTimeoutInMinutes Set installation progress timeout in minutes
+	InstallProgressTimeoutInMinutes *int `json:"installProgressTimeoutInMinutes,omitempty"`
+}
+
+// WindowsFeatureUpdateCatalogItem Windows update catalog item entity
+type WindowsFeatureUpdateCatalogItem struct {
+	// WindowsUpdateCatalogItem is the base model of WindowsFeatureUpdateCatalogItem
+	WindowsUpdateCatalogItem
+	// Version The feature update version
+	Version *string `json:"version,omitempty"`
 }
 
 // WindowsFeatureUpdateProfile Windows Feature Update Profile
 type WindowsFeatureUpdateProfile struct {
 	// Entity is the base model of WindowsFeatureUpdateProfile
 	Entity
-	// DisplayName The display name of the profile.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The description of the profile which is specified by the user.
-	Description *string `json:"description,omitempty"`
-	// FeatureUpdateVersion The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
-	FeatureUpdateVersion *string `json:"featureUpdateVersion,omitempty"`
 	// CreatedDateTime The date time that the profile was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DeployableContentDisplayName Friendly display name of the quality update profile deployable content
+	DeployableContentDisplayName *string `json:"deployableContentDisplayName,omitempty"`
+	// Description The description of the profile which is specified by the user.
+	Description *string `json:"description,omitempty"`
+	// DisplayName The display name of the profile.
+	DisplayName *string `json:"displayName,omitempty"`
+	// EndOfSupportDate The last supported date for a feature update
+	EndOfSupportDate *time.Time `json:"endOfSupportDate,omitempty"`
+	// FeatureUpdateVersion The feature update version that will be deployed to the devices targeted by this profile. The version could be any supported version for example 1709, 1803 or 1809 and so on.
+	FeatureUpdateVersion *string `json:"featureUpdateVersion,omitempty"`
 	// LastModifiedDateTime The date time that the profile was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// RoleScopeTagIDs List of Scope Tags for this Feature Update entity.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// Assignments undocumented
 	Assignments []WindowsFeatureUpdateProfileAssignment `json:"assignments,omitempty"`
 	// DeviceUpdateStates undocumented
@@ -440,94 +460,94 @@ type WindowsFeatureUpdateProfileAssignment struct {
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
-// WindowsFirewallNetworkProfile undocumented
+// WindowsFirewallNetworkProfile Windows Firewall Profile Policies.
 type WindowsFirewallNetworkProfile struct {
 	// Object is the base model of WindowsFirewallNetworkProfile
 	Object
-	// FirewallEnabled Configures the host device to allow or block the firewall and advanced security enforcement for the network profile.
-	FirewallEnabled *StateManagementSetting `json:"firewallEnabled,omitempty"`
-	// StealthModeRequired Allow the server to operate in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
-	StealthModeRequired *bool `json:"stealthModeRequired,omitempty"`
-	// StealthModeBlocked Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
-	StealthModeBlocked *bool `json:"stealthModeBlocked,omitempty"`
-	// IncomingTrafficRequired Configures the firewall to allow incoming traffic pursuant to other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
-	IncomingTrafficRequired *bool `json:"incomingTrafficRequired,omitempty"`
-	// IncomingTrafficBlocked Configures the firewall to block all incoming traffic regardless of other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
-	IncomingTrafficBlocked *bool `json:"incomingTrafficBlocked,omitempty"`
-	// UnicastResponsesToMulticastBroadcastsRequired Configures the firewall to allow unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
-	UnicastResponsesToMulticastBroadcastsRequired *bool `json:"unicastResponsesToMulticastBroadcastsRequired,omitempty"`
-	// UnicastResponsesToMulticastBroadcastsBlocked Configures the firewall to block unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
-	UnicastResponsesToMulticastBroadcastsBlocked *bool `json:"unicastResponsesToMulticastBroadcastsBlocked,omitempty"`
-	// InboundNotificationsRequired Allows the firewall to display notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
-	InboundNotificationsRequired *bool `json:"inboundNotificationsRequired,omitempty"`
-	// InboundNotificationsBlocked Prevents the firewall from displaying notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
-	InboundNotificationsBlocked *bool `json:"inboundNotificationsBlocked,omitempty"`
 	// AuthorizedApplicationRulesFromGroupPolicyMerged Configures the firewall to merge authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
 	AuthorizedApplicationRulesFromGroupPolicyMerged *bool `json:"authorizedApplicationRulesFromGroupPolicyMerged,omitempty"`
 	// AuthorizedApplicationRulesFromGroupPolicyNotMerged Configures the firewall to prevent merging authorized application rules from group policy with those from local store instead of ignoring the local store rules. When AuthorizedApplicationRulesFromGroupPolicyNotMerged and AuthorizedApplicationRulesFromGroupPolicyMerged are both true, AuthorizedApplicationRulesFromGroupPolicyMerged takes priority.
 	AuthorizedApplicationRulesFromGroupPolicyNotMerged *bool `json:"authorizedApplicationRulesFromGroupPolicyNotMerged,omitempty"`
-	// GlobalPortRulesFromGroupPolicyMerged Configures the firewall to merge global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
-	GlobalPortRulesFromGroupPolicyMerged *bool `json:"globalPortRulesFromGroupPolicyMerged,omitempty"`
-	// GlobalPortRulesFromGroupPolicyNotMerged Configures the firewall to prevent merging global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
-	GlobalPortRulesFromGroupPolicyNotMerged *bool `json:"globalPortRulesFromGroupPolicyNotMerged,omitempty"`
 	// ConnectionSecurityRulesFromGroupPolicyMerged Configures the firewall to merge connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
 	ConnectionSecurityRulesFromGroupPolicyMerged *bool `json:"connectionSecurityRulesFromGroupPolicyMerged,omitempty"`
 	// ConnectionSecurityRulesFromGroupPolicyNotMerged Configures the firewall to prevent merging connection security rules from group policy with those from local store instead of ignoring the local store rules. When ConnectionSecurityRulesFromGroupPolicyNotMerged and ConnectionSecurityRulesFromGroupPolicyMerged are both true, ConnectionSecurityRulesFromGroupPolicyMerged takes priority.
 	ConnectionSecurityRulesFromGroupPolicyNotMerged *bool `json:"connectionSecurityRulesFromGroupPolicyNotMerged,omitempty"`
-	// OutboundConnectionsRequired Configures the firewall to allow all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
-	OutboundConnectionsRequired *bool `json:"outboundConnectionsRequired,omitempty"`
-	// OutboundConnectionsBlocked Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
-	OutboundConnectionsBlocked *bool `json:"outboundConnectionsBlocked,omitempty"`
-	// InboundConnectionsRequired Configures the firewall to allow all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
-	InboundConnectionsRequired *bool `json:"inboundConnectionsRequired,omitempty"`
+	// FirewallEnabled Configures the host device to allow or block the firewall and advanced security enforcement for the network profile.
+	FirewallEnabled *StateManagementSetting `json:"firewallEnabled,omitempty"`
+	// GlobalPortRulesFromGroupPolicyMerged Configures the firewall to merge global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
+	GlobalPortRulesFromGroupPolicyMerged *bool `json:"globalPortRulesFromGroupPolicyMerged,omitempty"`
+	// GlobalPortRulesFromGroupPolicyNotMerged Configures the firewall to prevent merging global port rules from group policy with those from local store instead of ignoring the local store rules. When GlobalPortRulesFromGroupPolicyNotMerged and GlobalPortRulesFromGroupPolicyMerged are both true, GlobalPortRulesFromGroupPolicyMerged takes priority.
+	GlobalPortRulesFromGroupPolicyNotMerged *bool `json:"globalPortRulesFromGroupPolicyNotMerged,omitempty"`
 	// InboundConnectionsBlocked Configures the firewall to block all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
 	InboundConnectionsBlocked *bool `json:"inboundConnectionsBlocked,omitempty"`
-	// SecuredPacketExemptionAllowed Configures the firewall to allow the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
-	SecuredPacketExemptionAllowed *bool `json:"securedPacketExemptionAllowed,omitempty"`
-	// SecuredPacketExemptionBlocked Configures the firewall to block the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
-	SecuredPacketExemptionBlocked *bool `json:"securedPacketExemptionBlocked,omitempty"`
+	// InboundConnectionsRequired Configures the firewall to allow all incoming connections by default. When InboundConnectionsRequired and InboundConnectionsBlocked are both true, InboundConnectionsBlocked takes priority.
+	InboundConnectionsRequired *bool `json:"inboundConnectionsRequired,omitempty"`
+	// InboundNotificationsBlocked Prevents the firewall from displaying notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
+	InboundNotificationsBlocked *bool `json:"inboundNotificationsBlocked,omitempty"`
+	// InboundNotificationsRequired Allows the firewall to display notifications when an application is blocked from listening on a port. When InboundNotificationsRequired and InboundNotificationsBlocked are both true, InboundNotificationsBlocked takes priority.
+	InboundNotificationsRequired *bool `json:"inboundNotificationsRequired,omitempty"`
+	// IncomingTrafficBlocked Configures the firewall to block all incoming traffic regardless of other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
+	IncomingTrafficBlocked *bool `json:"incomingTrafficBlocked,omitempty"`
+	// IncomingTrafficRequired Configures the firewall to allow incoming traffic pursuant to other policy settings. When IncomingTrafficRequired and IncomingTrafficBlocked are both true, IncomingTrafficBlocked takes priority.
+	IncomingTrafficRequired *bool `json:"incomingTrafficRequired,omitempty"`
+	// OutboundConnectionsBlocked Configures the firewall to block all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
+	OutboundConnectionsBlocked *bool `json:"outboundConnectionsBlocked,omitempty"`
+	// OutboundConnectionsRequired Configures the firewall to allow all outgoing connections by default. When OutboundConnectionsRequired and OutboundConnectionsBlocked are both true, OutboundConnectionsBlocked takes priority. This setting will get applied to Windows releases version 1809 and above.
+	OutboundConnectionsRequired *bool `json:"outboundConnectionsRequired,omitempty"`
 	// PolicyRulesFromGroupPolicyMerged Configures the firewall to merge Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
 	PolicyRulesFromGroupPolicyMerged *bool `json:"policyRulesFromGroupPolicyMerged,omitempty"`
 	// PolicyRulesFromGroupPolicyNotMerged Configures the firewall to prevent merging Firewall Rule policies from group policy with those from local store instead of ignoring the local store rules. When PolicyRulesFromGroupPolicyNotMerged and PolicyRulesFromGroupPolicyMerged are both true, PolicyRulesFromGroupPolicyMerged takes priority.
 	PolicyRulesFromGroupPolicyNotMerged *bool `json:"policyRulesFromGroupPolicyNotMerged,omitempty"`
+	// SecuredPacketExemptionAllowed Configures the firewall to allow the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
+	SecuredPacketExemptionAllowed *bool `json:"securedPacketExemptionAllowed,omitempty"`
+	// SecuredPacketExemptionBlocked Configures the firewall to block the host computer to respond to unsolicited network traffic of that traffic is secured by IPSec even when stealthModeBlocked is set to true. When SecuredPacketExemptionBlocked and SecuredPacketExemptionAllowed are both true, SecuredPacketExemptionAllowed takes priority.
+	SecuredPacketExemptionBlocked *bool `json:"securedPacketExemptionBlocked,omitempty"`
+	// StealthModeBlocked Prevent the server from operating in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
+	StealthModeBlocked *bool `json:"stealthModeBlocked,omitempty"`
+	// StealthModeRequired Allow the server to operate in stealth mode. When StealthModeRequired and StealthModeBlocked are both true, StealthModeBlocked takes priority.
+	StealthModeRequired *bool `json:"stealthModeRequired,omitempty"`
+	// UnicastResponsesToMulticastBroadcastsBlocked Configures the firewall to block unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
+	UnicastResponsesToMulticastBroadcastsBlocked *bool `json:"unicastResponsesToMulticastBroadcastsBlocked,omitempty"`
+	// UnicastResponsesToMulticastBroadcastsRequired Configures the firewall to allow unicast responses to multicast broadcast traffic. When UnicastResponsesToMulticastBroadcastsRequired and UnicastResponsesToMulticastBroadcastsBlocked are both true, UnicastResponsesToMulticastBroadcastsBlocked takes priority.
+	UnicastResponsesToMulticastBroadcastsRequired *bool `json:"unicastResponsesToMulticastBroadcastsRequired,omitempty"`
 }
 
-// WindowsFirewallRule undocumented
+// WindowsFirewallRule A rule controlling traffic through the Windows Firewall.
 type WindowsFirewallRule struct {
 	// Object is the base model of WindowsFirewallRule
 	Object
-	// DisplayName The display name of the rule. Does not need to be unique.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The description of the rule.
-	Description *string `json:"description,omitempty"`
-	// PackageFamilyName The package family name of a Microsoft Store application that's affected by the firewall rule.
-	PackageFamilyName *string `json:"packageFamilyName,omitempty"`
-	// FilePath The full file path of an app that's affected by the firewall rule.
-	FilePath *string `json:"filePath,omitempty"`
-	// ServiceName The name used in cases when a service, not an application, is sending or receiving traffic.
-	ServiceName *string `json:"serviceName,omitempty"`
-	// Protocol 0-255 number representing the IP protocol (TCP = 6, UDP = 17). If not specified, the default is All. Valid values 0 to 255
-	Protocol *int `json:"protocol,omitempty"`
-	// LocalPortRanges List of local port ranges. For example, "100-120", "200", "300-320". If not specified, the default is All.
-	LocalPortRanges []string `json:"localPortRanges,omitempty"`
-	// RemotePortRanges List of remote port ranges. For example, "100-120", "200", "300-320". If not specified, the default is All.
-	RemotePortRanges []string `json:"remotePortRanges,omitempty"`
-	// LocalAddressRanges List of local addresses covered by the rule. Default is any address. Valid tokens include:<ul><li>"*" indicates any local address. If present, this must be the only token included.</li><li>A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.</li><li>A valid IPv6 address.</li><li>An IPv4 address range in the format of "start address - end address" with no spaces included.</li><li>An IPv6 address range in the format of "start address - end address" with no spaces included.</li></ul>
-	LocalAddressRanges []string `json:"localAddressRanges,omitempty"`
-	// RemoteAddressRanges List of tokens specifying the remote addresses covered by the rule. Tokens are case insensitive. Default is any address. Valid tokens include:<ul><li>"*" indicates any remote address. If present, this must be the only token included.</li><li>"Defaultgateway"</li><li>"DHCP"</li><li>"DNS"</li><li>"WINS"</li><li>"Intranet" (supported on Windows versions 1809+)</li><li>"RmtIntranet" (supported on Windows versions 1809+)</li><li>"Internet" (supported on Windows versions 1809+)</li><li>"Ply2Renders" (supported on Windows versions 1809+)</li><li>"LocalSubnet" indicates any local address on the local subnet.</li><li>A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.</li><li>A valid IPv6 address.</li><li>An IPv4 address range in the format of "start address - end address" with no spaces included.</li><li>An IPv6 address range in the format of "start address - end address" with no spaces included.</li></ul>
-	RemoteAddressRanges []string `json:"remoteAddressRanges,omitempty"`
-	// ProfileTypes Specifies the profiles to which the rule belongs. If not specified, the default is All.
-	ProfileTypes *WindowsFirewallRuleNetworkProfileTypes `json:"profileTypes,omitempty"`
 	// Action The action the rule enforces. If not specified, the default is Allowed.
 	Action *StateManagementSetting `json:"action,omitempty"`
-	// TrafficDirection The traffic direction that the rule is enabled for. If not specified, the default is Out.
-	TrafficDirection *WindowsFirewallRuleTrafficDirectionType `json:"trafficDirection,omitempty"`
-	// InterfaceTypes The interface types of the rule.
-	InterfaceTypes *WindowsFirewallRuleInterfaceTypes `json:"interfaceTypes,omitempty"`
+	// Description The description of the rule.
+	Description *string `json:"description,omitempty"`
+	// DisplayName The display name of the rule. Does not need to be unique.
+	DisplayName *string `json:"displayName,omitempty"`
 	// EdgeTraversal Indicates whether edge traversal is enabled or disabled for this rule. The EdgeTraversal setting indicates that specific inbound traffic is allowed to tunnel through NATs and other edge devices using the Teredo tunneling technology. In order for this setting to work correctly, the application or service with the inbound firewall rule needs to support IPv6. The primary application of this setting allows listeners on the host to be globally addressable through a Teredo IPv6 address. New rules have the EdgeTraversal property disabled by default.
 	EdgeTraversal *StateManagementSetting `json:"edgeTraversal,omitempty"`
+	// FilePath The full file path of an app that's affected by the firewall rule.
+	FilePath *string `json:"filePath,omitempty"`
+	// InterfaceTypes The interface types of the rule.
+	InterfaceTypes *WindowsFirewallRuleInterfaceTypes `json:"interfaceTypes,omitempty"`
+	// LocalAddressRanges List of local addresses covered by the rule. Default is any address. Valid tokens include:<ul><li>"*" indicates any local address. If present, this must be the only token included.</li><li>A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.</li><li>A valid IPv6 address.</li><li>An IPv4 address range in the format of "start address - end address" with no spaces included.</li><li>An IPv6 address range in the format of "start address - end address" with no spaces included.</li></ul>
+	LocalAddressRanges []string `json:"localAddressRanges,omitempty"`
+	// LocalPortRanges List of local port ranges. For example, "100-120", "200", "300-320". If not specified, the default is All.
+	LocalPortRanges []string `json:"localPortRanges,omitempty"`
 	// LocalUserAuthorizations Specifies the list of authorized local users for the app container. This is a string in Security Descriptor Definition Language (SDDL) format.
 	LocalUserAuthorizations *string `json:"localUserAuthorizations,omitempty"`
+	// PackageFamilyName The package family name of a Microsoft Store application that's affected by the firewall rule.
+	PackageFamilyName *string `json:"packageFamilyName,omitempty"`
+	// ProfileTypes Specifies the profiles to which the rule belongs. If not specified, the default is All.
+	ProfileTypes *WindowsFirewallRuleNetworkProfileTypes `json:"profileTypes,omitempty"`
+	// Protocol 0-255 number representing the IP protocol (TCP = 6, UDP = 17). If not specified, the default is All. Valid values 0 to 255
+	Protocol *int `json:"protocol,omitempty"`
+	// RemoteAddressRanges List of tokens specifying the remote addresses covered by the rule. Tokens are case insensitive. Default is any address. Valid tokens include:<ul><li>"*" indicates any remote address. If present, this must be the only token included.</li><li>"Defaultgateway"</li><li>"DHCP"</li><li>"DNS"</li><li>"WINS"</li><li>"Intranet" (supported on Windows versions 1809+)</li><li>"RmtIntranet" (supported on Windows versions 1809+)</li><li>"Internet" (supported on Windows versions 1809+)</li><li>"Ply2Renders" (supported on Windows versions 1809+)</li><li>"LocalSubnet" indicates any local address on the local subnet.</li><li>A subnet can be specified using either the subnet mask or network prefix notation. If neither a subnet mask nor a network prefix is specified, the subnet mask defaults to 255.255.255.255.</li><li>A valid IPv6 address.</li><li>An IPv4 address range in the format of "start address - end address" with no spaces included.</li><li>An IPv6 address range in the format of "start address - end address" with no spaces included.</li></ul>
+	RemoteAddressRanges []string `json:"remoteAddressRanges,omitempty"`
+	// RemotePortRanges List of remote port ranges. For example, "100-120", "200", "300-320". If not specified, the default is All.
+	RemotePortRanges []string `json:"remotePortRanges,omitempty"`
+	// ServiceName The name used in cases when a service, not an application, is sending or receiving traffic.
+	ServiceName *string `json:"serviceName,omitempty"`
+	// TrafficDirection The traffic direction that the rule is enabled for. If not specified, the default is Out.
+	TrafficDirection *WindowsFirewallRuleTrafficDirectionType `json:"trafficDirection,omitempty"`
 }
 
 // WindowsHealthMonitoringConfiguration Windows device health monitoring configuration
@@ -536,42 +556,56 @@ type WindowsHealthMonitoringConfiguration struct {
 	DeviceConfiguration
 	// AllowDeviceHealthMonitoring Enables device health monitoring on the device
 	AllowDeviceHealthMonitoring *Enablement `json:"allowDeviceHealthMonitoring,omitempty"`
-	// ConfigDeviceHealthMonitoringScope Specifies set of events collected from the device where health monitoring is enabled
-	ConfigDeviceHealthMonitoringScope *WindowsHealthMonitoringScope `json:"configDeviceHealthMonitoringScope,omitempty"`
 	// ConfigDeviceHealthMonitoringCustomScope Specifies custom set of events collected from the device where health monitoring is enabled
 	ConfigDeviceHealthMonitoringCustomScope *string `json:"configDeviceHealthMonitoringCustomScope,omitempty"`
+	// ConfigDeviceHealthMonitoringScope Specifies set of events collected from the device where health monitoring is enabled
+	ConfigDeviceHealthMonitoringScope *WindowsHealthMonitoringScope `json:"configDeviceHealthMonitoringScope,omitempty"`
+}
+
+// WindowsHelloForBusinessAuthenticationMethod undocumented
+type WindowsHelloForBusinessAuthenticationMethod struct {
+	// AuthenticationMethod is the base model of WindowsHelloForBusinessAuthenticationMethod
+	AuthenticationMethod
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// KeyStrength undocumented
+	KeyStrength *AuthenticationMethodKeyStrength `json:"keyStrength,omitempty"`
+	// Device undocumented
+	Device *Device `json:"device,omitempty"`
 }
 
 // WindowsIdentityProtectionConfiguration This entity provides descriptions of the declared methods, properties and relationships exposed by Windows Hello for Business.
 type WindowsIdentityProtectionConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsIdentityProtectionConfiguration
 	DeviceConfiguration
-	// UseSecurityKeyForSignin Boolean value used to enable the Windows Hello security key as a logon credential.
-	UseSecurityKeyForSignin *bool `json:"useSecurityKeyForSignin,omitempty"`
 	// EnhancedAntiSpoofingForFacialFeaturesEnabled Boolean value used to enable enhanced anti-spoofing for facial feature recognition on Windows Hello face authentication.
 	EnhancedAntiSpoofingForFacialFeaturesEnabled *bool `json:"enhancedAntiSpoofingForFacialFeaturesEnabled,omitempty"`
-	// PinMinimumLength Integer value that sets the minimum number of characters required for the Windows Hello for Business PIN. Valid values are 4 to 127 inclusive and less than or equal to the value set for the maximum PIN. Valid values 4 to 127
-	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
-	// PinMaximumLength Integer value that sets the maximum number of characters allowed for the work PIN. Valid values are 4 to 127 inclusive and greater than or equal to the value set for the minimum PIN. Valid values 4 to 127
-	PinMaximumLength *int `json:"pinMaximumLength,omitempty"`
-	// PinUppercaseCharactersUsage This value configures the use of uppercase characters in the Windows Hello for Business PIN.
-	PinUppercaseCharactersUsage *ConfigurationUsage `json:"pinUppercaseCharactersUsage,omitempty"`
-	// PinLowercaseCharactersUsage This value configures the use of lowercase characters in the Windows Hello for Business PIN.
-	PinLowercaseCharactersUsage *ConfigurationUsage `json:"pinLowercaseCharactersUsage,omitempty"`
-	// PinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN.
-	PinSpecialCharactersUsage *ConfigurationUsage `json:"pinSpecialCharactersUsage,omitempty"`
 	// PinExpirationInDays Integer value specifies the period (in days) that a PIN can be used before the system requires the user to change it. Valid values are 0 to 730 inclusive. Valid values 0 to 730
 	PinExpirationInDays *int `json:"pinExpirationInDays,omitempty"`
+	// PinLowercaseCharactersUsage This value configures the use of lowercase characters in the Windows Hello for Business PIN.
+	PinLowercaseCharactersUsage *ConfigurationUsage `json:"pinLowercaseCharactersUsage,omitempty"`
+	// PinMaximumLength Integer value that sets the maximum number of characters allowed for the work PIN. Valid values are 4 to 127 inclusive and greater than or equal to the value set for the minimum PIN. Valid values 4 to 127
+	PinMaximumLength *int `json:"pinMaximumLength,omitempty"`
+	// PinMinimumLength Integer value that sets the minimum number of characters required for the Windows Hello for Business PIN. Valid values are 4 to 127 inclusive and less than or equal to the value set for the maximum PIN. Valid values 4 to 127
+	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
 	// PinPreviousBlockCount Controls the ability to prevent users from using past PINs. This must be set between 0 and 50, inclusive, and the current PIN of the user is included in that count. If set to 0, previous PINs are not stored. PIN history is not preserved through a PIN reset. Valid values 0 to 50
 	PinPreviousBlockCount *int `json:"pinPreviousBlockCount,omitempty"`
 	// PinRecoveryEnabled Boolean value that enables a user to change their PIN by using the Windows Hello for Business PIN recovery service.
 	PinRecoveryEnabled *bool `json:"pinRecoveryEnabled,omitempty"`
+	// PinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN.
+	PinSpecialCharactersUsage *ConfigurationUsage `json:"pinSpecialCharactersUsage,omitempty"`
+	// PinUppercaseCharactersUsage This value configures the use of uppercase characters in the Windows Hello for Business PIN.
+	PinUppercaseCharactersUsage *ConfigurationUsage `json:"pinUppercaseCharactersUsage,omitempty"`
 	// SecurityDeviceRequired Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.
 	SecurityDeviceRequired *bool `json:"securityDeviceRequired,omitempty"`
 	// UnlockWithBiometricsEnabled Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.
 	UnlockWithBiometricsEnabled *bool `json:"unlockWithBiometricsEnabled,omitempty"`
 	// UseCertificatesForOnPremisesAuthEnabled Boolean value that enables Windows Hello for Business to use certificates to authenticate on-premise resources.
 	UseCertificatesForOnPremisesAuthEnabled *bool `json:"useCertificatesForOnPremisesAuthEnabled,omitempty"`
+	// UseSecurityKeyForSignin Boolean value used to enable the Windows Hello security key as a logon credential.
+	UseSecurityKeyForSignin *bool `json:"useSecurityKeyForSignin,omitempty"`
 	// WindowsHelloForBusinessBlocked Boolean value that blocks Windows Hello for Business as a method for signing into Windows.
 	WindowsHelloForBusinessBlocked *bool `json:"windowsHelloForBusinessBlocked,omitempty"`
 }
@@ -580,72 +614,72 @@ type WindowsIdentityProtectionConfiguration struct {
 type WindowsInformationProtection struct {
 	// ManagedAppPolicy is the base model of WindowsInformationProtection
 	ManagedAppPolicy
+	// AzureRightsManagementServicesAllowed Specifies whether to allow Azure RMS encryption for WIP
+	AzureRightsManagementServicesAllowed *bool `json:"azureRightsManagementServicesAllowed,omitempty"`
+	// DataRecoveryCertificate Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
+	DataRecoveryCertificate *WindowsInformationProtectionDataRecoveryCertificate `json:"dataRecoveryCertificate,omitempty"`
 	// EnforcementLevel WIP enforcement level.See the Enum definition for supported values
 	EnforcementLevel *WindowsInformationProtectionEnforcementLevel `json:"enforcementLevel,omitempty"`
 	// EnterpriseDomain Primary enterprise domain
 	EnterpriseDomain *string `json:"enterpriseDomain,omitempty"`
-	// EnterpriseProtectedDomainNames List of enterprise domains to be protected
-	EnterpriseProtectedDomainNames []WindowsInformationProtectionResourceCollection `json:"enterpriseProtectedDomainNames,omitempty"`
-	// ProtectionUnderLockConfigRequired Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured
-	ProtectionUnderLockConfigRequired *bool `json:"protectionUnderLockConfigRequired,omitempty"`
-	// DataRecoveryCertificate Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)
-	DataRecoveryCertificate *WindowsInformationProtectionDataRecoveryCertificate `json:"dataRecoveryCertificate,omitempty"`
-	// RevokeOnUnenrollDisabled This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently.
-	RevokeOnUnenrollDisabled *bool `json:"revokeOnUnenrollDisabled,omitempty"`
-	// RightsManagementServicesTemplateID TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
-	RightsManagementServicesTemplateID *UUID `json:"rightsManagementServicesTemplateId,omitempty"`
-	// AzureRightsManagementServicesAllowed Specifies whether to allow Azure RMS encryption for WIP
-	AzureRightsManagementServicesAllowed *bool `json:"azureRightsManagementServicesAllowed,omitempty"`
-	// IconsVisible Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app
-	IconsVisible *bool `json:"iconsVisible,omitempty"`
-	// ProtectedApps Protected applications can access enterprise data and the data handled by those applications are protected with encryption
-	ProtectedApps []WindowsInformationProtectionApp `json:"protectedApps,omitempty"`
-	// ExemptApps Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data.
-	ExemptApps []WindowsInformationProtectionApp `json:"exemptApps,omitempty"`
-	// EnterpriseNetworkDomainNames This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to
-	EnterpriseNetworkDomainNames []WindowsInformationProtectionResourceCollection `json:"enterpriseNetworkDomainNames,omitempty"`
-	// EnterpriseProxiedDomains Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy
-	EnterpriseProxiedDomains []WindowsInformationProtectionProxiedDomainCollection `json:"enterpriseProxiedDomains,omitempty"`
+	// EnterpriseInternalProxyServers This is the comma-separated list of internal proxy servers. For example, "157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59". These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies
+	EnterpriseInternalProxyServers []WindowsInformationProtectionResourceCollection `json:"enterpriseInternalProxyServers,omitempty"`
 	// EnterpriseIPRanges Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to
 	EnterpriseIPRanges []WindowsInformationProtectionIPRangeCollection `json:"enterpriseIPRanges,omitempty"`
 	// EnterpriseIPRangesAreAuthoritative Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false
 	EnterpriseIPRangesAreAuthoritative *bool `json:"enterpriseIPRangesAreAuthoritative,omitempty"`
+	// EnterpriseNetworkDomainNames This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to
+	EnterpriseNetworkDomainNames []WindowsInformationProtectionResourceCollection `json:"enterpriseNetworkDomainNames,omitempty"`
+	// EnterpriseProtectedDomainNames List of enterprise domains to be protected
+	EnterpriseProtectedDomainNames []WindowsInformationProtectionResourceCollection `json:"enterpriseProtectedDomainNames,omitempty"`
+	// EnterpriseProxiedDomains Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy
+	EnterpriseProxiedDomains []WindowsInformationProtectionProxiedDomainCollection `json:"enterpriseProxiedDomains,omitempty"`
 	// EnterpriseProxyServers This is a list of proxy servers. Any server not on this list is considered non-enterprise
 	EnterpriseProxyServers []WindowsInformationProtectionResourceCollection `json:"enterpriseProxyServers,omitempty"`
-	// EnterpriseInternalProxyServers This is the comma-separated list of internal proxy servers. For example, "157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59". These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies
-	EnterpriseInternalProxyServers []WindowsInformationProtectionResourceCollection `json:"enterpriseInternalProxyServers,omitempty"`
 	// EnterpriseProxyServersAreAuthoritative Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false
 	EnterpriseProxyServersAreAuthoritative *bool `json:"enterpriseProxyServersAreAuthoritative,omitempty"`
-	// NeutralDomainResources List of domain names that can used for work or personal resource
-	NeutralDomainResources []WindowsInformationProtectionResourceCollection `json:"neutralDomainResources,omitempty"`
+	// ExemptApps Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data.
+	ExemptApps []WindowsInformationProtectionApp `json:"exemptApps,omitempty"`
+	// IconsVisible Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app
+	IconsVisible *bool `json:"iconsVisible,omitempty"`
 	// IndexingEncryptedStoresOrItemsBlocked This switch is for the Windows Search Indexer, to allow or disallow indexing of items
 	IndexingEncryptedStoresOrItemsBlocked *bool `json:"indexingEncryptedStoresOrItemsBlocked,omitempty"`
-	// SmbAutoEncryptedFileExtensions Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary
-	SmbAutoEncryptedFileExtensions []WindowsInformationProtectionResourceCollection `json:"smbAutoEncryptedFileExtensions,omitempty"`
 	// IsAssigned Indicates if the policy is deployed to any inclusion groups or not.
 	IsAssigned *bool `json:"isAssigned,omitempty"`
-	// ProtectedAppLockerFiles undocumented
-	ProtectedAppLockerFiles []WindowsInformationProtectionAppLockerFile `json:"protectedAppLockerFiles,omitempty"`
-	// ExemptAppLockerFiles undocumented
-	ExemptAppLockerFiles []WindowsInformationProtectionAppLockerFile `json:"exemptAppLockerFiles,omitempty"`
+	// NeutralDomainResources List of domain names that can used for work or personal resource
+	NeutralDomainResources []WindowsInformationProtectionResourceCollection `json:"neutralDomainResources,omitempty"`
+	// ProtectedApps Protected applications can access enterprise data and the data handled by those applications are protected with encryption
+	ProtectedApps []WindowsInformationProtectionApp `json:"protectedApps,omitempty"`
+	// ProtectionUnderLockConfigRequired Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured
+	ProtectionUnderLockConfigRequired *bool `json:"protectionUnderLockConfigRequired,omitempty"`
+	// RevokeOnUnenrollDisabled This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently.
+	RevokeOnUnenrollDisabled *bool `json:"revokeOnUnenrollDisabled,omitempty"`
+	// RightsManagementServicesTemplateID TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access
+	RightsManagementServicesTemplateID *UUID `json:"rightsManagementServicesTemplateId,omitempty"`
+	// SmbAutoEncryptedFileExtensions Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary
+	SmbAutoEncryptedFileExtensions []WindowsInformationProtectionResourceCollection `json:"smbAutoEncryptedFileExtensions,omitempty"`
 	// Assignments undocumented
 	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+	// ExemptAppLockerFiles undocumented
+	ExemptAppLockerFiles []WindowsInformationProtectionAppLockerFile `json:"exemptAppLockerFiles,omitempty"`
+	// ProtectedAppLockerFiles undocumented
+	ProtectedAppLockerFiles []WindowsInformationProtectionAppLockerFile `json:"protectedAppLockerFiles,omitempty"`
 }
 
-// WindowsInformationProtectionApp undocumented
+// WindowsInformationProtectionApp App for Windows information protection
 type WindowsInformationProtectionApp struct {
 	// Object is the base model of WindowsInformationProtectionApp
 	Object
-	// DisplayName App display name.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The app's description.
-	Description *string `json:"description,omitempty"`
-	// PublisherName The publisher name
-	PublisherName *string `json:"publisherName,omitempty"`
-	// ProductName The product name.
-	ProductName *string `json:"productName,omitempty"`
 	// Denied If true, app is denied protection or exemption.
 	Denied *bool `json:"denied,omitempty"`
+	// Description The app's description.
+	Description *string `json:"description,omitempty"`
+	// DisplayName App display name.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ProductName The product name.
+	ProductName *string `json:"productName,omitempty"`
+	// PublisherName The publisher name
+	PublisherName *string `json:"publisherName,omitempty"`
 }
 
 // WindowsInformationProtectionAppLearningSummary Windows Information Protection AppLearning Summary entity.
@@ -666,59 +700,59 @@ type WindowsInformationProtectionAppLockerFile struct {
 	Entity
 	// DisplayName The friendly name
 	DisplayName *string `json:"displayName,omitempty"`
-	// FileHash SHA256 hash of the file
-	FileHash *string `json:"fileHash,omitempty"`
 	// File File as a byte array
 	File *Binary `json:"file,omitempty"`
+	// FileHash SHA256 hash of the file
+	FileHash *string `json:"fileHash,omitempty"`
 	// Version Version of the entity.
 	Version *string `json:"version,omitempty"`
 }
 
-// WindowsInformationProtectionDataRecoveryCertificate undocumented
+// WindowsInformationProtectionDataRecoveryCertificate Windows Information Protection DataRecoveryCertificate
 type WindowsInformationProtectionDataRecoveryCertificate struct {
 	// Object is the base model of WindowsInformationProtectionDataRecoveryCertificate
 	Object
-	// SubjectName Data recovery Certificate subject name
-	SubjectName *string `json:"subjectName,omitempty"`
+	// Certificate Data recovery Certificate
+	Certificate *Binary `json:"certificate,omitempty"`
 	// Description Data recovery Certificate description
 	Description *string `json:"description,omitempty"`
 	// ExpirationDateTime Data recovery Certificate expiration datetime
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// Certificate Data recovery Certificate
-	Certificate *Binary `json:"certificate,omitempty"`
+	// SubjectName Data recovery Certificate subject name
+	SubjectName *string `json:"subjectName,omitempty"`
 }
 
-// WindowsInformationProtectionDesktopApp undocumented
+// WindowsInformationProtectionDesktopApp Desktop App for Windows information protection
 type WindowsInformationProtectionDesktopApp struct {
 	// WindowsInformationProtectionApp is the base model of WindowsInformationProtectionDesktopApp
 	WindowsInformationProtectionApp
 	// BinaryName The binary name.
 	BinaryName *string `json:"binaryName,omitempty"`
-	// BinaryVersionLow The lower binary version.
-	BinaryVersionLow *string `json:"binaryVersionLow,omitempty"`
 	// BinaryVersionHigh The high binary version.
 	BinaryVersionHigh *string `json:"binaryVersionHigh,omitempty"`
+	// BinaryVersionLow The lower binary version.
+	BinaryVersionLow *string `json:"binaryVersionLow,omitempty"`
 }
 
 // WindowsInformationProtectionDeviceRegistration Represents device registration records for Bring-Your-Own-Device(BYOD) Windows devices.
 type WindowsInformationProtectionDeviceRegistration struct {
 	// Entity is the base model of WindowsInformationProtectionDeviceRegistration
 	Entity
-	// UserID UserId associated with this device registration record.
-	UserID *string `json:"userId,omitempty"`
-	// DeviceRegistrationID Device identifier for this device registration record.
-	DeviceRegistrationID *string `json:"deviceRegistrationId,omitempty"`
-	// DeviceName Device name.
-	DeviceName *string `json:"deviceName,omitempty"`
-	// DeviceType Device type, for example, Windows laptop VS Windows phone.
-	DeviceType *string `json:"deviceType,omitempty"`
 	// DeviceMacAddress Device Mac address.
 	DeviceMacAddress *string `json:"deviceMacAddress,omitempty"`
+	// DeviceName Device name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// DeviceRegistrationID Device identifier for this device registration record.
+	DeviceRegistrationID *string `json:"deviceRegistrationId,omitempty"`
+	// DeviceType Device type, for example, Windows laptop VS Windows phone.
+	DeviceType *string `json:"deviceType,omitempty"`
 	// LastCheckInDateTime Last checkin time of the device.
 	LastCheckInDateTime *time.Time `json:"lastCheckInDateTime,omitempty"`
+	// UserID UserId associated with this device registration record.
+	UserID *string `json:"userId,omitempty"`
 }
 
-// WindowsInformationProtectionIPRangeCollection undocumented
+// WindowsInformationProtectionIPRangeCollection Windows Information Protection IP Range Collection
 type WindowsInformationProtectionIPRangeCollection struct {
 	// Object is the base model of WindowsInformationProtectionIPRangeCollection
 	Object
@@ -732,43 +766,43 @@ type WindowsInformationProtectionIPRangeCollection struct {
 type WindowsInformationProtectionNetworkLearningSummary struct {
 	// Entity is the base model of WindowsInformationProtectionNetworkLearningSummary
 	Entity
-	// URL Website url
-	URL *string `json:"url,omitempty"`
 	// DeviceCount Device Count
 	DeviceCount *int `json:"deviceCount,omitempty"`
+	// URL Website url
+	URL *string `json:"url,omitempty"`
 }
 
 // WindowsInformationProtectionPolicy Policy for Windows information protection without MDM
 type WindowsInformationProtectionPolicy struct {
 	// WindowsInformationProtection is the base model of WindowsInformationProtectionPolicy
 	WindowsInformationProtection
-	// RevokeOnMDMHandoffDisabled New property in RS2, pending documentation
-	RevokeOnMDMHandoffDisabled *bool `json:"revokeOnMdmHandoffDisabled,omitempty"`
+	// DaysWithoutContactBeforeUnenroll Offline interval before app data is wiped (days)
+	DaysWithoutContactBeforeUnenroll *int `json:"daysWithoutContactBeforeUnenroll,omitempty"`
 	// MDMEnrollmentURL Enrollment url for the MDM
 	MDMEnrollmentURL *string `json:"mdmEnrollmentUrl,omitempty"`
-	// WindowsHelloForBusinessBlocked Boolean value that sets Windows Hello for Business as a method for signing into Windows.
-	WindowsHelloForBusinessBlocked *bool `json:"windowsHelloForBusinessBlocked,omitempty"`
-	// PinMinimumLength Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
-	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
-	// PinUppercaseLetters Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow.
-	PinUppercaseLetters *WindowsInformationProtectionPinCharacterRequirements `json:"pinUppercaseLetters,omitempty"`
-	// PinLowercaseLetters Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow.
-	PinLowercaseLetters *WindowsInformationProtectionPinCharacterRequirements `json:"pinLowercaseLetters,omitempty"`
-	// PinSpecialCharacters Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~. Default is NotAllow.
-	PinSpecialCharacters *WindowsInformationProtectionPinCharacterRequirements `json:"pinSpecialCharacters,omitempty"`
-	// PinExpirationDays Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0.
-	PinExpirationDays *int `json:"pinExpirationDays,omitempty"`
+	// MinutesOfInactivityBeforeDeviceLock Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999.
+	MinutesOfInactivityBeforeDeviceLock *int `json:"minutesOfInactivityBeforeDeviceLock,omitempty"`
 	// NumberOfPastPinsRemembered Integer value that specifies the number of past PINs that can be associated to a user account that can't be reused. The largest number you can configure for this policy setting is 50. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then storage of previous PINs is not required. This node was added in Windows 10, version 1511. Default is 0.
 	NumberOfPastPinsRemembered *int `json:"numberOfPastPinsRemembered,omitempty"`
 	// PasswordMaximumAttemptCount The number of authentication failures allowed before the device will be wiped. A value of 0 disables device wipe functionality. Range is an integer X where 4 <= X <= 16 for desktop and 0 <= X <= 999 for mobile devices.
 	PasswordMaximumAttemptCount *int `json:"passwordMaximumAttemptCount,omitempty"`
-	// MinutesOfInactivityBeforeDeviceLock Specifies the maximum amount of time (in minutes) allowed after the device is idle that will cause the device to become PIN or password locked.   Range is an integer X where 0 <= X <= 999.
-	MinutesOfInactivityBeforeDeviceLock *int `json:"minutesOfInactivityBeforeDeviceLock,omitempty"`
-	// DaysWithoutContactBeforeUnenroll Offline interval before app data is wiped (days)
-	DaysWithoutContactBeforeUnenroll *int `json:"daysWithoutContactBeforeUnenroll,omitempty"`
+	// PinExpirationDays Integer value specifies the period of time (in days) that a PIN can be used before the system requires the user to change it. The largest number you can configure for this policy setting is 730. The lowest number you can configure for this policy setting is 0. If this policy is set to 0, then the user's PIN will never expire. This node was added in Windows 10, version 1511. Default is 0.
+	PinExpirationDays *int `json:"pinExpirationDays,omitempty"`
+	// PinLowercaseLetters Integer value that configures the use of lowercase letters in the Windows Hello for Business PIN. Default is NotAllow.
+	PinLowercaseLetters *WindowsInformationProtectionPinCharacterRequirements `json:"pinLowercaseLetters,omitempty"`
+	// PinMinimumLength Integer value that sets the minimum number of characters required for the PIN. Default value is 4. The lowest number you can configure for this policy setting is 4. The largest number you can configure must be less than the number configured in the Maximum PIN length policy setting or the number 127, whichever is the lowest.
+	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
+	// PinSpecialCharacters Integer value that configures the use of special characters in the Windows Hello for Business PIN. Valid special characters for Windows Hello for Business PIN gestures include: ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~. Default is NotAllow.
+	PinSpecialCharacters *WindowsInformationProtectionPinCharacterRequirements `json:"pinSpecialCharacters,omitempty"`
+	// PinUppercaseLetters Integer value that configures the use of uppercase letters in the Windows Hello for Business PIN. Default is NotAllow.
+	PinUppercaseLetters *WindowsInformationProtectionPinCharacterRequirements `json:"pinUppercaseLetters,omitempty"`
+	// RevokeOnMDMHandoffDisabled New property in RS2, pending documentation
+	RevokeOnMDMHandoffDisabled *bool `json:"revokeOnMdmHandoffDisabled,omitempty"`
+	// WindowsHelloForBusinessBlocked Boolean value that sets Windows Hello for Business as a method for signing into Windows.
+	WindowsHelloForBusinessBlocked *bool `json:"windowsHelloForBusinessBlocked,omitempty"`
 }
 
-// WindowsInformationProtectionProxiedDomainCollection undocumented
+// WindowsInformationProtectionProxiedDomainCollection Windows Information Protection Proxied Domain Collection
 type WindowsInformationProtectionProxiedDomainCollection struct {
 	// Object is the base model of WindowsInformationProtectionProxiedDomainCollection
 	Object
@@ -778,7 +812,7 @@ type WindowsInformationProtectionProxiedDomainCollection struct {
 	ProxiedDomains []ProxiedDomain `json:"proxiedDomains,omitempty"`
 }
 
-// WindowsInformationProtectionResourceCollection undocumented
+// WindowsInformationProtectionResourceCollection Windows Information Protection Resource Collection
 type WindowsInformationProtectionResourceCollection struct {
 	// Object is the base model of WindowsInformationProtectionResourceCollection
 	Object
@@ -788,7 +822,7 @@ type WindowsInformationProtectionResourceCollection struct {
 	Resources []string `json:"resources,omitempty"`
 }
 
-// WindowsInformationProtectionStoreApp undocumented
+// WindowsInformationProtectionStoreApp Store App for Windows information protection
 type WindowsInformationProtectionStoreApp struct {
 	// WindowsInformationProtectionApp is the base model of WindowsInformationProtectionStoreApp
 	WindowsInformationProtectionApp
@@ -798,21 +832,21 @@ type WindowsInformationProtectionStoreApp struct {
 type WindowsInformationProtectionWipeAction struct {
 	// Entity is the base model of WindowsInformationProtectionWipeAction
 	Entity
-	// Status Wipe action status.
-	Status *ActionState `json:"status,omitempty"`
-	// TargetedUserID The UserId being targeted by this wipe action.
-	TargetedUserID *string `json:"targetedUserId,omitempty"`
-	// TargetedDeviceRegistrationID The DeviceRegistrationId being targeted by this wipe action.
-	TargetedDeviceRegistrationID *string `json:"targetedDeviceRegistrationId,omitempty"`
-	// TargetedDeviceName Targeted device name.
-	TargetedDeviceName *string `json:"targetedDeviceName,omitempty"`
-	// TargetedDeviceMacAddress Targeted device Mac address.
-	TargetedDeviceMacAddress *string `json:"targetedDeviceMacAddress,omitempty"`
 	// LastCheckInDateTime Last checkin time of the device that was targeted by this wipe action.
 	LastCheckInDateTime *time.Time `json:"lastCheckInDateTime,omitempty"`
+	// Status Wipe action status.
+	Status *ActionState `json:"status,omitempty"`
+	// TargetedDeviceMacAddress Targeted device Mac address.
+	TargetedDeviceMacAddress *string `json:"targetedDeviceMacAddress,omitempty"`
+	// TargetedDeviceName Targeted device name.
+	TargetedDeviceName *string `json:"targetedDeviceName,omitempty"`
+	// TargetedDeviceRegistrationID The DeviceRegistrationId being targeted by this wipe action.
+	TargetedDeviceRegistrationID *string `json:"targetedDeviceRegistrationId,omitempty"`
+	// TargetedUserID The UserId being targeted by this wipe action.
+	TargetedUserID *string `json:"targetedUserId,omitempty"`
 }
 
-// WindowsKioskActiveDirectoryGroup undocumented
+// WindowsKioskActiveDirectoryGroup The class used to identify an Azure Directory group for the kiosk configuration
 type WindowsKioskActiveDirectoryGroup struct {
 	// WindowsKioskUser is the base model of WindowsKioskActiveDirectoryGroup
 	WindowsKioskUser
@@ -820,33 +854,33 @@ type WindowsKioskActiveDirectoryGroup struct {
 	GroupName *string `json:"groupName,omitempty"`
 }
 
-// WindowsKioskAppBase undocumented
+// WindowsKioskAppBase The base class for a type of apps
 type WindowsKioskAppBase struct {
 	// Object is the base model of WindowsKioskAppBase
 	Object
-	// StartLayoutTileSize The app tile size for the start layout
-	StartLayoutTileSize *WindowsAppStartLayoutTileSize `json:"startLayoutTileSize,omitempty"`
-	// Name Represents the friendly name of an app
-	Name *string `json:"name,omitempty"`
 	// AppType The app type
 	AppType *WindowsKioskAppType `json:"appType,omitempty"`
 	// AutoLaunch Allow the app to be auto-launched in multi-app kiosk mode
 	AutoLaunch *bool `json:"autoLaunch,omitempty"`
+	// Name Represents the friendly name of an app
+	Name *string `json:"name,omitempty"`
+	// StartLayoutTileSize The app tile size for the start layout
+	StartLayoutTileSize *WindowsAppStartLayoutTileSize `json:"startLayoutTileSize,omitempty"`
 }
 
-// WindowsKioskAppConfiguration undocumented
+// WindowsKioskAppConfiguration The app base class used to identify the application info for the kiosk configuration
 type WindowsKioskAppConfiguration struct {
 	// Object is the base model of WindowsKioskAppConfiguration
 	Object
 }
 
-// WindowsKioskAutologon undocumented
+// WindowsKioskAutologon The class used to identify an autologon kiosk configuration
 type WindowsKioskAutologon struct {
 	// WindowsKioskUser is the base model of WindowsKioskAutologon
 	WindowsKioskUser
 }
 
-// WindowsKioskAzureADGroup undocumented
+// WindowsKioskAzureADGroup The class used to identify an AzureAD group for the kiosk configuration
 type WindowsKioskAzureADGroup struct {
 	// WindowsKioskUser is the base model of WindowsKioskAzureADGroup
 	WindowsKioskUser
@@ -856,7 +890,7 @@ type WindowsKioskAzureADGroup struct {
 	GroupID *string `json:"groupId,omitempty"`
 }
 
-// WindowsKioskAzureADUser undocumented
+// WindowsKioskAzureADUser The class used to identify an AzureAD user account for the kiosk configuration
 type WindowsKioskAzureADUser struct {
 	// WindowsKioskUser is the base model of WindowsKioskAzureADUser
 	WindowsKioskUser
@@ -870,57 +904,57 @@ type WindowsKioskAzureADUser struct {
 type WindowsKioskConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsKioskConfiguration
 	DeviceConfiguration
-	// KioskProfiles This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
-	KioskProfiles []WindowsKioskProfile `json:"kioskProfiles,omitempty"`
+	// EdgeKioskEnablePublicBrowsing Enable public browsing kiosk mode for the Microsoft Edge browser. The Default is false.
+	EdgeKioskEnablePublicBrowsing *bool `json:"edgeKioskEnablePublicBrowsing,omitempty"`
+	// KioskBrowserBlockedURLExceptions Specify URLs that the kiosk browser is allowed to navigate to
+	KioskBrowserBlockedURLExceptions []string `json:"kioskBrowserBlockedUrlExceptions,omitempty"`
+	// KioskBrowserBlockedURLs Specify URLs that the kiosk browsers should not navigate to
+	KioskBrowserBlockedURLs []string `json:"kioskBrowserBlockedURLs,omitempty"`
 	// KioskBrowserDefaultURL Specify the default URL the browser should navigate to on launch.
 	KioskBrowserDefaultURL *string `json:"kioskBrowserDefaultUrl,omitempty"`
+	// KioskBrowserEnableEndSessionButton Enable the kiosk browser's end session button. By default, the end session button is disabled.
+	KioskBrowserEnableEndSessionButton *bool `json:"kioskBrowserEnableEndSessionButton,omitempty"`
 	// KioskBrowserEnableHomeButton Enable the kiosk browser's home button. By default, the home button is disabled.
 	KioskBrowserEnableHomeButton *bool `json:"kioskBrowserEnableHomeButton,omitempty"`
 	// KioskBrowserEnableNavigationButtons Enable the kiosk browser's navigation buttons(forward/back). By default, the navigation buttons are disabled.
 	KioskBrowserEnableNavigationButtons *bool `json:"kioskBrowserEnableNavigationButtons,omitempty"`
-	// KioskBrowserEnableEndSessionButton Enable the kiosk browser's end session button. By default, the end session button is disabled.
-	KioskBrowserEnableEndSessionButton *bool `json:"kioskBrowserEnableEndSessionButton,omitempty"`
 	// KioskBrowserRestartOnIdleTimeInMinutes Specify the number of minutes the session is idle until the kiosk browser restarts in a fresh state.  Valid values are 1-1440. Valid values 1 to 1440
 	KioskBrowserRestartOnIdleTimeInMinutes *int `json:"kioskBrowserRestartOnIdleTimeInMinutes,omitempty"`
-	// KioskBrowserBlockedURLs Specify URLs that the kiosk browsers should not navigate to
-	KioskBrowserBlockedURLs []string `json:"kioskBrowserBlockedURLs,omitempty"`
-	// KioskBrowserBlockedURLExceptions Specify URLs that the kiosk browser is allowed to navigate to
-	KioskBrowserBlockedURLExceptions []string `json:"kioskBrowserBlockedUrlExceptions,omitempty"`
-	// EdgeKioskEnablePublicBrowsing Enable public browsing kiosk mode for the Microsoft Edge browser. The Default is false.
-	EdgeKioskEnablePublicBrowsing *bool `json:"edgeKioskEnablePublicBrowsing,omitempty"`
+	// KioskProfiles This policy setting allows to define a list of Kiosk profiles for a Kiosk configuration. This collection can contain a maximum of 3 elements.
+	KioskProfiles []WindowsKioskProfile `json:"kioskProfiles,omitempty"`
 	// WindowsKioskForceUpdateSchedule force update schedule for Kiosk devices.
 	WindowsKioskForceUpdateSchedule *WindowsKioskForceUpdateSchedule `json:"windowsKioskForceUpdateSchedule,omitempty"`
 }
 
-// WindowsKioskDesktopApp undocumented
+// WindowsKioskDesktopApp The base class for a type of apps
 type WindowsKioskDesktopApp struct {
 	// WindowsKioskAppBase is the base model of WindowsKioskDesktopApp
 	WindowsKioskAppBase
-	// Path Define the path of a desktop app
-	Path *string `json:"path,omitempty"`
 	// DesktopApplicationID Define the DesktopApplicationID of the app
 	DesktopApplicationID *string `json:"desktopApplicationId,omitempty"`
 	// DesktopApplicationLinkPath Define the DesktopApplicationLinkPath of the app
 	DesktopApplicationLinkPath *string `json:"desktopApplicationLinkPath,omitempty"`
+	// Path Define the path of a desktop app
+	Path *string `json:"path,omitempty"`
 }
 
-// WindowsKioskForceUpdateSchedule undocumented
+// WindowsKioskForceUpdateSchedule Windows 10 force update schedule for Kiosk devices.
 type WindowsKioskForceUpdateSchedule struct {
 	// Object is the base model of WindowsKioskForceUpdateSchedule
 	Object
-	// StartDateTime The start time for the force restart.
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// Recurrence Recurrence schedule.
-	Recurrence *Windows10AppsUpdateRecurrence `json:"recurrence,omitempty"`
-	// DayofWeek Day of week.
-	DayofWeek *DayOfWeek `json:"dayofWeek,omitempty"`
 	// DayofMonth Day of month. Valid values 1 to 31
 	DayofMonth *int `json:"dayofMonth,omitempty"`
+	// DayofWeek Day of week.
+	DayofWeek *DayOfWeek `json:"dayofWeek,omitempty"`
+	// Recurrence Recurrence schedule.
+	Recurrence *Windows10AppsUpdateRecurrence `json:"recurrence,omitempty"`
 	// RunImmediatelyIfAfterStartDateTime If true, runs the task immediately if StartDateTime is in the past, else, runs at the next recurrence.
 	RunImmediatelyIfAfterStartDateTime *bool `json:"runImmediatelyIfAfterStartDateTime,omitempty"`
+	// StartDateTime The start time for the force restart.
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 }
 
-// WindowsKioskLocalGroup undocumented
+// WindowsKioskLocalGroup The class used to identify a local group for the kiosk configuration
 type WindowsKioskLocalGroup struct {
 	// WindowsKioskUser is the base model of WindowsKioskLocalGroup
 	WindowsKioskUser
@@ -928,7 +962,7 @@ type WindowsKioskLocalGroup struct {
 	GroupName *string `json:"groupName,omitempty"`
 }
 
-// WindowsKioskLocalUser undocumented
+// WindowsKioskLocalUser The class used to identify a local account for the kiosk configuration
 type WindowsKioskLocalUser struct {
 	// WindowsKioskUser is the base model of WindowsKioskLocalUser
 	WindowsKioskUser
@@ -936,19 +970,19 @@ type WindowsKioskLocalUser struct {
 	UserName *string `json:"userName,omitempty"`
 }
 
-// WindowsKioskMultipleApps undocumented
+// WindowsKioskMultipleApps The class used to identify the MultiMode app configuration for the kiosk configuration
 type WindowsKioskMultipleApps struct {
 	// WindowsKioskAppConfiguration is the base model of WindowsKioskMultipleApps
 	WindowsKioskAppConfiguration
-	// Apps These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
-	Apps []WindowsKioskAppBase `json:"apps,omitempty"`
-	// ShowTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
-	ShowTaskBar *bool `json:"showTaskBar,omitempty"`
 	// AllowAccessToDownloadsFolder This setting allows access to Downloads folder in file explorer.
 	AllowAccessToDownloadsFolder *bool `json:"allowAccessToDownloadsFolder,omitempty"`
+	// Apps These are the only Windows Store Apps that will be available to launch from the Start menu. This collection can contain a maximum of 128 elements.
+	Apps []WindowsKioskAppBase `json:"apps,omitempty"`
 	// DisallowDesktopApps This setting indicates that desktop apps are allowed. Default to true.
 	DisallowDesktopApps *bool `json:"disallowDesktopApps,omitempty"`
-	// StartMenuLayoutXML Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+	// ShowTaskBar This setting allows the admin to specify whether the Task Bar is shown or not.
+	ShowTaskBar *bool `json:"showTaskBar,omitempty"`
+	// StartMenuLayoutXML Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
 	StartMenuLayoutXML *Binary `json:"startMenuLayoutXml,omitempty"`
 }
 
@@ -956,17 +990,17 @@ type WindowsKioskMultipleApps struct {
 type WindowsKioskProfile struct {
 	// Object is the base model of WindowsKioskProfile
 	Object
-	// ProfileID Key of the entity.
-	ProfileID *string `json:"profileId,omitempty"`
-	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-	ProfileName *string `json:"profileName,omitempty"`
 	// AppConfiguration The App configuration that will be used for this kiosk configuration.
 	AppConfiguration *WindowsKioskAppConfiguration `json:"appConfiguration,omitempty"`
+	// ProfileID Key of the entity.
+	ProfileID *string `json:"profileId,omitempty"`
+	// ProfileName This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+	ProfileName *string `json:"profileName,omitempty"`
 	// UserAccountsConfiguration The user accounts that will be locked to this kiosk configuration. This collection can contain a maximum of 100 elements.
 	UserAccountsConfiguration []WindowsKioskUser `json:"userAccountsConfiguration,omitempty"`
 }
 
-// WindowsKioskSingleUWPApp undocumented
+// WindowsKioskSingleUWPApp The class used to identify the UWP app info for the kiosk configuration
 type WindowsKioskSingleUWPApp struct {
 	// WindowsKioskAppConfiguration is the base model of WindowsKioskSingleUWPApp
 	WindowsKioskAppConfiguration
@@ -974,50 +1008,78 @@ type WindowsKioskSingleUWPApp struct {
 	UwpApp *WindowsKioskUWPApp `json:"uwpApp,omitempty"`
 }
 
-// WindowsKioskUWPApp undocumented
+// WindowsKioskSingleWin32App The class used to identify the single app configuration for the kiosk win32 configuration
+type WindowsKioskSingleWin32App struct {
+	// WindowsKioskAppConfiguration is the base model of WindowsKioskSingleWin32App
+	WindowsKioskAppConfiguration
+	// Win32App This is the win32 app that will be available to launch use while in Kiosk Mode
+	Win32App *WindowsKioskWin32App `json:"win32App,omitempty"`
+}
+
+// WindowsKioskUWPApp The base class for a type of apps
 type WindowsKioskUWPApp struct {
 	// WindowsKioskAppBase is the base model of WindowsKioskUWPApp
 	WindowsKioskAppBase
-	// AppUserModelID This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
-	AppUserModelID *string `json:"appUserModelId,omitempty"`
 	// AppID This references an Intune App that will be target to the same assignments as Kiosk configuration
 	AppID *string `json:"appId,omitempty"`
+	// AppUserModelID This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
+	AppUserModelID *string `json:"appUserModelId,omitempty"`
 	// ContainedAppID This references an contained App from an Intune App
 	ContainedAppID *string `json:"containedAppId,omitempty"`
 }
 
-// WindowsKioskUser undocumented
+// WindowsKioskUser The user base class used to identify the account info for the kiosk configuration
 type WindowsKioskUser struct {
 	// Object is the base model of WindowsKioskUser
 	Object
 }
 
-// WindowsKioskVisitor undocumented
+// WindowsKioskVisitor The class used to identify a visitor kiosk account
 type WindowsKioskVisitor struct {
 	// WindowsKioskUser is the base model of WindowsKioskVisitor
 	WindowsKioskUser
 }
 
-// WindowsMalwareCategoryCount undocumented
+// WindowsKioskWin32App KioskModeApp v4 for Win32 app support
+type WindowsKioskWin32App struct {
+	// WindowsKioskAppBase is the base model of WindowsKioskWin32App
+	WindowsKioskAppBase
+	// ClassicAppPath This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
+	ClassicAppPath *string `json:"classicAppPath,omitempty"`
+	// EdgeKiosk Edge kiosk (url) for Edge kiosk mode
+	EdgeKiosk *string `json:"edgeKiosk,omitempty"`
+	// EdgeKioskIdleTimeoutMinutes Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
+	EdgeKioskIdleTimeoutMinutes *int `json:"edgeKioskIdleTimeoutMinutes,omitempty"`
+	// EdgeKioskType Edge kiosk type for Edge kiosk mode
+	EdgeKioskType *WindowsEdgeKioskType `json:"edgeKioskType,omitempty"`
+	// EdgeNoFirstRun Edge first run flag for Edge kiosk mode
+	EdgeNoFirstRun *bool `json:"edgeNoFirstRun,omitempty"`
+}
+
+// WindowsMalwareCategoryCount Malware category device count
 type WindowsMalwareCategoryCount struct {
 	// Object is the base model of WindowsMalwareCategoryCount
 	Object
+	// ActiveMalwareDetectionCount Count of active malware detections for this malware category. Valid values -2147483648 to 2147483647
+	ActiveMalwareDetectionCount *int `json:"activeMalwareDetectionCount,omitempty"`
 	// Category Malware category
 	Category *WindowsMalwareCategory `json:"category,omitempty"`
 	// DeviceCount Count of devices with malware detections for this malware category
 	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DistinctActiveMalwareCount Count of distinct active malwares for this malware category. Valid values -2147483648 to 2147483647
+	DistinctActiveMalwareCount *int `json:"distinctActiveMalwareCount,omitempty"`
 	// LastUpdateDateTime The Timestamp of the last update for the device count in UTC
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
 }
 
-// WindowsMalwareExecutionStateCount undocumented
+// WindowsMalwareExecutionStateCount Windows malware execution state summary.
 type WindowsMalwareExecutionStateCount struct {
 	// Object is the base model of WindowsMalwareExecutionStateCount
 	Object
-	// ExecutionState Malware execution state
-	ExecutionState *WindowsMalwareExecutionState `json:"executionState,omitempty"`
 	// DeviceCount Count of devices with malware detections for this malware execution state
 	DeviceCount *int `json:"deviceCount,omitempty"`
+	// ExecutionState Malware execution state
+	ExecutionState *WindowsMalwareExecutionState `json:"executionState,omitempty"`
 	// LastUpdateDateTime The Timestamp of the last update for the device count in UTC
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
 }
@@ -1026,62 +1088,86 @@ type WindowsMalwareExecutionStateCount struct {
 type WindowsMalwareInformation struct {
 	// Entity is the base model of WindowsMalwareInformation
 	Entity
-	// DisplayName Malware name
-	DisplayName *string `json:"displayName,omitempty"`
 	// AdditionalInformationURL Information URL to learn more about the malware
 	AdditionalInformationURL *string `json:"additionalInformationUrl,omitempty"`
-	// Severity Severity of the malware
-	Severity *WindowsMalwareSeverity `json:"severity,omitempty"`
 	// Category Category of the malware
 	Category *WindowsMalwareCategory `json:"category,omitempty"`
+	// DisplayName Malware name
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastDetectionDateTime The last time the malware is detected
 	LastDetectionDateTime *time.Time `json:"lastDetectionDateTime,omitempty"`
-	// WindowsDevicesProtectionState undocumented
-	WindowsDevicesProtectionState []WindowsProtectionState `json:"windowsDevicesProtectionState,omitempty"`
+	// Severity Severity of the malware
+	Severity *WindowsMalwareSeverity `json:"severity,omitempty"`
+	// DeviceMalwareStates undocumented
+	DeviceMalwareStates []MalwareStateForWindowsDevice `json:"deviceMalwareStates,omitempty"`
 }
 
-// WindowsMalwareNameCount undocumented
+// WindowsMalwareNameCount Malware name device count
 type WindowsMalwareNameCount struct {
 	// Object is the base model of WindowsMalwareNameCount
 	Object
-	// MalwareIdentifier The unique identifier. This is malware identifier
-	MalwareIdentifier *string `json:"malwareIdentifier,omitempty"`
-	// Name Malware name
-	Name *string `json:"name,omitempty"`
 	// DeviceCount Count of devices with malware dectected for this malware
 	DeviceCount *int `json:"deviceCount,omitempty"`
 	// LastUpdateDateTime The Timestamp of the last update for the device count in UTC
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
+	// MalwareIdentifier The unique identifier. This is malware identifier
+	MalwareIdentifier *string `json:"malwareIdentifier,omitempty"`
+	// Name Malware name
+	Name *string `json:"name,omitempty"`
 }
 
-// WindowsMalwareOverview undocumented
+// WindowsMalwareOverview Windows device malware overview.
 type WindowsMalwareOverview struct {
 	// Object is the base model of WindowsMalwareOverview
 	Object
-	// MalwareDetectedDeviceCount Count of devices with malware detected in the last 30 days
-	MalwareDetectedDeviceCount *int `json:"malwareDetectedDeviceCount,omitempty"`
-	// MalwareStateSummary Count of devices per malware state
-	MalwareStateSummary []WindowsMalwareStateCount `json:"malwareStateSummary,omitempty"`
-	// MalwareExecutionStateSummary Count of devices per malware execution state
-	MalwareExecutionStateSummary []WindowsMalwareExecutionStateCount `json:"malwareExecutionStateSummary,omitempty"`
 	// MalwareCategorySummary Count of devices per malware category
 	MalwareCategorySummary []WindowsMalwareCategoryCount `json:"malwareCategorySummary,omitempty"`
+	// MalwareDetectedDeviceCount Count of devices with malware detected in the last 30 days
+	MalwareDetectedDeviceCount *int `json:"malwareDetectedDeviceCount,omitempty"`
+	// MalwareExecutionStateSummary Count of devices per malware execution state
+	MalwareExecutionStateSummary []WindowsMalwareExecutionStateCount `json:"malwareExecutionStateSummary,omitempty"`
 	// MalwareNameSummary Count of devices per malware
 	MalwareNameSummary []WindowsMalwareNameCount `json:"malwareNameSummary,omitempty"`
+	// MalwareSeveritySummary Count of active malware per malware severity
+	MalwareSeveritySummary []WindowsMalwareSeverityCount `json:"malwareSeveritySummary,omitempty"`
+	// MalwareStateSummary Count of devices per malware state
+	MalwareStateSummary []WindowsMalwareStateCount `json:"malwareStateSummary,omitempty"`
 	// OsVersionsSummary Count of devices with malware per windows OS version
 	OsVersionsSummary []OsVersionCount `json:"osVersionsSummary,omitempty"`
+	// TotalDistinctMalwareCount Count of all distinct malwares detected across all devices. Valid values -2147483648 to 2147483647
+	TotalDistinctMalwareCount *int `json:"totalDistinctMalwareCount,omitempty"`
+	// TotalMalwareCount Count of all malware detections across all devices. Valid values -2147483648 to 2147483647
+	TotalMalwareCount *int `json:"totalMalwareCount,omitempty"`
 }
 
-// WindowsMalwareStateCount undocumented
+// WindowsMalwareSeverityCount Windows Malware Severity Count Summary
+type WindowsMalwareSeverityCount struct {
+	// Object is the base model of WindowsMalwareSeverityCount
+	Object
+	// DistinctMalwareCount Count of distinct malwares for this malware State. Valid values -2147483648 to 2147483647
+	DistinctMalwareCount *int `json:"distinctMalwareCount,omitempty"`
+	// LastUpdateDateTime The Timestamp of the last update for the WindowsMalwareSeverityCount in UTC
+	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
+	// MalwareDetectionCount Count of threats detections for this malware severity. Valid values -2147483648 to 2147483647
+	MalwareDetectionCount *int `json:"malwareDetectionCount,omitempty"`
+	// Severity Malware Threat Severity
+	Severity *WindowsMalwareSeverity `json:"severity,omitempty"`
+}
+
+// WindowsMalwareStateCount Windows Malware State Summary.
 type WindowsMalwareStateCount struct {
 	// Object is the base model of WindowsMalwareStateCount
 	Object
-	// State Malware Threat State
-	State *WindowsMalwareThreatState `json:"state,omitempty"`
 	// DeviceCount Count of devices with malware detections for this malware State
 	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DistinctMalwareCount Count of distinct malwares for this malware State. Valid values -2147483648 to 2147483647
+	DistinctMalwareCount *int `json:"distinctMalwareCount,omitempty"`
 	// LastUpdateDateTime The Timestamp of the last update for the device count in UTC
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
+	// MalwareDetectionCount Count of total malware detections for this malware State. Valid values -2147483648 to 2147483647
+	MalwareDetectionCount *int `json:"malwareDetectionCount,omitempty"`
+	// State Malware Threat State
+	State *WindowsMalwareThreatState `json:"state,omitempty"`
 }
 
 // WindowsManagedDevice Windows devices that are managed or pre-enrolled through Intune
@@ -1096,6 +1182,10 @@ type WindowsManagementApp struct {
 	Entity
 	// AvailableVersion Windows management app available version.
 	AvailableVersion *string `json:"availableVersion,omitempty"`
+	// ManagedInstaller Managed Installer Status
+	ManagedInstaller *ManagedInstallerStatus `json:"managedInstaller,omitempty"`
+	// ManagedInstallerConfiguredDateTime Managed Installer Configured Date Time
+	ManagedInstallerConfiguredDateTime *string `json:"managedInstallerConfiguredDateTime,omitempty"`
 	// HealthStates undocumented
 	HealthStates []WindowsManagementAppHealthState `json:"healthStates,omitempty"`
 }
@@ -1104,16 +1194,16 @@ type WindowsManagementApp struct {
 type WindowsManagementAppHealthState struct {
 	// Entity is the base model of WindowsManagementAppHealthState
 	Entity
+	// DeviceName Name of the device on which Windows management app is installed.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// DeviceOSVersion Windows 10 OS version of the device on which Windows management app is installed.
+	DeviceOSVersion *string `json:"deviceOSVersion,omitempty"`
 	// HealthState Windows management app health state.
 	HealthState *HealthState `json:"healthState,omitempty"`
 	// InstalledVersion Windows management app installed version.
 	InstalledVersion *string `json:"installedVersion,omitempty"`
 	// LastCheckInDateTime Windows management app last check-in time.
 	LastCheckInDateTime *time.Time `json:"lastCheckInDateTime,omitempty"`
-	// DeviceName Name of the device on which Windows management app is installed.
-	DeviceName *string `json:"deviceName,omitempty"`
-	// DeviceOSVersion Windows 10 OS version of the device on which Windows management app is installed.
-	DeviceOSVersion *string `json:"deviceOSVersion,omitempty"`
 }
 
 // WindowsManagementAppHealthSummary Contains properties for the health summary of the Windows management app.
@@ -1134,16 +1224,14 @@ type WindowsMicrosoftEdgeApp struct {
 	MobileApp
 	// Channel The channel to install on target devices.
 	Channel *MicrosoftEdgeChannel `json:"channel,omitempty"`
+	// DisplayLanguageLocale The language locale to use when the Edge app displays text to the user.
+	DisplayLanguageLocale *string `json:"displayLanguageLocale,omitempty"`
 }
 
-// WindowsMinimumOperatingSystem undocumented
+// WindowsMinimumOperatingSystem The minimum operating system required for a Windows mobile app.
 type WindowsMinimumOperatingSystem struct {
 	// Object is the base model of WindowsMinimumOperatingSystem
 	Object
-	// V8_0 Windows version 8.0 or later.
-	V8_0 *bool `json:"v8_0,omitempty"`
-	// V8_1 Windows version 8.1 or later.
-	V8_1 *bool `json:"v8_1,omitempty"`
 	// V10_0 Windows version 10.0 or later.
 	V10_0 *bool `json:"v10_0,omitempty"`
 	// V10_1607 Windows 10 1607 or later.
@@ -1158,6 +1246,16 @@ type WindowsMinimumOperatingSystem struct {
 	V10_1809 *bool `json:"v10_1809,omitempty"`
 	// V10_1903 Windows 10 1903 or later.
 	V10_1903 *bool `json:"v10_1903,omitempty"`
+	// V10_1909 Windows 10 1909 or later.
+	V10_1909 *bool `json:"v10_1909,omitempty"`
+	// V10_2004 Windows 10 2004 or later.
+	V10_2004 *bool `json:"v10_2004,omitempty"`
+	// V10_2H20 Windows 10 2H20 or later.
+	V10_2H20 *bool `json:"v10_2H20,omitempty"`
+	// V8_0 Windows version 8.0 or later.
+	V8_0 *bool `json:"v8_0,omitempty"`
+	// V8_1 Windows version 8.1 or later.
+	V8_1 *bool `json:"v8_1,omitempty"`
 }
 
 // WindowsMobileMSI Contains properties and inherited properties for Windows Mobile MSI Line Of Business apps.
@@ -1166,32 +1264,32 @@ type WindowsMobileMSI struct {
 	MobileLobApp
 	// CommandLine The command line.
 	CommandLine *string `json:"commandLine,omitempty"`
+	// IdentityVersion The identity version.
+	IdentityVersion *string `json:"identityVersion,omitempty"`
+	// IgnoreVersionDetection A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
+	IgnoreVersionDetection *bool `json:"ignoreVersionDetection,omitempty"`
 	// ProductCode The product code.
 	ProductCode *string `json:"productCode,omitempty"`
 	// ProductVersion The product version of Windows Mobile MSI Line of Business (LoB) app.
 	ProductVersion *string `json:"productVersion,omitempty"`
-	// IgnoreVersionDetection A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.
-	IgnoreVersionDetection *bool `json:"ignoreVersionDetection,omitempty"`
-	// IdentityVersion The identity version.
-	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// UseDeviceContext Indicates whether to install a dual-mode MSI in the device context. If true, app will be installed for all users. If false, app will be installed per-user. If null, service will use the MSI package's default install context. In case of dual-mode MSI, this default will be per-user.  Cannot be set for non-dual-mode apps.  Cannot be changed after initial creation of the application.
 	UseDeviceContext *bool `json:"useDeviceContext,omitempty"`
 }
 
-// WindowsNetworkIsolationPolicy undocumented
+// WindowsNetworkIsolationPolicy Windows Network Isolation Policy
 type WindowsNetworkIsolationPolicy struct {
 	// Object is the base model of WindowsNetworkIsolationPolicy
 	Object
-	// EnterpriseNetworkDomainNames This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected. These locations will be considered a safe destination for enterprise data to be shared to.
-	EnterpriseNetworkDomainNames []string `json:"enterpriseNetworkDomainNames,omitempty"`
 	// EnterpriseCloudResources Contains a list of enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy. This collection can contain a maximum of 500 elements.
 	EnterpriseCloudResources []ProxiedDomain `json:"enterpriseCloudResources,omitempty"`
-	// EnterpriseIPRanges Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.
-	EnterpriseIPRanges []IPRange `json:"enterpriseIPRanges,omitempty"`
 	// EnterpriseInternalProxyServers This is the comma-separated list of internal proxy servers. For example, "157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59". These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseCloudResources policy to force traffic to the matched cloud resources through these proxies.
 	EnterpriseInternalProxyServers []string `json:"enterpriseInternalProxyServers,omitempty"`
+	// EnterpriseIPRanges Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to. This collection can contain a maximum of 500 elements.
+	EnterpriseIPRanges []IPRange `json:"enterpriseIPRanges,omitempty"`
 	// EnterpriseIPRangesAreAuthoritative Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false.
 	EnterpriseIPRangesAreAuthoritative *bool `json:"enterpriseIPRangesAreAuthoritative,omitempty"`
+	// EnterpriseNetworkDomainNames This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected. These locations will be considered a safe destination for enterprise data to be shared to.
+	EnterpriseNetworkDomainNames []string `json:"enterpriseNetworkDomainNames,omitempty"`
 	// EnterpriseProxyServers This is a list of proxy servers. Any server not on this list is considered non-enterprise.
 	EnterpriseProxyServers []string `json:"enterpriseProxyServers,omitempty"`
 	// EnterpriseProxyServersAreAuthoritative Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false
@@ -1212,7 +1310,7 @@ type WindowsOfficeClientSecurityConfiguration struct {
 	OfficeClientConfiguration
 }
 
-// WindowsPackageInformation undocumented
+// WindowsPackageInformation Contains properties for the package information for a Windows line of business app.
 type WindowsPackageInformation struct {
 	// Object is the base model of WindowsPackageInformation
 	Object
@@ -1244,14 +1342,14 @@ type WindowsPhone81AppX struct {
 	IdentityPublisherHash *string `json:"identityPublisherHash,omitempty"`
 	// IdentityResourceIdentifier The Identity Resource Identifier.
 	IdentityResourceIdentifier *string `json:"identityResourceIdentifier,omitempty"`
+	// IdentityVersion The identity version.
+	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *WindowsMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 	// PhoneProductIdentifier The Phone Product Identifier.
 	PhoneProductIdentifier *string `json:"phoneProductIdentifier,omitempty"`
 	// PhonePublisherID The Phone Publisher Id.
 	PhonePublisherID *string `json:"phonePublisherId,omitempty"`
-	// IdentityVersion The identity version.
-	IdentityVersion *string `json:"identityVersion,omitempty"`
 }
 
 // WindowsPhone81AppXBundle Contains properties and inherited properties for Windows Phone 8.1 AppX Bundle Line Of Business apps.
@@ -1266,46 +1364,46 @@ type WindowsPhone81AppXBundle struct {
 type WindowsPhone81CertificateProfileBase struct {
 	// DeviceConfiguration is the base model of WindowsPhone81CertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage.
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// KeyStorageProvider Key Storage Provider (KSP).
-	KeyStorageProvider *KeyStorageProviderOption `json:"keyStorageProvider,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
-	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validtiy Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validtiy Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// KeyStorageProvider Key Storage Provider (KSP).
+	KeyStorageProvider *KeyStorageProviderOption `json:"keyStorageProvider,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage.
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
+	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
+	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 }
 
 // WindowsPhone81CompliancePolicy This class contains compliance settings for Windows 8.1 Mobile.
 type WindowsPhone81CompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of WindowsPhone81CompliancePolicy
 	DeviceCompliancePolicy
+	// OsMaximumVersion Maximum Windows Phone version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum Windows Phone version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
 	// PasswordBlockSimple Whether or not to block syncing the calendar.
 	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires.
 	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
+	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
 	// PasswordMinimumLength Minimum length of passwords.
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
 	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
 	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
-	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
-	// PasswordRequiredType The required password type.
-	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 0 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
 	// PasswordRequired Whether or not to require a password.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`
-	// OsMinimumVersion Minimum Windows Phone version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum Windows Phone version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// PasswordRequiredType The required password type.
+	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// StorageRequireEncryption Require encryption on windows phone devices.
 	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 }
@@ -1332,10 +1430,10 @@ type WindowsPhone81GeneralConfiguration struct {
 	CameraBlocked *bool `json:"cameraBlocked,omitempty"`
 	// CellularBlockWiFiTethering Indicates whether or not to block Wi-Fi tethering. Has no impact if Wi-Fi is blocked.
 	CellularBlockWiFiTethering *bool `json:"cellularBlockWifiTethering,omitempty"`
-	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
-	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
 	// CompliantAppListType List that is in the AppComplianceList.
 	CompliantAppListType *AppListType `json:"compliantAppListType,omitempty"`
+	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
 	// DiagnosticDataBlockSubmission Indicates whether or not to block diagnostic data submission.
 	DiagnosticDataBlockSubmission *bool `json:"diagnosticDataBlockSubmission,omitempty"`
 	// EmailBlockAddingAccounts Indicates whether or not to block custom email accounts.
@@ -1350,20 +1448,20 @@ type WindowsPhone81GeneralConfiguration struct {
 	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires.
 	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumCharacterSetCount Number of character sets a password must contain.
+	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
 	// PasswordMinimumLength Minimum length of passwords.
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
 	// PasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before screen timeout.
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
-	// PasswordMinimumCharacterSetCount Number of character sets a password must contain.
-	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 0 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset.
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// PasswordRequiredType Password type that is required.
-	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordRequired Indicates whether or not to require a password.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Password type that is required.
+	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset.
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// ScreenCaptureBlocked Indicates whether or not to block screenshots.
 	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
 	// StorageBlockRemovableStorage Indicates whether or not to block removable storage.
@@ -1372,10 +1470,10 @@ type WindowsPhone81GeneralConfiguration struct {
 	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 	// WebBrowserBlocked Indicates whether or not to block the web browser.
 	WebBrowserBlocked *bool `json:"webBrowserBlocked,omitempty"`
-	// WiFiBlocked Indicates whether or not to block Wi-Fi.
-	WiFiBlocked *bool `json:"wifiBlocked,omitempty"`
 	// WiFiBlockAutomaticConnectHotspots Indicates whether or not to block automatically connecting to Wi-Fi hotspots. Has no impact if Wi-Fi is blocked.
 	WiFiBlockAutomaticConnectHotspots *bool `json:"wifiBlockAutomaticConnectHotspots,omitempty"`
+	// WiFiBlocked Indicates whether or not to block Wi-Fi.
+	WiFiBlocked *bool `json:"wifiBlocked,omitempty"`
 	// WiFiBlockHotspotReporting Indicates whether or not to block Wi-Fi hotspot reporting. Has no impact if Wi-Fi is blocked.
 	WiFiBlockHotspotReporting *bool `json:"wifiBlockHotspotReporting,omitempty"`
 	// WindowsStoreBlocked Indicates whether or not to block the Windows Store.
@@ -1396,22 +1494,22 @@ type WindowsPhone81ImportedPFXCertificateProfile struct {
 type WindowsPhone81SCEPCertificateProfile struct {
 	// WindowsPhone81CertificateProfileBase is the base model of WindowsPhone81SCEPCertificateProfile
 	WindowsPhone81CertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s).
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage.
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size.
-	KeySize *KeySize `json:"keySize,omitempty"`
 	// HashAlgorithm SCEP Hash Algorithm.
 	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size.
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage.
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s).
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
-	// RootCertificate undocumented
-	RootCertificate *WindowsPhone81TrustedRootCertificate `json:"rootCertificate,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
+	// RootCertificate undocumented
+	RootCertificate *WindowsPhone81TrustedRootCertificate `json:"rootCertificate,omitempty"`
 }
 
 // WindowsPhone81StoreApp Contains properties and inherited properties for Windows Phone 8.1 Store apps.
@@ -1426,26 +1524,26 @@ type WindowsPhone81StoreApp struct {
 type WindowsPhone81TrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of WindowsPhone81TrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // WindowsPhone81VpnConfiguration By providing the configurations in this profile you can instruct the Windows Phone 8.1 to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type WindowsPhone81VpnConfiguration struct {
 	// Windows81VpnConfiguration is the base model of WindowsPhone81VpnConfiguration
 	Windows81VpnConfiguration
+	// AuthenticationMethod Authentication method.
+	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
 	// BypassVPNOnCompanyWiFi Bypass VPN on company Wi-Fi.
 	BypassVPNOnCompanyWiFi *bool `json:"bypassVpnOnCompanyWifi,omitempty"`
 	// BypassVPNOnHomeWiFi Bypass VPN on home Wi-Fi.
 	BypassVPNOnHomeWiFi *bool `json:"bypassVpnOnHomeWifi,omitempty"`
-	// AuthenticationMethod Authentication method.
-	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
-	// RememberUserCredentials Remember user credentials.
-	RememberUserCredentials *bool `json:"rememberUserCredentials,omitempty"`
 	// DNSSuffixSearchList DNS suffix search list.
 	DNSSuffixSearchList []string `json:"dnsSuffixSearchList,omitempty"`
+	// RememberUserCredentials Remember user credentials.
+	RememberUserCredentials *bool `json:"rememberUserCredentials,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *WindowsPhone81CertificateProfileBase `json:"identityCertificate,omitempty"`
 }
@@ -1458,12 +1556,6 @@ type WindowsPhoneEASEmailProfileConfiguration struct {
 	AccountName *string `json:"accountName,omitempty"`
 	// ApplyOnlyToWindowsPhone81 Value indicating whether this policy only applies to Windows 8.1. This property is read-only.
 	ApplyOnlyToWindowsPhone81 *bool `json:"applyOnlyToWindowsPhone81,omitempty"`
-	// SyncCalendar Whether or not to sync the calendar.
-	SyncCalendar *bool `json:"syncCalendar,omitempty"`
-	// SyncContacts Whether or not to sync contacts.
-	SyncContacts *bool `json:"syncContacts,omitempty"`
-	// SyncTasks Whether or not to sync tasks.
-	SyncTasks *bool `json:"syncTasks,omitempty"`
 	// DurationOfEmailToSync Duration of email to sync.
 	DurationOfEmailToSync *EmailSyncDuration `json:"durationOfEmailToSync,omitempty"`
 	// EmailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device.
@@ -1474,18 +1566,24 @@ type WindowsPhoneEASEmailProfileConfiguration struct {
 	HostName *string `json:"hostName,omitempty"`
 	// RequireSsl Indicates whether or not to use SSL.
 	RequireSsl *bool `json:"requireSsl,omitempty"`
+	// SyncCalendar Whether or not to sync the calendar.
+	SyncCalendar *bool `json:"syncCalendar,omitempty"`
+	// SyncContacts Whether or not to sync contacts.
+	SyncContacts *bool `json:"syncContacts,omitempty"`
+	// SyncTasks Whether or not to sync tasks.
+	SyncTasks *bool `json:"syncTasks,omitempty"`
 }
 
 // WindowsPhoneXAP Contains properties and inherited properties for Windows Phone XAP Line Of Business apps.
 type WindowsPhoneXAP struct {
 	// MobileLobApp is the base model of WindowsPhoneXAP
 	MobileLobApp
+	// IdentityVersion The identity version.
+	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *WindowsMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 	// ProductIdentifier The Product Identifier.
 	ProductIdentifier *string `json:"productIdentifier,omitempty"`
-	// IdentityVersion The identity version.
-	IdentityVersion *string `json:"identityVersion,omitempty"`
 }
 
 // WindowsPrivacyDataAccessControlItem Specify access control level per privacy data category
@@ -1494,54 +1592,104 @@ type WindowsPrivacyDataAccessControlItem struct {
 	Entity
 	// AccessLevel This indicates an access level for the privacy data category to which the specified application will be given to.
 	AccessLevel *WindowsPrivacyDataAccessLevel `json:"accessLevel,omitempty"`
-	// DataCategory This indicates a privacy data category to which the specific access control will apply.
-	DataCategory *WindowsPrivacyDataCategory `json:"dataCategory,omitempty"`
-	// AppPackageFamilyName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
-	AppPackageFamilyName *string `json:"appPackageFamilyName,omitempty"`
 	// AppDisplayName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// AppPackageFamilyName The Package Family Name of a Windows app. When set, the access level applies to the specified application.
+	AppPackageFamilyName *string `json:"appPackageFamilyName,omitempty"`
+	// DataCategory This indicates a privacy data category to which the specific access control will apply.
+	DataCategory *WindowsPrivacyDataCategory `json:"dataCategory,omitempty"`
 }
 
 // WindowsProtectionState Device protection status entity.
 type WindowsProtectionState struct {
 	// Entity is the base model of WindowsProtectionState
 	Entity
-	// MalwareProtectionEnabled Anti malware is enabled or not
-	MalwareProtectionEnabled *bool `json:"malwareProtectionEnabled,omitempty"`
-	// DeviceState Computer's state (like clean or pending full scan or pending reboot etc)
-	DeviceState *WindowsDeviceHealthState `json:"deviceState,omitempty"`
-	// RealTimeProtectionEnabled Real time protection is enabled or not?
-	RealTimeProtectionEnabled *bool `json:"realTimeProtectionEnabled,omitempty"`
-	// NetworkInspectionSystemEnabled Network inspection system enabled or not?
-	NetworkInspectionSystemEnabled *bool `json:"networkInspectionSystemEnabled,omitempty"`
-	// QuickScanOverdue Quick scan overdue or not?
-	QuickScanOverdue *bool `json:"quickScanOverdue,omitempty"`
-	// FullScanOverdue Full scan overdue or not?
-	FullScanOverdue *bool `json:"fullScanOverdue,omitempty"`
-	// SignatureUpdateOverdue Signature out of date or not?
-	SignatureUpdateOverdue *bool `json:"signatureUpdateOverdue,omitempty"`
-	// RebootRequired Reboot required or not?
-	RebootRequired *bool `json:"rebootRequired,omitempty"`
-	// FullScanRequired Full scan required or not?
-	FullScanRequired *bool `json:"fullScanRequired,omitempty"`
-	// EngineVersion Current endpoint protection engine's version
-	EngineVersion *string `json:"engineVersion,omitempty"`
-	// SignatureVersion Current malware definitions version
-	SignatureVersion *string `json:"signatureVersion,omitempty"`
 	// AntiMalwareVersion Current anti malware version
 	AntiMalwareVersion *string `json:"antiMalwareVersion,omitempty"`
-	// LastQuickScanDateTime Last quick scan datetime
-	LastQuickScanDateTime *time.Time `json:"lastQuickScanDateTime,omitempty"`
+	// DeviceState Computer's state (like clean or pending full scan or pending reboot etc)
+	DeviceState *WindowsDeviceHealthState `json:"deviceState,omitempty"`
+	// EngineVersion Current endpoint protection engine's version
+	EngineVersion *string `json:"engineVersion,omitempty"`
+	// FullScanOverdue Full scan overdue or not?
+	FullScanOverdue *bool `json:"fullScanOverdue,omitempty"`
+	// FullScanRequired Full scan required or not?
+	FullScanRequired *bool `json:"fullScanRequired,omitempty"`
+	// IsVirtualMachine Indicates whether the device is a virtual machine.
+	IsVirtualMachine *bool `json:"isVirtualMachine,omitempty"`
 	// LastFullScanDateTime Last quick scan datetime
 	LastFullScanDateTime *time.Time `json:"lastFullScanDateTime,omitempty"`
-	// LastQuickScanSignatureVersion Last quick scan signature version
-	LastQuickScanSignatureVersion *string `json:"lastQuickScanSignatureVersion,omitempty"`
 	// LastFullScanSignatureVersion Last full scan signature version
 	LastFullScanSignatureVersion *string `json:"lastFullScanSignatureVersion,omitempty"`
+	// LastQuickScanDateTime Last quick scan datetime
+	LastQuickScanDateTime *time.Time `json:"lastQuickScanDateTime,omitempty"`
+	// LastQuickScanSignatureVersion Last quick scan signature version
+	LastQuickScanSignatureVersion *string `json:"lastQuickScanSignatureVersion,omitempty"`
 	// LastReportedDateTime Last device health status reported time
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// MalwareProtectionEnabled Anti malware is enabled or not
+	MalwareProtectionEnabled *bool `json:"malwareProtectionEnabled,omitempty"`
+	// NetworkInspectionSystemEnabled Network inspection system enabled or not?
+	NetworkInspectionSystemEnabled *bool `json:"networkInspectionSystemEnabled,omitempty"`
+	// ProductStatus Product Status of Windows Defender Antivirus
+	ProductStatus *WindowsDefenderProductStatus `json:"productStatus,omitempty"`
+	// QuickScanOverdue Quick scan overdue or not?
+	QuickScanOverdue *bool `json:"quickScanOverdue,omitempty"`
+	// RealTimeProtectionEnabled Real time protection is enabled or not?
+	RealTimeProtectionEnabled *bool `json:"realTimeProtectionEnabled,omitempty"`
+	// RebootRequired Reboot required or not?
+	RebootRequired *bool `json:"rebootRequired,omitempty"`
+	// SignatureUpdateOverdue Signature out of date or not?
+	SignatureUpdateOverdue *bool `json:"signatureUpdateOverdue,omitempty"`
+	// SignatureVersion Current malware definitions version
+	SignatureVersion *string `json:"signatureVersion,omitempty"`
+	// TamperProtectionEnabled Indicates whether the Windows Defender tamper protection feature is enabled.
+	TamperProtectionEnabled *bool `json:"tamperProtectionEnabled,omitempty"`
 	// DetectedMalwareState undocumented
 	DetectedMalwareState []WindowsDeviceMalwareState `json:"detectedMalwareState,omitempty"`
+}
+
+// WindowsQualityUpdateCatalogItem Windows update catalog item entity
+type WindowsQualityUpdateCatalogItem struct {
+	// WindowsUpdateCatalogItem is the base model of WindowsQualityUpdateCatalogItem
+	WindowsUpdateCatalogItem
+	// Classification Classification of the quality update
+	Classification *WindowsQualityUpdateClassification `json:"classification,omitempty"`
+	// IsExpeditable Flag indicating if update qualifies for expedite
+	IsExpeditable *bool `json:"isExpeditable,omitempty"`
+	// KbArticleID Knowledge base article id
+	KbArticleID *string `json:"kbArticleId,omitempty"`
+}
+
+// WindowsQualityUpdateProfile Windows Quality Update Profile
+type WindowsQualityUpdateProfile struct {
+	// Entity is the base model of WindowsQualityUpdateProfile
+	Entity
+	// CreatedDateTime The date time that the profile was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DeployableContentDisplayName Friendly display name of the quality update profile deployable content
+	DeployableContentDisplayName *string `json:"deployableContentDisplayName,omitempty"`
+	// Description The description of the profile which is specified by the user.
+	Description *string `json:"description,omitempty"`
+	// DisplayName The display name for the profile.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ExpeditedUpdateSettings Expedited update settings.
+	ExpeditedUpdateSettings *ExpeditedWindowsQualityUpdateSettings `json:"expeditedUpdateSettings,omitempty"`
+	// LastModifiedDateTime The date time that the profile was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// ReleaseDateDisplayName Friendly release date to display for a Quality Update release
+	ReleaseDateDisplayName *string `json:"releaseDateDisplayName,omitempty"`
+	// RoleScopeTagIDs List of Scope Tags for this Quality Update entity.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// Assignments undocumented
+	Assignments []WindowsQualityUpdateProfileAssignment `json:"assignments,omitempty"`
+}
+
+// WindowsQualityUpdateProfileAssignment This entity contains the properties used to assign a windows quality update profile to a group.
+type WindowsQualityUpdateProfileAssignment struct {
+	// Entity is the base model of WindowsQualityUpdateProfileAssignment
+	Entity
+	// Target The assignment target that the feature update profile is assigned to.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
 // WindowsStoreApp Contains properties and inherited properties for Windows Store apps.
@@ -1566,17 +1714,17 @@ type WindowsUniversalAppX struct {
 	IdentityPublisherHash *string `json:"identityPublisherHash,omitempty"`
 	// IdentityResourceIdentifier The Identity Resource Identifier.
 	IdentityResourceIdentifier *string `json:"identityResourceIdentifier,omitempty"`
+	// IdentityVersion The identity version.
+	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// IsBundle Whether or not the app is a bundle.
 	IsBundle *bool `json:"isBundle,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *WindowsMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
-	// IdentityVersion The identity version.
-	IdentityVersion *string `json:"identityVersion,omitempty"`
 	// CommittedContainedApps undocumented
 	CommittedContainedApps []MobileContainedApp `json:"committedContainedApps,omitempty"`
 }
 
-// WindowsUniversalAppXAppAssignmentSettings undocumented
+// WindowsUniversalAppXAppAssignmentSettings Contains properties used when assigning a Windows Universal AppX mobile app to a group.
 type WindowsUniversalAppXAppAssignmentSettings struct {
 	// MobileAppAssignmentSettings is the base model of WindowsUniversalAppXAppAssignmentSettings
 	MobileAppAssignmentSettings
@@ -1596,86 +1744,98 @@ type WindowsUniversalAppXContainedApp struct {
 type WindowsUpdateActiveHoursInstall struct {
 	// WindowsUpdateInstallScheduleType is the base model of WindowsUpdateActiveHoursInstall
 	WindowsUpdateInstallScheduleType
-	// ActiveHoursStart Active Hours Start
-	ActiveHoursStart *TimeOfDay `json:"activeHoursStart,omitempty"`
 	// ActiveHoursEnd Active Hours End
 	ActiveHoursEnd *TimeOfDay `json:"activeHoursEnd,omitempty"`
+	// ActiveHoursStart Active Hours Start
+	ActiveHoursStart *TimeOfDay `json:"activeHoursStart,omitempty"`
+}
+
+// WindowsUpdateCatalogItem Windows update catalog item entity
+type WindowsUpdateCatalogItem struct {
+	// Entity is the base model of WindowsUpdateCatalogItem
+	Entity
+	// DisplayName The display name for the catalog item.
+	DisplayName *string `json:"displayName,omitempty"`
+	// EndOfSupportDate The last supported date for a catalog item
+	EndOfSupportDate *time.Time `json:"endOfSupportDate,omitempty"`
+	// ReleaseDateTime The date the catalog item was released
+	ReleaseDateTime *time.Time `json:"releaseDateTime,omitempty"`
 }
 
 // WindowsUpdateForBusinessConfiguration Windows Update for business configuration.
 type WindowsUpdateForBusinessConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsUpdateForBusinessConfiguration
 	DeviceConfiguration
-	// DeliveryOptimizationMode Delivery Optimization Mode
-	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`
-	// PrereleaseFeatures The pre-release features.
-	PrereleaseFeatures *PrereleaseFeatures `json:"prereleaseFeatures,omitempty"`
 	// AutomaticUpdateMode Automatic update mode.
 	AutomaticUpdateMode *AutomaticUpdateMode `json:"automaticUpdateMode,omitempty"`
-	// MicrosoftUpdateServiceAllowed Allow Microsoft Update Service
-	MicrosoftUpdateServiceAllowed *bool `json:"microsoftUpdateServiceAllowed,omitempty"`
-	// DriversExcluded Exclude Windows update Drivers
-	DriversExcluded *bool `json:"driversExcluded,omitempty"`
-	// InstallationSchedule Installation schedule
-	InstallationSchedule *WindowsUpdateInstallScheduleType `json:"installationSchedule,omitempty"`
-	// QualityUpdatesDeferralPeriodInDays Defer Quality Updates by these many days
-	QualityUpdatesDeferralPeriodInDays *int `json:"qualityUpdatesDeferralPeriodInDays,omitempty"`
-	// FeatureUpdatesDeferralPeriodInDays Defer Feature Updates by these many days
-	FeatureUpdatesDeferralPeriodInDays *int `json:"featureUpdatesDeferralPeriodInDays,omitempty"`
-	// QualityUpdatesPaused Pause Quality Updates
-	QualityUpdatesPaused *bool `json:"qualityUpdatesPaused,omitempty"`
-	// FeatureUpdatesPaused Pause Feature Updates
-	FeatureUpdatesPaused *bool `json:"featureUpdatesPaused,omitempty"`
-	// QualityUpdatesPauseExpiryDateTime Quality Updates Pause Expiry datetime
-	QualityUpdatesPauseExpiryDateTime *time.Time `json:"qualityUpdatesPauseExpiryDateTime,omitempty"`
-	// FeatureUpdatesPauseExpiryDateTime Feature Updates Pause Expiry datetime
-	FeatureUpdatesPauseExpiryDateTime *time.Time `json:"featureUpdatesPauseExpiryDateTime,omitempty"`
+	// AutoRestartNotificationDismissal Specify the method by which the auto-restart required notification is dismissed
+	AutoRestartNotificationDismissal *AutoRestartNotificationDismissalMethod `json:"autoRestartNotificationDismissal,omitempty"`
 	// BusinessReadyUpdatesOnly Determines which branch devices will receive their updates from
 	BusinessReadyUpdatesOnly *WindowsUpdateType `json:"businessReadyUpdatesOnly,omitempty"`
-	// SkipChecksBeforeRestart Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc.
-	SkipChecksBeforeRestart *bool `json:"skipChecksBeforeRestart,omitempty"`
-	// UpdateWeeks Scheduled the update installation on the weeks of the month
-	UpdateWeeks *WindowsUpdateForBusinessUpdateWeeks `json:"updateWeeks,omitempty"`
-	// QualityUpdatesPauseStartDate Quality Updates Pause start date. This property is read-only.
-	QualityUpdatesPauseStartDate *Date `json:"qualityUpdatesPauseStartDate,omitempty"`
-	// FeatureUpdatesPauseStartDate Feature Updates Pause start date. This property is read-only.
-	FeatureUpdatesPauseStartDate *Date `json:"featureUpdatesPauseStartDate,omitempty"`
-	// FeatureUpdatesRollbackWindowInDays The number of days after a Feature Update for which a rollback is valid
-	FeatureUpdatesRollbackWindowInDays *int `json:"featureUpdatesRollbackWindowInDays,omitempty"`
-	// QualityUpdatesWillBeRolledBack Specifies whether to rollback Quality Updates on the next device check in
-	QualityUpdatesWillBeRolledBack *bool `json:"qualityUpdatesWillBeRolledBack,omitempty"`
-	// FeatureUpdatesWillBeRolledBack Specifies whether to rollback Feature Updates on the next device check in
-	FeatureUpdatesWillBeRolledBack *bool `json:"featureUpdatesWillBeRolledBack,omitempty"`
-	// QualityUpdatesRollbackStartDateTime Quality Updates Rollback Start datetime
-	QualityUpdatesRollbackStartDateTime *time.Time `json:"qualityUpdatesRollbackStartDateTime,omitempty"`
-	// FeatureUpdatesRollbackStartDateTime Feature Updates Rollback Start datetime
-	FeatureUpdatesRollbackStartDateTime *time.Time `json:"featureUpdatesRollbackStartDateTime,omitempty"`
-	// EngagedRestartDeadlineInDays Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days
-	EngagedRestartDeadlineInDays *int `json:"engagedRestartDeadlineInDays,omitempty"`
-	// EngagedRestartSnoozeScheduleInDays Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days
-	EngagedRestartSnoozeScheduleInDays *int `json:"engagedRestartSnoozeScheduleInDays,omitempty"`
-	// EngagedRestartTransitionScheduleInDays Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days
-	EngagedRestartTransitionScheduleInDays *int `json:"engagedRestartTransitionScheduleInDays,omitempty"`
 	// DeadlineForFeatureUpdatesInDays Number of days before feature updates are installed automatically with valid range from 2 to 30 days
 	DeadlineForFeatureUpdatesInDays *int `json:"deadlineForFeatureUpdatesInDays,omitempty"`
 	// DeadlineForQualityUpdatesInDays Number of days before quality updates are installed automatically with valid range from 2 to 30 days
 	DeadlineForQualityUpdatesInDays *int `json:"deadlineForQualityUpdatesInDays,omitempty"`
 	// DeadlineGracePeriodInDays Number of days after deadline  until restarts occur automatically with valid range from 0 to 7 days
 	DeadlineGracePeriodInDays *int `json:"deadlineGracePeriodInDays,omitempty"`
+	// DeliveryOptimizationMode Delivery Optimization Mode
+	DeliveryOptimizationMode *WindowsDeliveryOptimizationMode `json:"deliveryOptimizationMode,omitempty"`
+	// DriversExcluded Exclude Windows update Drivers
+	DriversExcluded *bool `json:"driversExcluded,omitempty"`
+	// EngagedRestartDeadlineInDays Deadline in days before automatically scheduling and executing a pending restart outside of active hours, with valid range from 2 to 30 days
+	EngagedRestartDeadlineInDays *int `json:"engagedRestartDeadlineInDays,omitempty"`
+	// EngagedRestartSnoozeScheduleInDays Number of days a user can snooze Engaged Restart reminder notifications with valid range from 1 to 3 days
+	EngagedRestartSnoozeScheduleInDays *int `json:"engagedRestartSnoozeScheduleInDays,omitempty"`
+	// EngagedRestartTransitionScheduleInDays Number of days before transitioning from Auto Restarts scheduled outside of active hours to Engaged Restart, which requires the user to schedule, with valid range from 0 to 30 days
+	EngagedRestartTransitionScheduleInDays *int `json:"engagedRestartTransitionScheduleInDays,omitempty"`
+	// FeatureUpdatesDeferralPeriodInDays Defer Feature Updates by these many days
+	FeatureUpdatesDeferralPeriodInDays *int `json:"featureUpdatesDeferralPeriodInDays,omitempty"`
+	// FeatureUpdatesPaused Pause Feature Updates
+	FeatureUpdatesPaused *bool `json:"featureUpdatesPaused,omitempty"`
+	// FeatureUpdatesPauseExpiryDateTime Feature Updates Pause Expiry datetime
+	FeatureUpdatesPauseExpiryDateTime *time.Time `json:"featureUpdatesPauseExpiryDateTime,omitempty"`
+	// FeatureUpdatesPauseStartDate Feature Updates Pause start date. This property is read-only.
+	FeatureUpdatesPauseStartDate *Date `json:"featureUpdatesPauseStartDate,omitempty"`
+	// FeatureUpdatesRollbackStartDateTime Feature Updates Rollback Start datetime
+	FeatureUpdatesRollbackStartDateTime *time.Time `json:"featureUpdatesRollbackStartDateTime,omitempty"`
+	// FeatureUpdatesRollbackWindowInDays The number of days after a Feature Update for which a rollback is valid
+	FeatureUpdatesRollbackWindowInDays *int `json:"featureUpdatesRollbackWindowInDays,omitempty"`
+	// FeatureUpdatesWillBeRolledBack Specifies whether to rollback Feature Updates on the next device check in
+	FeatureUpdatesWillBeRolledBack *bool `json:"featureUpdatesWillBeRolledBack,omitempty"`
+	// InstallationSchedule Installation schedule
+	InstallationSchedule *WindowsUpdateInstallScheduleType `json:"installationSchedule,omitempty"`
+	// MicrosoftUpdateServiceAllowed Allow Microsoft Update Service
+	MicrosoftUpdateServiceAllowed *bool `json:"microsoftUpdateServiceAllowed,omitempty"`
 	// PostponeRebootUntilAfterDeadline Specifies if the device should wait until deadline for rebooting outside of active hours
 	PostponeRebootUntilAfterDeadline *bool `json:"postponeRebootUntilAfterDeadline,omitempty"`
-	// AutoRestartNotificationDismissal Specify the method by which the auto-restart required notification is dismissed
-	AutoRestartNotificationDismissal *AutoRestartNotificationDismissalMethod `json:"autoRestartNotificationDismissal,omitempty"`
-	// ScheduleRestartWarningInHours Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours).
-	ScheduleRestartWarningInHours *int `json:"scheduleRestartWarningInHours,omitempty"`
+	// PrereleaseFeatures The pre-release features.
+	PrereleaseFeatures *PrereleaseFeatures `json:"prereleaseFeatures,omitempty"`
+	// QualityUpdatesDeferralPeriodInDays Defer Quality Updates by these many days
+	QualityUpdatesDeferralPeriodInDays *int `json:"qualityUpdatesDeferralPeriodInDays,omitempty"`
+	// QualityUpdatesPaused Pause Quality Updates
+	QualityUpdatesPaused *bool `json:"qualityUpdatesPaused,omitempty"`
+	// QualityUpdatesPauseExpiryDateTime Quality Updates Pause Expiry datetime
+	QualityUpdatesPauseExpiryDateTime *time.Time `json:"qualityUpdatesPauseExpiryDateTime,omitempty"`
+	// QualityUpdatesPauseStartDate Quality Updates Pause start date. This property is read-only.
+	QualityUpdatesPauseStartDate *Date `json:"qualityUpdatesPauseStartDate,omitempty"`
+	// QualityUpdatesRollbackStartDateTime Quality Updates Rollback Start datetime
+	QualityUpdatesRollbackStartDateTime *time.Time `json:"qualityUpdatesRollbackStartDateTime,omitempty"`
+	// QualityUpdatesWillBeRolledBack Specifies whether to rollback Quality Updates on the next device check in
+	QualityUpdatesWillBeRolledBack *bool `json:"qualityUpdatesWillBeRolledBack,omitempty"`
 	// ScheduleImminentRestartWarningInMinutes Specify the period for auto-restart imminent warning notifications. Supported values: 15, 30 or 60 (minutes).
 	ScheduleImminentRestartWarningInMinutes *int `json:"scheduleImminentRestartWarningInMinutes,omitempty"`
+	// ScheduleRestartWarningInHours Specify the period for auto-restart warning reminder notifications. Supported values: 2, 4, 8, 12 or 24 (hours).
+	ScheduleRestartWarningInHours *int `json:"scheduleRestartWarningInHours,omitempty"`
+	// SkipChecksBeforeRestart Set to skip all check before restart: Battery level = 40%, User presence, Display Needed, Presentation mode, Full screen mode, phone call state, game mode etc.
+	SkipChecksBeforeRestart *bool `json:"skipChecksBeforeRestart,omitempty"`
+	// UpdateNotificationLevel Specifies what Windows Update notifications users see.
+	UpdateNotificationLevel *WindowsUpdateNotificationDisplayOption `json:"updateNotificationLevel,omitempty"`
+	// UpdateWeeks Scheduled the update installation on the weeks of the month
+	UpdateWeeks *WindowsUpdateForBusinessUpdateWeeks `json:"updateWeeks,omitempty"`
 	// UserPauseAccess Specifies whether to enable end user’s access to pause software updates.
 	UserPauseAccess *Enablement `json:"userPauseAccess,omitempty"`
 	// UserWindowsUpdateScanAccess Specifies whether to disable user’s access to scan Windows Update.
 	UserWindowsUpdateScanAccess *Enablement `json:"userWindowsUpdateScanAccess,omitempty"`
-	// UpdateNotificationLevel Specifies what Windows Update notifications users see.
-	UpdateNotificationLevel *WindowsUpdateNotificationDisplayOption `json:"updateNotificationLevel,omitempty"`
 	// DeviceUpdateStates undocumented
 	DeviceUpdateStates []WindowsUpdateState `json:"deviceUpdateStates,omitempty"`
 }
@@ -1700,24 +1860,24 @@ type WindowsUpdateScheduledInstall struct {
 type WindowsUpdateState struct {
 	// Entity is the base model of WindowsUpdateState
 	Entity
-	// DeviceID The id of the device.
-	DeviceID *string `json:"deviceId,omitempty"`
-	// UserID The id of the user.
-	UserID *string `json:"userId,omitempty"`
 	// DeviceDisplayName Device display name.
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
-	// UserPrincipalName User principal name.
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// Status Windows udpate status.
-	Status *WindowsUpdateStatus `json:"status,omitempty"`
-	// QualityUpdateVersion The Quality Update Version of the device.
-	QualityUpdateVersion *string `json:"qualityUpdateVersion,omitempty"`
+	// DeviceID The id of the device.
+	DeviceID *string `json:"deviceId,omitempty"`
 	// FeatureUpdateVersion The current feature update version of the device.
 	FeatureUpdateVersion *string `json:"featureUpdateVersion,omitempty"`
 	// LastScanDateTime The date time that the Windows Update Agent did a successful scan.
 	LastScanDateTime *time.Time `json:"lastScanDateTime,omitempty"`
 	// LastSyncDateTime Last date time that the device sync with with Microsoft Intune.
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
+	// QualityUpdateVersion The Quality Update Version of the device.
+	QualityUpdateVersion *string `json:"qualityUpdateVersion,omitempty"`
+	// Status Windows udpate status.
+	Status *WindowsUpdateStatus `json:"status,omitempty"`
+	// UserID The id of the user.
+	UserID *string `json:"userId,omitempty"`
+	// UserPrincipalName User principal name.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // WindowsVPNConfiguration Windows VPN configuration profile.
@@ -1726,76 +1886,100 @@ type WindowsVPNConfiguration struct {
 	DeviceConfiguration
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`
-	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-	Servers []VPNServer `json:"servers,omitempty"`
 	// CustomXML Custom XML commands that configures the VPN connection. (UTF8 encoded byte array)
 	CustomXML *Binary `json:"customXml,omitempty"`
+	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
+	Servers []VPNServer `json:"servers,omitempty"`
 }
 
 // WindowsWiFiConfiguration Device Configuration.
 type WindowsWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of WindowsWiFiConfiguration
 	DeviceConfiguration
-	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
-	PreSharedKey *string `json:"preSharedKey,omitempty"`
-	// WiFiSecurityType Specify the Wifi Security Type.
-	WiFiSecurityType *WiFiSecurityType `json:"wifiSecurityType,omitempty"`
-	// MeteredConnectionLimit Specify the metered connection limit type for the wifi connection.
-	MeteredConnectionLimit *MeteredConnectionLimitType `json:"meteredConnectionLimit,omitempty"`
-	// Ssid Specify the SSID of the wifi connection.
-	Ssid *string `json:"ssid,omitempty"`
-	// NetworkName Specify the network configuration name.
-	NetworkName *string `json:"networkName,omitempty"`
 	// ConnectAutomatically Specify whether the wifi connection should connect automatically when in range.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectToPreferredNetwork Specify whether the wifi connection should connect to more preferred networks when already connected to this one.  Requires ConnectAutomatically to be true.
 	ConnectToPreferredNetwork *bool `json:"connectToPreferredNetwork,omitempty"`
 	// ConnectWhenNetworkNameIsHidden Specify whether the wifi connection should connect automatically even when the SSID is not broadcasting.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
-	// ProxySetting Specify the proxy setting for Wi-Fi configuration
-	ProxySetting *WiFiProxySetting `json:"proxySetting,omitempty"`
+	// ForceFIPSCompliance Specify whether to force FIPS compliance.
+	ForceFIPSCompliance *bool `json:"forceFIPSCompliance,omitempty"`
+	// MeteredConnectionLimit Specify the metered connection limit type for the wifi connection.
+	MeteredConnectionLimit *MeteredConnectionLimitType `json:"meteredConnectionLimit,omitempty"`
+	// NetworkName Specify the network configuration name.
+	NetworkName *string `json:"networkName,omitempty"`
+	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
+	PreSharedKey *string `json:"preSharedKey,omitempty"`
+	// ProxyAutomaticConfigurationURL Specify the URL for the proxy server configuration script.
+	ProxyAutomaticConfigurationURL *string `json:"proxyAutomaticConfigurationUrl,omitempty"`
 	// ProxyManualAddress Specify the IP address for the proxy server.
 	ProxyManualAddress *string `json:"proxyManualAddress,omitempty"`
 	// ProxyManualPort Specify the port for the proxy server.
 	ProxyManualPort *int `json:"proxyManualPort,omitempty"`
-	// ProxyAutomaticConfigurationURL Specify the URL for the proxy server configuration script.
-	ProxyAutomaticConfigurationURL *string `json:"proxyAutomaticConfigurationUrl,omitempty"`
-	// ForceFIPSCompliance Specify whether to force FIPS compliance.
-	ForceFIPSCompliance *bool `json:"forceFIPSCompliance,omitempty"`
+	// ProxySetting Specify the proxy setting for Wi-Fi configuration
+	ProxySetting *WiFiProxySetting `json:"proxySetting,omitempty"`
+	// Ssid Specify the SSID of the wifi connection.
+	Ssid *string `json:"ssid,omitempty"`
+	// WiFiSecurityType Specify the Wifi Security Type.
+	WiFiSecurityType *WiFiSecurityType `json:"wifiSecurityType,omitempty"`
 }
 
 // WindowsWiFiEnterpriseEAPConfiguration This entity provides descriptions of the declared methods, properties and relationships exposed by the Wifi CSP.
 type WindowsWiFiEnterpriseEAPConfiguration struct {
 	// WindowsWiFiConfiguration is the base model of WindowsWiFiEnterpriseEAPConfiguration
 	WindowsWiFiConfiguration
-	// NetworkSingleSignOn Specify the network single sign on type.
-	NetworkSingleSignOn *NetworkSingleSignOnType `json:"networkSingleSignOn,omitempty"`
-	// MaximumAuthenticationTimeoutInSeconds Specify maximum authentication timeout (in seconds).  Valid range: 1-120
-	MaximumAuthenticationTimeoutInSeconds *int `json:"maximumAuthenticationTimeoutInSeconds,omitempty"`
-	// PromptForAdditionalAuthenticationCredentials Specify whether the wifi connection should prompt for additional authentication credentials.
-	PromptForAdditionalAuthenticationCredentials *bool `json:"promptForAdditionalAuthenticationCredentials,omitempty"`
-	// EnablePairwiseMasterKeyCaching Specify whether the wifi connection should enable pairwise master key caching.
-	EnablePairwiseMasterKeyCaching *bool `json:"enablePairwiseMasterKeyCaching,omitempty"`
-	// MaximumPairwiseMasterKeyCacheTimeInMinutes Specify maximum pairwise master key cache time (in minutes).  Valid range: 5-1440
-	MaximumPairwiseMasterKeyCacheTimeInMinutes *int `json:"maximumPairwiseMasterKeyCacheTimeInMinutes,omitempty"`
-	// MaximumNumberOfPairwiseMasterKeysInCache Specify maximum number of pairwise master keys in cache.  Valid range: 1-255
-	MaximumNumberOfPairwiseMasterKeysInCache *int `json:"maximumNumberOfPairwiseMasterKeysInCache,omitempty"`
-	// EnablePreAuthentication Specify whether pre-authentication should be enabled.
-	EnablePreAuthentication *bool `json:"enablePreAuthentication,omitempty"`
-	// MaximumPreAuthenticationAttempts Specify maximum pre-authentication attempts.  Valid range: 1-16
-	MaximumPreAuthenticationAttempts *int `json:"maximumPreAuthenticationAttempts,omitempty"`
-	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *EapType `json:"eapType,omitempty"`
-	// TrustedServerCertificateNames Specify trusted server certificate names.
-	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
 	// AuthenticationMethod Specify the authentication method.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// AuthenticationPeriodInSeconds Specify the number of seconds for the client to wait after an authentication attempt before failing. Valid range 1-3600.
+	AuthenticationPeriodInSeconds *int `json:"authenticationPeriodInSeconds,omitempty"`
+	// AuthenticationRetryDelayPeriodInSeconds Specify the number of seconds between a failed authentication and the next authentication attempt. Valid range 1-3600.
+	AuthenticationRetryDelayPeriodInSeconds *int `json:"authenticationRetryDelayPeriodInSeconds,omitempty"`
+	// AuthenticationType Specify whether to authenticate the user, the device, either, or to use guest authentication (none). If you’re using certificate authentication, make sure the certificate type matches the authentication type.
+	AuthenticationType *WiFiAuthenticationType `json:"authenticationType,omitempty"`
+	// CacheCredentials Specify whether to cache user credentials on the device so that users don’t need to keep entering them each time they connect.
+	CacheCredentials *bool `json:"cacheCredentials,omitempty"`
+	// DisableUserPromptForServerValidation Specify whether to prevent the user from being prompted to authorize new servers for trusted certification authorities when EAP type is selected as PEAP.
+	DisableUserPromptForServerValidation *bool `json:"disableUserPromptForServerValidation,omitempty"`
+	// EapolStartPeriodInSeconds Specify the number of seconds to wait before sending an EAPOL (Extensible Authentication Protocol over LAN) Start message. Valid range 1-3600.
+	EapolStartPeriodInSeconds *int `json:"eapolStartPeriodInSeconds,omitempty"`
+	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *EapType `json:"eapType,omitempty"`
+	// EnablePairwiseMasterKeyCaching Specify whether the wifi connection should enable pairwise master key caching.
+	EnablePairwiseMasterKeyCaching *bool `json:"enablePairwiseMasterKeyCaching,omitempty"`
+	// EnablePreAuthentication Specify whether pre-authentication should be enabled.
+	EnablePreAuthentication *bool `json:"enablePreAuthentication,omitempty"`
 	// InnerAuthenticationProtocolForEAPTTLS Specify inner authentication protocol for EAP TTLS.
 	InnerAuthenticationProtocolForEAPTTLS *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEAPTTLS,omitempty"`
+	// MaximumAuthenticationFailures Specify the maximum authentication failures allowed for a set of credentials. Valid range 1-100.
+	MaximumAuthenticationFailures *int `json:"maximumAuthenticationFailures,omitempty"`
+	// MaximumAuthenticationTimeoutInSeconds Specify maximum authentication timeout (in seconds).  Valid range: 1-120
+	MaximumAuthenticationTimeoutInSeconds *int `json:"maximumAuthenticationTimeoutInSeconds,omitempty"`
+	// MaximumEAPOLStartMessages Specifiy the maximum number of EAPOL (Extensible Authentication Protocol over LAN) Start messages to be sent before returning failure. Valid range 1-100.
+	MaximumEAPOLStartMessages *int `json:"maximumEAPOLStartMessages,omitempty"`
+	// MaximumNumberOfPairwiseMasterKeysInCache Specify maximum number of pairwise master keys in cache.  Valid range: 1-255
+	MaximumNumberOfPairwiseMasterKeysInCache *int `json:"maximumNumberOfPairwiseMasterKeysInCache,omitempty"`
+	// MaximumPairwiseMasterKeyCacheTimeInMinutes Specify maximum pairwise master key cache time (in minutes).  Valid range: 5-1440
+	MaximumPairwiseMasterKeyCacheTimeInMinutes *int `json:"maximumPairwiseMasterKeyCacheTimeInMinutes,omitempty"`
+	// MaximumPreAuthenticationAttempts Specify maximum pre-authentication attempts.  Valid range: 1-16
+	MaximumPreAuthenticationAttempts *int `json:"maximumPreAuthenticationAttempts,omitempty"`
+	// NetworkSingleSignOn Specify the network single sign on type.
+	NetworkSingleSignOn *NetworkSingleSignOnType `json:"networkSingleSignOn,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Specify the string to replace usernames for privacy when using EAP TTLS or PEAP.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// RootCertificatesForServerValidation undocumented
-	RootCertificatesForServerValidation []Windows81TrustedRootCertificate `json:"rootCertificatesForServerValidation,omitempty"`
+	// PerformServerValidation Specify whether to enable verification of server's identity by validating the certificate when EAP type is selected as PEAP.
+	PerformServerValidation *bool `json:"performServerValidation,omitempty"`
+	// PromptForAdditionalAuthenticationCredentials Specify whether the wifi connection should prompt for additional authentication credentials.
+	PromptForAdditionalAuthenticationCredentials *bool `json:"promptForAdditionalAuthenticationCredentials,omitempty"`
+	// RequireCryptographicBinding Specify whether to enable cryptographic binding when EAP type is selected as PEAP.
+	RequireCryptographicBinding *bool `json:"requireCryptographicBinding,omitempty"`
+	// TrustedServerCertificateNames Specify trusted server certificate names.
+	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
+	// UserBasedVirtualLan Specifiy whether to change the virtual LAN used by the device based on the user’s credentials. Cannot be used when NetworkSingleSignOnType is set to ​Disabled.
+	UserBasedVirtualLan *bool `json:"userBasedVirtualLan,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *WindowsCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForClientValidation undocumented
+	RootCertificateForClientValidation *Windows81TrustedRootCertificate `json:"rootCertificateForClientValidation,omitempty"`
+	// RootCertificatesForServerValidation undocumented
+	RootCertificatesForServerValidation []Windows81TrustedRootCertificate `json:"rootCertificatesForServerValidation,omitempty"`
 }

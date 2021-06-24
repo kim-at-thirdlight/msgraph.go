@@ -2,10 +2,7 @@
 
 package msgraph
 
-import (
-	"encoding/json"
-	"time"
-)
+import "time"
 
 // User Represents an Azure Active Directory user object.
 type User struct {
@@ -41,8 +38,18 @@ type User struct {
 	DeviceKeys []DeviceKey `json:"deviceKeys,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// EmployeeHireDate undocumented
+	EmployeeHireDate *time.Time `json:"employeeHireDate,omitempty"`
 	// EmployeeID undocumented
 	EmployeeID *string `json:"employeeId,omitempty"`
+	// EmployeeOrgData undocumented
+	EmployeeOrgData *EmployeeOrgData `json:"employeeOrgData,omitempty"`
+	// EmployeeType undocumented
+	EmployeeType *string `json:"employeeType,omitempty"`
+	// ExternalUserState undocumented
+	ExternalUserState *string `json:"externalUserState,omitempty"`
+	// ExternalUserStateChangeDateTime undocumented
+	ExternalUserStateChangeDateTime *string `json:"externalUserStateChangeDateTime,omitempty"`
 	// FaxNumber undocumented
 	FaxNumber *string `json:"faxNumber,omitempty"`
 	// GivenName undocumented
@@ -51,6 +58,8 @@ type User struct {
 	Identities []ObjectIdentity `json:"identities,omitempty"`
 	// ImAddresses undocumented
 	ImAddresses []string `json:"imAddresses,omitempty"`
+	// InfoCatalogs undocumented
+	InfoCatalogs []string `json:"infoCatalogs,omitempty"`
 	// IsResourceAccount undocumented
 	IsResourceAccount *bool `json:"isResourceAccount,omitempty"`
 	// JobTitle undocumented
@@ -67,8 +76,12 @@ type User struct {
 	MailNickname *string `json:"mailNickname,omitempty"`
 	// MobilePhone undocumented
 	MobilePhone *string `json:"mobilePhone,omitempty"`
+	// OfficeLocation undocumented
+	OfficeLocation *string `json:"officeLocation,omitempty"`
 	// OnPremisesDistinguishedName undocumented
 	OnPremisesDistinguishedName *string `json:"onPremisesDistinguishedName,omitempty"`
+	// OnPremisesDomainName undocumented
+	OnPremisesDomainName *string `json:"onPremisesDomainName,omitempty"`
 	// OnPremisesExtensionAttributes undocumented
 	OnPremisesExtensionAttributes *OnPremisesExtensionAttributes `json:"onPremisesExtensionAttributes,omitempty"`
 	// OnPremisesImmutableID undocumented
@@ -77,14 +90,12 @@ type User struct {
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
 	// OnPremisesProvisioningErrors undocumented
 	OnPremisesProvisioningErrors []OnPremisesProvisioningError `json:"onPremisesProvisioningErrors,omitempty"`
+	// OnPremisesSamAccountName undocumented
+	OnPremisesSamAccountName *string `json:"onPremisesSamAccountName,omitempty"`
 	// OnPremisesSecurityIdentifier undocumented
 	OnPremisesSecurityIdentifier *string `json:"onPremisesSecurityIdentifier,omitempty"`
 	// OnPremisesSyncEnabled undocumented
 	OnPremisesSyncEnabled *bool `json:"onPremisesSyncEnabled,omitempty"`
-	// OnPremisesDomainName undocumented
-	OnPremisesDomainName *string `json:"onPremisesDomainName,omitempty"`
-	// OnPremisesSamAccountName undocumented
-	OnPremisesSamAccountName *string `json:"onPremisesSamAccountName,omitempty"`
 	// OnPremisesUserPrincipalName undocumented
 	OnPremisesUserPrincipalName *string `json:"onPremisesUserPrincipalName,omitempty"`
 	// OtherMails undocumented
@@ -93,8 +104,6 @@ type User struct {
 	PasswordPolicies *string `json:"passwordPolicies,omitempty"`
 	// PasswordProfile undocumented
 	PasswordProfile *PasswordProfile `json:"passwordProfile,omitempty"`
-	// OfficeLocation undocumented
-	OfficeLocation *string `json:"officeLocation,omitempty"`
 	// PostalCode undocumented
 	PostalCode *string `json:"postalCode,omitempty"`
 	// PreferredDataLocation undocumented
@@ -121,16 +130,10 @@ type User struct {
 	UsageLocation *string `json:"usageLocation,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// ExternalUserState undocumented
-	ExternalUserState *string `json:"externalUserState,omitempty"`
-	// ExternalUserStateChangeDateTime undocumented
-	ExternalUserStateChangeDateTime *string `json:"externalUserStateChangeDateTime,omitempty"`
 	// UserType undocumented
 	UserType *string `json:"userType,omitempty"`
 	// MailboxSettings undocumented
 	MailboxSettings *MailboxSettings `json:"mailboxSettings,omitempty"`
-	// IdentityUserRisk undocumented
-	IdentityUserRisk *IdentityUserRisk `json:"identityUserRisk,omitempty"`
 	// DeviceEnrollmentLimit The limit on the maximum number of devices that the user is permitted to enroll. Allowed values are 5 or 1000.
 	DeviceEnrollmentLimit *int `json:"deviceEnrollmentLimit,omitempty"`
 	// AboutMe undocumented
@@ -155,6 +158,8 @@ type User struct {
 	Skills []string `json:"skills,omitempty"`
 	// Analytics undocumented
 	Analytics *UserAnalytics `json:"analytics,omitempty"`
+	// UsageRights undocumented
+	UsageRights []UsageRight `json:"usageRights,omitempty"`
 	// InformationProtection undocumented
 	InformationProtection *InformationProtection `json:"informationProtection,omitempty"`
 	// AppRoleAssignments undocumented
@@ -169,6 +174,8 @@ type User struct {
 	Manager *DirectoryObject `json:"manager,omitempty"`
 	// MemberOf undocumented
 	MemberOf []DirectoryObject `json:"memberOf,omitempty"`
+	// OAuth2PermissionGrants undocumented
+	OAuth2PermissionGrants []OAuth2PermissionGrant `json:"oauth2PermissionGrants,omitempty"`
 	// OwnedDevices undocumented
 	OwnedDevices []DirectoryObject `json:"ownedDevices,omitempty"`
 	// OwnedObjects undocumented
@@ -179,36 +186,34 @@ type User struct {
 	ScopedRoleMemberOf []ScopedRoleMembership `json:"scopedRoleMemberOf,omitempty"`
 	// TransitiveMemberOf undocumented
 	TransitiveMemberOf []DirectoryObject `json:"transitiveMemberOf,omitempty"`
-	// Outlook undocumented
-	Outlook *OutlookUser `json:"outlook,omitempty"`
-	// Messages undocumented
-	Messages []Message `json:"messages,omitempty"`
+	// TransitiveReports undocumented
+	TransitiveReports []DirectoryObject `json:"transitiveReports,omitempty"`
+	// Calendar undocumented
+	Calendar *Calendar `json:"calendar,omitempty"`
+	// CalendarGroups undocumented
+	CalendarGroups []CalendarGroup `json:"calendarGroups,omitempty"`
+	// Calendars undocumented
+	Calendars []Calendar `json:"calendars,omitempty"`
+	// CalendarView undocumented
+	CalendarView []Event `json:"calendarView,omitempty"`
+	// ContactFolders undocumented
+	ContactFolders []ContactFolder `json:"contactFolders,omitempty"`
+	// Contacts undocumented
+	Contacts []Contact `json:"contacts,omitempty"`
+	// Events undocumented
+	Events []Event `json:"events,omitempty"`
+	// InferenceClassification undocumented
+	InferenceClassification *InferenceClassification `json:"inferenceClassification,omitempty"`
 	// JoinedGroups undocumented
 	JoinedGroups []Group `json:"joinedGroups,omitempty"`
 	// MailFolders undocumented
 	MailFolders []MailFolder `json:"mailFolders,omitempty"`
-	// Calendar undocumented
-	Calendar *Calendar `json:"calendar,omitempty"`
-	// Calendars undocumented
-	Calendars []Calendar `json:"calendars,omitempty"`
-	// CalendarGroups undocumented
-	CalendarGroups []CalendarGroup `json:"calendarGroups,omitempty"`
-	// CalendarView undocumented
-	CalendarView []Event `json:"calendarView,omitempty"`
-	// Events undocumented
-	Events []Event `json:"events,omitempty"`
+	// Messages undocumented
+	Messages []Message `json:"messages,omitempty"`
+	// Outlook undocumented
+	Outlook *OutlookUser `json:"outlook,omitempty"`
 	// People undocumented
 	People []Person `json:"people,omitempty"`
-	// Contacts undocumented
-	Contacts []Contact `json:"contacts,omitempty"`
-	// ContactFolders undocumented
-	ContactFolders []ContactFolder `json:"contactFolders,omitempty"`
-	// InferenceClassification undocumented
-	InferenceClassification *InferenceClassification `json:"inferenceClassification,omitempty"`
-	// Photo undocumented
-	Photo *ProfilePhoto `json:"photo,omitempty"`
-	// Photos undocumented
-	Photos []ProfilePhoto `json:"photos,omitempty"`
 	// Drive undocumented
 	Drive *Drive `json:"drive,omitempty"`
 	// Drives undocumented
@@ -217,6 +222,12 @@ type User struct {
 	FollowedSites []Site `json:"followedSites,omitempty"`
 	// Extensions undocumented
 	Extensions []Extension `json:"extensions,omitempty"`
+	// AppConsentRequestsForApproval undocumented
+	AppConsentRequestsForApproval []AppConsentRequest `json:"appConsentRequestsForApproval,omitempty"`
+	// Approvals undocumented
+	Approvals []Approval `json:"approvals,omitempty"`
+	// PendingAccessReviewInstances undocumented
+	PendingAccessReviewInstances []AccessReviewInstance `json:"pendingAccessReviewInstances,omitempty"`
 	// AgreementAcceptances undocumented
 	AgreementAcceptances []AgreementAcceptance `json:"agreementAcceptances,omitempty"`
 	// DeviceEnrollmentConfigurations undocumented
@@ -238,11 +249,15 @@ type User struct {
 	// Planner undocumented
 	Planner *PlannerUser `json:"planner,omitempty"`
 	// Insights undocumented
-	Insights *OfficeGraphInsights `json:"insights,omitempty"`
+	Insights *ItemInsights `json:"insights,omitempty"`
 	// Settings undocumented
 	Settings *UserSettings `json:"settings,omitempty"`
 	// Onenote undocumented
 	Onenote *Onenote `json:"onenote,omitempty"`
+	// Photo undocumented
+	Photo *ProfilePhoto `json:"photo,omitempty"`
+	// Photos undocumented
+	Photos []ProfilePhoto `json:"photos,omitempty"`
 	// Profile undocumented
 	Profile *Profile `json:"profile,omitempty"`
 	// Activities undocumented
@@ -253,12 +268,16 @@ type User struct {
 	OnlineMeetings []OnlineMeeting `json:"onlineMeetings,omitempty"`
 	// Presence undocumented
 	Presence *Presence `json:"presence,omitempty"`
+	// Authentication undocumented
+	Authentication *Authentication `json:"authentication,omitempty"`
 	// Chats undocumented
 	Chats []Chat `json:"chats,omitempty"`
 	// JoinedTeams undocumented
 	JoinedTeams []Team `json:"joinedTeams,omitempty"`
 	// Teamwork undocumented
 	Teamwork *UserTeamwork `json:"teamwork,omitempty"`
+	// Todo undocumented
+	Todo *Todo `json:"todo,omitempty"`
 }
 
 // UserAccount undocumented
@@ -297,38 +316,38 @@ type UserAccountInformation struct {
 type UserActivationCounts struct {
 	// Object is the base model of UserActivationCounts
 	Object
-	// ProductType undocumented
-	ProductType *string `json:"productType,omitempty"`
-	// LastActivatedDate undocumented
-	LastActivatedDate *Date `json:"lastActivatedDate,omitempty"`
-	// Windows undocumented
-	Windows *int `json:"windows,omitempty"`
-	// Mac undocumented
-	Mac *int `json:"mac,omitempty"`
-	// Windows10Mobile undocumented
-	Windows10Mobile *int `json:"windows10Mobile,omitempty"`
-	// IOS undocumented
-	IOS *int `json:"ios,omitempty"`
-	// Android undocumented
-	Android *int `json:"android,omitempty"`
 	// ActivatedOnSharedComputer undocumented
 	ActivatedOnSharedComputer *bool `json:"activatedOnSharedComputer,omitempty"`
+	// Android undocumented
+	Android *int `json:"android,omitempty"`
+	// IOS undocumented
+	IOS *int `json:"ios,omitempty"`
+	// LastActivatedDate undocumented
+	LastActivatedDate *Date `json:"lastActivatedDate,omitempty"`
+	// Mac undocumented
+	Mac *int `json:"mac,omitempty"`
+	// ProductType undocumented
+	ProductType *string `json:"productType,omitempty"`
+	// Windows undocumented
+	Windows *int `json:"windows,omitempty"`
+	// Windows10Mobile undocumented
+	Windows10Mobile *int `json:"windows10Mobile,omitempty"`
 }
 
 // UserActivity undocumented
 type UserActivity struct {
 	// Entity is the base model of UserActivity
 	Entity
-	// VisualElements undocumented
-	VisualElements *VisualInfo `json:"visualElements,omitempty"`
-	// ActivitySourceHost undocumented
-	ActivitySourceHost *string `json:"activitySourceHost,omitempty"`
 	// ActivationURL undocumented
 	ActivationURL *string `json:"activationUrl,omitempty"`
+	// ActivitySourceHost undocumented
+	ActivitySourceHost *string `json:"activitySourceHost,omitempty"`
 	// AppActivityID undocumented
 	AppActivityID *string `json:"appActivityId,omitempty"`
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// ContentInfo undocumented
+	ContentInfo *JSON `json:"contentInfo,omitempty"`
 	// ContentURL undocumented
 	ContentURL *string `json:"contentUrl,omitempty"`
 	// CreatedDateTime undocumented
@@ -339,12 +358,12 @@ type UserActivity struct {
 	FallbackURL *string `json:"fallbackUrl,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// UserTimezone undocumented
-	UserTimezone *string `json:"userTimezone,omitempty"`
-	// ContentInfo undocumented
-	ContentInfo json.RawMessage `json:"contentInfo,omitempty"`
 	// Status undocumented
 	Status *Status `json:"status,omitempty"`
+	// UserTimezone undocumented
+	UserTimezone *string `json:"userTimezone,omitempty"`
+	// VisualElements undocumented
+	VisualElements *VisualInfo `json:"visualElements,omitempty"`
 	// HistoryItems undocumented
 	HistoryItems []ActivityHistoryItem `json:"historyItems,omitempty"`
 }
@@ -363,20 +382,32 @@ type UserAnalytics struct {
 type UserAppInstallStatus struct {
 	// Entity is the base model of UserAppInstallStatus
 	Entity
+	// FailedDeviceCount Failed Device Count.
+	FailedDeviceCount *int `json:"failedDeviceCount,omitempty"`
+	// InstalledDeviceCount Installed Device Count.
+	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`
+	// NotInstalledDeviceCount Not installed device count.
+	NotInstalledDeviceCount *int `json:"notInstalledDeviceCount,omitempty"`
 	// UserName User name.
 	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName User Principal Name.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// InstalledDeviceCount Installed Device Count.
-	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`
-	// FailedDeviceCount Failed Device Count.
-	FailedDeviceCount *int `json:"failedDeviceCount,omitempty"`
-	// NotInstalledDeviceCount Not installed device count.
-	NotInstalledDeviceCount *int `json:"notInstalledDeviceCount,omitempty"`
 	// App undocumented
 	App *MobileApp `json:"app,omitempty"`
 	// DeviceStatuses undocumented
 	DeviceStatuses []MobileAppInstallStatus `json:"deviceStatuses,omitempty"`
+}
+
+// UserAttributeValuesItem undocumented
+type UserAttributeValuesItem struct {
+	// Object is the base model of UserAttributeValuesItem
+	Object
+	// IsDefault undocumented
+	IsDefault *bool `json:"isDefault,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Value undocumented
+	Value *string `json:"value,omitempty"`
 }
 
 // UserConfiguration undocumented
@@ -387,40 +418,216 @@ type UserConfiguration struct {
 	BinaryData *Binary `json:"binaryData,omitempty"`
 }
 
+// UserConsentRequestObject undocumented
+type UserConsentRequestObject struct {
+	// Request is the base model of UserConsentRequestObject
+	Request
+	// Reason undocumented
+	Reason *string `json:"reason,omitempty"`
+	// Approval undocumented
+	Approval *Approval `json:"approval,omitempty"`
+}
+
 // UserCredentialUsageDetails undocumented
 type UserCredentialUsageDetails struct {
 	// Entity is the base model of UserCredentialUsageDetails
 	Entity
-	// Feature undocumented
-	Feature *FeatureType `json:"feature,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// UserDisplayName undocumented
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
-	// IsSuccess undocumented
-	IsSuccess *bool `json:"isSuccess,omitempty"`
 	// AuthMethod undocumented
 	AuthMethod *UsageAuthMethod `json:"authMethod,omitempty"`
-	// FailureReason undocumented
-	FailureReason *string `json:"failureReason,omitempty"`
 	// EventDateTime undocumented
 	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
+	// FailureReason undocumented
+	FailureReason *string `json:"failureReason,omitempty"`
+	// Feature undocumented
+	Feature *FeatureType `json:"feature,omitempty"`
+	// IsSuccess undocumented
+	IsSuccess *bool `json:"isSuccess,omitempty"`
+	// UserDisplayName undocumented
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion The user experience analytics applicaiton performance entity contains app performance details by app version.
+type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+	Entity
+	// AppCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
+	AppCrashCount *int `json:"appCrashCount,omitempty"`
+	// AppDisplayName The friendly name of the application.
+	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// AppName The name of the application.
+	AppName *string `json:"appName,omitempty"`
+	// AppPublisher The publisher of the application.
+	AppPublisher *string `json:"appPublisher,omitempty"`
+	// AppUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
+	AppUsageDuration *int `json:"appUsageDuration,omitempty"`
+	// AppVersion The version of the application.
+	AppVersion *string `json:"appVersion,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion The user experience analytics applicaiton performance entity contains app performance details by OS version.
+type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+	Entity
+	// ActiveDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647
+	ActiveDeviceCount *int `json:"activeDeviceCount,omitempty"`
+	// AppCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
+	AppCrashCount *int `json:"appCrashCount,omitempty"`
+	// AppDisplayName The friendly name of the application.
+	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// AppName The name of the application.
+	AppName *string `json:"appName,omitempty"`
+	// AppPublisher The publisher of the application.
+	AppPublisher *string `json:"appPublisher,omitempty"`
+	// AppUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
+	AppUsageDuration *int `json:"appUsageDuration,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+	// OsBuildNumber The os build number of the application.
+	OsBuildNumber *string `json:"osBuildNumber,omitempty"`
+	// OsVersion The os version of the application.
+	OsVersion *string `json:"osVersion,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthApplicationPerformance The user experience analytics applicaiton performance entity contains app performance details.
+type UserExperienceAnalyticsAppHealthApplicationPerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthApplicationPerformance
+	Entity
+	// ActiveDeviceCount The number of devices where the app has been active. Valid values -2147483648 to 2147483647
+	ActiveDeviceCount *int `json:"activeDeviceCount,omitempty"`
+	// AppCrashCount The number of crashes for the app. Valid values -2147483648 to 2147483647
+	AppCrashCount *int `json:"appCrashCount,omitempty"`
+	// AppDisplayName The friendly name of the application.
+	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// AppHangCount The number of hangs for the app. Valid values -2147483648 to 2147483647
+	AppHangCount *int `json:"appHangCount,omitempty"`
+	// AppHealthScore The health score of the app. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	AppHealthScore *float64 `json:"appHealthScore,omitempty"`
+	// AppHealthStatus The overall health status of the app.
+	AppHealthStatus *string `json:"appHealthStatus,omitempty"`
+	// AppName The name of the application.
+	AppName *string `json:"appName,omitempty"`
+	// AppPublisher The publisher of the application.
+	AppPublisher *string `json:"appPublisher,omitempty"`
+	// AppUsageDuration The total usage time of the application in minutes. Valid values -2147483648 to 2147483647
+	AppUsageDuration *int `json:"appUsageDuration,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the app in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthDeviceModelPerformance The user experience analytics device model performance entity contains device model performance details.
+type UserExperienceAnalyticsAppHealthDeviceModelPerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthDeviceModelPerformance
+	Entity
+	// ActiveDeviceCount The number of active devices for the model. Valid values -2147483648 to 2147483647
+	ActiveDeviceCount *int `json:"activeDeviceCount,omitempty"`
+	// DeviceManufacturer The manufacturer name of the device.
+	DeviceManufacturer *string `json:"deviceManufacturer,omitempty"`
+	// DeviceModel The model name of the device.
+	DeviceModel *string `json:"deviceModel,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the model device in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+	// ModelAppHealthScore The app health score of the device model. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	ModelAppHealthScore *float64 `json:"modelAppHealthScore,omitempty"`
+	// ModelAppHealthStatus The overall app health status of the device model.
+	ModelAppHealthStatus *string `json:"modelAppHealthStatus,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformance The user experience analytics device performance entity contains device performance details.
+type UserExperienceAnalyticsAppHealthDevicePerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthDevicePerformance
+	Entity
+	// AppCrashCount The number of app crashes for the device. Valid values -2147483648 to 2147483647
+	AppCrashCount *int `json:"appCrashCount,omitempty"`
+	// AppHangCount The number of app hangs for the device. Valid values -2147483648 to 2147483647
+	AppHangCount *int `json:"appHangCount,omitempty"`
+	// CrashedAppCount The number of distinct app crashes for the device. Valid values -2147483648 to 2147483647
+	CrashedAppCount *int `json:"crashedAppCount,omitempty"`
+	// DeviceAppHealthScore The app health score of the device. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	DeviceAppHealthScore *float64 `json:"deviceAppHealthScore,omitempty"`
+	// DeviceAppHealthStatus The overall app health status of the device.
+	DeviceAppHealthStatus *string `json:"deviceAppHealthStatus,omitempty"`
+	// DeviceDisplayName The name of the device.
+	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceID The id of the device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceManufacturer The manufacturer name of the device.
+	DeviceManufacturer *string `json:"deviceManufacturer,omitempty"`
+	// DeviceModel The model name of the device.
+	DeviceModel *string `json:"deviceModel,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the device in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceDetails The user experience analytics device performance entity contains device performance details.
+type UserExperienceAnalyticsAppHealthDevicePerformanceDetails struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+	Entity
+	// AppDisplayName The friendly name of the application for which the event occurred.
+	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// DeviceDisplayName The name of the device.
+	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceID The id of the device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// EventDateTime The time the event occurred.
+	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
+	// EventType The type of the event.
+	EventType *string `json:"eventType,omitempty"`
+}
+
+// UserExperienceAnalyticsAppHealthOSVersionPerformance The user experience analytics device OS version performance entity contains OS version performance details.
+type UserExperienceAnalyticsAppHealthOSVersionPerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsAppHealthOSVersionPerformance
+	Entity
+	// ActiveDeviceCount The number of active devices for the OS version. Valid values -2147483648 to 2147483647
+	ActiveDeviceCount *int `json:"activeDeviceCount,omitempty"`
+	// MeanTimeToFailureInMinutes The mean time to failure for the OS version in minutes. Valid values -2147483648 to 2147483647
+	MeanTimeToFailureInMinutes *int `json:"meanTimeToFailureInMinutes,omitempty"`
+	// OsBuildNumber The OS build number installed on the device.
+	OsBuildNumber *string `json:"osBuildNumber,omitempty"`
+	// OsVersion The OS version installed on the device.
+	OsVersion *string `json:"osVersion,omitempty"`
+	// OsVersionAppHealthScore The app health score of the OS version. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	OsVersionAppHealthScore *float64 `json:"osVersionAppHealthScore,omitempty"`
+	// OsVersionAppHealthStatus The overall app health status of the OS version.
+	OsVersionAppHealthStatus *string `json:"osVersionAppHealthStatus,omitempty"`
+}
+
+// UserExperienceAnalyticsAutopilotDevicesSummary The user experience analytics summary of Devices not windows autopilot ready.
+type UserExperienceAnalyticsAutopilotDevicesSummary struct {
+	// Object is the base model of UserExperienceAnalyticsAutopilotDevicesSummary
+	Object
+	// DevicesNotAutopilotRegistered The count of intune devices that are not autopilot registerd.
+	DevicesNotAutopilotRegistered *int `json:"devicesNotAutopilotRegistered,omitempty"`
+	// DevicesWithoutAutopilotProfileAssigned The count of intune devices not autopilot profile assigned.
+	DevicesWithoutAutopilotProfileAssigned *int `json:"devicesWithoutAutopilotProfileAssigned,omitempty"`
 }
 
 // UserExperienceAnalyticsBaseline The user experience analytics baseline entity contains baseline values against which to compare the user experience analytics scores.
 type UserExperienceAnalyticsBaseline struct {
 	// Entity is the base model of UserExperienceAnalyticsBaseline
 	Entity
+	// CreatedDateTime The date the custom baseline was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// DisplayName The name of the user experience analytics baseline.
 	DisplayName *string `json:"displayName,omitempty"`
 	// IsBuiltIn Signifies if the current baseline is the commercial median baseline or a custom baseline.
 	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
-	// CreatedDateTime The date the custom baseline was created.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// DeviceBootPerformanceMetrics undocumented
-	DeviceBootPerformanceMetrics *UserExperienceAnalyticsCategory `json:"deviceBootPerformanceMetrics,omitempty"`
+	// AppHealthMetrics undocumented
+	AppHealthMetrics *UserExperienceAnalyticsCategory `json:"appHealthMetrics,omitempty"`
 	// BestPracticesMetrics undocumented
 	BestPracticesMetrics *UserExperienceAnalyticsCategory `json:"bestPracticesMetrics,omitempty"`
+	// DeviceBootPerformanceMetrics undocumented
+	DeviceBootPerformanceMetrics *UserExperienceAnalyticsCategory `json:"deviceBootPerformanceMetrics,omitempty"`
+	// RebootAnalyticsMetrics undocumented
+	RebootAnalyticsMetrics *UserExperienceAnalyticsCategory `json:"rebootAnalyticsMetrics,omitempty"`
+	// ResourcePerformanceMetrics undocumented
+	ResourcePerformanceMetrics *UserExperienceAnalyticsCategory `json:"resourcePerformanceMetrics,omitempty"`
+	// WorkFromAnywhereMetrics undocumented
+	WorkFromAnywhereMetrics *UserExperienceAnalyticsCategory `json:"workFromAnywhereMetrics,omitempty"`
 }
 
 // UserExperienceAnalyticsCategory The user experience analytics category entity contains the scores and insights for the various metrics of a category.
@@ -433,79 +640,193 @@ type UserExperienceAnalyticsCategory struct {
 	MetricValues []UserExperienceAnalyticsMetric `json:"metricValues,omitempty"`
 }
 
+// UserExperienceAnalyticsCloudManagementDevicesSummary The user experience work from anywhere Cloud management devices summary.
+type UserExperienceAnalyticsCloudManagementDevicesSummary struct {
+	// Object is the base model of UserExperienceAnalyticsCloudManagementDevicesSummary
+	Object
+	// CoManagedDeviceCount Total number of  co-managed devices.
+	CoManagedDeviceCount *int `json:"coManagedDeviceCount,omitempty"`
+	// IntuneDeviceCount The count of intune devices that are not autopilot registerd.
+	IntuneDeviceCount *int `json:"intuneDeviceCount,omitempty"`
+	// TenantAttachDeviceCount Total count of tenant attach devices.
+	TenantAttachDeviceCount *int `json:"tenantAttachDeviceCount,omitempty"`
+}
+
 // UserExperienceAnalyticsDevicePerformance The user experience analytics device performance entity contains device boot performance details.
 type UserExperienceAnalyticsDevicePerformance struct {
 	// Entity is the base model of UserExperienceAnalyticsDevicePerformance
 	Entity
-	// DeviceName The user experience analytics device name.
-	DeviceName *string `json:"deviceName,omitempty"`
-	// Model The user experience analytics device model.
-	Model *string `json:"model,omitempty"`
-	// Manufacturer The user experience analytics device manufacturer.
-	Manufacturer *string `json:"manufacturer,omitempty"`
-	// DiskType The user experience analytics device disk type.
-	DiskType *DiskType `json:"diskType,omitempty"`
-	// OperatingSystemVersion The user experience analytics device Operating System version.
-	OperatingSystemVersion *string `json:"operatingSystemVersion,omitempty"`
+	// AverageBlueScreens Average (mean) number of Blue Screens per device in the last 14 days. Valid values 0 to 9999999
+	AverageBlueScreens *float64 `json:"averageBlueScreens,omitempty"`
+	// AverageRestarts Average (mean) number of Restarts per device in the last 14 days. Valid values 0 to 9999999
+	AverageRestarts *float64 `json:"averageRestarts,omitempty"`
+	// BlueScreenCount Number of Blue Screens in the last 14 days. Valid values 0 to 9999999
+	BlueScreenCount *int `json:"blueScreenCount,omitempty"`
 	// BootScore The user experience analytics device boot score.
 	BootScore *int `json:"bootScore,omitempty"`
 	// CoreBootTimeInMs The user experience analytics device core boot time in milliseconds.
 	CoreBootTimeInMs *int `json:"coreBootTimeInMs,omitempty"`
+	// CoreLoginTimeInMs The user experience analytics device core login time in milliseconds.
+	CoreLoginTimeInMs *int `json:"coreLoginTimeInMs,omitempty"`
+	// DeviceCount User experience analytics summarized device count.
+	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DeviceName The user experience analytics device name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// DiskType The user experience analytics device disk type.
+	DiskType *DiskType `json:"diskType,omitempty"`
 	// GroupPolicyBootTimeInMs The user experience analytics device group policy boot time in milliseconds.
 	GroupPolicyBootTimeInMs *int `json:"groupPolicyBootTimeInMs,omitempty"`
+	// GroupPolicyLoginTimeInMs The user experience analytics device group policy login time in milliseconds.
+	GroupPolicyLoginTimeInMs *int `json:"groupPolicyLoginTimeInMs,omitempty"`
 	// HealthStatus The health state of the user experience analytics device.
 	HealthStatus *UserExperienceAnalyticsHealthState `json:"healthStatus,omitempty"`
 	// LoginScore The user experience analytics device login score.
 	LoginScore *int `json:"loginScore,omitempty"`
-	// CoreLoginTimeInMs The user experience analytics device core login time in milliseconds.
-	CoreLoginTimeInMs *int `json:"coreLoginTimeInMs,omitempty"`
-	// GroupPolicyLoginTimeInMs The user experience analytics device group policy login time in milliseconds.
-	GroupPolicyLoginTimeInMs *int `json:"groupPolicyLoginTimeInMs,omitempty"`
-	// DeviceCount User experience analytics summarized device count.
-	DeviceCount *int `json:"deviceCount,omitempty"`
+	// Manufacturer The user experience analytics device manufacturer.
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model The user experience analytics device model.
+	Model *string `json:"model,omitempty"`
+	// OperatingSystemVersion The user experience analytics device Operating System version.
+	OperatingSystemVersion *string `json:"operatingSystemVersion,omitempty"`
+	// ResponsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds.
+	ResponsiveDesktopTimeInMs *int `json:"responsiveDesktopTimeInMs,omitempty"`
+	// RestartCount Number of Restarts in the last 14 days. Valid values 0 to 9999999
+	RestartCount *int `json:"restartCount,omitempty"`
+}
+
+// UserExperienceAnalyticsDeviceScores The user experience analytics device scores entity consolidates the various endpoint analytics scores.
+type UserExperienceAnalyticsDeviceScores struct {
+	// Entity is the base model of UserExperienceAnalyticsDeviceScores
+	Entity
+	// AppReliabilityScore The user experience analytics device app reliability score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	AppReliabilityScore *float64 `json:"appReliabilityScore,omitempty"`
+	// DeviceName The user experience analytics device name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// EndpointAnalyticsScore The user experience analytics device score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	EndpointAnalyticsScore *float64 `json:"endpointAnalyticsScore,omitempty"`
+	// Manufacturer The user experience analytics device manufacturer.
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model The user experience analytics device model.
+	Model *string `json:"model,omitempty"`
+	// StartupPerformanceScore The user experience analytics device startup performance score. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	StartupPerformanceScore *float64 `json:"startupPerformanceScore,omitempty"`
 }
 
 // UserExperienceAnalyticsDeviceStartupHistory The user experience analytics device startup history entity contains device boot performance history details.
 type UserExperienceAnalyticsDeviceStartupHistory struct {
 	// Entity is the base model of UserExperienceAnalyticsDeviceStartupHistory
 	Entity
-	// DeviceID The user experience analytics device id.
-	DeviceID *string `json:"deviceId,omitempty"`
-	// StartTime The user experience analytics device boot start time.
-	StartTime *time.Time `json:"startTime,omitempty"`
 	// CoreBootTimeInMs The user experience analytics device core boot time in milliseconds.
 	CoreBootTimeInMs *int `json:"coreBootTimeInMs,omitempty"`
-	// GroupPolicyBootTimeInMs The User experience analytics Device group policy boot time in milliseconds.
-	GroupPolicyBootTimeInMs *int `json:"groupPolicyBootTimeInMs,omitempty"`
-	// FeatureUpdateBootTimeInMs The user experience analytics device feature update time in milliseconds.
-	FeatureUpdateBootTimeInMs *int `json:"featureUpdateBootTimeInMs,omitempty"`
-	// TotalBootTimeInMs The user experience analytics device total boot time in milliseconds.
-	TotalBootTimeInMs *int `json:"totalBootTimeInMs,omitempty"`
-	// GroupPolicyLoginTimeInMs The User experience analytics Device group policy login time in milliseconds.
-	GroupPolicyLoginTimeInMs *int `json:"groupPolicyLoginTimeInMs,omitempty"`
 	// CoreLoginTimeInMs The user experience analytics device core login time in milliseconds.
 	CoreLoginTimeInMs *int `json:"coreLoginTimeInMs,omitempty"`
-	// TotalLoginTimeInMs The user experience analytics device total login time in milliseconds.
-	TotalLoginTimeInMs *int `json:"totalLoginTimeInMs,omitempty"`
+	// DeviceID The user experience analytics device id.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// FeatureUpdateBootTimeInMs The user experience analytics device feature update time in milliseconds.
+	FeatureUpdateBootTimeInMs *int `json:"featureUpdateBootTimeInMs,omitempty"`
+	// GroupPolicyBootTimeInMs The User experience analytics Device group policy boot time in milliseconds.
+	GroupPolicyBootTimeInMs *int `json:"groupPolicyBootTimeInMs,omitempty"`
+	// GroupPolicyLoginTimeInMs The User experience analytics Device group policy login time in milliseconds.
+	GroupPolicyLoginTimeInMs *int `json:"groupPolicyLoginTimeInMs,omitempty"`
+	// IsFeatureUpdate The user experience analytics device boot record is a feature update.
+	IsFeatureUpdate *bool `json:"isFeatureUpdate,omitempty"`
 	// IsFirstLogin The user experience analytics device first login.
 	IsFirstLogin *bool `json:"isFirstLogin,omitempty"`
+	// OperatingSystemVersion The user experience analytics device boot record's operating system version.
+	OperatingSystemVersion *string `json:"operatingSystemVersion,omitempty"`
+	// ResponsiveDesktopTimeInMs The user experience analytics responsive desktop time in milliseconds.
+	ResponsiveDesktopTimeInMs *int `json:"responsiveDesktopTimeInMs,omitempty"`
+	// RestartCategory OS restart category
+	RestartCategory *UserExperienceAnalyticsOperatingSystemRestartCategory `json:"restartCategory,omitempty"`
+	// RestartFaultBucket OS restart fault bucket. The fault bucket is used to find additional information about a system crash.
+	RestartFaultBucket *string `json:"restartFaultBucket,omitempty"`
+	// RestartStopCode OS restart stop code. This shows the bug check code which can be used to look up the blue screen reason.
+	RestartStopCode *string `json:"restartStopCode,omitempty"`
+	// StartTime The user experience analytics device boot start time.
+	StartTime *time.Time `json:"startTime,omitempty"`
+	// TotalBootTimeInMs The user experience analytics device total boot time in milliseconds.
+	TotalBootTimeInMs *int `json:"totalBootTimeInMs,omitempty"`
+	// TotalLoginTimeInMs The user experience analytics device total login time in milliseconds.
+	TotalLoginTimeInMs *int `json:"totalLoginTimeInMs,omitempty"`
 }
 
-// UserExperienceAnalyticsInsight undocumented
+// UserExperienceAnalyticsDeviceStartupProcess The user experience analytics device startup process details.
+type UserExperienceAnalyticsDeviceStartupProcess struct {
+	// Entity is the base model of UserExperienceAnalyticsDeviceStartupProcess
+	Entity
+	// ManagedDeviceID The user experience analytics device id.
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// ProcessName User experience analytics device startup process name.
+	ProcessName *string `json:"processName,omitempty"`
+	// ProductName The user experience analytics device startup process product name.
+	ProductName *string `json:"productName,omitempty"`
+	// Publisher The User experience analytics device startup process publisher.
+	Publisher *string `json:"publisher,omitempty"`
+	// StartupImpactInMs User experience analytics device startup process impact in milliseconds.
+	StartupImpactInMs *int `json:"startupImpactInMs,omitempty"`
+}
+
+// UserExperienceAnalyticsDeviceStartupProcessPerformance The user experience analytics device startup process performance.
+type UserExperienceAnalyticsDeviceStartupProcessPerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsDeviceStartupProcessPerformance
+	Entity
+	// DeviceCount User experience analytics device startup process summarized count.
+	DeviceCount *int `json:"deviceCount,omitempty"`
+	// MedianImpactInMs User experience analytics device startup process median impact in milliseconds.
+	MedianImpactInMs *int `json:"medianImpactInMs,omitempty"`
+	// ProcessName User experience analytics device startup process name.
+	ProcessName *string `json:"processName,omitempty"`
+	// ProductName The user experience analytics device startup process product name.
+	ProductName *string `json:"productName,omitempty"`
+	// Publisher The User experience analytics device startup process publisher.
+	Publisher *string `json:"publisher,omitempty"`
+	// TotalImpactInMs User experience analytics device startup process total impact in milliseconds.
+	TotalImpactInMs *int `json:"totalImpactInMs,omitempty"`
+}
+
+// UserExperienceAnalyticsDeviceWithoutCloudIdentity The user experience analytics Device without Cloud Identity.
+type UserExperienceAnalyticsDeviceWithoutCloudIdentity struct {
+	// Entity is the base model of UserExperienceAnalyticsDeviceWithoutCloudIdentity
+	Entity
+	// AzureAdDeviceID Azure Active Directory Device Id
+	AzureAdDeviceID *string `json:"azureAdDeviceId,omitempty"`
+	// DeviceName The tenant attach device's name.
+	DeviceName *string `json:"deviceName,omitempty"`
+}
+
+// UserExperienceAnalyticsImpactingProcess The user experience analytics top impacting process entity.
+type UserExperienceAnalyticsImpactingProcess struct {
+	// Entity is the base model of UserExperienceAnalyticsImpactingProcess
+	Entity
+	// Category The category of impacting process.
+	Category *string `json:"category,omitempty"`
+	// Description The description of process.
+	Description *string `json:"description,omitempty"`
+	// DeviceID The unique identifier of the impacted device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// ImpactValue The impact value of the process. Valid values 0 to 1.79769313486232E+308
+	ImpactValue *float64 `json:"impactValue,omitempty"`
+	// ProcessName The process name.
+	ProcessName *string `json:"processName,omitempty"`
+	// Publisher The publisher of the process.
+	Publisher *string `json:"publisher,omitempty"`
+}
+
+// UserExperienceAnalyticsInsight The user experience analytics insight is the recomendation to improve the user experience analytics score.
 type UserExperienceAnalyticsInsight struct {
 	// Object is the base model of UserExperienceAnalyticsInsight
 	Object
-	// UserExperienceAnalyticsMetricID The unique identifier of the user experience analytics insight.
-	UserExperienceAnalyticsMetricID *string `json:"userExperienceAnalyticsMetricId,omitempty"`
 	// InsightID The unique identifier of the user experience analytics insight.
 	InsightID *string `json:"insightId,omitempty"`
-	// Values The value of the user experience analytics insight.
-	Values []UserExperienceAnalyticsInsightValue `json:"values,omitempty"`
 	// Severity The value of the user experience analytics insight.
 	Severity *UserExperienceAnalyticsInsightSeverity `json:"severity,omitempty"`
+	// UserExperienceAnalyticsMetricID The unique identifier of the user experience analytics insight.
+	UserExperienceAnalyticsMetricID *string `json:"userExperienceAnalyticsMetricId,omitempty"`
+	// Values The value of the user experience analytics insight.
+	Values []UserExperienceAnalyticsInsightValue `json:"values,omitempty"`
 }
 
-// UserExperienceAnalyticsInsightValue undocumented
+// UserExperienceAnalyticsInsightValue The value in an user experience analytics insight.
 type UserExperienceAnalyticsInsightValue struct {
 	// Object is the base model of UserExperienceAnalyticsInsightValue
 	Object
@@ -515,10 +836,48 @@ type UserExperienceAnalyticsInsightValue struct {
 type UserExperienceAnalyticsMetric struct {
 	// Entity is the base model of UserExperienceAnalyticsMetric
 	Entity
-	// Value The value of the user experience analytics metric.
-	Value *float64 `json:"value,omitempty"`
 	// Unit The unit of the user experience analytics metric.
 	Unit *string `json:"unit,omitempty"`
+	// Value The value of the user experience analytics metric.
+	Value *float64 `json:"value,omitempty"`
+}
+
+// UserExperienceAnalyticsMetricHistory The user experience analytics metric history.
+type UserExperienceAnalyticsMetricHistory struct {
+	// Entity is the base model of UserExperienceAnalyticsMetricHistory
+	Entity
+	// DeviceID The user experience analytics device id.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// MetricDateTime The user experience analytics metric date time.
+	MetricDateTime *time.Time `json:"metricDateTime,omitempty"`
+	// MetricType The user experience analytics metric type.
+	MetricType *string `json:"metricType,omitempty"`
+	// UserExperienceAnalyticsMetric undocumented
+	UserExperienceAnalyticsMetric *UserExperienceAnalyticsMetric `json:"userExperienceAnalyticsMetric,omitempty"`
+}
+
+// UserExperienceAnalyticsNotAutopilotReadyDevice The user experience analytics Device not windows autopilot ready.
+type UserExperienceAnalyticsNotAutopilotReadyDevice struct {
+	// Entity is the base model of UserExperienceAnalyticsNotAutopilotReadyDevice
+	Entity
+	// AutoPilotProfileAssigned The intune device's autopilotProfileAssigned.
+	AutoPilotProfileAssigned *bool `json:"autoPilotProfileAssigned,omitempty"`
+	// AutoPilotRegistered The intune device's autopilotRegistered.
+	AutoPilotRegistered *bool `json:"autoPilotRegistered,omitempty"`
+	// AzureAdJoinType The intune device's azure Ad joinType.
+	AzureAdJoinType *string `json:"azureAdJoinType,omitempty"`
+	// AzureAdRegistered The intune device's azureAdRegistered.
+	AzureAdRegistered *bool `json:"azureAdRegistered,omitempty"`
+	// DeviceName The intune device's name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// ManagedBy The intune device's managed by.
+	ManagedBy *string `json:"managedBy,omitempty"`
+	// Manufacturer The intune device's manufacturer.
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model The intune device's model.
+	Model *string `json:"model,omitempty"`
+	// SerialNumber The intune device's serial number.
+	SerialNumber *string `json:"serialNumber,omitempty"`
 }
 
 // UserExperienceAnalyticsOverview The user experience analytics overview entity contains the overall score and the scores and insights of every metric of all categories.
@@ -533,12 +892,176 @@ type UserExperienceAnalyticsOverview struct {
 type UserExperienceAnalyticsRegressionSummary struct {
 	// Entity is the base model of UserExperienceAnalyticsRegressionSummary
 	Entity
-	// ModelRegression undocumented
-	ModelRegression []UserExperienceAnalyticsMetric `json:"modelRegression,omitempty"`
 	// ManufacturerRegression undocumented
 	ManufacturerRegression []UserExperienceAnalyticsMetric `json:"manufacturerRegression,omitempty"`
+	// ModelRegression undocumented
+	ModelRegression []UserExperienceAnalyticsMetric `json:"modelRegression,omitempty"`
 	// OperatingSystemRegression undocumented
 	OperatingSystemRegression []UserExperienceAnalyticsMetric `json:"operatingSystemRegression,omitempty"`
+}
+
+// UserExperienceAnalyticsRemoteConnection The user experience analyte remote connection entity.
+type UserExperienceAnalyticsRemoteConnection struct {
+	// Entity is the base model of UserExperienceAnalyticsRemoteConnection
+	Entity
+	// CloudPcFailurePercentage The sign in failure percentage of Cloud PC Device. Valid values 0 to 100
+	CloudPcFailurePercentage *float64 `json:"cloudPcFailurePercentage,omitempty"`
+	// CloudPcRoundTripTime The round tip time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
+	CloudPcRoundTripTime *float64 `json:"cloudPcRoundTripTime,omitempty"`
+	// CloudPcSignInTime The sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
+	CloudPcSignInTime *float64 `json:"cloudPcSignInTime,omitempty"`
+	// CoreBootTime The core boot time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
+	CoreBootTime *float64 `json:"coreBootTime,omitempty"`
+	// CoreSignInTime The core sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
+	CoreSignInTime *float64 `json:"coreSignInTime,omitempty"`
+	// DeviceCount The count of remote connection. Valid values 0 to 2147483647
+	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DeviceID The id of the device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceName The name of the device.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// Model The user experience analytics device model.
+	Model *string `json:"model,omitempty"`
+	// RemoteSignInTime The remote sign in time of Cloud PC Device. Valid values 0 to 1.79769313486232E+308
+	RemoteSignInTime *float64 `json:"remoteSignInTime,omitempty"`
+	// VirtualNetwork The user experience analytics virtual network.
+	VirtualNetwork *string `json:"virtualNetwork,omitempty"`
+}
+
+// UserExperienceAnalyticsResourcePerformance The user experience analytics resource performance entity.
+type UserExperienceAnalyticsResourcePerformance struct {
+	// Entity is the base model of UserExperienceAnalyticsResourcePerformance
+	Entity
+	// CPUSpikeTimePercentage CPU spike time in percentage. Valid values 0 to 100
+	CPUSpikeTimePercentage *float64 `json:"cpuSpikeTimePercentage,omitempty"`
+	// CPUSpikeTimePercentageThreshold Threshold of cpuSpikeTimeScore. Valid values 0 to 100
+	CPUSpikeTimePercentageThreshold *float64 `json:"cpuSpikeTimePercentageThreshold,omitempty"`
+	// CPUSpikeTimeScore The user experience analytics device CPU spike time score. Valid values 0 to 100
+	CPUSpikeTimeScore *int `json:"cpuSpikeTimeScore,omitempty"`
+	// DeviceCount User experience analytics summarized device count.
+	DeviceCount *int `json:"deviceCount,omitempty"`
+	// DeviceID The id of the device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceName The name of the device.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// DeviceResourcePerformanceScore Resource performance score of a specific device. Valid values 0 to 100
+	DeviceResourcePerformanceScore *int `json:"deviceResourcePerformanceScore,omitempty"`
+	// Manufacturer The user experience analytics device manufacturer.
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model The user experience analytics device model.
+	Model *string `json:"model,omitempty"`
+	// RAMSpikeTimePercentage RAM spike time in percentage. Valid values 0 to 100
+	RAMSpikeTimePercentage *float64 `json:"ramSpikeTimePercentage,omitempty"`
+	// RAMSpikeTimePercentageThreshold Threshold of ramSpikeTimeScore. Valid values 0 to 100
+	RAMSpikeTimePercentageThreshold *float64 `json:"ramSpikeTimePercentageThreshold,omitempty"`
+	// RAMSpikeTimeScore The user experience analytics device RAM spike time score. Valid values 0 to 100
+	RAMSpikeTimeScore *int `json:"ramSpikeTimeScore,omitempty"`
+}
+
+// UserExperienceAnalyticsScoreHistory The user experience analytics device startup score history.
+type UserExperienceAnalyticsScoreHistory struct {
+	// Entity is the base model of UserExperienceAnalyticsScoreHistory
+	Entity
+	// StartupDateTime The user experience analytics device startup date time.
+	StartupDateTime *time.Time `json:"startupDateTime,omitempty"`
+}
+
+// UserExperienceAnalyticsSettings The user experience analytics insight is the recomendation to improve the user experience analytics score.
+type UserExperienceAnalyticsSettings struct {
+	// Object is the base model of UserExperienceAnalyticsSettings
+	Object
+	// ConfigurationManagerDataConnectorConfigured True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+	ConfigurationManagerDataConnectorConfigured *bool `json:"configurationManagerDataConnectorConfigured,omitempty"`
+}
+
+// UserExperienceAnalyticsWindows10DevicesSummary The user experience analytics work from anywhere Windows 10 devices summary.
+type UserExperienceAnalyticsWindows10DevicesSummary struct {
+	// Object is the base model of UserExperienceAnalyticsWindows10DevicesSummary
+	Object
+	// UnsupportedOSversionDeviceCount The count of Windows 10 devices that have unsupported OS versions.
+	UnsupportedOSversionDeviceCount *int `json:"unsupportedOSversionDeviceCount,omitempty"`
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereDevice The user experience analytics Device for work from anywhere report
+type UserExperienceAnalyticsWorkFromAnywhereDevice struct {
+	// Entity is the base model of UserExperienceAnalyticsWorkFromAnywhereDevice
+	Entity
+	// AutoPilotProfileAssigned The user experience analytics work from anywhere intune device's autopilotProfileAssigned.
+	AutoPilotProfileAssigned *bool `json:"autoPilotProfileAssigned,omitempty"`
+	// AutoPilotRegistered The user experience work from anywhere intune device's autopilotRegistered.
+	AutoPilotRegistered *bool `json:"autoPilotRegistered,omitempty"`
+	// AzureAdDeviceID The user experience work from anywhere azure Ad device Id.
+	AzureAdDeviceID *string `json:"azureAdDeviceId,omitempty"`
+	// AzureAdJoinType The user experience work from anywhere device's azure Ad joinType.
+	AzureAdJoinType *string `json:"azureAdJoinType,omitempty"`
+	// AzureAdRegistered The user experience work from anywhere device's azureAdRegistered.
+	AzureAdRegistered *bool `json:"azureAdRegistered,omitempty"`
+	// DeviceName The work from anywhere device's name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// ManagedBy The user experience work from anywhere management agent of the device.
+	ManagedBy *string `json:"managedBy,omitempty"`
+	// Manufacturer The user experience work from anywhere device's manufacturer.
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model The user experience work from anywhere device's model.
+	Model *string `json:"model,omitempty"`
+	// OsDescription The user experience work from anywhere device's OS Description.
+	OsDescription *string `json:"osDescription,omitempty"`
+	// OsVersion The user experience work from anywhere device's OS Version.
+	OsVersion *string `json:"osVersion,omitempty"`
+	// Ownership The user experience work from anywhere device's ownership.
+	Ownership *string `json:"ownership,omitempty"`
+	// SerialNumber The user experience work from anywhere device's serial number.
+	SerialNumber *string `json:"serialNumber,omitempty"`
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereDevicesSummary The user experience analytics Work From Anywhere metrics devices summary.
+type UserExperienceAnalyticsWorkFromAnywhereDevicesSummary struct {
+	// Object is the base model of UserExperienceAnalyticsWorkFromAnywhereDevicesSummary
+	Object
+	// AutopilotDevicesSummary The value of work from anywhere autopilot devices summary.
+	AutopilotDevicesSummary *UserExperienceAnalyticsAutopilotDevicesSummary `json:"autopilotDevicesSummary,omitempty"`
+	// CloudManagementDevicesSummary The user experience work from anywhere Cloud management devices summary.
+	CloudManagementDevicesSummary *UserExperienceAnalyticsCloudManagementDevicesSummary `json:"cloudManagementDevicesSummary,omitempty"`
+	// Windows10DevicesSummary The user experience analytics work from anywhere Windows 10 devices summary.
+	Windows10DevicesSummary *UserExperienceAnalyticsWindows10DevicesSummary `json:"windows10DevicesSummary,omitempty"`
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereMetric The user experience analytics metric for work from anywhere report
+type UserExperienceAnalyticsWorkFromAnywhereMetric struct {
+	// Entity is the base model of UserExperienceAnalyticsWorkFromAnywhereMetric
+	Entity
+	// MetricDevices undocumented
+	MetricDevices []UserExperienceAnalyticsWorkFromAnywhereDevice `json:"metricDevices,omitempty"`
+}
+
+// UserFlowAPIConnectorConfiguration undocumented
+type UserFlowAPIConnectorConfiguration struct {
+	// Object is the base model of UserFlowAPIConnectorConfiguration
+	Object
+	// PostAttributeCollection undocumented
+	PostAttributeCollection *IdentityAPIConnector `json:"postAttributeCollection,omitempty"`
+	// PostFederationSignup undocumented
+	PostFederationSignup *IdentityAPIConnector `json:"postFederationSignup,omitempty"`
+}
+
+// UserFlowLanguageConfiguration undocumented
+type UserFlowLanguageConfiguration struct {
+	// Entity is the base model of UserFlowLanguageConfiguration
+	Entity
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
+	// DefaultPages undocumented
+	DefaultPages []UserFlowLanguagePage `json:"defaultPages,omitempty"`
+	// OverridesPages undocumented
+	OverridesPages []UserFlowLanguagePage `json:"overridesPages,omitempty"`
+}
+
+// UserFlowLanguagePage undocumented
+type UserFlowLanguagePage struct {
+	// Entity is the base model of UserFlowLanguagePage
+	Entity
 }
 
 // UserGovernanceCriteria undocumented
@@ -551,30 +1074,34 @@ type UserGovernanceCriteria struct {
 
 // UserIdentity undocumented
 type UserIdentity struct {
-	// Object is the base model of UserIdentity
-	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
+	// Identity is the base model of UserIdentity
+	Identity
 	// IPAddress undocumented
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
+// UserInsightsSettings undocumented
+type UserInsightsSettings struct {
+	// Entity is the base model of UserInsightsSettings
+	Entity
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
+}
+
 // UserInstallStateSummary Contains properties for the installation state summary for a user.
 type UserInstallStateSummary struct {
 	// Entity is the base model of UserInstallStateSummary
 	Entity
-	// UserName User name.
-	UserName *string `json:"userName,omitempty"`
-	// InstalledDeviceCount Installed Device Count.
-	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`
 	// FailedDeviceCount Failed Device Count.
 	FailedDeviceCount *int `json:"failedDeviceCount,omitempty"`
+	// InstalledDeviceCount Installed Device Count.
+	InstalledDeviceCount *int `json:"installedDeviceCount,omitempty"`
 	// NotInstalledDeviceCount Not installed device count.
 	NotInstalledDeviceCount *int `json:"notInstalledDeviceCount,omitempty"`
+	// UserName User name.
+	UserName *string `json:"userName,omitempty"`
 	// DeviceStates undocumented
 	DeviceStates []DeviceInstallState `json:"deviceStates,omitempty"`
 }
@@ -583,40 +1110,120 @@ type UserInstallStateSummary struct {
 type UserPFXCertificate struct {
 	// Entity is the base model of UserPFXCertificate
 	Entity
-	// Thumbprint SHA-1 thumbprint of the PFX certificate.
-	Thumbprint *string `json:"thumbprint,omitempty"`
-	// IntendedPurpose Certificate's intended purpose from the point-of-view of deployment.
-	IntendedPurpose *UserPfxIntendedPurpose `json:"intendedPurpose,omitempty"`
-	// UserPrincipalName User Principal Name of the PFX certificate.
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// StartDateTime Certificate's validity start date/time.
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// ExpirationDateTime Certificate's validity expiration date/time.
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// ProviderName Crypto provider used to encrypt this blob.
-	ProviderName *string `json:"providerName,omitempty"`
-	// KeyName Name of the key (within the provider) used to encrypt the blob.
-	KeyName *string `json:"keyName,omitempty"`
-	// PaddingScheme Padding scheme used by the provider during encryption/decryption.
-	PaddingScheme *UserPfxPaddingScheme `json:"paddingScheme,omitempty"`
+	// CreatedDateTime Date/time when this PFX certificate was imported.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// EncryptedPfxBlob Encrypted PFX blob.
 	EncryptedPfxBlob *Binary `json:"encryptedPfxBlob,omitempty"`
 	// EncryptedPfxPassword Encrypted PFX password.
 	EncryptedPfxPassword *string `json:"encryptedPfxPassword,omitempty"`
-	// CreatedDateTime Date/time when this PFX certificate was imported.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// ExpirationDateTime Certificate's validity expiration date/time.
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// IntendedPurpose Certificate's intended purpose from the point-of-view of deployment.
+	IntendedPurpose *UserPfxIntendedPurpose `json:"intendedPurpose,omitempty"`
+	// KeyName Name of the key (within the provider) used to encrypt the blob.
+	KeyName *string `json:"keyName,omitempty"`
 	// LastModifiedDateTime Date/time when this PFX certificate was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// PaddingScheme Padding scheme used by the provider during encryption/decryption.
+	PaddingScheme *UserPfxPaddingScheme `json:"paddingScheme,omitempty"`
+	// ProviderName Crypto provider used to encrypt this blob.
+	ProviderName *string `json:"providerName,omitempty"`
+	// StartDateTime Certificate's validity start date/time.
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// Thumbprint SHA-1 thumbprint of the PFX certificate.
+	Thumbprint *string `json:"thumbprint,omitempty"`
+	// UserPrincipalName User Principal Name of the PFX certificate.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// UserPrintUsageSummary undocumented
+type UserPrintUsageSummary struct {
+	// Object is the base model of UserPrintUsageSummary
+	Object
+	// CompletedJobCount undocumented
+	CompletedJobCount *int `json:"completedJobCount,omitempty"`
+	// IncompleteJobCount undocumented
+	IncompleteJobCount *int `json:"incompleteJobCount,omitempty"`
+	// User undocumented
+	User *Identity `json:"user,omitempty"`
+	// UserDisplayName undocumented
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// UserPurpose undocumented
+type UserPurpose struct {
+	// Object is the base model of UserPurpose
+	Object
+	// Value undocumented
+	Value *MailboxRecipientType `json:"value,omitempty"`
 }
 
 // UserRegistrationCount undocumented
 type UserRegistrationCount struct {
 	// Object is the base model of UserRegistrationCount
 	Object
-	// RegistrationStatus undocumented
-	RegistrationStatus *RegistrationStatusType `json:"registrationStatus,omitempty"`
 	// RegistrationCount undocumented
 	RegistrationCount *int `json:"registrationCount,omitempty"`
+	// RegistrationStatus undocumented
+	RegistrationStatus *RegistrationStatusType `json:"registrationStatus,omitempty"`
+}
+
+// UserRegistrationFeatureCount undocumented
+type UserRegistrationFeatureCount struct {
+	// Object is the base model of UserRegistrationFeatureCount
+	Object
+	// Feature undocumented
+	Feature *AuthenticationMethodFeature `json:"feature,omitempty"`
+	// UserCount undocumented
+	UserCount *int `json:"userCount,omitempty"`
+}
+
+// UserRegistrationFeatureSummary undocumented
+type UserRegistrationFeatureSummary struct {
+	// Object is the base model of UserRegistrationFeatureSummary
+	Object
+	// TotalUserCount undocumented
+	TotalUserCount *int `json:"totalUserCount,omitempty"`
+	// UserRegistrationFeatureCounts undocumented
+	UserRegistrationFeatureCounts []UserRegistrationFeatureCount `json:"userRegistrationFeatureCounts,omitempty"`
+	// UserRoles undocumented
+	UserRoles *IncludedUserRoles `json:"userRoles,omitempty"`
+	// UserTypes undocumented
+	UserTypes *IncludedUserTypes `json:"userTypes,omitempty"`
+}
+
+// UserRegistrationMethodCount undocumented
+type UserRegistrationMethodCount struct {
+	// Object is the base model of UserRegistrationMethodCount
+	Object
+	// AuthenticationMethod undocumented
+	AuthenticationMethod *string `json:"authenticationMethod,omitempty"`
+	// UserCount undocumented
+	UserCount *int `json:"userCount,omitempty"`
+}
+
+// UserRegistrationMethodSummary undocumented
+type UserRegistrationMethodSummary struct {
+	// Object is the base model of UserRegistrationMethodSummary
+	Object
+	// TotalUserCount undocumented
+	TotalUserCount *int `json:"totalUserCount,omitempty"`
+	// UserRegistrationMethodCounts undocumented
+	UserRegistrationMethodCounts []UserRegistrationMethodCount `json:"userRegistrationMethodCounts,omitempty"`
+	// UserRoles undocumented
+	UserRoles *IncludedUserRoles `json:"userRoles,omitempty"`
+	// UserTypes undocumented
+	UserTypes *IncludedUserTypes `json:"userTypes,omitempty"`
+}
+
+// UserScopeTeamsAppInstallation undocumented
+type UserScopeTeamsAppInstallation struct {
+	// TeamsAppInstallation is the base model of UserScopeTeamsAppInstallation
+	TeamsAppInstallation
+	// Chat undocumented
+	Chat *Chat `json:"chat,omitempty"`
 }
 
 // UserSecurityProfile undocumented
@@ -679,14 +1286,28 @@ type UserSecurityState struct {
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
+// UserSet undocumented
+type UserSet struct {
+	// Object is the base model of UserSet
+	Object
+	// IsBackup undocumented
+	IsBackup *bool `json:"isBackup,omitempty"`
+}
+
 // UserSettings undocumented
 type UserSettings struct {
 	// Entity is the base model of UserSettings
 	Entity
-	// ContributionToContentDiscoveryDisabled undocumented
-	ContributionToContentDiscoveryDisabled *bool `json:"contributionToContentDiscoveryDisabled,omitempty"`
 	// ContributionToContentDiscoveryAsOrganizationDisabled undocumented
 	ContributionToContentDiscoveryAsOrganizationDisabled *bool `json:"contributionToContentDiscoveryAsOrganizationDisabled,omitempty"`
+	// ContributionToContentDiscoveryDisabled undocumented
+	ContributionToContentDiscoveryDisabled *bool `json:"contributionToContentDiscoveryDisabled,omitempty"`
+	// ItemInsights undocumented
+	ItemInsights *UserInsightsSettings `json:"itemInsights,omitempty"`
+	// RegionalAndLanguageSettings undocumented
+	RegionalAndLanguageSettings *RegionalAndLanguageSettings `json:"regionalAndLanguageSettings,omitempty"`
+	// ShiftPreferences undocumented
+	ShiftPreferences *ShiftPreferences `json:"shiftPreferences,omitempty"`
 }
 
 // UserTeamwork undocumented
@@ -694,5 +1315,5 @@ type UserTeamwork struct {
 	// Entity is the base model of UserTeamwork
 	Entity
 	// InstalledApps undocumented
-	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
+	InstalledApps []UserScopeTeamsAppInstallation `json:"installedApps,omitempty"`
 }

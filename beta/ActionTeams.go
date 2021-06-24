@@ -118,6 +118,34 @@ func (r *TeamsAppAppDefinitionsCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// Bot is navigation property
+func (b *TeamsAppDefinitionRequestBuilder) Bot() *TeamworkBotRequestBuilder {
+	bb := &TeamworkBotRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/bot"
+	return bb
+}
+
+// ColorIcon is navigation property
+func (b *TeamsAppDefinitionRequestBuilder) ColorIcon() *TeamsAppIconRequestBuilder {
+	bb := &TeamsAppIconRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/colorIcon"
+	return bb
+}
+
+// OutlineIcon is navigation property
+func (b *TeamsAppDefinitionRequestBuilder) OutlineIcon() *TeamsAppIconRequestBuilder {
+	bb := &TeamsAppIconRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/outlineIcon"
+	return bb
+}
+
+// HostedContent is navigation property
+func (b *TeamsAppIconRequestBuilder) HostedContent() *TeamworkHostedContentRequestBuilder {
+	bb := &TeamworkHostedContentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/hostedContent"
+	return bb
+}
+
 // TeamsApp is navigation property
 func (b *TeamsAppInstallationRequestBuilder) TeamsApp() *TeamsAppRequestBuilder {
 	bb := &TeamsAppRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

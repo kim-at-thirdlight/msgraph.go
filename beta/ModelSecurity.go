@@ -6,8 +6,8 @@ import "time"
 
 // Security undocumented
 type Security struct {
-	// Entity is the base model of Security
-	Entity
+	// Object is the base model of Security
+	Object
 	// ProviderStatus undocumented
 	ProviderStatus []SecurityProviderStatus `json:"providerStatus,omitempty"`
 	// Alerts undocumented
@@ -28,12 +28,12 @@ type Security struct {
 	SecureScoreControlProfiles []SecureScoreControlProfile `json:"secureScoreControlProfiles,omitempty"`
 	// SecureScores undocumented
 	SecureScores []SecureScore `json:"secureScores,omitempty"`
+	// SecurityActions undocumented
+	SecurityActions []SecurityAction `json:"securityActions,omitempty"`
 	// TiIndicators undocumented
 	TiIndicators []TiIndicator `json:"tiIndicators,omitempty"`
 	// UserSecurityProfiles undocumented
 	UserSecurityProfiles []UserSecurityProfile `json:"userSecurityProfiles,omitempty"`
-	// SecurityActions undocumented
-	SecurityActions []SecurityAction `json:"securityActions,omitempty"`
 }
 
 // SecurityAction undocumented
@@ -92,42 +92,68 @@ type SecurityBaselineCategoryStateSummary struct {
 	DisplayName *string `json:"displayName,omitempty"`
 }
 
+// SecurityBaselineContributingPolicy The security baseline compliance state of a setting for a device
+type SecurityBaselineContributingPolicy struct {
+	// Object is the base model of SecurityBaselineContributingPolicy
+	Object
+	// DisplayName Name of the policy
+	DisplayName *string `json:"displayName,omitempty"`
+	// SourceID Unique identifier of the policy
+	SourceID *string `json:"sourceId,omitempty"`
+	// SourceType Authoring source of the policy
+	SourceType *SecurityBaselinePolicySourceType `json:"sourceType,omitempty"`
+}
+
 // SecurityBaselineDeviceState The security baseline compliance state summary of the security baseline for a device.
 type SecurityBaselineDeviceState struct {
 	// Entity is the base model of SecurityBaselineDeviceState
 	Entity
-	// ManagedDeviceID Intune device id
-	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
 	// DeviceDisplayName Display name of the device
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
-	// UserPrincipalName User Principal Name
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// State Security baseline compliance state
-	State *SecurityBaselineComplianceState `json:"state,omitempty"`
 	// LastReportedDateTime Last modified date time of the policy report
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// ManagedDeviceID Intune device id
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// State Security baseline compliance state
+	State *SecurityBaselineComplianceState `json:"state,omitempty"`
+	// UserPrincipalName User Principal Name
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // SecurityBaselineSettingState The security baseline compliance state of a setting for a device
 type SecurityBaselineSettingState struct {
 	// Entity is the base model of SecurityBaselineSettingState
 	Entity
-	// SettingName The setting name that is being reported
-	SettingName *string `json:"settingName,omitempty"`
-	// State The compliance state of the security baseline setting
-	State *SecurityBaselineComplianceState `json:"state,omitempty"`
+	// ContributingPolicies The policies that contribute to this setting instance
+	ContributingPolicies []SecurityBaselineContributingPolicy `json:"contributingPolicies,omitempty"`
+	// ErrorCode The error code if the setting is in error state
+	ErrorCode *string `json:"errorCode,omitempty"`
 	// SettingCategoryID The setting category id which this setting belongs to
 	SettingCategoryID *string `json:"settingCategoryId,omitempty"`
+	// SettingCategoryName The setting category name which this setting belongs to
+	SettingCategoryName *string `json:"settingCategoryName,omitempty"`
+	// SettingID The setting id guid
+	SettingID *string `json:"settingId,omitempty"`
+	// SettingName The setting name that is being reported
+	SettingName *string `json:"settingName,omitempty"`
+	// SourcePolicies The policies that contribute to this setting instance
+	SourcePolicies []SettingSource `json:"sourcePolicies,omitempty"`
+	// State The compliance state of the security baseline setting
+	State *SecurityBaselineComplianceState `json:"state,omitempty"`
 }
 
 // SecurityBaselineState Security baseline state for a device.
 type SecurityBaselineState struct {
 	// Entity is the base model of SecurityBaselineState
 	Entity
-	// SecurityBaselineTemplateID The security baseline template id
-	SecurityBaselineTemplateID *string `json:"securityBaselineTemplateId,omitempty"`
 	// DisplayName The display name of the security baseline
 	DisplayName *string `json:"displayName,omitempty"`
+	// SecurityBaselineTemplateID The security baseline template id
+	SecurityBaselineTemplateID *string `json:"securityBaselineTemplateId,omitempty"`
+	// State Security baseline compliance state
+	State *SecurityBaselineComplianceState `json:"state,omitempty"`
+	// UserPrincipalName User Principal Name
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// SettingStates undocumented
 	SettingStates []SecurityBaselineSettingState `json:"settingStates,omitempty"`
 }
@@ -136,30 +162,50 @@ type SecurityBaselineState struct {
 type SecurityBaselineStateSummary struct {
 	// Entity is the base model of SecurityBaselineStateSummary
 	Entity
-	// SecureCount Number of secure devices
-	SecureCount *int `json:"secureCount,omitempty"`
-	// NotSecureCount Number of not secure devices
-	NotSecureCount *int `json:"notSecureCount,omitempty"`
-	// UnknownCount Number of unknown devices
-	UnknownCount *int `json:"unknownCount,omitempty"`
-	// ErrorCount Number of error devices
-	ErrorCount *int `json:"errorCount,omitempty"`
 	// ConflictCount Number of conflict devices
 	ConflictCount *int `json:"conflictCount,omitempty"`
+	// ErrorCount Number of error devices
+	ErrorCount *int `json:"errorCount,omitempty"`
 	// NotApplicableCount Number of not applicable devices
 	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
+	// NotSecureCount Number of not secure devices
+	NotSecureCount *int `json:"notSecureCount,omitempty"`
+	// SecureCount Number of secure devices
+	SecureCount *int `json:"secureCount,omitempty"`
+	// UnknownCount Number of unknown devices
+	UnknownCount *int `json:"unknownCount,omitempty"`
 }
 
 // SecurityBaselineTemplate The security baseline template of the account
 type SecurityBaselineTemplate struct {
 	// DeviceManagementTemplate is the base model of SecurityBaselineTemplate
 	DeviceManagementTemplate
-	// DeviceStateSummary undocumented
-	DeviceStateSummary *SecurityBaselineStateSummary `json:"deviceStateSummary,omitempty"`
-	// DeviceStates undocumented
-	DeviceStates []SecurityBaselineDeviceState `json:"deviceStates,omitempty"`
 	// CategoryDeviceStateSummaries undocumented
 	CategoryDeviceStateSummaries []SecurityBaselineCategoryStateSummary `json:"categoryDeviceStateSummaries,omitempty"`
+	// DeviceStates undocumented
+	DeviceStates []SecurityBaselineDeviceState `json:"deviceStates,omitempty"`
+	// DeviceStateSummary undocumented
+	DeviceStateSummary *SecurityBaselineStateSummary `json:"deviceStateSummary,omitempty"`
+}
+
+// SecurityConfigurationTask A security configuration task.
+type SecurityConfigurationTask struct {
+	// DeviceAppManagementTask is the base model of SecurityConfigurationTask
+	DeviceAppManagementTask
+	// ApplicablePlatform The applicable platform.
+	ApplicablePlatform *EndpointSecurityConfigurationApplicablePlatform `json:"applicablePlatform,omitempty"`
+	// EndpointSecurityPolicy The endpoint security policy type.
+	EndpointSecurityPolicy *EndpointSecurityConfigurationType `json:"endpointSecurityPolicy,omitempty"`
+	// EndpointSecurityPolicyProfile The endpoint security policy profile.
+	EndpointSecurityPolicyProfile *EndpointSecurityConfigurationProfileType `json:"endpointSecurityPolicyProfile,omitempty"`
+	// Insights Information about the mitigation.
+	Insights *string `json:"insights,omitempty"`
+	// IntendedSettings The intended settings and their values.
+	IntendedSettings []KeyValuePair `json:"intendedSettings,omitempty"`
+	// ManagedDeviceCount The number of vulnerable devices.
+	ManagedDeviceCount *int `json:"managedDeviceCount,omitempty"`
+	// ManagedDevices undocumented
+	ManagedDevices []VulnerableManagedDevice `json:"managedDevices,omitempty"`
 }
 
 // SecurityProviderStatus undocumented
@@ -176,6 +222,16 @@ type SecurityProviderStatus struct {
 	Region *string `json:"region,omitempty"`
 	// Vendor undocumented
 	Vendor *string `json:"vendor,omitempty"`
+}
+
+// SecurityResource undocumented
+type SecurityResource struct {
+	// Object is the base model of SecurityResource
+	Object
+	// Resource undocumented
+	Resource *string `json:"resource,omitempty"`
+	// ResourceType undocumented
+	ResourceType *SecurityResourceType `json:"resourceType,omitempty"`
 }
 
 // SecurityVendorInformation undocumented

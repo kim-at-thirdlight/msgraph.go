@@ -6,37 +6,47 @@ package msgraph
 type ConditionalAccessClientApp string
 
 const (
+	// ConditionalAccessClientAppVAll undocumented
+	ConditionalAccessClientAppVAll ConditionalAccessClientApp = "all"
 	// ConditionalAccessClientAppVBrowser undocumented
 	ConditionalAccessClientAppVBrowser ConditionalAccessClientApp = "browser"
-	// ConditionalAccessClientAppVModern undocumented
-	ConditionalAccessClientAppVModern ConditionalAccessClientApp = "modern"
+	// ConditionalAccessClientAppVMobileAppsAndDesktopClients undocumented
+	ConditionalAccessClientAppVMobileAppsAndDesktopClients ConditionalAccessClientApp = "mobileAppsAndDesktopClients"
+	// ConditionalAccessClientAppVExchangeActiveSync undocumented
+	ConditionalAccessClientAppVExchangeActiveSync ConditionalAccessClientApp = "exchangeActiveSync"
 	// ConditionalAccessClientAppVEasSupported undocumented
 	ConditionalAccessClientAppVEasSupported ConditionalAccessClientApp = "easSupported"
-	// ConditionalAccessClientAppVEasUnsupported undocumented
-	ConditionalAccessClientAppVEasUnsupported ConditionalAccessClientApp = "easUnsupported"
 	// ConditionalAccessClientAppVOther undocumented
 	ConditionalAccessClientAppVOther ConditionalAccessClientApp = "other"
+	// ConditionalAccessClientAppVUnknownFutureValue undocumented
+	ConditionalAccessClientAppVUnknownFutureValue ConditionalAccessClientApp = "unknownFutureValue"
 )
 
 var (
+	// ConditionalAccessClientAppPAll is a pointer to ConditionalAccessClientAppVAll
+	ConditionalAccessClientAppPAll = &_ConditionalAccessClientAppPAll
 	// ConditionalAccessClientAppPBrowser is a pointer to ConditionalAccessClientAppVBrowser
 	ConditionalAccessClientAppPBrowser = &_ConditionalAccessClientAppPBrowser
-	// ConditionalAccessClientAppPModern is a pointer to ConditionalAccessClientAppVModern
-	ConditionalAccessClientAppPModern = &_ConditionalAccessClientAppPModern
+	// ConditionalAccessClientAppPMobileAppsAndDesktopClients is a pointer to ConditionalAccessClientAppVMobileAppsAndDesktopClients
+	ConditionalAccessClientAppPMobileAppsAndDesktopClients = &_ConditionalAccessClientAppPMobileAppsAndDesktopClients
+	// ConditionalAccessClientAppPExchangeActiveSync is a pointer to ConditionalAccessClientAppVExchangeActiveSync
+	ConditionalAccessClientAppPExchangeActiveSync = &_ConditionalAccessClientAppPExchangeActiveSync
 	// ConditionalAccessClientAppPEasSupported is a pointer to ConditionalAccessClientAppVEasSupported
 	ConditionalAccessClientAppPEasSupported = &_ConditionalAccessClientAppPEasSupported
-	// ConditionalAccessClientAppPEasUnsupported is a pointer to ConditionalAccessClientAppVEasUnsupported
-	ConditionalAccessClientAppPEasUnsupported = &_ConditionalAccessClientAppPEasUnsupported
 	// ConditionalAccessClientAppPOther is a pointer to ConditionalAccessClientAppVOther
 	ConditionalAccessClientAppPOther = &_ConditionalAccessClientAppPOther
+	// ConditionalAccessClientAppPUnknownFutureValue is a pointer to ConditionalAccessClientAppVUnknownFutureValue
+	ConditionalAccessClientAppPUnknownFutureValue = &_ConditionalAccessClientAppPUnknownFutureValue
 )
 
 var (
-	_ConditionalAccessClientAppPBrowser        = ConditionalAccessClientAppVBrowser
-	_ConditionalAccessClientAppPModern         = ConditionalAccessClientAppVModern
-	_ConditionalAccessClientAppPEasSupported   = ConditionalAccessClientAppVEasSupported
-	_ConditionalAccessClientAppPEasUnsupported = ConditionalAccessClientAppVEasUnsupported
-	_ConditionalAccessClientAppPOther          = ConditionalAccessClientAppVOther
+	_ConditionalAccessClientAppPAll                         = ConditionalAccessClientAppVAll
+	_ConditionalAccessClientAppPBrowser                     = ConditionalAccessClientAppVBrowser
+	_ConditionalAccessClientAppPMobileAppsAndDesktopClients = ConditionalAccessClientAppVMobileAppsAndDesktopClients
+	_ConditionalAccessClientAppPExchangeActiveSync          = ConditionalAccessClientAppVExchangeActiveSync
+	_ConditionalAccessClientAppPEasSupported                = ConditionalAccessClientAppVEasSupported
+	_ConditionalAccessClientAppPOther                       = ConditionalAccessClientAppVOther
+	_ConditionalAccessClientAppPUnknownFutureValue          = ConditionalAccessClientAppVUnknownFutureValue
 )
 
 // ConditionalAccessConditions undocumented
@@ -65,6 +75,12 @@ const (
 	ConditionalAccessConditionsVDeviceState ConditionalAccessConditions = "deviceState"
 	// ConditionalAccessConditionsVClient undocumented
 	ConditionalAccessConditionsVClient ConditionalAccessConditions = "client"
+	// ConditionalAccessConditionsVIPAddressSeenByAzureAD undocumented
+	ConditionalAccessConditionsVIPAddressSeenByAzureAD ConditionalAccessConditions = "ipAddressSeenByAzureAD"
+	// ConditionalAccessConditionsVIPAddressSeenByResourceProvider undocumented
+	ConditionalAccessConditionsVIPAddressSeenByResourceProvider ConditionalAccessConditions = "ipAddressSeenByResourceProvider"
+	// ConditionalAccessConditionsVUnknownFutureValue undocumented
+	ConditionalAccessConditionsVUnknownFutureValue ConditionalAccessConditions = "unknownFutureValue"
 )
 
 var (
@@ -90,20 +106,29 @@ var (
 	ConditionalAccessConditionsPDeviceState = &_ConditionalAccessConditionsPDeviceState
 	// ConditionalAccessConditionsPClient is a pointer to ConditionalAccessConditionsVClient
 	ConditionalAccessConditionsPClient = &_ConditionalAccessConditionsPClient
+	// ConditionalAccessConditionsPIPAddressSeenByAzureAD is a pointer to ConditionalAccessConditionsVIPAddressSeenByAzureAD
+	ConditionalAccessConditionsPIPAddressSeenByAzureAD = &_ConditionalAccessConditionsPIPAddressSeenByAzureAD
+	// ConditionalAccessConditionsPIPAddressSeenByResourceProvider is a pointer to ConditionalAccessConditionsVIPAddressSeenByResourceProvider
+	ConditionalAccessConditionsPIPAddressSeenByResourceProvider = &_ConditionalAccessConditionsPIPAddressSeenByResourceProvider
+	// ConditionalAccessConditionsPUnknownFutureValue is a pointer to ConditionalAccessConditionsVUnknownFutureValue
+	ConditionalAccessConditionsPUnknownFutureValue = &_ConditionalAccessConditionsPUnknownFutureValue
 )
 
 var (
-	_ConditionalAccessConditionsPNone           = ConditionalAccessConditionsVNone
-	_ConditionalAccessConditionsPApplication    = ConditionalAccessConditionsVApplication
-	_ConditionalAccessConditionsPUsers          = ConditionalAccessConditionsVUsers
-	_ConditionalAccessConditionsPDevicePlatform = ConditionalAccessConditionsVDevicePlatform
-	_ConditionalAccessConditionsPLocation       = ConditionalAccessConditionsVLocation
-	_ConditionalAccessConditionsPClientType     = ConditionalAccessConditionsVClientType
-	_ConditionalAccessConditionsPSignInRisk     = ConditionalAccessConditionsVSignInRisk
-	_ConditionalAccessConditionsPUserRisk       = ConditionalAccessConditionsVUserRisk
-	_ConditionalAccessConditionsPTime           = ConditionalAccessConditionsVTime
-	_ConditionalAccessConditionsPDeviceState    = ConditionalAccessConditionsVDeviceState
-	_ConditionalAccessConditionsPClient         = ConditionalAccessConditionsVClient
+	_ConditionalAccessConditionsPNone                            = ConditionalAccessConditionsVNone
+	_ConditionalAccessConditionsPApplication                     = ConditionalAccessConditionsVApplication
+	_ConditionalAccessConditionsPUsers                           = ConditionalAccessConditionsVUsers
+	_ConditionalAccessConditionsPDevicePlatform                  = ConditionalAccessConditionsVDevicePlatform
+	_ConditionalAccessConditionsPLocation                        = ConditionalAccessConditionsVLocation
+	_ConditionalAccessConditionsPClientType                      = ConditionalAccessConditionsVClientType
+	_ConditionalAccessConditionsPSignInRisk                      = ConditionalAccessConditionsVSignInRisk
+	_ConditionalAccessConditionsPUserRisk                        = ConditionalAccessConditionsVUserRisk
+	_ConditionalAccessConditionsPTime                            = ConditionalAccessConditionsVTime
+	_ConditionalAccessConditionsPDeviceState                     = ConditionalAccessConditionsVDeviceState
+	_ConditionalAccessConditionsPClient                          = ConditionalAccessConditionsVClient
+	_ConditionalAccessConditionsPIPAddressSeenByAzureAD          = ConditionalAccessConditionsVIPAddressSeenByAzureAD
+	_ConditionalAccessConditionsPIPAddressSeenByResourceProvider = ConditionalAccessConditionsVIPAddressSeenByResourceProvider
+	_ConditionalAccessConditionsPUnknownFutureValue              = ConditionalAccessConditionsVUnknownFutureValue
 )
 
 // ConditionalAccessDevicePlatform undocumented
@@ -122,6 +147,8 @@ const (
 	ConditionalAccessDevicePlatformVMacOS ConditionalAccessDevicePlatform = "macOS"
 	// ConditionalAccessDevicePlatformVAll undocumented
 	ConditionalAccessDevicePlatformVAll ConditionalAccessDevicePlatform = "all"
+	// ConditionalAccessDevicePlatformVUnknownFutureValue undocumented
+	ConditionalAccessDevicePlatformVUnknownFutureValue ConditionalAccessDevicePlatform = "unknownFutureValue"
 )
 
 var (
@@ -137,15 +164,18 @@ var (
 	ConditionalAccessDevicePlatformPMacOS = &_ConditionalAccessDevicePlatformPMacOS
 	// ConditionalAccessDevicePlatformPAll is a pointer to ConditionalAccessDevicePlatformVAll
 	ConditionalAccessDevicePlatformPAll = &_ConditionalAccessDevicePlatformPAll
+	// ConditionalAccessDevicePlatformPUnknownFutureValue is a pointer to ConditionalAccessDevicePlatformVUnknownFutureValue
+	ConditionalAccessDevicePlatformPUnknownFutureValue = &_ConditionalAccessDevicePlatformPUnknownFutureValue
 )
 
 var (
-	_ConditionalAccessDevicePlatformPAndroid      = ConditionalAccessDevicePlatformVAndroid
-	_ConditionalAccessDevicePlatformPIOS          = ConditionalAccessDevicePlatformVIOS
-	_ConditionalAccessDevicePlatformPWindows      = ConditionalAccessDevicePlatformVWindows
-	_ConditionalAccessDevicePlatformPWindowsPhone = ConditionalAccessDevicePlatformVWindowsPhone
-	_ConditionalAccessDevicePlatformPMacOS        = ConditionalAccessDevicePlatformVMacOS
-	_ConditionalAccessDevicePlatformPAll          = ConditionalAccessDevicePlatformVAll
+	_ConditionalAccessDevicePlatformPAndroid            = ConditionalAccessDevicePlatformVAndroid
+	_ConditionalAccessDevicePlatformPIOS                = ConditionalAccessDevicePlatformVIOS
+	_ConditionalAccessDevicePlatformPWindows            = ConditionalAccessDevicePlatformVWindows
+	_ConditionalAccessDevicePlatformPWindowsPhone       = ConditionalAccessDevicePlatformVWindowsPhone
+	_ConditionalAccessDevicePlatformPMacOS              = ConditionalAccessDevicePlatformVMacOS
+	_ConditionalAccessDevicePlatformPAll                = ConditionalAccessDevicePlatformVAll
+	_ConditionalAccessDevicePlatformPUnknownFutureValue = ConditionalAccessDevicePlatformVUnknownFutureValue
 )
 
 // ConditionalAccessGrantControl undocumented
@@ -164,6 +194,10 @@ const (
 	ConditionalAccessGrantControlVApprovedApplication ConditionalAccessGrantControl = "approvedApplication"
 	// ConditionalAccessGrantControlVCompliantApplication undocumented
 	ConditionalAccessGrantControlVCompliantApplication ConditionalAccessGrantControl = "compliantApplication"
+	// ConditionalAccessGrantControlVPasswordChange undocumented
+	ConditionalAccessGrantControlVPasswordChange ConditionalAccessGrantControl = "passwordChange"
+	// ConditionalAccessGrantControlVUnknownFutureValue undocumented
+	ConditionalAccessGrantControlVUnknownFutureValue ConditionalAccessGrantControl = "unknownFutureValue"
 )
 
 var (
@@ -179,6 +213,10 @@ var (
 	ConditionalAccessGrantControlPApprovedApplication = &_ConditionalAccessGrantControlPApprovedApplication
 	// ConditionalAccessGrantControlPCompliantApplication is a pointer to ConditionalAccessGrantControlVCompliantApplication
 	ConditionalAccessGrantControlPCompliantApplication = &_ConditionalAccessGrantControlPCompliantApplication
+	// ConditionalAccessGrantControlPPasswordChange is a pointer to ConditionalAccessGrantControlVPasswordChange
+	ConditionalAccessGrantControlPPasswordChange = &_ConditionalAccessGrantControlPPasswordChange
+	// ConditionalAccessGrantControlPUnknownFutureValue is a pointer to ConditionalAccessGrantControlVUnknownFutureValue
+	ConditionalAccessGrantControlPUnknownFutureValue = &_ConditionalAccessGrantControlPUnknownFutureValue
 )
 
 var (
@@ -188,6 +226,8 @@ var (
 	_ConditionalAccessGrantControlPDomainJoinedDevice   = ConditionalAccessGrantControlVDomainJoinedDevice
 	_ConditionalAccessGrantControlPApprovedApplication  = ConditionalAccessGrantControlVApprovedApplication
 	_ConditionalAccessGrantControlPCompliantApplication = ConditionalAccessGrantControlVCompliantApplication
+	_ConditionalAccessGrantControlPPasswordChange       = ConditionalAccessGrantControlVPasswordChange
+	_ConditionalAccessGrantControlPUnknownFutureValue   = ConditionalAccessGrantControlVUnknownFutureValue
 )
 
 // ConditionalAccessPolicyState undocumented
@@ -215,6 +255,123 @@ var (
 	_ConditionalAccessPolicyStatePEnabled                           = ConditionalAccessPolicyStateVEnabled
 	_ConditionalAccessPolicyStatePDisabled                          = ConditionalAccessPolicyStateVDisabled
 	_ConditionalAccessPolicyStatePEnabledForReportingButNotEnforced = ConditionalAccessPolicyStateVEnabledForReportingButNotEnforced
+)
+
+// ConditionalAccessRule undocumented
+type ConditionalAccessRule string
+
+const (
+	// ConditionalAccessRuleVAllApps undocumented
+	ConditionalAccessRuleVAllApps ConditionalAccessRule = "allApps"
+	// ConditionalAccessRuleVFirstPartyApps undocumented
+	ConditionalAccessRuleVFirstPartyApps ConditionalAccessRule = "firstPartyApps"
+	// ConditionalAccessRuleVOffice365 undocumented
+	ConditionalAccessRuleVOffice365 ConditionalAccessRule = "office365"
+	// ConditionalAccessRuleVAppID undocumented
+	ConditionalAccessRuleVAppID ConditionalAccessRule = "appId"
+	// ConditionalAccessRuleVAcr undocumented
+	ConditionalAccessRuleVAcr ConditionalAccessRule = "acr"
+	// ConditionalAccessRuleVAppFilter undocumented
+	ConditionalAccessRuleVAppFilter ConditionalAccessRule = "appFilter"
+	// ConditionalAccessRuleVAllUsers undocumented
+	ConditionalAccessRuleVAllUsers ConditionalAccessRule = "allUsers"
+	// ConditionalAccessRuleVGuest undocumented
+	ConditionalAccessRuleVGuest ConditionalAccessRule = "guest"
+	// ConditionalAccessRuleVGroupID undocumented
+	ConditionalAccessRuleVGroupID ConditionalAccessRule = "groupId"
+	// ConditionalAccessRuleVRoleID undocumented
+	ConditionalAccessRuleVRoleID ConditionalAccessRule = "roleId"
+	// ConditionalAccessRuleVUserID undocumented
+	ConditionalAccessRuleVUserID ConditionalAccessRule = "userId"
+	// ConditionalAccessRuleVAllDevicePlatforms undocumented
+	ConditionalAccessRuleVAllDevicePlatforms ConditionalAccessRule = "allDevicePlatforms"
+	// ConditionalAccessRuleVDevicePlatform undocumented
+	ConditionalAccessRuleVDevicePlatform ConditionalAccessRule = "devicePlatform"
+	// ConditionalAccessRuleVAllLocations undocumented
+	ConditionalAccessRuleVAllLocations ConditionalAccessRule = "allLocations"
+	// ConditionalAccessRuleVInsideCorpnet undocumented
+	ConditionalAccessRuleVInsideCorpnet ConditionalAccessRule = "insideCorpnet"
+	// ConditionalAccessRuleVAllTrustedLocations undocumented
+	ConditionalAccessRuleVAllTrustedLocations ConditionalAccessRule = "allTrustedLocations"
+	// ConditionalAccessRuleVLocationID undocumented
+	ConditionalAccessRuleVLocationID ConditionalAccessRule = "locationId"
+	// ConditionalAccessRuleVAllDevices undocumented
+	ConditionalAccessRuleVAllDevices ConditionalAccessRule = "allDevices"
+	// ConditionalAccessRuleVDeviceFilter undocumented
+	ConditionalAccessRuleVDeviceFilter ConditionalAccessRule = "deviceFilter"
+	// ConditionalAccessRuleVDeviceState undocumented
+	ConditionalAccessRuleVDeviceState ConditionalAccessRule = "deviceState"
+	// ConditionalAccessRuleVUnknownFutureValue undocumented
+	ConditionalAccessRuleVUnknownFutureValue ConditionalAccessRule = "unknownFutureValue"
+)
+
+var (
+	// ConditionalAccessRulePAllApps is a pointer to ConditionalAccessRuleVAllApps
+	ConditionalAccessRulePAllApps = &_ConditionalAccessRulePAllApps
+	// ConditionalAccessRulePFirstPartyApps is a pointer to ConditionalAccessRuleVFirstPartyApps
+	ConditionalAccessRulePFirstPartyApps = &_ConditionalAccessRulePFirstPartyApps
+	// ConditionalAccessRulePOffice365 is a pointer to ConditionalAccessRuleVOffice365
+	ConditionalAccessRulePOffice365 = &_ConditionalAccessRulePOffice365
+	// ConditionalAccessRulePAppID is a pointer to ConditionalAccessRuleVAppID
+	ConditionalAccessRulePAppID = &_ConditionalAccessRulePAppID
+	// ConditionalAccessRulePAcr is a pointer to ConditionalAccessRuleVAcr
+	ConditionalAccessRulePAcr = &_ConditionalAccessRulePAcr
+	// ConditionalAccessRulePAppFilter is a pointer to ConditionalAccessRuleVAppFilter
+	ConditionalAccessRulePAppFilter = &_ConditionalAccessRulePAppFilter
+	// ConditionalAccessRulePAllUsers is a pointer to ConditionalAccessRuleVAllUsers
+	ConditionalAccessRulePAllUsers = &_ConditionalAccessRulePAllUsers
+	// ConditionalAccessRulePGuest is a pointer to ConditionalAccessRuleVGuest
+	ConditionalAccessRulePGuest = &_ConditionalAccessRulePGuest
+	// ConditionalAccessRulePGroupID is a pointer to ConditionalAccessRuleVGroupID
+	ConditionalAccessRulePGroupID = &_ConditionalAccessRulePGroupID
+	// ConditionalAccessRulePRoleID is a pointer to ConditionalAccessRuleVRoleID
+	ConditionalAccessRulePRoleID = &_ConditionalAccessRulePRoleID
+	// ConditionalAccessRulePUserID is a pointer to ConditionalAccessRuleVUserID
+	ConditionalAccessRulePUserID = &_ConditionalAccessRulePUserID
+	// ConditionalAccessRulePAllDevicePlatforms is a pointer to ConditionalAccessRuleVAllDevicePlatforms
+	ConditionalAccessRulePAllDevicePlatforms = &_ConditionalAccessRulePAllDevicePlatforms
+	// ConditionalAccessRulePDevicePlatform is a pointer to ConditionalAccessRuleVDevicePlatform
+	ConditionalAccessRulePDevicePlatform = &_ConditionalAccessRulePDevicePlatform
+	// ConditionalAccessRulePAllLocations is a pointer to ConditionalAccessRuleVAllLocations
+	ConditionalAccessRulePAllLocations = &_ConditionalAccessRulePAllLocations
+	// ConditionalAccessRulePInsideCorpnet is a pointer to ConditionalAccessRuleVInsideCorpnet
+	ConditionalAccessRulePInsideCorpnet = &_ConditionalAccessRulePInsideCorpnet
+	// ConditionalAccessRulePAllTrustedLocations is a pointer to ConditionalAccessRuleVAllTrustedLocations
+	ConditionalAccessRulePAllTrustedLocations = &_ConditionalAccessRulePAllTrustedLocations
+	// ConditionalAccessRulePLocationID is a pointer to ConditionalAccessRuleVLocationID
+	ConditionalAccessRulePLocationID = &_ConditionalAccessRulePLocationID
+	// ConditionalAccessRulePAllDevices is a pointer to ConditionalAccessRuleVAllDevices
+	ConditionalAccessRulePAllDevices = &_ConditionalAccessRulePAllDevices
+	// ConditionalAccessRulePDeviceFilter is a pointer to ConditionalAccessRuleVDeviceFilter
+	ConditionalAccessRulePDeviceFilter = &_ConditionalAccessRulePDeviceFilter
+	// ConditionalAccessRulePDeviceState is a pointer to ConditionalAccessRuleVDeviceState
+	ConditionalAccessRulePDeviceState = &_ConditionalAccessRulePDeviceState
+	// ConditionalAccessRulePUnknownFutureValue is a pointer to ConditionalAccessRuleVUnknownFutureValue
+	ConditionalAccessRulePUnknownFutureValue = &_ConditionalAccessRulePUnknownFutureValue
+)
+
+var (
+	_ConditionalAccessRulePAllApps             = ConditionalAccessRuleVAllApps
+	_ConditionalAccessRulePFirstPartyApps      = ConditionalAccessRuleVFirstPartyApps
+	_ConditionalAccessRulePOffice365           = ConditionalAccessRuleVOffice365
+	_ConditionalAccessRulePAppID               = ConditionalAccessRuleVAppID
+	_ConditionalAccessRulePAcr                 = ConditionalAccessRuleVAcr
+	_ConditionalAccessRulePAppFilter           = ConditionalAccessRuleVAppFilter
+	_ConditionalAccessRulePAllUsers            = ConditionalAccessRuleVAllUsers
+	_ConditionalAccessRulePGuest               = ConditionalAccessRuleVGuest
+	_ConditionalAccessRulePGroupID             = ConditionalAccessRuleVGroupID
+	_ConditionalAccessRulePRoleID              = ConditionalAccessRuleVRoleID
+	_ConditionalAccessRulePUserID              = ConditionalAccessRuleVUserID
+	_ConditionalAccessRulePAllDevicePlatforms  = ConditionalAccessRuleVAllDevicePlatforms
+	_ConditionalAccessRulePDevicePlatform      = ConditionalAccessRuleVDevicePlatform
+	_ConditionalAccessRulePAllLocations        = ConditionalAccessRuleVAllLocations
+	_ConditionalAccessRulePInsideCorpnet       = ConditionalAccessRuleVInsideCorpnet
+	_ConditionalAccessRulePAllTrustedLocations = ConditionalAccessRuleVAllTrustedLocations
+	_ConditionalAccessRulePLocationID          = ConditionalAccessRuleVLocationID
+	_ConditionalAccessRulePAllDevices          = ConditionalAccessRuleVAllDevices
+	_ConditionalAccessRulePDeviceFilter        = ConditionalAccessRuleVDeviceFilter
+	_ConditionalAccessRulePDeviceState         = ConditionalAccessRuleVDeviceState
+	_ConditionalAccessRulePUnknownFutureValue  = ConditionalAccessRuleVUnknownFutureValue
 )
 
 // ConditionalAccessStatus undocumented

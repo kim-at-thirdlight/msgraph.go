@@ -20,6 +20,8 @@ type Organization struct {
 	CountryLetterCode *string `json:"countryLetterCode,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DirectorySizeQuota undocumented
+	DirectorySizeQuota *DirectorySizeQuota `json:"directorySizeQuota,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// IsMultipleDataLocationsForServicesEnabled undocumented
@@ -50,14 +52,26 @@ type Organization struct {
 	TechnicalNotificationMails []string `json:"technicalNotificationMails,omitempty"`
 	// VerifiedDomains undocumented
 	VerifiedDomains []VerifiedDomain `json:"verifiedDomains,omitempty"`
-	// MobileDeviceManagementAuthority Mobile device management authority.
-	MobileDeviceManagementAuthority *MDMAuthority `json:"mobileDeviceManagementAuthority,omitempty"`
 	// CertificateConnectorSetting Certificate connector setting.
 	CertificateConnectorSetting *CertificateConnectorSetting `json:"certificateConnectorSetting,omitempty"`
-	// Brandings undocumented
-	Brandings []OrganizationalBranding `json:"brandings,omitempty"`
+	// MobileDeviceManagementAuthority Mobile device management authority.
+	MobileDeviceManagementAuthority *MDMAuthority `json:"mobileDeviceManagementAuthority,omitempty"`
+	// Branding undocumented
+	Branding *OrganizationalBranding `json:"branding,omitempty"`
 	// CertificateBasedAuthConfiguration undocumented
 	CertificateBasedAuthConfiguration []CertificateBasedAuthConfiguration `json:"certificateBasedAuthConfiguration,omitempty"`
 	// Extensions undocumented
 	Extensions []Extension `json:"extensions,omitempty"`
+	// Settings undocumented
+	Settings *OrganizationSettings `json:"settings,omitempty"`
+}
+
+// OrganizationSettings undocumented
+type OrganizationSettings struct {
+	// Entity is the base model of OrganizationSettings
+	Entity
+	// ItemInsights undocumented
+	ItemInsights *ItemInsightsSettings `json:"itemInsights,omitempty"`
+	// ProfileCardProperties undocumented
+	ProfileCardProperties []ProfileCardProperty `json:"profileCardProperties,omitempty"`
 }

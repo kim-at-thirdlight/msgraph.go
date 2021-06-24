@@ -4,7 +4,7 @@ package msgraph
 
 import "time"
 
-// KeyBooleanValuePair undocumented
+// KeyBooleanValuePair A key-value pair with a string key and a Boolean value.
 type KeyBooleanValuePair struct {
 	// KeyTypedValuePair is the base model of KeyBooleanValuePair
 	KeyTypedValuePair
@@ -18,8 +18,12 @@ type KeyCredential struct {
 	Object
 	// CustomKeyIdentifier undocumented
 	CustomKeyIdentifier *Binary `json:"customKeyIdentifier,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// Key undocumented
+	Key *Binary `json:"key,omitempty"`
 	// KeyID undocumented
 	KeyID *UUID `json:"keyId,omitempty"`
 	// StartDateTime undocumented
@@ -28,13 +32,9 @@ type KeyCredential struct {
 	Type *string `json:"type,omitempty"`
 	// Usage undocumented
 	Usage *string `json:"usage,omitempty"`
-	// Key undocumented
-	Key *Binary `json:"key,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 }
 
-// KeyIntegerValuePair undocumented
+// KeyIntegerValuePair A key-value pair with a string key and an integer value.
 type KeyIntegerValuePair struct {
 	// KeyTypedValuePair is the base model of KeyIntegerValuePair
 	KeyTypedValuePair
@@ -42,7 +42,17 @@ type KeyIntegerValuePair struct {
 	Value *int `json:"value,omitempty"`
 }
 
-// KeyRealValuePair undocumented
+// KeyLongValuePair Key long value pair
+type KeyLongValuePair struct {
+	// Object is the base model of KeyLongValuePair
+	Object
+	// Name Name for this key long value pair
+	Name *string `json:"name,omitempty"`
+	// Value Value for this key long value pair
+	Value *int `json:"value,omitempty"`
+}
+
+// KeyRealValuePair A key-value pair with a string key and a real (floating-point) value.
 type KeyRealValuePair struct {
 	// KeyTypedValuePair is the base model of KeyRealValuePair
 	KeyTypedValuePair
@@ -50,7 +60,7 @@ type KeyRealValuePair struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-// KeyStringValuePair undocumented
+// KeyStringValuePair A key-value pair with a string key and a string value.
 type KeyStringValuePair struct {
 	// KeyTypedValuePair is the base model of KeyStringValuePair
 	KeyTypedValuePair
@@ -58,7 +68,7 @@ type KeyStringValuePair struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// KeyTypedValuePair undocumented
+// KeyTypedValuePair A key-value pair with a string key and a typed value.
 type KeyTypedValuePair struct {
 	// Object is the base model of KeyTypedValuePair
 	Object

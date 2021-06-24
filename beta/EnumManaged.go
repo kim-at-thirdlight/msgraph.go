@@ -88,6 +88,33 @@ var (
 	_ManagedAppDataEncryptionTypePWhenDeviceLocked                = ManagedAppDataEncryptionTypeVWhenDeviceLocked
 )
 
+// ManagedAppDataIngestionLocation undocumented
+type ManagedAppDataIngestionLocation string
+
+const (
+	// ManagedAppDataIngestionLocationVOneDriveForBusiness undocumented
+	ManagedAppDataIngestionLocationVOneDriveForBusiness ManagedAppDataIngestionLocation = "oneDriveForBusiness"
+	// ManagedAppDataIngestionLocationVSharePoint undocumented
+	ManagedAppDataIngestionLocationVSharePoint ManagedAppDataIngestionLocation = "sharePoint"
+	// ManagedAppDataIngestionLocationVCamera undocumented
+	ManagedAppDataIngestionLocationVCamera ManagedAppDataIngestionLocation = "camera"
+)
+
+var (
+	// ManagedAppDataIngestionLocationPOneDriveForBusiness is a pointer to ManagedAppDataIngestionLocationVOneDriveForBusiness
+	ManagedAppDataIngestionLocationPOneDriveForBusiness = &_ManagedAppDataIngestionLocationPOneDriveForBusiness
+	// ManagedAppDataIngestionLocationPSharePoint is a pointer to ManagedAppDataIngestionLocationVSharePoint
+	ManagedAppDataIngestionLocationPSharePoint = &_ManagedAppDataIngestionLocationPSharePoint
+	// ManagedAppDataIngestionLocationPCamera is a pointer to ManagedAppDataIngestionLocationVCamera
+	ManagedAppDataIngestionLocationPCamera = &_ManagedAppDataIngestionLocationPCamera
+)
+
+var (
+	_ManagedAppDataIngestionLocationPOneDriveForBusiness = ManagedAppDataIngestionLocationVOneDriveForBusiness
+	_ManagedAppDataIngestionLocationPSharePoint          = ManagedAppDataIngestionLocationVSharePoint
+	_ManagedAppDataIngestionLocationPCamera              = ManagedAppDataIngestionLocationVCamera
+)
+
 // ManagedAppDataStorageLocation undocumented
 type ManagedAppDataStorageLocation string
 
@@ -96,6 +123,8 @@ const (
 	ManagedAppDataStorageLocationVOneDriveForBusiness ManagedAppDataStorageLocation = "oneDriveForBusiness"
 	// ManagedAppDataStorageLocationVSharePoint undocumented
 	ManagedAppDataStorageLocationVSharePoint ManagedAppDataStorageLocation = "sharePoint"
+	// ManagedAppDataStorageLocationVBox undocumented
+	ManagedAppDataStorageLocationVBox ManagedAppDataStorageLocation = "box"
 	// ManagedAppDataStorageLocationVLocalStorage undocumented
 	ManagedAppDataStorageLocationVLocalStorage ManagedAppDataStorageLocation = "localStorage"
 )
@@ -105,6 +134,8 @@ var (
 	ManagedAppDataStorageLocationPOneDriveForBusiness = &_ManagedAppDataStorageLocationPOneDriveForBusiness
 	// ManagedAppDataStorageLocationPSharePoint is a pointer to ManagedAppDataStorageLocationVSharePoint
 	ManagedAppDataStorageLocationPSharePoint = &_ManagedAppDataStorageLocationPSharePoint
+	// ManagedAppDataStorageLocationPBox is a pointer to ManagedAppDataStorageLocationVBox
+	ManagedAppDataStorageLocationPBox = &_ManagedAppDataStorageLocationPBox
 	// ManagedAppDataStorageLocationPLocalStorage is a pointer to ManagedAppDataStorageLocationVLocalStorage
 	ManagedAppDataStorageLocationPLocalStorage = &_ManagedAppDataStorageLocationPLocalStorage
 )
@@ -112,6 +143,7 @@ var (
 var (
 	_ManagedAppDataStorageLocationPOneDriveForBusiness = ManagedAppDataStorageLocationVOneDriveForBusiness
 	_ManagedAppDataStorageLocationPSharePoint          = ManagedAppDataStorageLocationVSharePoint
+	_ManagedAppDataStorageLocationPBox                 = ManagedAppDataStorageLocationVBox
 	_ManagedAppDataStorageLocationPLocalStorage        = ManagedAppDataStorageLocationVLocalStorage
 )
 
@@ -238,6 +270,38 @@ var (
 	_ManagedAppNotificationRestrictionPBlock                   = ManagedAppNotificationRestrictionVBlock
 )
 
+// ManagedAppPhoneNumberRedirectLevel undocumented
+type ManagedAppPhoneNumberRedirectLevel string
+
+const (
+	// ManagedAppPhoneNumberRedirectLevelVAllApps undocumented
+	ManagedAppPhoneNumberRedirectLevelVAllApps ManagedAppPhoneNumberRedirectLevel = "allApps"
+	// ManagedAppPhoneNumberRedirectLevelVManagedApps undocumented
+	ManagedAppPhoneNumberRedirectLevelVManagedApps ManagedAppPhoneNumberRedirectLevel = "managedApps"
+	// ManagedAppPhoneNumberRedirectLevelVCustomApp undocumented
+	ManagedAppPhoneNumberRedirectLevelVCustomApp ManagedAppPhoneNumberRedirectLevel = "customApp"
+	// ManagedAppPhoneNumberRedirectLevelVBlocked undocumented
+	ManagedAppPhoneNumberRedirectLevelVBlocked ManagedAppPhoneNumberRedirectLevel = "blocked"
+)
+
+var (
+	// ManagedAppPhoneNumberRedirectLevelPAllApps is a pointer to ManagedAppPhoneNumberRedirectLevelVAllApps
+	ManagedAppPhoneNumberRedirectLevelPAllApps = &_ManagedAppPhoneNumberRedirectLevelPAllApps
+	// ManagedAppPhoneNumberRedirectLevelPManagedApps is a pointer to ManagedAppPhoneNumberRedirectLevelVManagedApps
+	ManagedAppPhoneNumberRedirectLevelPManagedApps = &_ManagedAppPhoneNumberRedirectLevelPManagedApps
+	// ManagedAppPhoneNumberRedirectLevelPCustomApp is a pointer to ManagedAppPhoneNumberRedirectLevelVCustomApp
+	ManagedAppPhoneNumberRedirectLevelPCustomApp = &_ManagedAppPhoneNumberRedirectLevelPCustomApp
+	// ManagedAppPhoneNumberRedirectLevelPBlocked is a pointer to ManagedAppPhoneNumberRedirectLevelVBlocked
+	ManagedAppPhoneNumberRedirectLevelPBlocked = &_ManagedAppPhoneNumberRedirectLevelPBlocked
+)
+
+var (
+	_ManagedAppPhoneNumberRedirectLevelPAllApps     = ManagedAppPhoneNumberRedirectLevelVAllApps
+	_ManagedAppPhoneNumberRedirectLevelPManagedApps = ManagedAppPhoneNumberRedirectLevelVManagedApps
+	_ManagedAppPhoneNumberRedirectLevelPCustomApp   = ManagedAppPhoneNumberRedirectLevelVCustomApp
+	_ManagedAppPhoneNumberRedirectLevelPBlocked     = ManagedAppPhoneNumberRedirectLevelVBlocked
+)
+
 // ManagedAppPinCharacterSet undocumented
 type ManagedAppPinCharacterSet string
 
@@ -307,6 +371,65 @@ var (
 var (
 	_ManagedBrowserTypePNotConfigured = ManagedBrowserTypeVNotConfigured
 	_ManagedBrowserTypePMicrosoftEdge = ManagedBrowserTypeVMicrosoftEdge
+)
+
+// ManagedDeviceArchitecture undocumented
+type ManagedDeviceArchitecture string
+
+const (
+	// ManagedDeviceArchitectureVUnknown undocumented
+	ManagedDeviceArchitectureVUnknown ManagedDeviceArchitecture = "unknown"
+	// ManagedDeviceArchitectureVX86 undocumented
+	ManagedDeviceArchitectureVX86 ManagedDeviceArchitecture = "x86"
+	// ManagedDeviceArchitectureVX64 undocumented
+	ManagedDeviceArchitectureVX64 ManagedDeviceArchitecture = "x64"
+	// ManagedDeviceArchitectureVArm undocumented
+	ManagedDeviceArchitectureVArm ManagedDeviceArchitecture = "arm"
+	// ManagedDeviceArchitectureVArM64 undocumented
+	ManagedDeviceArchitectureVArM64 ManagedDeviceArchitecture = "arM64"
+)
+
+var (
+	// ManagedDeviceArchitecturePUnknown is a pointer to ManagedDeviceArchitectureVUnknown
+	ManagedDeviceArchitecturePUnknown = &_ManagedDeviceArchitecturePUnknown
+	// ManagedDeviceArchitecturePX86 is a pointer to ManagedDeviceArchitectureVX86
+	ManagedDeviceArchitecturePX86 = &_ManagedDeviceArchitecturePX86
+	// ManagedDeviceArchitecturePX64 is a pointer to ManagedDeviceArchitectureVX64
+	ManagedDeviceArchitecturePX64 = &_ManagedDeviceArchitecturePX64
+	// ManagedDeviceArchitecturePArm is a pointer to ManagedDeviceArchitectureVArm
+	ManagedDeviceArchitecturePArm = &_ManagedDeviceArchitecturePArm
+	// ManagedDeviceArchitecturePArM64 is a pointer to ManagedDeviceArchitectureVArM64
+	ManagedDeviceArchitecturePArM64 = &_ManagedDeviceArchitecturePArM64
+)
+
+var (
+	_ManagedDeviceArchitecturePUnknown = ManagedDeviceArchitectureVUnknown
+	_ManagedDeviceArchitecturePX86     = ManagedDeviceArchitectureVX86
+	_ManagedDeviceArchitecturePX64     = ManagedDeviceArchitectureVX64
+	_ManagedDeviceArchitecturePArm     = ManagedDeviceArchitectureVArm
+	_ManagedDeviceArchitecturePArM64   = ManagedDeviceArchitectureVArM64
+)
+
+// ManagedDeviceManagementFeatures undocumented
+type ManagedDeviceManagementFeatures string
+
+const (
+	// ManagedDeviceManagementFeaturesVNone undocumented
+	ManagedDeviceManagementFeaturesVNone ManagedDeviceManagementFeatures = "none"
+	// ManagedDeviceManagementFeaturesVMicrosoftManagedDesktop undocumented
+	ManagedDeviceManagementFeaturesVMicrosoftManagedDesktop ManagedDeviceManagementFeatures = "microsoftManagedDesktop"
+)
+
+var (
+	// ManagedDeviceManagementFeaturesPNone is a pointer to ManagedDeviceManagementFeaturesVNone
+	ManagedDeviceManagementFeaturesPNone = &_ManagedDeviceManagementFeaturesPNone
+	// ManagedDeviceManagementFeaturesPMicrosoftManagedDesktop is a pointer to ManagedDeviceManagementFeaturesVMicrosoftManagedDesktop
+	ManagedDeviceManagementFeaturesPMicrosoftManagedDesktop = &_ManagedDeviceManagementFeaturesPMicrosoftManagedDesktop
+)
+
+var (
+	_ManagedDeviceManagementFeaturesPNone                    = ManagedDeviceManagementFeaturesVNone
+	_ManagedDeviceManagementFeaturesPMicrosoftManagedDesktop = ManagedDeviceManagementFeaturesVMicrosoftManagedDesktop
 )
 
 // ManagedDeviceOwnerType undocumented
@@ -420,6 +543,8 @@ const (
 	ManagedDeviceRemoteActionVRebootNow ManagedDeviceRemoteAction = "rebootNow"
 	// ManagedDeviceRemoteActionVSetDeviceName undocumented
 	ManagedDeviceRemoteActionVSetDeviceName ManagedDeviceRemoteAction = "setDeviceName"
+	// ManagedDeviceRemoteActionVSyncDevice undocumented
+	ManagedDeviceRemoteActionVSyncDevice ManagedDeviceRemoteAction = "syncDevice"
 )
 
 var (
@@ -441,6 +566,8 @@ var (
 	ManagedDeviceRemoteActionPRebootNow = &_ManagedDeviceRemoteActionPRebootNow
 	// ManagedDeviceRemoteActionPSetDeviceName is a pointer to ManagedDeviceRemoteActionVSetDeviceName
 	ManagedDeviceRemoteActionPSetDeviceName = &_ManagedDeviceRemoteActionPSetDeviceName
+	// ManagedDeviceRemoteActionPSyncDevice is a pointer to ManagedDeviceRemoteActionVSyncDevice
+	ManagedDeviceRemoteActionPSyncDevice = &_ManagedDeviceRemoteActionPSyncDevice
 )
 
 var (
@@ -453,4 +580,27 @@ var (
 	_ManagedDeviceRemoteActionPCustomTextNotification = ManagedDeviceRemoteActionVCustomTextNotification
 	_ManagedDeviceRemoteActionPRebootNow              = ManagedDeviceRemoteActionVRebootNow
 	_ManagedDeviceRemoteActionPSetDeviceName          = ManagedDeviceRemoteActionVSetDeviceName
+	_ManagedDeviceRemoteActionPSyncDevice             = ManagedDeviceRemoteActionVSyncDevice
+)
+
+// ManagedInstallerStatus undocumented
+type ManagedInstallerStatus string
+
+const (
+	// ManagedInstallerStatusVDisabled undocumented
+	ManagedInstallerStatusVDisabled ManagedInstallerStatus = "disabled"
+	// ManagedInstallerStatusVEnabled undocumented
+	ManagedInstallerStatusVEnabled ManagedInstallerStatus = "enabled"
+)
+
+var (
+	// ManagedInstallerStatusPDisabled is a pointer to ManagedInstallerStatusVDisabled
+	ManagedInstallerStatusPDisabled = &_ManagedInstallerStatusPDisabled
+	// ManagedInstallerStatusPEnabled is a pointer to ManagedInstallerStatusVEnabled
+	ManagedInstallerStatusPEnabled = &_ManagedInstallerStatusPEnabled
+)
+
+var (
+	_ManagedInstallerStatusPDisabled = ManagedInstallerStatusVDisabled
+	_ManagedInstallerStatusPEnabled  = ManagedInstallerStatusVEnabled
 )

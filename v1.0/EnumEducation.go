@@ -2,6 +2,65 @@
 
 package msgraph
 
+// EducationAddedStudentAction undocumented
+type EducationAddedStudentAction string
+
+const (
+	// EducationAddedStudentActionVNone undocumented
+	EducationAddedStudentActionVNone EducationAddedStudentAction = "none"
+	// EducationAddedStudentActionVAssignIfOpen undocumented
+	EducationAddedStudentActionVAssignIfOpen EducationAddedStudentAction = "assignIfOpen"
+	// EducationAddedStudentActionVUnknownFutureValue undocumented
+	EducationAddedStudentActionVUnknownFutureValue EducationAddedStudentAction = "unknownFutureValue"
+)
+
+var (
+	// EducationAddedStudentActionPNone is a pointer to EducationAddedStudentActionVNone
+	EducationAddedStudentActionPNone = &_EducationAddedStudentActionPNone
+	// EducationAddedStudentActionPAssignIfOpen is a pointer to EducationAddedStudentActionVAssignIfOpen
+	EducationAddedStudentActionPAssignIfOpen = &_EducationAddedStudentActionPAssignIfOpen
+	// EducationAddedStudentActionPUnknownFutureValue is a pointer to EducationAddedStudentActionVUnknownFutureValue
+	EducationAddedStudentActionPUnknownFutureValue = &_EducationAddedStudentActionPUnknownFutureValue
+)
+
+var (
+	_EducationAddedStudentActionPNone               = EducationAddedStudentActionVNone
+	_EducationAddedStudentActionPAssignIfOpen       = EducationAddedStudentActionVAssignIfOpen
+	_EducationAddedStudentActionPUnknownFutureValue = EducationAddedStudentActionVUnknownFutureValue
+)
+
+// EducationAssignmentStatus undocumented
+type EducationAssignmentStatus string
+
+const (
+	// EducationAssignmentStatusVDraft undocumented
+	EducationAssignmentStatusVDraft EducationAssignmentStatus = "draft"
+	// EducationAssignmentStatusVPublished undocumented
+	EducationAssignmentStatusVPublished EducationAssignmentStatus = "published"
+	// EducationAssignmentStatusVAssigned undocumented
+	EducationAssignmentStatusVAssigned EducationAssignmentStatus = "assigned"
+	// EducationAssignmentStatusVUnknownFutureValue undocumented
+	EducationAssignmentStatusVUnknownFutureValue EducationAssignmentStatus = "unknownFutureValue"
+)
+
+var (
+	// EducationAssignmentStatusPDraft is a pointer to EducationAssignmentStatusVDraft
+	EducationAssignmentStatusPDraft = &_EducationAssignmentStatusPDraft
+	// EducationAssignmentStatusPPublished is a pointer to EducationAssignmentStatusVPublished
+	EducationAssignmentStatusPPublished = &_EducationAssignmentStatusPPublished
+	// EducationAssignmentStatusPAssigned is a pointer to EducationAssignmentStatusVAssigned
+	EducationAssignmentStatusPAssigned = &_EducationAssignmentStatusPAssigned
+	// EducationAssignmentStatusPUnknownFutureValue is a pointer to EducationAssignmentStatusVUnknownFutureValue
+	EducationAssignmentStatusPUnknownFutureValue = &_EducationAssignmentStatusPUnknownFutureValue
+)
+
+var (
+	_EducationAssignmentStatusPDraft              = EducationAssignmentStatusVDraft
+	_EducationAssignmentStatusPPublished          = EducationAssignmentStatusVPublished
+	_EducationAssignmentStatusPAssigned           = EducationAssignmentStatusVAssigned
+	_EducationAssignmentStatusPUnknownFutureValue = EducationAssignmentStatusVUnknownFutureValue
+)
+
 // EducationExternalSource undocumented
 type EducationExternalSource string
 
@@ -59,6 +118,43 @@ var (
 	_EducationGenderPMale               = EducationGenderVMale
 	_EducationGenderPOther              = EducationGenderVOther
 	_EducationGenderPUnknownFutureValue = EducationGenderVUnknownFutureValue
+)
+
+// EducationSubmissionStatus undocumented
+type EducationSubmissionStatus string
+
+const (
+	// EducationSubmissionStatusVWorking undocumented
+	EducationSubmissionStatusVWorking EducationSubmissionStatus = "working"
+	// EducationSubmissionStatusVSubmitted undocumented
+	EducationSubmissionStatusVSubmitted EducationSubmissionStatus = "submitted"
+	// EducationSubmissionStatusVReleased undocumented
+	EducationSubmissionStatusVReleased EducationSubmissionStatus = "released"
+	// EducationSubmissionStatusVReturned undocumented
+	EducationSubmissionStatusVReturned EducationSubmissionStatus = "returned"
+	// EducationSubmissionStatusVUnknownFutureValue undocumented
+	EducationSubmissionStatusVUnknownFutureValue EducationSubmissionStatus = "unknownFutureValue"
+)
+
+var (
+	// EducationSubmissionStatusPWorking is a pointer to EducationSubmissionStatusVWorking
+	EducationSubmissionStatusPWorking = &_EducationSubmissionStatusPWorking
+	// EducationSubmissionStatusPSubmitted is a pointer to EducationSubmissionStatusVSubmitted
+	EducationSubmissionStatusPSubmitted = &_EducationSubmissionStatusPSubmitted
+	// EducationSubmissionStatusPReleased is a pointer to EducationSubmissionStatusVReleased
+	EducationSubmissionStatusPReleased = &_EducationSubmissionStatusPReleased
+	// EducationSubmissionStatusPReturned is a pointer to EducationSubmissionStatusVReturned
+	EducationSubmissionStatusPReturned = &_EducationSubmissionStatusPReturned
+	// EducationSubmissionStatusPUnknownFutureValue is a pointer to EducationSubmissionStatusVUnknownFutureValue
+	EducationSubmissionStatusPUnknownFutureValue = &_EducationSubmissionStatusPUnknownFutureValue
+)
+
+var (
+	_EducationSubmissionStatusPWorking            = EducationSubmissionStatusVWorking
+	_EducationSubmissionStatusPSubmitted          = EducationSubmissionStatusVSubmitted
+	_EducationSubmissionStatusPReleased           = EducationSubmissionStatusVReleased
+	_EducationSubmissionStatusPReturned           = EducationSubmissionStatusVReturned
+	_EducationSubmissionStatusPUnknownFutureValue = EducationSubmissionStatusVUnknownFutureValue
 )
 
 // EducationUserRole undocumented

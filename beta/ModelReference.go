@@ -6,16 +6,16 @@ package msgraph
 type ReferenceAttachment struct {
 	// Attachment is the base model of ReferenceAttachment
 	Attachment
-	// SourceURL undocumented
-	SourceURL *string `json:"sourceUrl,omitempty"`
-	// ProviderType undocumented
-	ProviderType *ReferenceAttachmentProvider `json:"providerType,omitempty"`
-	// ThumbnailURL undocumented
-	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
-	// PreviewURL undocumented
-	PreviewURL *string `json:"previewUrl,omitempty"`
-	// Permission undocumented
-	Permission *ReferenceAttachmentPermission `json:"permission,omitempty"`
 	// IsFolder undocumented
 	IsFolder *bool `json:"isFolder,omitempty"`
+	// Permission undocumented
+	Permission *ReferenceAttachmentPermission `json:"permission,omitempty"`
+	// PreviewURL undocumented
+	PreviewURL *string `json:"previewUrl,omitempty"`
+	// ProviderType undocumented
+	ProviderType *ReferenceAttachmentProvider `json:"providerType,omitempty"`
+	// SourceURL undocumented
+	SourceURL *string `json:"sourceUrl,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 }

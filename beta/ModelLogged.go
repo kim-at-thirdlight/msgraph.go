@@ -4,12 +4,12 @@ package msgraph
 
 import "time"
 
-// LoggedOnUser undocumented
+// LoggedOnUser Logged On User
 type LoggedOnUser struct {
 	// Object is the base model of LoggedOnUser
 	Object
-	// UserID User id
-	UserID *string `json:"userId,omitempty"`
 	// LastLogOnDateTime Date time when user logs on
 	LastLogOnDateTime *time.Time `json:"lastLogOnDateTime,omitempty"`
+	// UserID User id
+	UserID *string `json:"userId,omitempty"`
 }

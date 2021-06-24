@@ -4,8 +4,8 @@ package msgraph
 
 // Financials undocumented
 type Financials struct {
-	// Entity is the base model of Financials
-	Entity
+	// Object is the base model of Financials
+	Object
 	// Companies undocumented
 	Companies []Company `json:"companies,omitempty"`
 }

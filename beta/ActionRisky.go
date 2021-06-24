@@ -11,14 +11,14 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// RiskyUserCollectionDismissRequestParameter undocumented
-type RiskyUserCollectionDismissRequestParameter struct {
+// RiskyUserCollectionConfirmCompromisedRequestParameter undocumented
+type RiskyUserCollectionConfirmCompromisedRequestParameter struct {
 	// UserIDs undocumented
 	UserIDs []string `json:"userIds,omitempty"`
 }
 
-// RiskyUserCollectionConfirmCompromisedRequestParameter undocumented
-type RiskyUserCollectionConfirmCompromisedRequestParameter struct {
+// RiskyUserCollectionDismissRequestParameter undocumented
+type RiskyUserCollectionDismissRequestParameter struct {
 	// UserIDs undocumented
 	UserIDs []string `json:"userIds,omitempty"`
 }

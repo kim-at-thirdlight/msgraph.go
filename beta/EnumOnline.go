@@ -2,6 +2,70 @@
 
 package msgraph
 
+// OnlineMeetingForwarders undocumented
+type OnlineMeetingForwarders string
+
+const (
+	// OnlineMeetingForwardersVEveryone undocumented
+	OnlineMeetingForwardersVEveryone OnlineMeetingForwarders = "everyone"
+	// OnlineMeetingForwardersVOrganizer undocumented
+	OnlineMeetingForwardersVOrganizer OnlineMeetingForwarders = "organizer"
+	// OnlineMeetingForwardersVUnknownFutureValue undocumented
+	OnlineMeetingForwardersVUnknownFutureValue OnlineMeetingForwarders = "unknownFutureValue"
+)
+
+var (
+	// OnlineMeetingForwardersPEveryone is a pointer to OnlineMeetingForwardersVEveryone
+	OnlineMeetingForwardersPEveryone = &_OnlineMeetingForwardersPEveryone
+	// OnlineMeetingForwardersPOrganizer is a pointer to OnlineMeetingForwardersVOrganizer
+	OnlineMeetingForwardersPOrganizer = &_OnlineMeetingForwardersPOrganizer
+	// OnlineMeetingForwardersPUnknownFutureValue is a pointer to OnlineMeetingForwardersVUnknownFutureValue
+	OnlineMeetingForwardersPUnknownFutureValue = &_OnlineMeetingForwardersPUnknownFutureValue
+)
+
+var (
+	_OnlineMeetingForwardersPEveryone           = OnlineMeetingForwardersVEveryone
+	_OnlineMeetingForwardersPOrganizer          = OnlineMeetingForwardersVOrganizer
+	_OnlineMeetingForwardersPUnknownFutureValue = OnlineMeetingForwardersVUnknownFutureValue
+)
+
+// OnlineMeetingPresenters undocumented
+type OnlineMeetingPresenters string
+
+const (
+	// OnlineMeetingPresentersVEveryone undocumented
+	OnlineMeetingPresentersVEveryone OnlineMeetingPresenters = "everyone"
+	// OnlineMeetingPresentersVOrganization undocumented
+	OnlineMeetingPresentersVOrganization OnlineMeetingPresenters = "organization"
+	// OnlineMeetingPresentersVRoleIsPresenter undocumented
+	OnlineMeetingPresentersVRoleIsPresenter OnlineMeetingPresenters = "roleIsPresenter"
+	// OnlineMeetingPresentersVOrganizer undocumented
+	OnlineMeetingPresentersVOrganizer OnlineMeetingPresenters = "organizer"
+	// OnlineMeetingPresentersVUnknownFutureValue undocumented
+	OnlineMeetingPresentersVUnknownFutureValue OnlineMeetingPresenters = "unknownFutureValue"
+)
+
+var (
+	// OnlineMeetingPresentersPEveryone is a pointer to OnlineMeetingPresentersVEveryone
+	OnlineMeetingPresentersPEveryone = &_OnlineMeetingPresentersPEveryone
+	// OnlineMeetingPresentersPOrganization is a pointer to OnlineMeetingPresentersVOrganization
+	OnlineMeetingPresentersPOrganization = &_OnlineMeetingPresentersPOrganization
+	// OnlineMeetingPresentersPRoleIsPresenter is a pointer to OnlineMeetingPresentersVRoleIsPresenter
+	OnlineMeetingPresentersPRoleIsPresenter = &_OnlineMeetingPresentersPRoleIsPresenter
+	// OnlineMeetingPresentersPOrganizer is a pointer to OnlineMeetingPresentersVOrganizer
+	OnlineMeetingPresentersPOrganizer = &_OnlineMeetingPresentersPOrganizer
+	// OnlineMeetingPresentersPUnknownFutureValue is a pointer to OnlineMeetingPresentersVUnknownFutureValue
+	OnlineMeetingPresentersPUnknownFutureValue = &_OnlineMeetingPresentersPUnknownFutureValue
+)
+
+var (
+	_OnlineMeetingPresentersPEveryone           = OnlineMeetingPresentersVEveryone
+	_OnlineMeetingPresentersPOrganization       = OnlineMeetingPresentersVOrganization
+	_OnlineMeetingPresentersPRoleIsPresenter    = OnlineMeetingPresentersVRoleIsPresenter
+	_OnlineMeetingPresentersPOrganizer          = OnlineMeetingPresentersVOrganizer
+	_OnlineMeetingPresentersPUnknownFutureValue = OnlineMeetingPresentersVUnknownFutureValue
+)
+
 // OnlineMeetingProviderType undocumented
 type OnlineMeetingProviderType string
 
@@ -32,4 +96,36 @@ var (
 	_OnlineMeetingProviderTypePSkypeForBusiness = OnlineMeetingProviderTypeVSkypeForBusiness
 	_OnlineMeetingProviderTypePSkypeForConsumer = OnlineMeetingProviderTypeVSkypeForConsumer
 	_OnlineMeetingProviderTypePTeamsForBusiness = OnlineMeetingProviderTypeVTeamsForBusiness
+)
+
+// OnlineMeetingRole undocumented
+type OnlineMeetingRole string
+
+const (
+	// OnlineMeetingRoleVAttendee undocumented
+	OnlineMeetingRoleVAttendee OnlineMeetingRole = "attendee"
+	// OnlineMeetingRoleVPresenter undocumented
+	OnlineMeetingRoleVPresenter OnlineMeetingRole = "presenter"
+	// OnlineMeetingRoleVUnknownFutureValue undocumented
+	OnlineMeetingRoleVUnknownFutureValue OnlineMeetingRole = "unknownFutureValue"
+	// OnlineMeetingRoleVProducer undocumented
+	OnlineMeetingRoleVProducer OnlineMeetingRole = "producer"
+)
+
+var (
+	// OnlineMeetingRolePAttendee is a pointer to OnlineMeetingRoleVAttendee
+	OnlineMeetingRolePAttendee = &_OnlineMeetingRolePAttendee
+	// OnlineMeetingRolePPresenter is a pointer to OnlineMeetingRoleVPresenter
+	OnlineMeetingRolePPresenter = &_OnlineMeetingRolePPresenter
+	// OnlineMeetingRolePUnknownFutureValue is a pointer to OnlineMeetingRoleVUnknownFutureValue
+	OnlineMeetingRolePUnknownFutureValue = &_OnlineMeetingRolePUnknownFutureValue
+	// OnlineMeetingRolePProducer is a pointer to OnlineMeetingRoleVProducer
+	OnlineMeetingRolePProducer = &_OnlineMeetingRolePProducer
+)
+
+var (
+	_OnlineMeetingRolePAttendee           = OnlineMeetingRoleVAttendee
+	_OnlineMeetingRolePPresenter          = OnlineMeetingRoleVPresenter
+	_OnlineMeetingRolePUnknownFutureValue = OnlineMeetingRoleVUnknownFutureValue
+	_OnlineMeetingRolePProducer           = OnlineMeetingRoleVProducer
 )

@@ -133,10 +133,31 @@ func (r *RoleDefinitionRoleAssignmentsCollectionRequest) Add(ctx context.Context
 	return
 }
 
+// CloudPC is navigation property
+func (b *RoleManagementRequestBuilder) CloudPC() *RbacApplicationMultipleRequestBuilder {
+	bb := &RbacApplicationMultipleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/cloudPC"
+	return bb
+}
+
+// DeviceManagement is navigation property
+func (b *RoleManagementRequestBuilder) DeviceManagement() *RbacApplicationMultipleRequestBuilder {
+	bb := &RbacApplicationMultipleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceManagement"
+	return bb
+}
+
 // Directory is navigation property
 func (b *RoleManagementRequestBuilder) Directory() *RbacApplicationRequestBuilder {
 	bb := &RbacApplicationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/directory"
+	return bb
+}
+
+// EntitlementManagement is navigation property
+func (b *RoleManagementRequestBuilder) EntitlementManagement() *RbacApplicationRequestBuilder {
+	bb := &RbacApplicationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/entitlementManagement"
 	return bb
 }
 

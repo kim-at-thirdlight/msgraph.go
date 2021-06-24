@@ -11,111 +11,25 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// OrganizationActivateServiceRequestParameter undocumented
+type OrganizationActivateServiceRequestParameter struct {
+	// Service undocumented
+	Service *string `json:"service,omitempty"`
+	// ServicePlanID undocumented
+	ServicePlanID *UUID `json:"servicePlanId,omitempty"`
+	// SKUID undocumented
+	SKUID *UUID `json:"skuId,omitempty"`
+}
+
 // OrganizationSetMobileDeviceManagementAuthorityRequestParameter undocumented
 type OrganizationSetMobileDeviceManagementAuthorityRequestParameter struct {
 }
 
-// Brandings returns request builder for OrganizationalBranding collection
-func (b *OrganizationRequestBuilder) Brandings() *OrganizationBrandingsCollectionRequestBuilder {
-	bb := &OrganizationBrandingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/brandings"
-	return bb
-}
-
-// OrganizationBrandingsCollectionRequestBuilder is request builder for OrganizationalBranding collection
-type OrganizationBrandingsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for OrganizationalBranding collection
-func (b *OrganizationBrandingsCollectionRequestBuilder) Request() *OrganizationBrandingsCollectionRequest {
-	return &OrganizationBrandingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for OrganizationalBranding item
-func (b *OrganizationBrandingsCollectionRequestBuilder) ID(id string) *OrganizationalBrandingRequestBuilder {
+// Branding is navigation property
+func (b *OrganizationRequestBuilder) Branding() *OrganizationalBrandingRequestBuilder {
 	bb := &OrganizationalBrandingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
+	bb.baseURL += "/branding"
 	return bb
-}
-
-// OrganizationBrandingsCollectionRequest is request for OrganizationalBranding collection
-type OrganizationBrandingsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for OrganizationalBranding collection
-func (r *OrganizationBrandingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]OrganizationalBranding, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []OrganizationalBranding
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []OrganizationalBranding
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for OrganizationalBranding collection, max N pages
-func (r *OrganizationBrandingsCollectionRequest) GetN(ctx context.Context, n int) ([]OrganizationalBranding, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for OrganizationalBranding collection
-func (r *OrganizationBrandingsCollectionRequest) Get(ctx context.Context) ([]OrganizationalBranding, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for OrganizationalBranding collection
-func (r *OrganizationBrandingsCollectionRequest) Add(ctx context.Context, reqObj *OrganizationalBranding) (resObj *OrganizationalBranding, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
 }
 
 // CertificateBasedAuthConfiguration returns request builder for CertificateBasedAuthConfiguration collection
@@ -320,6 +234,123 @@ func (r *OrganizationExtensionsCollectionRequest) Get(ctx context.Context) ([]Ex
 
 // Add performs POST request for Extension collection
 func (r *OrganizationExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Settings is navigation property
+func (b *OrganizationRequestBuilder) Settings() *OrganizationSettingsRequestBuilder {
+	bb := &OrganizationSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/settings"
+	return bb
+}
+
+// ItemInsights is navigation property
+func (b *OrganizationSettingsRequestBuilder) ItemInsights() *ItemInsightsSettingsRequestBuilder {
+	bb := &ItemInsightsSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/itemInsights"
+	return bb
+}
+
+// ProfileCardProperties returns request builder for ProfileCardProperty collection
+func (b *OrganizationSettingsRequestBuilder) ProfileCardProperties() *OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder {
+	bb := &OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/profileCardProperties"
+	return bb
+}
+
+// OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder is request builder for ProfileCardProperty collection
+type OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ProfileCardProperty collection
+func (b *OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder) Request() *OrganizationSettingsProfileCardPropertiesCollectionRequest {
+	return &OrganizationSettingsProfileCardPropertiesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ProfileCardProperty item
+func (b *OrganizationSettingsProfileCardPropertiesCollectionRequestBuilder) ID(id string) *ProfileCardPropertyRequestBuilder {
+	bb := &ProfileCardPropertyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// OrganizationSettingsProfileCardPropertiesCollectionRequest is request for ProfileCardProperty collection
+type OrganizationSettingsProfileCardPropertiesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ProfileCardProperty collection
+func (r *OrganizationSettingsProfileCardPropertiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ProfileCardProperty, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ProfileCardProperty
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ProfileCardProperty
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ProfileCardProperty collection, max N pages
+func (r *OrganizationSettingsProfileCardPropertiesCollectionRequest) GetN(ctx context.Context, n int) ([]ProfileCardProperty, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ProfileCardProperty collection
+func (r *OrganizationSettingsProfileCardPropertiesCollectionRequest) Get(ctx context.Context) ([]ProfileCardProperty, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ProfileCardProperty collection
+func (r *OrganizationSettingsProfileCardPropertiesCollectionRequest) Add(ctx context.Context, reqObj *ProfileCardProperty) (resObj *ProfileCardProperty, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

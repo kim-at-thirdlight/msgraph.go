@@ -8,10 +8,10 @@ import "time"
 type Program struct {
 	// Entity is the base model of Program
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Controls undocumented
 	Controls []ProgramControl `json:"controls,omitempty"`
 }
@@ -22,20 +22,20 @@ type ProgramControl struct {
 	Entity
 	// ControlID undocumented
 	ControlID *string `json:"controlId,omitempty"`
-	// ProgramID undocumented
-	ProgramID *string `json:"programId,omitempty"`
 	// ControlTypeID undocumented
 	ControlTypeID *string `json:"controlTypeId,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
-	// Owner undocumented
-	Owner *UserIdentity `json:"owner,omitempty"`
-	// Resource undocumented
-	Resource *ProgramResource `json:"resource,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Owner undocumented
+	Owner *UserIdentity `json:"owner,omitempty"`
+	// ProgramID undocumented
+	ProgramID *string `json:"programId,omitempty"`
+	// Resource undocumented
+	Resource *ProgramResource `json:"resource,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
 	// Program undocumented
 	Program *Program `json:"program,omitempty"`
 }

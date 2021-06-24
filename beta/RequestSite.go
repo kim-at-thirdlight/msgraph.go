@@ -282,29 +282,3 @@ func (r *SiteCollectionRemoveRequest) PostN(ctx context.Context, n int) ([]Site,
 func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([]Site, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
-
-//
-type SitePagePublishRequestBuilder struct{ BaseRequestBuilder }
-
-// Publish action undocumented
-func (b *SitePageRequestBuilder) Publish(reqObj *SitePagePublishRequestParameter) *SitePagePublishRequestBuilder {
-	bb := &SitePagePublishRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/publish"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type SitePagePublishRequest struct{ BaseRequest }
-
-//
-func (b *SitePagePublishRequestBuilder) Request() *SitePagePublishRequest {
-	return &SitePagePublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *SitePagePublishRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}

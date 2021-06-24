@@ -200,6 +200,8 @@ const (
 	Windows10VpnAuthenticationMethodVUsernameAndPassword Windows10VpnAuthenticationMethod = "usernameAndPassword"
 	// Windows10VpnAuthenticationMethodVCustomEapXML undocumented
 	Windows10VpnAuthenticationMethodVCustomEapXML Windows10VpnAuthenticationMethod = "customEapXml"
+	// Windows10VpnAuthenticationMethodVDerivedCredential undocumented
+	Windows10VpnAuthenticationMethodVDerivedCredential Windows10VpnAuthenticationMethod = "derivedCredential"
 )
 
 var (
@@ -209,12 +211,15 @@ var (
 	Windows10VpnAuthenticationMethodPUsernameAndPassword = &_Windows10VpnAuthenticationMethodPUsernameAndPassword
 	// Windows10VpnAuthenticationMethodPCustomEapXML is a pointer to Windows10VpnAuthenticationMethodVCustomEapXML
 	Windows10VpnAuthenticationMethodPCustomEapXML = &_Windows10VpnAuthenticationMethodPCustomEapXML
+	// Windows10VpnAuthenticationMethodPDerivedCredential is a pointer to Windows10VpnAuthenticationMethodVDerivedCredential
+	Windows10VpnAuthenticationMethodPDerivedCredential = &_Windows10VpnAuthenticationMethodPDerivedCredential
 )
 
 var (
 	_Windows10VpnAuthenticationMethodPCertificate         = Windows10VpnAuthenticationMethodVCertificate
 	_Windows10VpnAuthenticationMethodPUsernameAndPassword = Windows10VpnAuthenticationMethodVUsernameAndPassword
 	_Windows10VpnAuthenticationMethodPCustomEapXML        = Windows10VpnAuthenticationMethodVCustomEapXML
+	_Windows10VpnAuthenticationMethodPDerivedCredential   = Windows10VpnAuthenticationMethodVDerivedCredential
 )
 
 // Windows10VpnConnectionType undocumented
@@ -241,6 +246,8 @@ const (
 	Windows10VpnConnectionTypeVCitrix Windows10VpnConnectionType = "citrix"
 	// Windows10VpnConnectionTypeVPaloAltoGlobalProtect undocumented
 	Windows10VpnConnectionTypeVPaloAltoGlobalProtect Windows10VpnConnectionType = "paloAltoGlobalProtect"
+	// Windows10VpnConnectionTypeVCiscoAnyConnect undocumented
+	Windows10VpnConnectionTypeVCiscoAnyConnect Windows10VpnConnectionType = "ciscoAnyConnect"
 )
 
 var (
@@ -264,6 +271,8 @@ var (
 	Windows10VpnConnectionTypePCitrix = &_Windows10VpnConnectionTypePCitrix
 	// Windows10VpnConnectionTypePPaloAltoGlobalProtect is a pointer to Windows10VpnConnectionTypeVPaloAltoGlobalProtect
 	Windows10VpnConnectionTypePPaloAltoGlobalProtect = &_Windows10VpnConnectionTypePPaloAltoGlobalProtect
+	// Windows10VpnConnectionTypePCiscoAnyConnect is a pointer to Windows10VpnConnectionTypeVCiscoAnyConnect
+	Windows10VpnConnectionTypePCiscoAnyConnect = &_Windows10VpnConnectionTypePCiscoAnyConnect
 )
 
 var (
@@ -277,6 +286,7 @@ var (
 	_Windows10VpnConnectionTypePPptp                       = Windows10VpnConnectionTypeVPptp
 	_Windows10VpnConnectionTypePCitrix                     = Windows10VpnConnectionTypeVCitrix
 	_Windows10VpnConnectionTypePPaloAltoGlobalProtect      = Windows10VpnConnectionTypeVPaloAltoGlobalProtect
+	_Windows10VpnConnectionTypePCiscoAnyConnect            = Windows10VpnConnectionTypeVCiscoAnyConnect
 )
 
 // Windows10VpnProfileTarget undocumented

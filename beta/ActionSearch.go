@@ -2,8 +2,24 @@
 
 package msgraph
 
-// SearchQueryRequestParameter undocumented
-type SearchQueryRequestParameter struct {
+// SearchEntityQueryRequestParameter undocumented
+type SearchEntityQueryRequestParameter struct {
 	// Requests undocumented
-	Requests []SearchRequestObject `json:"requests,omitempty"`
+	Requests []SearchRequest `json:"requests,omitempty"`
+	// QueryAlterationOptions undocumented
+	QueryAlterationOptions *SearchAlterationOptions `json:"queryAlterationOptions,omitempty"`
+}
+
+// _source is navigation property
+func (b *SearchHitRequestBuilder) _source() *EntityRequestBuilder {
+	bb := &EntityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/_source"
+	return bb
+}
+
+// Resource is navigation property
+func (b *SearchHitRequestBuilder) Resource() *EntityRequestBuilder {
+	bb := &EntityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/resource"
+	return bb
 }

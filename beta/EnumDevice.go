@@ -2,6 +2,33 @@
 
 package msgraph
 
+// DeviceAndAppManagementAssignmentFilterType undocumented
+type DeviceAndAppManagementAssignmentFilterType string
+
+const (
+	// DeviceAndAppManagementAssignmentFilterTypeVNone undocumented
+	DeviceAndAppManagementAssignmentFilterTypeVNone DeviceAndAppManagementAssignmentFilterType = "none"
+	// DeviceAndAppManagementAssignmentFilterTypeVInclude undocumented
+	DeviceAndAppManagementAssignmentFilterTypeVInclude DeviceAndAppManagementAssignmentFilterType = "include"
+	// DeviceAndAppManagementAssignmentFilterTypeVExclude undocumented
+	DeviceAndAppManagementAssignmentFilterTypeVExclude DeviceAndAppManagementAssignmentFilterType = "exclude"
+)
+
+var (
+	// DeviceAndAppManagementAssignmentFilterTypePNone is a pointer to DeviceAndAppManagementAssignmentFilterTypeVNone
+	DeviceAndAppManagementAssignmentFilterTypePNone = &_DeviceAndAppManagementAssignmentFilterTypePNone
+	// DeviceAndAppManagementAssignmentFilterTypePInclude is a pointer to DeviceAndAppManagementAssignmentFilterTypeVInclude
+	DeviceAndAppManagementAssignmentFilterTypePInclude = &_DeviceAndAppManagementAssignmentFilterTypePInclude
+	// DeviceAndAppManagementAssignmentFilterTypePExclude is a pointer to DeviceAndAppManagementAssignmentFilterTypeVExclude
+	DeviceAndAppManagementAssignmentFilterTypePExclude = &_DeviceAndAppManagementAssignmentFilterTypePExclude
+)
+
+var (
+	_DeviceAndAppManagementAssignmentFilterTypePNone    = DeviceAndAppManagementAssignmentFilterTypeVNone
+	_DeviceAndAppManagementAssignmentFilterTypePInclude = DeviceAndAppManagementAssignmentFilterTypeVInclude
+	_DeviceAndAppManagementAssignmentFilterTypePExclude = DeviceAndAppManagementAssignmentFilterTypeVExclude
+)
+
 // DeviceAndAppManagementAssignmentSource undocumented
 type DeviceAndAppManagementAssignmentSource string
 
@@ -162,6 +189,429 @@ var (
 	_DeviceComplianceActionTypePRemoteLock                   = DeviceComplianceActionTypeVRemoteLock
 )
 
+// DeviceComplianceScriptRulOperator undocumented
+type DeviceComplianceScriptRulOperator string
+
+const (
+	// DeviceComplianceScriptRulOperatorVNone undocumented
+	DeviceComplianceScriptRulOperatorVNone DeviceComplianceScriptRulOperator = "none"
+	// DeviceComplianceScriptRulOperatorVAnd undocumented
+	DeviceComplianceScriptRulOperatorVAnd DeviceComplianceScriptRulOperator = "and"
+	// DeviceComplianceScriptRulOperatorVOr undocumented
+	DeviceComplianceScriptRulOperatorVOr DeviceComplianceScriptRulOperator = "or"
+	// DeviceComplianceScriptRulOperatorVIsEquals undocumented
+	DeviceComplianceScriptRulOperatorVIsEquals DeviceComplianceScriptRulOperator = "isEquals"
+	// DeviceComplianceScriptRulOperatorVNotEquals undocumented
+	DeviceComplianceScriptRulOperatorVNotEquals DeviceComplianceScriptRulOperator = "notEquals"
+	// DeviceComplianceScriptRulOperatorVGreaterThan undocumented
+	DeviceComplianceScriptRulOperatorVGreaterThan DeviceComplianceScriptRulOperator = "greaterThan"
+	// DeviceComplianceScriptRulOperatorVLessThan undocumented
+	DeviceComplianceScriptRulOperatorVLessThan DeviceComplianceScriptRulOperator = "lessThan"
+	// DeviceComplianceScriptRulOperatorVBetween undocumented
+	DeviceComplianceScriptRulOperatorVBetween DeviceComplianceScriptRulOperator = "between"
+	// DeviceComplianceScriptRulOperatorVNotBetween undocumented
+	DeviceComplianceScriptRulOperatorVNotBetween DeviceComplianceScriptRulOperator = "notBetween"
+	// DeviceComplianceScriptRulOperatorVGreaterEquals undocumented
+	DeviceComplianceScriptRulOperatorVGreaterEquals DeviceComplianceScriptRulOperator = "greaterEquals"
+	// DeviceComplianceScriptRulOperatorVLessEquals undocumented
+	DeviceComplianceScriptRulOperatorVLessEquals DeviceComplianceScriptRulOperator = "lessEquals"
+	// DeviceComplianceScriptRulOperatorVDayTimeBetween undocumented
+	DeviceComplianceScriptRulOperatorVDayTimeBetween DeviceComplianceScriptRulOperator = "dayTimeBetween"
+	// DeviceComplianceScriptRulOperatorVBeginsWith undocumented
+	DeviceComplianceScriptRulOperatorVBeginsWith DeviceComplianceScriptRulOperator = "beginsWith"
+	// DeviceComplianceScriptRulOperatorVNotBeginsWith undocumented
+	DeviceComplianceScriptRulOperatorVNotBeginsWith DeviceComplianceScriptRulOperator = "notBeginsWith"
+	// DeviceComplianceScriptRulOperatorVEndsWith undocumented
+	DeviceComplianceScriptRulOperatorVEndsWith DeviceComplianceScriptRulOperator = "endsWith"
+	// DeviceComplianceScriptRulOperatorVNotEndsWith undocumented
+	DeviceComplianceScriptRulOperatorVNotEndsWith DeviceComplianceScriptRulOperator = "notEndsWith"
+	// DeviceComplianceScriptRulOperatorVContains undocumented
+	DeviceComplianceScriptRulOperatorVContains DeviceComplianceScriptRulOperator = "contains"
+	// DeviceComplianceScriptRulOperatorVNotContains undocumented
+	DeviceComplianceScriptRulOperatorVNotContains DeviceComplianceScriptRulOperator = "notContains"
+	// DeviceComplianceScriptRulOperatorVAllOf undocumented
+	DeviceComplianceScriptRulOperatorVAllOf DeviceComplianceScriptRulOperator = "allOf"
+	// DeviceComplianceScriptRulOperatorVOneOf undocumented
+	DeviceComplianceScriptRulOperatorVOneOf DeviceComplianceScriptRulOperator = "oneOf"
+	// DeviceComplianceScriptRulOperatorVNoneOf undocumented
+	DeviceComplianceScriptRulOperatorVNoneOf DeviceComplianceScriptRulOperator = "noneOf"
+	// DeviceComplianceScriptRulOperatorVSetEquals undocumented
+	DeviceComplianceScriptRulOperatorVSetEquals DeviceComplianceScriptRulOperator = "setEquals"
+	// DeviceComplianceScriptRulOperatorVOrderedSetEquals undocumented
+	DeviceComplianceScriptRulOperatorVOrderedSetEquals DeviceComplianceScriptRulOperator = "orderedSetEquals"
+	// DeviceComplianceScriptRulOperatorVSubsetOf undocumented
+	DeviceComplianceScriptRulOperatorVSubsetOf DeviceComplianceScriptRulOperator = "subsetOf"
+	// DeviceComplianceScriptRulOperatorVExcludesAll undocumented
+	DeviceComplianceScriptRulOperatorVExcludesAll DeviceComplianceScriptRulOperator = "excludesAll"
+)
+
+var (
+	// DeviceComplianceScriptRulOperatorPNone is a pointer to DeviceComplianceScriptRulOperatorVNone
+	DeviceComplianceScriptRulOperatorPNone = &_DeviceComplianceScriptRulOperatorPNone
+	// DeviceComplianceScriptRulOperatorPAnd is a pointer to DeviceComplianceScriptRulOperatorVAnd
+	DeviceComplianceScriptRulOperatorPAnd = &_DeviceComplianceScriptRulOperatorPAnd
+	// DeviceComplianceScriptRulOperatorPOr is a pointer to DeviceComplianceScriptRulOperatorVOr
+	DeviceComplianceScriptRulOperatorPOr = &_DeviceComplianceScriptRulOperatorPOr
+	// DeviceComplianceScriptRulOperatorPIsEquals is a pointer to DeviceComplianceScriptRulOperatorVIsEquals
+	DeviceComplianceScriptRulOperatorPIsEquals = &_DeviceComplianceScriptRulOperatorPIsEquals
+	// DeviceComplianceScriptRulOperatorPNotEquals is a pointer to DeviceComplianceScriptRulOperatorVNotEquals
+	DeviceComplianceScriptRulOperatorPNotEquals = &_DeviceComplianceScriptRulOperatorPNotEquals
+	// DeviceComplianceScriptRulOperatorPGreaterThan is a pointer to DeviceComplianceScriptRulOperatorVGreaterThan
+	DeviceComplianceScriptRulOperatorPGreaterThan = &_DeviceComplianceScriptRulOperatorPGreaterThan
+	// DeviceComplianceScriptRulOperatorPLessThan is a pointer to DeviceComplianceScriptRulOperatorVLessThan
+	DeviceComplianceScriptRulOperatorPLessThan = &_DeviceComplianceScriptRulOperatorPLessThan
+	// DeviceComplianceScriptRulOperatorPBetween is a pointer to DeviceComplianceScriptRulOperatorVBetween
+	DeviceComplianceScriptRulOperatorPBetween = &_DeviceComplianceScriptRulOperatorPBetween
+	// DeviceComplianceScriptRulOperatorPNotBetween is a pointer to DeviceComplianceScriptRulOperatorVNotBetween
+	DeviceComplianceScriptRulOperatorPNotBetween = &_DeviceComplianceScriptRulOperatorPNotBetween
+	// DeviceComplianceScriptRulOperatorPGreaterEquals is a pointer to DeviceComplianceScriptRulOperatorVGreaterEquals
+	DeviceComplianceScriptRulOperatorPGreaterEquals = &_DeviceComplianceScriptRulOperatorPGreaterEquals
+	// DeviceComplianceScriptRulOperatorPLessEquals is a pointer to DeviceComplianceScriptRulOperatorVLessEquals
+	DeviceComplianceScriptRulOperatorPLessEquals = &_DeviceComplianceScriptRulOperatorPLessEquals
+	// DeviceComplianceScriptRulOperatorPDayTimeBetween is a pointer to DeviceComplianceScriptRulOperatorVDayTimeBetween
+	DeviceComplianceScriptRulOperatorPDayTimeBetween = &_DeviceComplianceScriptRulOperatorPDayTimeBetween
+	// DeviceComplianceScriptRulOperatorPBeginsWith is a pointer to DeviceComplianceScriptRulOperatorVBeginsWith
+	DeviceComplianceScriptRulOperatorPBeginsWith = &_DeviceComplianceScriptRulOperatorPBeginsWith
+	// DeviceComplianceScriptRulOperatorPNotBeginsWith is a pointer to DeviceComplianceScriptRulOperatorVNotBeginsWith
+	DeviceComplianceScriptRulOperatorPNotBeginsWith = &_DeviceComplianceScriptRulOperatorPNotBeginsWith
+	// DeviceComplianceScriptRulOperatorPEndsWith is a pointer to DeviceComplianceScriptRulOperatorVEndsWith
+	DeviceComplianceScriptRulOperatorPEndsWith = &_DeviceComplianceScriptRulOperatorPEndsWith
+	// DeviceComplianceScriptRulOperatorPNotEndsWith is a pointer to DeviceComplianceScriptRulOperatorVNotEndsWith
+	DeviceComplianceScriptRulOperatorPNotEndsWith = &_DeviceComplianceScriptRulOperatorPNotEndsWith
+	// DeviceComplianceScriptRulOperatorPContains is a pointer to DeviceComplianceScriptRulOperatorVContains
+	DeviceComplianceScriptRulOperatorPContains = &_DeviceComplianceScriptRulOperatorPContains
+	// DeviceComplianceScriptRulOperatorPNotContains is a pointer to DeviceComplianceScriptRulOperatorVNotContains
+	DeviceComplianceScriptRulOperatorPNotContains = &_DeviceComplianceScriptRulOperatorPNotContains
+	// DeviceComplianceScriptRulOperatorPAllOf is a pointer to DeviceComplianceScriptRulOperatorVAllOf
+	DeviceComplianceScriptRulOperatorPAllOf = &_DeviceComplianceScriptRulOperatorPAllOf
+	// DeviceComplianceScriptRulOperatorPOneOf is a pointer to DeviceComplianceScriptRulOperatorVOneOf
+	DeviceComplianceScriptRulOperatorPOneOf = &_DeviceComplianceScriptRulOperatorPOneOf
+	// DeviceComplianceScriptRulOperatorPNoneOf is a pointer to DeviceComplianceScriptRulOperatorVNoneOf
+	DeviceComplianceScriptRulOperatorPNoneOf = &_DeviceComplianceScriptRulOperatorPNoneOf
+	// DeviceComplianceScriptRulOperatorPSetEquals is a pointer to DeviceComplianceScriptRulOperatorVSetEquals
+	DeviceComplianceScriptRulOperatorPSetEquals = &_DeviceComplianceScriptRulOperatorPSetEquals
+	// DeviceComplianceScriptRulOperatorPOrderedSetEquals is a pointer to DeviceComplianceScriptRulOperatorVOrderedSetEquals
+	DeviceComplianceScriptRulOperatorPOrderedSetEquals = &_DeviceComplianceScriptRulOperatorPOrderedSetEquals
+	// DeviceComplianceScriptRulOperatorPSubsetOf is a pointer to DeviceComplianceScriptRulOperatorVSubsetOf
+	DeviceComplianceScriptRulOperatorPSubsetOf = &_DeviceComplianceScriptRulOperatorPSubsetOf
+	// DeviceComplianceScriptRulOperatorPExcludesAll is a pointer to DeviceComplianceScriptRulOperatorVExcludesAll
+	DeviceComplianceScriptRulOperatorPExcludesAll = &_DeviceComplianceScriptRulOperatorPExcludesAll
+)
+
+var (
+	_DeviceComplianceScriptRulOperatorPNone             = DeviceComplianceScriptRulOperatorVNone
+	_DeviceComplianceScriptRulOperatorPAnd              = DeviceComplianceScriptRulOperatorVAnd
+	_DeviceComplianceScriptRulOperatorPOr               = DeviceComplianceScriptRulOperatorVOr
+	_DeviceComplianceScriptRulOperatorPIsEquals         = DeviceComplianceScriptRulOperatorVIsEquals
+	_DeviceComplianceScriptRulOperatorPNotEquals        = DeviceComplianceScriptRulOperatorVNotEquals
+	_DeviceComplianceScriptRulOperatorPGreaterThan      = DeviceComplianceScriptRulOperatorVGreaterThan
+	_DeviceComplianceScriptRulOperatorPLessThan         = DeviceComplianceScriptRulOperatorVLessThan
+	_DeviceComplianceScriptRulOperatorPBetween          = DeviceComplianceScriptRulOperatorVBetween
+	_DeviceComplianceScriptRulOperatorPNotBetween       = DeviceComplianceScriptRulOperatorVNotBetween
+	_DeviceComplianceScriptRulOperatorPGreaterEquals    = DeviceComplianceScriptRulOperatorVGreaterEquals
+	_DeviceComplianceScriptRulOperatorPLessEquals       = DeviceComplianceScriptRulOperatorVLessEquals
+	_DeviceComplianceScriptRulOperatorPDayTimeBetween   = DeviceComplianceScriptRulOperatorVDayTimeBetween
+	_DeviceComplianceScriptRulOperatorPBeginsWith       = DeviceComplianceScriptRulOperatorVBeginsWith
+	_DeviceComplianceScriptRulOperatorPNotBeginsWith    = DeviceComplianceScriptRulOperatorVNotBeginsWith
+	_DeviceComplianceScriptRulOperatorPEndsWith         = DeviceComplianceScriptRulOperatorVEndsWith
+	_DeviceComplianceScriptRulOperatorPNotEndsWith      = DeviceComplianceScriptRulOperatorVNotEndsWith
+	_DeviceComplianceScriptRulOperatorPContains         = DeviceComplianceScriptRulOperatorVContains
+	_DeviceComplianceScriptRulOperatorPNotContains      = DeviceComplianceScriptRulOperatorVNotContains
+	_DeviceComplianceScriptRulOperatorPAllOf            = DeviceComplianceScriptRulOperatorVAllOf
+	_DeviceComplianceScriptRulOperatorPOneOf            = DeviceComplianceScriptRulOperatorVOneOf
+	_DeviceComplianceScriptRulOperatorPNoneOf           = DeviceComplianceScriptRulOperatorVNoneOf
+	_DeviceComplianceScriptRulOperatorPSetEquals        = DeviceComplianceScriptRulOperatorVSetEquals
+	_DeviceComplianceScriptRulOperatorPOrderedSetEquals = DeviceComplianceScriptRulOperatorVOrderedSetEquals
+	_DeviceComplianceScriptRulOperatorPSubsetOf         = DeviceComplianceScriptRulOperatorVSubsetOf
+	_DeviceComplianceScriptRulOperatorPExcludesAll      = DeviceComplianceScriptRulOperatorVExcludesAll
+)
+
+// DeviceComplianceScriptRuleDataType undocumented
+type DeviceComplianceScriptRuleDataType string
+
+const (
+	// DeviceComplianceScriptRuleDataTypeVNone undocumented
+	DeviceComplianceScriptRuleDataTypeVNone DeviceComplianceScriptRuleDataType = "none"
+	// DeviceComplianceScriptRuleDataTypeVBoolean undocumented
+	DeviceComplianceScriptRuleDataTypeVBoolean DeviceComplianceScriptRuleDataType = "boolean"
+	// DeviceComplianceScriptRuleDataTypeVInt64 undocumented
+	DeviceComplianceScriptRuleDataTypeVInt64 DeviceComplianceScriptRuleDataType = "int64"
+	// DeviceComplianceScriptRuleDataTypeVDouble undocumented
+	DeviceComplianceScriptRuleDataTypeVDouble DeviceComplianceScriptRuleDataType = "double"
+	// DeviceComplianceScriptRuleDataTypeVString undocumented
+	DeviceComplianceScriptRuleDataTypeVString DeviceComplianceScriptRuleDataType = "string"
+	// DeviceComplianceScriptRuleDataTypeVDateTime undocumented
+	DeviceComplianceScriptRuleDataTypeVDateTime DeviceComplianceScriptRuleDataType = "dateTime"
+	// DeviceComplianceScriptRuleDataTypeVVersion undocumented
+	DeviceComplianceScriptRuleDataTypeVVersion DeviceComplianceScriptRuleDataType = "version"
+	// DeviceComplianceScriptRuleDataTypeVBase64 undocumented
+	DeviceComplianceScriptRuleDataTypeVBase64 DeviceComplianceScriptRuleDataType = "base64"
+	// DeviceComplianceScriptRuleDataTypeVXML undocumented
+	DeviceComplianceScriptRuleDataTypeVXML DeviceComplianceScriptRuleDataType = "xml"
+	// DeviceComplianceScriptRuleDataTypeVBooleanArray undocumented
+	DeviceComplianceScriptRuleDataTypeVBooleanArray DeviceComplianceScriptRuleDataType = "booleanArray"
+	// DeviceComplianceScriptRuleDataTypeVInt64Array undocumented
+	DeviceComplianceScriptRuleDataTypeVInt64Array DeviceComplianceScriptRuleDataType = "int64Array"
+	// DeviceComplianceScriptRuleDataTypeVDoubleArray undocumented
+	DeviceComplianceScriptRuleDataTypeVDoubleArray DeviceComplianceScriptRuleDataType = "doubleArray"
+	// DeviceComplianceScriptRuleDataTypeVStringArray undocumented
+	DeviceComplianceScriptRuleDataTypeVStringArray DeviceComplianceScriptRuleDataType = "stringArray"
+	// DeviceComplianceScriptRuleDataTypeVDateTimeArray undocumented
+	DeviceComplianceScriptRuleDataTypeVDateTimeArray DeviceComplianceScriptRuleDataType = "dateTimeArray"
+	// DeviceComplianceScriptRuleDataTypeVVersionArray undocumented
+	DeviceComplianceScriptRuleDataTypeVVersionArray DeviceComplianceScriptRuleDataType = "versionArray"
+)
+
+var (
+	// DeviceComplianceScriptRuleDataTypePNone is a pointer to DeviceComplianceScriptRuleDataTypeVNone
+	DeviceComplianceScriptRuleDataTypePNone = &_DeviceComplianceScriptRuleDataTypePNone
+	// DeviceComplianceScriptRuleDataTypePBoolean is a pointer to DeviceComplianceScriptRuleDataTypeVBoolean
+	DeviceComplianceScriptRuleDataTypePBoolean = &_DeviceComplianceScriptRuleDataTypePBoolean
+	// DeviceComplianceScriptRuleDataTypePInt64 is a pointer to DeviceComplianceScriptRuleDataTypeVInt64
+	DeviceComplianceScriptRuleDataTypePInt64 = &_DeviceComplianceScriptRuleDataTypePInt64
+	// DeviceComplianceScriptRuleDataTypePDouble is a pointer to DeviceComplianceScriptRuleDataTypeVDouble
+	DeviceComplianceScriptRuleDataTypePDouble = &_DeviceComplianceScriptRuleDataTypePDouble
+	// DeviceComplianceScriptRuleDataTypePString is a pointer to DeviceComplianceScriptRuleDataTypeVString
+	DeviceComplianceScriptRuleDataTypePString = &_DeviceComplianceScriptRuleDataTypePString
+	// DeviceComplianceScriptRuleDataTypePDateTime is a pointer to DeviceComplianceScriptRuleDataTypeVDateTime
+	DeviceComplianceScriptRuleDataTypePDateTime = &_DeviceComplianceScriptRuleDataTypePDateTime
+	// DeviceComplianceScriptRuleDataTypePVersion is a pointer to DeviceComplianceScriptRuleDataTypeVVersion
+	DeviceComplianceScriptRuleDataTypePVersion = &_DeviceComplianceScriptRuleDataTypePVersion
+	// DeviceComplianceScriptRuleDataTypePBase64 is a pointer to DeviceComplianceScriptRuleDataTypeVBase64
+	DeviceComplianceScriptRuleDataTypePBase64 = &_DeviceComplianceScriptRuleDataTypePBase64
+	// DeviceComplianceScriptRuleDataTypePXML is a pointer to DeviceComplianceScriptRuleDataTypeVXML
+	DeviceComplianceScriptRuleDataTypePXML = &_DeviceComplianceScriptRuleDataTypePXML
+	// DeviceComplianceScriptRuleDataTypePBooleanArray is a pointer to DeviceComplianceScriptRuleDataTypeVBooleanArray
+	DeviceComplianceScriptRuleDataTypePBooleanArray = &_DeviceComplianceScriptRuleDataTypePBooleanArray
+	// DeviceComplianceScriptRuleDataTypePInt64Array is a pointer to DeviceComplianceScriptRuleDataTypeVInt64Array
+	DeviceComplianceScriptRuleDataTypePInt64Array = &_DeviceComplianceScriptRuleDataTypePInt64Array
+	// DeviceComplianceScriptRuleDataTypePDoubleArray is a pointer to DeviceComplianceScriptRuleDataTypeVDoubleArray
+	DeviceComplianceScriptRuleDataTypePDoubleArray = &_DeviceComplianceScriptRuleDataTypePDoubleArray
+	// DeviceComplianceScriptRuleDataTypePStringArray is a pointer to DeviceComplianceScriptRuleDataTypeVStringArray
+	DeviceComplianceScriptRuleDataTypePStringArray = &_DeviceComplianceScriptRuleDataTypePStringArray
+	// DeviceComplianceScriptRuleDataTypePDateTimeArray is a pointer to DeviceComplianceScriptRuleDataTypeVDateTimeArray
+	DeviceComplianceScriptRuleDataTypePDateTimeArray = &_DeviceComplianceScriptRuleDataTypePDateTimeArray
+	// DeviceComplianceScriptRuleDataTypePVersionArray is a pointer to DeviceComplianceScriptRuleDataTypeVVersionArray
+	DeviceComplianceScriptRuleDataTypePVersionArray = &_DeviceComplianceScriptRuleDataTypePVersionArray
+)
+
+var (
+	_DeviceComplianceScriptRuleDataTypePNone          = DeviceComplianceScriptRuleDataTypeVNone
+	_DeviceComplianceScriptRuleDataTypePBoolean       = DeviceComplianceScriptRuleDataTypeVBoolean
+	_DeviceComplianceScriptRuleDataTypePInt64         = DeviceComplianceScriptRuleDataTypeVInt64
+	_DeviceComplianceScriptRuleDataTypePDouble        = DeviceComplianceScriptRuleDataTypeVDouble
+	_DeviceComplianceScriptRuleDataTypePString        = DeviceComplianceScriptRuleDataTypeVString
+	_DeviceComplianceScriptRuleDataTypePDateTime      = DeviceComplianceScriptRuleDataTypeVDateTime
+	_DeviceComplianceScriptRuleDataTypePVersion       = DeviceComplianceScriptRuleDataTypeVVersion
+	_DeviceComplianceScriptRuleDataTypePBase64        = DeviceComplianceScriptRuleDataTypeVBase64
+	_DeviceComplianceScriptRuleDataTypePXML           = DeviceComplianceScriptRuleDataTypeVXML
+	_DeviceComplianceScriptRuleDataTypePBooleanArray  = DeviceComplianceScriptRuleDataTypeVBooleanArray
+	_DeviceComplianceScriptRuleDataTypePInt64Array    = DeviceComplianceScriptRuleDataTypeVInt64Array
+	_DeviceComplianceScriptRuleDataTypePDoubleArray   = DeviceComplianceScriptRuleDataTypeVDoubleArray
+	_DeviceComplianceScriptRuleDataTypePStringArray   = DeviceComplianceScriptRuleDataTypeVStringArray
+	_DeviceComplianceScriptRuleDataTypePDateTimeArray = DeviceComplianceScriptRuleDataTypeVDateTimeArray
+	_DeviceComplianceScriptRuleDataTypePVersionArray  = DeviceComplianceScriptRuleDataTypeVVersionArray
+)
+
+// DeviceComplianceScriptRulesValidationError undocumented
+type DeviceComplianceScriptRulesValidationError string
+
+const (
+	// DeviceComplianceScriptRulesValidationErrorVNone undocumented
+	DeviceComplianceScriptRulesValidationErrorVNone DeviceComplianceScriptRulesValidationError = "none"
+	// DeviceComplianceScriptRulesValidationErrorVJSONFileInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVJSONFileInvalid DeviceComplianceScriptRulesValidationError = "jsonFileInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVJSONFileMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVJSONFileMissing DeviceComplianceScriptRulesValidationError = "jsonFileMissing"
+	// DeviceComplianceScriptRulesValidationErrorVJSONFileTooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVJSONFileTooLarge DeviceComplianceScriptRulesValidationError = "jsonFileTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVRulesMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVRulesMissing DeviceComplianceScriptRulesValidationError = "rulesMissing"
+	// DeviceComplianceScriptRulesValidationErrorVDuplicateRules undocumented
+	DeviceComplianceScriptRulesValidationErrorVDuplicateRules DeviceComplianceScriptRulesValidationError = "duplicateRules"
+	// DeviceComplianceScriptRulesValidationErrorVTooManyRulesSpecified undocumented
+	DeviceComplianceScriptRulesValidationErrorVTooManyRulesSpecified DeviceComplianceScriptRulesValidationError = "tooManyRulesSpecified"
+	// DeviceComplianceScriptRulesValidationErrorVOperatorMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperatorMissing DeviceComplianceScriptRulesValidationError = "operatorMissing"
+	// DeviceComplianceScriptRulesValidationErrorVOperatorNotSupported undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperatorNotSupported DeviceComplianceScriptRulesValidationError = "operatorNotSupported"
+	// DeviceComplianceScriptRulesValidationErrorVDatatypeMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVDatatypeMissing DeviceComplianceScriptRulesValidationError = "datatypeMissing"
+	// DeviceComplianceScriptRulesValidationErrorVDatatypeNotSupported undocumented
+	DeviceComplianceScriptRulesValidationErrorVDatatypeNotSupported DeviceComplianceScriptRulesValidationError = "datatypeNotSupported"
+	// DeviceComplianceScriptRulesValidationErrorVOperatorDataTypeCombinationNotSupported undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperatorDataTypeCombinationNotSupported DeviceComplianceScriptRulesValidationError = "operatorDataTypeCombinationNotSupported"
+	// DeviceComplianceScriptRulesValidationErrorVMoreInfoURIMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVMoreInfoURIMissing DeviceComplianceScriptRulesValidationError = "moreInfoUriMissing"
+	// DeviceComplianceScriptRulesValidationErrorVMoreInfoURIInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVMoreInfoURIInvalid DeviceComplianceScriptRulesValidationError = "moreInfoUriInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVMoreInfoURITooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVMoreInfoURITooLarge DeviceComplianceScriptRulesValidationError = "moreInfoUriTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVDescriptionMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVDescriptionMissing DeviceComplianceScriptRulesValidationError = "descriptionMissing"
+	// DeviceComplianceScriptRulesValidationErrorVDescriptionInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVDescriptionInvalid DeviceComplianceScriptRulesValidationError = "descriptionInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVDescriptionTooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVDescriptionTooLarge DeviceComplianceScriptRulesValidationError = "descriptionTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVTitleMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVTitleMissing DeviceComplianceScriptRulesValidationError = "titleMissing"
+	// DeviceComplianceScriptRulesValidationErrorVTitleInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVTitleInvalid DeviceComplianceScriptRulesValidationError = "titleInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVTitleTooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVTitleTooLarge DeviceComplianceScriptRulesValidationError = "titleTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVOperandMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperandMissing DeviceComplianceScriptRulesValidationError = "operandMissing"
+	// DeviceComplianceScriptRulesValidationErrorVOperandInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperandInvalid DeviceComplianceScriptRulesValidationError = "operandInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVOperandTooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVOperandTooLarge DeviceComplianceScriptRulesValidationError = "operandTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVSettingNameMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVSettingNameMissing DeviceComplianceScriptRulesValidationError = "settingNameMissing"
+	// DeviceComplianceScriptRulesValidationErrorVSettingNameInvalid undocumented
+	DeviceComplianceScriptRulesValidationErrorVSettingNameInvalid DeviceComplianceScriptRulesValidationError = "settingNameInvalid"
+	// DeviceComplianceScriptRulesValidationErrorVSettingNameTooLarge undocumented
+	DeviceComplianceScriptRulesValidationErrorVSettingNameTooLarge DeviceComplianceScriptRulesValidationError = "settingNameTooLarge"
+	// DeviceComplianceScriptRulesValidationErrorVEnglishLocaleMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVEnglishLocaleMissing DeviceComplianceScriptRulesValidationError = "englishLocaleMissing"
+	// DeviceComplianceScriptRulesValidationErrorVDuplicateLocales undocumented
+	DeviceComplianceScriptRulesValidationErrorVDuplicateLocales DeviceComplianceScriptRulesValidationError = "duplicateLocales"
+	// DeviceComplianceScriptRulesValidationErrorVUnrecognizedLocale undocumented
+	DeviceComplianceScriptRulesValidationErrorVUnrecognizedLocale DeviceComplianceScriptRulesValidationError = "unrecognizedLocale"
+	// DeviceComplianceScriptRulesValidationErrorVUnknown undocumented
+	DeviceComplianceScriptRulesValidationErrorVUnknown DeviceComplianceScriptRulesValidationError = "unknown"
+	// DeviceComplianceScriptRulesValidationErrorVRemediationStringsMissing undocumented
+	DeviceComplianceScriptRulesValidationErrorVRemediationStringsMissing DeviceComplianceScriptRulesValidationError = "remediationStringsMissing"
+)
+
+var (
+	// DeviceComplianceScriptRulesValidationErrorPNone is a pointer to DeviceComplianceScriptRulesValidationErrorVNone
+	DeviceComplianceScriptRulesValidationErrorPNone = &_DeviceComplianceScriptRulesValidationErrorPNone
+	// DeviceComplianceScriptRulesValidationErrorPJSONFileInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVJSONFileInvalid
+	DeviceComplianceScriptRulesValidationErrorPJSONFileInvalid = &_DeviceComplianceScriptRulesValidationErrorPJSONFileInvalid
+	// DeviceComplianceScriptRulesValidationErrorPJSONFileMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVJSONFileMissing
+	DeviceComplianceScriptRulesValidationErrorPJSONFileMissing = &_DeviceComplianceScriptRulesValidationErrorPJSONFileMissing
+	// DeviceComplianceScriptRulesValidationErrorPJSONFileTooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVJSONFileTooLarge
+	DeviceComplianceScriptRulesValidationErrorPJSONFileTooLarge = &_DeviceComplianceScriptRulesValidationErrorPJSONFileTooLarge
+	// DeviceComplianceScriptRulesValidationErrorPRulesMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVRulesMissing
+	DeviceComplianceScriptRulesValidationErrorPRulesMissing = &_DeviceComplianceScriptRulesValidationErrorPRulesMissing
+	// DeviceComplianceScriptRulesValidationErrorPDuplicateRules is a pointer to DeviceComplianceScriptRulesValidationErrorVDuplicateRules
+	DeviceComplianceScriptRulesValidationErrorPDuplicateRules = &_DeviceComplianceScriptRulesValidationErrorPDuplicateRules
+	// DeviceComplianceScriptRulesValidationErrorPTooManyRulesSpecified is a pointer to DeviceComplianceScriptRulesValidationErrorVTooManyRulesSpecified
+	DeviceComplianceScriptRulesValidationErrorPTooManyRulesSpecified = &_DeviceComplianceScriptRulesValidationErrorPTooManyRulesSpecified
+	// DeviceComplianceScriptRulesValidationErrorPOperatorMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVOperatorMissing
+	DeviceComplianceScriptRulesValidationErrorPOperatorMissing = &_DeviceComplianceScriptRulesValidationErrorPOperatorMissing
+	// DeviceComplianceScriptRulesValidationErrorPOperatorNotSupported is a pointer to DeviceComplianceScriptRulesValidationErrorVOperatorNotSupported
+	DeviceComplianceScriptRulesValidationErrorPOperatorNotSupported = &_DeviceComplianceScriptRulesValidationErrorPOperatorNotSupported
+	// DeviceComplianceScriptRulesValidationErrorPDatatypeMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVDatatypeMissing
+	DeviceComplianceScriptRulesValidationErrorPDatatypeMissing = &_DeviceComplianceScriptRulesValidationErrorPDatatypeMissing
+	// DeviceComplianceScriptRulesValidationErrorPDatatypeNotSupported is a pointer to DeviceComplianceScriptRulesValidationErrorVDatatypeNotSupported
+	DeviceComplianceScriptRulesValidationErrorPDatatypeNotSupported = &_DeviceComplianceScriptRulesValidationErrorPDatatypeNotSupported
+	// DeviceComplianceScriptRulesValidationErrorPOperatorDataTypeCombinationNotSupported is a pointer to DeviceComplianceScriptRulesValidationErrorVOperatorDataTypeCombinationNotSupported
+	DeviceComplianceScriptRulesValidationErrorPOperatorDataTypeCombinationNotSupported = &_DeviceComplianceScriptRulesValidationErrorPOperatorDataTypeCombinationNotSupported
+	// DeviceComplianceScriptRulesValidationErrorPMoreInfoURIMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVMoreInfoURIMissing
+	DeviceComplianceScriptRulesValidationErrorPMoreInfoURIMissing = &_DeviceComplianceScriptRulesValidationErrorPMoreInfoURIMissing
+	// DeviceComplianceScriptRulesValidationErrorPMoreInfoURIInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVMoreInfoURIInvalid
+	DeviceComplianceScriptRulesValidationErrorPMoreInfoURIInvalid = &_DeviceComplianceScriptRulesValidationErrorPMoreInfoURIInvalid
+	// DeviceComplianceScriptRulesValidationErrorPMoreInfoURITooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVMoreInfoURITooLarge
+	DeviceComplianceScriptRulesValidationErrorPMoreInfoURITooLarge = &_DeviceComplianceScriptRulesValidationErrorPMoreInfoURITooLarge
+	// DeviceComplianceScriptRulesValidationErrorPDescriptionMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVDescriptionMissing
+	DeviceComplianceScriptRulesValidationErrorPDescriptionMissing = &_DeviceComplianceScriptRulesValidationErrorPDescriptionMissing
+	// DeviceComplianceScriptRulesValidationErrorPDescriptionInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVDescriptionInvalid
+	DeviceComplianceScriptRulesValidationErrorPDescriptionInvalid = &_DeviceComplianceScriptRulesValidationErrorPDescriptionInvalid
+	// DeviceComplianceScriptRulesValidationErrorPDescriptionTooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVDescriptionTooLarge
+	DeviceComplianceScriptRulesValidationErrorPDescriptionTooLarge = &_DeviceComplianceScriptRulesValidationErrorPDescriptionTooLarge
+	// DeviceComplianceScriptRulesValidationErrorPTitleMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVTitleMissing
+	DeviceComplianceScriptRulesValidationErrorPTitleMissing = &_DeviceComplianceScriptRulesValidationErrorPTitleMissing
+	// DeviceComplianceScriptRulesValidationErrorPTitleInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVTitleInvalid
+	DeviceComplianceScriptRulesValidationErrorPTitleInvalid = &_DeviceComplianceScriptRulesValidationErrorPTitleInvalid
+	// DeviceComplianceScriptRulesValidationErrorPTitleTooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVTitleTooLarge
+	DeviceComplianceScriptRulesValidationErrorPTitleTooLarge = &_DeviceComplianceScriptRulesValidationErrorPTitleTooLarge
+	// DeviceComplianceScriptRulesValidationErrorPOperandMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVOperandMissing
+	DeviceComplianceScriptRulesValidationErrorPOperandMissing = &_DeviceComplianceScriptRulesValidationErrorPOperandMissing
+	// DeviceComplianceScriptRulesValidationErrorPOperandInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVOperandInvalid
+	DeviceComplianceScriptRulesValidationErrorPOperandInvalid = &_DeviceComplianceScriptRulesValidationErrorPOperandInvalid
+	// DeviceComplianceScriptRulesValidationErrorPOperandTooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVOperandTooLarge
+	DeviceComplianceScriptRulesValidationErrorPOperandTooLarge = &_DeviceComplianceScriptRulesValidationErrorPOperandTooLarge
+	// DeviceComplianceScriptRulesValidationErrorPSettingNameMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVSettingNameMissing
+	DeviceComplianceScriptRulesValidationErrorPSettingNameMissing = &_DeviceComplianceScriptRulesValidationErrorPSettingNameMissing
+	// DeviceComplianceScriptRulesValidationErrorPSettingNameInvalid is a pointer to DeviceComplianceScriptRulesValidationErrorVSettingNameInvalid
+	DeviceComplianceScriptRulesValidationErrorPSettingNameInvalid = &_DeviceComplianceScriptRulesValidationErrorPSettingNameInvalid
+	// DeviceComplianceScriptRulesValidationErrorPSettingNameTooLarge is a pointer to DeviceComplianceScriptRulesValidationErrorVSettingNameTooLarge
+	DeviceComplianceScriptRulesValidationErrorPSettingNameTooLarge = &_DeviceComplianceScriptRulesValidationErrorPSettingNameTooLarge
+	// DeviceComplianceScriptRulesValidationErrorPEnglishLocaleMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVEnglishLocaleMissing
+	DeviceComplianceScriptRulesValidationErrorPEnglishLocaleMissing = &_DeviceComplianceScriptRulesValidationErrorPEnglishLocaleMissing
+	// DeviceComplianceScriptRulesValidationErrorPDuplicateLocales is a pointer to DeviceComplianceScriptRulesValidationErrorVDuplicateLocales
+	DeviceComplianceScriptRulesValidationErrorPDuplicateLocales = &_DeviceComplianceScriptRulesValidationErrorPDuplicateLocales
+	// DeviceComplianceScriptRulesValidationErrorPUnrecognizedLocale is a pointer to DeviceComplianceScriptRulesValidationErrorVUnrecognizedLocale
+	DeviceComplianceScriptRulesValidationErrorPUnrecognizedLocale = &_DeviceComplianceScriptRulesValidationErrorPUnrecognizedLocale
+	// DeviceComplianceScriptRulesValidationErrorPUnknown is a pointer to DeviceComplianceScriptRulesValidationErrorVUnknown
+	DeviceComplianceScriptRulesValidationErrorPUnknown = &_DeviceComplianceScriptRulesValidationErrorPUnknown
+	// DeviceComplianceScriptRulesValidationErrorPRemediationStringsMissing is a pointer to DeviceComplianceScriptRulesValidationErrorVRemediationStringsMissing
+	DeviceComplianceScriptRulesValidationErrorPRemediationStringsMissing = &_DeviceComplianceScriptRulesValidationErrorPRemediationStringsMissing
+)
+
+var (
+	_DeviceComplianceScriptRulesValidationErrorPNone                                    = DeviceComplianceScriptRulesValidationErrorVNone
+	_DeviceComplianceScriptRulesValidationErrorPJSONFileInvalid                         = DeviceComplianceScriptRulesValidationErrorVJSONFileInvalid
+	_DeviceComplianceScriptRulesValidationErrorPJSONFileMissing                         = DeviceComplianceScriptRulesValidationErrorVJSONFileMissing
+	_DeviceComplianceScriptRulesValidationErrorPJSONFileTooLarge                        = DeviceComplianceScriptRulesValidationErrorVJSONFileTooLarge
+	_DeviceComplianceScriptRulesValidationErrorPRulesMissing                            = DeviceComplianceScriptRulesValidationErrorVRulesMissing
+	_DeviceComplianceScriptRulesValidationErrorPDuplicateRules                          = DeviceComplianceScriptRulesValidationErrorVDuplicateRules
+	_DeviceComplianceScriptRulesValidationErrorPTooManyRulesSpecified                   = DeviceComplianceScriptRulesValidationErrorVTooManyRulesSpecified
+	_DeviceComplianceScriptRulesValidationErrorPOperatorMissing                         = DeviceComplianceScriptRulesValidationErrorVOperatorMissing
+	_DeviceComplianceScriptRulesValidationErrorPOperatorNotSupported                    = DeviceComplianceScriptRulesValidationErrorVOperatorNotSupported
+	_DeviceComplianceScriptRulesValidationErrorPDatatypeMissing                         = DeviceComplianceScriptRulesValidationErrorVDatatypeMissing
+	_DeviceComplianceScriptRulesValidationErrorPDatatypeNotSupported                    = DeviceComplianceScriptRulesValidationErrorVDatatypeNotSupported
+	_DeviceComplianceScriptRulesValidationErrorPOperatorDataTypeCombinationNotSupported = DeviceComplianceScriptRulesValidationErrorVOperatorDataTypeCombinationNotSupported
+	_DeviceComplianceScriptRulesValidationErrorPMoreInfoURIMissing                      = DeviceComplianceScriptRulesValidationErrorVMoreInfoURIMissing
+	_DeviceComplianceScriptRulesValidationErrorPMoreInfoURIInvalid                      = DeviceComplianceScriptRulesValidationErrorVMoreInfoURIInvalid
+	_DeviceComplianceScriptRulesValidationErrorPMoreInfoURITooLarge                     = DeviceComplianceScriptRulesValidationErrorVMoreInfoURITooLarge
+	_DeviceComplianceScriptRulesValidationErrorPDescriptionMissing                      = DeviceComplianceScriptRulesValidationErrorVDescriptionMissing
+	_DeviceComplianceScriptRulesValidationErrorPDescriptionInvalid                      = DeviceComplianceScriptRulesValidationErrorVDescriptionInvalid
+	_DeviceComplianceScriptRulesValidationErrorPDescriptionTooLarge                     = DeviceComplianceScriptRulesValidationErrorVDescriptionTooLarge
+	_DeviceComplianceScriptRulesValidationErrorPTitleMissing                            = DeviceComplianceScriptRulesValidationErrorVTitleMissing
+	_DeviceComplianceScriptRulesValidationErrorPTitleInvalid                            = DeviceComplianceScriptRulesValidationErrorVTitleInvalid
+	_DeviceComplianceScriptRulesValidationErrorPTitleTooLarge                           = DeviceComplianceScriptRulesValidationErrorVTitleTooLarge
+	_DeviceComplianceScriptRulesValidationErrorPOperandMissing                          = DeviceComplianceScriptRulesValidationErrorVOperandMissing
+	_DeviceComplianceScriptRulesValidationErrorPOperandInvalid                          = DeviceComplianceScriptRulesValidationErrorVOperandInvalid
+	_DeviceComplianceScriptRulesValidationErrorPOperandTooLarge                         = DeviceComplianceScriptRulesValidationErrorVOperandTooLarge
+	_DeviceComplianceScriptRulesValidationErrorPSettingNameMissing                      = DeviceComplianceScriptRulesValidationErrorVSettingNameMissing
+	_DeviceComplianceScriptRulesValidationErrorPSettingNameInvalid                      = DeviceComplianceScriptRulesValidationErrorVSettingNameInvalid
+	_DeviceComplianceScriptRulesValidationErrorPSettingNameTooLarge                     = DeviceComplianceScriptRulesValidationErrorVSettingNameTooLarge
+	_DeviceComplianceScriptRulesValidationErrorPEnglishLocaleMissing                    = DeviceComplianceScriptRulesValidationErrorVEnglishLocaleMissing
+	_DeviceComplianceScriptRulesValidationErrorPDuplicateLocales                        = DeviceComplianceScriptRulesValidationErrorVDuplicateLocales
+	_DeviceComplianceScriptRulesValidationErrorPUnrecognizedLocale                      = DeviceComplianceScriptRulesValidationErrorVUnrecognizedLocale
+	_DeviceComplianceScriptRulesValidationErrorPUnknown                                 = DeviceComplianceScriptRulesValidationErrorVUnknown
+	_DeviceComplianceScriptRulesValidationErrorPRemediationStringsMissing               = DeviceComplianceScriptRulesValidationErrorVRemediationStringsMissing
+)
+
+// DeviceCustomAttributeValueType undocumented
+type DeviceCustomAttributeValueType string
+
+const (
+	// DeviceCustomAttributeValueTypeVInteger undocumented
+	DeviceCustomAttributeValueTypeVInteger DeviceCustomAttributeValueType = "integer"
+	// DeviceCustomAttributeValueTypeVString undocumented
+	DeviceCustomAttributeValueTypeVString DeviceCustomAttributeValueType = "string"
+	// DeviceCustomAttributeValueTypeVDateTime undocumented
+	DeviceCustomAttributeValueTypeVDateTime DeviceCustomAttributeValueType = "dateTime"
+)
+
+var (
+	// DeviceCustomAttributeValueTypePInteger is a pointer to DeviceCustomAttributeValueTypeVInteger
+	DeviceCustomAttributeValueTypePInteger = &_DeviceCustomAttributeValueTypePInteger
+	// DeviceCustomAttributeValueTypePString is a pointer to DeviceCustomAttributeValueTypeVString
+	DeviceCustomAttributeValueTypePString = &_DeviceCustomAttributeValueTypePString
+	// DeviceCustomAttributeValueTypePDateTime is a pointer to DeviceCustomAttributeValueTypeVDateTime
+	DeviceCustomAttributeValueTypePDateTime = &_DeviceCustomAttributeValueTypePDateTime
+)
+
+var (
+	_DeviceCustomAttributeValueTypePInteger  = DeviceCustomAttributeValueTypeVInteger
+	_DeviceCustomAttributeValueTypePString   = DeviceCustomAttributeValueTypeVString
+	_DeviceCustomAttributeValueTypePDateTime = DeviceCustomAttributeValueTypeVDateTime
+)
+
 // DeviceEnrollmentFailureReason undocumented
 type DeviceEnrollmentFailureReason string
 
@@ -258,10 +708,20 @@ const (
 	DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin DeviceEnrollmentType = "windowsBulkAzureDomainJoin"
 	// DeviceEnrollmentTypeVWindowsCoManagement undocumented
 	DeviceEnrollmentTypeVWindowsCoManagement DeviceEnrollmentType = "windowsCoManagement"
+	// DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth undocumented
+	DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth DeviceEnrollmentType = "windowsAzureADJoinUsingDeviceAuth"
 	// DeviceEnrollmentTypeVAppleUserEnrollment undocumented
 	DeviceEnrollmentTypeVAppleUserEnrollment DeviceEnrollmentType = "appleUserEnrollment"
 	// DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount undocumented
 	DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount DeviceEnrollmentType = "appleUserEnrollmentWithServiceAccount"
+	// DeviceEnrollmentTypeVAzureAdJoinUsingAzureVMExtension undocumented
+	DeviceEnrollmentTypeVAzureAdJoinUsingAzureVMExtension DeviceEnrollmentType = "azureAdJoinUsingAzureVmExtension"
+	// DeviceEnrollmentTypeVAndroidEnterpriseDedicatedDevice undocumented
+	DeviceEnrollmentTypeVAndroidEnterpriseDedicatedDevice DeviceEnrollmentType = "androidEnterpriseDedicatedDevice"
+	// DeviceEnrollmentTypeVAndroidEnterpriseFullyManaged undocumented
+	DeviceEnrollmentTypeVAndroidEnterpriseFullyManaged DeviceEnrollmentType = "androidEnterpriseFullyManaged"
+	// DeviceEnrollmentTypeVAndroidEnterpriseCorporateWorkProfile undocumented
+	DeviceEnrollmentTypeVAndroidEnterpriseCorporateWorkProfile DeviceEnrollmentType = "androidEnterpriseCorporateWorkProfile"
 )
 
 var (
@@ -285,10 +745,20 @@ var (
 	DeviceEnrollmentTypePWindowsBulkAzureDomainJoin = &_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin
 	// DeviceEnrollmentTypePWindowsCoManagement is a pointer to DeviceEnrollmentTypeVWindowsCoManagement
 	DeviceEnrollmentTypePWindowsCoManagement = &_DeviceEnrollmentTypePWindowsCoManagement
+	// DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth is a pointer to DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth
+	DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth = &_DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth
 	// DeviceEnrollmentTypePAppleUserEnrollment is a pointer to DeviceEnrollmentTypeVAppleUserEnrollment
 	DeviceEnrollmentTypePAppleUserEnrollment = &_DeviceEnrollmentTypePAppleUserEnrollment
 	// DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount is a pointer to DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
 	DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount = &_DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount
+	// DeviceEnrollmentTypePAzureAdJoinUsingAzureVMExtension is a pointer to DeviceEnrollmentTypeVAzureAdJoinUsingAzureVMExtension
+	DeviceEnrollmentTypePAzureAdJoinUsingAzureVMExtension = &_DeviceEnrollmentTypePAzureAdJoinUsingAzureVMExtension
+	// DeviceEnrollmentTypePAndroidEnterpriseDedicatedDevice is a pointer to DeviceEnrollmentTypeVAndroidEnterpriseDedicatedDevice
+	DeviceEnrollmentTypePAndroidEnterpriseDedicatedDevice = &_DeviceEnrollmentTypePAndroidEnterpriseDedicatedDevice
+	// DeviceEnrollmentTypePAndroidEnterpriseFullyManaged is a pointer to DeviceEnrollmentTypeVAndroidEnterpriseFullyManaged
+	DeviceEnrollmentTypePAndroidEnterpriseFullyManaged = &_DeviceEnrollmentTypePAndroidEnterpriseFullyManaged
+	// DeviceEnrollmentTypePAndroidEnterpriseCorporateWorkProfile is a pointer to DeviceEnrollmentTypeVAndroidEnterpriseCorporateWorkProfile
+	DeviceEnrollmentTypePAndroidEnterpriseCorporateWorkProfile = &_DeviceEnrollmentTypePAndroidEnterpriseCorporateWorkProfile
 )
 
 var (
@@ -302,8 +772,13 @@ var (
 	_DeviceEnrollmentTypePWindowsAutoEnrollment                 = DeviceEnrollmentTypeVWindowsAutoEnrollment
 	_DeviceEnrollmentTypePWindowsBulkAzureDomainJoin            = DeviceEnrollmentTypeVWindowsBulkAzureDomainJoin
 	_DeviceEnrollmentTypePWindowsCoManagement                   = DeviceEnrollmentTypeVWindowsCoManagement
+	_DeviceEnrollmentTypePWindowsAzureADJoinUsingDeviceAuth     = DeviceEnrollmentTypeVWindowsAzureADJoinUsingDeviceAuth
 	_DeviceEnrollmentTypePAppleUserEnrollment                   = DeviceEnrollmentTypeVAppleUserEnrollment
 	_DeviceEnrollmentTypePAppleUserEnrollmentWithServiceAccount = DeviceEnrollmentTypeVAppleUserEnrollmentWithServiceAccount
+	_DeviceEnrollmentTypePAzureAdJoinUsingAzureVMExtension      = DeviceEnrollmentTypeVAzureAdJoinUsingAzureVMExtension
+	_DeviceEnrollmentTypePAndroidEnterpriseDedicatedDevice      = DeviceEnrollmentTypeVAndroidEnterpriseDedicatedDevice
+	_DeviceEnrollmentTypePAndroidEnterpriseFullyManaged         = DeviceEnrollmentTypeVAndroidEnterpriseFullyManaged
+	_DeviceEnrollmentTypePAndroidEnterpriseCorporateWorkProfile = DeviceEnrollmentTypeVAndroidEnterpriseCorporateWorkProfile
 )
 
 // DeviceGuardLocalSystemAuthorityCredentialGuardState undocumented
@@ -353,6 +828,8 @@ const (
 	DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithUEFILock DeviceGuardLocalSystemAuthorityCredentialGuardType = "enableWithUEFILock"
 	// DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithoutUEFILock undocumented
 	DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithoutUEFILock DeviceGuardLocalSystemAuthorityCredentialGuardType = "enableWithoutUEFILock"
+	// DeviceGuardLocalSystemAuthorityCredentialGuardTypeVDisable undocumented
+	DeviceGuardLocalSystemAuthorityCredentialGuardTypeVDisable DeviceGuardLocalSystemAuthorityCredentialGuardType = "disable"
 )
 
 var (
@@ -362,12 +839,15 @@ var (
 	DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithUEFILock = &_DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithUEFILock
 	// DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithoutUEFILock is a pointer to DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithoutUEFILock
 	DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithoutUEFILock = &_DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithoutUEFILock
+	// DeviceGuardLocalSystemAuthorityCredentialGuardTypePDisable is a pointer to DeviceGuardLocalSystemAuthorityCredentialGuardTypeVDisable
+	DeviceGuardLocalSystemAuthorityCredentialGuardTypePDisable = &_DeviceGuardLocalSystemAuthorityCredentialGuardTypePDisable
 )
 
 var (
 	_DeviceGuardLocalSystemAuthorityCredentialGuardTypePNotConfigured         = DeviceGuardLocalSystemAuthorityCredentialGuardTypeVNotConfigured
 	_DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithUEFILock    = DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithUEFILock
 	_DeviceGuardLocalSystemAuthorityCredentialGuardTypePEnableWithoutUEFILock = DeviceGuardLocalSystemAuthorityCredentialGuardTypeVEnableWithoutUEFILock
+	_DeviceGuardLocalSystemAuthorityCredentialGuardTypePDisable               = DeviceGuardLocalSystemAuthorityCredentialGuardTypeVDisable
 )
 
 // DeviceGuardVirtualizationBasedSecurityHardwareRequirementState undocumented
@@ -454,6 +934,23 @@ var (
 	_DeviceGuardVirtualizationBasedSecurityStatePOther                           = DeviceGuardVirtualizationBasedSecurityStateVOther
 )
 
+// DeviceLogCollectionTemplateType undocumented
+type DeviceLogCollectionTemplateType string
+
+const (
+	// DeviceLogCollectionTemplateTypeVPredefined undocumented
+	DeviceLogCollectionTemplateTypeVPredefined DeviceLogCollectionTemplateType = "predefined"
+)
+
+var (
+	// DeviceLogCollectionTemplateTypePPredefined is a pointer to DeviceLogCollectionTemplateTypeVPredefined
+	DeviceLogCollectionTemplateTypePPredefined = &_DeviceLogCollectionTemplateTypePPredefined
+)
+
+var (
+	_DeviceLogCollectionTemplateTypePPredefined = DeviceLogCollectionTemplateTypeVPredefined
+)
+
 // DeviceManagementApplicabilityRuleType undocumented
 type DeviceManagementApplicabilityRuleType string
 
@@ -474,6 +971,107 @@ var (
 var (
 	_DeviceManagementApplicabilityRuleTypePInclude = DeviceManagementApplicabilityRuleTypeVInclude
 	_DeviceManagementApplicabilityRuleTypePExclude = DeviceManagementApplicabilityRuleTypeVExclude
+)
+
+// DeviceManagementAutopilotPolicyComplianceStatus undocumented
+type DeviceManagementAutopilotPolicyComplianceStatus string
+
+const (
+	// DeviceManagementAutopilotPolicyComplianceStatusVUnknown undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVUnknown DeviceManagementAutopilotPolicyComplianceStatus = "unknown"
+	// DeviceManagementAutopilotPolicyComplianceStatusVCompliant undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVCompliant DeviceManagementAutopilotPolicyComplianceStatus = "compliant"
+	// DeviceManagementAutopilotPolicyComplianceStatusVInstalled undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVInstalled DeviceManagementAutopilotPolicyComplianceStatus = "installed"
+	// DeviceManagementAutopilotPolicyComplianceStatusVNotCompliant undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVNotCompliant DeviceManagementAutopilotPolicyComplianceStatus = "notCompliant"
+	// DeviceManagementAutopilotPolicyComplianceStatusVNotInstalled undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVNotInstalled DeviceManagementAutopilotPolicyComplianceStatus = "notInstalled"
+	// DeviceManagementAutopilotPolicyComplianceStatusVError undocumented
+	DeviceManagementAutopilotPolicyComplianceStatusVError DeviceManagementAutopilotPolicyComplianceStatus = "error"
+)
+
+var (
+	// DeviceManagementAutopilotPolicyComplianceStatusPUnknown is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVUnknown
+	DeviceManagementAutopilotPolicyComplianceStatusPUnknown = &_DeviceManagementAutopilotPolicyComplianceStatusPUnknown
+	// DeviceManagementAutopilotPolicyComplianceStatusPCompliant is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVCompliant
+	DeviceManagementAutopilotPolicyComplianceStatusPCompliant = &_DeviceManagementAutopilotPolicyComplianceStatusPCompliant
+	// DeviceManagementAutopilotPolicyComplianceStatusPInstalled is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVInstalled
+	DeviceManagementAutopilotPolicyComplianceStatusPInstalled = &_DeviceManagementAutopilotPolicyComplianceStatusPInstalled
+	// DeviceManagementAutopilotPolicyComplianceStatusPNotCompliant is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVNotCompliant
+	DeviceManagementAutopilotPolicyComplianceStatusPNotCompliant = &_DeviceManagementAutopilotPolicyComplianceStatusPNotCompliant
+	// DeviceManagementAutopilotPolicyComplianceStatusPNotInstalled is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVNotInstalled
+	DeviceManagementAutopilotPolicyComplianceStatusPNotInstalled = &_DeviceManagementAutopilotPolicyComplianceStatusPNotInstalled
+	// DeviceManagementAutopilotPolicyComplianceStatusPError is a pointer to DeviceManagementAutopilotPolicyComplianceStatusVError
+	DeviceManagementAutopilotPolicyComplianceStatusPError = &_DeviceManagementAutopilotPolicyComplianceStatusPError
+)
+
+var (
+	_DeviceManagementAutopilotPolicyComplianceStatusPUnknown      = DeviceManagementAutopilotPolicyComplianceStatusVUnknown
+	_DeviceManagementAutopilotPolicyComplianceStatusPCompliant    = DeviceManagementAutopilotPolicyComplianceStatusVCompliant
+	_DeviceManagementAutopilotPolicyComplianceStatusPInstalled    = DeviceManagementAutopilotPolicyComplianceStatusVInstalled
+	_DeviceManagementAutopilotPolicyComplianceStatusPNotCompliant = DeviceManagementAutopilotPolicyComplianceStatusVNotCompliant
+	_DeviceManagementAutopilotPolicyComplianceStatusPNotInstalled = DeviceManagementAutopilotPolicyComplianceStatusVNotInstalled
+	_DeviceManagementAutopilotPolicyComplianceStatusPError        = DeviceManagementAutopilotPolicyComplianceStatusVError
+)
+
+// DeviceManagementAutopilotPolicyType undocumented
+type DeviceManagementAutopilotPolicyType string
+
+const (
+	// DeviceManagementAutopilotPolicyTypeVUnknown undocumented
+	DeviceManagementAutopilotPolicyTypeVUnknown DeviceManagementAutopilotPolicyType = "unknown"
+	// DeviceManagementAutopilotPolicyTypeVApplication undocumented
+	DeviceManagementAutopilotPolicyTypeVApplication DeviceManagementAutopilotPolicyType = "application"
+	// DeviceManagementAutopilotPolicyTypeVAppModel undocumented
+	DeviceManagementAutopilotPolicyTypeVAppModel DeviceManagementAutopilotPolicyType = "appModel"
+	// DeviceManagementAutopilotPolicyTypeVConfigurationPolicy undocumented
+	DeviceManagementAutopilotPolicyTypeVConfigurationPolicy DeviceManagementAutopilotPolicyType = "configurationPolicy"
+)
+
+var (
+	// DeviceManagementAutopilotPolicyTypePUnknown is a pointer to DeviceManagementAutopilotPolicyTypeVUnknown
+	DeviceManagementAutopilotPolicyTypePUnknown = &_DeviceManagementAutopilotPolicyTypePUnknown
+	// DeviceManagementAutopilotPolicyTypePApplication is a pointer to DeviceManagementAutopilotPolicyTypeVApplication
+	DeviceManagementAutopilotPolicyTypePApplication = &_DeviceManagementAutopilotPolicyTypePApplication
+	// DeviceManagementAutopilotPolicyTypePAppModel is a pointer to DeviceManagementAutopilotPolicyTypeVAppModel
+	DeviceManagementAutopilotPolicyTypePAppModel = &_DeviceManagementAutopilotPolicyTypePAppModel
+	// DeviceManagementAutopilotPolicyTypePConfigurationPolicy is a pointer to DeviceManagementAutopilotPolicyTypeVConfigurationPolicy
+	DeviceManagementAutopilotPolicyTypePConfigurationPolicy = &_DeviceManagementAutopilotPolicyTypePConfigurationPolicy
+)
+
+var (
+	_DeviceManagementAutopilotPolicyTypePUnknown             = DeviceManagementAutopilotPolicyTypeVUnknown
+	_DeviceManagementAutopilotPolicyTypePApplication         = DeviceManagementAutopilotPolicyTypeVApplication
+	_DeviceManagementAutopilotPolicyTypePAppModel            = DeviceManagementAutopilotPolicyTypeVAppModel
+	_DeviceManagementAutopilotPolicyTypePConfigurationPolicy = DeviceManagementAutopilotPolicyTypeVConfigurationPolicy
+)
+
+// DeviceManagementCertificationAuthority undocumented
+type DeviceManagementCertificationAuthority string
+
+const (
+	// DeviceManagementCertificationAuthorityVNotConfigured undocumented
+	DeviceManagementCertificationAuthorityVNotConfigured DeviceManagementCertificationAuthority = "notConfigured"
+	// DeviceManagementCertificationAuthorityVMicrosoft undocumented
+	DeviceManagementCertificationAuthorityVMicrosoft DeviceManagementCertificationAuthority = "microsoft"
+	// DeviceManagementCertificationAuthorityVDigiCert undocumented
+	DeviceManagementCertificationAuthorityVDigiCert DeviceManagementCertificationAuthority = "digiCert"
+)
+
+var (
+	// DeviceManagementCertificationAuthorityPNotConfigured is a pointer to DeviceManagementCertificationAuthorityVNotConfigured
+	DeviceManagementCertificationAuthorityPNotConfigured = &_DeviceManagementCertificationAuthorityPNotConfigured
+	// DeviceManagementCertificationAuthorityPMicrosoft is a pointer to DeviceManagementCertificationAuthorityVMicrosoft
+	DeviceManagementCertificationAuthorityPMicrosoft = &_DeviceManagementCertificationAuthorityPMicrosoft
+	// DeviceManagementCertificationAuthorityPDigiCert is a pointer to DeviceManagementCertificationAuthorityVDigiCert
+	DeviceManagementCertificationAuthorityPDigiCert = &_DeviceManagementCertificationAuthorityPDigiCert
+)
+
+var (
+	_DeviceManagementCertificationAuthorityPNotConfigured = DeviceManagementCertificationAuthorityVNotConfigured
+	_DeviceManagementCertificationAuthorityPMicrosoft     = DeviceManagementCertificationAuthorityVMicrosoft
+	_DeviceManagementCertificationAuthorityPDigiCert      = DeviceManagementCertificationAuthorityVDigiCert
 )
 
 // DeviceManagementComparisonResult undocumented
@@ -513,6 +1111,498 @@ var (
 	_DeviceManagementComparisonResultPRemoved  = DeviceManagementComparisonResultVRemoved
 )
 
+// DeviceManagementConfigurationAzureAdTrustType undocumented
+type DeviceManagementConfigurationAzureAdTrustType string
+
+const (
+	// DeviceManagementConfigurationAzureAdTrustTypeVNone undocumented
+	DeviceManagementConfigurationAzureAdTrustTypeVNone DeviceManagementConfigurationAzureAdTrustType = "none"
+	// DeviceManagementConfigurationAzureAdTrustTypeVAzureAdJoined undocumented
+	DeviceManagementConfigurationAzureAdTrustTypeVAzureAdJoined DeviceManagementConfigurationAzureAdTrustType = "azureAdJoined"
+	// DeviceManagementConfigurationAzureAdTrustTypeVAddWorkAccount undocumented
+	DeviceManagementConfigurationAzureAdTrustTypeVAddWorkAccount DeviceManagementConfigurationAzureAdTrustType = "addWorkAccount"
+	// DeviceManagementConfigurationAzureAdTrustTypeVMDMOnly undocumented
+	DeviceManagementConfigurationAzureAdTrustTypeVMDMOnly DeviceManagementConfigurationAzureAdTrustType = "mdmOnly"
+)
+
+var (
+	// DeviceManagementConfigurationAzureAdTrustTypePNone is a pointer to DeviceManagementConfigurationAzureAdTrustTypeVNone
+	DeviceManagementConfigurationAzureAdTrustTypePNone = &_DeviceManagementConfigurationAzureAdTrustTypePNone
+	// DeviceManagementConfigurationAzureAdTrustTypePAzureAdJoined is a pointer to DeviceManagementConfigurationAzureAdTrustTypeVAzureAdJoined
+	DeviceManagementConfigurationAzureAdTrustTypePAzureAdJoined = &_DeviceManagementConfigurationAzureAdTrustTypePAzureAdJoined
+	// DeviceManagementConfigurationAzureAdTrustTypePAddWorkAccount is a pointer to DeviceManagementConfigurationAzureAdTrustTypeVAddWorkAccount
+	DeviceManagementConfigurationAzureAdTrustTypePAddWorkAccount = &_DeviceManagementConfigurationAzureAdTrustTypePAddWorkAccount
+	// DeviceManagementConfigurationAzureAdTrustTypePMDMOnly is a pointer to DeviceManagementConfigurationAzureAdTrustTypeVMDMOnly
+	DeviceManagementConfigurationAzureAdTrustTypePMDMOnly = &_DeviceManagementConfigurationAzureAdTrustTypePMDMOnly
+)
+
+var (
+	_DeviceManagementConfigurationAzureAdTrustTypePNone           = DeviceManagementConfigurationAzureAdTrustTypeVNone
+	_DeviceManagementConfigurationAzureAdTrustTypePAzureAdJoined  = DeviceManagementConfigurationAzureAdTrustTypeVAzureAdJoined
+	_DeviceManagementConfigurationAzureAdTrustTypePAddWorkAccount = DeviceManagementConfigurationAzureAdTrustTypeVAddWorkAccount
+	_DeviceManagementConfigurationAzureAdTrustTypePMDMOnly        = DeviceManagementConfigurationAzureAdTrustTypeVMDMOnly
+)
+
+// DeviceManagementConfigurationControlType undocumented
+type DeviceManagementConfigurationControlType string
+
+const (
+	// DeviceManagementConfigurationControlTypeVDefault undocumented
+	DeviceManagementConfigurationControlTypeVDefault DeviceManagementConfigurationControlType = "default"
+	// DeviceManagementConfigurationControlTypeVDropdown undocumented
+	DeviceManagementConfigurationControlTypeVDropdown DeviceManagementConfigurationControlType = "dropdown"
+	// DeviceManagementConfigurationControlTypeVSmallTextBox undocumented
+	DeviceManagementConfigurationControlTypeVSmallTextBox DeviceManagementConfigurationControlType = "smallTextBox"
+	// DeviceManagementConfigurationControlTypeVLargeTextBox undocumented
+	DeviceManagementConfigurationControlTypeVLargeTextBox DeviceManagementConfigurationControlType = "largeTextBox"
+	// DeviceManagementConfigurationControlTypeVToggle undocumented
+	DeviceManagementConfigurationControlTypeVToggle DeviceManagementConfigurationControlType = "toggle"
+	// DeviceManagementConfigurationControlTypeVMultiheaderGrid undocumented
+	DeviceManagementConfigurationControlTypeVMultiheaderGrid DeviceManagementConfigurationControlType = "multiheaderGrid"
+	// DeviceManagementConfigurationControlTypeVContextPane undocumented
+	DeviceManagementConfigurationControlTypeVContextPane DeviceManagementConfigurationControlType = "contextPane"
+)
+
+var (
+	// DeviceManagementConfigurationControlTypePDefault is a pointer to DeviceManagementConfigurationControlTypeVDefault
+	DeviceManagementConfigurationControlTypePDefault = &_DeviceManagementConfigurationControlTypePDefault
+	// DeviceManagementConfigurationControlTypePDropdown is a pointer to DeviceManagementConfigurationControlTypeVDropdown
+	DeviceManagementConfigurationControlTypePDropdown = &_DeviceManagementConfigurationControlTypePDropdown
+	// DeviceManagementConfigurationControlTypePSmallTextBox is a pointer to DeviceManagementConfigurationControlTypeVSmallTextBox
+	DeviceManagementConfigurationControlTypePSmallTextBox = &_DeviceManagementConfigurationControlTypePSmallTextBox
+	// DeviceManagementConfigurationControlTypePLargeTextBox is a pointer to DeviceManagementConfigurationControlTypeVLargeTextBox
+	DeviceManagementConfigurationControlTypePLargeTextBox = &_DeviceManagementConfigurationControlTypePLargeTextBox
+	// DeviceManagementConfigurationControlTypePToggle is a pointer to DeviceManagementConfigurationControlTypeVToggle
+	DeviceManagementConfigurationControlTypePToggle = &_DeviceManagementConfigurationControlTypePToggle
+	// DeviceManagementConfigurationControlTypePMultiheaderGrid is a pointer to DeviceManagementConfigurationControlTypeVMultiheaderGrid
+	DeviceManagementConfigurationControlTypePMultiheaderGrid = &_DeviceManagementConfigurationControlTypePMultiheaderGrid
+	// DeviceManagementConfigurationControlTypePContextPane is a pointer to DeviceManagementConfigurationControlTypeVContextPane
+	DeviceManagementConfigurationControlTypePContextPane = &_DeviceManagementConfigurationControlTypePContextPane
+)
+
+var (
+	_DeviceManagementConfigurationControlTypePDefault         = DeviceManagementConfigurationControlTypeVDefault
+	_DeviceManagementConfigurationControlTypePDropdown        = DeviceManagementConfigurationControlTypeVDropdown
+	_DeviceManagementConfigurationControlTypePSmallTextBox    = DeviceManagementConfigurationControlTypeVSmallTextBox
+	_DeviceManagementConfigurationControlTypePLargeTextBox    = DeviceManagementConfigurationControlTypeVLargeTextBox
+	_DeviceManagementConfigurationControlTypePToggle          = DeviceManagementConfigurationControlTypeVToggle
+	_DeviceManagementConfigurationControlTypePMultiheaderGrid = DeviceManagementConfigurationControlTypeVMultiheaderGrid
+	_DeviceManagementConfigurationControlTypePContextPane     = DeviceManagementConfigurationControlTypeVContextPane
+)
+
+// DeviceManagementConfigurationDeviceMode undocumented
+type DeviceManagementConfigurationDeviceMode string
+
+const (
+	// DeviceManagementConfigurationDeviceModeVNone undocumented
+	DeviceManagementConfigurationDeviceModeVNone DeviceManagementConfigurationDeviceMode = "none"
+	// DeviceManagementConfigurationDeviceModeVKiosk undocumented
+	DeviceManagementConfigurationDeviceModeVKiosk DeviceManagementConfigurationDeviceMode = "kiosk"
+)
+
+var (
+	// DeviceManagementConfigurationDeviceModePNone is a pointer to DeviceManagementConfigurationDeviceModeVNone
+	DeviceManagementConfigurationDeviceModePNone = &_DeviceManagementConfigurationDeviceModePNone
+	// DeviceManagementConfigurationDeviceModePKiosk is a pointer to DeviceManagementConfigurationDeviceModeVKiosk
+	DeviceManagementConfigurationDeviceModePKiosk = &_DeviceManagementConfigurationDeviceModePKiosk
+)
+
+var (
+	_DeviceManagementConfigurationDeviceModePNone  = DeviceManagementConfigurationDeviceModeVNone
+	_DeviceManagementConfigurationDeviceModePKiosk = DeviceManagementConfigurationDeviceModeVKiosk
+)
+
+// DeviceManagementConfigurationPlatforms undocumented
+type DeviceManagementConfigurationPlatforms string
+
+const (
+	// DeviceManagementConfigurationPlatformsVNone undocumented
+	DeviceManagementConfigurationPlatformsVNone DeviceManagementConfigurationPlatforms = "none"
+	// DeviceManagementConfigurationPlatformsVMacOS undocumented
+	DeviceManagementConfigurationPlatformsVMacOS DeviceManagementConfigurationPlatforms = "macOS"
+	// DeviceManagementConfigurationPlatformsVWindows10X undocumented
+	DeviceManagementConfigurationPlatformsVWindows10X DeviceManagementConfigurationPlatforms = "windows10X"
+	// DeviceManagementConfigurationPlatformsVWindows10 undocumented
+	DeviceManagementConfigurationPlatformsVWindows10 DeviceManagementConfigurationPlatforms = "windows10"
+)
+
+var (
+	// DeviceManagementConfigurationPlatformsPNone is a pointer to DeviceManagementConfigurationPlatformsVNone
+	DeviceManagementConfigurationPlatformsPNone = &_DeviceManagementConfigurationPlatformsPNone
+	// DeviceManagementConfigurationPlatformsPMacOS is a pointer to DeviceManagementConfigurationPlatformsVMacOS
+	DeviceManagementConfigurationPlatformsPMacOS = &_DeviceManagementConfigurationPlatformsPMacOS
+	// DeviceManagementConfigurationPlatformsPWindows10X is a pointer to DeviceManagementConfigurationPlatformsVWindows10X
+	DeviceManagementConfigurationPlatformsPWindows10X = &_DeviceManagementConfigurationPlatformsPWindows10X
+	// DeviceManagementConfigurationPlatformsPWindows10 is a pointer to DeviceManagementConfigurationPlatformsVWindows10
+	DeviceManagementConfigurationPlatformsPWindows10 = &_DeviceManagementConfigurationPlatformsPWindows10
+)
+
+var (
+	_DeviceManagementConfigurationPlatformsPNone       = DeviceManagementConfigurationPlatformsVNone
+	_DeviceManagementConfigurationPlatformsPMacOS      = DeviceManagementConfigurationPlatformsVMacOS
+	_DeviceManagementConfigurationPlatformsPWindows10X = DeviceManagementConfigurationPlatformsVWindows10X
+	_DeviceManagementConfigurationPlatformsPWindows10  = DeviceManagementConfigurationPlatformsVWindows10
+)
+
+// DeviceManagementConfigurationSettingAccessTypes undocumented
+type DeviceManagementConfigurationSettingAccessTypes string
+
+const (
+	// DeviceManagementConfigurationSettingAccessTypesVNone undocumented
+	DeviceManagementConfigurationSettingAccessTypesVNone DeviceManagementConfigurationSettingAccessTypes = "none"
+	// DeviceManagementConfigurationSettingAccessTypesVAdd undocumented
+	DeviceManagementConfigurationSettingAccessTypesVAdd DeviceManagementConfigurationSettingAccessTypes = "add"
+	// DeviceManagementConfigurationSettingAccessTypesVCopy undocumented
+	DeviceManagementConfigurationSettingAccessTypesVCopy DeviceManagementConfigurationSettingAccessTypes = "copy"
+	// DeviceManagementConfigurationSettingAccessTypesVDelete undocumented
+	DeviceManagementConfigurationSettingAccessTypesVDelete DeviceManagementConfigurationSettingAccessTypes = "delete"
+	// DeviceManagementConfigurationSettingAccessTypesVGet undocumented
+	DeviceManagementConfigurationSettingAccessTypesVGet DeviceManagementConfigurationSettingAccessTypes = "get"
+	// DeviceManagementConfigurationSettingAccessTypesVReplace undocumented
+	DeviceManagementConfigurationSettingAccessTypesVReplace DeviceManagementConfigurationSettingAccessTypes = "replace"
+	// DeviceManagementConfigurationSettingAccessTypesVExecute undocumented
+	DeviceManagementConfigurationSettingAccessTypesVExecute DeviceManagementConfigurationSettingAccessTypes = "execute"
+)
+
+var (
+	// DeviceManagementConfigurationSettingAccessTypesPNone is a pointer to DeviceManagementConfigurationSettingAccessTypesVNone
+	DeviceManagementConfigurationSettingAccessTypesPNone = &_DeviceManagementConfigurationSettingAccessTypesPNone
+	// DeviceManagementConfigurationSettingAccessTypesPAdd is a pointer to DeviceManagementConfigurationSettingAccessTypesVAdd
+	DeviceManagementConfigurationSettingAccessTypesPAdd = &_DeviceManagementConfigurationSettingAccessTypesPAdd
+	// DeviceManagementConfigurationSettingAccessTypesPCopy is a pointer to DeviceManagementConfigurationSettingAccessTypesVCopy
+	DeviceManagementConfigurationSettingAccessTypesPCopy = &_DeviceManagementConfigurationSettingAccessTypesPCopy
+	// DeviceManagementConfigurationSettingAccessTypesPDelete is a pointer to DeviceManagementConfigurationSettingAccessTypesVDelete
+	DeviceManagementConfigurationSettingAccessTypesPDelete = &_DeviceManagementConfigurationSettingAccessTypesPDelete
+	// DeviceManagementConfigurationSettingAccessTypesPGet is a pointer to DeviceManagementConfigurationSettingAccessTypesVGet
+	DeviceManagementConfigurationSettingAccessTypesPGet = &_DeviceManagementConfigurationSettingAccessTypesPGet
+	// DeviceManagementConfigurationSettingAccessTypesPReplace is a pointer to DeviceManagementConfigurationSettingAccessTypesVReplace
+	DeviceManagementConfigurationSettingAccessTypesPReplace = &_DeviceManagementConfigurationSettingAccessTypesPReplace
+	// DeviceManagementConfigurationSettingAccessTypesPExecute is a pointer to DeviceManagementConfigurationSettingAccessTypesVExecute
+	DeviceManagementConfigurationSettingAccessTypesPExecute = &_DeviceManagementConfigurationSettingAccessTypesPExecute
+)
+
+var (
+	_DeviceManagementConfigurationSettingAccessTypesPNone    = DeviceManagementConfigurationSettingAccessTypesVNone
+	_DeviceManagementConfigurationSettingAccessTypesPAdd     = DeviceManagementConfigurationSettingAccessTypesVAdd
+	_DeviceManagementConfigurationSettingAccessTypesPCopy    = DeviceManagementConfigurationSettingAccessTypesVCopy
+	_DeviceManagementConfigurationSettingAccessTypesPDelete  = DeviceManagementConfigurationSettingAccessTypesVDelete
+	_DeviceManagementConfigurationSettingAccessTypesPGet     = DeviceManagementConfigurationSettingAccessTypesVGet
+	_DeviceManagementConfigurationSettingAccessTypesPReplace = DeviceManagementConfigurationSettingAccessTypesVReplace
+	_DeviceManagementConfigurationSettingAccessTypesPExecute = DeviceManagementConfigurationSettingAccessTypesVExecute
+)
+
+// DeviceManagementConfigurationSettingUsage undocumented
+type DeviceManagementConfigurationSettingUsage string
+
+const (
+	// DeviceManagementConfigurationSettingUsageVNone undocumented
+	DeviceManagementConfigurationSettingUsageVNone DeviceManagementConfigurationSettingUsage = "none"
+	// DeviceManagementConfigurationSettingUsageVConfiguration undocumented
+	DeviceManagementConfigurationSettingUsageVConfiguration DeviceManagementConfigurationSettingUsage = "configuration"
+)
+
+var (
+	// DeviceManagementConfigurationSettingUsagePNone is a pointer to DeviceManagementConfigurationSettingUsageVNone
+	DeviceManagementConfigurationSettingUsagePNone = &_DeviceManagementConfigurationSettingUsagePNone
+	// DeviceManagementConfigurationSettingUsagePConfiguration is a pointer to DeviceManagementConfigurationSettingUsageVConfiguration
+	DeviceManagementConfigurationSettingUsagePConfiguration = &_DeviceManagementConfigurationSettingUsagePConfiguration
+)
+
+var (
+	_DeviceManagementConfigurationSettingUsagePNone          = DeviceManagementConfigurationSettingUsageVNone
+	_DeviceManagementConfigurationSettingUsagePConfiguration = DeviceManagementConfigurationSettingUsageVConfiguration
+)
+
+// DeviceManagementConfigurationSettingVisibility undocumented
+type DeviceManagementConfigurationSettingVisibility string
+
+const (
+	// DeviceManagementConfigurationSettingVisibilityVNone undocumented
+	DeviceManagementConfigurationSettingVisibilityVNone DeviceManagementConfigurationSettingVisibility = "none"
+	// DeviceManagementConfigurationSettingVisibilityVSettingsCatalog undocumented
+	DeviceManagementConfigurationSettingVisibilityVSettingsCatalog DeviceManagementConfigurationSettingVisibility = "settingsCatalog"
+	// DeviceManagementConfigurationSettingVisibilityVTemplate undocumented
+	DeviceManagementConfigurationSettingVisibilityVTemplate DeviceManagementConfigurationSettingVisibility = "template"
+)
+
+var (
+	// DeviceManagementConfigurationSettingVisibilityPNone is a pointer to DeviceManagementConfigurationSettingVisibilityVNone
+	DeviceManagementConfigurationSettingVisibilityPNone = &_DeviceManagementConfigurationSettingVisibilityPNone
+	// DeviceManagementConfigurationSettingVisibilityPSettingsCatalog is a pointer to DeviceManagementConfigurationSettingVisibilityVSettingsCatalog
+	DeviceManagementConfigurationSettingVisibilityPSettingsCatalog = &_DeviceManagementConfigurationSettingVisibilityPSettingsCatalog
+	// DeviceManagementConfigurationSettingVisibilityPTemplate is a pointer to DeviceManagementConfigurationSettingVisibilityVTemplate
+	DeviceManagementConfigurationSettingVisibilityPTemplate = &_DeviceManagementConfigurationSettingVisibilityPTemplate
+)
+
+var (
+	_DeviceManagementConfigurationSettingVisibilityPNone            = DeviceManagementConfigurationSettingVisibilityVNone
+	_DeviceManagementConfigurationSettingVisibilityPSettingsCatalog = DeviceManagementConfigurationSettingVisibilityVSettingsCatalog
+	_DeviceManagementConfigurationSettingVisibilityPTemplate        = DeviceManagementConfigurationSettingVisibilityVTemplate
+)
+
+// DeviceManagementConfigurationStringFormat undocumented
+type DeviceManagementConfigurationStringFormat string
+
+const (
+	// DeviceManagementConfigurationStringFormatVNone undocumented
+	DeviceManagementConfigurationStringFormatVNone DeviceManagementConfigurationStringFormat = "none"
+	// DeviceManagementConfigurationStringFormatVEmail undocumented
+	DeviceManagementConfigurationStringFormatVEmail DeviceManagementConfigurationStringFormat = "email"
+	// DeviceManagementConfigurationStringFormatVGUID undocumented
+	DeviceManagementConfigurationStringFormatVGUID DeviceManagementConfigurationStringFormat = "guid"
+	// DeviceManagementConfigurationStringFormatVIP undocumented
+	DeviceManagementConfigurationStringFormatVIP DeviceManagementConfigurationStringFormat = "ip"
+	// DeviceManagementConfigurationStringFormatVBase64 undocumented
+	DeviceManagementConfigurationStringFormatVBase64 DeviceManagementConfigurationStringFormat = "base64"
+	// DeviceManagementConfigurationStringFormatVURL undocumented
+	DeviceManagementConfigurationStringFormatVURL DeviceManagementConfigurationStringFormat = "url"
+	// DeviceManagementConfigurationStringFormatVVersion undocumented
+	DeviceManagementConfigurationStringFormatVVersion DeviceManagementConfigurationStringFormat = "version"
+	// DeviceManagementConfigurationStringFormatVXML undocumented
+	DeviceManagementConfigurationStringFormatVXML DeviceManagementConfigurationStringFormat = "xml"
+	// DeviceManagementConfigurationStringFormatVDate undocumented
+	DeviceManagementConfigurationStringFormatVDate DeviceManagementConfigurationStringFormat = "date"
+	// DeviceManagementConfigurationStringFormatVTime undocumented
+	DeviceManagementConfigurationStringFormatVTime DeviceManagementConfigurationStringFormat = "time"
+	// DeviceManagementConfigurationStringFormatVBinary undocumented
+	DeviceManagementConfigurationStringFormatVBinary DeviceManagementConfigurationStringFormat = "binary"
+	// DeviceManagementConfigurationStringFormatVRegEx undocumented
+	DeviceManagementConfigurationStringFormatVRegEx DeviceManagementConfigurationStringFormat = "regEx"
+	// DeviceManagementConfigurationStringFormatVJSON undocumented
+	DeviceManagementConfigurationStringFormatVJSON DeviceManagementConfigurationStringFormat = "json"
+	// DeviceManagementConfigurationStringFormatVDateTime undocumented
+	DeviceManagementConfigurationStringFormatVDateTime DeviceManagementConfigurationStringFormat = "dateTime"
+	// DeviceManagementConfigurationStringFormatVSurfaceHub undocumented
+	DeviceManagementConfigurationStringFormatVSurfaceHub DeviceManagementConfigurationStringFormat = "surfaceHub"
+)
+
+var (
+	// DeviceManagementConfigurationStringFormatPNone is a pointer to DeviceManagementConfigurationStringFormatVNone
+	DeviceManagementConfigurationStringFormatPNone = &_DeviceManagementConfigurationStringFormatPNone
+	// DeviceManagementConfigurationStringFormatPEmail is a pointer to DeviceManagementConfigurationStringFormatVEmail
+	DeviceManagementConfigurationStringFormatPEmail = &_DeviceManagementConfigurationStringFormatPEmail
+	// DeviceManagementConfigurationStringFormatPGUID is a pointer to DeviceManagementConfigurationStringFormatVGUID
+	DeviceManagementConfigurationStringFormatPGUID = &_DeviceManagementConfigurationStringFormatPGUID
+	// DeviceManagementConfigurationStringFormatPIP is a pointer to DeviceManagementConfigurationStringFormatVIP
+	DeviceManagementConfigurationStringFormatPIP = &_DeviceManagementConfigurationStringFormatPIP
+	// DeviceManagementConfigurationStringFormatPBase64 is a pointer to DeviceManagementConfigurationStringFormatVBase64
+	DeviceManagementConfigurationStringFormatPBase64 = &_DeviceManagementConfigurationStringFormatPBase64
+	// DeviceManagementConfigurationStringFormatPURL is a pointer to DeviceManagementConfigurationStringFormatVURL
+	DeviceManagementConfigurationStringFormatPURL = &_DeviceManagementConfigurationStringFormatPURL
+	// DeviceManagementConfigurationStringFormatPVersion is a pointer to DeviceManagementConfigurationStringFormatVVersion
+	DeviceManagementConfigurationStringFormatPVersion = &_DeviceManagementConfigurationStringFormatPVersion
+	// DeviceManagementConfigurationStringFormatPXML is a pointer to DeviceManagementConfigurationStringFormatVXML
+	DeviceManagementConfigurationStringFormatPXML = &_DeviceManagementConfigurationStringFormatPXML
+	// DeviceManagementConfigurationStringFormatPDate is a pointer to DeviceManagementConfigurationStringFormatVDate
+	DeviceManagementConfigurationStringFormatPDate = &_DeviceManagementConfigurationStringFormatPDate
+	// DeviceManagementConfigurationStringFormatPTime is a pointer to DeviceManagementConfigurationStringFormatVTime
+	DeviceManagementConfigurationStringFormatPTime = &_DeviceManagementConfigurationStringFormatPTime
+	// DeviceManagementConfigurationStringFormatPBinary is a pointer to DeviceManagementConfigurationStringFormatVBinary
+	DeviceManagementConfigurationStringFormatPBinary = &_DeviceManagementConfigurationStringFormatPBinary
+	// DeviceManagementConfigurationStringFormatPRegEx is a pointer to DeviceManagementConfigurationStringFormatVRegEx
+	DeviceManagementConfigurationStringFormatPRegEx = &_DeviceManagementConfigurationStringFormatPRegEx
+	// DeviceManagementConfigurationStringFormatPJSON is a pointer to DeviceManagementConfigurationStringFormatVJSON
+	DeviceManagementConfigurationStringFormatPJSON = &_DeviceManagementConfigurationStringFormatPJSON
+	// DeviceManagementConfigurationStringFormatPDateTime is a pointer to DeviceManagementConfigurationStringFormatVDateTime
+	DeviceManagementConfigurationStringFormatPDateTime = &_DeviceManagementConfigurationStringFormatPDateTime
+	// DeviceManagementConfigurationStringFormatPSurfaceHub is a pointer to DeviceManagementConfigurationStringFormatVSurfaceHub
+	DeviceManagementConfigurationStringFormatPSurfaceHub = &_DeviceManagementConfigurationStringFormatPSurfaceHub
+)
+
+var (
+	_DeviceManagementConfigurationStringFormatPNone       = DeviceManagementConfigurationStringFormatVNone
+	_DeviceManagementConfigurationStringFormatPEmail      = DeviceManagementConfigurationStringFormatVEmail
+	_DeviceManagementConfigurationStringFormatPGUID       = DeviceManagementConfigurationStringFormatVGUID
+	_DeviceManagementConfigurationStringFormatPIP         = DeviceManagementConfigurationStringFormatVIP
+	_DeviceManagementConfigurationStringFormatPBase64     = DeviceManagementConfigurationStringFormatVBase64
+	_DeviceManagementConfigurationStringFormatPURL        = DeviceManagementConfigurationStringFormatVURL
+	_DeviceManagementConfigurationStringFormatPVersion    = DeviceManagementConfigurationStringFormatVVersion
+	_DeviceManagementConfigurationStringFormatPXML        = DeviceManagementConfigurationStringFormatVXML
+	_DeviceManagementConfigurationStringFormatPDate       = DeviceManagementConfigurationStringFormatVDate
+	_DeviceManagementConfigurationStringFormatPTime       = DeviceManagementConfigurationStringFormatVTime
+	_DeviceManagementConfigurationStringFormatPBinary     = DeviceManagementConfigurationStringFormatVBinary
+	_DeviceManagementConfigurationStringFormatPRegEx      = DeviceManagementConfigurationStringFormatVRegEx
+	_DeviceManagementConfigurationStringFormatPJSON       = DeviceManagementConfigurationStringFormatVJSON
+	_DeviceManagementConfigurationStringFormatPDateTime   = DeviceManagementConfigurationStringFormatVDateTime
+	_DeviceManagementConfigurationStringFormatPSurfaceHub = DeviceManagementConfigurationStringFormatVSurfaceHub
+)
+
+// DeviceManagementConfigurationTechnologies undocumented
+type DeviceManagementConfigurationTechnologies string
+
+const (
+	// DeviceManagementConfigurationTechnologiesVNone undocumented
+	DeviceManagementConfigurationTechnologiesVNone DeviceManagementConfigurationTechnologies = "none"
+	// DeviceManagementConfigurationTechnologiesVMDM undocumented
+	DeviceManagementConfigurationTechnologiesVMDM DeviceManagementConfigurationTechnologies = "mdm"
+	// DeviceManagementConfigurationTechnologiesVWindows10XManagement undocumented
+	DeviceManagementConfigurationTechnologiesVWindows10XManagement DeviceManagementConfigurationTechnologies = "windows10XManagement"
+	// DeviceManagementConfigurationTechnologiesVConfigManager undocumented
+	DeviceManagementConfigurationTechnologiesVConfigManager DeviceManagementConfigurationTechnologies = "configManager"
+	// DeviceManagementConfigurationTechnologiesVMicrosoftSense undocumented
+	DeviceManagementConfigurationTechnologiesVMicrosoftSense DeviceManagementConfigurationTechnologies = "microsoftSense"
+)
+
+var (
+	// DeviceManagementConfigurationTechnologiesPNone is a pointer to DeviceManagementConfigurationTechnologiesVNone
+	DeviceManagementConfigurationTechnologiesPNone = &_DeviceManagementConfigurationTechnologiesPNone
+	// DeviceManagementConfigurationTechnologiesPMDM is a pointer to DeviceManagementConfigurationTechnologiesVMDM
+	DeviceManagementConfigurationTechnologiesPMDM = &_DeviceManagementConfigurationTechnologiesPMDM
+	// DeviceManagementConfigurationTechnologiesPWindows10XManagement is a pointer to DeviceManagementConfigurationTechnologiesVWindows10XManagement
+	DeviceManagementConfigurationTechnologiesPWindows10XManagement = &_DeviceManagementConfigurationTechnologiesPWindows10XManagement
+	// DeviceManagementConfigurationTechnologiesPConfigManager is a pointer to DeviceManagementConfigurationTechnologiesVConfigManager
+	DeviceManagementConfigurationTechnologiesPConfigManager = &_DeviceManagementConfigurationTechnologiesPConfigManager
+	// DeviceManagementConfigurationTechnologiesPMicrosoftSense is a pointer to DeviceManagementConfigurationTechnologiesVMicrosoftSense
+	DeviceManagementConfigurationTechnologiesPMicrosoftSense = &_DeviceManagementConfigurationTechnologiesPMicrosoftSense
+)
+
+var (
+	_DeviceManagementConfigurationTechnologiesPNone                 = DeviceManagementConfigurationTechnologiesVNone
+	_DeviceManagementConfigurationTechnologiesPMDM                  = DeviceManagementConfigurationTechnologiesVMDM
+	_DeviceManagementConfigurationTechnologiesPWindows10XManagement = DeviceManagementConfigurationTechnologiesVWindows10XManagement
+	_DeviceManagementConfigurationTechnologiesPConfigManager        = DeviceManagementConfigurationTechnologiesVConfigManager
+	_DeviceManagementConfigurationTechnologiesPMicrosoftSense       = DeviceManagementConfigurationTechnologiesVMicrosoftSense
+)
+
+// DeviceManagementConfigurationTemplateFamily undocumented
+type DeviceManagementConfigurationTemplateFamily string
+
+const (
+	// DeviceManagementConfigurationTemplateFamilyVNone undocumented
+	DeviceManagementConfigurationTemplateFamilyVNone DeviceManagementConfigurationTemplateFamily = "none"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAntivirus undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAntivirus DeviceManagementConfigurationTemplateFamily = "endpointSecurityAntivirus"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityDiskEncryption undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityDiskEncryption DeviceManagementConfigurationTemplateFamily = "endpointSecurityDiskEncryption"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityFirewall undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityFirewall DeviceManagementConfigurationTemplateFamily = "endpointSecurityFirewall"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityEndpointDetectionAndResponse undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityEndpointDetectionAndResponse DeviceManagementConfigurationTemplateFamily = "endpointSecurityEndpointDetectionAndResponse"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAttackSurfaceReduction undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAttackSurfaceReduction DeviceManagementConfigurationTemplateFamily = "endpointSecurityAttackSurfaceReduction"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAccountProtection undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAccountProtection DeviceManagementConfigurationTemplateFamily = "endpointSecurityAccountProtection"
+	// DeviceManagementConfigurationTemplateFamilyVEndpointSecurityApplicationControl undocumented
+	DeviceManagementConfigurationTemplateFamilyVEndpointSecurityApplicationControl DeviceManagementConfigurationTemplateFamily = "endpointSecurityApplicationControl"
+)
+
+var (
+	// DeviceManagementConfigurationTemplateFamilyPNone is a pointer to DeviceManagementConfigurationTemplateFamilyVNone
+	DeviceManagementConfigurationTemplateFamilyPNone = &_DeviceManagementConfigurationTemplateFamilyPNone
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAntivirus is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAntivirus
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAntivirus = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAntivirus
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityDiskEncryption is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityDiskEncryption
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityDiskEncryption = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityDiskEncryption
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityFirewall is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityFirewall
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityFirewall = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityFirewall
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityEndpointDetectionAndResponse is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityEndpointDetectionAndResponse
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityEndpointDetectionAndResponse = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityEndpointDetectionAndResponse
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAttackSurfaceReduction is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAttackSurfaceReduction
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAttackSurfaceReduction = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAttackSurfaceReduction
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAccountProtection is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAccountProtection
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAccountProtection = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAccountProtection
+	// DeviceManagementConfigurationTemplateFamilyPEndpointSecurityApplicationControl is a pointer to DeviceManagementConfigurationTemplateFamilyVEndpointSecurityApplicationControl
+	DeviceManagementConfigurationTemplateFamilyPEndpointSecurityApplicationControl = &_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityApplicationControl
+)
+
+var (
+	_DeviceManagementConfigurationTemplateFamilyPNone                                         = DeviceManagementConfigurationTemplateFamilyVNone
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAntivirus                    = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAntivirus
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityDiskEncryption               = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityDiskEncryption
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityFirewall                     = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityFirewall
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityEndpointDetectionAndResponse = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityEndpointDetectionAndResponse
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAttackSurfaceReduction       = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAttackSurfaceReduction
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityAccountProtection            = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityAccountProtection
+	_DeviceManagementConfigurationTemplateFamilyPEndpointSecurityApplicationControl           = DeviceManagementConfigurationTemplateFamilyVEndpointSecurityApplicationControl
+)
+
+// DeviceManagementConfigurationWindowsSKUs undocumented
+type DeviceManagementConfigurationWindowsSKUs string
+
+const (
+	// DeviceManagementConfigurationWindowsSKUsVUnknown undocumented
+	DeviceManagementConfigurationWindowsSKUsVUnknown DeviceManagementConfigurationWindowsSKUs = "unknown"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsHome undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsHome DeviceManagementConfigurationWindowsSKUs = "windowsHome"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsProfessional undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsProfessional DeviceManagementConfigurationWindowsSKUs = "windowsProfessional"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsEnterprise undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsEnterprise DeviceManagementConfigurationWindowsSKUs = "windowsEnterprise"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsEducation undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsEducation DeviceManagementConfigurationWindowsSKUs = "windowsEducation"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsMobile undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsMobile DeviceManagementConfigurationWindowsSKUs = "windowsMobile"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsMobileEnterprise undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsMobileEnterprise DeviceManagementConfigurationWindowsSKUs = "windowsMobileEnterprise"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsTeamSurface undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsTeamSurface DeviceManagementConfigurationWindowsSKUs = "windowsTeamSurface"
+	// DeviceManagementConfigurationWindowsSKUsVIot undocumented
+	DeviceManagementConfigurationWindowsSKUsVIot DeviceManagementConfigurationWindowsSKUs = "iot"
+	// DeviceManagementConfigurationWindowsSKUsVIotEnterprise undocumented
+	DeviceManagementConfigurationWindowsSKUsVIotEnterprise DeviceManagementConfigurationWindowsSKUs = "iotEnterprise"
+	// DeviceManagementConfigurationWindowsSKUsVHoloLens undocumented
+	DeviceManagementConfigurationWindowsSKUsVHoloLens DeviceManagementConfigurationWindowsSKUs = "holoLens"
+	// DeviceManagementConfigurationWindowsSKUsVHoloLensEnterprise undocumented
+	DeviceManagementConfigurationWindowsSKUsVHoloLensEnterprise DeviceManagementConfigurationWindowsSKUs = "holoLensEnterprise"
+	// DeviceManagementConfigurationWindowsSKUsVHolographicForBusiness undocumented
+	DeviceManagementConfigurationWindowsSKUsVHolographicForBusiness DeviceManagementConfigurationWindowsSKUs = "holographicForBusiness"
+	// DeviceManagementConfigurationWindowsSKUsVWindowsMultiSession undocumented
+	DeviceManagementConfigurationWindowsSKUsVWindowsMultiSession DeviceManagementConfigurationWindowsSKUs = "windowsMultiSession"
+	// DeviceManagementConfigurationWindowsSKUsVSurfaceHub undocumented
+	DeviceManagementConfigurationWindowsSKUsVSurfaceHub DeviceManagementConfigurationWindowsSKUs = "surfaceHub"
+)
+
+var (
+	// DeviceManagementConfigurationWindowsSKUsPUnknown is a pointer to DeviceManagementConfigurationWindowsSKUsVUnknown
+	DeviceManagementConfigurationWindowsSKUsPUnknown = &_DeviceManagementConfigurationWindowsSKUsPUnknown
+	// DeviceManagementConfigurationWindowsSKUsPWindowsHome is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsHome
+	DeviceManagementConfigurationWindowsSKUsPWindowsHome = &_DeviceManagementConfigurationWindowsSKUsPWindowsHome
+	// DeviceManagementConfigurationWindowsSKUsPWindowsProfessional is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsProfessional
+	DeviceManagementConfigurationWindowsSKUsPWindowsProfessional = &_DeviceManagementConfigurationWindowsSKUsPWindowsProfessional
+	// DeviceManagementConfigurationWindowsSKUsPWindowsEnterprise is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsEnterprise
+	DeviceManagementConfigurationWindowsSKUsPWindowsEnterprise = &_DeviceManagementConfigurationWindowsSKUsPWindowsEnterprise
+	// DeviceManagementConfigurationWindowsSKUsPWindowsEducation is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsEducation
+	DeviceManagementConfigurationWindowsSKUsPWindowsEducation = &_DeviceManagementConfigurationWindowsSKUsPWindowsEducation
+	// DeviceManagementConfigurationWindowsSKUsPWindowsMobile is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsMobile
+	DeviceManagementConfigurationWindowsSKUsPWindowsMobile = &_DeviceManagementConfigurationWindowsSKUsPWindowsMobile
+	// DeviceManagementConfigurationWindowsSKUsPWindowsMobileEnterprise is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsMobileEnterprise
+	DeviceManagementConfigurationWindowsSKUsPWindowsMobileEnterprise = &_DeviceManagementConfigurationWindowsSKUsPWindowsMobileEnterprise
+	// DeviceManagementConfigurationWindowsSKUsPWindowsTeamSurface is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsTeamSurface
+	DeviceManagementConfigurationWindowsSKUsPWindowsTeamSurface = &_DeviceManagementConfigurationWindowsSKUsPWindowsTeamSurface
+	// DeviceManagementConfigurationWindowsSKUsPIot is a pointer to DeviceManagementConfigurationWindowsSKUsVIot
+	DeviceManagementConfigurationWindowsSKUsPIot = &_DeviceManagementConfigurationWindowsSKUsPIot
+	// DeviceManagementConfigurationWindowsSKUsPIotEnterprise is a pointer to DeviceManagementConfigurationWindowsSKUsVIotEnterprise
+	DeviceManagementConfigurationWindowsSKUsPIotEnterprise = &_DeviceManagementConfigurationWindowsSKUsPIotEnterprise
+	// DeviceManagementConfigurationWindowsSKUsPHoloLens is a pointer to DeviceManagementConfigurationWindowsSKUsVHoloLens
+	DeviceManagementConfigurationWindowsSKUsPHoloLens = &_DeviceManagementConfigurationWindowsSKUsPHoloLens
+	// DeviceManagementConfigurationWindowsSKUsPHoloLensEnterprise is a pointer to DeviceManagementConfigurationWindowsSKUsVHoloLensEnterprise
+	DeviceManagementConfigurationWindowsSKUsPHoloLensEnterprise = &_DeviceManagementConfigurationWindowsSKUsPHoloLensEnterprise
+	// DeviceManagementConfigurationWindowsSKUsPHolographicForBusiness is a pointer to DeviceManagementConfigurationWindowsSKUsVHolographicForBusiness
+	DeviceManagementConfigurationWindowsSKUsPHolographicForBusiness = &_DeviceManagementConfigurationWindowsSKUsPHolographicForBusiness
+	// DeviceManagementConfigurationWindowsSKUsPWindowsMultiSession is a pointer to DeviceManagementConfigurationWindowsSKUsVWindowsMultiSession
+	DeviceManagementConfigurationWindowsSKUsPWindowsMultiSession = &_DeviceManagementConfigurationWindowsSKUsPWindowsMultiSession
+	// DeviceManagementConfigurationWindowsSKUsPSurfaceHub is a pointer to DeviceManagementConfigurationWindowsSKUsVSurfaceHub
+	DeviceManagementConfigurationWindowsSKUsPSurfaceHub = &_DeviceManagementConfigurationWindowsSKUsPSurfaceHub
+)
+
+var (
+	_DeviceManagementConfigurationWindowsSKUsPUnknown                 = DeviceManagementConfigurationWindowsSKUsVUnknown
+	_DeviceManagementConfigurationWindowsSKUsPWindowsHome             = DeviceManagementConfigurationWindowsSKUsVWindowsHome
+	_DeviceManagementConfigurationWindowsSKUsPWindowsProfessional     = DeviceManagementConfigurationWindowsSKUsVWindowsProfessional
+	_DeviceManagementConfigurationWindowsSKUsPWindowsEnterprise       = DeviceManagementConfigurationWindowsSKUsVWindowsEnterprise
+	_DeviceManagementConfigurationWindowsSKUsPWindowsEducation        = DeviceManagementConfigurationWindowsSKUsVWindowsEducation
+	_DeviceManagementConfigurationWindowsSKUsPWindowsMobile           = DeviceManagementConfigurationWindowsSKUsVWindowsMobile
+	_DeviceManagementConfigurationWindowsSKUsPWindowsMobileEnterprise = DeviceManagementConfigurationWindowsSKUsVWindowsMobileEnterprise
+	_DeviceManagementConfigurationWindowsSKUsPWindowsTeamSurface      = DeviceManagementConfigurationWindowsSKUsVWindowsTeamSurface
+	_DeviceManagementConfigurationWindowsSKUsPIot                     = DeviceManagementConfigurationWindowsSKUsVIot
+	_DeviceManagementConfigurationWindowsSKUsPIotEnterprise           = DeviceManagementConfigurationWindowsSKUsVIotEnterprise
+	_DeviceManagementConfigurationWindowsSKUsPHoloLens                = DeviceManagementConfigurationWindowsSKUsVHoloLens
+	_DeviceManagementConfigurationWindowsSKUsPHoloLensEnterprise      = DeviceManagementConfigurationWindowsSKUsVHoloLensEnterprise
+	_DeviceManagementConfigurationWindowsSKUsPHolographicForBusiness  = DeviceManagementConfigurationWindowsSKUsVHolographicForBusiness
+	_DeviceManagementConfigurationWindowsSKUsPWindowsMultiSession     = DeviceManagementConfigurationWindowsSKUsVWindowsMultiSession
+	_DeviceManagementConfigurationWindowsSKUsPSurfaceHub              = DeviceManagementConfigurationWindowsSKUsVSurfaceHub
+)
+
 // DeviceManagementDerivedCredentialIssuer undocumented
 type DeviceManagementDerivedCredentialIssuer string
 
@@ -523,6 +1613,8 @@ const (
 	DeviceManagementDerivedCredentialIssuerVEntrustDatacard DeviceManagementDerivedCredentialIssuer = "entrustDatacard"
 	// DeviceManagementDerivedCredentialIssuerVPurebred undocumented
 	DeviceManagementDerivedCredentialIssuerVPurebred DeviceManagementDerivedCredentialIssuer = "purebred"
+	// DeviceManagementDerivedCredentialIssuerVXTec undocumented
+	DeviceManagementDerivedCredentialIssuerVXTec DeviceManagementDerivedCredentialIssuer = "xTec"
 )
 
 var (
@@ -532,12 +1624,15 @@ var (
 	DeviceManagementDerivedCredentialIssuerPEntrustDatacard = &_DeviceManagementDerivedCredentialIssuerPEntrustDatacard
 	// DeviceManagementDerivedCredentialIssuerPPurebred is a pointer to DeviceManagementDerivedCredentialIssuerVPurebred
 	DeviceManagementDerivedCredentialIssuerPPurebred = &_DeviceManagementDerivedCredentialIssuerPPurebred
+	// DeviceManagementDerivedCredentialIssuerPXTec is a pointer to DeviceManagementDerivedCredentialIssuerVXTec
+	DeviceManagementDerivedCredentialIssuerPXTec = &_DeviceManagementDerivedCredentialIssuerPXTec
 )
 
 var (
 	_DeviceManagementDerivedCredentialIssuerPIntercede       = DeviceManagementDerivedCredentialIssuerVIntercede
 	_DeviceManagementDerivedCredentialIssuerPEntrustDatacard = DeviceManagementDerivedCredentialIssuerVEntrustDatacard
 	_DeviceManagementDerivedCredentialIssuerPPurebred        = DeviceManagementDerivedCredentialIssuerVPurebred
+	_DeviceManagementDerivedCredentialIssuerPXTec            = DeviceManagementDerivedCredentialIssuerVXTec
 )
 
 // DeviceManagementDerivedCredentialNotificationType undocumented
@@ -863,6 +1958,28 @@ var (
 	_DeviceManagementExchangeConnectorTypePDedicated        = DeviceManagementExchangeConnectorTypeVDedicated
 )
 
+// DeviceManagementExportJobLocalizationType undocumented
+type DeviceManagementExportJobLocalizationType string
+
+const (
+	// DeviceManagementExportJobLocalizationTypeVLocalizedValuesAsAdditionalColumn undocumented
+	DeviceManagementExportJobLocalizationTypeVLocalizedValuesAsAdditionalColumn DeviceManagementExportJobLocalizationType = "localizedValuesAsAdditionalColumn"
+	// DeviceManagementExportJobLocalizationTypeVReplaceLocalizableValues undocumented
+	DeviceManagementExportJobLocalizationTypeVReplaceLocalizableValues DeviceManagementExportJobLocalizationType = "replaceLocalizableValues"
+)
+
+var (
+	// DeviceManagementExportJobLocalizationTypePLocalizedValuesAsAdditionalColumn is a pointer to DeviceManagementExportJobLocalizationTypeVLocalizedValuesAsAdditionalColumn
+	DeviceManagementExportJobLocalizationTypePLocalizedValuesAsAdditionalColumn = &_DeviceManagementExportJobLocalizationTypePLocalizedValuesAsAdditionalColumn
+	// DeviceManagementExportJobLocalizationTypePReplaceLocalizableValues is a pointer to DeviceManagementExportJobLocalizationTypeVReplaceLocalizableValues
+	DeviceManagementExportJobLocalizationTypePReplaceLocalizableValues = &_DeviceManagementExportJobLocalizationTypePReplaceLocalizableValues
+)
+
+var (
+	_DeviceManagementExportJobLocalizationTypePLocalizedValuesAsAdditionalColumn = DeviceManagementExportJobLocalizationTypeVLocalizedValuesAsAdditionalColumn
+	_DeviceManagementExportJobLocalizationTypePReplaceLocalizableValues          = DeviceManagementExportJobLocalizationTypeVReplaceLocalizableValues
+)
+
 // DeviceManagementPartnerAppType undocumented
 type DeviceManagementPartnerAppType string
 
@@ -991,6 +2108,28 @@ var (
 	_DeviceManagementReportStatusPFailed     = DeviceManagementReportStatusVFailed
 )
 
+// DeviceManagementResourceAccessProfileIntent undocumented
+type DeviceManagementResourceAccessProfileIntent string
+
+const (
+	// DeviceManagementResourceAccessProfileIntentVApply undocumented
+	DeviceManagementResourceAccessProfileIntentVApply DeviceManagementResourceAccessProfileIntent = "apply"
+	// DeviceManagementResourceAccessProfileIntentVRemove undocumented
+	DeviceManagementResourceAccessProfileIntentVRemove DeviceManagementResourceAccessProfileIntent = "remove"
+)
+
+var (
+	// DeviceManagementResourceAccessProfileIntentPApply is a pointer to DeviceManagementResourceAccessProfileIntentVApply
+	DeviceManagementResourceAccessProfileIntentPApply = &_DeviceManagementResourceAccessProfileIntentPApply
+	// DeviceManagementResourceAccessProfileIntentPRemove is a pointer to DeviceManagementResourceAccessProfileIntentVRemove
+	DeviceManagementResourceAccessProfileIntentPRemove = &_DeviceManagementResourceAccessProfileIntentPRemove
+)
+
+var (
+	_DeviceManagementResourceAccessProfileIntentPApply  = DeviceManagementResourceAccessProfileIntentVApply
+	_DeviceManagementResourceAccessProfileIntentPRemove = DeviceManagementResourceAccessProfileIntentVRemove
+)
+
 // DeviceManagementScheduledReportRecurrence undocumented
 type DeviceManagementScheduledReportRecurrence string
 
@@ -1112,6 +2251,110 @@ var (
 	_DeviceManagementSubscriptionsPIntune_SMB    = DeviceManagementSubscriptionsVIntune_SMB
 )
 
+// DeviceManagementTemplateLifecycleState undocumented
+type DeviceManagementTemplateLifecycleState string
+
+const (
+	// DeviceManagementTemplateLifecycleStateVInvalid undocumented
+	DeviceManagementTemplateLifecycleStateVInvalid DeviceManagementTemplateLifecycleState = "invalid"
+	// DeviceManagementTemplateLifecycleStateVDraft undocumented
+	DeviceManagementTemplateLifecycleStateVDraft DeviceManagementTemplateLifecycleState = "draft"
+	// DeviceManagementTemplateLifecycleStateVActive undocumented
+	DeviceManagementTemplateLifecycleStateVActive DeviceManagementTemplateLifecycleState = "active"
+	// DeviceManagementTemplateLifecycleStateVSuperseded undocumented
+	DeviceManagementTemplateLifecycleStateVSuperseded DeviceManagementTemplateLifecycleState = "superseded"
+	// DeviceManagementTemplateLifecycleStateVDeprecated undocumented
+	DeviceManagementTemplateLifecycleStateVDeprecated DeviceManagementTemplateLifecycleState = "deprecated"
+	// DeviceManagementTemplateLifecycleStateVRetired undocumented
+	DeviceManagementTemplateLifecycleStateVRetired DeviceManagementTemplateLifecycleState = "retired"
+)
+
+var (
+	// DeviceManagementTemplateLifecycleStatePInvalid is a pointer to DeviceManagementTemplateLifecycleStateVInvalid
+	DeviceManagementTemplateLifecycleStatePInvalid = &_DeviceManagementTemplateLifecycleStatePInvalid
+	// DeviceManagementTemplateLifecycleStatePDraft is a pointer to DeviceManagementTemplateLifecycleStateVDraft
+	DeviceManagementTemplateLifecycleStatePDraft = &_DeviceManagementTemplateLifecycleStatePDraft
+	// DeviceManagementTemplateLifecycleStatePActive is a pointer to DeviceManagementTemplateLifecycleStateVActive
+	DeviceManagementTemplateLifecycleStatePActive = &_DeviceManagementTemplateLifecycleStatePActive
+	// DeviceManagementTemplateLifecycleStatePSuperseded is a pointer to DeviceManagementTemplateLifecycleStateVSuperseded
+	DeviceManagementTemplateLifecycleStatePSuperseded = &_DeviceManagementTemplateLifecycleStatePSuperseded
+	// DeviceManagementTemplateLifecycleStatePDeprecated is a pointer to DeviceManagementTemplateLifecycleStateVDeprecated
+	DeviceManagementTemplateLifecycleStatePDeprecated = &_DeviceManagementTemplateLifecycleStatePDeprecated
+	// DeviceManagementTemplateLifecycleStatePRetired is a pointer to DeviceManagementTemplateLifecycleStateVRetired
+	DeviceManagementTemplateLifecycleStatePRetired = &_DeviceManagementTemplateLifecycleStatePRetired
+)
+
+var (
+	_DeviceManagementTemplateLifecycleStatePInvalid    = DeviceManagementTemplateLifecycleStateVInvalid
+	_DeviceManagementTemplateLifecycleStatePDraft      = DeviceManagementTemplateLifecycleStateVDraft
+	_DeviceManagementTemplateLifecycleStatePActive     = DeviceManagementTemplateLifecycleStateVActive
+	_DeviceManagementTemplateLifecycleStatePSuperseded = DeviceManagementTemplateLifecycleStateVSuperseded
+	_DeviceManagementTemplateLifecycleStatePDeprecated = DeviceManagementTemplateLifecycleStateVDeprecated
+	_DeviceManagementTemplateLifecycleStatePRetired    = DeviceManagementTemplateLifecycleStateVRetired
+)
+
+// DeviceManagementTemplateSubtype undocumented
+type DeviceManagementTemplateSubtype string
+
+const (
+	// DeviceManagementTemplateSubtypeVNone undocumented
+	DeviceManagementTemplateSubtypeVNone DeviceManagementTemplateSubtype = "none"
+	// DeviceManagementTemplateSubtypeVFirewall undocumented
+	DeviceManagementTemplateSubtypeVFirewall DeviceManagementTemplateSubtype = "firewall"
+	// DeviceManagementTemplateSubtypeVDiskEncryption undocumented
+	DeviceManagementTemplateSubtypeVDiskEncryption DeviceManagementTemplateSubtype = "diskEncryption"
+	// DeviceManagementTemplateSubtypeVAttackSurfaceReduction undocumented
+	DeviceManagementTemplateSubtypeVAttackSurfaceReduction DeviceManagementTemplateSubtype = "attackSurfaceReduction"
+	// DeviceManagementTemplateSubtypeVEndpointDetectionReponse undocumented
+	DeviceManagementTemplateSubtypeVEndpointDetectionReponse DeviceManagementTemplateSubtype = "endpointDetectionReponse"
+	// DeviceManagementTemplateSubtypeVAccountProtection undocumented
+	DeviceManagementTemplateSubtypeVAccountProtection DeviceManagementTemplateSubtype = "accountProtection"
+	// DeviceManagementTemplateSubtypeVAntivirus undocumented
+	DeviceManagementTemplateSubtypeVAntivirus DeviceManagementTemplateSubtype = "antivirus"
+	// DeviceManagementTemplateSubtypeVFirewallSharedAppList undocumented
+	DeviceManagementTemplateSubtypeVFirewallSharedAppList DeviceManagementTemplateSubtype = "firewallSharedAppList"
+	// DeviceManagementTemplateSubtypeVFirewallSharedIPList undocumented
+	DeviceManagementTemplateSubtypeVFirewallSharedIPList DeviceManagementTemplateSubtype = "firewallSharedIpList"
+	// DeviceManagementTemplateSubtypeVFirewallSharedPortlist undocumented
+	DeviceManagementTemplateSubtypeVFirewallSharedPortlist DeviceManagementTemplateSubtype = "firewallSharedPortlist"
+)
+
+var (
+	// DeviceManagementTemplateSubtypePNone is a pointer to DeviceManagementTemplateSubtypeVNone
+	DeviceManagementTemplateSubtypePNone = &_DeviceManagementTemplateSubtypePNone
+	// DeviceManagementTemplateSubtypePFirewall is a pointer to DeviceManagementTemplateSubtypeVFirewall
+	DeviceManagementTemplateSubtypePFirewall = &_DeviceManagementTemplateSubtypePFirewall
+	// DeviceManagementTemplateSubtypePDiskEncryption is a pointer to DeviceManagementTemplateSubtypeVDiskEncryption
+	DeviceManagementTemplateSubtypePDiskEncryption = &_DeviceManagementTemplateSubtypePDiskEncryption
+	// DeviceManagementTemplateSubtypePAttackSurfaceReduction is a pointer to DeviceManagementTemplateSubtypeVAttackSurfaceReduction
+	DeviceManagementTemplateSubtypePAttackSurfaceReduction = &_DeviceManagementTemplateSubtypePAttackSurfaceReduction
+	// DeviceManagementTemplateSubtypePEndpointDetectionReponse is a pointer to DeviceManagementTemplateSubtypeVEndpointDetectionReponse
+	DeviceManagementTemplateSubtypePEndpointDetectionReponse = &_DeviceManagementTemplateSubtypePEndpointDetectionReponse
+	// DeviceManagementTemplateSubtypePAccountProtection is a pointer to DeviceManagementTemplateSubtypeVAccountProtection
+	DeviceManagementTemplateSubtypePAccountProtection = &_DeviceManagementTemplateSubtypePAccountProtection
+	// DeviceManagementTemplateSubtypePAntivirus is a pointer to DeviceManagementTemplateSubtypeVAntivirus
+	DeviceManagementTemplateSubtypePAntivirus = &_DeviceManagementTemplateSubtypePAntivirus
+	// DeviceManagementTemplateSubtypePFirewallSharedAppList is a pointer to DeviceManagementTemplateSubtypeVFirewallSharedAppList
+	DeviceManagementTemplateSubtypePFirewallSharedAppList = &_DeviceManagementTemplateSubtypePFirewallSharedAppList
+	// DeviceManagementTemplateSubtypePFirewallSharedIPList is a pointer to DeviceManagementTemplateSubtypeVFirewallSharedIPList
+	DeviceManagementTemplateSubtypePFirewallSharedIPList = &_DeviceManagementTemplateSubtypePFirewallSharedIPList
+	// DeviceManagementTemplateSubtypePFirewallSharedPortlist is a pointer to DeviceManagementTemplateSubtypeVFirewallSharedPortlist
+	DeviceManagementTemplateSubtypePFirewallSharedPortlist = &_DeviceManagementTemplateSubtypePFirewallSharedPortlist
+)
+
+var (
+	_DeviceManagementTemplateSubtypePNone                     = DeviceManagementTemplateSubtypeVNone
+	_DeviceManagementTemplateSubtypePFirewall                 = DeviceManagementTemplateSubtypeVFirewall
+	_DeviceManagementTemplateSubtypePDiskEncryption           = DeviceManagementTemplateSubtypeVDiskEncryption
+	_DeviceManagementTemplateSubtypePAttackSurfaceReduction   = DeviceManagementTemplateSubtypeVAttackSurfaceReduction
+	_DeviceManagementTemplateSubtypePEndpointDetectionReponse = DeviceManagementTemplateSubtypeVEndpointDetectionReponse
+	_DeviceManagementTemplateSubtypePAccountProtection        = DeviceManagementTemplateSubtypeVAccountProtection
+	_DeviceManagementTemplateSubtypePAntivirus                = DeviceManagementTemplateSubtypeVAntivirus
+	_DeviceManagementTemplateSubtypePFirewallSharedAppList    = DeviceManagementTemplateSubtypeVFirewallSharedAppList
+	_DeviceManagementTemplateSubtypePFirewallSharedIPList     = DeviceManagementTemplateSubtypeVFirewallSharedIPList
+	_DeviceManagementTemplateSubtypePFirewallSharedPortlist   = DeviceManagementTemplateSubtypeVFirewallSharedPortlist
+)
+
 // DeviceManagementTemplateType undocumented
 type DeviceManagementTemplateType string
 
@@ -1132,6 +2375,14 @@ const (
 	DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline DeviceManagementTemplateType = "microsoftEdgeSecurityBaseline"
 	// DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline undocumented
 	DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline DeviceManagementTemplateType = "microsoftOffice365ProPlusSecurityBaseline"
+	// DeviceManagementTemplateTypeVDeviceCompliance undocumented
+	DeviceManagementTemplateTypeVDeviceCompliance DeviceManagementTemplateType = "deviceCompliance"
+	// DeviceManagementTemplateTypeVDeviceConfigurationForOffice365 undocumented
+	DeviceManagementTemplateTypeVDeviceConfigurationForOffice365 DeviceManagementTemplateType = "deviceConfigurationForOffice365"
+	// DeviceManagementTemplateTypeVCloudPC undocumented
+	DeviceManagementTemplateTypeVCloudPC DeviceManagementTemplateType = "cloudPC"
+	// DeviceManagementTemplateTypeVFirewallSharedSettings undocumented
+	DeviceManagementTemplateTypeVFirewallSharedSettings DeviceManagementTemplateType = "firewallSharedSettings"
 )
 
 var (
@@ -1151,6 +2402,14 @@ var (
 	DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline = &_DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline
 	// DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline is a pointer to DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
 	DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline = &_DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline
+	// DeviceManagementTemplateTypePDeviceCompliance is a pointer to DeviceManagementTemplateTypeVDeviceCompliance
+	DeviceManagementTemplateTypePDeviceCompliance = &_DeviceManagementTemplateTypePDeviceCompliance
+	// DeviceManagementTemplateTypePDeviceConfigurationForOffice365 is a pointer to DeviceManagementTemplateTypeVDeviceConfigurationForOffice365
+	DeviceManagementTemplateTypePDeviceConfigurationForOffice365 = &_DeviceManagementTemplateTypePDeviceConfigurationForOffice365
+	// DeviceManagementTemplateTypePCloudPC is a pointer to DeviceManagementTemplateTypeVCloudPC
+	DeviceManagementTemplateTypePCloudPC = &_DeviceManagementTemplateTypePCloudPC
+	// DeviceManagementTemplateTypePFirewallSharedSettings is a pointer to DeviceManagementTemplateTypeVFirewallSharedSettings
+	DeviceManagementTemplateTypePFirewallSharedSettings = &_DeviceManagementTemplateTypePFirewallSharedSettings
 )
 
 var (
@@ -1162,6 +2421,10 @@ var (
 	_DeviceManagementTemplateTypePSecurityTemplate                          = DeviceManagementTemplateTypeVSecurityTemplate
 	_DeviceManagementTemplateTypePMicrosoftEdgeSecurityBaseline             = DeviceManagementTemplateTypeVMicrosoftEdgeSecurityBaseline
 	_DeviceManagementTemplateTypePMicrosoftOffice365ProPlusSecurityBaseline = DeviceManagementTemplateTypeVMicrosoftOffice365ProPlusSecurityBaseline
+	_DeviceManagementTemplateTypePDeviceCompliance                          = DeviceManagementTemplateTypeVDeviceCompliance
+	_DeviceManagementTemplateTypePDeviceConfigurationForOffice365           = DeviceManagementTemplateTypeVDeviceConfigurationForOffice365
+	_DeviceManagementTemplateTypePCloudPC                                   = DeviceManagementTemplateTypeVCloudPC
+	_DeviceManagementTemplateTypePFirewallSharedSettings                    = DeviceManagementTemplateTypeVFirewallSharedSettings
 )
 
 // DeviceManangementIntentValueType undocumented
@@ -1228,6 +2491,8 @@ const (
 	DevicePlatformTypeVAndroidWorkProfile DevicePlatformType = "androidWorkProfile"
 	// DevicePlatformTypeVUnknown undocumented
 	DevicePlatformTypeVUnknown DevicePlatformType = "unknown"
+	// DevicePlatformTypeVAndroidAOSP undocumented
+	DevicePlatformTypeVAndroidAOSP DevicePlatformType = "androidAOSP"
 )
 
 var (
@@ -1249,6 +2514,8 @@ var (
 	DevicePlatformTypePAndroidWorkProfile = &_DevicePlatformTypePAndroidWorkProfile
 	// DevicePlatformTypePUnknown is a pointer to DevicePlatformTypeVUnknown
 	DevicePlatformTypePUnknown = &_DevicePlatformTypePUnknown
+	// DevicePlatformTypePAndroidAOSP is a pointer to DevicePlatformTypeVAndroidAOSP
+	DevicePlatformTypePAndroidAOSP = &_DevicePlatformTypePAndroidAOSP
 )
 
 var (
@@ -1261,6 +2528,7 @@ var (
 	_DevicePlatformTypePWindows10AndLater  = DevicePlatformTypeVWindows10AndLater
 	_DevicePlatformTypePAndroidWorkProfile = DevicePlatformTypeVAndroidWorkProfile
 	_DevicePlatformTypePUnknown            = DevicePlatformTypeVUnknown
+	_DevicePlatformTypePAndroidAOSP        = DevicePlatformTypeVAndroidAOSP
 )
 
 // DeviceRegistrationState undocumented
@@ -1399,12 +2667,22 @@ const (
 	DeviceTypeVAndroidForWork DeviceType = "androidForWork"
 	// DeviceTypeVAndroidEnterprise undocumented
 	DeviceTypeVAndroidEnterprise DeviceType = "androidEnterprise"
+	// DeviceTypeVWindows10x undocumented
+	DeviceTypeVWindows10x DeviceType = "windows10x"
+	// DeviceTypeVAndroidnGMS undocumented
+	DeviceTypeVAndroidnGMS DeviceType = "androidnGMS"
+	// DeviceTypeVChromeOS undocumented
+	DeviceTypeVChromeOS DeviceType = "chromeOS"
+	// DeviceTypeVLinux undocumented
+	DeviceTypeVLinux DeviceType = "linux"
 	// DeviceTypeVBlackberry undocumented
 	DeviceTypeVBlackberry DeviceType = "blackberry"
 	// DeviceTypeVPalm undocumented
 	DeviceTypeVPalm DeviceType = "palm"
 	// DeviceTypeVUnknown undocumented
 	DeviceTypeVUnknown DeviceType = "unknown"
+	// DeviceTypeVCloudPC undocumented
+	DeviceTypeVCloudPC DeviceType = "cloudPC"
 )
 
 var (
@@ -1446,12 +2724,22 @@ var (
 	DeviceTypePAndroidForWork = &_DeviceTypePAndroidForWork
 	// DeviceTypePAndroidEnterprise is a pointer to DeviceTypeVAndroidEnterprise
 	DeviceTypePAndroidEnterprise = &_DeviceTypePAndroidEnterprise
+	// DeviceTypePWindows10x is a pointer to DeviceTypeVWindows10x
+	DeviceTypePWindows10x = &_DeviceTypePWindows10x
+	// DeviceTypePAndroidnGMS is a pointer to DeviceTypeVAndroidnGMS
+	DeviceTypePAndroidnGMS = &_DeviceTypePAndroidnGMS
+	// DeviceTypePChromeOS is a pointer to DeviceTypeVChromeOS
+	DeviceTypePChromeOS = &_DeviceTypePChromeOS
+	// DeviceTypePLinux is a pointer to DeviceTypeVLinux
+	DeviceTypePLinux = &_DeviceTypePLinux
 	// DeviceTypePBlackberry is a pointer to DeviceTypeVBlackberry
 	DeviceTypePBlackberry = &_DeviceTypePBlackberry
 	// DeviceTypePPalm is a pointer to DeviceTypeVPalm
 	DeviceTypePPalm = &_DeviceTypePPalm
 	// DeviceTypePUnknown is a pointer to DeviceTypeVUnknown
 	DeviceTypePUnknown = &_DeviceTypePUnknown
+	// DeviceTypePCloudPC is a pointer to DeviceTypeVCloudPC
+	DeviceTypePCloudPC = &_DeviceTypePCloudPC
 )
 
 var (
@@ -1474,9 +2762,14 @@ var (
 	_DeviceTypePSurfaceHub        = DeviceTypeVSurfaceHub
 	_DeviceTypePAndroidForWork    = DeviceTypeVAndroidForWork
 	_DeviceTypePAndroidEnterprise = DeviceTypeVAndroidEnterprise
+	_DeviceTypePWindows10x        = DeviceTypeVWindows10x
+	_DeviceTypePAndroidnGMS       = DeviceTypeVAndroidnGMS
+	_DeviceTypePChromeOS          = DeviceTypeVChromeOS
+	_DeviceTypePLinux             = DeviceTypeVLinux
 	_DeviceTypePBlackberry        = DeviceTypeVBlackberry
 	_DeviceTypePPalm              = DeviceTypeVPalm
 	_DeviceTypePUnknown           = DeviceTypeVUnknown
+	_DeviceTypePCloudPC           = DeviceTypeVCloudPC
 )
 
 // DeviceTypes undocumented

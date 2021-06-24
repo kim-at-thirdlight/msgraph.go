@@ -4,24 +4,56 @@ package msgraph
 
 import "time"
 
-// Policy undocumented
-type Policy struct {
-	// DirectoryObject is the base model of Policy
+// PolicyBase undocumented
+type PolicyBase struct {
+	// DirectoryObject is the base model of PolicyBase
 	DirectoryObject
-	// AlternativeIdentifier undocumented
-	AlternativeIdentifier *string `json:"alternativeIdentifier,omitempty"`
-	// Definition undocumented
-	Definition []string `json:"definition,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// IsOrganizationDefault undocumented
-	IsOrganizationDefault *bool `json:"isOrganizationDefault,omitempty"`
-	// KeyCredentials undocumented
-	KeyCredentials []KeyCredential `json:"keyCredentials,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// AppliesTo undocumented
-	AppliesTo []DirectoryObject `json:"appliesTo,omitempty"`
+}
+
+// PolicyRoot undocumented
+type PolicyRoot struct {
+	// Object is the base model of PolicyRoot
+	Object
+	// AuthenticationMethodsPolicy undocumented
+	AuthenticationMethodsPolicy *AuthenticationMethodsPolicy `json:"authenticationMethodsPolicy,omitempty"`
+	// AuthenticationFlowsPolicy undocumented
+	AuthenticationFlowsPolicy *AuthenticationFlowsPolicy `json:"authenticationFlowsPolicy,omitempty"`
+	// B2cAuthenticationMethodsPolicy undocumented
+	B2cAuthenticationMethodsPolicy *B2cAuthenticationMethodsPolicy `json:"b2cAuthenticationMethodsPolicy,omitempty"`
+	// ActivityBasedTimeoutPolicies undocumented
+	ActivityBasedTimeoutPolicies []ActivityBasedTimeoutPolicy `json:"activityBasedTimeoutPolicies,omitempty"`
+	// AuthorizationPolicy undocumented
+	AuthorizationPolicy []AuthorizationPolicy `json:"authorizationPolicy,omitempty"`
+	// ClaimsMappingPolicies undocumented
+	ClaimsMappingPolicies []ClaimsMappingPolicy `json:"claimsMappingPolicies,omitempty"`
+	// HomeRealmDiscoveryPolicies undocumented
+	HomeRealmDiscoveryPolicies []HomeRealmDiscoveryPolicy `json:"homeRealmDiscoveryPolicies,omitempty"`
+	// PermissionGrantPolicies undocumented
+	PermissionGrantPolicies []PermissionGrantPolicy `json:"permissionGrantPolicies,omitempty"`
+	// TokenIssuancePolicies undocumented
+	TokenIssuancePolicies []TokenIssuancePolicy `json:"tokenIssuancePolicies,omitempty"`
+	// TokenLifetimePolicies undocumented
+	TokenLifetimePolicies []TokenLifetimePolicy `json:"tokenLifetimePolicies,omitempty"`
+	// FeatureRolloutPolicies undocumented
+	FeatureRolloutPolicies []FeatureRolloutPolicy `json:"featureRolloutPolicies,omitempty"`
+	// AccessReviewPolicy undocumented
+	AccessReviewPolicy *AccessReviewPolicy `json:"accessReviewPolicy,omitempty"`
+	// AdminConsentRequestPolicy undocumented
+	AdminConsentRequestPolicy *AdminConsentRequestPolicy `json:"adminConsentRequestPolicy,omitempty"`
+	// DirectoryRoleAccessReviewPolicy undocumented
+	DirectoryRoleAccessReviewPolicy *DirectoryRoleAccessReviewPolicy `json:"directoryRoleAccessReviewPolicy,omitempty"`
+	// ConditionalAccessPolicies undocumented
+	ConditionalAccessPolicies []ConditionalAccessPolicy `json:"conditionalAccessPolicies,omitempty"`
+	// IdentitySecurityDefaultsEnforcementPolicy undocumented
+	IdentitySecurityDefaultsEnforcementPolicy *IdentitySecurityDefaultsEnforcementPolicy `json:"identitySecurityDefaultsEnforcementPolicy,omitempty"`
+	// RoleManagementPolicies undocumented
+	RoleManagementPolicies []UnifiedRoleManagementPolicy `json:"roleManagementPolicies,omitempty"`
+	// RoleManagementPolicyAssignments undocumented
+	RoleManagementPolicyAssignments []UnifiedRoleManagementPolicyAssignment `json:"roleManagementPolicyAssignments,omitempty"`
 }
 
 // PolicySet A class containing the properties used for PolicySet.
@@ -30,20 +62,20 @@ type PolicySet struct {
 	Entity
 	// CreatedDateTime Creation time of the PolicySet.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime Last modified time of the PolicySet.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// DisplayName DisplayName of the PolicySet.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description of the PolicySet.
 	Description *string `json:"description,omitempty"`
-	// Status Validation/assignment status of the PolicySet.
-	Status *PolicySetStatus `json:"status,omitempty"`
+	// DisplayName DisplayName of the PolicySet.
+	DisplayName *string `json:"displayName,omitempty"`
 	// ErrorCode Error code if any occured.
 	ErrorCode *ErrorCode `json:"errorCode,omitempty"`
 	// GuidedDeploymentTags Tags of the guided deployment
 	GuidedDeploymentTags []string `json:"guidedDeploymentTags,omitempty"`
+	// LastModifiedDateTime Last modified time of the PolicySet.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// RoleScopeTags RoleScopeTags of the PolicySet
 	RoleScopeTags []string `json:"roleScopeTags,omitempty"`
+	// Status Validation/assignment status of the PolicySet.
+	Status *PolicySetStatus `json:"status,omitempty"`
 	// Assignments undocumented
 	Assignments []PolicySetAssignment `json:"assignments,omitempty"`
 	// Items undocumented
@@ -66,18 +98,18 @@ type PolicySetItem struct {
 	Entity
 	// CreatedDateTime Creation time of the PolicySetItem.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime Last modified time of the PolicySetItem.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// PayloadID PayloadId of the PolicySetItem.
-	PayloadID *string `json:"payloadId,omitempty"`
-	// ItemType policySetType of the PolicySetItem.
-	ItemType *string `json:"itemType,omitempty"`
 	// DisplayName DisplayName of the PolicySetItem.
 	DisplayName *string `json:"displayName,omitempty"`
-	// Status Status of the PolicySetItem.
-	Status *PolicySetStatus `json:"status,omitempty"`
 	// ErrorCode Error code if any occured.
 	ErrorCode *ErrorCode `json:"errorCode,omitempty"`
 	// GuidedDeploymentTags Tags of the guided deployment
 	GuidedDeploymentTags []string `json:"guidedDeploymentTags,omitempty"`
+	// ItemType policySetType of the PolicySetItem.
+	ItemType *string `json:"itemType,omitempty"`
+	// LastModifiedDateTime Last modified time of the PolicySetItem.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// PayloadID PayloadId of the PolicySetItem.
+	PayloadID *string `json:"payloadId,omitempty"`
+	// Status Status of the PolicySetItem.
+	Status *PolicySetStatus `json:"status,omitempty"`
 }

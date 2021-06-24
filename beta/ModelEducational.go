@@ -25,15 +25,15 @@ type EducationalActivityDetail struct {
 	// Abbreviation undocumented
 	Abbreviation *string `json:"abbreviation,omitempty"`
 	// Activities undocumented
-	Activities *string `json:"activities,omitempty"`
+	Activities []string `json:"activities,omitempty"`
 	// Awards undocumented
-	Awards *string `json:"awards,omitempty"`
+	Awards []string `json:"awards,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// FieldsOfStudy undocumented
-	FieldsOfStudy *string `json:"fieldsOfStudy,omitempty"`
+	FieldsOfStudy []string `json:"fieldsOfStudy,omitempty"`
 	// Grade undocumented
 	Grade *string `json:"grade,omitempty"`
 	// Notes undocumented

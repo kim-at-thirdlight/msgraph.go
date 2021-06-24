@@ -12,10 +12,10 @@ type TargetedManagedAppConfiguration struct {
 	IsAssigned *bool `json:"isAssigned,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
-	// DeploymentSummary undocumented
-	DeploymentSummary *ManagedAppPolicyDeploymentSummary `json:"deploymentSummary,omitempty"`
 	// Assignments undocumented
 	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+	// DeploymentSummary undocumented
+	DeploymentSummary *ManagedAppPolicyDeploymentSummary `json:"deploymentSummary,omitempty"`
 }
 
 // TargetedManagedAppConfigurationPolicySetItem A class containing the properties used for Targeted managed app configuration PolicySetItem.
@@ -28,12 +28,12 @@ type TargetedManagedAppConfigurationPolicySetItem struct {
 type TargetedManagedAppPolicyAssignment struct {
 	// Entity is the base model of TargetedManagedAppPolicyAssignment
 	Entity
-	// Target Identifier for deployment to a group or app
-	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// Source Type of resource used for deployment to a group, direct or parcel/policySet
 	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
 	// SourceID Identifier for resource used for deployment to a group
 	SourceID *string `json:"sourceId,omitempty"`
+	// Target Identifier for deployment to a group or app
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
 // TargetedManagedAppProtection Policy used to configure detailed management settings targeted to specific security groups

@@ -37,6 +37,72 @@ func (r *SharedDriveItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// SharedEmailDomainRequestBuilder is request builder for SharedEmailDomain
+type SharedEmailDomainRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns SharedEmailDomainRequest
+func (b *SharedEmailDomainRequestBuilder) Request() *SharedEmailDomainRequest {
+	return &SharedEmailDomainRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// SharedEmailDomainRequest is request for SharedEmailDomain
+type SharedEmailDomainRequest struct{ BaseRequest }
+
+// Get performs GET request for SharedEmailDomain
+func (r *SharedEmailDomainRequest) Get(ctx context.Context) (resObj *SharedEmailDomain, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for SharedEmailDomain
+func (r *SharedEmailDomainRequest) Update(ctx context.Context, reqObj *SharedEmailDomain) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for SharedEmailDomain
+func (r *SharedEmailDomainRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// SharedEmailDomainInvitationRequestBuilder is request builder for SharedEmailDomainInvitation
+type SharedEmailDomainInvitationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns SharedEmailDomainInvitationRequest
+func (b *SharedEmailDomainInvitationRequestBuilder) Request() *SharedEmailDomainInvitationRequest {
+	return &SharedEmailDomainInvitationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// SharedEmailDomainInvitationRequest is request for SharedEmailDomainInvitation
+type SharedEmailDomainInvitationRequest struct{ BaseRequest }
+
+// Get performs GET request for SharedEmailDomainInvitation
+func (r *SharedEmailDomainInvitationRequest) Get(ctx context.Context) (resObj *SharedEmailDomainInvitation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for SharedEmailDomainInvitation
+func (r *SharedEmailDomainInvitationRequest) Update(ctx context.Context, reqObj *SharedEmailDomainInvitation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for SharedEmailDomainInvitation
+func (r *SharedEmailDomainInvitationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // SharedInsightRequestBuilder is request builder for SharedInsight
 type SharedInsightRequestBuilder struct{ BaseRequestBuilder }
 

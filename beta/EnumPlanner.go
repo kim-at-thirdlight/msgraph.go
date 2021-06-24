@@ -2,6 +2,70 @@
 
 package msgraph
 
+// PlannerContainerType undocumented
+type PlannerContainerType string
+
+const (
+	// PlannerContainerTypeVGroup undocumented
+	PlannerContainerTypeVGroup PlannerContainerType = "group"
+	// PlannerContainerTypeVUnknownFutureValue undocumented
+	PlannerContainerTypeVUnknownFutureValue PlannerContainerType = "unknownFutureValue"
+	// PlannerContainerTypeVRoster undocumented
+	PlannerContainerTypeVRoster PlannerContainerType = "roster"
+)
+
+var (
+	// PlannerContainerTypePGroup is a pointer to PlannerContainerTypeVGroup
+	PlannerContainerTypePGroup = &_PlannerContainerTypePGroup
+	// PlannerContainerTypePUnknownFutureValue is a pointer to PlannerContainerTypeVUnknownFutureValue
+	PlannerContainerTypePUnknownFutureValue = &_PlannerContainerTypePUnknownFutureValue
+	// PlannerContainerTypePRoster is a pointer to PlannerContainerTypeVRoster
+	PlannerContainerTypePRoster = &_PlannerContainerTypePRoster
+)
+
+var (
+	_PlannerContainerTypePGroup              = PlannerContainerTypeVGroup
+	_PlannerContainerTypePUnknownFutureValue = PlannerContainerTypeVUnknownFutureValue
+	_PlannerContainerTypePRoster             = PlannerContainerTypeVRoster
+)
+
+// PlannerPlanContextType undocumented
+type PlannerPlanContextType string
+
+const (
+	// PlannerPlanContextTypeVTeamsTab undocumented
+	PlannerPlanContextTypeVTeamsTab PlannerPlanContextType = "teamsTab"
+	// PlannerPlanContextTypeVSharePointPage undocumented
+	PlannerPlanContextTypeVSharePointPage PlannerPlanContextType = "sharePointPage"
+	// PlannerPlanContextTypeVMeetingNotes undocumented
+	PlannerPlanContextTypeVMeetingNotes PlannerPlanContextType = "meetingNotes"
+	// PlannerPlanContextTypeVOther undocumented
+	PlannerPlanContextTypeVOther PlannerPlanContextType = "other"
+	// PlannerPlanContextTypeVUnknownFutureValue undocumented
+	PlannerPlanContextTypeVUnknownFutureValue PlannerPlanContextType = "unknownFutureValue"
+)
+
+var (
+	// PlannerPlanContextTypePTeamsTab is a pointer to PlannerPlanContextTypeVTeamsTab
+	PlannerPlanContextTypePTeamsTab = &_PlannerPlanContextTypePTeamsTab
+	// PlannerPlanContextTypePSharePointPage is a pointer to PlannerPlanContextTypeVSharePointPage
+	PlannerPlanContextTypePSharePointPage = &_PlannerPlanContextTypePSharePointPage
+	// PlannerPlanContextTypePMeetingNotes is a pointer to PlannerPlanContextTypeVMeetingNotes
+	PlannerPlanContextTypePMeetingNotes = &_PlannerPlanContextTypePMeetingNotes
+	// PlannerPlanContextTypePOther is a pointer to PlannerPlanContextTypeVOther
+	PlannerPlanContextTypePOther = &_PlannerPlanContextTypePOther
+	// PlannerPlanContextTypePUnknownFutureValue is a pointer to PlannerPlanContextTypeVUnknownFutureValue
+	PlannerPlanContextTypePUnknownFutureValue = &_PlannerPlanContextTypePUnknownFutureValue
+)
+
+var (
+	_PlannerPlanContextTypePTeamsTab           = PlannerPlanContextTypeVTeamsTab
+	_PlannerPlanContextTypePSharePointPage     = PlannerPlanContextTypeVSharePointPage
+	_PlannerPlanContextTypePMeetingNotes       = PlannerPlanContextTypeVMeetingNotes
+	_PlannerPlanContextTypePOther              = PlannerPlanContextTypeVOther
+	_PlannerPlanContextTypePUnknownFutureValue = PlannerPlanContextTypeVUnknownFutureValue
+)
+
 // PlannerPreviewType undocumented
 type PlannerPreviewType string
 

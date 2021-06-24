@@ -10,6 +10,8 @@ type CountryNamedLocation struct {
 	NamedLocation
 	// CountriesAndRegions undocumented
 	CountriesAndRegions []string `json:"countriesAndRegions,omitempty"`
+	// CountryLookupMethod undocumented
+	CountryLookupMethod *CountryLookupMethodType `json:"countryLookupMethod,omitempty"`
 	// IncludeUnknownCountriesAndRegions undocumented
 	IncludeUnknownCountriesAndRegions *bool `json:"includeUnknownCountriesAndRegions,omitempty"`
 }
@@ -18,12 +20,12 @@ type CountryNamedLocation struct {
 type CountryRegion struct {
 	// Entity is the base model of CountryRegion
 	Entity
+	// AddressFormat undocumented
+	AddressFormat *string `json:"addressFormat,omitempty"`
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// AddressFormat undocumented
-	AddressFormat *string `json:"addressFormat,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 }

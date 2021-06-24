@@ -2,14 +2,7 @@
 
 package msgraph
 
-import (
-	"context"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-
-	"github.com/yaegashi/msgraph.go/jsonx"
-)
+import "context"
 
 // CloudAppSecurityProfileRequestBuilder is request builder for CloudAppSecurityProfile
 type CloudAppSecurityProfileRequestBuilder struct{ BaseRequestBuilder }
@@ -77,89 +70,299 @@ func (r *CloudCommunicationsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type CloudCommunicationsGetPresencesByUserIDRequestBuilder struct{ BaseRequestBuilder }
+// CloudPCRequestBuilder is request builder for CloudPC
+type CloudPCRequestBuilder struct{ BaseRequestBuilder }
 
-// GetPresencesByUserID action undocumented
-func (b *CloudCommunicationsRequestBuilder) GetPresencesByUserID(reqObj *CloudCommunicationsGetPresencesByUserIDRequestParameter) *CloudCommunicationsGetPresencesByUserIDRequestBuilder {
-	bb := &CloudCommunicationsGetPresencesByUserIDRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getPresencesByUserId"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type CloudCommunicationsGetPresencesByUserIDRequest struct{ BaseRequest }
-
-//
-func (b *CloudCommunicationsGetPresencesByUserIDRequestBuilder) Request() *CloudCommunicationsGetPresencesByUserIDRequest {
-	return &CloudCommunicationsGetPresencesByUserIDRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns CloudPCRequest
+func (b *CloudPCRequestBuilder) Request() *CloudPCRequest {
+	return &CloudPCRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Presence, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
+// CloudPCRequest is request for CloudPC
+type CloudPCRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPC
+func (r *CloudPCRequest) Get(ctx context.Context) (resObj *CloudPC, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
 	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Presence
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Presence
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPC
+func (r *CloudPCRequest) Update(ctx context.Context, reqObj *CloudPC) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPC
+func (r *CloudPCRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPCConnectivityIssueRequestBuilder is request builder for CloudPCConnectivityIssue
+type CloudPCConnectivityIssueRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPCConnectivityIssueRequest
+func (b *CloudPCConnectivityIssueRequestBuilder) Request() *CloudPCConnectivityIssueRequest {
+	return &CloudPCConnectivityIssueRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) PostN(ctx context.Context, n int) ([]Presence, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
+// CloudPCConnectivityIssueRequest is request for CloudPCConnectivityIssue
+type CloudPCConnectivityIssueRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPCConnectivityIssue
+func (r *CloudPCConnectivityIssueRequest) Get(ctx context.Context) (resObj *CloudPCConnectivityIssue, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
 }
 
-//
-func (r *CloudCommunicationsGetPresencesByUserIDRequest) Post(ctx context.Context) ([]Presence, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+// Update performs PATCH request for CloudPCConnectivityIssue
+func (r *CloudPCConnectivityIssueRequest) Update(ctx context.Context, reqObj *CloudPCConnectivityIssue) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPCConnectivityIssue
+func (r *CloudPCConnectivityIssueRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcAuditEventRequestBuilder is request builder for CloudPcAuditEvent
+type CloudPcAuditEventRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcAuditEventRequest
+func (b *CloudPcAuditEventRequestBuilder) Request() *CloudPcAuditEventRequest {
+	return &CloudPcAuditEventRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcAuditEventRequest is request for CloudPcAuditEvent
+type CloudPcAuditEventRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcAuditEvent
+func (r *CloudPcAuditEventRequest) Get(ctx context.Context) (resObj *CloudPcAuditEvent, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcAuditEvent
+func (r *CloudPcAuditEventRequest) Update(ctx context.Context, reqObj *CloudPcAuditEvent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcAuditEvent
+func (r *CloudPcAuditEventRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcDeviceImageRequestBuilder is request builder for CloudPcDeviceImage
+type CloudPcDeviceImageRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcDeviceImageRequest
+func (b *CloudPcDeviceImageRequestBuilder) Request() *CloudPcDeviceImageRequest {
+	return &CloudPcDeviceImageRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcDeviceImageRequest is request for CloudPcDeviceImage
+type CloudPcDeviceImageRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcDeviceImage
+func (r *CloudPcDeviceImageRequest) Get(ctx context.Context) (resObj *CloudPcDeviceImage, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcDeviceImage
+func (r *CloudPcDeviceImageRequest) Update(ctx context.Context, reqObj *CloudPcDeviceImage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcDeviceImage
+func (r *CloudPcDeviceImageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcOnPremisesConnectionRequestBuilder is request builder for CloudPcOnPremisesConnection
+type CloudPcOnPremisesConnectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcOnPremisesConnectionRequest
+func (b *CloudPcOnPremisesConnectionRequestBuilder) Request() *CloudPcOnPremisesConnectionRequest {
+	return &CloudPcOnPremisesConnectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcOnPremisesConnectionRequest is request for CloudPcOnPremisesConnection
+type CloudPcOnPremisesConnectionRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcOnPremisesConnection
+func (r *CloudPcOnPremisesConnectionRequest) Get(ctx context.Context) (resObj *CloudPcOnPremisesConnection, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcOnPremisesConnection
+func (r *CloudPcOnPremisesConnectionRequest) Update(ctx context.Context, reqObj *CloudPcOnPremisesConnection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcOnPremisesConnection
+func (r *CloudPcOnPremisesConnectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcProvisioningPolicyRequestBuilder is request builder for CloudPcProvisioningPolicy
+type CloudPcProvisioningPolicyRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcProvisioningPolicyRequest
+func (b *CloudPcProvisioningPolicyRequestBuilder) Request() *CloudPcProvisioningPolicyRequest {
+	return &CloudPcProvisioningPolicyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcProvisioningPolicyRequest is request for CloudPcProvisioningPolicy
+type CloudPcProvisioningPolicyRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcProvisioningPolicy
+func (r *CloudPcProvisioningPolicyRequest) Get(ctx context.Context) (resObj *CloudPcProvisioningPolicy, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcProvisioningPolicy
+func (r *CloudPcProvisioningPolicyRequest) Update(ctx context.Context, reqObj *CloudPcProvisioningPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcProvisioningPolicy
+func (r *CloudPcProvisioningPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcProvisioningPolicyAssignmentRequestBuilder is request builder for CloudPcProvisioningPolicyAssignment
+type CloudPcProvisioningPolicyAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcProvisioningPolicyAssignmentRequest
+func (b *CloudPcProvisioningPolicyAssignmentRequestBuilder) Request() *CloudPcProvisioningPolicyAssignmentRequest {
+	return &CloudPcProvisioningPolicyAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcProvisioningPolicyAssignmentRequest is request for CloudPcProvisioningPolicyAssignment
+type CloudPcProvisioningPolicyAssignmentRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcProvisioningPolicyAssignment
+func (r *CloudPcProvisioningPolicyAssignmentRequest) Get(ctx context.Context) (resObj *CloudPcProvisioningPolicyAssignment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcProvisioningPolicyAssignment
+func (r *CloudPcProvisioningPolicyAssignmentRequest) Update(ctx context.Context, reqObj *CloudPcProvisioningPolicyAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcProvisioningPolicyAssignment
+func (r *CloudPcProvisioningPolicyAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcUserSettingRequestBuilder is request builder for CloudPcUserSetting
+type CloudPcUserSettingRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcUserSettingRequest
+func (b *CloudPcUserSettingRequestBuilder) Request() *CloudPcUserSettingRequest {
+	return &CloudPcUserSettingRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcUserSettingRequest is request for CloudPcUserSetting
+type CloudPcUserSettingRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcUserSetting
+func (r *CloudPcUserSettingRequest) Get(ctx context.Context) (resObj *CloudPcUserSetting, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcUserSetting
+func (r *CloudPcUserSettingRequest) Update(ctx context.Context, reqObj *CloudPcUserSetting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcUserSetting
+func (r *CloudPcUserSettingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// CloudPcUserSettingAssignmentRequestBuilder is request builder for CloudPcUserSettingAssignment
+type CloudPcUserSettingAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns CloudPcUserSettingAssignmentRequest
+func (b *CloudPcUserSettingAssignmentRequestBuilder) Request() *CloudPcUserSettingAssignmentRequest {
+	return &CloudPcUserSettingAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// CloudPcUserSettingAssignmentRequest is request for CloudPcUserSettingAssignment
+type CloudPcUserSettingAssignmentRequest struct{ BaseRequest }
+
+// Get performs GET request for CloudPcUserSettingAssignment
+func (r *CloudPcUserSettingAssignmentRequest) Get(ctx context.Context) (resObj *CloudPcUserSettingAssignment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for CloudPcUserSettingAssignment
+func (r *CloudPcUserSettingAssignmentRequest) Update(ctx context.Context, reqObj *CloudPcUserSettingAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for CloudPcUserSettingAssignment
+func (r *CloudPcUserSettingAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

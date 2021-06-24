@@ -68,3 +68,40 @@ var (
 	_UsageAuthMethodPAppPassword         = UsageAuthMethodVAppPassword
 	_UsageAuthMethodPUnknownFutureValue  = UsageAuthMethodVUnknownFutureValue
 )
+
+// UsageRightState undocumented
+type UsageRightState string
+
+const (
+	// UsageRightStateVActive undocumented
+	UsageRightStateVActive UsageRightState = "active"
+	// UsageRightStateVInactive undocumented
+	UsageRightStateVInactive UsageRightState = "inactive"
+	// UsageRightStateVWarning undocumented
+	UsageRightStateVWarning UsageRightState = "warning"
+	// UsageRightStateVSuspended undocumented
+	UsageRightStateVSuspended UsageRightState = "suspended"
+	// UsageRightStateVUnknownFutureValue undocumented
+	UsageRightStateVUnknownFutureValue UsageRightState = "unknownFutureValue"
+)
+
+var (
+	// UsageRightStatePActive is a pointer to UsageRightStateVActive
+	UsageRightStatePActive = &_UsageRightStatePActive
+	// UsageRightStatePInactive is a pointer to UsageRightStateVInactive
+	UsageRightStatePInactive = &_UsageRightStatePInactive
+	// UsageRightStatePWarning is a pointer to UsageRightStateVWarning
+	UsageRightStatePWarning = &_UsageRightStatePWarning
+	// UsageRightStatePSuspended is a pointer to UsageRightStateVSuspended
+	UsageRightStatePSuspended = &_UsageRightStatePSuspended
+	// UsageRightStatePUnknownFutureValue is a pointer to UsageRightStateVUnknownFutureValue
+	UsageRightStatePUnknownFutureValue = &_UsageRightStatePUnknownFutureValue
+)
+
+var (
+	_UsageRightStatePActive             = UsageRightStateVActive
+	_UsageRightStatePInactive           = UsageRightStateVInactive
+	_UsageRightStatePWarning            = UsageRightStateVWarning
+	_UsageRightStatePSuspended          = UsageRightStateVSuspended
+	_UsageRightStatePUnknownFutureValue = UsageRightStateVUnknownFutureValue
+)

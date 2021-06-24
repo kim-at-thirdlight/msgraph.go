@@ -7,9 +7,24 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"time"
 
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
+
+// ListItemCreateLinkRequestParameter undocumented
+type ListItemCreateLinkRequestParameter struct {
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// Scope undocumented
+	Scope *string `json:"scope,omitempty"`
+	// ExpirationDateTime undocumented
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// Password undocumented
+	Password *string `json:"password,omitempty"`
+	// Recipients undocumented
+	Recipients []DriveRecipient `json:"recipients,omitempty"`
+}
 
 // ListItemVersionRestoreVersionRequestParameter undocumented
 type ListItemVersionRestoreVersionRequestParameter struct {

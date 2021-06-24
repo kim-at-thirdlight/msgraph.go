@@ -2,12 +2,14 @@
 
 package msgraph
 
-// ExcludedApps undocumented
+// ExcludedApps Contains properties for Excluded Office365 Apps.
 type ExcludedApps struct {
 	// Object is the base model of ExcludedApps
 	Object
 	// Access The value for if MS Office Access should be excluded or not.
 	Access *bool `json:"access,omitempty"`
+	// Bing The value for if Microsoft Search as default should be excluded or not.
+	Bing *bool `json:"bing,omitempty"`
 	// Excel The value for if MS Office Excel should be excluded or not.
 	Excel *bool `json:"excel,omitempty"`
 	// Groove The value for if MS Office OneDrive for Business - Groove should be excluded or not.

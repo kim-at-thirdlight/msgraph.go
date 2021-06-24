@@ -8,32 +8,36 @@ import "time"
 type AuditActivityInitiator struct {
 	// Object is the base model of AuditActivityInitiator
 	Object
-	// User undocumented
-	User *UserIdentity `json:"user,omitempty"`
 	// App undocumented
 	App *AppIdentity `json:"app,omitempty"`
+	// User undocumented
+	User *UserIdentity `json:"user,omitempty"`
 }
 
-// AuditActor undocumented
+// AuditActor A class containing the properties for Audit Actor.
 type AuditActor struct {
 	// Object is the base model of AuditActor
 	Object
-	// Type Actor Type.
-	Type *string `json:"type,omitempty"`
-	// UserPermissions List of user permissions when the audit was performed.
-	UserPermissions []string `json:"userPermissions,omitempty"`
-	// ApplicationID AAD Application Id.
-	ApplicationID *string `json:"applicationId,omitempty"`
 	// ApplicationDisplayName Name of the Application.
 	ApplicationDisplayName *string `json:"applicationDisplayName,omitempty"`
-	// UserPrincipalName User Principal Name (UPN).
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// ServicePrincipalName Service Principal Name (SPN).
-	ServicePrincipalName *string `json:"servicePrincipalName,omitempty"`
+	// ApplicationID AAD Application Id.
+	ApplicationID *string `json:"applicationId,omitempty"`
 	// IPAddress IPAddress.
 	IPAddress *string `json:"ipAddress,omitempty"`
+	// RemoteTenantID Remote Tenant Id
+	RemoteTenantID *string `json:"remoteTenantId,omitempty"`
+	// RemoteUserID Remote User Id
+	RemoteUserID *string `json:"remoteUserId,omitempty"`
+	// ServicePrincipalName Service Principal Name (SPN).
+	ServicePrincipalName *string `json:"servicePrincipalName,omitempty"`
+	// Type Actor Type.
+	Type *string `json:"type,omitempty"`
 	// UserID User Id.
 	UserID *string `json:"userId,omitempty"`
+	// UserPermissions List of user permissions when the audit was performed.
+	UserPermissions []string `json:"userPermissions,omitempty"`
+	// UserPrincipalName User Principal Name (UPN).
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// UserRoleScopeTags List of user scope tags when the audit was performed.
 	UserRoleScopeTags []RoleScopeTagInfo `json:"userRoleScopeTags,omitempty"`
 }
@@ -42,59 +46,59 @@ type AuditActor struct {
 type AuditEvent struct {
 	// Entity is the base model of AuditEvent
 	Entity
-	// DisplayName Event display name.
-	DisplayName *string `json:"displayName,omitempty"`
-	// ComponentName Component name.
-	ComponentName *string `json:"componentName,omitempty"`
-	// Actor AAD user and application that are associated with the audit event.
-	Actor *AuditActor `json:"actor,omitempty"`
 	// Activity Friendly name of the activity.
 	Activity *string `json:"activity,omitempty"`
 	// ActivityDateTime The date time in UTC when the activity was performed.
 	ActivityDateTime *time.Time `json:"activityDateTime,omitempty"`
-	// ActivityType The type of activity that was being performed.
-	ActivityType *string `json:"activityType,omitempty"`
 	// ActivityOperationType The HTTP operation type of the activity.
 	ActivityOperationType *string `json:"activityOperationType,omitempty"`
 	// ActivityResult The result of the activity.
 	ActivityResult *string `json:"activityResult,omitempty"`
-	// CorrelationID The client request Id that is used to correlate activity within the system.
-	CorrelationID *UUID `json:"correlationId,omitempty"`
-	// Resources Resources being modified.
-	Resources []AuditResource `json:"resources,omitempty"`
+	// ActivityType The type of activity that was being performed.
+	ActivityType *string `json:"activityType,omitempty"`
+	// Actor AAD user and application that are associated with the audit event.
+	Actor *AuditActor `json:"actor,omitempty"`
 	// Category Audit category.
 	Category *string `json:"category,omitempty"`
+	// ComponentName Component name.
+	ComponentName *string `json:"componentName,omitempty"`
+	// CorrelationID The client request Id that is used to correlate activity within the system.
+	CorrelationID *UUID `json:"correlationId,omitempty"`
+	// DisplayName Event display name.
+	DisplayName *string `json:"displayName,omitempty"`
+	// Resources Resources being modified.
+	Resources []AuditResource `json:"resources,omitempty"`
 }
 
 // AuditLogRoot undocumented
 type AuditLogRoot struct {
-	// Entity is the base model of AuditLogRoot
-	Entity
-	// SignIns undocumented
-	SignIns []SignIn `json:"signIns,omitempty"`
+	// Object is the base model of AuditLogRoot
+	Object
 	// DirectoryAudits undocumented
 	DirectoryAudits []DirectoryAudit `json:"directoryAudits,omitempty"`
-	// RestrictedSignIns undocumented
-	RestrictedSignIns []RestrictedSignIn `json:"restrictedSignIns,omitempty"`
 	// DirectoryProvisioning undocumented
 	DirectoryProvisioning []ProvisioningObjectSummary `json:"directoryProvisioning,omitempty"`
 	// Provisioning undocumented
 	Provisioning []ProvisioningObjectSummary `json:"provisioning,omitempty"`
+	// RestrictedSignIns undocumented
+	RestrictedSignIns []RestrictedSignIn `json:"restrictedSignIns,omitempty"`
+	// SignIns undocumented
+	SignIns []SignIn `json:"signIns,omitempty"`
 }
 
-// AuditProperty undocumented
+// AuditProperty A class containing the properties for Audit Property.
 type AuditProperty struct {
 	// Object is the base model of AuditProperty
 	Object
 	// DisplayName Display name.
 	DisplayName *string `json:"displayName,omitempty"`
-	// OldValue Old value.
-	OldValue *string `json:"oldValue,omitempty"`
 	// NewValue New value.
 	NewValue *string `json:"newValue,omitempty"`
+	// OldValue Old value.
+	OldValue *string `json:"oldValue,omitempty"`
 }
 
-// AuditResource undocumented
+// AuditResource A class containing the properties for Audit Resource.
 type AuditResource struct {
 	// Object is the base model of AuditResource
 	Object
@@ -102,8 +106,8 @@ type AuditResource struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// ModifiedProperties List of modified properties.
 	ModifiedProperties []AuditProperty `json:"modifiedProperties,omitempty"`
-	// Type Audit resource's type.
-	Type *string `json:"type,omitempty"`
 	// ResourceID Audit resource's Id.
 	ResourceID *string `json:"resourceId,omitempty"`
+	// Type Audit resource's type.
+	Type *string `json:"type,omitempty"`
 }

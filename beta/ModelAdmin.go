@@ -2,7 +2,17 @@
 
 package msgraph
 
-// AdminConsent undocumented
+// Admin undocumented
+type Admin struct {
+	// Object is the base model of Admin
+	Object
+	// ServiceAnnouncement undocumented
+	ServiceAnnouncement *ServiceAnnouncement `json:"serviceAnnouncement,omitempty"`
+	// Windows undocumented
+	Windows *WindowsUpdateswindows `json:"windows,omitempty"`
+}
+
+// AdminConsent Admin consent information.
 type AdminConsent struct {
 	// Object is the base model of AdminConsent
 	Object
@@ -10,4 +20,22 @@ type AdminConsent struct {
 	ShareAPNSData *AdminConsentState `json:"shareAPNSData,omitempty"`
 	// ShareUserExperienceAnalyticsData Gets or sets the admin consent for sharing User experience analytics data.
 	ShareUserExperienceAnalyticsData *AdminConsentState `json:"shareUserExperienceAnalyticsData,omitempty"`
+}
+
+// AdminConsentRequestPolicy undocumented
+type AdminConsentRequestPolicy struct {
+	// Entity is the base model of AdminConsentRequestPolicy
+	Entity
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
+	// NotifyReviewers undocumented
+	NotifyReviewers *bool `json:"notifyReviewers,omitempty"`
+	// RemindersEnabled undocumented
+	RemindersEnabled *bool `json:"remindersEnabled,omitempty"`
+	// RequestDurationInDays undocumented
+	RequestDurationInDays *int `json:"requestDurationInDays,omitempty"`
+	// Reviewers undocumented
+	Reviewers []AccessReviewReviewerScope `json:"reviewers,omitempty"`
+	// Version undocumented
+	Version *int `json:"version,omitempty"`
 }

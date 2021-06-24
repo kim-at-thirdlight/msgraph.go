@@ -8,36 +8,28 @@ import "time"
 type RequestObject struct {
 	// Entity is the base model of RequestObject
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
-	// BusinessFlowID undocumented
-	BusinessFlowID *string `json:"businessFlowId,omitempty"`
+	// ApprovalID undocumented
+	ApprovalID *string `json:"approvalId,omitempty"`
+	// CompletedDateTime undocumented
+	CompletedDateTime *time.Time `json:"completedDateTime,omitempty"`
 	// CreatedBy undocumented
-	CreatedBy *UserIdentity `json:"createdBy,omitempty"`
-	// DeDuplicationID undocumented
-	DeDuplicationID *string `json:"deDuplicationId,omitempty"`
-	// SchemaID undocumented
-	SchemaID *string `json:"schemaId,omitempty"`
+	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// CustomData undocumented
 	CustomData *string `json:"customData,omitempty"`
-	// RecordVersion undocumented
-	RecordVersion *string `json:"recordVersion,omitempty"`
-	// PolicyTemplateID undocumented
-	PolicyTemplateID *string `json:"policyTemplateId,omitempty"`
-	// Policy undocumented
-	Policy *GovernancePolicy `json:"policy,omitempty"`
-	// Settings undocumented
-	Settings *AccessReviewSettings `json:"settings,omitempty"`
-	// Decisions undocumented
-	Decisions []AccessReviewDecision `json:"decisions,omitempty"`
-	// MyDecisions undocumented
-	MyDecisions []AccessReviewDecision `json:"myDecisions,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+}
+
+// RequestSchedule undocumented
+type RequestSchedule struct {
+	// Object is the base model of RequestSchedule
+	Object
+	// Expiration undocumented
+	Expiration *ExpirationPattern `json:"expiration,omitempty"`
+	// Recurrence undocumented
+	Recurrence *PatternedRecurrence `json:"recurrence,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 }

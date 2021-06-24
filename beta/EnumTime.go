@@ -2,6 +2,38 @@
 
 package msgraph
 
+// TimeCardState undocumented
+type TimeCardState string
+
+const (
+	// TimeCardStateVClockedIn undocumented
+	TimeCardStateVClockedIn TimeCardState = "clockedIn"
+	// TimeCardStateVOnBreak undocumented
+	TimeCardStateVOnBreak TimeCardState = "onBreak"
+	// TimeCardStateVClockedOut undocumented
+	TimeCardStateVClockedOut TimeCardState = "clockedOut"
+	// TimeCardStateVUnknownFutureValue undocumented
+	TimeCardStateVUnknownFutureValue TimeCardState = "unknownFutureValue"
+)
+
+var (
+	// TimeCardStatePClockedIn is a pointer to TimeCardStateVClockedIn
+	TimeCardStatePClockedIn = &_TimeCardStatePClockedIn
+	// TimeCardStatePOnBreak is a pointer to TimeCardStateVOnBreak
+	TimeCardStatePOnBreak = &_TimeCardStatePOnBreak
+	// TimeCardStatePClockedOut is a pointer to TimeCardStateVClockedOut
+	TimeCardStatePClockedOut = &_TimeCardStatePClockedOut
+	// TimeCardStatePUnknownFutureValue is a pointer to TimeCardStateVUnknownFutureValue
+	TimeCardStatePUnknownFutureValue = &_TimeCardStatePUnknownFutureValue
+)
+
+var (
+	_TimeCardStatePClockedIn          = TimeCardStateVClockedIn
+	_TimeCardStatePOnBreak            = TimeCardStateVOnBreak
+	_TimeCardStatePClockedOut         = TimeCardStateVClockedOut
+	_TimeCardStatePUnknownFutureValue = TimeCardStateVUnknownFutureValue
+)
+
 // TimeOffReasonIconType undocumented
 type TimeOffReasonIconType string
 

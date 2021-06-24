@@ -8,10 +8,10 @@ import "time"
 type AzureADFeatureUsage struct {
 	// Entity is the base model of AzureADFeatureUsage
 	Entity
-	// SnapshotDateTime undocumented
-	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`
 	// FeatureName undocumented
 	FeatureName *string `json:"featureName,omitempty"`
+	// SnapshotDateTime undocumented
+	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`
 	// Usage undocumented
 	Usage *int `json:"usage,omitempty"`
 }
@@ -20,34 +20,44 @@ type AzureADFeatureUsage struct {
 type AzureADLicenseUsage struct {
 	// Entity is the base model of AzureADLicenseUsage
 	Entity
-	// SnapshotDateTime undocumented
-	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`
 	// LicenseInfoDetails undocumented
 	LicenseInfoDetails []LicenseInfoDetail `json:"licenseInfoDetails,omitempty"`
+	// SnapshotDateTime undocumented
+	SnapshotDateTime *time.Time `json:"snapshotDateTime,omitempty"`
 }
 
 // AzureADUserFeatureUsage undocumented
 type AzureADUserFeatureUsage struct {
 	// Entity is the base model of AzureADUserFeatureUsage
 	Entity
-	// LastUpdatedDateTime undocumented
-	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// UserDisplayName undocumented
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// LicenseRecommended undocumented
-	LicenseRecommended *AzureADLicenseType `json:"licenseRecommended,omitempty"`
-	// LicenseAssigned undocumented
-	LicenseAssigned *AzureADLicenseType `json:"licenseAssigned,omitempty"`
 	// FeatureUsageDetails undocumented
 	FeatureUsageDetails []FeatureUsageDetail `json:"featureUsageDetails,omitempty"`
+	// LastUpdatedDateTime undocumented
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// LicenseAssigned undocumented
+	LicenseAssigned *AzureADLicenseType `json:"licenseAssigned,omitempty"`
+	// LicenseRecommended undocumented
+	LicenseRecommended *AzureADLicenseType `json:"licenseRecommended,omitempty"`
+	// UserDisplayName undocumented
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // AzureADWindowsAutopilotDeploymentProfile Windows Autopilot Deployment Profile
 type AzureADWindowsAutopilotDeploymentProfile struct {
 	// WindowsAutopilotDeploymentProfile is the base model of AzureADWindowsAutopilotDeploymentProfile
 	WindowsAutopilotDeploymentProfile
+}
+
+// AzureActiveDirectoryTenant undocumented
+type AzureActiveDirectoryTenant struct {
+	// IdentitySource is the base model of AzureActiveDirectoryTenant
+	IdentitySource
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
 }

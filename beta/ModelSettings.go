@@ -6,10 +6,10 @@ package msgraph
 type Settings struct {
 	// Object is the base model of Settings
 	Object
+	// HasGraphMailbox undocumented
+	HasGraphMailbox *bool `json:"hasGraphMailbox,omitempty"`
 	// HasLicense undocumented
 	HasLicense *bool `json:"hasLicense,omitempty"`
 	// HasOptedOut undocumented
 	HasOptedOut *bool `json:"hasOptedOut,omitempty"`
-	// HasGraphMailbox undocumented
-	HasGraphMailbox *bool `json:"hasGraphMailbox,omitempty"`
 }

@@ -136,6 +136,39 @@ func (r *ItemActivityStatRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ItemAddressRequestBuilder is request builder for ItemAddress
+type ItemAddressRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ItemAddressRequest
+func (b *ItemAddressRequestBuilder) Request() *ItemAddressRequest {
+	return &ItemAddressRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ItemAddressRequest is request for ItemAddress
+type ItemAddressRequest struct{ BaseRequest }
+
+// Get performs GET request for ItemAddress
+func (r *ItemAddressRequest) Get(ctx context.Context) (resObj *ItemAddress, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ItemAddress
+func (r *ItemAddressRequest) Update(ctx context.Context, reqObj *ItemAddress) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ItemAddress
+func (r *ItemAddressRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ItemAnalyticsRequestBuilder is request builder for ItemAnalytics
 type ItemAnalyticsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -268,6 +301,105 @@ func (r *ItemEmailRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ItemInsightsRequestBuilder is request builder for ItemInsights
+type ItemInsightsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ItemInsightsRequest
+func (b *ItemInsightsRequestBuilder) Request() *ItemInsightsRequest {
+	return &ItemInsightsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ItemInsightsRequest is request for ItemInsights
+type ItemInsightsRequest struct{ BaseRequest }
+
+// Get performs GET request for ItemInsights
+func (r *ItemInsightsRequest) Get(ctx context.Context) (resObj *ItemInsights, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ItemInsights
+func (r *ItemInsightsRequest) Update(ctx context.Context, reqObj *ItemInsights) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ItemInsights
+func (r *ItemInsightsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ItemInsightsSettingsRequestBuilder is request builder for ItemInsightsSettings
+type ItemInsightsSettingsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ItemInsightsSettingsRequest
+func (b *ItemInsightsSettingsRequestBuilder) Request() *ItemInsightsSettingsRequest {
+	return &ItemInsightsSettingsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ItemInsightsSettingsRequest is request for ItemInsightsSettings
+type ItemInsightsSettingsRequest struct{ BaseRequest }
+
+// Get performs GET request for ItemInsightsSettings
+func (r *ItemInsightsSettingsRequest) Get(ctx context.Context) (resObj *ItemInsightsSettings, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ItemInsightsSettings
+func (r *ItemInsightsSettingsRequest) Update(ctx context.Context, reqObj *ItemInsightsSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ItemInsightsSettings
+func (r *ItemInsightsSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ItemPatentRequestBuilder is request builder for ItemPatent
+type ItemPatentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ItemPatentRequest
+func (b *ItemPatentRequestBuilder) Request() *ItemPatentRequest {
+	return &ItemPatentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ItemPatentRequest is request for ItemPatent
+type ItemPatentRequest struct{ BaseRequest }
+
+// Get performs GET request for ItemPatent
+func (r *ItemPatentRequest) Get(ctx context.Context) (resObj *ItemPatent, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ItemPatent
+func (r *ItemPatentRequest) Update(ctx context.Context, reqObj *ItemPatent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ItemPatent
+func (r *ItemPatentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ItemPhoneRequestBuilder is request builder for ItemPhone
 type ItemPhoneRequestBuilder struct{ BaseRequestBuilder }
 
@@ -298,5 +430,38 @@ func (r *ItemPhoneRequest) Update(ctx context.Context, reqObj *ItemPhone) error 
 
 // Delete performs DELETE request for ItemPhone
 func (r *ItemPhoneRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ItemPublicationRequestBuilder is request builder for ItemPublication
+type ItemPublicationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ItemPublicationRequest
+func (b *ItemPublicationRequestBuilder) Request() *ItemPublicationRequest {
+	return &ItemPublicationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ItemPublicationRequest is request for ItemPublication
+type ItemPublicationRequest struct{ BaseRequest }
+
+// Get performs GET request for ItemPublication
+func (r *ItemPublicationRequest) Get(ctx context.Context) (resObj *ItemPublication, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ItemPublication
+func (r *ItemPublicationRequest) Update(ctx context.Context, reqObj *ItemPublication) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ItemPublication
+func (r *ItemPublicationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

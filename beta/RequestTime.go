@@ -4,6 +4,39 @@ package msgraph
 
 import "context"
 
+// TimeCardRequestBuilder is request builder for TimeCard
+type TimeCardRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TimeCardRequest
+func (b *TimeCardRequestBuilder) Request() *TimeCardRequest {
+	return &TimeCardRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TimeCardRequest is request for TimeCard
+type TimeCardRequest struct{ BaseRequest }
+
+// Get performs GET request for TimeCard
+func (r *TimeCardRequest) Get(ctx context.Context) (resObj *TimeCard, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TimeCard
+func (r *TimeCardRequest) Update(ctx context.Context, reqObj *TimeCard) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TimeCard
+func (r *TimeCardRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // TimeOffRequestBuilder is request builder for TimeOff
 type TimeOffRequestBuilder struct{ BaseRequestBuilder }
 
@@ -70,21 +103,21 @@ func (r *TimeOffReasonRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// TimeOffRequestObjectRequestBuilder is request builder for TimeOffRequestObject
-type TimeOffRequestObjectRequestBuilder struct{ BaseRequestBuilder }
+// TimeOffRequestRequestBuilder is request builder for TimeOffRequest
+type TimeOffRequestRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns TimeOffRequestObjectRequest
-func (b *TimeOffRequestObjectRequestBuilder) Request() *TimeOffRequestObjectRequest {
-	return &TimeOffRequestObjectRequest{
+// Request returns TimeOffRequestRequest
+func (b *TimeOffRequestRequestBuilder) Request() *TimeOffRequestRequest {
+	return &TimeOffRequestRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// TimeOffRequestObjectRequest is request for TimeOffRequestObject
-type TimeOffRequestObjectRequest struct{ BaseRequest }
+// TimeOffRequestRequest is request for TimeOffRequest
+type TimeOffRequestRequest struct{ BaseRequest }
 
-// Get performs GET request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Get(ctx context.Context) (resObj *TimeOffRequestObject, err error) {
+// Get performs GET request for TimeOffRequest
+func (r *TimeOffRequestRequest) Get(ctx context.Context) (resObj *TimeOffRequest, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -93,12 +126,39 @@ func (r *TimeOffRequestObjectRequest) Get(ctx context.Context) (resObj *TimeOffR
 	return
 }
 
-// Update performs PATCH request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Update(ctx context.Context, reqObj *TimeOffRequestObject) error {
+// Update performs PATCH request for TimeOffRequest
+func (r *TimeOffRequestRequest) Update(ctx context.Context, reqObj *TimeOffRequest) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for TimeOffRequestObject
-func (r *TimeOffRequestObjectRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for TimeOffRequest
+func (r *TimeOffRequestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+//
+type TimeCardCollectionClockInRequestBuilder struct{ BaseRequestBuilder }
+
+// ClockIn action undocumented
+func (b *ScheduleTimeCardsCollectionRequestBuilder) ClockIn(reqObj *TimeCardCollectionClockInRequestParameter) *TimeCardCollectionClockInRequestBuilder {
+	bb := &TimeCardCollectionClockInRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/clockIn"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TimeCardCollectionClockInRequest struct{ BaseRequest }
+
+//
+func (b *TimeCardCollectionClockInRequestBuilder) Request() *TimeCardCollectionClockInRequest {
+	return &TimeCardCollectionClockInRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TimeCardCollectionClockInRequest) Post(ctx context.Context) (resObj *TimeCard, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
 }

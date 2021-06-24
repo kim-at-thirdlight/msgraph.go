@@ -8,12 +8,14 @@ type WebAccount struct {
 	ItemFacet
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
 	// Service undocumented
 	Service *ServiceInformation `json:"service,omitempty"`
 	// StatusMessage undocumented
 	StatusMessage *string `json:"statusMessage,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }
@@ -22,7 +24,7 @@ type WebAccount struct {
 type WebApp struct {
 	// MobileApp is the base model of WebApp
 	MobileApp
-	// AppURL The web app URL.
+	// AppURL The web app URL. This property cannot be PATCHed.
 	AppURL *string `json:"appUrl,omitempty"`
 	// UseManagedBrowser Whether or not to use managed browser. This property is only applicable for Android and IOS.
 	UseManagedBrowser *bool `json:"useManagedBrowser,omitempty"`
@@ -34,22 +36,22 @@ type WebApplication struct {
 	Object
 	// HomePageURL undocumented
 	HomePageURL *string `json:"homePageUrl,omitempty"`
-	// RedirectUris undocumented
-	RedirectUris []string `json:"redirectUris,omitempty"`
-	// OAuth2AllowImplicitFlow undocumented
-	OAuth2AllowImplicitFlow *bool `json:"oauth2AllowImplicitFlow,omitempty"`
-	// LogoutURL undocumented
-	LogoutURL *string `json:"logoutUrl,omitempty"`
 	// ImplicitGrantSettings undocumented
 	ImplicitGrantSettings *ImplicitGrantSettings `json:"implicitGrantSettings,omitempty"`
+	// LogoutURL undocumented
+	LogoutURL *string `json:"logoutUrl,omitempty"`
+	// OAuth2AllowImplicitFlow undocumented
+	OAuth2AllowImplicitFlow *bool `json:"oauth2AllowImplicitFlow,omitempty"`
+	// RedirectUris undocumented
+	RedirectUris []string `json:"redirectUris,omitempty"`
 }
 
 // WebPart undocumented
 type WebPart struct {
 	// Object is the base model of WebPart
 	Object
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
 	// Data undocumented
 	Data *SitePageData `json:"data,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }

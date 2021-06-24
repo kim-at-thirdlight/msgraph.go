@@ -6,10 +6,10 @@ package msgraph
 type AdministrativeUnit struct {
 	// DirectoryObject is the base model of AdministrativeUnit
 	DirectoryObject
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Visibility undocumented
 	Visibility *string `json:"visibility,omitempty"`
 	// Members undocumented

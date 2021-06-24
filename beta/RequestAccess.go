@@ -103,6 +103,39 @@ func (r *AccessPackageAssignmentPolicyRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// AccessPackageAssignmentRequestRequestBuilder is request builder for AccessPackageAssignmentRequest
+type AccessPackageAssignmentRequestRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessPackageAssignmentRequestRequest
+func (b *AccessPackageAssignmentRequestRequestBuilder) Request() *AccessPackageAssignmentRequestRequest {
+	return &AccessPackageAssignmentRequestRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessPackageAssignmentRequestRequest is request for AccessPackageAssignmentRequest
+type AccessPackageAssignmentRequestRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessPackageAssignmentRequest
+func (r *AccessPackageAssignmentRequestRequest) Get(ctx context.Context) (resObj *AccessPackageAssignmentRequest, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessPackageAssignmentRequest
+func (r *AccessPackageAssignmentRequestRequest) Update(ctx context.Context, reqObj *AccessPackageAssignmentRequest) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessPackageAssignmentRequest
+func (r *AccessPackageAssignmentRequestRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // AccessPackageAssignmentRequestObjectRequestBuilder is request builder for AccessPackageAssignmentRequestObject
 type AccessPackageAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -232,6 +265,72 @@ func (r *AccessPackageResourceRequest) Update(ctx context.Context, reqObj *Acces
 
 // Delete performs DELETE request for AccessPackageResource
 func (r *AccessPackageResourceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// AccessPackageResourceEnvironmentRequestBuilder is request builder for AccessPackageResourceEnvironment
+type AccessPackageResourceEnvironmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessPackageResourceEnvironmentRequest
+func (b *AccessPackageResourceEnvironmentRequestBuilder) Request() *AccessPackageResourceEnvironmentRequest {
+	return &AccessPackageResourceEnvironmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessPackageResourceEnvironmentRequest is request for AccessPackageResourceEnvironment
+type AccessPackageResourceEnvironmentRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessPackageResourceEnvironment
+func (r *AccessPackageResourceEnvironmentRequest) Get(ctx context.Context) (resObj *AccessPackageResourceEnvironment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessPackageResourceEnvironment
+func (r *AccessPackageResourceEnvironmentRequest) Update(ctx context.Context, reqObj *AccessPackageResourceEnvironment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessPackageResourceEnvironment
+func (r *AccessPackageResourceEnvironmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// AccessPackageResourceRequestRequestBuilder is request builder for AccessPackageResourceRequest
+type AccessPackageResourceRequestRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessPackageResourceRequestRequest
+func (b *AccessPackageResourceRequestRequestBuilder) Request() *AccessPackageResourceRequestRequest {
+	return &AccessPackageResourceRequestRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessPackageResourceRequestRequest is request for AccessPackageResourceRequest
+type AccessPackageResourceRequestRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessPackageResourceRequest
+func (r *AccessPackageResourceRequestRequest) Get(ctx context.Context) (resObj *AccessPackageResourceRequest, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessPackageResourceRequest
+func (r *AccessPackageResourceRequestRequest) Update(ctx context.Context, reqObj *AccessPackageResourceRequest) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessPackageResourceRequest
+func (r *AccessPackageResourceRequestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -466,6 +565,138 @@ func (r *AccessReviewDecisionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// AccessReviewHistoryDefinitionRequestBuilder is request builder for AccessReviewHistoryDefinition
+type AccessReviewHistoryDefinitionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessReviewHistoryDefinitionRequest
+func (b *AccessReviewHistoryDefinitionRequestBuilder) Request() *AccessReviewHistoryDefinitionRequest {
+	return &AccessReviewHistoryDefinitionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessReviewHistoryDefinitionRequest is request for AccessReviewHistoryDefinition
+type AccessReviewHistoryDefinitionRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessReviewHistoryDefinition
+func (r *AccessReviewHistoryDefinitionRequest) Get(ctx context.Context) (resObj *AccessReviewHistoryDefinition, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessReviewHistoryDefinition
+func (r *AccessReviewHistoryDefinitionRequest) Update(ctx context.Context, reqObj *AccessReviewHistoryDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessReviewHistoryDefinition
+func (r *AccessReviewHistoryDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// AccessReviewInstanceRequestBuilder is request builder for AccessReviewInstance
+type AccessReviewInstanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessReviewInstanceRequest
+func (b *AccessReviewInstanceRequestBuilder) Request() *AccessReviewInstanceRequest {
+	return &AccessReviewInstanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessReviewInstanceRequest is request for AccessReviewInstance
+type AccessReviewInstanceRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessReviewInstance
+func (r *AccessReviewInstanceRequest) Get(ctx context.Context) (resObj *AccessReviewInstance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessReviewInstance
+func (r *AccessReviewInstanceRequest) Update(ctx context.Context, reqObj *AccessReviewInstance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessReviewInstance
+func (r *AccessReviewInstanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// AccessReviewInstanceDecisionItemRequestBuilder is request builder for AccessReviewInstanceDecisionItem
+type AccessReviewInstanceDecisionItemRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessReviewInstanceDecisionItemRequest
+func (b *AccessReviewInstanceDecisionItemRequestBuilder) Request() *AccessReviewInstanceDecisionItemRequest {
+	return &AccessReviewInstanceDecisionItemRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessReviewInstanceDecisionItemRequest is request for AccessReviewInstanceDecisionItem
+type AccessReviewInstanceDecisionItemRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessReviewInstanceDecisionItem
+func (r *AccessReviewInstanceDecisionItemRequest) Get(ctx context.Context) (resObj *AccessReviewInstanceDecisionItem, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessReviewInstanceDecisionItem
+func (r *AccessReviewInstanceDecisionItemRequest) Update(ctx context.Context, reqObj *AccessReviewInstanceDecisionItem) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessReviewInstanceDecisionItem
+func (r *AccessReviewInstanceDecisionItemRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// AccessReviewPolicyRequestBuilder is request builder for AccessReviewPolicy
+type AccessReviewPolicyRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessReviewPolicyRequest
+func (b *AccessReviewPolicyRequestBuilder) Request() *AccessReviewPolicyRequest {
+	return &AccessReviewPolicyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// AccessReviewPolicyRequest is request for AccessReviewPolicy
+type AccessReviewPolicyRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessReviewPolicy
+func (r *AccessReviewPolicyRequest) Get(ctx context.Context) (resObj *AccessReviewPolicy, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for AccessReviewPolicy
+func (r *AccessReviewPolicyRequest) Update(ctx context.Context, reqObj *AccessReviewPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for AccessReviewPolicy
+func (r *AccessReviewPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // AccessReviewReviewerRequestBuilder is request builder for AccessReviewReviewer
 type AccessReviewReviewerRequestBuilder struct{ BaseRequestBuilder }
 
@@ -499,132 +730,68 @@ func (r *AccessReviewReviewerRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type AccessPackageAssignmentRequestObjectCancelRequestBuilder struct{ BaseRequestBuilder }
+// AccessReviewScheduleDefinitionRequestBuilder is request builder for AccessReviewScheduleDefinition
+type AccessReviewScheduleDefinitionRequestBuilder struct{ BaseRequestBuilder }
 
-// Cancel action undocumented
-func (b *AccessPackageAssignmentRequestObjectRequestBuilder) Cancel(reqObj *AccessPackageAssignmentRequestObjectCancelRequestParameter) *AccessPackageAssignmentRequestObjectCancelRequestBuilder {
-	bb := &AccessPackageAssignmentRequestObjectCancelRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/Cancel"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type AccessPackageAssignmentRequestObjectCancelRequest struct{ BaseRequest }
-
-//
-func (b *AccessPackageAssignmentRequestObjectCancelRequestBuilder) Request() *AccessPackageAssignmentRequestObjectCancelRequest {
-	return &AccessPackageAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns AccessReviewScheduleDefinitionRequest
+func (b *AccessReviewScheduleDefinitionRequestBuilder) Request() *AccessReviewScheduleDefinitionRequest {
+	return &AccessReviewScheduleDefinitionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *AccessPackageAssignmentRequestObjectCancelRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// AccessReviewScheduleDefinitionRequest is request for AccessReviewScheduleDefinition
+type AccessReviewScheduleDefinitionRequest struct{ BaseRequest }
+
+// Get performs GET request for AccessReviewScheduleDefinition
+func (r *AccessReviewScheduleDefinitionRequest) Get(ctx context.Context) (resObj *AccessReviewScheduleDefinition, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
 }
 
-//
-type AccessReviewStopRequestBuilder struct{ BaseRequestBuilder }
-
-// Stop action undocumented
-func (b *AccessReviewRequestBuilder) Stop(reqObj *AccessReviewStopRequestParameter) *AccessReviewStopRequestBuilder {
-	bb := &AccessReviewStopRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/stop"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// Update performs PATCH request for AccessReviewScheduleDefinition
+func (r *AccessReviewScheduleDefinitionRequest) Update(ctx context.Context, reqObj *AccessReviewScheduleDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-//
-type AccessReviewStopRequest struct{ BaseRequest }
+// Delete performs DELETE request for AccessReviewScheduleDefinition
+func (r *AccessReviewScheduleDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
 
-//
-func (b *AccessReviewStopRequestBuilder) Request() *AccessReviewStopRequest {
-	return &AccessReviewStopRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// AccessReviewSetRequestBuilder is request builder for AccessReviewSet
+type AccessReviewSetRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns AccessReviewSetRequest
+func (b *AccessReviewSetRequestBuilder) Request() *AccessReviewSetRequest {
+	return &AccessReviewSetRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *AccessReviewStopRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
+// AccessReviewSetRequest is request for AccessReviewSet
+type AccessReviewSetRequest struct{ BaseRequest }
 
-//
-type AccessReviewSendReminderRequestBuilder struct{ BaseRequestBuilder }
-
-// SendReminder action undocumented
-func (b *AccessReviewRequestBuilder) SendReminder(reqObj *AccessReviewSendReminderRequestParameter) *AccessReviewSendReminderRequestBuilder {
-	bb := &AccessReviewSendReminderRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendReminder"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type AccessReviewSendReminderRequest struct{ BaseRequest }
-
-//
-func (b *AccessReviewSendReminderRequestBuilder) Request() *AccessReviewSendReminderRequest {
-	return &AccessReviewSendReminderRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Get performs GET request for AccessReviewSet
+func (r *AccessReviewSetRequest) Get(ctx context.Context) (resObj *AccessReviewSet, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
 	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
 }
 
-//
-func (r *AccessReviewSendReminderRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// Update performs PATCH request for AccessReviewSet
+func (r *AccessReviewSetRequest) Update(ctx context.Context, reqObj *AccessReviewSet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-//
-type AccessReviewResetDecisionsRequestBuilder struct{ BaseRequestBuilder }
-
-// ResetDecisions action undocumented
-func (b *AccessReviewRequestBuilder) ResetDecisions(reqObj *AccessReviewResetDecisionsRequestParameter) *AccessReviewResetDecisionsRequestBuilder {
-	bb := &AccessReviewResetDecisionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/resetDecisions"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type AccessReviewResetDecisionsRequest struct{ BaseRequest }
-
-//
-func (b *AccessReviewResetDecisionsRequestBuilder) Request() *AccessReviewResetDecisionsRequest {
-	return &AccessReviewResetDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *AccessReviewResetDecisionsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type AccessReviewApplyDecisionsRequestBuilder struct{ BaseRequestBuilder }
-
-// ApplyDecisions action undocumented
-func (b *AccessReviewRequestBuilder) ApplyDecisions(reqObj *AccessReviewApplyDecisionsRequestParameter) *AccessReviewApplyDecisionsRequestBuilder {
-	bb := &AccessReviewApplyDecisionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/applyDecisions"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type AccessReviewApplyDecisionsRequest struct{ BaseRequest }
-
-//
-func (b *AccessReviewApplyDecisionsRequestBuilder) Request() *AccessReviewApplyDecisionsRequest {
-	return &AccessReviewApplyDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *AccessReviewApplyDecisionsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// Delete performs DELETE request for AccessReviewSet
+func (r *AccessReviewSetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

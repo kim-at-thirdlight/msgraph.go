@@ -7,23 +7,23 @@ type PropertyType string
 
 const (
 	// PropertyTypeVString undocumented
-	PropertyTypeVString PropertyType = "String"
+	PropertyTypeVString PropertyType = "string"
 	// PropertyTypeVInt64 undocumented
-	PropertyTypeVInt64 PropertyType = "Int64"
+	PropertyTypeVInt64 PropertyType = "int64"
 	// PropertyTypeVDouble undocumented
-	PropertyTypeVDouble PropertyType = "Double"
+	PropertyTypeVDouble PropertyType = "double"
 	// PropertyTypeVDateTime undocumented
-	PropertyTypeVDateTime PropertyType = "DateTime"
+	PropertyTypeVDateTime PropertyType = "dateTime"
 	// PropertyTypeVBoolean undocumented
-	PropertyTypeVBoolean PropertyType = "Boolean"
+	PropertyTypeVBoolean PropertyType = "boolean"
 	// PropertyTypeVStringCollection undocumented
-	PropertyTypeVStringCollection PropertyType = "StringCollection"
+	PropertyTypeVStringCollection PropertyType = "stringCollection"
 	// PropertyTypeVInt64Collection undocumented
-	PropertyTypeVInt64Collection PropertyType = "Int64Collection"
+	PropertyTypeVInt64Collection PropertyType = "int64Collection"
 	// PropertyTypeVDoubleCollection undocumented
-	PropertyTypeVDoubleCollection PropertyType = "DoubleCollection"
+	PropertyTypeVDoubleCollection PropertyType = "doubleCollection"
 	// PropertyTypeVDateTimeCollection undocumented
-	PropertyTypeVDateTimeCollection PropertyType = "DateTimeCollection"
+	PropertyTypeVDateTimeCollection PropertyType = "dateTimeCollection"
 )
 
 var (

@@ -11,6 +11,18 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ChannelCompleteMigrationRequestParameter undocumented
+type ChannelCompleteMigrationRequestParameter struct {
+}
+
+// ChannelProvisionEmailRequestParameter undocumented
+type ChannelProvisionEmailRequestParameter struct {
+}
+
+// ChannelRemoveEmailRequestParameter undocumented
+type ChannelRemoveEmailRequestParameter struct {
+}
+
 // FilesFolder is navigation property
 func (b *ChannelRequestBuilder) FilesFolder() *DriveItemRequestBuilder {
 	bb := &DriveItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

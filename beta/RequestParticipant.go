@@ -37,6 +37,72 @@ func (r *ParticipantRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ParticipantJoiningNotificationRequestBuilder is request builder for ParticipantJoiningNotification
+type ParticipantJoiningNotificationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ParticipantJoiningNotificationRequest
+func (b *ParticipantJoiningNotificationRequestBuilder) Request() *ParticipantJoiningNotificationRequest {
+	return &ParticipantJoiningNotificationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ParticipantJoiningNotificationRequest is request for ParticipantJoiningNotification
+type ParticipantJoiningNotificationRequest struct{ BaseRequest }
+
+// Get performs GET request for ParticipantJoiningNotification
+func (r *ParticipantJoiningNotificationRequest) Get(ctx context.Context) (resObj *ParticipantJoiningNotification, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ParticipantJoiningNotification
+func (r *ParticipantJoiningNotificationRequest) Update(ctx context.Context, reqObj *ParticipantJoiningNotification) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ParticipantJoiningNotification
+func (r *ParticipantJoiningNotificationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ParticipantLeftNotificationRequestBuilder is request builder for ParticipantLeftNotification
+type ParticipantLeftNotificationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ParticipantLeftNotificationRequest
+func (b *ParticipantLeftNotificationRequestBuilder) Request() *ParticipantLeftNotificationRequest {
+	return &ParticipantLeftNotificationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ParticipantLeftNotificationRequest is request for ParticipantLeftNotification
+type ParticipantLeftNotificationRequest struct{ BaseRequest }
+
+// Get performs GET request for ParticipantLeftNotification
+func (r *ParticipantLeftNotificationRequest) Get(ctx context.Context) (resObj *ParticipantLeftNotification, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ParticipantLeftNotification
+func (r *ParticipantLeftNotificationRequest) Update(ctx context.Context, reqObj *ParticipantLeftNotification) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ParticipantLeftNotification
+func (r *ParticipantLeftNotificationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 //
 type ParticipantCollectionInviteRequestBuilder struct{ BaseRequestBuilder }
 
@@ -87,33 +153,6 @@ func (b *ParticipantCollectionMuteAllRequestBuilder) Request() *ParticipantColle
 
 //
 func (r *ParticipantCollectionMuteAllRequest) Post(ctx context.Context) (resObj *MuteParticipantsOperation, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
-
-// Mute action undocumented
-func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
-	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantMuteRequest struct{ BaseRequest }
-
-//
-func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
-	return &ParticipantMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ParticipantMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOperation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

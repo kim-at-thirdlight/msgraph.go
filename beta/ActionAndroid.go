@@ -17,18 +17,14 @@ type AndroidManagedAppProtectionCollectionHasPayloadLinksRequestParameter struct
 	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
-// AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter undocumented
-type AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter struct {
-}
-
 // AndroidDeviceOwnerEnrollmentProfileCreateTokenRequestParameter undocumented
 type AndroidDeviceOwnerEnrollmentProfileCreateTokenRequestParameter struct {
 	// TokenValidityInSeconds undocumented
 	TokenValidityInSeconds *int `json:"tokenValidityInSeconds,omitempty"`
 }
 
-// AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter undocumented
-type AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter struct {
+// AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter undocumented
+type AndroidDeviceOwnerEnrollmentProfileRevokeTokenRequestParameter struct {
 }
 
 // AndroidForWorkEnrollmentProfileCreateTokenRequestParameter undocumented
@@ -37,16 +33,20 @@ type AndroidForWorkEnrollmentProfileCreateTokenRequestParameter struct {
 	TokenValidityInSeconds *int `json:"tokenValidityInSeconds,omitempty"`
 }
 
-// AndroidForWorkSettingsRequestSignupURLRequestParameter undocumented
-type AndroidForWorkSettingsRequestSignupURLRequestParameter struct {
-	// HostName undocumented
-	HostName *string `json:"hostName,omitempty"`
+// AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter undocumented
+type AndroidForWorkEnrollmentProfileRevokeTokenRequestParameter struct {
 }
 
 // AndroidForWorkSettingsCompleteSignupRequestParameter undocumented
 type AndroidForWorkSettingsCompleteSignupRequestParameter struct {
 	// EnterpriseToken undocumented
 	EnterpriseToken *string `json:"enterpriseToken,omitempty"`
+}
+
+// AndroidForWorkSettingsRequestSignupURLRequestParameter undocumented
+type AndroidForWorkSettingsRequestSignupURLRequestParameter struct {
+	// HostName undocumented
+	HostName *string `json:"hostName,omitempty"`
 }
 
 // AndroidForWorkSettingsSyncAppsRequestParameter undocumented
@@ -65,24 +65,10 @@ type AndroidManagedStoreAccountEnterpriseSettingsApproveAppsRequestParameter str
 	ApproveAllPermissions *bool `json:"approveAllPermissions,omitempty"`
 }
 
-// AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter undocumented
-type AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter struct {
-	// HostName undocumented
-	HostName *string `json:"hostName,omitempty"`
-}
-
 // AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestParameter undocumented
 type AndroidManagedStoreAccountEnterpriseSettingsCompleteSignupRequestParameter struct {
 	// EnterpriseToken undocumented
 	EnterpriseToken *string `json:"enterpriseToken,omitempty"`
-}
-
-// AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestParameter undocumented
-type AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestParameter struct {
-}
-
-// AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestParameter undocumented
-type AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestParameter struct {
 }
 
 // AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequestParameter undocumented
@@ -91,10 +77,24 @@ type AndroidManagedStoreAccountEnterpriseSettingsCreateGooglePlayWebTokenRequest
 	ParentURI *string `json:"parentUri,omitempty"`
 }
 
+// AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter undocumented
+type AndroidManagedStoreAccountEnterpriseSettingsRequestSignupURLRequestParameter struct {
+	// HostName undocumented
+	HostName *string `json:"hostName,omitempty"`
+}
+
 // AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestParameter undocumented
 type AndroidManagedStoreAccountEnterpriseSettingsSetAndroidDeviceOwnerFullyManagedEnrollmentStateRequestParameter struct {
 	// Enabled undocumented
 	Enabled *bool `json:"enabled,omitempty"`
+}
+
+// AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestParameter undocumented
+type AndroidManagedStoreAccountEnterpriseSettingsSyncAppsRequestParameter struct {
+}
+
+// AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestParameter undocumented
+type AndroidManagedStoreAccountEnterpriseSettingsUnbindRequestParameter struct {
 }
 
 // RootCertificate is navigation property
@@ -111,6 +111,20 @@ func (b *AndroidDeviceOwnerCertificateProfileBaseRequestBuilder) RootCertificate
 	return bb
 }
 
+// DerivedCredentialSettings is navigation property
+func (b *AndroidDeviceOwnerDerivedCredentialAuthenticationConfigurationRequestBuilder) DerivedCredentialSettings() *DeviceManagementDerivedCredentialSettingsRequestBuilder {
+	bb := &DeviceManagementDerivedCredentialSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/derivedCredentialSettings"
+	return bb
+}
+
+// DerivedCredentialSettings is navigation property
+func (b *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder) DerivedCredentialSettings() *DeviceManagementDerivedCredentialSettingsRequestBuilder {
+	bb := &DeviceManagementDerivedCredentialSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/derivedCredentialSettings"
+	return bb
+}
+
 // IdentityCertificateForClientAuthentication is navigation property
 func (b *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder) IdentityCertificateForClientAuthentication() *AndroidDeviceOwnerCertificateProfileBaseRequestBuilder {
 	bb := &AndroidDeviceOwnerCertificateProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -123,6 +137,212 @@ func (b *AndroidDeviceOwnerEnterpriseWiFiConfigurationRequestBuilder) RootCertif
 	bb := &AndroidDeviceOwnerTrustedRootCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/rootCertificateForServerValidation"
 	return bb
+}
+
+// ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
+func (b *AndroidDeviceOwnerImportedPFXCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
+	bb := &AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDeviceCertificateStates"
+	return bb
+}
+
+// AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder is request builder for ManagedDeviceCertificateState collection
+type AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagedDeviceCertificateState collection
+func (b *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
+	return &AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagedDeviceCertificateState item
+func (b *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) ID(id string) *ManagedDeviceCertificateStateRequestBuilder {
+	bb := &ManagedDeviceCertificateStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
+type AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagedDeviceCertificateState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagedDeviceCertificateState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerImportedPFXCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
+func (b *AndroidDeviceOwnerPkcsCertificateProfileRequestBuilder) ManagedDeviceCertificateStates() *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder {
+	bb := &AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDeviceCertificateStates"
+	return bb
+}
+
+// AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder is request builder for ManagedDeviceCertificateState collection
+type AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagedDeviceCertificateState collection
+func (b *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) Request() *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest {
+	return &AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagedDeviceCertificateState item
+func (b *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequestBuilder) ID(id string) *ManagedDeviceCertificateStateRequestBuilder {
+	bb := &ManagedDeviceCertificateStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest is request for ManagedDeviceCertificateState collection
+type AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCertificateState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagedDeviceCertificateState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagedDeviceCertificateState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagedDeviceCertificateState collection, max N pages
+func (r *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCertificateState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCertificateState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagedDeviceCertificateState collection
+func (r *AndroidDeviceOwnerPkcsCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -226,6 +446,13 @@ func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesC
 func (r *AndroidDeviceOwnerScepCertificateProfileManagedDeviceCertificateStatesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCertificateState) (resObj *ManagedDeviceCertificateState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// DerivedCredentialSettings is navigation property
+func (b *AndroidDeviceOwnerVPNConfigurationRequestBuilder) DerivedCredentialSettings() *DeviceManagementDerivedCredentialSettingsRequestBuilder {
+	bb := &DeviceManagementDerivedCredentialSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/derivedCredentialSettings"
+	return bb
 }
 
 // IdentityCertificate is navigation property

@@ -14,6 +14,8 @@ const (
 	VPNAuthenticationMethodVSharedSecret VPNAuthenticationMethod = "sharedSecret"
 	// VPNAuthenticationMethodVDerivedCredential undocumented
 	VPNAuthenticationMethodVDerivedCredential VPNAuthenticationMethod = "derivedCredential"
+	// VPNAuthenticationMethodVAzureAD undocumented
+	VPNAuthenticationMethodVAzureAD VPNAuthenticationMethod = "azureAD"
 )
 
 var (
@@ -25,6 +27,8 @@ var (
 	VPNAuthenticationMethodPSharedSecret = &_VPNAuthenticationMethodPSharedSecret
 	// VPNAuthenticationMethodPDerivedCredential is a pointer to VPNAuthenticationMethodVDerivedCredential
 	VPNAuthenticationMethodPDerivedCredential = &_VPNAuthenticationMethodPDerivedCredential
+	// VPNAuthenticationMethodPAzureAD is a pointer to VPNAuthenticationMethodVAzureAD
+	VPNAuthenticationMethodPAzureAD = &_VPNAuthenticationMethodPAzureAD
 )
 
 var (
@@ -32,6 +36,7 @@ var (
 	_VPNAuthenticationMethodPUsernameAndPassword = VPNAuthenticationMethodVUsernameAndPassword
 	_VPNAuthenticationMethodPSharedSecret        = VPNAuthenticationMethodVSharedSecret
 	_VPNAuthenticationMethodPDerivedCredential   = VPNAuthenticationMethodVDerivedCredential
+	_VPNAuthenticationMethodPAzureAD             = VPNAuthenticationMethodVAzureAD
 )
 
 // VPNClientAuthenticationType undocumented
@@ -104,6 +109,10 @@ const (
 	VPNEncryptionAlgorithmTypeVAes128Gcm VPNEncryptionAlgorithmType = "aes128Gcm"
 	// VPNEncryptionAlgorithmTypeVAes256Gcm undocumented
 	VPNEncryptionAlgorithmTypeVAes256Gcm VPNEncryptionAlgorithmType = "aes256Gcm"
+	// VPNEncryptionAlgorithmTypeVAes192 undocumented
+	VPNEncryptionAlgorithmTypeVAes192 VPNEncryptionAlgorithmType = "aes192"
+	// VPNEncryptionAlgorithmTypeVAes192Gcm undocumented
+	VPNEncryptionAlgorithmTypeVAes192Gcm VPNEncryptionAlgorithmType = "aes192Gcm"
 )
 
 var (
@@ -119,6 +128,10 @@ var (
 	VPNEncryptionAlgorithmTypePAes128Gcm = &_VPNEncryptionAlgorithmTypePAes128Gcm
 	// VPNEncryptionAlgorithmTypePAes256Gcm is a pointer to VPNEncryptionAlgorithmTypeVAes256Gcm
 	VPNEncryptionAlgorithmTypePAes256Gcm = &_VPNEncryptionAlgorithmTypePAes256Gcm
+	// VPNEncryptionAlgorithmTypePAes192 is a pointer to VPNEncryptionAlgorithmTypeVAes192
+	VPNEncryptionAlgorithmTypePAes192 = &_VPNEncryptionAlgorithmTypePAes192
+	// VPNEncryptionAlgorithmTypePAes192Gcm is a pointer to VPNEncryptionAlgorithmTypeVAes192Gcm
+	VPNEncryptionAlgorithmTypePAes192Gcm = &_VPNEncryptionAlgorithmTypePAes192Gcm
 )
 
 var (
@@ -128,6 +141,8 @@ var (
 	_VPNEncryptionAlgorithmTypePAes128    = VPNEncryptionAlgorithmTypeVAes128
 	_VPNEncryptionAlgorithmTypePAes128Gcm = VPNEncryptionAlgorithmTypeVAes128Gcm
 	_VPNEncryptionAlgorithmTypePAes256Gcm = VPNEncryptionAlgorithmTypeVAes256Gcm
+	_VPNEncryptionAlgorithmTypePAes192    = VPNEncryptionAlgorithmTypeVAes192
+	_VPNEncryptionAlgorithmTypePAes192Gcm = VPNEncryptionAlgorithmTypeVAes192Gcm
 )
 
 // VPNIntegrityAlgorithmType undocumented
@@ -144,6 +159,8 @@ const (
 	VPNIntegrityAlgorithmTypeVSha2_384 VPNIntegrityAlgorithmType = "sha2_384"
 	// VPNIntegrityAlgorithmTypeVSha2_512 undocumented
 	VPNIntegrityAlgorithmTypeVSha2_512 VPNIntegrityAlgorithmType = "sha2_512"
+	// VPNIntegrityAlgorithmTypeVMd5 undocumented
+	VPNIntegrityAlgorithmTypeVMd5 VPNIntegrityAlgorithmType = "md5"
 )
 
 var (
@@ -157,6 +174,8 @@ var (
 	VPNIntegrityAlgorithmTypePSha2_384 = &_VPNIntegrityAlgorithmTypePSha2_384
 	// VPNIntegrityAlgorithmTypePSha2_512 is a pointer to VPNIntegrityAlgorithmTypeVSha2_512
 	VPNIntegrityAlgorithmTypePSha2_512 = &_VPNIntegrityAlgorithmTypePSha2_512
+	// VPNIntegrityAlgorithmTypePMd5 is a pointer to VPNIntegrityAlgorithmTypeVMd5
+	VPNIntegrityAlgorithmTypePMd5 = &_VPNIntegrityAlgorithmTypePMd5
 )
 
 var (
@@ -165,6 +184,7 @@ var (
 	_VPNIntegrityAlgorithmTypePSha1_160 = VPNIntegrityAlgorithmTypeVSha1_160
 	_VPNIntegrityAlgorithmTypePSha2_384 = VPNIntegrityAlgorithmTypeVSha2_384
 	_VPNIntegrityAlgorithmTypePSha2_512 = VPNIntegrityAlgorithmTypeVSha2_512
+	_VPNIntegrityAlgorithmTypePMd5      = VPNIntegrityAlgorithmTypeVMd5
 )
 
 // VPNLocalIdentifier undocumented
@@ -307,6 +327,33 @@ var (
 	_VPNServerCertificateTypePEcdsa521 = VPNServerCertificateTypeVEcdsa521
 )
 
+// VPNServiceExceptionAction undocumented
+type VPNServiceExceptionAction string
+
+const (
+	// VPNServiceExceptionActionVForceTrafficViaVPN undocumented
+	VPNServiceExceptionActionVForceTrafficViaVPN VPNServiceExceptionAction = "forceTrafficViaVPN"
+	// VPNServiceExceptionActionVAllowTrafficOutside undocumented
+	VPNServiceExceptionActionVAllowTrafficOutside VPNServiceExceptionAction = "allowTrafficOutside"
+	// VPNServiceExceptionActionVDropTraffic undocumented
+	VPNServiceExceptionActionVDropTraffic VPNServiceExceptionAction = "dropTraffic"
+)
+
+var (
+	// VPNServiceExceptionActionPForceTrafficViaVPN is a pointer to VPNServiceExceptionActionVForceTrafficViaVPN
+	VPNServiceExceptionActionPForceTrafficViaVPN = &_VPNServiceExceptionActionPForceTrafficViaVPN
+	// VPNServiceExceptionActionPAllowTrafficOutside is a pointer to VPNServiceExceptionActionVAllowTrafficOutside
+	VPNServiceExceptionActionPAllowTrafficOutside = &_VPNServiceExceptionActionPAllowTrafficOutside
+	// VPNServiceExceptionActionPDropTraffic is a pointer to VPNServiceExceptionActionVDropTraffic
+	VPNServiceExceptionActionPDropTraffic = &_VPNServiceExceptionActionPDropTraffic
+)
+
+var (
+	_VPNServiceExceptionActionPForceTrafficViaVPN  = VPNServiceExceptionActionVForceTrafficViaVPN
+	_VPNServiceExceptionActionPAllowTrafficOutside = VPNServiceExceptionActionVAllowTrafficOutside
+	_VPNServiceExceptionActionPDropTraffic         = VPNServiceExceptionActionVDropTraffic
+)
+
 // VPNTrafficRuleAppType undocumented
 type VPNTrafficRuleAppType string
 
@@ -359,4 +406,31 @@ var (
 	_VPNTrafficRuleRoutingPolicyTypePNone        = VPNTrafficRuleRoutingPolicyTypeVNone
 	_VPNTrafficRuleRoutingPolicyTypePSplitTunnel = VPNTrafficRuleRoutingPolicyTypeVSplitTunnel
 	_VPNTrafficRuleRoutingPolicyTypePForceTunnel = VPNTrafficRuleRoutingPolicyTypeVForceTunnel
+)
+
+// VPNTunnelConfigurationType undocumented
+type VPNTunnelConfigurationType string
+
+const (
+	// VPNTunnelConfigurationTypeVWiFiAndCellular undocumented
+	VPNTunnelConfigurationTypeVWiFiAndCellular VPNTunnelConfigurationType = "wifiAndCellular"
+	// VPNTunnelConfigurationTypeVCellular undocumented
+	VPNTunnelConfigurationTypeVCellular VPNTunnelConfigurationType = "cellular"
+	// VPNTunnelConfigurationTypeVWiFi undocumented
+	VPNTunnelConfigurationTypeVWiFi VPNTunnelConfigurationType = "wifi"
+)
+
+var (
+	// VPNTunnelConfigurationTypePWiFiAndCellular is a pointer to VPNTunnelConfigurationTypeVWiFiAndCellular
+	VPNTunnelConfigurationTypePWiFiAndCellular = &_VPNTunnelConfigurationTypePWiFiAndCellular
+	// VPNTunnelConfigurationTypePCellular is a pointer to VPNTunnelConfigurationTypeVCellular
+	VPNTunnelConfigurationTypePCellular = &_VPNTunnelConfigurationTypePCellular
+	// VPNTunnelConfigurationTypePWiFi is a pointer to VPNTunnelConfigurationTypeVWiFi
+	VPNTunnelConfigurationTypePWiFi = &_VPNTunnelConfigurationTypePWiFi
+)
+
+var (
+	_VPNTunnelConfigurationTypePWiFiAndCellular = VPNTunnelConfigurationTypeVWiFiAndCellular
+	_VPNTunnelConfigurationTypePCellular        = VPNTunnelConfigurationTypeVCellular
+	_VPNTunnelConfigurationTypePWiFi            = VPNTunnelConfigurationTypeVWiFi
 )

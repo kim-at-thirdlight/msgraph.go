@@ -6,18 +6,22 @@ package msgraph
 type AppliedConditionalAccessPolicy struct {
 	// Object is the base model of AppliedConditionalAccessPolicy
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
+	// ConditionsNotSatisfied undocumented
+	ConditionsNotSatisfied *ConditionalAccessConditions `json:"conditionsNotSatisfied,omitempty"`
+	// ConditionsSatisfied undocumented
+	ConditionsSatisfied *ConditionalAccessConditions `json:"conditionsSatisfied,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// EnforcedGrantControls undocumented
 	EnforcedGrantControls []string `json:"enforcedGrantControls,omitempty"`
 	// EnforcedSessionControls undocumented
 	EnforcedSessionControls []string `json:"enforcedSessionControls,omitempty"`
-	// ConditionsSatisfied undocumented
-	ConditionsSatisfied *ConditionalAccessConditions `json:"conditionsSatisfied,omitempty"`
-	// ConditionsNotSatisfied undocumented
-	ConditionsNotSatisfied *ConditionalAccessConditions `json:"conditionsNotSatisfied,omitempty"`
+	// ExcludeRulesSatisfied undocumented
+	ExcludeRulesSatisfied []ConditionalAccessRuleSatisfied `json:"excludeRulesSatisfied,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// IncludeRulesSatisfied undocumented
+	IncludeRulesSatisfied []ConditionalAccessRuleSatisfied `json:"includeRulesSatisfied,omitempty"`
 	// Result undocumented
 	Result *AppliedConditionalAccessPolicyResult `json:"result,omitempty"`
 }

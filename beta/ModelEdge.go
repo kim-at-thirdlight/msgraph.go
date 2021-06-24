@@ -2,25 +2,25 @@
 
 package msgraph
 
-// EdgeHomeButtonConfiguration undocumented
+// EdgeHomeButtonConfiguration The home button configuration base class used to identify the available options
 type EdgeHomeButtonConfiguration struct {
 	// Object is the base model of EdgeHomeButtonConfiguration
 	Object
 }
 
-// EdgeHomeButtonHidden undocumented
+// EdgeHomeButtonHidden Hide the home button.
 type EdgeHomeButtonHidden struct {
 	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonHidden
 	EdgeHomeButtonConfiguration
 }
 
-// EdgeHomeButtonLoadsStartPage undocumented
+// EdgeHomeButtonLoadsStartPage Show the home button; clicking the home button loads the Start page - this is also the default value.
 type EdgeHomeButtonLoadsStartPage struct {
 	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonLoadsStartPage
 	EdgeHomeButtonConfiguration
 }
 
-// EdgeHomeButtonOpensCustomURL undocumented
+// EdgeHomeButtonOpensCustomURL Show the home button; clicking the home button loads a specific URL.
 type EdgeHomeButtonOpensCustomURL struct {
 	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonOpensCustomURL
 	EdgeHomeButtonConfiguration
@@ -28,13 +28,13 @@ type EdgeHomeButtonOpensCustomURL struct {
 	HomeButtonCustomURL *string `json:"homeButtonCustomURL,omitempty"`
 }
 
-// EdgeHomeButtonOpensNewTab undocumented
+// EdgeHomeButtonOpensNewTab Show the home button; clicking the home button loads the New tab page.
 type EdgeHomeButtonOpensNewTab struct {
 	// EdgeHomeButtonConfiguration is the base model of EdgeHomeButtonOpensNewTab
 	EdgeHomeButtonConfiguration
 }
 
-// EdgeSearchEngine undocumented
+// EdgeSearchEngine Allows IT admins to set a predefined default search engine for MDM-Controlled devices.
 type EdgeSearchEngine struct {
 	// EdgeSearchEngineBase is the base model of EdgeSearchEngine
 	EdgeSearchEngineBase
@@ -42,13 +42,13 @@ type EdgeSearchEngine struct {
 	EdgeSearchEngineType *EdgeSearchEngineType `json:"edgeSearchEngineType,omitempty"`
 }
 
-// EdgeSearchEngineBase undocumented
+// EdgeSearchEngineBase Allows IT admins to set a default search engine for MDM-Controlled devices. Users can override this and change their default search engine provided the AllowSearchEngineCustomization policy is not set.
 type EdgeSearchEngineBase struct {
 	// Object is the base model of EdgeSearchEngineBase
 	Object
 }
 
-// EdgeSearchEngineCustom undocumented
+// EdgeSearchEngineCustom Allows IT admins to set a custom default search engine for MDM-Controlled devices.
 type EdgeSearchEngineCustom struct {
 	// EdgeSearchEngineBase is the base model of EdgeSearchEngineCustom
 	EdgeSearchEngineBase

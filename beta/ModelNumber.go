@@ -16,7 +16,7 @@ type NumberColumn struct {
 	Minimum *float64 `json:"minimum,omitempty"`
 }
 
-// NumberRange undocumented
+// NumberRange Number Range definition.
 type NumberRange struct {
 	// Object is the base model of NumberRange
 	Object

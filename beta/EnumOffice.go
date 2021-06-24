@@ -70,6 +70,8 @@ const (
 	OfficeUpdateChannelVFirstReleaseCurrent OfficeUpdateChannel = "firstReleaseCurrent"
 	// OfficeUpdateChannelVFirstReleaseDeferred undocumented
 	OfficeUpdateChannelVFirstReleaseDeferred OfficeUpdateChannel = "firstReleaseDeferred"
+	// OfficeUpdateChannelVMonthlyEnterprise undocumented
+	OfficeUpdateChannelVMonthlyEnterprise OfficeUpdateChannel = "monthlyEnterprise"
 )
 
 var (
@@ -83,6 +85,8 @@ var (
 	OfficeUpdateChannelPFirstReleaseCurrent = &_OfficeUpdateChannelPFirstReleaseCurrent
 	// OfficeUpdateChannelPFirstReleaseDeferred is a pointer to OfficeUpdateChannelVFirstReleaseDeferred
 	OfficeUpdateChannelPFirstReleaseDeferred = &_OfficeUpdateChannelPFirstReleaseDeferred
+	// OfficeUpdateChannelPMonthlyEnterprise is a pointer to OfficeUpdateChannelVMonthlyEnterprise
+	OfficeUpdateChannelPMonthlyEnterprise = &_OfficeUpdateChannelPMonthlyEnterprise
 )
 
 var (
@@ -91,4 +95,5 @@ var (
 	_OfficeUpdateChannelPDeferred             = OfficeUpdateChannelVDeferred
 	_OfficeUpdateChannelPFirstReleaseCurrent  = OfficeUpdateChannelVFirstReleaseCurrent
 	_OfficeUpdateChannelPFirstReleaseDeferred = OfficeUpdateChannelVFirstReleaseDeferred
+	_OfficeUpdateChannelPMonthlyEnterprise    = OfficeUpdateChannelVMonthlyEnterprise
 )

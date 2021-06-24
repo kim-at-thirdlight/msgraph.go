@@ -8,100 +8,100 @@ import "time"
 type Company struct {
 	// Entity is the base model of Company
 	Entity
-	// SystemVersion undocumented
-	SystemVersion *string `json:"systemVersion,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// BusinessProfileID undocumented
 	BusinessProfileID *string `json:"businessProfileId,omitempty"`
-	// Items undocumented
-	Items []Item `json:"items,omitempty"`
-	// Customers undocumented
-	Customers []Customer `json:"customers,omitempty"`
-	// Vendors undocumented
-	Vendors []Vendor `json:"vendors,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// SystemVersion undocumented
+	SystemVersion *string `json:"systemVersion,omitempty"`
+	// Accounts undocumented
+	Accounts []Account `json:"accounts,omitempty"`
+	// AgedAccountsPayable undocumented
+	AgedAccountsPayable []AgedAccountsPayable `json:"agedAccountsPayable,omitempty"`
+	// AgedAccountsReceivable undocumented
+	AgedAccountsReceivable []AgedAccountsReceivable `json:"agedAccountsReceivable,omitempty"`
 	// CompanyInformation undocumented
 	CompanyInformation []CompanyInformation `json:"companyInformation,omitempty"`
-	// SalesInvoices undocumented
-	SalesInvoices []SalesInvoice `json:"salesInvoices,omitempty"`
-	// SalesInvoiceLines undocumented
-	SalesInvoiceLines []SalesInvoiceLine `json:"salesInvoiceLines,omitempty"`
+	// CountriesRegions undocumented
+	CountriesRegions []CountryRegion `json:"countriesRegions,omitempty"`
+	// Currencies undocumented
+	Currencies []Currency `json:"currencies,omitempty"`
 	// CustomerPaymentJournals undocumented
 	CustomerPaymentJournals []CustomerPaymentJournal `json:"customerPaymentJournals,omitempty"`
 	// CustomerPayments undocumented
 	CustomerPayments []CustomerPayment `json:"customerPayments,omitempty"`
-	// Accounts undocumented
-	Accounts []Account `json:"accounts,omitempty"`
-	// TaxGroups undocumented
-	TaxGroups []TaxGroup `json:"taxGroups,omitempty"`
-	// Journals undocumented
-	Journals []Journal `json:"journals,omitempty"`
-	// JournalLines undocumented
-	JournalLines []JournalLine `json:"journalLines,omitempty"`
-	// Employees undocumented
-	Employees []Employee `json:"employees,omitempty"`
-	// GeneralLedgerEntries undocumented
-	GeneralLedgerEntries []GeneralLedgerEntry `json:"generalLedgerEntries,omitempty"`
-	// Currencies undocumented
-	Currencies []Currency `json:"currencies,omitempty"`
-	// PaymentMethods undocumented
-	PaymentMethods []PaymentMethod `json:"paymentMethods,omitempty"`
+	// Customers undocumented
+	Customers []Customer `json:"customers,omitempty"`
 	// Dimensions undocumented
 	Dimensions []Dimension `json:"dimensions,omitempty"`
 	// DimensionValues undocumented
 	DimensionValues []DimensionValue `json:"dimensionValues,omitempty"`
-	// PaymentTerms undocumented
-	PaymentTerms []PaymentTerm `json:"paymentTerms,omitempty"`
-	// ShipmentMethods undocumented
-	ShipmentMethods []ShipmentMethod `json:"shipmentMethods,omitempty"`
+	// Employees undocumented
+	Employees []Employee `json:"employees,omitempty"`
+	// GeneralLedgerEntries undocumented
+	GeneralLedgerEntries []GeneralLedgerEntry `json:"generalLedgerEntries,omitempty"`
 	// ItemCategories undocumented
 	ItemCategories []ItemCategory `json:"itemCategories,omitempty"`
-	// CountriesRegions undocumented
-	CountriesRegions []CountryRegion `json:"countriesRegions,omitempty"`
-	// SalesOrders undocumented
-	SalesOrders []SalesOrder `json:"salesOrders,omitempty"`
-	// SalesOrderLines undocumented
-	SalesOrderLines []SalesOrderLine `json:"salesOrderLines,omitempty"`
-	// UnitsOfMeasure undocumented
-	UnitsOfMeasure []UnitOfMeasure `json:"unitsOfMeasure,omitempty"`
-	// AgedAccountsReceivable undocumented
-	AgedAccountsReceivable []AgedAccountsReceivable `json:"agedAccountsReceivable,omitempty"`
-	// AgedAccountsPayable undocumented
-	AgedAccountsPayable []AgedAccountsPayable `json:"agedAccountsPayable,omitempty"`
-	// TaxAreas undocumented
-	TaxAreas []TaxArea `json:"taxAreas,omitempty"`
-	// SalesQuotes undocumented
-	SalesQuotes []SalesQuote `json:"salesQuotes,omitempty"`
-	// SalesQuoteLines undocumented
-	SalesQuoteLines []SalesQuoteLine `json:"salesQuoteLines,omitempty"`
-	// SalesCreditMemos undocumented
-	SalesCreditMemos []SalesCreditMemo `json:"salesCreditMemos,omitempty"`
-	// SalesCreditMemoLines undocumented
-	SalesCreditMemoLines []SalesCreditMemoLine `json:"salesCreditMemoLines,omitempty"`
-	// PurchaseInvoices undocumented
-	PurchaseInvoices []PurchaseInvoice `json:"purchaseInvoices,omitempty"`
-	// PurchaseInvoiceLines undocumented
-	PurchaseInvoiceLines []PurchaseInvoiceLine `json:"purchaseInvoiceLines,omitempty"`
+	// Items undocumented
+	Items []Item `json:"items,omitempty"`
+	// JournalLines undocumented
+	JournalLines []JournalLine `json:"journalLines,omitempty"`
+	// Journals undocumented
+	Journals []Journal `json:"journals,omitempty"`
+	// PaymentMethods undocumented
+	PaymentMethods []PaymentMethod `json:"paymentMethods,omitempty"`
+	// PaymentTerms undocumented
+	PaymentTerms []PaymentTerm `json:"paymentTerms,omitempty"`
 	// Picture undocumented
 	Picture []Picture `json:"picture,omitempty"`
+	// PurchaseInvoiceLines undocumented
+	PurchaseInvoiceLines []PurchaseInvoiceLine `json:"purchaseInvoiceLines,omitempty"`
+	// PurchaseInvoices undocumented
+	PurchaseInvoices []PurchaseInvoice `json:"purchaseInvoices,omitempty"`
+	// SalesCreditMemoLines undocumented
+	SalesCreditMemoLines []SalesCreditMemoLine `json:"salesCreditMemoLines,omitempty"`
+	// SalesCreditMemos undocumented
+	SalesCreditMemos []SalesCreditMemo `json:"salesCreditMemos,omitempty"`
+	// SalesInvoiceLines undocumented
+	SalesInvoiceLines []SalesInvoiceLine `json:"salesInvoiceLines,omitempty"`
+	// SalesInvoices undocumented
+	SalesInvoices []SalesInvoice `json:"salesInvoices,omitempty"`
+	// SalesOrderLines undocumented
+	SalesOrderLines []SalesOrderLine `json:"salesOrderLines,omitempty"`
+	// SalesOrders undocumented
+	SalesOrders []SalesOrder `json:"salesOrders,omitempty"`
+	// SalesQuoteLines undocumented
+	SalesQuoteLines []SalesQuoteLine `json:"salesQuoteLines,omitempty"`
+	// SalesQuotes undocumented
+	SalesQuotes []SalesQuote `json:"salesQuotes,omitempty"`
+	// ShipmentMethods undocumented
+	ShipmentMethods []ShipmentMethod `json:"shipmentMethods,omitempty"`
+	// TaxAreas undocumented
+	TaxAreas []TaxArea `json:"taxAreas,omitempty"`
+	// TaxGroups undocumented
+	TaxGroups []TaxGroup `json:"taxGroups,omitempty"`
+	// UnitsOfMeasure undocumented
+	UnitsOfMeasure []UnitOfMeasure `json:"unitsOfMeasure,omitempty"`
+	// Vendors undocumented
+	Vendors []Vendor `json:"vendors,omitempty"`
 }
 
 // CompanyDetail undocumented
 type CompanyDetail struct {
 	// Object is the base model of CompanyDetail
 	Object
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Pronunciation undocumented
-	Pronunciation *string `json:"pronunciation,omitempty"`
-	// Department undocumented
-	Department *string `json:"department,omitempty"`
-	// OfficeLocation undocumented
-	OfficeLocation *string `json:"officeLocation,omitempty"`
 	// Address undocumented
 	Address *PhysicalAddress `json:"address,omitempty"`
+	// Department undocumented
+	Department *string `json:"department,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// OfficeLocation undocumented
+	OfficeLocation *string `json:"officeLocation,omitempty"`
+	// Pronunciation undocumented
+	Pronunciation *string `json:"pronunciation,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }
@@ -110,40 +110,40 @@ type CompanyDetail struct {
 type CompanyInformation struct {
 	// Entity is the base model of CompanyInformation
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Address undocumented
 	Address *PostalAddressType `json:"address,omitempty"`
-	// PhoneNumber undocumented
-	PhoneNumber *string `json:"phoneNumber,omitempty"`
-	// FaxNumber undocumented
-	FaxNumber *string `json:"faxNumber,omitempty"`
-	// Email undocumented
-	Email *string `json:"email,omitempty"`
-	// Website undocumented
-	Website *string `json:"website,omitempty"`
-	// TaxRegistrationNumber undocumented
-	TaxRegistrationNumber *string `json:"taxRegistrationNumber,omitempty"`
 	// CurrencyCode undocumented
 	CurrencyCode *string `json:"currencyCode,omitempty"`
 	// CurrentFiscalYearStartDate undocumented
 	CurrentFiscalYearStartDate *Date `json:"currentFiscalYearStartDate,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Email undocumented
+	Email *string `json:"email,omitempty"`
+	// FaxNumber undocumented
+	FaxNumber *string `json:"faxNumber,omitempty"`
 	// Industry undocumented
 	Industry *string `json:"industry,omitempty"`
-	// Picture undocumented
-	Picture *Stream `json:"picture,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// PhoneNumber undocumented
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// Picture undocumented
+	Picture *Stream `json:"picture,omitempty"`
+	// TaxRegistrationNumber undocumented
+	TaxRegistrationNumber *string `json:"taxRegistrationNumber,omitempty"`
+	// Website undocumented
+	Website *string `json:"website,omitempty"`
 }
 
-// CompanyPortalBlockedAction undocumented
+// CompanyPortalBlockedAction Blocked actions on the company portal as per platform and device ownership types
 type CompanyPortalBlockedAction struct {
 	// Object is the base model of CompanyPortalBlockedAction
 	Object
-	// Platform Device OS/Platform
-	Platform *DevicePlatformType `json:"platform,omitempty"`
-	// OwnerType Device ownership type
-	OwnerType *OwnerType `json:"ownerType,omitempty"`
 	// Action Device Action
 	Action *CompanyPortalAction `json:"action,omitempty"`
+	// OwnerType Device ownership type
+	OwnerType *OwnerType `json:"ownerType,omitempty"`
+	// Platform Device OS/Platform
+	Platform *DevicePlatformType `json:"platform,omitempty"`
 }

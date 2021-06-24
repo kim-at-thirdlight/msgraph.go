@@ -33,3 +33,35 @@ var (
 	_SensitivityPPrivate      = SensitivityVPrivate
 	_SensitivityPConfidential = SensitivityVConfidential
 )
+
+// SensitivityLabelTarget undocumented
+type SensitivityLabelTarget string
+
+const (
+	// SensitivityLabelTargetVEmail undocumented
+	SensitivityLabelTargetVEmail SensitivityLabelTarget = "email"
+	// SensitivityLabelTargetVSite undocumented
+	SensitivityLabelTargetVSite SensitivityLabelTarget = "site"
+	// SensitivityLabelTargetVUnifiedGroup undocumented
+	SensitivityLabelTargetVUnifiedGroup SensitivityLabelTarget = "unifiedGroup"
+	// SensitivityLabelTargetVUnknownFutureValue undocumented
+	SensitivityLabelTargetVUnknownFutureValue SensitivityLabelTarget = "unknownFutureValue"
+)
+
+var (
+	// SensitivityLabelTargetPEmail is a pointer to SensitivityLabelTargetVEmail
+	SensitivityLabelTargetPEmail = &_SensitivityLabelTargetPEmail
+	// SensitivityLabelTargetPSite is a pointer to SensitivityLabelTargetVSite
+	SensitivityLabelTargetPSite = &_SensitivityLabelTargetPSite
+	// SensitivityLabelTargetPUnifiedGroup is a pointer to SensitivityLabelTargetVUnifiedGroup
+	SensitivityLabelTargetPUnifiedGroup = &_SensitivityLabelTargetPUnifiedGroup
+	// SensitivityLabelTargetPUnknownFutureValue is a pointer to SensitivityLabelTargetVUnknownFutureValue
+	SensitivityLabelTargetPUnknownFutureValue = &_SensitivityLabelTargetPUnknownFutureValue
+)
+
+var (
+	_SensitivityLabelTargetPEmail              = SensitivityLabelTargetVEmail
+	_SensitivityLabelTargetPSite               = SensitivityLabelTargetVSite
+	_SensitivityLabelTargetPUnifiedGroup       = SensitivityLabelTargetVUnifiedGroup
+	_SensitivityLabelTargetPUnknownFutureValue = SensitivityLabelTargetVUnknownFutureValue
+)

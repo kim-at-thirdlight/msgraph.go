@@ -227,6 +227,50 @@ var (
 	_MobileAppPublishingStatePPublished    = MobileAppPublishingStateVPublished
 )
 
+// MobileAppRelationshipType undocumented
+type MobileAppRelationshipType string
+
+const (
+	// MobileAppRelationshipTypeVChild undocumented
+	MobileAppRelationshipTypeVChild MobileAppRelationshipType = "child"
+	// MobileAppRelationshipTypeVParent undocumented
+	MobileAppRelationshipTypeVParent MobileAppRelationshipType = "parent"
+)
+
+var (
+	// MobileAppRelationshipTypePChild is a pointer to MobileAppRelationshipTypeVChild
+	MobileAppRelationshipTypePChild = &_MobileAppRelationshipTypePChild
+	// MobileAppRelationshipTypePParent is a pointer to MobileAppRelationshipTypeVParent
+	MobileAppRelationshipTypePParent = &_MobileAppRelationshipTypePParent
+)
+
+var (
+	_MobileAppRelationshipTypePChild  = MobileAppRelationshipTypeVChild
+	_MobileAppRelationshipTypePParent = MobileAppRelationshipTypeVParent
+)
+
+// MobileAppSupersedenceType undocumented
+type MobileAppSupersedenceType string
+
+const (
+	// MobileAppSupersedenceTypeVUpdate undocumented
+	MobileAppSupersedenceTypeVUpdate MobileAppSupersedenceType = "update"
+	// MobileAppSupersedenceTypeVReplace undocumented
+	MobileAppSupersedenceTypeVReplace MobileAppSupersedenceType = "replace"
+)
+
+var (
+	// MobileAppSupersedenceTypePUpdate is a pointer to MobileAppSupersedenceTypeVUpdate
+	MobileAppSupersedenceTypePUpdate = &_MobileAppSupersedenceTypePUpdate
+	// MobileAppSupersedenceTypePReplace is a pointer to MobileAppSupersedenceTypeVReplace
+	MobileAppSupersedenceTypePReplace = &_MobileAppSupersedenceTypePReplace
+)
+
+var (
+	_MobileAppSupersedenceTypePUpdate  = MobileAppSupersedenceTypeVUpdate
+	_MobileAppSupersedenceTypePReplace = MobileAppSupersedenceTypeVReplace
+)
+
 // MobileThreatPartnerTenantState undocumented
 type MobileThreatPartnerTenantState string
 

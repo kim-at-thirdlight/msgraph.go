@@ -2,14 +2,7 @@
 
 package msgraph
 
-import (
-	"context"
-	"fmt"
-	"io/ioutil"
-	"net/http"
-
-	"github.com/yaegashi/msgraph.go/jsonx"
-)
+import "context"
 
 // UserRequestBuilder is request builder for User
 type UserRequestBuilder struct{ BaseRequestBuilder }
@@ -209,6 +202,72 @@ func (r *UserConfigurationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserConsentRequestRequestBuilder is request builder for UserConsentRequest
+type UserConsentRequestRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserConsentRequestRequest
+func (b *UserConsentRequestRequestBuilder) Request() *UserConsentRequestRequest {
+	return &UserConsentRequestRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserConsentRequestRequest is request for UserConsentRequest
+type UserConsentRequestRequest struct{ BaseRequest }
+
+// Get performs GET request for UserConsentRequest
+func (r *UserConsentRequestRequest) Get(ctx context.Context) (resObj *UserConsentRequest, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserConsentRequest
+func (r *UserConsentRequestRequest) Update(ctx context.Context, reqObj *UserConsentRequest) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserConsentRequest
+func (r *UserConsentRequestRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserConsentRequestObjectRequestBuilder is request builder for UserConsentRequestObject
+type UserConsentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserConsentRequestObjectRequest
+func (b *UserConsentRequestObjectRequestBuilder) Request() *UserConsentRequestObjectRequest {
+	return &UserConsentRequestObjectRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserConsentRequestObjectRequest is request for UserConsentRequestObject
+type UserConsentRequestObjectRequest struct{ BaseRequest }
+
+// Get performs GET request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Get(ctx context.Context) (resObj *UserConsentRequestObject, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Update(ctx context.Context, reqObj *UserConsentRequestObject) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserConsentRequestObject
+func (r *UserConsentRequestObjectRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserCredentialUsageDetailsRequestBuilder is request builder for UserCredentialUsageDetails
 type UserCredentialUsageDetailsRequestBuilder struct{ BaseRequestBuilder }
 
@@ -239,6 +298,237 @@ func (r *UserCredentialUsageDetailsRequest) Update(ctx context.Context, reqObj *
 
 // Delete performs DELETE request for UserCredentialUsageDetails
 func (r *UserCredentialUsageDetailsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest
+func (b *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequestBuilder) Request() *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest {
+	return &UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest is request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+type UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest
+func (b *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequestBuilder) Request() *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest {
+	return &UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest is request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+type UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+func (r *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder is request builder for UserExperienceAnalyticsAppHealthApplicationPerformance
+type UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthApplicationPerformanceRequest
+func (b *UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder) Request() *UserExperienceAnalyticsAppHealthApplicationPerformanceRequest {
+	return &UserExperienceAnalyticsAppHealthApplicationPerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthApplicationPerformanceRequest is request for UserExperienceAnalyticsAppHealthApplicationPerformance
+type UserExperienceAnalyticsAppHealthApplicationPerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthApplicationPerformance
+func (r *UserExperienceAnalyticsAppHealthApplicationPerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthApplicationPerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthApplicationPerformance
+func (r *UserExperienceAnalyticsAppHealthApplicationPerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthApplicationPerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthApplicationPerformance
+func (r *UserExperienceAnalyticsAppHealthApplicationPerformanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDeviceModelPerformance
+type UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest
+func (b *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder) Request() *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest {
+	return &UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest is request for UserExperienceAnalyticsAppHealthDeviceModelPerformance
+type UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDeviceModelPerformance
+func (r *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthDeviceModelPerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthDeviceModelPerformance
+func (r *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDeviceModelPerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthDeviceModelPerformance
+func (r *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDevicePerformance
+type UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthDevicePerformanceRequest
+func (b *UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder) Request() *UserExperienceAnalyticsAppHealthDevicePerformanceRequest {
+	return &UserExperienceAnalyticsAppHealthDevicePerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceRequest is request for UserExperienceAnalyticsAppHealthDevicePerformance
+type UserExperienceAnalyticsAppHealthDevicePerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDevicePerformance
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthDevicePerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthDevicePerformance
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDevicePerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthDevicePerformance
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+type UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest
+func (b *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder) Request() *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest {
+	return &UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest is request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+type UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthDevicePerformanceDetails, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDevicePerformanceDetails) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+func (r *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder is request builder for UserExperienceAnalyticsAppHealthOSVersionPerformance
+type UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest
+func (b *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder) Request() *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest {
+	return &UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest is request for UserExperienceAnalyticsAppHealthOSVersionPerformance
+type UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthOSVersionPerformance
+func (r *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsAppHealthOSVersionPerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsAppHealthOSVersionPerformance
+func (r *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthOSVersionPerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsAppHealthOSVersionPerformance
+func (r *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -341,6 +631,39 @@ func (r *UserExperienceAnalyticsDevicePerformanceRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserExperienceAnalyticsDeviceScoresRequestBuilder is request builder for UserExperienceAnalyticsDeviceScores
+type UserExperienceAnalyticsDeviceScoresRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsDeviceScoresRequest
+func (b *UserExperienceAnalyticsDeviceScoresRequestBuilder) Request() *UserExperienceAnalyticsDeviceScoresRequest {
+	return &UserExperienceAnalyticsDeviceScoresRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsDeviceScoresRequest is request for UserExperienceAnalyticsDeviceScores
+type UserExperienceAnalyticsDeviceScoresRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsDeviceScores
+func (r *UserExperienceAnalyticsDeviceScoresRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsDeviceScores, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsDeviceScores
+func (r *UserExperienceAnalyticsDeviceScoresRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceScores) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsDeviceScores
+func (r *UserExperienceAnalyticsDeviceScoresRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder is request builder for UserExperienceAnalyticsDeviceStartupHistory
 type UserExperienceAnalyticsDeviceStartupHistoryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -374,6 +697,138 @@ func (r *UserExperienceAnalyticsDeviceStartupHistoryRequest) Delete(ctx context.
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserExperienceAnalyticsDeviceStartupProcessRequestBuilder is request builder for UserExperienceAnalyticsDeviceStartupProcess
+type UserExperienceAnalyticsDeviceStartupProcessRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsDeviceStartupProcessRequest
+func (b *UserExperienceAnalyticsDeviceStartupProcessRequestBuilder) Request() *UserExperienceAnalyticsDeviceStartupProcessRequest {
+	return &UserExperienceAnalyticsDeviceStartupProcessRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsDeviceStartupProcessRequest is request for UserExperienceAnalyticsDeviceStartupProcess
+type UserExperienceAnalyticsDeviceStartupProcessRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsDeviceStartupProcess
+func (r *UserExperienceAnalyticsDeviceStartupProcessRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsDeviceStartupProcess, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsDeviceStartupProcess
+func (r *UserExperienceAnalyticsDeviceStartupProcessRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceStartupProcess) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsDeviceStartupProcess
+func (r *UserExperienceAnalyticsDeviceStartupProcessRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder is request builder for UserExperienceAnalyticsDeviceStartupProcessPerformance
+type UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest
+func (b *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder) Request() *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest {
+	return &UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest is request for UserExperienceAnalyticsDeviceStartupProcessPerformance
+type UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsDeviceStartupProcessPerformance
+func (r *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsDeviceStartupProcessPerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsDeviceStartupProcessPerformance
+func (r *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceStartupProcessPerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsDeviceStartupProcessPerformance
+func (r *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsDeviceWithoutCloudIdentityRequestBuilder is request builder for UserExperienceAnalyticsDeviceWithoutCloudIdentity
+type UserExperienceAnalyticsDeviceWithoutCloudIdentityRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest
+func (b *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequestBuilder) Request() *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest {
+	return &UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest is request for UserExperienceAnalyticsDeviceWithoutCloudIdentity
+type UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsDeviceWithoutCloudIdentity
+func (r *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsDeviceWithoutCloudIdentity, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsDeviceWithoutCloudIdentity
+func (r *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceWithoutCloudIdentity) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsDeviceWithoutCloudIdentity
+func (r *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsImpactingProcessRequestBuilder is request builder for UserExperienceAnalyticsImpactingProcess
+type UserExperienceAnalyticsImpactingProcessRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsImpactingProcessRequest
+func (b *UserExperienceAnalyticsImpactingProcessRequestBuilder) Request() *UserExperienceAnalyticsImpactingProcessRequest {
+	return &UserExperienceAnalyticsImpactingProcessRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsImpactingProcessRequest is request for UserExperienceAnalyticsImpactingProcess
+type UserExperienceAnalyticsImpactingProcessRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsImpactingProcess
+func (r *UserExperienceAnalyticsImpactingProcessRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsImpactingProcess, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsImpactingProcess
+func (r *UserExperienceAnalyticsImpactingProcessRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsImpactingProcess) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsImpactingProcess
+func (r *UserExperienceAnalyticsImpactingProcessRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserExperienceAnalyticsMetricRequestBuilder is request builder for UserExperienceAnalyticsMetric
 type UserExperienceAnalyticsMetricRequestBuilder struct{ BaseRequestBuilder }
 
@@ -404,6 +859,72 @@ func (r *UserExperienceAnalyticsMetricRequest) Update(ctx context.Context, reqOb
 
 // Delete performs DELETE request for UserExperienceAnalyticsMetric
 func (r *UserExperienceAnalyticsMetricRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsMetricHistoryRequestBuilder is request builder for UserExperienceAnalyticsMetricHistory
+type UserExperienceAnalyticsMetricHistoryRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsMetricHistoryRequest
+func (b *UserExperienceAnalyticsMetricHistoryRequestBuilder) Request() *UserExperienceAnalyticsMetricHistoryRequest {
+	return &UserExperienceAnalyticsMetricHistoryRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsMetricHistoryRequest is request for UserExperienceAnalyticsMetricHistory
+type UserExperienceAnalyticsMetricHistoryRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsMetricHistory
+func (r *UserExperienceAnalyticsMetricHistoryRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsMetricHistory, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsMetricHistory
+func (r *UserExperienceAnalyticsMetricHistoryRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsMetricHistory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsMetricHistory
+func (r *UserExperienceAnalyticsMetricHistoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder is request builder for UserExperienceAnalyticsNotAutopilotReadyDevice
+type UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsNotAutopilotReadyDeviceRequest
+func (b *UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder) Request() *UserExperienceAnalyticsNotAutopilotReadyDeviceRequest {
+	return &UserExperienceAnalyticsNotAutopilotReadyDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsNotAutopilotReadyDeviceRequest is request for UserExperienceAnalyticsNotAutopilotReadyDevice
+type UserExperienceAnalyticsNotAutopilotReadyDeviceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsNotAutopilotReadyDevice
+func (r *UserExperienceAnalyticsNotAutopilotReadyDeviceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsNotAutopilotReadyDevice, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsNotAutopilotReadyDevice
+func (r *UserExperienceAnalyticsNotAutopilotReadyDeviceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsNotAutopilotReadyDevice) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsNotAutopilotReadyDevice
+func (r *UserExperienceAnalyticsNotAutopilotReadyDeviceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -473,6 +994,303 @@ func (r *UserExperienceAnalyticsRegressionSummaryRequest) Delete(ctx context.Con
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// UserExperienceAnalyticsRemoteConnectionRequestBuilder is request builder for UserExperienceAnalyticsRemoteConnection
+type UserExperienceAnalyticsRemoteConnectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsRemoteConnectionRequest
+func (b *UserExperienceAnalyticsRemoteConnectionRequestBuilder) Request() *UserExperienceAnalyticsRemoteConnectionRequest {
+	return &UserExperienceAnalyticsRemoteConnectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsRemoteConnectionRequest is request for UserExperienceAnalyticsRemoteConnection
+type UserExperienceAnalyticsRemoteConnectionRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsRemoteConnection
+func (r *UserExperienceAnalyticsRemoteConnectionRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsRemoteConnection, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsRemoteConnection
+func (r *UserExperienceAnalyticsRemoteConnectionRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsRemoteConnection) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsRemoteConnection
+func (r *UserExperienceAnalyticsRemoteConnectionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsResourcePerformanceRequestBuilder is request builder for UserExperienceAnalyticsResourcePerformance
+type UserExperienceAnalyticsResourcePerformanceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsResourcePerformanceRequest
+func (b *UserExperienceAnalyticsResourcePerformanceRequestBuilder) Request() *UserExperienceAnalyticsResourcePerformanceRequest {
+	return &UserExperienceAnalyticsResourcePerformanceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsResourcePerformanceRequest is request for UserExperienceAnalyticsResourcePerformance
+type UserExperienceAnalyticsResourcePerformanceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsResourcePerformance
+func (r *UserExperienceAnalyticsResourcePerformanceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsResourcePerformance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsResourcePerformance
+func (r *UserExperienceAnalyticsResourcePerformanceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsResourcePerformance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsResourcePerformance
+func (r *UserExperienceAnalyticsResourcePerformanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsScoreHistoryRequestBuilder is request builder for UserExperienceAnalyticsScoreHistory
+type UserExperienceAnalyticsScoreHistoryRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsScoreHistoryRequest
+func (b *UserExperienceAnalyticsScoreHistoryRequestBuilder) Request() *UserExperienceAnalyticsScoreHistoryRequest {
+	return &UserExperienceAnalyticsScoreHistoryRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsScoreHistoryRequest is request for UserExperienceAnalyticsScoreHistory
+type UserExperienceAnalyticsScoreHistoryRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsScoreHistory
+func (r *UserExperienceAnalyticsScoreHistoryRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsScoreHistory, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsScoreHistory
+func (r *UserExperienceAnalyticsScoreHistoryRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsScoreHistory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsScoreHistory
+func (r *UserExperienceAnalyticsScoreHistoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereDeviceRequestBuilder is request builder for UserExperienceAnalyticsWorkFromAnywhereDevice
+type UserExperienceAnalyticsWorkFromAnywhereDeviceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsWorkFromAnywhereDeviceRequest
+func (b *UserExperienceAnalyticsWorkFromAnywhereDeviceRequestBuilder) Request() *UserExperienceAnalyticsWorkFromAnywhereDeviceRequest {
+	return &UserExperienceAnalyticsWorkFromAnywhereDeviceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereDeviceRequest is request for UserExperienceAnalyticsWorkFromAnywhereDevice
+type UserExperienceAnalyticsWorkFromAnywhereDeviceRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsWorkFromAnywhereDevice
+func (r *UserExperienceAnalyticsWorkFromAnywhereDeviceRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsWorkFromAnywhereDevice, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsWorkFromAnywhereDevice
+func (r *UserExperienceAnalyticsWorkFromAnywhereDeviceRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsWorkFromAnywhereDevice) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsWorkFromAnywhereDevice
+func (r *UserExperienceAnalyticsWorkFromAnywhereDeviceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereMetricRequestBuilder is request builder for UserExperienceAnalyticsWorkFromAnywhereMetric
+type UserExperienceAnalyticsWorkFromAnywhereMetricRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserExperienceAnalyticsWorkFromAnywhereMetricRequest
+func (b *UserExperienceAnalyticsWorkFromAnywhereMetricRequestBuilder) Request() *UserExperienceAnalyticsWorkFromAnywhereMetricRequest {
+	return &UserExperienceAnalyticsWorkFromAnywhereMetricRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereMetricRequest is request for UserExperienceAnalyticsWorkFromAnywhereMetric
+type UserExperienceAnalyticsWorkFromAnywhereMetricRequest struct{ BaseRequest }
+
+// Get performs GET request for UserExperienceAnalyticsWorkFromAnywhereMetric
+func (r *UserExperienceAnalyticsWorkFromAnywhereMetricRequest) Get(ctx context.Context) (resObj *UserExperienceAnalyticsWorkFromAnywhereMetric, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserExperienceAnalyticsWorkFromAnywhereMetric
+func (r *UserExperienceAnalyticsWorkFromAnywhereMetricRequest) Update(ctx context.Context, reqObj *UserExperienceAnalyticsWorkFromAnywhereMetric) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserExperienceAnalyticsWorkFromAnywhereMetric
+func (r *UserExperienceAnalyticsWorkFromAnywhereMetricRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowAPIConnectorConfigurationRequestBuilder is request builder for UserFlowAPIConnectorConfiguration
+type UserFlowAPIConnectorConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowAPIConnectorConfigurationRequest
+func (b *UserFlowAPIConnectorConfigurationRequestBuilder) Request() *UserFlowAPIConnectorConfigurationRequest {
+	return &UserFlowAPIConnectorConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowAPIConnectorConfigurationRequest is request for UserFlowAPIConnectorConfiguration
+type UserFlowAPIConnectorConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Get(ctx context.Context) (resObj *UserFlowAPIConnectorConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Update(ctx context.Context, reqObj *UserFlowAPIConnectorConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowAPIConnectorConfiguration
+func (r *UserFlowAPIConnectorConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowLanguageConfigurationRequestBuilder is request builder for UserFlowLanguageConfiguration
+type UserFlowLanguageConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowLanguageConfigurationRequest
+func (b *UserFlowLanguageConfigurationRequestBuilder) Request() *UserFlowLanguageConfigurationRequest {
+	return &UserFlowLanguageConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowLanguageConfigurationRequest is request for UserFlowLanguageConfiguration
+type UserFlowLanguageConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Get(ctx context.Context) (resObj *UserFlowLanguageConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Update(ctx context.Context, reqObj *UserFlowLanguageConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowLanguageConfiguration
+func (r *UserFlowLanguageConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserFlowLanguagePageRequestBuilder is request builder for UserFlowLanguagePage
+type UserFlowLanguagePageRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserFlowLanguagePageRequest
+func (b *UserFlowLanguagePageRequestBuilder) Request() *UserFlowLanguagePageRequest {
+	return &UserFlowLanguagePageRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserFlowLanguagePageRequest is request for UserFlowLanguagePage
+type UserFlowLanguagePageRequest struct{ BaseRequest }
+
+// Get performs GET request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Get(ctx context.Context) (resObj *UserFlowLanguagePage, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Update(ctx context.Context, reqObj *UserFlowLanguagePage) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserFlowLanguagePage
+func (r *UserFlowLanguagePageRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserInsightsSettingsRequestBuilder is request builder for UserInsightsSettings
+type UserInsightsSettingsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserInsightsSettingsRequest
+func (b *UserInsightsSettingsRequestBuilder) Request() *UserInsightsSettingsRequest {
+	return &UserInsightsSettingsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserInsightsSettingsRequest is request for UserInsightsSettings
+type UserInsightsSettingsRequest struct{ BaseRequest }
+
+// Get performs GET request for UserInsightsSettings
+func (r *UserInsightsSettingsRequest) Get(ctx context.Context) (resObj *UserInsightsSettings, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserInsightsSettings
+func (r *UserInsightsSettingsRequest) Update(ctx context.Context, reqObj *UserInsightsSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserInsightsSettings
+func (r *UserInsightsSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // UserInstallStateSummaryRequestBuilder is request builder for UserInstallStateSummary
 type UserInstallStateSummaryRequestBuilder struct{ BaseRequestBuilder }
 
@@ -536,6 +1354,39 @@ func (r *UserPFXCertificateRequest) Update(ctx context.Context, reqObj *UserPFXC
 
 // Delete performs DELETE request for UserPFXCertificate
 func (r *UserPFXCertificateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// UserScopeTeamsAppInstallationRequestBuilder is request builder for UserScopeTeamsAppInstallation
+type UserScopeTeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns UserScopeTeamsAppInstallationRequest
+func (b *UserScopeTeamsAppInstallationRequestBuilder) Request() *UserScopeTeamsAppInstallationRequest {
+	return &UserScopeTeamsAppInstallationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// UserScopeTeamsAppInstallationRequest is request for UserScopeTeamsAppInstallation
+type UserScopeTeamsAppInstallationRequest struct{ BaseRequest }
+
+// Get performs GET request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Get(ctx context.Context) (resObj *UserScopeTeamsAppInstallation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Update(ctx context.Context, reqObj *UserScopeTeamsAppInstallation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for UserScopeTeamsAppInstallation
+func (r *UserScopeTeamsAppInstallationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -636,469 +1487,4 @@ func (r *UserTeamworkRequest) Update(ctx context.Context, reqObj *UserTeamwork) 
 // Delete performs DELETE request for UserTeamwork
 func (r *UserTeamworkRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-//
-type UserAssignLicenseRequestBuilder struct{ BaseRequestBuilder }
-
-// AssignLicense action undocumented
-func (b *UserRequestBuilder) AssignLicense(reqObj *UserAssignLicenseRequestParameter) *UserAssignLicenseRequestBuilder {
-	bb := &UserAssignLicenseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assignLicense"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserAssignLicenseRequest struct{ BaseRequest }
-
-//
-func (b *UserAssignLicenseRequestBuilder) Request() *UserAssignLicenseRequest {
-	return &UserAssignLicenseRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserAssignLicenseRequest) Post(ctx context.Context) (resObj *User, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type UserChangePasswordRequestBuilder struct{ BaseRequestBuilder }
-
-// ChangePassword action undocumented
-func (b *UserRequestBuilder) ChangePassword(reqObj *UserChangePasswordRequestParameter) *UserChangePasswordRequestBuilder {
-	bb := &UserChangePasswordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/changePassword"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserChangePasswordRequest struct{ BaseRequest }
-
-//
-func (b *UserChangePasswordRequestBuilder) Request() *UserChangePasswordRequest {
-	return &UserChangePasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserChangePasswordRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type UserInvalidateAllRefreshTokensRequestBuilder struct{ BaseRequestBuilder }
-
-// InvalidateAllRefreshTokens action undocumented
-func (b *UserRequestBuilder) InvalidateAllRefreshTokens(reqObj *UserInvalidateAllRefreshTokensRequestParameter) *UserInvalidateAllRefreshTokensRequestBuilder {
-	bb := &UserInvalidateAllRefreshTokensRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/invalidateAllRefreshTokens"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserInvalidateAllRefreshTokensRequest struct{ BaseRequest }
-
-//
-func (b *UserInvalidateAllRefreshTokensRequestBuilder) Request() *UserInvalidateAllRefreshTokensRequest {
-	return &UserInvalidateAllRefreshTokensRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserInvalidateAllRefreshTokensRequest) Post(ctx context.Context) (resObj *bool, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type UserRevokeSignInSessionsRequestBuilder struct{ BaseRequestBuilder }
-
-// RevokeSignInSessions action undocumented
-func (b *UserRequestBuilder) RevokeSignInSessions(reqObj *UserRevokeSignInSessionsRequestParameter) *UserRevokeSignInSessionsRequestBuilder {
-	bb := &UserRevokeSignInSessionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/revokeSignInSessions"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserRevokeSignInSessionsRequest struct{ BaseRequest }
-
-//
-func (b *UserRevokeSignInSessionsRequestBuilder) Request() *UserRevokeSignInSessionsRequest {
-	return &UserRevokeSignInSessionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserRevokeSignInSessionsRequest) Post(ctx context.Context) (resObj *bool, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type UserReprocessLicenseAssignmentRequestBuilder struct{ BaseRequestBuilder }
-
-// ReprocessLicenseAssignment action undocumented
-func (b *UserRequestBuilder) ReprocessLicenseAssignment(reqObj *UserReprocessLicenseAssignmentRequestParameter) *UserReprocessLicenseAssignmentRequestBuilder {
-	bb := &UserReprocessLicenseAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reprocessLicenseAssignment"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserReprocessLicenseAssignmentRequest struct{ BaseRequest }
-
-//
-func (b *UserReprocessLicenseAssignmentRequestBuilder) Request() *UserReprocessLicenseAssignmentRequest {
-	return &UserReprocessLicenseAssignmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserReprocessLicenseAssignmentRequest) Post(ctx context.Context) (resObj *User, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type UserFindMeetingTimesRequestBuilder struct{ BaseRequestBuilder }
-
-// FindMeetingTimes action undocumented
-func (b *UserRequestBuilder) FindMeetingTimes(reqObj *UserFindMeetingTimesRequestParameter) *UserFindMeetingTimesRequestBuilder {
-	bb := &UserFindMeetingTimesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/findMeetingTimes"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserFindMeetingTimesRequest struct{ BaseRequest }
-
-//
-func (b *UserFindMeetingTimesRequestBuilder) Request() *UserFindMeetingTimesRequest {
-	return &UserFindMeetingTimesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserFindMeetingTimesRequest) Post(ctx context.Context) (resObj *MeetingTimeSuggestionsResult, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type UserSendMailRequestBuilder struct{ BaseRequestBuilder }
-
-// SendMail action undocumented
-func (b *UserRequestBuilder) SendMail(reqObj *UserSendMailRequestParameter) *UserSendMailRequestBuilder {
-	bb := &UserSendMailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendMail"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserSendMailRequest struct{ BaseRequest }
-
-//
-func (b *UserSendMailRequestBuilder) Request() *UserSendMailRequest {
-	return &UserSendMailRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserSendMailRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type UserGetMailTipsRequestBuilder struct{ BaseRequestBuilder }
-
-// GetMailTips action undocumented
-func (b *UserRequestBuilder) GetMailTips(reqObj *UserGetMailTipsRequestParameter) *UserGetMailTipsRequestBuilder {
-	bb := &UserGetMailTipsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getMailTips"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserGetMailTipsRequest struct{ BaseRequest }
-
-//
-func (b *UserGetMailTipsRequestBuilder) Request() *UserGetMailTipsRequest {
-	return &UserGetMailTipsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserGetMailTipsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MailTips, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []MailTips
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []MailTips
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *UserGetMailTipsRequest) PostN(ctx context.Context, n int) ([]MailTips, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *UserGetMailTipsRequest) Post(ctx context.Context) ([]MailTips, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type UserTranslateExchangeIDsRequestBuilder struct{ BaseRequestBuilder }
-
-// TranslateExchangeIDs action undocumented
-func (b *UserRequestBuilder) TranslateExchangeIDs(reqObj *UserTranslateExchangeIDsRequestParameter) *UserTranslateExchangeIDsRequestBuilder {
-	bb := &UserTranslateExchangeIDsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/translateExchangeIds"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserTranslateExchangeIDsRequest struct{ BaseRequest }
-
-//
-func (b *UserTranslateExchangeIDsRequestBuilder) Request() *UserTranslateExchangeIDsRequest {
-	return &UserTranslateExchangeIDsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserTranslateExchangeIDsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConvertIDResult, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ConvertIDResult
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ConvertIDResult
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *UserTranslateExchangeIDsRequest) PostN(ctx context.Context, n int) ([]ConvertIDResult, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *UserTranslateExchangeIDsRequest) Post(ctx context.Context) ([]ConvertIDResult, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type UserRemoveAllDevicesFromManagementRequestBuilder struct{ BaseRequestBuilder }
-
-// RemoveAllDevicesFromManagement action undocumented
-func (b *UserRequestBuilder) RemoveAllDevicesFromManagement(reqObj *UserRemoveAllDevicesFromManagementRequestParameter) *UserRemoveAllDevicesFromManagementRequestBuilder {
-	bb := &UserRemoveAllDevicesFromManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removeAllDevicesFromManagement"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserRemoveAllDevicesFromManagementRequest struct{ BaseRequest }
-
-//
-func (b *UserRemoveAllDevicesFromManagementRequestBuilder) Request() *UserRemoveAllDevicesFromManagementRequest {
-	return &UserRemoveAllDevicesFromManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserRemoveAllDevicesFromManagementRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type UserWipeManagedAppRegistrationByDeviceTagRequestBuilder struct{ BaseRequestBuilder }
-
-// WipeManagedAppRegistrationByDeviceTag action undocumented
-func (b *UserRequestBuilder) WipeManagedAppRegistrationByDeviceTag(reqObj *UserWipeManagedAppRegistrationByDeviceTagRequestParameter) *UserWipeManagedAppRegistrationByDeviceTagRequestBuilder {
-	bb := &UserWipeManagedAppRegistrationByDeviceTagRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/wipeManagedAppRegistrationByDeviceTag"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserWipeManagedAppRegistrationByDeviceTagRequest struct{ BaseRequest }
-
-//
-func (b *UserWipeManagedAppRegistrationByDeviceTagRequestBuilder) Request() *UserWipeManagedAppRegistrationByDeviceTagRequest {
-	return &UserWipeManagedAppRegistrationByDeviceTagRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserWipeManagedAppRegistrationByDeviceTagRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder struct{ BaseRequestBuilder }
-
-// WipeManagedAppRegistrationsByDeviceTag action undocumented
-func (b *UserRequestBuilder) WipeManagedAppRegistrationsByDeviceTag(reqObj *UserWipeManagedAppRegistrationsByDeviceTagRequestParameter) *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder {
-	bb := &UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/wipeManagedAppRegistrationsByDeviceTag"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserWipeManagedAppRegistrationsByDeviceTagRequest struct{ BaseRequest }
-
-//
-func (b *UserWipeManagedAppRegistrationsByDeviceTagRequestBuilder) Request() *UserWipeManagedAppRegistrationsByDeviceTagRequest {
-	return &UserWipeManagedAppRegistrationsByDeviceTagRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserWipeManagedAppRegistrationsByDeviceTagRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type UserExportPersonalDataRequestBuilder struct{ BaseRequestBuilder }
-
-// ExportPersonalData action undocumented
-func (b *UserRequestBuilder) ExportPersonalData(reqObj *UserExportPersonalDataRequestParameter) *UserExportPersonalDataRequestBuilder {
-	bb := &UserExportPersonalDataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/exportPersonalData"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type UserExportPersonalDataRequest struct{ BaseRequest }
-
-//
-func (b *UserExportPersonalDataRequestBuilder) Request() *UserExportPersonalDataRequest {
-	return &UserExportPersonalDataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *UserExportPersonalDataRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -2,12 +2,20 @@
 
 package msgraph
 
+// ConnectionInfo undocumented
+type ConnectionInfo struct {
+	// Object is the base model of ConnectionInfo
+	Object
+	// URL undocumented
+	URL *string `json:"url,omitempty"`
+}
+
 // ConnectionOperation undocumented
 type ConnectionOperation struct {
 	// Entity is the base model of ConnectionOperation
 	Entity
+	// Error undocumented
+	Error *PublicError `json:"error,omitempty"`
 	// Status undocumented
 	Status *ConnectionOperationStatus `json:"status,omitempty"`
-	// Error undocumented
-	Error *ErrorDetail `json:"error,omitempty"`
 }

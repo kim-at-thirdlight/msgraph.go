@@ -6,6 +6,8 @@ package msgraph
 type CalendarColor string
 
 const (
+	// CalendarColorVAuto undocumented
+	CalendarColorVAuto CalendarColor = "auto"
 	// CalendarColorVLightBlue undocumented
 	CalendarColorVLightBlue CalendarColor = "lightBlue"
 	// CalendarColorVLightGreen undocumented
@@ -26,11 +28,11 @@ const (
 	CalendarColorVLightRed CalendarColor = "lightRed"
 	// CalendarColorVMaxColor undocumented
 	CalendarColorVMaxColor CalendarColor = "maxColor"
-	// CalendarColorVAuto undocumented
-	CalendarColorVAuto CalendarColor = "auto"
 )
 
 var (
+	// CalendarColorPAuto is a pointer to CalendarColorVAuto
+	CalendarColorPAuto = &_CalendarColorPAuto
 	// CalendarColorPLightBlue is a pointer to CalendarColorVLightBlue
 	CalendarColorPLightBlue = &_CalendarColorPLightBlue
 	// CalendarColorPLightGreen is a pointer to CalendarColorVLightGreen
@@ -51,11 +53,10 @@ var (
 	CalendarColorPLightRed = &_CalendarColorPLightRed
 	// CalendarColorPMaxColor is a pointer to CalendarColorVMaxColor
 	CalendarColorPMaxColor = &_CalendarColorPMaxColor
-	// CalendarColorPAuto is a pointer to CalendarColorVAuto
-	CalendarColorPAuto = &_CalendarColorPAuto
 )
 
 var (
+	_CalendarColorPAuto        = CalendarColorVAuto
 	_CalendarColorPLightBlue   = CalendarColorVLightBlue
 	_CalendarColorPLightGreen  = CalendarColorVLightGreen
 	_CalendarColorPLightOrange = CalendarColorVLightOrange
@@ -66,7 +67,6 @@ var (
 	_CalendarColorPLightBrown  = CalendarColorVLightBrown
 	_CalendarColorPLightRed    = CalendarColorVLightRed
 	_CalendarColorPMaxColor    = CalendarColorVMaxColor
-	_CalendarColorPAuto        = CalendarColorVAuto
 )
 
 // CalendarRoleType undocumented

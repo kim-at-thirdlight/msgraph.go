@@ -28,6 +28,38 @@ type Permission struct {
 	ShareID *string `json:"shareId,omitempty"`
 }
 
+// PermissionGrantConditionSet undocumented
+type PermissionGrantConditionSet struct {
+	// Entity is the base model of PermissionGrantConditionSet
+	Entity
+	// ClientApplicationIDs undocumented
+	ClientApplicationIDs []string `json:"clientApplicationIds,omitempty"`
+	// ClientApplicationPublisherIDs undocumented
+	ClientApplicationPublisherIDs []string `json:"clientApplicationPublisherIds,omitempty"`
+	// ClientApplicationsFromVerifiedPublisherOnly undocumented
+	ClientApplicationsFromVerifiedPublisherOnly *bool `json:"clientApplicationsFromVerifiedPublisherOnly,omitempty"`
+	// ClientApplicationTenantIDs undocumented
+	ClientApplicationTenantIDs []string `json:"clientApplicationTenantIds,omitempty"`
+	// PermissionClassification undocumented
+	PermissionClassification *string `json:"permissionClassification,omitempty"`
+	// Permissions undocumented
+	Permissions []string `json:"permissions,omitempty"`
+	// PermissionType undocumented
+	PermissionType *PermissionType `json:"permissionType,omitempty"`
+	// ResourceApplication undocumented
+	ResourceApplication *string `json:"resourceApplication,omitempty"`
+}
+
+// PermissionGrantPolicy undocumented
+type PermissionGrantPolicy struct {
+	// PolicyBase is the base model of PermissionGrantPolicy
+	PolicyBase
+	// Excludes undocumented
+	Excludes []PermissionGrantConditionSet `json:"excludes,omitempty"`
+	// Includes undocumented
+	Includes []PermissionGrantConditionSet `json:"includes,omitempty"`
+}
+
 // PermissionScope undocumented
 type PermissionScope struct {
 	// Object is the base model of PermissionScope

@@ -8,24 +8,24 @@ import "time"
 type RemoteActionAudit struct {
 	// Entity is the base model of RemoteActionAudit
 	Entity
-	// DeviceDisplayName Intune device name.
-	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
-	// UserName [deprecated] Please use InitiatedByUserPrincipalName instead.
-	UserName *string `json:"userName,omitempty"`
-	// InitiatedByUserPrincipalName User who initiated the device action, format is UPN.
-	InitiatedByUserPrincipalName *string `json:"initiatedByUserPrincipalName,omitempty"`
 	// Action The action name.
 	Action *RemoteAction `json:"action,omitempty"`
-	// RequestDateTime Time when the action was issued, given in UTC.
-	RequestDateTime *time.Time `json:"requestDateTime,omitempty"`
-	// DeviceOwnerUserPrincipalName Upn of the device owner.
-	DeviceOwnerUserPrincipalName *string `json:"deviceOwnerUserPrincipalName,omitempty"`
-	// DeviceIMEI IMEI of the device.
-	DeviceIMEI *string `json:"deviceIMEI,omitempty"`
 	// ActionState Action state.
 	ActionState *ActionState `json:"actionState,omitempty"`
+	// DeviceDisplayName Intune device name.
+	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceIMEI IMEI of the device.
+	DeviceIMEI *string `json:"deviceIMEI,omitempty"`
+	// DeviceOwnerUserPrincipalName Upn of the device owner.
+	DeviceOwnerUserPrincipalName *string `json:"deviceOwnerUserPrincipalName,omitempty"`
+	// InitiatedByUserPrincipalName User who initiated the device action, format is UPN.
+	InitiatedByUserPrincipalName *string `json:"initiatedByUserPrincipalName,omitempty"`
 	// ManagedDeviceID Action target.
 	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// RequestDateTime Time when the action was issued, given in UTC.
+	RequestDateTime *time.Time `json:"requestDateTime,omitempty"`
+	// UserName [deprecated] Please use InitiatedByUserPrincipalName instead.
+	UserName *string `json:"userName,omitempty"`
 }
 
 // RemoteAssistancePartner RemoteAssistPartner resources represent the metadata and status of a given Remote Assistance partner service.
@@ -34,12 +34,14 @@ type RemoteAssistancePartner struct {
 	Entity
 	// DisplayName Display name of the partner.
 	DisplayName *string `json:"displayName,omitempty"`
-	// OnboardingURL URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
-	OnboardingURL *string `json:"onboardingUrl,omitempty"`
-	// OnboardingStatus A friendly description of the current TeamViewer connector status
-	OnboardingStatus *RemoteAssistanceOnboardingStatus `json:"onboardingStatus,omitempty"`
 	// LastConnectionDateTime Timestamp of the last request sent to Intune by the TEM partner.
 	LastConnectionDateTime *time.Time `json:"lastConnectionDateTime,omitempty"`
+	// OnboardingRequestExpiryDateTime When the OnboardingStatus is Onboarding, This is the date time when the onboarding request expires.
+	OnboardingRequestExpiryDateTime *time.Time `json:"onboardingRequestExpiryDateTime,omitempty"`
+	// OnboardingStatus A friendly description of the current TeamViewer connector status
+	OnboardingStatus *RemoteAssistanceOnboardingStatus `json:"onboardingStatus,omitempty"`
+	// OnboardingURL URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.
+	OnboardingURL *string `json:"onboardingUrl,omitempty"`
 }
 
 // RemoteItem undocumented
@@ -58,6 +60,8 @@ type RemoteItem struct {
 	Folder *Folder `json:"folder,omitempty"`
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
+	// Image undocumented
+	Image *Image `json:"image,omitempty"`
 	// LastModifiedBy undocumented
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`
 	// LastModifiedDateTime undocumented
@@ -76,13 +80,15 @@ type RemoteItem struct {
 	Size *int `json:"size,omitempty"`
 	// SpecialFolder undocumented
 	SpecialFolder *SpecialFolder `json:"specialFolder,omitempty"`
+	// Video undocumented
+	Video *Video `json:"video,omitempty"`
 	// WebDavURL undocumented
 	WebDavURL *string `json:"webDavUrl,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }
 
-// RemoteLockActionResult undocumented
+// RemoteLockActionResult Lock action result with a pin to unlock
 type RemoteLockActionResult struct {
 	// DeviceActionResult is the base model of RemoteLockActionResult
 	DeviceActionResult

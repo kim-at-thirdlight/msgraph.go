@@ -6,16 +6,16 @@ package msgraph
 type RoleAssignment struct {
 	// Entity is the base model of RoleAssignment
 	Entity
-	// DisplayName The display or friendly name of the role Assignment.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description of the Role Assignment.
 	Description *string `json:"description,omitempty"`
+	// DisplayName The display or friendly name of the role Assignment.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ResourceScopes List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+	ResourceScopes []string `json:"resourceScopes,omitempty"`
 	// ScopeMembers List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
 	ScopeMembers []string `json:"scopeMembers,omitempty"`
 	// ScopeType Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty.
 	ScopeType *RoleAssignmentScopeType `json:"scopeType,omitempty"`
-	// ResourceScopes List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-	ResourceScopes []string `json:"resourceScopes,omitempty"`
 	// RoleDefinition undocumented
 	RoleDefinition *RoleDefinition `json:"roleDefinition,omitempty"`
 }
@@ -24,18 +24,18 @@ type RoleAssignment struct {
 type RoleDefinition struct {
 	// Entity is the base model of RoleDefinition
 	Entity
-	// DisplayName Display Name of the Role definition.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description of the Role definition.
 	Description *string `json:"description,omitempty"`
+	// DisplayName Display Name of the Role definition.
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsBuiltIn Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
+	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
+	// IsBuiltInRoleDefinition Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
+	IsBuiltInRoleDefinition *bool `json:"isBuiltInRoleDefinition,omitempty"`
 	// Permissions List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
 	Permissions []RolePermission `json:"permissions,omitempty"`
 	// RolePermissions List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.
 	RolePermissions []RolePermission `json:"rolePermissions,omitempty"`
-	// IsBuiltInRoleDefinition Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
-	IsBuiltInRoleDefinition *bool `json:"isBuiltInRoleDefinition,omitempty"`
-	// IsBuiltIn Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.
-	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// RoleAssignments undocumented
@@ -44,10 +44,16 @@ type RoleDefinition struct {
 
 // RoleManagement undocumented
 type RoleManagement struct {
-	// Entity is the base model of RoleManagement
-	Entity
+	// Object is the base model of RoleManagement
+	Object
 	// Directory undocumented
 	Directory *RbacApplication `json:"directory,omitempty"`
+	// CloudPC undocumented
+	CloudPC *RbacApplicationMultiple `json:"cloudPC,omitempty"`
+	// EntitlementManagement undocumented
+	EntitlementManagement *RbacApplication `json:"entitlementManagement,omitempty"`
+	// DeviceManagement undocumented
+	DeviceManagement *RbacApplicationMultiple `json:"deviceManagement,omitempty"`
 }
 
 // RoleMembershipGovernanceCriteria undocumented
@@ -60,7 +66,7 @@ type RoleMembershipGovernanceCriteria struct {
 	RoleTemplateID *string `json:"roleTemplateId,omitempty"`
 }
 
-// RolePermission undocumented
+// RolePermission Contains the set of ResourceActions determining the allowed and not allowed permissions for each role.
 type RolePermission struct {
 	// Object is the base model of RolePermission
 	Object
@@ -74,10 +80,10 @@ type RolePermission struct {
 type RoleScopeTag struct {
 	// Entity is the base model of RoleScopeTag
 	Entity
-	// DisplayName The display or friendly name of the Role Scope Tag.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description of the Role Scope Tag.
 	Description *string `json:"description,omitempty"`
+	// DisplayName The display or friendly name of the Role Scope Tag.
+	DisplayName *string `json:"displayName,omitempty"`
 	// IsBuiltIn Description of the Role Scope Tag.
 	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
 	// Assignments undocumented
@@ -92,7 +98,7 @@ type RoleScopeTagAutoAssignment struct {
 	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
-// RoleScopeTagInfo undocumented
+// RoleScopeTagInfo A class containing the properties of Role Scope Tag Object.
 type RoleScopeTagInfo struct {
 	// Object is the base model of RoleScopeTagInfo
 	Object
@@ -106,22 +112,22 @@ type RoleScopeTagInfo struct {
 type RoleSuccessStatistics struct {
 	// Object is the base model of RoleSuccessStatistics
 	Object
+	// PermanentFail undocumented
+	PermanentFail *int `json:"permanentFail,omitempty"`
+	// PermanentSuccess undocumented
+	PermanentSuccess *int `json:"permanentSuccess,omitempty"`
+	// RemoveFail undocumented
+	RemoveFail *int `json:"removeFail,omitempty"`
+	// RemoveSuccess undocumented
+	RemoveSuccess *int `json:"removeSuccess,omitempty"`
 	// RoleID undocumented
 	RoleID *string `json:"roleId,omitempty"`
 	// RoleName undocumented
 	RoleName *string `json:"roleName,omitempty"`
-	// TemporarySuccess undocumented
-	TemporarySuccess *int `json:"temporarySuccess,omitempty"`
 	// TemporaryFail undocumented
 	TemporaryFail *int `json:"temporaryFail,omitempty"`
-	// PermanentSuccess undocumented
-	PermanentSuccess *int `json:"permanentSuccess,omitempty"`
-	// PermanentFail undocumented
-	PermanentFail *int `json:"permanentFail,omitempty"`
-	// RemoveSuccess undocumented
-	RemoveSuccess *int `json:"removeSuccess,omitempty"`
-	// RemoveFail undocumented
-	RemoveFail *int `json:"removeFail,omitempty"`
+	// TemporarySuccess undocumented
+	TemporarySuccess *int `json:"temporarySuccess,omitempty"`
 	// UnknownFail undocumented
 	UnknownFail *int `json:"unknownFail,omitempty"`
 }

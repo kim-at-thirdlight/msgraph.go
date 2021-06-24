@@ -169,28 +169,35 @@ func (r *TeamsTabRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
+// TeamsTemplateRequestBuilder is request builder for TeamsTemplate
+type TeamsTemplateRequestBuilder struct{ BaseRequestBuilder }
 
-// Upgrade action undocumented
-func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
-	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/upgrade"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
-
-//
-func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
-	return &TeamsAppInstallationUpgradeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns TeamsTemplateRequest
+func (b *TeamsTemplateRequestBuilder) Request() *TeamsTemplateRequest {
+	return &TeamsTemplateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *TeamsAppInstallationUpgradeRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// TeamsTemplateRequest is request for TeamsTemplate
+type TeamsTemplateRequest struct{ BaseRequest }
+
+// Get performs GET request for TeamsTemplate
+func (r *TeamsTemplateRequest) Get(ctx context.Context) (resObj *TeamsTemplate, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TeamsTemplate
+func (r *TeamsTemplateRequest) Update(ctx context.Context, reqObj *TeamsTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TeamsTemplate
+func (r *TeamsTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

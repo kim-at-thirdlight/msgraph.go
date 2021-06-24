@@ -11,6 +11,10 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ApplePushNotificationCertificateGenerateApplePushNotificationCertificateSigningRequestActionRequestParameter undocumented
+type ApplePushNotificationCertificateGenerateApplePushNotificationCertificateSigningRequestActionRequestParameter struct {
+}
+
 // AppleUserInitiatedEnrollmentProfileSetPriorityRequestParameter undocumented
 type AppleUserInitiatedEnrollmentProfileSetPriorityRequestParameter struct {
 	// Priority undocumented

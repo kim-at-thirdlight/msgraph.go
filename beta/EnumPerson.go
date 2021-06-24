@@ -2,6 +2,43 @@
 
 package msgraph
 
+// PersonAnnualEventType undocumented
+type PersonAnnualEventType string
+
+const (
+	// PersonAnnualEventTypeVBirthday undocumented
+	PersonAnnualEventTypeVBirthday PersonAnnualEventType = "birthday"
+	// PersonAnnualEventTypeVWedding undocumented
+	PersonAnnualEventTypeVWedding PersonAnnualEventType = "wedding"
+	// PersonAnnualEventTypeVWork undocumented
+	PersonAnnualEventTypeVWork PersonAnnualEventType = "work"
+	// PersonAnnualEventTypeVOther undocumented
+	PersonAnnualEventTypeVOther PersonAnnualEventType = "other"
+	// PersonAnnualEventTypeVUnknownFutureValue undocumented
+	PersonAnnualEventTypeVUnknownFutureValue PersonAnnualEventType = "unknownFutureValue"
+)
+
+var (
+	// PersonAnnualEventTypePBirthday is a pointer to PersonAnnualEventTypeVBirthday
+	PersonAnnualEventTypePBirthday = &_PersonAnnualEventTypePBirthday
+	// PersonAnnualEventTypePWedding is a pointer to PersonAnnualEventTypeVWedding
+	PersonAnnualEventTypePWedding = &_PersonAnnualEventTypePWedding
+	// PersonAnnualEventTypePWork is a pointer to PersonAnnualEventTypeVWork
+	PersonAnnualEventTypePWork = &_PersonAnnualEventTypePWork
+	// PersonAnnualEventTypePOther is a pointer to PersonAnnualEventTypeVOther
+	PersonAnnualEventTypePOther = &_PersonAnnualEventTypePOther
+	// PersonAnnualEventTypePUnknownFutureValue is a pointer to PersonAnnualEventTypeVUnknownFutureValue
+	PersonAnnualEventTypePUnknownFutureValue = &_PersonAnnualEventTypePUnknownFutureValue
+)
+
+var (
+	_PersonAnnualEventTypePBirthday           = PersonAnnualEventTypeVBirthday
+	_PersonAnnualEventTypePWedding            = PersonAnnualEventTypeVWedding
+	_PersonAnnualEventTypePWork               = PersonAnnualEventTypeVWork
+	_PersonAnnualEventTypePOther              = PersonAnnualEventTypeVOther
+	_PersonAnnualEventTypePUnknownFutureValue = PersonAnnualEventTypeVUnknownFutureValue
+)
+
 // PersonRelationship undocumented
 type PersonRelationship string
 

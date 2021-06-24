@@ -14,14 +14,14 @@ type StatusBase struct {
 type StatusDetails struct {
 	// StatusBase is the base model of StatusDetails
 	StatusBase
+	// AdditionalDetails undocumented
+	AdditionalDetails *string `json:"additionalDetails,omitempty"`
+	// ErrorCategory undocumented
+	ErrorCategory *ProvisioningStatusErrorCategory `json:"errorCategory,omitempty"`
 	// ErrorCode undocumented
 	ErrorCode *string `json:"errorCode,omitempty"`
 	// Reason undocumented
 	Reason *string `json:"reason,omitempty"`
-	// AdditionalDetails undocumented
-	AdditionalDetails *string `json:"additionalDetails,omitempty"`
-	// ErrorCategory undocumented
-	ErrorCategory *string `json:"errorCategory,omitempty"`
 	// RecommendedAction undocumented
 	RecommendedAction *string `json:"recommendedAction,omitempty"`
 }

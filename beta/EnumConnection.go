@@ -66,6 +66,43 @@ var (
 	_ConnectionOperationStatusPFailed      = ConnectionOperationStatusVFailed
 )
 
+// ConnectionState undocumented
+type ConnectionState string
+
+const (
+	// ConnectionStateVDraft undocumented
+	ConnectionStateVDraft ConnectionState = "draft"
+	// ConnectionStateVReady undocumented
+	ConnectionStateVReady ConnectionState = "ready"
+	// ConnectionStateVObsolete undocumented
+	ConnectionStateVObsolete ConnectionState = "obsolete"
+	// ConnectionStateVLimitExceeded undocumented
+	ConnectionStateVLimitExceeded ConnectionState = "limitExceeded"
+	// ConnectionStateVUnknownFutureValue undocumented
+	ConnectionStateVUnknownFutureValue ConnectionState = "unknownFutureValue"
+)
+
+var (
+	// ConnectionStatePDraft is a pointer to ConnectionStateVDraft
+	ConnectionStatePDraft = &_ConnectionStatePDraft
+	// ConnectionStatePReady is a pointer to ConnectionStateVReady
+	ConnectionStatePReady = &_ConnectionStatePReady
+	// ConnectionStatePObsolete is a pointer to ConnectionStateVObsolete
+	ConnectionStatePObsolete = &_ConnectionStatePObsolete
+	// ConnectionStatePLimitExceeded is a pointer to ConnectionStateVLimitExceeded
+	ConnectionStatePLimitExceeded = &_ConnectionStatePLimitExceeded
+	// ConnectionStatePUnknownFutureValue is a pointer to ConnectionStateVUnknownFutureValue
+	ConnectionStatePUnknownFutureValue = &_ConnectionStatePUnknownFutureValue
+)
+
+var (
+	_ConnectionStatePDraft              = ConnectionStateVDraft
+	_ConnectionStatePReady              = ConnectionStateVReady
+	_ConnectionStatePObsolete           = ConnectionStateVObsolete
+	_ConnectionStatePLimitExceeded      = ConnectionStateVLimitExceeded
+	_ConnectionStatePUnknownFutureValue = ConnectionStateVUnknownFutureValue
+)
+
 // ConnectionStatus undocumented
 type ConnectionStatus string
 

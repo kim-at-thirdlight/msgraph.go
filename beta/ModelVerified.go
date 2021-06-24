@@ -2,6 +2,24 @@
 
 package msgraph
 
+import "time"
+
+// VerifiedCustomDomainCertificatesMetadata undocumented
+type VerifiedCustomDomainCertificatesMetadata struct {
+	// Object is the base model of VerifiedCustomDomainCertificatesMetadata
+	Object
+	// ExpiryDate undocumented
+	ExpiryDate *time.Time `json:"expiryDate,omitempty"`
+	// IssueDate undocumented
+	IssueDate *time.Time `json:"issueDate,omitempty"`
+	// IssuerName undocumented
+	IssuerName *string `json:"issuerName,omitempty"`
+	// SubjectName undocumented
+	SubjectName *string `json:"subjectName,omitempty"`
+	// Thumbprint undocumented
+	Thumbprint *string `json:"thumbprint,omitempty"`
+}
+
 // VerifiedDomain undocumented
 type VerifiedDomain struct {
 	// Object is the base model of VerifiedDomain

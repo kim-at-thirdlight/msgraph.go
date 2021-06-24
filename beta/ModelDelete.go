@@ -12,7 +12,7 @@ type DeleteAction struct {
 	ObjectType *string `json:"objectType,omitempty"`
 }
 
-// DeleteUserFromSharedAppleDeviceActionResult undocumented
+// DeleteUserFromSharedAppleDeviceActionResult Delete user from shared apple device action result
 type DeleteUserFromSharedAppleDeviceActionResult struct {
 	// DeviceActionResult is the base model of DeleteUserFromSharedAppleDeviceActionResult
 	DeviceActionResult

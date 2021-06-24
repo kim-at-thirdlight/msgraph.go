@@ -103,6 +103,39 @@ func (r *GovernanceRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// GovernanceRoleAssignmentRequestRequestBuilder is request builder for GovernanceRoleAssignmentRequest
+type GovernanceRoleAssignmentRequestRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns GovernanceRoleAssignmentRequestRequest
+func (b *GovernanceRoleAssignmentRequestRequestBuilder) Request() *GovernanceRoleAssignmentRequestRequest {
+	return &GovernanceRoleAssignmentRequestRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// GovernanceRoleAssignmentRequestRequest is request for GovernanceRoleAssignmentRequest
+type GovernanceRoleAssignmentRequestRequest struct{ BaseRequest }
+
+// Get performs GET request for GovernanceRoleAssignmentRequest
+func (r *GovernanceRoleAssignmentRequestRequest) Get(ctx context.Context) (resObj *GovernanceRoleAssignmentRequest, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for GovernanceRoleAssignmentRequest
+func (r *GovernanceRoleAssignmentRequestRequest) Update(ctx context.Context, reqObj *GovernanceRoleAssignmentRequest) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for GovernanceRoleAssignmentRequest
+func (r *GovernanceRoleAssignmentRequestRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // GovernanceRoleAssignmentRequestObjectRequestBuilder is request builder for GovernanceRoleAssignmentRequestObject
 type GovernanceRoleAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -259,57 +292,4 @@ func (b *GovernanceResourceCollectionRegisterRequestBuilder) Request() *Governan
 //
 func (r *GovernanceResourceCollectionRegisterRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type GovernanceRoleAssignmentRequestObjectCancelRequestBuilder struct{ BaseRequestBuilder }
-
-// Cancel action undocumented
-func (b *GovernanceRoleAssignmentRequestObjectRequestBuilder) Cancel(reqObj *GovernanceRoleAssignmentRequestObjectCancelRequestParameter) *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder {
-	bb := &GovernanceRoleAssignmentRequestObjectCancelRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cancel"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GovernanceRoleAssignmentRequestObjectCancelRequest struct{ BaseRequest }
-
-//
-func (b *GovernanceRoleAssignmentRequestObjectCancelRequestBuilder) Request() *GovernanceRoleAssignmentRequestObjectCancelRequest {
-	return &GovernanceRoleAssignmentRequestObjectCancelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *GovernanceRoleAssignmentRequestObjectCancelRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateRequestAction action undocumented
-func (b *GovernanceRoleAssignmentRequestObjectRequestBuilder) UpdateRequestAction(reqObj *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestParameter) *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder {
-	bb := &GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateRequest"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest struct{ BaseRequest }
-
-//
-func (b *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestBuilder) Request() *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest {
-	return &GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequest) Post(ctx context.Context) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
 }

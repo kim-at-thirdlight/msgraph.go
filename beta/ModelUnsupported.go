@@ -6,13 +6,13 @@ package msgraph
 type UnsupportedDeviceConfiguration struct {
 	// DeviceConfiguration is the base model of UnsupportedDeviceConfiguration
 	DeviceConfiguration
-	// OriginalEntityTypeName The type of entity that would be returned otherwise.
-	OriginalEntityTypeName *string `json:"originalEntityTypeName,omitempty"`
 	// Details Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
 	Details []UnsupportedDeviceConfigurationDetail `json:"details,omitempty"`
+	// OriginalEntityTypeName The type of entity that would be returned otherwise.
+	OriginalEntityTypeName *string `json:"originalEntityTypeName,omitempty"`
 }
 
-// UnsupportedDeviceConfigurationDetail undocumented
+// UnsupportedDeviceConfigurationDetail A description of why an entity is unsupported.
 type UnsupportedDeviceConfigurationDetail struct {
 	// Object is the base model of UnsupportedDeviceConfigurationDetail
 	Object
@@ -20,4 +20,18 @@ type UnsupportedDeviceConfigurationDetail struct {
 	Message *string `json:"message,omitempty"`
 	// PropertyName If message is related to a specific property in the original entity, then the name of that property.
 	PropertyName *string `json:"propertyName,omitempty"`
+}
+
+// UnsupportedGroupPolicyExtension Unsupported Group Policy Extension.
+type UnsupportedGroupPolicyExtension struct {
+	// Entity is the base model of UnsupportedGroupPolicyExtension
+	Entity
+	// ExtensionType ExtensionType of the unsupported extension.
+	ExtensionType *string `json:"extensionType,omitempty"`
+	// NamespaceURL Namespace Url of the unsupported extension.
+	NamespaceURL *string `json:"namespaceUrl,omitempty"`
+	// NodeName Node name of the unsupported extension.
+	NodeName *string `json:"nodeName,omitempty"`
+	// SettingScope Setting Scope of the unsupported extension.
+	SettingScope *GroupPolicySettingScope `json:"settingScope,omitempty"`
 }

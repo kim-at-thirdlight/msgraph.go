@@ -2,72 +2,114 @@
 
 package msgraph
 
-import "time"
-
 // Identity undocumented
 type Identity struct {
 	// Object is the base model of Identity
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+}
+
+// IdentityAPIConnector undocumented
+type IdentityAPIConnector struct {
+	// Entity is the base model of IdentityAPIConnector
+	Entity
+	// AuthenticationConfiguration undocumented
+	AuthenticationConfiguration *APIAuthenticationConfigurationBase `json:"authenticationConfiguration,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// TargetURL undocumented
+	TargetURL *string `json:"targetUrl,omitempty"`
+}
+
+// IdentityBuiltInUserFlowAttribute undocumented
+type IdentityBuiltInUserFlowAttribute struct {
+	// IdentityUserFlowAttribute is the base model of IdentityBuiltInUserFlowAttribute
+	IdentityUserFlowAttribute
 }
 
 // IdentityContainer undocumented
 type IdentityContainer struct {
-	// Entity is the base model of IdentityContainer
-	Entity
+	// Object is the base model of IdentityContainer
+	Object
+	// ConditionalAccess undocumented
+	ConditionalAccess *ConditionalAccessRoot `json:"conditionalAccess,omitempty"`
+	// APIConnectors undocumented
+	APIConnectors []IdentityAPIConnector `json:"apiConnectors,omitempty"`
+	// B2cUserFlows undocumented
+	B2cUserFlows []B2cIdentityUserFlow `json:"b2cUserFlows,omitempty"`
+	// B2xUserFlows undocumented
+	B2xUserFlows []B2xIdentityUserFlow `json:"b2xUserFlows,omitempty"`
+	// IdentityProviders undocumented
+	IdentityProviders []IdentityProviderBase `json:"identityProviders,omitempty"`
+	// UserFlowAttributes undocumented
+	UserFlowAttributes []IdentityUserFlowAttribute `json:"userFlowAttributes,omitempty"`
 	// UserFlows undocumented
 	UserFlows []IdentityUserFlow `json:"userFlows,omitempty"`
+	// ContinuousAccessEvaluationPolicy undocumented
+	ContinuousAccessEvaluationPolicy *ContinuousAccessEvaluationPolicy `json:"continuousAccessEvaluationPolicy,omitempty"`
+}
+
+// IdentityCustomUserFlowAttribute undocumented
+type IdentityCustomUserFlowAttribute struct {
+	// IdentityUserFlowAttribute is the base model of IdentityCustomUserFlowAttribute
+	IdentityUserFlowAttribute
 }
 
 // IdentityGovernance undocumented
 type IdentityGovernance struct {
-	// Entity is the base model of IdentityGovernance
-	Entity
+	// Object is the base model of IdentityGovernance
+	Object
+	// AccessReviews undocumented
+	AccessReviews *AccessReviewSet `json:"accessReviews,omitempty"`
+	// AppConsent undocumented
+	AppConsent *AppConsentApprovalRoute `json:"appConsent,omitempty"`
+	// TermsOfUse undocumented
+	TermsOfUse *TermsOfUseContainer `json:"termsOfUse,omitempty"`
 	// EntitlementManagement undocumented
 	EntitlementManagement *EntitlementManagement `json:"entitlementManagement,omitempty"`
+}
+
+// IdentityProtectionRoot undocumented
+type IdentityProtectionRoot struct {
+	// Object is the base model of IdentityProtectionRoot
+	Object
+	// RiskDetections undocumented
+	RiskDetections []RiskDetection `json:"riskDetections,omitempty"`
+	// RiskyUsers undocumented
+	RiskyUsers []RiskyUser `json:"riskyUsers,omitempty"`
 }
 
 // IdentityProvider undocumented
 type IdentityProvider struct {
 	// Entity is the base model of IdentityProvider
 	Entity
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
 	// ClientID undocumented
 	ClientID *string `json:"clientId,omitempty"`
 	// ClientSecret undocumented
 	ClientSecret *string `json:"clientSecret,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }
 
-// IdentityRiskEvent undocumented
-type IdentityRiskEvent struct {
-	// Entity is the base model of IdentityRiskEvent
+// IdentityProviderBase undocumented
+type IdentityProviderBase struct {
+	// Entity is the base model of IdentityProviderBase
 	Entity
-	// UserDisplayName undocumented
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// RiskEventDateTime undocumented
-	RiskEventDateTime *time.Time `json:"riskEventDateTime,omitempty"`
-	// RiskEventType undocumented
-	RiskEventType *string `json:"riskEventType,omitempty"`
-	// RiskLevel undocumented
-	RiskLevel *RiskLevel `json:"riskLevel,omitempty"`
-	// RiskEventStatus undocumented
-	RiskEventStatus *RiskEventStatus `json:"riskEventStatus,omitempty"`
-	// ClosedDateTime undocumented
-	ClosedDateTime *time.Time `json:"closedDateTime,omitempty"`
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// ImpactedUser undocumented
-	ImpactedUser *User `json:"impactedUser,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+}
+
+// IdentitySecurityDefaultsEnforcementPolicy undocumented
+type IdentitySecurityDefaultsEnforcementPolicy struct {
+	// PolicyBase is the base model of IdentitySecurityDefaultsEnforcementPolicy
+	PolicyBase
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
 }
 
 // IdentitySet undocumented
@@ -82,6 +124,12 @@ type IdentitySet struct {
 	User *Identity `json:"user,omitempty"`
 }
 
+// IdentitySource undocumented
+type IdentitySource struct {
+	// Object is the base model of IdentitySource
+	Object
+}
+
 // IdentityUserFlow undocumented
 type IdentityUserFlow struct {
 	// Entity is the base model of IdentityUserFlow
@@ -92,12 +140,34 @@ type IdentityUserFlow struct {
 	UserFlowTypeVersion *float64 `json:"userFlowTypeVersion,omitempty"`
 }
 
-// IdentityUserRisk undocumented
-type IdentityUserRisk struct {
-	// Object is the base model of IdentityUserRisk
-	Object
-	// Level undocumented
-	Level *UserRiskLevel `json:"level,omitempty"`
-	// LastChangedDateTime undocumented
-	LastChangedDateTime *time.Time `json:"lastChangedDateTime,omitempty"`
+// IdentityUserFlowAttribute undocumented
+type IdentityUserFlowAttribute struct {
+	// Entity is the base model of IdentityUserFlowAttribute
+	Entity
+	// DataType undocumented
+	DataType *IdentityUserFlowAttributeDataType `json:"dataType,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// UserFlowAttributeType undocumented
+	UserFlowAttributeType *IdentityUserFlowAttributeType `json:"userFlowAttributeType,omitempty"`
+}
+
+// IdentityUserFlowAttributeAssignment undocumented
+type IdentityUserFlowAttributeAssignment struct {
+	// Entity is the base model of IdentityUserFlowAttributeAssignment
+	Entity
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsOptional undocumented
+	IsOptional *bool `json:"isOptional,omitempty"`
+	// RequiresVerification undocumented
+	RequiresVerification *bool `json:"requiresVerification,omitempty"`
+	// UserAttributeValues undocumented
+	UserAttributeValues []UserAttributeValuesItem `json:"userAttributeValues,omitempty"`
+	// UserInputType undocumented
+	UserInputType *IdentityUserFlowAttributeInputType `json:"userInputType,omitempty"`
+	// UserAttribute undocumented
+	UserAttribute *IdentityUserFlowAttribute `json:"userAttribute,omitempty"`
 }

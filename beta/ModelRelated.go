@@ -6,18 +6,18 @@ package msgraph
 type RelatedContact struct {
 	// Object is the base model of RelatedContact
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
+	// AccessConsent undocumented
+	AccessConsent *bool `json:"accessConsent,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// EmailAddress undocumented
 	EmailAddress *string `json:"emailAddress,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// MobilePhone undocumented
 	MobilePhone *string `json:"mobilePhone,omitempty"`
 	// Relationship undocumented
 	Relationship *ContactRelationship `json:"relationship,omitempty"`
-	// AccessConsent undocumented
-	AccessConsent *bool `json:"accessConsent,omitempty"`
 }
 
 // RelatedPerson undocumented

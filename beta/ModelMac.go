@@ -4,72 +4,130 @@ package msgraph
 
 import "time"
 
-// MacManagedAppProtection undocumented
-type MacManagedAppProtection struct {
-	// Entity is the base model of MacManagedAppProtection
-	Entity
+// MacAppIdentifier The identifier for a Mac app.
+type MacAppIdentifier struct {
+	// MobileAppIdentifier is the base model of MacAppIdentifier
+	MobileAppIdentifier
+	// BundleID The identifier for an app, as specified in the app store.
+	BundleID *string `json:"bundleId,omitempty"`
+}
+
+// MacOSAppleEventReceiver Represents a process that can receive an Apple Event notification.
+type MacOSAppleEventReceiver struct {
+	// Object is the base model of MacOSAppleEventReceiver
+	Object
+	// Allowed Allow or block this app from receiving Apple events.
+	Allowed *bool `json:"allowed,omitempty"`
+	// CodeRequirement Code requirement for the app or binary that receives the Apple Event.
+	CodeRequirement *string `json:"codeRequirement,omitempty"`
+	// Identifier Bundle ID of the app or file path of the process or executable that receives the Apple Event.
+	Identifier *string `json:"identifier,omitempty"`
+	// IdentifierType Use bundle ID for an app or path for a process or executable that receives the Apple Event.
+	IdentifierType *MacOSProcessIdentifierType `json:"identifierType,omitempty"`
+}
+
+// MacOSAssociatedDomainsItem A mapping of application identifiers to associated domains.
+type MacOSAssociatedDomainsItem struct {
+	// Object is the base model of MacOSAssociatedDomainsItem
+	Object
+	// ApplicationIdentifier The application identifier of the app to associate domains with.
+	ApplicationIdentifier *string `json:"applicationIdentifier,omitempty"`
+	// DirectDownloadsEnabled Determines whether data should be downloaded directly or via a CDN.
+	DirectDownloadsEnabled *bool `json:"directDownloadsEnabled,omitempty"`
+	// Domains The list of domains to associate.
+	Domains []string `json:"domains,omitempty"`
+}
+
+// MacOSAzureAdSingleSignOnExtension Represents an Azure AD-type Single Sign-On extension profile for macOS devices.
+type MacOSAzureAdSingleSignOnExtension struct {
+	// MacOSSingleSignOnExtension is the base model of MacOSAzureAdSingleSignOnExtension
+	MacOSSingleSignOnExtension
+	// BundleIDAccessControlList An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.
+	BundleIDAccessControlList []string `json:"bundleIdAccessControlList,omitempty"`
+	// Configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
+	Configurations []KeyTypedValuePair `json:"configurations,omitempty"`
+	// EnableSharedDeviceMode Enables or disables shared device mode.
+	EnableSharedDeviceMode *bool `json:"enableSharedDeviceMode,omitempty"`
 }
 
 // MacOSCertificateProfileBase Mac OS certificate profile.
 type MacOSCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of MacOSCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage.
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *AppleSubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
-	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage.
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
+	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
+	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *AppleSubjectNameFormat `json:"subjectNameFormat,omitempty"`
 }
 
 // MacOSCompliancePolicy This class contains compliance settings for Mac OS.
 type MacOSCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of MacOSCompliancePolicy
 	DeviceCompliancePolicy
-	// PasswordRequired Whether or not to require a password.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// AdvancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance.
+	AdvancedThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"advancedThreatProtectionRequiredSecurityLevel,omitempty"`
+	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
+	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
+	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
+	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
+	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
+	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
+	// FirewallEnabled Whether the firewall should be enabled or not.
+	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
+	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
+	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
+	// GatekeeperAllowedAppSource System and Privacy setting that determines which download locations apps can be run from on a macOS device.
+	GatekeeperAllowedAppSource *MacOSGatekeeperAppSources `json:"gatekeeperAllowedAppSource,omitempty"`
+	// OsMaximumBuildVersion Maximum MacOS build version.
+	OsMaximumBuildVersion *string `json:"osMaximumBuildVersion,omitempty"`
+	// OsMaximumVersion Maximum MacOS version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumBuildVersion Minimum MacOS build version.
+	OsMinimumBuildVersion *string `json:"osMinimumBuildVersion,omitempty"`
+	// OsMinimumVersion Minimum MacOS version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
 	// PasswordBlockSimple Indicates whether or not to block simple passwords.
 	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 65535
 	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
+	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
 	// PasswordMinimumLength Minimum length of password. Valid values 4 to 14
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
 	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
 	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordMinimumCharacterSetCount The number of character sets required in the password.
-	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
+	// PasswordRequired Whether or not to require a password.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
 	// PasswordRequiredType The required password type.
 	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// OsMinimumVersion Minimum MacOS version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum MacOS version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
-	// OsMinimumBuildVersion Minimum MacOS build version.
-	OsMinimumBuildVersion *string `json:"osMinimumBuildVersion,omitempty"`
-	// OsMaximumBuildVersion Maximum MacOS build version.
-	OsMaximumBuildVersion *string `json:"osMaximumBuildVersion,omitempty"`
-	// SystemIntegrityProtectionEnabled Require that devices have enabled system integrity protection.
-	SystemIntegrityProtectionEnabled *bool `json:"systemIntegrityProtectionEnabled,omitempty"`
-	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
-	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
-	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
-	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
 	// StorageRequireEncryption Require encryption on Mac OS devices.
 	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
-	// GatekeeperAllowedAppSource System and Privacy setting that determines which download locations apps can be run from on a macOS device.
-	GatekeeperAllowedAppSource *MacOSGatekeeperAppSources `json:"gatekeeperAllowedAppSource,omitempty"`
-	// FirewallEnabled Whether the firewall should be enabled or not.
-	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
-	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
-	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
-	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
-	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
+	// SystemIntegrityProtectionEnabled Require that devices have enabled system integrity protection.
+	SystemIntegrityProtectionEnabled *bool `json:"systemIntegrityProtectionEnabled,omitempty"`
+}
+
+// MacOSCredentialSingleSignOnExtension Represents a Credential-type Single Sign-On extension profile for macOS devices.
+type MacOSCredentialSingleSignOnExtension struct {
+	// MacOSSingleSignOnExtension is the base model of MacOSCredentialSingleSignOnExtension
+	MacOSSingleSignOnExtension
+	// Configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
+	Configurations []KeyTypedValuePair `json:"configurations,omitempty"`
+	// Domains Gets or sets a list of hosts or domain names for which the app extension performs SSO.
+	Domains []string `json:"domains,omitempty"`
+	// ExtensionIdentifier Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
+	ExtensionIdentifier *string `json:"extensionIdentifier,omitempty"`
+	// Realm Gets or sets the case-sensitive realm name for this profile.
+	Realm *string `json:"realm,omitempty"`
+	// TeamIdentifier Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
+	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
 }
 
 // MacOSCustomAppConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomAppConfiguration resource.
@@ -78,68 +136,110 @@ type MacOSCustomAppConfiguration struct {
 	DeviceConfiguration
 	// BundleID Bundle id for targeting.
 	BundleID *string `json:"bundleId,omitempty"`
-	// FileName Configuration file name (*.plist | *.xml).
-	FileName *string `json:"fileName,omitempty"`
 	// ConfigurationXML Configuration xml. (UTF8 encoded byte array)
 	ConfigurationXML *Binary `json:"configurationXml,omitempty"`
+	// FileName Configuration file name (*.plist | *.xml).
+	FileName *string `json:"fileName,omitempty"`
 }
 
 // MacOSCustomConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSCustomConfiguration resource.
 type MacOSCustomConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSCustomConfiguration
 	DeviceConfiguration
-	// PayloadName Name that is displayed to the user.
-	PayloadName *string `json:"payloadName,omitempty"`
-	// PayloadFileName Payload file name (*.mobileconfig | *.xml).
-	PayloadFileName *string `json:"payloadFileName,omitempty"`
 	// Payload Payload. (UTF8 encoded byte array)
 	Payload *Binary `json:"payload,omitempty"`
+	// PayloadFileName Payload file name (*.mobileconfig | *.xml).
+	PayloadFileName *string `json:"payloadFileName,omitempty"`
+	// PayloadName Name that is displayed to the user.
+	PayloadName *string `json:"payloadName,omitempty"`
 }
 
 // MacOSDeviceFeaturesConfiguration MacOS device features configuration profile.
 type MacOSDeviceFeaturesConfiguration struct {
 	// AppleDeviceFeaturesConfigurationBase is the base model of MacOSDeviceFeaturesConfiguration
 	AppleDeviceFeaturesConfigurationBase
-	// AutoLaunchItems List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
-	AutoLaunchItems []MacOSLaunchItem `json:"autoLaunchItems,omitempty"`
 	// AdminShowHostInfo Whether to show admin host information on the login window.
 	AdminShowHostInfo *bool `json:"adminShowHostInfo,omitempty"`
-	// LoginWindowText Custom text to be displayed on the login window.
-	LoginWindowText *string `json:"loginWindowText,omitempty"`
+	// AppAssociatedDomains Gets or sets a list that maps apps to their associated domains. Application identifiers must be unique. This collection can contain a maximum of 500 elements.
+	AppAssociatedDomains []MacOSAssociatedDomainsItem `json:"appAssociatedDomains,omitempty"`
+	// AssociatedDomains DEPRECATED: use appAssociatedDomains instead. Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of "service:domain" where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
+	AssociatedDomains []KeyValuePair `json:"associatedDomains,omitempty"`
 	// AuthorizedUsersListHidden Whether to show the name and password dialog or a list of users on the login window.
 	AuthorizedUsersListHidden *bool `json:"authorizedUsersListHidden,omitempty"`
+	// AuthorizedUsersListHideAdminUsers Whether to hide admin users in the authorized users list on the login window.
+	AuthorizedUsersListHideAdminUsers *bool `json:"authorizedUsersListHideAdminUsers,omitempty"`
 	// AuthorizedUsersListHideLocalUsers Whether to show only network and system users in the authorized users list on the login window.
 	AuthorizedUsersListHideLocalUsers *bool `json:"authorizedUsersListHideLocalUsers,omitempty"`
 	// AuthorizedUsersListHideMobileAccounts Whether to hide mobile users in the authorized users list on the login window.
 	AuthorizedUsersListHideMobileAccounts *bool `json:"authorizedUsersListHideMobileAccounts,omitempty"`
 	// AuthorizedUsersListIncludeNetworkUsers Whether to show network users in the authorized users list on the login window.
 	AuthorizedUsersListIncludeNetworkUsers *bool `json:"authorizedUsersListIncludeNetworkUsers,omitempty"`
-	// AuthorizedUsersListHideAdminUsers Whether to hide admin users in the authorized users list on the login window.
-	AuthorizedUsersListHideAdminUsers *bool `json:"authorizedUsersListHideAdminUsers,omitempty"`
 	// AuthorizedUsersListShowOtherManagedUsers Whether to show other users in the authorized users list on the login window.
 	AuthorizedUsersListShowOtherManagedUsers *bool `json:"authorizedUsersListShowOtherManagedUsers,omitempty"`
-	// ShutDownDisabled Whether to hide the Shut Down button item on the login window.
-	ShutDownDisabled *bool `json:"shutDownDisabled,omitempty"`
-	// RestartDisabled Whether to hide the Restart button item on the login window.
-	RestartDisabled *bool `json:"restartDisabled,omitempty"`
-	// SleepDisabled Whether to hide the Sleep menu item on the login window.
-	SleepDisabled *bool `json:"sleepDisabled,omitempty"`
+	// AutoLaunchItems List of applications, files, folders, and other items to launch when the user logs in. This collection can contain a maximum of 500 elements.
+	AutoLaunchItems []MacOSLaunchItem `json:"autoLaunchItems,omitempty"`
 	// ConsoleAccessDisabled Whether the Other user will disregard use of the `>console> special user name.
 	ConsoleAccessDisabled *bool `json:"consoleAccessDisabled,omitempty"`
-	// ShutDownDisabledWhileLoggedIn Whether the Shut Down menu item on the login window will be disabled while the user is logged in.
-	ShutDownDisabledWhileLoggedIn *bool `json:"shutDownDisabledWhileLoggedIn,omitempty"`
-	// RestartDisabledWhileLoggedIn Whether the Restart menu item on the login window will be disabled while the user is logged in.
-	RestartDisabledWhileLoggedIn *bool `json:"restartDisabledWhileLoggedIn,omitempty"`
-	// PowerOffDisabledWhileLoggedIn Whether the Power Off menu item on the login window will be disabled while the user is logged in.
-	PowerOffDisabledWhileLoggedIn *bool `json:"powerOffDisabledWhileLoggedIn,omitempty"`
+	// ContentCachingBlockDeletion Prevents content caches from purging content to free up disk space for other apps.
+	ContentCachingBlockDeletion *bool `json:"contentCachingBlockDeletion,omitempty"`
+	// ContentCachingClientListenRanges A list of custom IP ranges content caches will use to listen for clients. This collection can contain a maximum of 500 elements.
+	ContentCachingClientListenRanges []IPRange `json:"contentCachingClientListenRanges,omitempty"`
+	// ContentCachingClientPolicy Determines the method in which content caching servers will listen for clients.
+	ContentCachingClientPolicy *MacOSContentCachingClientPolicy `json:"contentCachingClientPolicy,omitempty"`
+	// ContentCachingDataPath The path to the directory used to store cached content. The value must be (or end with) /Library/Application Support/Apple/AssetCache/Data
+	ContentCachingDataPath *string `json:"contentCachingDataPath,omitempty"`
+	// ContentCachingDisableConnectionSharing Disables internet connection sharing.
+	ContentCachingDisableConnectionSharing *bool `json:"contentCachingDisableConnectionSharing,omitempty"`
+	// ContentCachingEnabled Enables content caching and prevents it from being disabled by the user.
+	ContentCachingEnabled *bool `json:"contentCachingEnabled,omitempty"`
+	// ContentCachingForceConnectionSharing Forces internet connection sharing. contentCachingDisableConnectionSharing overrides this setting.
+	ContentCachingForceConnectionSharing *bool `json:"contentCachingForceConnectionSharing,omitempty"`
+	// ContentCachingKeepAwake Prevent the device from sleeping if content caching is enabled.
+	ContentCachingKeepAwake *bool `json:"contentCachingKeepAwake,omitempty"`
+	// ContentCachingLogClientIdentities Enables logging of IP addresses and ports of clients that request cached content.
+	ContentCachingLogClientIdentities *bool `json:"contentCachingLogClientIdentities,omitempty"`
+	// ContentCachingMaxSizeBytes The maximum number of bytes of disk space that will be used for the content cache. A value of 0 (default) indicates unlimited disk space.
+	ContentCachingMaxSizeBytes *int `json:"contentCachingMaxSizeBytes,omitempty"`
+	// ContentCachingParents A list of IP addresses representing parent content caches.
+	ContentCachingParents []string `json:"contentCachingParents,omitempty"`
+	// ContentCachingParentSelectionPolicy Determines the method in which content caching servers will select parents if multiple are present.
+	ContentCachingParentSelectionPolicy *MacOSContentCachingParentSelectionPolicy `json:"contentCachingParentSelectionPolicy,omitempty"`
+	// ContentCachingPeerFilterRanges A list of custom IP ranges content caches will use to query for content from peers caches. This collection can contain a maximum of 500 elements.
+	ContentCachingPeerFilterRanges []IPRange `json:"contentCachingPeerFilterRanges,omitempty"`
+	// ContentCachingPeerListenRanges A list of custom IP ranges content caches will use to listen for peer caches. This collection can contain a maximum of 500 elements.
+	ContentCachingPeerListenRanges []IPRange `json:"contentCachingPeerListenRanges,omitempty"`
+	// ContentCachingPeerPolicy Determines the method in which content caches peer with other caches.
+	ContentCachingPeerPolicy *MacOSContentCachingPeerPolicy `json:"contentCachingPeerPolicy,omitempty"`
+	// ContentCachingPort Sets the port used for content caching. If the value is 0, a random available port will be selected. Valid values 0 to 65535
+	ContentCachingPort *int `json:"contentCachingPort,omitempty"`
+	// ContentCachingPublicRanges A list of custom IP ranges that Apple's content caching service should use to match clients to content caches. This collection can contain a maximum of 500 elements.
+	ContentCachingPublicRanges []IPRange `json:"contentCachingPublicRanges,omitempty"`
+	// ContentCachingShowAlerts Display content caching alerts as system notifications.
+	ContentCachingShowAlerts *bool `json:"contentCachingShowAlerts,omitempty"`
+	// ContentCachingType Determines what type of content is allowed to be cached by Apple's content caching service.
+	ContentCachingType *MacOSContentCachingType `json:"contentCachingType,omitempty"`
+	// LoginWindowText Custom text to be displayed on the login window.
+	LoginWindowText *string `json:"loginWindowText,omitempty"`
 	// LogOutDisabledWhileLoggedIn Whether the Log Out menu item on the login window will be disabled while the user is logged in.
 	LogOutDisabledWhileLoggedIn *bool `json:"logOutDisabledWhileLoggedIn,omitempty"`
+	// MacOSSingleSignOnExtension Gets or sets a single sign-on extension profile.
+	MacOSSingleSignOnExtension *MacOSSingleSignOnExtension `json:"macOSSingleSignOnExtension,omitempty"`
+	// PowerOffDisabledWhileLoggedIn Whether the Power Off menu item on the login window will be disabled while the user is logged in.
+	PowerOffDisabledWhileLoggedIn *bool `json:"powerOffDisabledWhileLoggedIn,omitempty"`
+	// RestartDisabled Whether to hide the Restart button item on the login window.
+	RestartDisabled *bool `json:"restartDisabled,omitempty"`
+	// RestartDisabledWhileLoggedIn Whether the Restart menu item on the login window will be disabled while the user is logged in.
+	RestartDisabledWhileLoggedIn *bool `json:"restartDisabledWhileLoggedIn,omitempty"`
 	// ScreenLockDisableImmediate Whether to disable the immediate screen lock functions.
 	ScreenLockDisableImmediate *bool `json:"screenLockDisableImmediate,omitempty"`
-	// AssociatedDomains Gets or sets a list that maps apps to their associated domains. The key should match the app's ID, and the value should be a string in the form of "service:domain" where domain is a fully qualified hostname (e.g. webcredentials:example.com). This collection can contain a maximum of 500 elements.
-	AssociatedDomains []KeyValuePair `json:"associatedDomains,omitempty"`
-	// SingleSignOnExtension Gets or sets a single sign-on extension profile.
+	// ShutDownDisabled Whether to hide the Shut Down button item on the login window.
+	ShutDownDisabled *bool `json:"shutDownDisabled,omitempty"`
+	// ShutDownDisabledWhileLoggedIn Whether the Shut Down menu item on the login window will be disabled while the user is logged in.
+	ShutDownDisabledWhileLoggedIn *bool `json:"shutDownDisabledWhileLoggedIn,omitempty"`
+	// SingleSignOnExtension Gets or sets a single sign-on extension profile. Deprecated: use MacOSSingleSignOnExtension instead.
 	SingleSignOnExtension *SingleSignOnExtension `json:"singleSignOnExtension,omitempty"`
+	// SleepDisabled Whether to hide the Sleep menu item on the login window.
+	SleepDisabled *bool `json:"sleepDisabled,omitempty"`
 	// SingleSignOnExtensionPkinitCertificate undocumented
 	SingleSignOnExtensionPkinitCertificate *MacOSCertificateProfileBase `json:"singleSignOnExtensionPkinitCertificate,omitempty"`
 }
@@ -148,170 +248,126 @@ type MacOSDeviceFeaturesConfiguration struct {
 type MacOSEndpointProtectionConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSEndpointProtectionConfiguration
 	DeviceConfiguration
-	// GatekeeperAllowedAppSource System and Privacy setting that determines which download locations apps can be run from on a macOS device.
-	GatekeeperAllowedAppSource *MacOSGatekeeperAppSources `json:"gatekeeperAllowedAppSource,omitempty"`
-	// GatekeeperBlockOverride If set to true, the user override for Gatekeeper will be disabled.
-	GatekeeperBlockOverride *bool `json:"gatekeeperBlockOverride,omitempty"`
-	// FirewallEnabled Whether the firewall should be enabled or not.
-	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
-	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
-	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
-	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
-	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
-	// FirewallApplications List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
-	FirewallApplications []MacOSFirewallApplication `json:"firewallApplications,omitempty"`
+	// AdvancedThreatProtectionAutomaticSampleSubmission Determines whether or not to enable automatic file sample submission for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionAutomaticSampleSubmission *Enablement `json:"advancedThreatProtectionAutomaticSampleSubmission,omitempty"`
+	// AdvancedThreatProtectionCloudDelivered Determines whether or not to enable cloud-delivered protection for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionCloudDelivered *Enablement `json:"advancedThreatProtectionCloudDelivered,omitempty"`
+	// AdvancedThreatProtectionDiagnosticDataCollection Determines whether or not to enable diagnostic and usage data collection for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionDiagnosticDataCollection *Enablement `json:"advancedThreatProtectionDiagnosticDataCollection,omitempty"`
+	// AdvancedThreatProtectionExcludedExtensions A list of file extensions to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionExcludedExtensions []string `json:"advancedThreatProtectionExcludedExtensions,omitempty"`
+	// AdvancedThreatProtectionExcludedFiles A list of paths to files to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionExcludedFiles []string `json:"advancedThreatProtectionExcludedFiles,omitempty"`
+	// AdvancedThreatProtectionExcludedFolders A list of paths to folders to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionExcludedFolders []string `json:"advancedThreatProtectionExcludedFolders,omitempty"`
+	// AdvancedThreatProtectionExcludedProcesses A list of process names to exclude from antivirus scanning for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionExcludedProcesses []string `json:"advancedThreatProtectionExcludedProcesses,omitempty"`
+	// AdvancedThreatProtectionRealTime Determines whether or not to enable real-time protection for Microsoft Defender Advanced Threat Protection on macOS.
+	AdvancedThreatProtectionRealTime *Enablement `json:"advancedThreatProtectionRealTime,omitempty"`
+	// FileVaultAllowDeferralUntilSignOut Optional. If set to true, the user can defer the enabling of FileVault until they sign out.
+	FileVaultAllowDeferralUntilSignOut *bool `json:"fileVaultAllowDeferralUntilSignOut,omitempty"`
+	// FileVaultDisablePromptAtSignOut Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.
+	FileVaultDisablePromptAtSignOut *bool `json:"fileVaultDisablePromptAtSignOut,omitempty"`
 	// FileVaultEnabled Whether FileVault should be enabled or not.
 	FileVaultEnabled *bool `json:"fileVaultEnabled,omitempty"`
-	// FileVaultSelectedRecoveryKeyTypes Required if FileVault is enabled, determines the type(s) of recovery key to use.
-	FileVaultSelectedRecoveryKeyTypes *MacOSFileVaultRecoveryKeyTypes `json:"fileVaultSelectedRecoveryKeyTypes,omitempty"`
+	// FileVaultHidePersonalRecoveryKey Optional. A hidden personal recovery key does not appear on the user's screen during FileVault encryption, reducing the risk of it ending up in the wrong hands.
+	FileVaultHidePersonalRecoveryKey *bool `json:"fileVaultHidePersonalRecoveryKey,omitempty"`
 	// FileVaultInstitutionalRecoveryKeyCertificate Required if selected recovery key type(s) include InstitutionalRecoveryKey. The DER Encoded certificate file used to set an institutional recovery key.
 	FileVaultInstitutionalRecoveryKeyCertificate *Binary `json:"fileVaultInstitutionalRecoveryKeyCertificate,omitempty"`
 	// FileVaultInstitutionalRecoveryKeyCertificateFileName File name of the institutional recovery key certificate to display in UI. (*.der).
 	FileVaultInstitutionalRecoveryKeyCertificateFileName *string `json:"fileVaultInstitutionalRecoveryKeyCertificateFileName,omitempty"`
-	// FileVaultPersonalRecoveryKeyHelpMessage Required if selected recovery key type(s) include PersonalRecoveryKey. A short message displayed to the user that explains how they can retrieve their personal recovery key.
-	FileVaultPersonalRecoveryKeyHelpMessage *string `json:"fileVaultPersonalRecoveryKeyHelpMessage,omitempty"`
-	// FileVaultAllowDeferralUntilSignOut Optional. If set to true, the user can defer the enabling of FileVault until they sign out.
-	FileVaultAllowDeferralUntilSignOut *bool `json:"fileVaultAllowDeferralUntilSignOut,omitempty"`
 	// FileVaultNumberOfTimesUserCanIgnore Optional. When using the Defer option, this is the maximum number of times the user can ignore prompts to enable FileVault before FileVault will be required for the user to sign in. If set to -1, it will always prompt to enable FileVault until FileVault is enabled, though it will allow the user to bypass enabling FileVault. Setting this to 0 will disable the feature.
 	FileVaultNumberOfTimesUserCanIgnore *int `json:"fileVaultNumberOfTimesUserCanIgnore,omitempty"`
-	// FileVaultDisablePromptAtSignOut Optional. When using the Defer option, if set to true, the user is not prompted to enable FileVault at sign-out.
-	FileVaultDisablePromptAtSignOut *bool `json:"fileVaultDisablePromptAtSignOut,omitempty"`
+	// FileVaultPersonalRecoveryKeyHelpMessage Required if selected recovery key type(s) include PersonalRecoveryKey. A short message displayed to the user that explains how they can retrieve their personal recovery key.
+	FileVaultPersonalRecoveryKeyHelpMessage *string `json:"fileVaultPersonalRecoveryKeyHelpMessage,omitempty"`
 	// FileVaultPersonalRecoveryKeyRotationInMonths Optional. If selected recovery key type(s) include PersonalRecoveryKey, the frequency to rotate that key, in months.
 	FileVaultPersonalRecoveryKeyRotationInMonths *int `json:"fileVaultPersonalRecoveryKeyRotationInMonths,omitempty"`
+	// FileVaultSelectedRecoveryKeyTypes Required if FileVault is enabled, determines the type(s) of recovery key to use.
+	FileVaultSelectedRecoveryKeyTypes *MacOSFileVaultRecoveryKeyTypes `json:"fileVaultSelectedRecoveryKeyTypes,omitempty"`
+	// FirewallApplications List of applications with firewall settings. Firewall settings for applications not on this list are determined by the user. This collection can contain a maximum of 500 elements.
+	FirewallApplications []MacOSFirewallApplication `json:"firewallApplications,omitempty"`
+	// FirewallBlockAllIncoming Corresponds to the “Block all incoming connections” option.
+	FirewallBlockAllIncoming *bool `json:"firewallBlockAllIncoming,omitempty"`
+	// FirewallEnabled Whether the firewall should be enabled or not.
+	FirewallEnabled *bool `json:"firewallEnabled,omitempty"`
+	// FirewallEnableStealthMode Corresponds to “Enable stealth mode.”
+	FirewallEnableStealthMode *bool `json:"firewallEnableStealthMode,omitempty"`
+	// GatekeeperAllowedAppSource System and Privacy setting that determines which download locations apps can be run from on a macOS device.
+	GatekeeperAllowedAppSource *MacOSGatekeeperAppSources `json:"gatekeeperAllowedAppSource,omitempty"`
+	// GatekeeperBlockOverride If set to true, the user override for Gatekeeper will be disabled.
+	GatekeeperBlockOverride *bool `json:"gatekeeperBlockOverride,omitempty"`
 }
 
 // MacOSEnterpriseWiFiConfiguration MacOS Wi-Fi WPA-Enterprise/WPA2-Enterprise configuration profile.
 type MacOSEnterpriseWiFiConfiguration struct {
 	// MacOSWiFiConfiguration is the base model of MacOSEnterpriseWiFiConfiguration
 	MacOSWiFiConfiguration
-	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *EapType `json:"eapType,omitempty"`
-	// EapFastConfiguration EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type.
-	EapFastConfiguration *EapFastConfiguration `json:"eapFastConfiguration,omitempty"`
-	// TrustedServerCertificateNames Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this Wi-Fi network.
-	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
 	// AuthenticationMethod Authentication Method when EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// EapFastConfiguration EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type.
+	EapFastConfiguration *EapFastConfiguration `json:"eapFastConfiguration,omitempty"`
+	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *EapType `json:"eapType,omitempty"`
 	// InnerAuthenticationProtocolForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEapTtls,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS, EAP-FAST or PEAP. This property masks usernames with the text you enter. For example, if you use 'anonymous', each user that authenticates with this Wi-Fi connection using their real username is displayed as 'anonymous'.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *MacOSTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// TrustedServerCertificateNames Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this Wi-Fi network.
+	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *MacOSCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *MacOSTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// RootCertificatesForServerValidation undocumented
+	RootCertificatesForServerValidation []MacOSTrustedRootCertificate `json:"rootCertificatesForServerValidation,omitempty"`
 }
 
 // MacOSExtensionsConfiguration MacOS extensions configuration profile.
 type MacOSExtensionsConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSExtensionsConfiguration
 	DeviceConfiguration
-	// KernelExtensionOverridesAllowed If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
-	KernelExtensionOverridesAllowed *bool `json:"kernelExtensionOverridesAllowed,omitempty"`
 	// KernelExtensionAllowedTeamIdentifiers All kernel extensions validly signed by the team identifiers in this list will be allowed to load.
 	KernelExtensionAllowedTeamIdentifiers []string `json:"kernelExtensionAllowedTeamIdentifiers,omitempty"`
+	// KernelExtensionOverridesAllowed If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.
+	KernelExtensionOverridesAllowed *bool `json:"kernelExtensionOverridesAllowed,omitempty"`
 	// KernelExtensionsAllowed A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.
 	KernelExtensionsAllowed []MacOSKernelExtension `json:"kernelExtensionsAllowed,omitempty"`
+	// SystemExtensionsAllowed Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.
+	SystemExtensionsAllowed []MacOSSystemExtension `json:"systemExtensionsAllowed,omitempty"`
+	// SystemExtensionsAllowedTeamIdentifiers Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.
+	SystemExtensionsAllowedTeamIdentifiers []string `json:"systemExtensionsAllowedTeamIdentifiers,omitempty"`
+	// SystemExtensionsAllowedTypes Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.
+	SystemExtensionsAllowedTypes []MacOSSystemExtensionTypeMapping `json:"systemExtensionsAllowedTypes,omitempty"`
+	// SystemExtensionsBlockOverride Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.
+	SystemExtensionsBlockOverride *bool `json:"systemExtensionsBlockOverride,omitempty"`
 }
 
-// MacOSFirewallApplication undocumented
+// MacOSFirewallApplication Represents an app in the list of macOS firewall applications
 type MacOSFirewallApplication struct {
 	// Object is the base model of MacOSFirewallApplication
 	Object
-	// BundleID BundleId of the application.
-	BundleID *string `json:"bundleId,omitempty"`
 	// AllowsIncomingConnections Whether or not incoming connections are allowed.
 	AllowsIncomingConnections *bool `json:"allowsIncomingConnections,omitempty"`
+	// BundleID BundleId of the application.
+	BundleID *string `json:"bundleId,omitempty"`
 }
 
 // MacOSGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the macOSGeneralDeviceConfiguration resource.
 type MacOSGeneralDeviceConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSGeneralDeviceConfiguration
 	DeviceConfiguration
-	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
-	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
-	// CompliantAppListType List that is in the CompliantAppsList.
-	CompliantAppListType *AppListType `json:"compliantAppListType,omitempty"`
-	// EmailInDomainSuffixes An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
-	EmailInDomainSuffixes []string `json:"emailInDomainSuffixes,omitempty"`
-	// PasswordBlockSimple Block simple passwords.
-	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
-	// PasswordExpirationDays Number of days before the password expires.
-	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
-	// PasswordMinimumCharacterSetCount Number of character sets a password must contain. Valid values 0 to 4
-	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
-	// PasswordMinimumLength Minimum length of passwords.
-	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
-	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity required before a password is required.
-	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity required before the screen times out.
-	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
-	// PasswordPreviousPasswordBlockCount Number of previous passwords to block.
-	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordRequiredType Type of password that is required.
-	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// PasswordRequired Whether or not to require a password.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
-	// KeychainBlockCloudSync Indicates whether or not iCloud keychain synchronization is blocked (macOS 10.12 and later).
-	KeychainBlockCloudSync *bool `json:"keychainBlockCloudSync,omitempty"`
-	// AirPrintBlocked Indicates whether or not AirPrint is blocked (macOS 10.12 and later).
-	AirPrintBlocked *bool `json:"airPrintBlocked,omitempty"`
-	// AirPrintForceTrustedTLS Indicates if trusted certificates are required for TLS printing communication (macOS 10.13 and later).
-	AirPrintForceTrustedTLS *bool `json:"airPrintForceTrustedTLS,omitempty"`
-	// AirPrintBlockiBeaconDiscovery Indicates whether or not iBeacon discovery of AirPrint printers is blocked. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic (macOS 10.3 and later).
-	AirPrintBlockiBeaconDiscovery *bool `json:"airPrintBlockiBeaconDiscovery,omitempty"`
-	// SafariBlockAutofill Indicates whether or not to block the user from using Auto fill in Safari.
-	SafariBlockAutofill *bool `json:"safariBlockAutofill,omitempty"`
-	// CameraBlocked Indicates whether or not to block the user from accessing the camera of the device.
-	CameraBlocked *bool `json:"cameraBlocked,omitempty"`
-	// ITunesBlockMusicService Indicates whether or not to block Music service and revert Music app to classic mode.
-	ITunesBlockMusicService *bool `json:"iTunesBlockMusicService,omitempty"`
-	// SpotlightBlockInternetResults Indicates whether or not to block Spotlight from returning any results from an Internet search.
-	SpotlightBlockInternetResults *bool `json:"spotlightBlockInternetResults,omitempty"`
-	// KeyboardBlockDictation Indicates whether or not to block the user from using dictation input.
-	KeyboardBlockDictation *bool `json:"keyboardBlockDictation,omitempty"`
-	// DefinitionLookupBlocked Indicates whether or not to block definition lookup.
-	DefinitionLookupBlocked *bool `json:"definitionLookupBlocked,omitempty"`
-	// AppleWatchBlockAutoUnlock Indicates whether or to block users from unlocking their Mac with Apple Watch.
-	AppleWatchBlockAutoUnlock *bool `json:"appleWatchBlockAutoUnlock,omitempty"`
-	// ITunesBlockFileSharing Indicates whether or not to block files from being transferred using iTunes.
-	ITunesBlockFileSharing *bool `json:"iTunesBlockFileSharing,omitempty"`
-	// ICloudBlockDocumentSync Indicates whether or not to block iCloud document sync.
-	ICloudBlockDocumentSync *bool `json:"iCloudBlockDocumentSync,omitempty"`
-	// ICloudBlockMail Indicates whether or not to block iCloud from syncing mail.
-	ICloudBlockMail *bool `json:"iCloudBlockMail,omitempty"`
-	// ICloudBlockAddressBook Indicates whether or not to block iCloud from syncing contacts.
-	ICloudBlockAddressBook *bool `json:"iCloudBlockAddressBook,omitempty"`
-	// ICloudBlockCalendar Indicates whether or not to block iCloud from syncing calendars.
-	ICloudBlockCalendar *bool `json:"iCloudBlockCalendar,omitempty"`
-	// ICloudBlockReminders Indicates whether or not to block iCloud from syncing reminders.
-	ICloudBlockReminders *bool `json:"iCloudBlockReminders,omitempty"`
-	// ICloudBlockBookmarks Indicates whether or not to block iCloud from syncing bookmarks.
-	ICloudBlockBookmarks *bool `json:"iCloudBlockBookmarks,omitempty"`
-	// ICloudBlockNotes Indicates whether or not to block iCloud from syncing notes.
-	ICloudBlockNotes *bool `json:"iCloudBlockNotes,omitempty"`
 	// AirDropBlocked Indicates whether or not to allow AirDrop.
 	AirDropBlocked *bool `json:"airDropBlocked,omitempty"`
-	// PasswordBlockModification Indicates whether or not to allow passcode modification.
-	PasswordBlockModification *bool `json:"passwordBlockModification,omitempty"`
-	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
-	PasswordBlockFingerprintUnlock *bool `json:"passwordBlockFingerprintUnlock,omitempty"`
-	// PasswordBlockAutoFill Indicates whether or not to block the AutoFill Passwords feature.
-	PasswordBlockAutoFill *bool `json:"passwordBlockAutoFill,omitempty"`
-	// PasswordBlockProximityRequests Indicates whether or not to block requesting passwords from nearby devices.
-	PasswordBlockProximityRequests *bool `json:"passwordBlockProximityRequests,omitempty"`
-	// PasswordBlockAirDropSharing Indicates whether or not to block sharing passwords with the AirDrop passwords feature.
-	PasswordBlockAirDropSharing *bool `json:"passwordBlockAirDropSharing,omitempty"`
-	// SoftwareUpdatesEnforcedDelayInDays Sets how many days a software update will be delyed for a supervised device. Valid values 0 to 90
-	SoftwareUpdatesEnforcedDelayInDays *int `json:"softwareUpdatesEnforcedDelayInDays,omitempty"`
-	// SoftwareUpdatesForceDelayed Indicates whether or not to delay user visibility of software updates when the device is in supervised mode.
-	SoftwareUpdatesForceDelayed *bool `json:"softwareUpdatesForceDelayed,omitempty"`
-	// ContentCachingBlocked Indicates whether or not to allow content caching.
-	ContentCachingBlocked *bool `json:"contentCachingBlocked,omitempty"`
-	// ICloudBlockPhotoLibrary Indicates whether or not to block iCloud Photo Library.
-	ICloudBlockPhotoLibrary *bool `json:"iCloudBlockPhotoLibrary,omitempty"`
-	// ScreenCaptureBlocked Indicates whether or not to block the user from taking Screenshots.
-	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
+	// AirPrintBlocked Indicates whether or not AirPrint is blocked (macOS 10.12 and later).
+	AirPrintBlocked *bool `json:"airPrintBlocked,omitempty"`
+	// AirPrintBlockiBeaconDiscovery Indicates whether or not iBeacon discovery of AirPrint printers is blocked. This prevents spurious AirPrint Bluetooth beacons from phishing for network traffic (macOS 10.3 and later).
+	AirPrintBlockiBeaconDiscovery *bool `json:"airPrintBlockiBeaconDiscovery,omitempty"`
+	// AirPrintForceTrustedTLS Indicates if trusted certificates are required for TLS printing communication (macOS 10.13 and later).
+	AirPrintForceTrustedTLS *bool `json:"airPrintForceTrustedTLS,omitempty"`
+	// AppleWatchBlockAutoUnlock Indicates whether or to block users from unlocking their Mac with Apple Watch.
+	AppleWatchBlockAutoUnlock *bool `json:"appleWatchBlockAutoUnlock,omitempty"`
+	// CameraBlocked Indicates whether or not to block the user from accessing the camera of the device.
+	CameraBlocked *bool `json:"cameraBlocked,omitempty"`
 	// ClassroomAppBlockRemoteScreenObservation Indicates whether or not to allow remote screen observation by Classroom app. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
 	ClassroomAppBlockRemoteScreenObservation *bool `json:"classroomAppBlockRemoteScreenObservation,omitempty"`
 	// ClassroomAppForceUnpromptedScreenObservation Indicates whether or not to automatically give permission to the teacher of a managed course on the Classroom app to view a student's screen without prompting. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
@@ -322,8 +378,86 @@ type MacOSGeneralDeviceConfiguration struct {
 	ClassroomForceRequestPermissionToLeaveClasses *bool `json:"classroomForceRequestPermissionToLeaveClasses,omitempty"`
 	// ClassroomForceUnpromptedAppAndDeviceLock Indicates whether or not to allow the teacher to lock apps or the device without prompting the student. Requires MDM enrollment via Apple School Manager or Apple Business Manager.
 	ClassroomForceUnpromptedAppAndDeviceLock *bool `json:"classroomForceUnpromptedAppAndDeviceLock,omitempty"`
+	// CompliantAppListType List that is in the CompliantAppsList.
+	CompliantAppListType *AppListType `json:"compliantAppListType,omitempty"`
+	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
+	// ContentCachingBlocked Indicates whether or not to allow content caching.
+	ContentCachingBlocked *bool `json:"contentCachingBlocked,omitempty"`
+	// DefinitionLookupBlocked Indicates whether or not to block definition lookup.
+	DefinitionLookupBlocked *bool `json:"definitionLookupBlocked,omitempty"`
+	// EmailInDomainSuffixes An email address lacking a suffix that matches any of these strings will be considered out-of-domain.
+	EmailInDomainSuffixes []string `json:"emailInDomainSuffixes,omitempty"`
 	// ICloudBlockActivityContinuation Indicates whether or not to block the user from continuing work that they started on a MacOS device on another iOS or MacOS device (MacOS 10.15 or later).
 	ICloudBlockActivityContinuation *bool `json:"iCloudBlockActivityContinuation,omitempty"`
+	// ICloudBlockAddressBook Indicates whether or not to block iCloud from syncing contacts.
+	ICloudBlockAddressBook *bool `json:"iCloudBlockAddressBook,omitempty"`
+	// ICloudBlockBookmarks Indicates whether or not to block iCloud from syncing bookmarks.
+	ICloudBlockBookmarks *bool `json:"iCloudBlockBookmarks,omitempty"`
+	// ICloudBlockCalendar Indicates whether or not to block iCloud from syncing calendars.
+	ICloudBlockCalendar *bool `json:"iCloudBlockCalendar,omitempty"`
+	// ICloudBlockDocumentSync Indicates whether or not to block iCloud document sync.
+	ICloudBlockDocumentSync *bool `json:"iCloudBlockDocumentSync,omitempty"`
+	// ICloudBlockMail Indicates whether or not to block iCloud from syncing mail.
+	ICloudBlockMail *bool `json:"iCloudBlockMail,omitempty"`
+	// ICloudBlockNotes Indicates whether or not to block iCloud from syncing notes.
+	ICloudBlockNotes *bool `json:"iCloudBlockNotes,omitempty"`
+	// ICloudBlockPhotoLibrary Indicates whether or not to block iCloud Photo Library.
+	ICloudBlockPhotoLibrary *bool `json:"iCloudBlockPhotoLibrary,omitempty"`
+	// ICloudBlockReminders Indicates whether or not to block iCloud from syncing reminders.
+	ICloudBlockReminders *bool `json:"iCloudBlockReminders,omitempty"`
+	// ITunesBlockFileSharing Indicates whether or not to block files from being transferred using iTunes.
+	ITunesBlockFileSharing *bool `json:"iTunesBlockFileSharing,omitempty"`
+	// ITunesBlockMusicService Indicates whether or not to block Music service and revert Music app to classic mode.
+	ITunesBlockMusicService *bool `json:"iTunesBlockMusicService,omitempty"`
+	// KeyboardBlockDictation Indicates whether or not to block the user from using dictation input.
+	KeyboardBlockDictation *bool `json:"keyboardBlockDictation,omitempty"`
+	// KeychainBlockCloudSync Indicates whether or not iCloud keychain synchronization is blocked (macOS 10.12 and later).
+	KeychainBlockCloudSync *bool `json:"keychainBlockCloudSync,omitempty"`
+	// PasswordBlockAirDropSharing Indicates whether or not to block sharing passwords with the AirDrop passwords feature.
+	PasswordBlockAirDropSharing *bool `json:"passwordBlockAirDropSharing,omitempty"`
+	// PasswordBlockAutoFill Indicates whether or not to block the AutoFill Passwords feature.
+	PasswordBlockAutoFill *bool `json:"passwordBlockAutoFill,omitempty"`
+	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
+	PasswordBlockFingerprintUnlock *bool `json:"passwordBlockFingerprintUnlock,omitempty"`
+	// PasswordBlockModification Indicates whether or not to allow passcode modification.
+	PasswordBlockModification *bool `json:"passwordBlockModification,omitempty"`
+	// PasswordBlockProximityRequests Indicates whether or not to block requesting passwords from nearby devices.
+	PasswordBlockProximityRequests *bool `json:"passwordBlockProximityRequests,omitempty"`
+	// PasswordBlockSimple Block simple passwords.
+	PasswordBlockSimple *bool `json:"passwordBlockSimple,omitempty"`
+	// PasswordExpirationDays Number of days before the password expires.
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMaximumAttemptCount The number of allowed failed attempts to enter the passcode at the device's lock screen. Valid values 2 to 11
+	PasswordMaximumAttemptCount *int `json:"passwordMaximumAttemptCount,omitempty"`
+	// PasswordMinimumCharacterSetCount Number of character sets a password must contain. Valid values 0 to 4
+	PasswordMinimumCharacterSetCount *int `json:"passwordMinimumCharacterSetCount,omitempty"`
+	// PasswordMinimumLength Minimum length of passwords.
+	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
+	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity required before a password is required.
+	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
+	// PasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity required before the screen times out.
+	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
+	// PasswordMinutesUntilFailedLoginReset The number of minutes before the login is reset after the maximum number of unsuccessful login attempts is reached.
+	PasswordMinutesUntilFailedLoginReset *int `json:"passwordMinutesUntilFailedLoginReset,omitempty"`
+	// PasswordPreviousPasswordBlockCount Number of previous passwords to block.
+	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	// PasswordRequired Whether or not to require a password.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of password that is required.
+	PasswordRequiredType *RequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PrivacyAccessControls List of privacy preference policy controls. This collection can contain a maximum of 10000 elements.
+	PrivacyAccessControls []MacOSPrivacyAccessControlItem `json:"privacyAccessControls,omitempty"`
+	// SafariBlockAutofill Indicates whether or not to block the user from using Auto fill in Safari.
+	SafariBlockAutofill *bool `json:"safariBlockAutofill,omitempty"`
+	// ScreenCaptureBlocked Indicates whether or not to block the user from taking Screenshots.
+	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
+	// SoftwareUpdatesEnforcedDelayInDays Sets how many days a software update will be delyed for a supervised device. Valid values 0 to 90
+	SoftwareUpdatesEnforcedDelayInDays *int `json:"softwareUpdatesEnforcedDelayInDays,omitempty"`
+	// SpotlightBlockInternetResults Indicates whether or not to block Spotlight from returning any results from an Internet search.
+	SpotlightBlockInternetResults *bool `json:"spotlightBlockInternetResults,omitempty"`
+	// UpdateDelayPolicy Determines whether to delay OS and/or app updates for macOS.
+	UpdateDelayPolicy *MacOSSoftwareUpdateDelayPolicy `json:"updateDelayPolicy,omitempty"`
 }
 
 // MacOSImportedPFXCertificateProfile MacOS PFX Import certificate profile
@@ -336,84 +470,130 @@ type MacOSImportedPFXCertificateProfile struct {
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
 
-// MacOSKerberosSingleSignOnExtension undocumented
+// MacOSKerberosSingleSignOnExtension Represents a Kerberos-type Single Sign-On extension profile for macOS devices.
 type MacOSKerberosSingleSignOnExtension struct {
-	// KerberosSingleSignOnExtension is the base model of MacOSKerberosSingleSignOnExtension
-	KerberosSingleSignOnExtension
+	// MacOSSingleSignOnExtension is the base model of MacOSKerberosSingleSignOnExtension
+	MacOSSingleSignOnExtension
+	// ActiveDirectorySiteCode Gets or sets the Active Directory site.
+	ActiveDirectorySiteCode *string `json:"activeDirectorySiteCode,omitempty"`
+	// BlockActiveDirectorySiteAutoDiscovery Enables or disables whether the Kerberos extension can automatically determine its site name.
+	BlockActiveDirectorySiteAutoDiscovery *bool `json:"blockActiveDirectorySiteAutoDiscovery,omitempty"`
+	// BlockAutomaticLogin Enables or disables Keychain usage.
+	BlockAutomaticLogin *bool `json:"blockAutomaticLogin,omitempty"`
+	// CacheName Gets or sets the Generic Security Services name of the Kerberos cache to use for this profile.
+	CacheName *string `json:"cacheName,omitempty"`
+	// CredentialBundleIDAccessControlList Gets or sets a list of app Bundle IDs allowed to access the Kerberos Ticket Granting Ticket.
+	CredentialBundleIDAccessControlList []string `json:"credentialBundleIdAccessControlList,omitempty"`
+	// DomainRealms Gets or sets a list of realms for custom domain-realm mapping. Realms are case sensitive.
+	DomainRealms []string `json:"domainRealms,omitempty"`
+	// Domains Gets or sets a list of hosts or domain names for which the app extension performs SSO.
+	Domains []string `json:"domains,omitempty"`
+	// IsDefaultRealm When true, this profile's realm will be selected as the default. Necessary if multiple Kerberos-type profiles are configured.
+	IsDefaultRealm *bool `json:"isDefaultRealm,omitempty"`
+	// PasswordBlockModification Enables or disables password changes.
+	PasswordBlockModification *bool `json:"passwordBlockModification,omitempty"`
+	// PasswordChangeURL Gets or sets the URL that the user will be sent to when they initiate a password change.
+	PasswordChangeURL *string `json:"passwordChangeUrl,omitempty"`
+	// PasswordEnableLocalSync Enables or disables password syncing. This won't affect users logged in with a mobile account on macOS.
+	PasswordEnableLocalSync *bool `json:"passwordEnableLocalSync,omitempty"`
+	// PasswordExpirationDays Overrides the default password expiration in days. For most domains, this value is calculated automatically.
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordExpirationNotificationDays Gets or sets the number of days until the user is notified that their password will expire (default is 15).
+	PasswordExpirationNotificationDays *int `json:"passwordExpirationNotificationDays,omitempty"`
+	// PasswordMinimumAgeDays Gets or sets the minimum number of days until a user can change their password again.
+	PasswordMinimumAgeDays *int `json:"passwordMinimumAgeDays,omitempty"`
+	// PasswordMinimumLength Gets or sets the minimum length of a password.
+	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
+	// PasswordPreviousPasswordBlockCount Gets or sets the number of previous passwords to block.
+	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	// PasswordRequireActiveDirectoryComplexity Enables or disables whether passwords must meet Active Directory's complexity requirements.
+	PasswordRequireActiveDirectoryComplexity *bool `json:"passwordRequireActiveDirectoryComplexity,omitempty"`
+	// PasswordRequirementsDescription Gets or sets a description of the password complexity requirements.
+	PasswordRequirementsDescription *string `json:"passwordRequirementsDescription,omitempty"`
+	// Realm Gets or sets the case-sensitive realm name for this profile.
+	Realm *string `json:"realm,omitempty"`
+	// RequireUserPresence Gets or sets whether to require authentication via Touch ID, Face ID, or a passcode to access the keychain entry.
+	RequireUserPresence *bool `json:"requireUserPresence,omitempty"`
+	// UserPrincipalName Gets or sets the principle user name to use for this profile. The realm name does not need to be included.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
-// MacOSKernelExtension undocumented
+// MacOSKernelExtension Represents a specific macOS kernel extension. A macOS kernel extension can be described by its team identifier plus its bundle identifier.
 type MacOSKernelExtension struct {
 	// Object is the base model of MacOSKernelExtension
 	Object
-	// TeamIdentifier The team identifier that was used to sign the kernel extension.
-	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
 	// BundleID Bundle ID of the kernel extension.
 	BundleID *string `json:"bundleId,omitempty"`
+	// TeamIdentifier The team identifier that was used to sign the kernel extension.
+	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
 }
 
-// MacOSLaunchItem undocumented
+// MacOSLaunchItem Represents an app in the list of macOS launch items
 type MacOSLaunchItem struct {
 	// Object is the base model of MacOSLaunchItem
 	Object
-	// Path Path to the launch item.
-	Path *string `json:"path,omitempty"`
 	// Hide Whether or not to hide the item from the Users and Groups List.
 	Hide *bool `json:"hide,omitempty"`
+	// Path Path to the launch item.
+	Path *string `json:"path,omitempty"`
 }
 
 // MacOSLobApp Contains properties and inherited properties for the MacOS LOB App.
 type MacOSLobApp struct {
 	// MobileLobApp is the base model of MacOSLobApp
 	MobileLobApp
-	// BundleID The bundle id.
-	BundleID *string `json:"bundleId,omitempty"`
-	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
-	MinimumSupportedOperatingSystem *MacOSMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
 	// BuildNumber The build number of MacOS Line of Business (LoB) app.
 	BuildNumber *string `json:"buildNumber,omitempty"`
-	// VersionNumber The version number of MacOS Line of Business (LoB) app.
-	VersionNumber *string `json:"versionNumber,omitempty"`
+	// BundleID The bundle id.
+	BundleID *string `json:"bundleId,omitempty"`
 	// ChildApps The app list in this bundle package
 	ChildApps []MacOSLobChildApp `json:"childApps,omitempty"`
 	// IdentityVersion The identity version.
 	IdentityVersion *string `json:"identityVersion,omitempty"`
-	// Md5HashChunkSize The chunk size for MD5 hash
-	Md5HashChunkSize *int `json:"md5HashChunkSize,omitempty"`
-	// Md5Hash The MD5 hash codes
-	Md5Hash []string `json:"md5Hash,omitempty"`
 	// IgnoreVersionDetection A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for macOS Line of Business (LoB) apps that use a self update feature.
 	IgnoreVersionDetection *bool `json:"ignoreVersionDetection,omitempty"`
+	// InstallAsManaged A boolean to control whether the app will be installed as managed (requires macOS 11.0 and other PKG restrictions).
+	InstallAsManaged *bool `json:"installAsManaged,omitempty"`
+	// Md5Hash The MD5 hash codes
+	Md5Hash []string `json:"md5Hash,omitempty"`
+	// Md5HashChunkSize The chunk size for MD5 hash
+	Md5HashChunkSize *int `json:"md5HashChunkSize,omitempty"`
+	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
+	MinimumSupportedOperatingSystem *MacOSMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
+	// VersionNumber The version number of MacOS Line of Business (LoB) app.
+	VersionNumber *string `json:"versionNumber,omitempty"`
 }
 
-// MacOSLobChildApp undocumented
+// MacOSLobChildApp Contains properties the MacOS LOB App in a bundle package
 type MacOSLobChildApp struct {
 	// Object is the base model of MacOSLobChildApp
 	Object
-	// BundleID The Identity Name.
-	BundleID *string `json:"bundleId,omitempty"`
 	// BuildNumber The build number of MacOS Line of Business (LoB) app.
 	BuildNumber *string `json:"buildNumber,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
 	// VersionNumber The version number of MacOS Line of Business (LoB) app.
 	VersionNumber *string `json:"versionNumber,omitempty"`
+}
+
+// MacOSMdatpApp Contains properties and inherited properties for the macOS Microsoft Defender Advanced Threat Protection (MDATP) App.
+type MacOSMdatpApp struct {
+	// MobileApp is the base model of MacOSMdatpApp
+	MobileApp
 }
 
 // MacOSMicrosoftEdgeApp Contains properties and inherited properties for the MacOS Microsoft Edge App.
 type MacOSMicrosoftEdgeApp struct {
 	// MobileApp is the base model of MacOSMicrosoftEdgeApp
 	MobileApp
+	// Channel The channel to install on target devices.
+	Channel *MicrosoftEdgeChannel `json:"channel,omitempty"`
 }
 
-// MacOSMinimumOperatingSystem undocumented
+// MacOSMinimumOperatingSystem The minimum operating system required for a MacOS app.
 type MacOSMinimumOperatingSystem struct {
 	// Object is the base model of MacOSMinimumOperatingSystem
 	Object
-	// V10_7 Mac OS 10.7 or later.
-	V10_7 *bool `json:"v10_7,omitempty"`
-	// V10_8 Mac OS 10.8 or later.
-	V10_8 *bool `json:"v10_8,omitempty"`
-	// V10_9 Mac OS 10.9 or later.
-	V10_9 *bool `json:"v10_9,omitempty"`
 	// V10_10 Mac OS 10.10 or later.
 	V10_10 *bool `json:"v10_10,omitempty"`
 	// V10_11 Mac OS 10.11 or later.
@@ -426,6 +606,14 @@ type MacOSMinimumOperatingSystem struct {
 	V10_14 *bool `json:"v10_14,omitempty"`
 	// V10_15 Mac OS 10.15 or later.
 	V10_15 *bool `json:"v10_15,omitempty"`
+	// V10_7 Mac OS 10.7 or later.
+	V10_7 *bool `json:"v10_7,omitempty"`
+	// V10_8 Mac OS 10.8 or later.
+	V10_8 *bool `json:"v10_8,omitempty"`
+	// V10_9 Mac OS 10.9 or later.
+	V10_9 *bool `json:"v10_9,omitempty"`
+	// V11_0 Mac OS 11.0 or later.
+	V11_0 *bool `json:"v11_0,omitempty"`
 }
 
 // MacOSOfficeSuiteApp Contains properties and inherited properties for the MacOS Office Suite App.
@@ -438,62 +626,250 @@ type MacOSOfficeSuiteApp struct {
 type MacOSPkcsCertificateProfile struct {
 	// MacOSCertificateProfileBase is the base model of MacOSPkcsCertificateProfile
 	MacOSCertificateProfileBase
+	// AllowAllAppsAccess AllowAllAppsAccess setting
+	AllowAllAppsAccess *bool `json:"allowAllAppsAccess,omitempty"`
+	// CertificateStore Target store certificate
+	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
+	// CertificateTemplateName PKCS certificate template name.
+	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// CertificationAuthority PKCS certification authority FQDN.
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`
 	// CertificationAuthorityName PKCS certification authority Name.
 	CertificationAuthorityName *string `json:"certificationAuthorityName,omitempty"`
-	// CertificateTemplateName PKCS certificate template name.
-	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
+	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
+	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
 	// SubjectAlternativeNameFormatString Format string that defines the subject alternative name.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// SubjectNameFormatString Format string that defines the subject name. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
 	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// CertificateStore Target store certificate
-	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
-	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
-	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
-	// AllowAllAppsAccess AllowAllAppsAccess setting
-	AllowAllAppsAccess *bool `json:"allowAllAppsAccess,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
+}
+
+// MacOSPrivacyAccessControlItem Represents per-process privacy preferences.
+type MacOSPrivacyAccessControlItem struct {
+	// Object is the base model of MacOSPrivacyAccessControlItem
+	Object
+	// Accessibility Allow the app or process to control the Mac via the Accessibility subsystem.
+	Accessibility *Enablement `json:"accessibility,omitempty"`
+	// AddressBook Allow or block access to contact information managed by Contacts.
+	AddressBook *Enablement `json:"addressBook,omitempty"`
+	// AppleEventsAllowedReceivers Allow or deny the app or process to send a restricted Apple event to another app or process. You will need to know the identifier, identifier type, and code requirement of the receiving app or process. This collection can contain a maximum of 500 elements.
+	AppleEventsAllowedReceivers []MacOSAppleEventReceiver `json:"appleEventsAllowedReceivers,omitempty"`
+	// BlockCamera Block access to camera app.
+	BlockCamera *bool `json:"blockCamera,omitempty"`
+	// BlockListenEvent Block the app or process from listening to events from input devices such as mouse, keyboard, and trackpad.Requires macOS 10.15 or later.
+	BlockListenEvent *bool `json:"blockListenEvent,omitempty"`
+	// BlockMicrophone Block access to microphone.
+	BlockMicrophone *bool `json:"blockMicrophone,omitempty"`
+	// BlockScreenCapture Block app from capturing contents of system display. Requires macOS 10.15 or later.
+	BlockScreenCapture *bool `json:"blockScreenCapture,omitempty"`
+	// Calendar Allow or block access to event information managed by Calendar.
+	Calendar *Enablement `json:"calendar,omitempty"`
+	// CodeRequirement Enter the code requirement, which can be obtained with the command 'codesign –display -r –' in the Terminal app. Include everything after '=>'.
+	CodeRequirement *string `json:"codeRequirement,omitempty"`
+	// DisplayName The display name of the app, process, or executable.
+	DisplayName *string `json:"displayName,omitempty"`
+	// FileProviderPresence Allow the app or process to access files managed by another app’s file provider extension. Requires macOS 10.15 or later.
+	FileProviderPresence *Enablement `json:"fileProviderPresence,omitempty"`
+	// Identifier The bundle ID or path of the app, process, or executable.
+	Identifier *string `json:"identifier,omitempty"`
+	// IdentifierType A bundle ID is used to identify an app. A path is used to identify a process or executable.
+	IdentifierType *MacOSProcessIdentifierType `json:"identifierType,omitempty"`
+	// MediaLibrary Allow or block access to music and the media library.
+	MediaLibrary *Enablement `json:"mediaLibrary,omitempty"`
+	// Photos Allow or block access to images managed by Photos.
+	Photos *Enablement `json:"photos,omitempty"`
+	// PostEvent Control access to CoreGraphics APIs, which are used to send CGEvents to the system event stream.
+	PostEvent *Enablement `json:"postEvent,omitempty"`
+	// Reminders Allow or block access to information managed by Reminders.
+	Reminders *Enablement `json:"reminders,omitempty"`
+	// SpeechRecognition Allow or block access to system speech recognition facility.
+	SpeechRecognition *Enablement `json:"speechRecognition,omitempty"`
+	// StaticCodeValidation Statically validates the code requirement. Use this setting if the process invalidates its dynamic code signature.
+	StaticCodeValidation *bool `json:"staticCodeValidation,omitempty"`
+	// SystemPolicyAllFiles Control access to all protected files on a device. Files might be in locations such as emails, messages, apps, and administrative settings. Apply this setting with caution.
+	SystemPolicyAllFiles *Enablement `json:"systemPolicyAllFiles,omitempty"`
+	// SystemPolicyDesktopFolder Allow or block access to Desktop folder.
+	SystemPolicyDesktopFolder *Enablement `json:"systemPolicyDesktopFolder,omitempty"`
+	// SystemPolicyDocumentsFolder Allow or block access to Documents folder.
+	SystemPolicyDocumentsFolder *Enablement `json:"systemPolicyDocumentsFolder,omitempty"`
+	// SystemPolicyDownloadsFolder Allow or block access to Downloads folder.
+	SystemPolicyDownloadsFolder *Enablement `json:"systemPolicyDownloadsFolder,omitempty"`
+	// SystemPolicyNetworkVolumes Allow or block access to network volumes. Requires macOS 10.15 or later.
+	SystemPolicyNetworkVolumes *Enablement `json:"systemPolicyNetworkVolumes,omitempty"`
+	// SystemPolicyRemovableVolumes Control access to removable  volumes on the device, such as an external hard drive. Requires macOS 10.15 or later.
+	SystemPolicyRemovableVolumes *Enablement `json:"systemPolicyRemovableVolumes,omitempty"`
+	// SystemPolicySystemAdminFiles Allow app or process to access files used in system administration.
+	SystemPolicySystemAdminFiles *Enablement `json:"systemPolicySystemAdminFiles,omitempty"`
+}
+
+// MacOSRedirectSingleSignOnExtension Represents a Redirect-type Single Sign-On extension profile for macOS devices.
+type MacOSRedirectSingleSignOnExtension struct {
+	// MacOSSingleSignOnExtension is the base model of MacOSRedirectSingleSignOnExtension
+	MacOSSingleSignOnExtension
+	// Configurations Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.
+	Configurations []KeyTypedValuePair `json:"configurations,omitempty"`
+	// ExtensionIdentifier Gets or sets the bundle ID of the app extension that performs SSO for the specified URLs.
+	ExtensionIdentifier *string `json:"extensionIdentifier,omitempty"`
+	// TeamIdentifier Gets or sets the team ID of the app extension that performs SSO for the specified URLs.
+	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
+	// URLPrefixes One or more URL prefixes of identity providers on whose behalf the app extension performs single sign-on. URLs must begin with http:// or https://. All URL prefixes must be unique for all profiles.
+	URLPrefixes []string `json:"urlPrefixes,omitempty"`
 }
 
 // MacOSScepCertificateProfile Mac OS SCEP certificate profile.
 type MacOSScepCertificateProfile struct {
 	// MacOSCertificateProfileBase is the base model of MacOSScepCertificateProfile
 	MacOSCertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s).
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage.
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size.
-	KeySize *KeySize `json:"keySize,omitempty"`
-	// HashAlgorithm SCEP Hash Algorithm.
-	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
-	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
-	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
-	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// CertificateStore Target store certificate
 	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
 	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
 	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
-	// RootCertificate undocumented
-	RootCertificate *MacOSTrustedRootCertificate `json:"rootCertificate,omitempty"`
+	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
+	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// HashAlgorithm SCEP Hash Algorithm.
+	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size.
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage.
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s).
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
+	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
+	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
+	// RootCertificate undocumented
+	RootCertificate *MacOSTrustedRootCertificate `json:"rootCertificate,omitempty"`
+}
+
+// MacOSSingleSignOnExtension An abstract base class for all macOS-specific single sign-on extension types.
+type MacOSSingleSignOnExtension struct {
+	// SingleSignOnExtension is the base model of MacOSSingleSignOnExtension
+	SingleSignOnExtension
+}
+
+// MacOSSoftwareUpdateAccountSummary MacOS software update account summary report for a device and user
+type MacOSSoftwareUpdateAccountSummary struct {
+	// Entity is the base model of MacOSSoftwareUpdateAccountSummary
+	Entity
+	// DeviceID The device ID.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceName The device name.
+	DeviceName *string `json:"deviceName,omitempty"`
+	// DisplayName The name of the report
+	DisplayName *string `json:"displayName,omitempty"`
+	// FailedUpdateCount Number of failed updates on the device.
+	FailedUpdateCount *int `json:"failedUpdateCount,omitempty"`
+	// LastUpdatedDateTime Last date time the report for this device was updated.
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// OsVersion The OS version.
+	OsVersion *string `json:"osVersion,omitempty"`
+	// SuccessfulUpdateCount Number of successful updates on the device.
+	SuccessfulUpdateCount *int `json:"successfulUpdateCount,omitempty"`
+	// TotalUpdateCount Number of total updates on the device.
+	TotalUpdateCount *int `json:"totalUpdateCount,omitempty"`
+	// UserID The user ID.
+	UserID *string `json:"userId,omitempty"`
+	// UserPrincipalName The user principal name
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// CategorySummaries undocumented
+	CategorySummaries []MacOSSoftwareUpdateCategorySummary `json:"categorySummaries,omitempty"`
+}
+
+// MacOSSoftwareUpdateCategorySummary MacOS software update category summary report for a device and user
+type MacOSSoftwareUpdateCategorySummary struct {
+	// Entity is the base model of MacOSSoftwareUpdateCategorySummary
+	Entity
+	// DeviceID The device ID.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DisplayName The name of the report
+	DisplayName *string `json:"displayName,omitempty"`
+	// FailedUpdateCount Number of failed updates on the device
+	FailedUpdateCount *int `json:"failedUpdateCount,omitempty"`
+	// LastUpdatedDateTime Last date time the report for this device was updated.
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// SuccessfulUpdateCount Number of successful updates on the device
+	SuccessfulUpdateCount *int `json:"successfulUpdateCount,omitempty"`
+	// TotalUpdateCount Number of total updates on the device
+	TotalUpdateCount *int `json:"totalUpdateCount,omitempty"`
+	// UpdateCategory Software update type
+	UpdateCategory *MacOSSoftwareUpdateCategory `json:"updateCategory,omitempty"`
+	// UserID The user ID.
+	UserID *string `json:"userId,omitempty"`
+	// UpdateStateSummaries undocumented
+	UpdateStateSummaries []MacOSSoftwareUpdateStateSummary `json:"updateStateSummaries,omitempty"`
+}
+
+// MacOSSoftwareUpdateConfiguration MacOS Software Update Configuration
+type MacOSSoftwareUpdateConfiguration struct {
+	// DeviceConfiguration is the base model of MacOSSoftwareUpdateConfiguration
+	DeviceConfiguration
+	// AllOtherUpdateBehavior Update behavior for all other updates.
+	AllOtherUpdateBehavior *MacOSSoftwareUpdateBehavior `json:"allOtherUpdateBehavior,omitempty"`
+	// ConfigDataUpdateBehavior Update behavior for configuration data file updates.
+	ConfigDataUpdateBehavior *MacOSSoftwareUpdateBehavior `json:"configDataUpdateBehavior,omitempty"`
+	// CriticalUpdateBehavior Update behavior for critical updates.
+	CriticalUpdateBehavior *MacOSSoftwareUpdateBehavior `json:"criticalUpdateBehavior,omitempty"`
+	// CustomUpdateTimeWindows Custom Time windows when updates will be allowed or blocked. This collection can contain a maximum of 20 elements.
+	CustomUpdateTimeWindows []CustomUpdateTimeWindow `json:"customUpdateTimeWindows,omitempty"`
+	// FirmwareUpdateBehavior Update behavior for firmware updates.
+	FirmwareUpdateBehavior *MacOSSoftwareUpdateBehavior `json:"firmwareUpdateBehavior,omitempty"`
+	// UpdateScheduleType Update schedule type
+	UpdateScheduleType *MacOSSoftwareUpdateScheduleType `json:"updateScheduleType,omitempty"`
+	// UpdateTimeWindowUtcOffsetInMinutes Minutes indicating UTC offset for each update time window
+	UpdateTimeWindowUtcOffsetInMinutes *int `json:"updateTimeWindowUtcOffsetInMinutes,omitempty"`
+}
+
+// MacOSSoftwareUpdateStateSummary MacOS software update state summary for a device and user
+type MacOSSoftwareUpdateStateSummary struct {
+	// Entity is the base model of MacOSSoftwareUpdateStateSummary
+	Entity
+	// DisplayName Human readable name of the software update
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastUpdatedDateTime Last date time the report for this device and product key was updated.
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// ProductKey Product key of the software update.
+	ProductKey *string `json:"productKey,omitempty"`
+	// State State of the software update
+	State *MacOSSoftwareUpdateState `json:"state,omitempty"`
+	// UpdateCategory Software update category
+	UpdateCategory *MacOSSoftwareUpdateCategory `json:"updateCategory,omitempty"`
+	// UpdateVersion Version of the software update
+	UpdateVersion *string `json:"updateVersion,omitempty"`
+}
+
+// MacOSSystemExtension Represents a specific macOS system extension.
+type MacOSSystemExtension struct {
+	// Object is the base model of MacOSSystemExtension
+	Object
+	// BundleID Gets or sets the bundle identifier of the system extension.
+	BundleID *string `json:"bundleId,omitempty"`
+	// TeamIdentifier Gets or sets the team identifier that was used to sign the system extension.
+	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
+}
+
+// MacOSSystemExtensionTypeMapping Represents a mapping between team identifiers for macOS system extensions and system extension types.
+type MacOSSystemExtensionTypeMapping struct {
+	// Object is the base model of MacOSSystemExtensionTypeMapping
+	Object
+	// AllowedTypes Gets or sets the allowed macOS system extension types.
+	AllowedTypes *MacOSSystemExtensionType `json:"allowedTypes,omitempty"`
+	// TeamIdentifier Gets or sets the team identifier used to sign the system extension.
+	TeamIdentifier *string `json:"teamIdentifier,omitempty"`
 }
 
 // MacOSTrustedRootCertificate OS X Trusted Root Certificate configuration profile.
 type MacOSTrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of MacOSTrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate.
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate.
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // MacOSVpnConfiguration By providing the configurations in this profile you can instruct the Mac device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
@@ -508,80 +884,88 @@ type MacOSVpnConfiguration struct {
 type MacOSWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSWiFiConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-	Ssid *string `json:"ssid,omitempty"`
 	// ConnectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectWhenNetworkNameIsHidden Connect when the network is not broadcasting its name (SSID). When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
-	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
-	WiFiSecurityType *WiFiSecurityType `json:"wiFiSecurityType,omitempty"`
-	// ProxySettings Proxy Type for this Wi-Fi connection
-	ProxySettings *WiFiProxySetting `json:"proxySettings,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
+	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
+	PreSharedKey *string `json:"preSharedKey,omitempty"`
+	// ProxyAutomaticConfigurationURL URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
+	ProxyAutomaticConfigurationURL *string `json:"proxyAutomaticConfigurationUrl,omitempty"`
 	// ProxyManualAddress IP Address or DNS hostname of the proxy server when manual configuration is selected.
 	ProxyManualAddress *string `json:"proxyManualAddress,omitempty"`
 	// ProxyManualPort Port of the proxy server when manual configuration is selected.
 	ProxyManualPort *int `json:"proxyManualPort,omitempty"`
-	// ProxyAutomaticConfigurationURL URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
-	ProxyAutomaticConfigurationURL *string `json:"proxyAutomaticConfigurationUrl,omitempty"`
-	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
-	PreSharedKey *string `json:"preSharedKey,omitempty"`
+	// ProxySettings Proxy Type for this Wi-Fi connection
+	ProxySettings *WiFiProxySetting `json:"proxySettings,omitempty"`
+	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
+	Ssid *string `json:"ssid,omitempty"`
+	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
+	WiFiSecurityType *WiFiSecurityType `json:"wiFiSecurityType,omitempty"`
 }
 
 // MacOSWiredNetworkConfiguration MacOS wired network configuration profile.
 type MacOSWiredNetworkConfiguration struct {
 	// DeviceConfiguration is the base model of MacOSWiredNetworkConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// NetworkInterface Network interface.
-	NetworkInterface *WiredNetworkInterface `json:"networkInterface,omitempty"`
-	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the wired network.
-	EapType *EapType `json:"eapType,omitempty"`
-	// EapFastConfiguration EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type.
-	EapFastConfiguration *EapFastConfiguration `json:"eapFastConfiguration,omitempty"`
-	// TrustedServerCertificateNames Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
-	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
 	// AuthenticationMethod Authentication Method when EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
-	// NonEapAuthenticationMethodForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
-	NonEapAuthenticationMethodForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"nonEapAuthenticationMethodForEapTtls,omitempty"`
+	// EapFastConfiguration EAP-FAST Configuration Option when EAP-FAST is the selected EAP Type.
+	EapFastConfiguration *EapFastConfiguration `json:"eapFastConfiguration,omitempty"`
+	// EapType Extensible Authentication Protocol (EAP). Indicates the type of EAP protocol set on the wired network.
+	EapType *EapType `json:"eapType,omitempty"`
 	// EnableOuterIdentityPrivacy Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS, EAP-FAST or PEAP. This property masks usernames with the text you enter. For example, if you use 'anonymous', each user that authenticates with this wired network using their real username is displayed as 'anonymous'.
 	EnableOuterIdentityPrivacy *string `json:"enableOuterIdentityPrivacy,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *MacOSTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// NetworkInterface Network interface.
+	NetworkInterface *WiredNetworkInterface `json:"networkInterface,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
+	// NonEapAuthenticationMethodForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
+	NonEapAuthenticationMethodForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"nonEapAuthenticationMethodForEapTtls,omitempty"`
+	// TrustedServerCertificateNames Trusted server certificate names when EAP Type is configured to EAP-TLS/TTLS/FAST or PEAP. This is the common name used in the certificates issued by your trusted certificate authority (CA). If you provide this information, you can bypass the dynamic trust dialog that is displayed on end users devices when they connect to this wired network.
+	TrustedServerCertificateNames []string `json:"trustedServerCertificateNames,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *MacOSCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *MacOSTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+}
+
+// MacOsLobAppAssignmentSettings Contains properties used to assign an Mac LOB  app to a group.
+type MacOsLobAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of MacOsLobAppAssignmentSettings
+	MobileAppAssignmentSettings
+	// UninstallOnDeviceRemoval Whether or not to uninstall the app when device is removed from Intune.
+	UninstallOnDeviceRemoval *bool `json:"uninstallOnDeviceRemoval,omitempty"`
 }
 
 // MacOsVPPApp Contains properties and inherited properties for MacOS Volume-Purchased Program (VPP) Apps.
 type MacOsVPPApp struct {
 	// MobileApp is the base model of MacOsVPPApp
 	MobileApp
-	// UsedLicenseCount The number of VPP licenses in use.
-	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
-	// TotalLicenseCount The total number of VPP licenses.
-	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
-	// ReleaseDateTime The VPP application release date and time.
-	ReleaseDateTime *time.Time `json:"releaseDateTime,omitempty"`
 	// AppStoreURL The store URL.
 	AppStoreURL *string `json:"appStoreUrl,omitempty"`
+	// BundleID The Identity Name.
+	BundleID *string `json:"bundleId,omitempty"`
 	// LicensingType The supported License Type.
 	LicensingType *VPPLicensingType `json:"licensingType,omitempty"`
-	// VPPTokenOrganizationName The organization associated with the Apple Volume Purchase Program Token
-	VPPTokenOrganizationName *string `json:"vppTokenOrganizationName,omitempty"`
+	// ReleaseDateTime The VPP application release date and time.
+	ReleaseDateTime *time.Time `json:"releaseDateTime,omitempty"`
+	// RevokeLicenseActionResults Results of revoke license actions on this app.
+	RevokeLicenseActionResults []MacOsVPPAppRevokeLicensesActionResult `json:"revokeLicenseActionResults,omitempty"`
+	// TotalLicenseCount The total number of VPP licenses.
+	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
+	// UsedLicenseCount The number of VPP licenses in use.
+	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
 	// VPPTokenAccountType The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: `business`, `education`.
 	VPPTokenAccountType *VPPTokenAccountType `json:"vppTokenAccountType,omitempty"`
 	// VPPTokenAppleID The Apple Id associated with the given Apple Volume Purchase Program Token.
 	VPPTokenAppleID *string `json:"vppTokenAppleId,omitempty"`
-	// BundleID The Identity Name.
-	BundleID *string `json:"bundleId,omitempty"`
 	// VPPTokenID Identifier of the VPP token associated with this app.
 	VPPTokenID *string `json:"vppTokenId,omitempty"`
-	// RevokeLicenseActionResults Results of revoke license actions on this app.
-	RevokeLicenseActionResults []MacOsVPPAppRevokeLicensesActionResult `json:"revokeLicenseActionResults,omitempty"`
+	// VPPTokenOrganizationName The organization associated with the Apple Volume Purchase Program Token
+	VPPTokenOrganizationName *string `json:"vppTokenOrganizationName,omitempty"`
 	// AssignedLicenses undocumented
 	AssignedLicenses []MacOsVPPAppAssignedLicense `json:"assignedLicenses,omitempty"`
 }
@@ -600,34 +984,36 @@ type MacOsVPPAppAssignedLicense struct {
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
-// MacOsVPPAppAssignmentSettings undocumented
+// MacOsVPPAppAssignmentSettings Contains properties used to assign an Mac VPP mobile app to a group.
 type MacOsVPPAppAssignmentSettings struct {
 	// MobileAppAssignmentSettings is the base model of MacOsVPPAppAssignmentSettings
 	MobileAppAssignmentSettings
+	// UninstallOnDeviceRemoval Whether or not to uninstall the app when device is removed from Intune.
+	UninstallOnDeviceRemoval *bool `json:"uninstallOnDeviceRemoval,omitempty"`
 	// UseDeviceLicensing Whether or not to use device licensing.
 	UseDeviceLicensing *bool `json:"useDeviceLicensing,omitempty"`
 }
 
-// MacOsVPPAppRevokeLicensesActionResult undocumented
+// MacOsVPPAppRevokeLicensesActionResult Defines results for actions on MacOS Vpp Apps, contains inherited properties for ActionResult.
 type MacOsVPPAppRevokeLicensesActionResult struct {
 	// Object is the base model of MacOsVPPAppRevokeLicensesActionResult
 	Object
-	// UserID UserId associated with the action.
-	UserID *string `json:"userId,omitempty"`
-	// ManagedDeviceID DeviceId associated with the action.
-	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
-	// TotalLicensesCount A count of the number of licenses for which revoke was attempted.
-	TotalLicensesCount *int `json:"totalLicensesCount,omitempty"`
-	// FailedLicensesCount A count of the number of licenses for which revoke failed.
-	FailedLicensesCount *int `json:"failedLicensesCount,omitempty"`
 	// ActionFailureReason The reason for the revoke licenses action failure.
 	ActionFailureReason *VPPTokenActionFailureReason `json:"actionFailureReason,omitempty"`
 	// ActionName Action name
 	ActionName *string `json:"actionName,omitempty"`
 	// ActionState State of the action
 	ActionState *ActionState `json:"actionState,omitempty"`
-	// StartDateTime Time the action was initiated
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// FailedLicensesCount A count of the number of licenses for which revoke failed.
+	FailedLicensesCount *int `json:"failedLicensesCount,omitempty"`
 	// LastUpdatedDateTime Time the action state was last updated
 	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// ManagedDeviceID DeviceId associated with the action.
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// StartDateTime Time the action was initiated
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// TotalLicensesCount A count of the number of licenses for which revoke was attempted.
+	TotalLicensesCount *int `json:"totalLicensesCount,omitempty"`
+	// UserID UserId associated with the action.
+	UserID *string `json:"userId,omitempty"`
 }

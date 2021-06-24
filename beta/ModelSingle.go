@@ -2,10 +2,20 @@
 
 package msgraph
 
-// SingleSignOnExtension undocumented
+// SingleSignOnExtension Represents an Apple Single Sign-On Extension.
 type SingleSignOnExtension struct {
 	// Object is the base model of SingleSignOnExtension
 	Object
+}
+
+// SingleUser undocumented
+type SingleUser struct {
+	// UserSet is the base model of SingleUser
+	UserSet
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 }
 
 // SingleValueLegacyExtendedProperty undocumented

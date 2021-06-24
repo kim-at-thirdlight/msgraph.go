@@ -20,6 +20,8 @@ const (
 	QuarantineReasonVQuarantinedOnDemand QuarantineReason = "QuarantinedOnDemand"
 	// QuarantineReasonVTooManyDeletes undocumented
 	QuarantineReasonVTooManyDeletes QuarantineReason = "TooManyDeletes"
+	// QuarantineReasonVIngestionInterrupted undocumented
+	QuarantineReasonVIngestionInterrupted QuarantineReason = "IngestionInterrupted"
 )
 
 var (
@@ -37,6 +39,8 @@ var (
 	QuarantineReasonPQuarantinedOnDemand = &_QuarantineReasonPQuarantinedOnDemand
 	// QuarantineReasonPTooManyDeletes is a pointer to QuarantineReasonVTooManyDeletes
 	QuarantineReasonPTooManyDeletes = &_QuarantineReasonPTooManyDeletes
+	// QuarantineReasonPIngestionInterrupted is a pointer to QuarantineReasonVIngestionInterrupted
+	QuarantineReasonPIngestionInterrupted = &_QuarantineReasonPIngestionInterrupted
 )
 
 var (
@@ -47,4 +51,5 @@ var (
 	_QuarantineReasonPUnknown                              = QuarantineReasonVUnknown
 	_QuarantineReasonPQuarantinedOnDemand                  = QuarantineReasonVQuarantinedOnDemand
 	_QuarantineReasonPTooManyDeletes                       = QuarantineReasonVTooManyDeletes
+	_QuarantineReasonPIngestionInterrupted                 = QuarantineReasonVIngestionInterrupted
 )

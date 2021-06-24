@@ -21,39 +21,51 @@ type DataLossPreventionPolicyCollectionEvaluateRequestParameter struct {
 	NotificationInfo *DlpNotification `json:"notificationInfo,omitempty"`
 }
 
+// DataClassificationServiceClassifyExactMatchesRequestParameter undocumented
+type DataClassificationServiceClassifyExactMatchesRequestParameter struct {
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
+	// TimeoutInMs undocumented
+	TimeoutInMs *string `json:"timeoutInMs,omitempty"`
+	// SensitiveTypeIDs undocumented
+	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
+	// ContentClassifications undocumented
+	ContentClassifications []ContentClassification `json:"contentClassifications,omitempty"`
+}
+
 // DataSharingConsentConsentToDataSharingRequestParameter undocumented
 type DataSharingConsentConsentToDataSharingRequestParameter struct {
 }
 
-// ClassifyFile returns request builder for FileClassificationRequestObject collection
+// ClassifyFile returns request builder for FileClassificationRequest collection
 func (b *DataClassificationServiceRequestBuilder) ClassifyFile() *DataClassificationServiceClassifyFileCollectionRequestBuilder {
 	bb := &DataClassificationServiceClassifyFileCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/classifyFile"
 	return bb
 }
 
-// DataClassificationServiceClassifyFileCollectionRequestBuilder is request builder for FileClassificationRequestObject collection
+// DataClassificationServiceClassifyFileCollectionRequestBuilder is request builder for FileClassificationRequest collection
 type DataClassificationServiceClassifyFileCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for FileClassificationRequestObject collection
+// Request returns request for FileClassificationRequest collection
 func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) Request() *DataClassificationServiceClassifyFileCollectionRequest {
 	return &DataClassificationServiceClassifyFileCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for FileClassificationRequestObject item
-func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) ID(id string) *FileClassificationRequestObjectRequestBuilder {
-	bb := &FileClassificationRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for FileClassificationRequest item
+func (b *DataClassificationServiceClassifyFileCollectionRequestBuilder) ID(id string) *FileClassificationRequestRequestBuilder {
+	bb := &FileClassificationRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// DataClassificationServiceClassifyFileCollectionRequest is request for FileClassificationRequestObject collection
+// DataClassificationServiceClassifyFileCollectionRequest is request for FileClassificationRequest collection
 type DataClassificationServiceClassifyFileCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]FileClassificationRequestObject, error) {
+// Paging perfoms paging operation for FileClassificationRequest collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]FileClassificationRequest, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -65,7 +77,7 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 	if err != nil {
 		return nil, err
 	}
-	var values []FileClassificationRequestObject
+	var values []FileClassificationRequest
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -79,7 +91,7 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 		}
 		var (
 			paging Paging
-			value  []FileClassificationRequestObject
+			value  []FileClassificationRequest
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -108,8 +120,8 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) Paging(ctx cont
 	}
 }
 
-// GetN performs GET request for FileClassificationRequestObject collection, max N pages
-func (r *DataClassificationServiceClassifyFileCollectionRequest) GetN(ctx context.Context, n int) ([]FileClassificationRequestObject, error) {
+// GetN performs GET request for FileClassificationRequest collection, max N pages
+func (r *DataClassificationServiceClassifyFileCollectionRequest) GetN(ctx context.Context, n int) ([]FileClassificationRequest, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -117,13 +129,13 @@ func (r *DataClassificationServiceClassifyFileCollectionRequest) GetN(ctx contex
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Get(ctx context.Context) ([]FileClassificationRequestObject, error) {
+// Get performs GET request for FileClassificationRequest collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Get(ctx context.Context) ([]FileClassificationRequest, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for FileClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyFileCollectionRequest) Add(ctx context.Context, reqObj *FileClassificationRequestObject) (resObj *FileClassificationRequestObject, err error) {
+// Add performs POST request for FileClassificationRequest collection
+func (r *DataClassificationServiceClassifyFileCollectionRequest) Add(ctx context.Context, reqObj *FileClassificationRequest) (resObj *FileClassificationRequest, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -231,35 +243,35 @@ func (r *DataClassificationServiceClassifyFileJobsCollectionRequest) Add(ctx con
 	return
 }
 
-// ClassifyText returns request builder for TextClassificationRequestObject collection
+// ClassifyText returns request builder for TextClassificationRequest collection
 func (b *DataClassificationServiceRequestBuilder) ClassifyText() *DataClassificationServiceClassifyTextCollectionRequestBuilder {
 	bb := &DataClassificationServiceClassifyTextCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/classifyText"
 	return bb
 }
 
-// DataClassificationServiceClassifyTextCollectionRequestBuilder is request builder for TextClassificationRequestObject collection
+// DataClassificationServiceClassifyTextCollectionRequestBuilder is request builder for TextClassificationRequest collection
 type DataClassificationServiceClassifyTextCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for TextClassificationRequestObject collection
+// Request returns request for TextClassificationRequest collection
 func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) Request() *DataClassificationServiceClassifyTextCollectionRequest {
 	return &DataClassificationServiceClassifyTextCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for TextClassificationRequestObject item
-func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) ID(id string) *TextClassificationRequestObjectRequestBuilder {
-	bb := &TextClassificationRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for TextClassificationRequest item
+func (b *DataClassificationServiceClassifyTextCollectionRequestBuilder) ID(id string) *TextClassificationRequestRequestBuilder {
+	bb := &TextClassificationRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// DataClassificationServiceClassifyTextCollectionRequest is request for TextClassificationRequestObject collection
+// DataClassificationServiceClassifyTextCollectionRequest is request for TextClassificationRequest collection
 type DataClassificationServiceClassifyTextCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TextClassificationRequestObject, error) {
+// Paging perfoms paging operation for TextClassificationRequest collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TextClassificationRequest, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -271,7 +283,7 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 	if err != nil {
 		return nil, err
 	}
-	var values []TextClassificationRequestObject
+	var values []TextClassificationRequest
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -285,7 +297,7 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 		}
 		var (
 			paging Paging
-			value  []TextClassificationRequestObject
+			value  []TextClassificationRequest
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -314,8 +326,8 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) Paging(ctx cont
 	}
 }
 
-// GetN performs GET request for TextClassificationRequestObject collection, max N pages
-func (r *DataClassificationServiceClassifyTextCollectionRequest) GetN(ctx context.Context, n int) ([]TextClassificationRequestObject, error) {
+// GetN performs GET request for TextClassificationRequest collection, max N pages
+func (r *DataClassificationServiceClassifyTextCollectionRequest) GetN(ctx context.Context, n int) ([]TextClassificationRequest, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -323,13 +335,13 @@ func (r *DataClassificationServiceClassifyTextCollectionRequest) GetN(ctx contex
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Get(ctx context.Context) ([]TextClassificationRequestObject, error) {
+// Get performs GET request for TextClassificationRequest collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Get(ctx context.Context) ([]TextClassificationRequest, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for TextClassificationRequestObject collection
-func (r *DataClassificationServiceClassifyTextCollectionRequest) Add(ctx context.Context, reqObj *TextClassificationRequestObject) (resObj *TextClassificationRequestObject, err error) {
+// Add performs POST request for TextClassificationRequest collection
+func (r *DataClassificationServiceClassifyTextCollectionRequest) Add(ctx context.Context, reqObj *TextClassificationRequest) (resObj *TextClassificationRequest, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -948,109 +960,6 @@ func (r *DataClassificationServiceJobsCollectionRequest) Get(ctx context.Context
 
 // Add performs POST request for JobResponseBase collection
 func (r *DataClassificationServiceJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// LabelsAndPoliciesEvaluationJobs returns request builder for JobResponseBase collection
-func (b *DataClassificationServiceRequestBuilder) LabelsAndPoliciesEvaluationJobs() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder {
-	bb := &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/labelsAndPoliciesEvaluationJobs"
-	return bb
-}
-
-// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder is request builder for JobResponseBase collection
-type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for JobResponseBase collection
-func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) Request() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest {
-	return &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for JobResponseBase item
-func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) ID(id string) *JobResponseBaseRequestBuilder {
-	bb := &JobResponseBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest is request for JobResponseBase collection
-type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []JobResponseBase
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []JobResponseBase
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for JobResponseBase collection, max N pages
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

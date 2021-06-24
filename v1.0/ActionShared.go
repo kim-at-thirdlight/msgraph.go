@@ -135,6 +135,13 @@ func (b *SharedDriveItemRequestBuilder) ListItem() *ListItemRequestBuilder {
 	return bb
 }
 
+// Permission is navigation property
+func (b *SharedDriveItemRequestBuilder) Permission() *PermissionRequestBuilder {
+	bb := &PermissionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/permission"
+	return bb
+}
+
 // Root is navigation property
 func (b *SharedDriveItemRequestBuilder) Root() *DriveItemRequestBuilder {
 	bb := &DriveItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

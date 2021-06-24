@@ -8,8 +8,32 @@ type ResultInfo struct {
 	Object
 	// Code undocumented
 	Code *int `json:"code,omitempty"`
-	// Subcode undocumented
-	Subcode *int `json:"subcode,omitempty"`
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
+	// Subcode undocumented
+	Subcode *int `json:"subcode,omitempty"`
+}
+
+// ResultTemplate undocumented
+type ResultTemplate struct {
+	// Object is the base model of ResultTemplate
+	Object
+	// Body undocumented
+	Body *JSON `json:"body,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+}
+
+// ResultTemplateDictionary undocumented
+type ResultTemplateDictionary struct {
+	// Dictionary is the base model of ResultTemplateDictionary
+	Dictionary
+}
+
+// ResultTemplateOption undocumented
+type ResultTemplateOption struct {
+	// Object is the base model of ResultTemplateOption
+	Object
+	// EnableResultTemplate undocumented
+	EnableResultTemplate *bool `json:"enableResultTemplate,omitempty"`
 }

@@ -6,8 +6,8 @@ package msgraph
 type MFADetail struct {
 	// Object is the base model of MFADetail
 	Object
-	// AuthMethod undocumented
-	AuthMethod *string `json:"authMethod,omitempty"`
 	// AuthDetail undocumented
 	AuthDetail *string `json:"authDetail,omitempty"`
+	// AuthMethod undocumented
+	AuthMethod *string `json:"authMethod,omitempty"`
 }

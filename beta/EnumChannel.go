@@ -12,6 +12,8 @@ const (
 	ChannelMembershipTypeVPrivate ChannelMembershipType = "private"
 	// ChannelMembershipTypeVUnknownFutureValue undocumented
 	ChannelMembershipTypeVUnknownFutureValue ChannelMembershipType = "unknownFutureValue"
+	// ChannelMembershipTypeVShared undocumented
+	ChannelMembershipTypeVShared ChannelMembershipType = "shared"
 )
 
 var (
@@ -21,10 +23,13 @@ var (
 	ChannelMembershipTypePPrivate = &_ChannelMembershipTypePPrivate
 	// ChannelMembershipTypePUnknownFutureValue is a pointer to ChannelMembershipTypeVUnknownFutureValue
 	ChannelMembershipTypePUnknownFutureValue = &_ChannelMembershipTypePUnknownFutureValue
+	// ChannelMembershipTypePShared is a pointer to ChannelMembershipTypeVShared
+	ChannelMembershipTypePShared = &_ChannelMembershipTypePShared
 )
 
 var (
 	_ChannelMembershipTypePStandard           = ChannelMembershipTypeVStandard
 	_ChannelMembershipTypePPrivate            = ChannelMembershipTypeVPrivate
 	_ChannelMembershipTypePUnknownFutureValue = ChannelMembershipTypeVUnknownFutureValue
+	_ChannelMembershipTypePShared             = ChannelMembershipTypeVShared
 )

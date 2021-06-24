@@ -12,10 +12,18 @@ const (
 	EntityTypeVMessage EntityType = "message"
 	// EntityTypeVDriveItem undocumented
 	EntityTypeVDriveItem EntityType = "driveItem"
-	// EntityTypeVExternalFile undocumented
-	EntityTypeVExternalFile EntityType = "externalFile"
 	// EntityTypeVExternalItem undocumented
 	EntityTypeVExternalItem EntityType = "externalItem"
+	// EntityTypeVSite undocumented
+	EntityTypeVSite EntityType = "site"
+	// EntityTypeVList undocumented
+	EntityTypeVList EntityType = "list"
+	// EntityTypeVListItem undocumented
+	EntityTypeVListItem EntityType = "listItem"
+	// EntityTypeVDrive undocumented
+	EntityTypeVDrive EntityType = "drive"
+	// EntityTypeVUnknownFutureValue undocumented
+	EntityTypeVUnknownFutureValue EntityType = "unknownFutureValue"
 )
 
 var (
@@ -25,16 +33,28 @@ var (
 	EntityTypePMessage = &_EntityTypePMessage
 	// EntityTypePDriveItem is a pointer to EntityTypeVDriveItem
 	EntityTypePDriveItem = &_EntityTypePDriveItem
-	// EntityTypePExternalFile is a pointer to EntityTypeVExternalFile
-	EntityTypePExternalFile = &_EntityTypePExternalFile
 	// EntityTypePExternalItem is a pointer to EntityTypeVExternalItem
 	EntityTypePExternalItem = &_EntityTypePExternalItem
+	// EntityTypePSite is a pointer to EntityTypeVSite
+	EntityTypePSite = &_EntityTypePSite
+	// EntityTypePList is a pointer to EntityTypeVList
+	EntityTypePList = &_EntityTypePList
+	// EntityTypePListItem is a pointer to EntityTypeVListItem
+	EntityTypePListItem = &_EntityTypePListItem
+	// EntityTypePDrive is a pointer to EntityTypeVDrive
+	EntityTypePDrive = &_EntityTypePDrive
+	// EntityTypePUnknownFutureValue is a pointer to EntityTypeVUnknownFutureValue
+	EntityTypePUnknownFutureValue = &_EntityTypePUnknownFutureValue
 )
 
 var (
-	_EntityTypePEvent        = EntityTypeVEvent
-	_EntityTypePMessage      = EntityTypeVMessage
-	_EntityTypePDriveItem    = EntityTypeVDriveItem
-	_EntityTypePExternalFile = EntityTypeVExternalFile
-	_EntityTypePExternalItem = EntityTypeVExternalItem
+	_EntityTypePEvent              = EntityTypeVEvent
+	_EntityTypePMessage            = EntityTypeVMessage
+	_EntityTypePDriveItem          = EntityTypeVDriveItem
+	_EntityTypePExternalItem       = EntityTypeVExternalItem
+	_EntityTypePSite               = EntityTypeVSite
+	_EntityTypePList               = EntityTypeVList
+	_EntityTypePListItem           = EntityTypeVListItem
+	_EntityTypePDrive              = EntityTypeVDrive
+	_EntityTypePUnknownFutureValue = EntityTypeVUnknownFutureValue
 )

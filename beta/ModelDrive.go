@@ -56,6 +56,8 @@ type DriveItem struct {
 	Image *Image `json:"image,omitempty"`
 	// Location undocumented
 	Location *GeoCoordinates `json:"location,omitempty"`
+	// Media undocumented
+	Media *Media `json:"media,omitempty"`
 	// Package undocumented
 	Package *Package `json:"package,omitempty"`
 	// PendingOperations undocumented
@@ -76,6 +78,8 @@ type DriveItem struct {
 	SharepointIDs *SharepointIDs `json:"sharepointIds,omitempty"`
 	// Size undocumented
 	Size *int `json:"size,omitempty"`
+	// Source undocumented
+	Source *DriveItemSource `json:"source,omitempty"`
 	// SpecialFolder undocumented
 	SpecialFolder *SpecialFolder `json:"specialFolder,omitempty"`
 	// Video undocumented
@@ -100,8 +104,16 @@ type DriveItem struct {
 	Thumbnails []ThumbnailSet `json:"thumbnails,omitempty"`
 	// Versions undocumented
 	Versions []DriveItemVersion `json:"versions,omitempty"`
-	// Document undocumented
-	Document *Document `json:"document,omitempty"`
+}
+
+// DriveItemSource undocumented
+type DriveItemSource struct {
+	// Object is the base model of DriveItemSource
+	Object
+	// Application undocumented
+	Application *DriveItemSourceApplication `json:"application,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 }
 
 // DriveItemUploadableProperties undocumented
@@ -110,12 +122,12 @@ type DriveItemUploadableProperties struct {
 	Object
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// FileSize undocumented
+	FileSize *int `json:"fileSize,omitempty"`
 	// FileSystemInfo undocumented
 	FileSystemInfo *FileSystemInfo `json:"fileSystemInfo,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// FileSize undocumented
-	FileSize *int `json:"fileSize,omitempty"`
 }
 
 // DriveItemVersion undocumented

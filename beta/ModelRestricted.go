@@ -6,24 +6,24 @@ package msgraph
 type RestrictedAppsViolation struct {
 	// Entity is the base model of RestrictedAppsViolation
 	Entity
-	// UserID User unique identifier, must be Guid
-	UserID *string `json:"userId,omitempty"`
-	// UserName User name
-	UserName *string `json:"userName,omitempty"`
-	// ManagedDeviceID Managed device unique identifier, must be Guid
-	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
-	// DeviceName Device name
-	DeviceName *string `json:"deviceName,omitempty"`
 	// DeviceConfigurationID Device configuration profile unique identifier, must be Guid
 	DeviceConfigurationID *string `json:"deviceConfigurationId,omitempty"`
 	// DeviceConfigurationName Device configuration profile name
 	DeviceConfigurationName *string `json:"deviceConfigurationName,omitempty"`
+	// DeviceName Device name
+	DeviceName *string `json:"deviceName,omitempty"`
+	// ManagedDeviceID Managed device unique identifier, must be Guid
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
 	// PlatformType Platform type
 	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
-	// RestrictedAppsState Restricted apps state
-	RestrictedAppsState *RestrictedAppsState `json:"restrictedAppsState,omitempty"`
 	// RestrictedApps List of violated restricted apps
 	RestrictedApps []ManagedDeviceReportedApp `json:"restrictedApps,omitempty"`
+	// RestrictedAppsState Restricted apps state
+	RestrictedAppsState *RestrictedAppsState `json:"restrictedAppsState,omitempty"`
+	// UserID User unique identifier, must be Guid
+	UserID *string `json:"userId,omitempty"`
+	// UserName User name
+	UserName *string `json:"userName,omitempty"`
 }
 
 // RestrictedSignIn undocumented

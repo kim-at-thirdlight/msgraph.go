@@ -8,10 +8,10 @@ import "time"
 type HybridAgentUpdaterConfiguration struct {
 	// Object is the base model of HybridAgentUpdaterConfiguration
 	Object
+	// AllowUpdateConfigurationOverride undocumented
+	AllowUpdateConfigurationOverride *bool `json:"allowUpdateConfigurationOverride,omitempty"`
 	// DeferUpdateDateTime undocumented
 	DeferUpdateDateTime *time.Time `json:"deferUpdateDateTime,omitempty"`
 	// UpdateWindow undocumented
 	UpdateWindow *UpdateWindow `json:"updateWindow,omitempty"`
-	// AllowUpdateConfigurationOverride undocumented
-	AllowUpdateConfigurationOverride *bool `json:"allowUpdateConfigurationOverride,omitempty"`
 }

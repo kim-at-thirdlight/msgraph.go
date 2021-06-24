@@ -6,8 +6,10 @@ package msgraph
 type RecordingInfo struct {
 	// Object is the base model of RecordingInfo
 	Object
-	// RecordingStatus undocumented
-	RecordingStatus *RecordingStatus `json:"recordingStatus,omitempty"`
 	// InitiatedBy undocumented
 	InitiatedBy *ParticipantInfo `json:"initiatedBy,omitempty"`
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// RecordingStatus undocumented
+	RecordingStatus *RecordingStatus `json:"recordingStatus,omitempty"`
 }

@@ -6,56 +6,114 @@ package msgraph
 type Person struct {
 	// Entity is the base model of Person
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// GivenName undocumented
-	GivenName *string `json:"givenName,omitempty"`
-	// Surname undocumented
-	Surname *string `json:"surname,omitempty"`
 	// Birthday undocumented
 	Birthday *string `json:"birthday,omitempty"`
-	// PersonNotes undocumented
-	PersonNotes *string `json:"personNotes,omitempty"`
-	// IsFavorite undocumented
-	IsFavorite *bool `json:"isFavorite,omitempty"`
+	// CompanyName undocumented
+	CompanyName *string `json:"companyName,omitempty"`
+	// Department undocumented
+	Department *string `json:"department,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// EmailAddresses undocumented
 	EmailAddresses []RankedEmailAddress `json:"emailAddresses,omitempty"`
+	// GivenName undocumented
+	GivenName *string `json:"givenName,omitempty"`
+	// IsFavorite undocumented
+	IsFavorite *bool `json:"isFavorite,omitempty"`
+	// MailboxType undocumented
+	MailboxType *string `json:"mailboxType,omitempty"`
+	// OfficeLocation undocumented
+	OfficeLocation *string `json:"officeLocation,omitempty"`
+	// PersonNotes undocumented
+	PersonNotes *string `json:"personNotes,omitempty"`
+	// PersonType undocumented
+	PersonType *string `json:"personType,omitempty"`
 	// Phones undocumented
 	Phones []Phone `json:"phones,omitempty"`
 	// PostalAddresses undocumented
 	PostalAddresses []Location `json:"postalAddresses,omitempty"`
-	// Websites undocumented
-	Websites []Website `json:"websites,omitempty"`
-	// Title undocumented
-	Title *string `json:"title,omitempty"`
-	// CompanyName undocumented
-	CompanyName *string `json:"companyName,omitempty"`
-	// YomiCompany undocumented
-	YomiCompany *string `json:"yomiCompany,omitempty"`
-	// Department undocumented
-	Department *string `json:"department,omitempty"`
-	// OfficeLocation undocumented
-	OfficeLocation *string `json:"officeLocation,omitempty"`
 	// Profession undocumented
 	Profession *string `json:"profession,omitempty"`
 	// Sources undocumented
 	Sources []PersonDataSource `json:"sources,omitempty"`
-	// MailboxType undocumented
-	MailboxType *string `json:"mailboxType,omitempty"`
-	// PersonType undocumented
-	PersonType *string `json:"personType,omitempty"`
+	// Surname undocumented
+	Surname *string `json:"surname,omitempty"`
+	// Title undocumented
+	Title *string `json:"title,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// Websites undocumented
+	Websites []Website `json:"websites,omitempty"`
+	// YomiCompany undocumented
+	YomiCompany *string `json:"yomiCompany,omitempty"`
 }
 
-// PersonAnniversary undocumented
-type PersonAnniversary struct {
-	// ItemFacet is the base model of PersonAnniversary
+// PersonAnnotation undocumented
+type PersonAnnotation struct {
+	// ItemFacet is the base model of PersonAnnotation
 	ItemFacet
-	// Type undocumented
-	Type *AnniversaryType `json:"type,omitempty"`
+	// Detail undocumented
+	Detail *ItemBody `json:"detail,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+}
+
+// PersonAnnualEvent undocumented
+type PersonAnnualEvent struct {
+	// ItemFacet is the base model of PersonAnnualEvent
+	ItemFacet
 	// Date undocumented
 	Date *Date `json:"date,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Type undocumented
+	Type *PersonAnnualEventType `json:"type,omitempty"`
+}
+
+// PersonAward undocumented
+type PersonAward struct {
+	// ItemFacet is the base model of PersonAward
+	ItemFacet
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IssuedDate undocumented
+	IssuedDate *Date `json:"issuedDate,omitempty"`
+	// IssuingAuthority undocumented
+	IssuingAuthority *string `json:"issuingAuthority,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+}
+
+// PersonCertification undocumented
+type PersonCertification struct {
+	// ItemFacet is the base model of PersonCertification
+	ItemFacet
+	// CertificationID undocumented
+	CertificationID *string `json:"certificationId,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// EndDate undocumented
+	EndDate *Date `json:"endDate,omitempty"`
+	// IssuedDate undocumented
+	IssuedDate *Date `json:"issuedDate,omitempty"`
+	// IssuingAuthority undocumented
+	IssuingAuthority *string `json:"issuingAuthority,omitempty"`
+	// IssuingCompany undocumented
+	IssuingCompany *string `json:"issuingCompany,omitempty"`
+	// StartDate undocumented
+	StartDate *Date `json:"startDate,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // PersonDataSource undocumented
@@ -66,16 +124,34 @@ type PersonDataSource struct {
 	Type *string `json:"type,omitempty"`
 }
 
+// PersonDataSources undocumented
+type PersonDataSources struct {
+	// Object is the base model of PersonDataSources
+	Object
+	// Type undocumented
+	Type []string `json:"type,omitempty"`
+}
+
+// PersonExtension undocumented
+type PersonExtension struct {
+	// Extension is the base model of PersonExtension
+	Extension
+}
+
 // PersonInterest undocumented
 type PersonInterest struct {
 	// ItemFacet is the base model of PersonInterest
 	ItemFacet
 	// Categories undocumented
 	Categories []string `json:"categories,omitempty"`
+	// CollaborationTags undocumented
+	CollaborationTags []string `json:"collaborationTags,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }
@@ -90,22 +166,38 @@ type PersonName struct {
 	First *string `json:"first,omitempty"`
 	// Initials undocumented
 	Initials *string `json:"initials,omitempty"`
-	// Last undocumented
-	Last *string `json:"last,omitempty"`
 	// LanguageTag undocumented
 	LanguageTag *string `json:"languageTag,omitempty"`
+	// Last undocumented
+	Last *string `json:"last,omitempty"`
 	// Maiden undocumented
 	Maiden *string `json:"maiden,omitempty"`
 	// Middle undocumented
 	Middle *string `json:"middle,omitempty"`
 	// Nickname undocumented
 	Nickname *string `json:"nickname,omitempty"`
+	// Pronunciation undocumented
+	Pronunciation *PersonNamePronounciation `json:"pronunciation,omitempty"`
 	// Suffix undocumented
 	Suffix *string `json:"suffix,omitempty"`
 	// Title undocumented
 	Title *string `json:"title,omitempty"`
-	// Pronunciation undocumented
-	Pronunciation *YomiPersonName `json:"pronunciation,omitempty"`
+}
+
+// PersonNamePronounciation undocumented
+type PersonNamePronounciation struct {
+	// Object is the base model of PersonNamePronounciation
+	Object
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// First undocumented
+	First *string `json:"first,omitempty"`
+	// Last undocumented
+	Last *string `json:"last,omitempty"`
+	// Maiden undocumented
+	Maiden *string `json:"maiden,omitempty"`
+	// Middle undocumented
+	Middle *string `json:"middle,omitempty"`
 }
 
 // PersonOrGroupColumn undocumented
@@ -120,6 +212,22 @@ type PersonOrGroupColumn struct {
 	DisplayAs *string `json:"displayAs,omitempty"`
 }
 
+// PersonResponsibility undocumented
+type PersonResponsibility struct {
+	// ItemFacet is the base model of PersonResponsibility
+	ItemFacet
+	// CollaborationTags undocumented
+	CollaborationTags []string `json:"collaborationTags,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+}
+
 // PersonWebsite undocumented
 type PersonWebsite struct {
 	// ItemFacet is the base model of PersonWebsite
@@ -130,6 +238,8 @@ type PersonWebsite struct {
 	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }

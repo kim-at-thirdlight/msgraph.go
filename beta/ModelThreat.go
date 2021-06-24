@@ -8,20 +8,20 @@ import "time"
 type ThreatAssessmentRequestObject struct {
 	// Entity is the base model of ThreatAssessmentRequestObject
 	Entity
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ContentType undocumented
-	ContentType *ThreatAssessmentContentType `json:"contentType,omitempty"`
-	// ExpectedAssessment undocumented
-	ExpectedAssessment *ThreatExpectedAssessment `json:"expectedAssessment,omitempty"`
 	// Category undocumented
 	Category *ThreatCategory `json:"category,omitempty"`
-	// Status undocumented
-	Status *ThreatAssessmentStatus `json:"status,omitempty"`
-	// RequestSource undocumented
-	RequestSource *ThreatAssessmentRequestSource `json:"requestSource,omitempty"`
+	// ContentType undocumented
+	ContentType *ThreatAssessmentContentType `json:"contentType,omitempty"`
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// ExpectedAssessment undocumented
+	ExpectedAssessment *ThreatExpectedAssessment `json:"expectedAssessment,omitempty"`
+	// RequestSource undocumented
+	RequestSource *ThreatAssessmentRequestSource `json:"requestSource,omitempty"`
+	// Status undocumented
+	Status *ThreatAssessmentStatus `json:"status,omitempty"`
 	// Results undocumented
 	Results []ThreatAssessmentResult `json:"results,omitempty"`
 }
@@ -30,12 +30,12 @@ type ThreatAssessmentRequestObject struct {
 type ThreatAssessmentRequestsCount struct {
 	// Object is the base model of ThreatAssessmentRequestsCount
 	Object
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// PivotValue undocumented
 	PivotValue *string `json:"pivotValue,omitempty"`
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
 }
 
 // ThreatAssessmentResult undocumented
@@ -44,8 +44,8 @@ type ThreatAssessmentResult struct {
 	Entity
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ResultType undocumented
-	ResultType *ThreatAssessmentResultType `json:"resultType,omitempty"`
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
+	// ResultType undocumented
+	ResultType *ThreatAssessmentResultType `json:"resultType,omitempty"`
 }

@@ -12,14 +12,14 @@ type CustomAction struct {
 	Properties []KeyValuePair `json:"properties,omitempty"`
 }
 
-// CustomSubjectAlternativeName undocumented
+// CustomSubjectAlternativeName Custom Subject Alternative Name definition
 type CustomSubjectAlternativeName struct {
 	// Object is the base model of CustomSubjectAlternativeName
 	Object
-	// SanType Custom SAN Type.
-	SanType *SubjectAlternativeNameType `json:"sanType,omitempty"`
 	// Name Custom SAN Name
 	Name *string `json:"name,omitempty"`
+	// SanType Custom SAN Type.
+	SanType *SubjectAlternativeNameType `json:"sanType,omitempty"`
 }
 
 // CustomTimeZone undocumented
@@ -28,8 +28,22 @@ type CustomTimeZone struct {
 	TimeZoneBase
 	// Bias undocumented
 	Bias *int `json:"bias,omitempty"`
-	// StandardOffset undocumented
-	StandardOffset *StandardTimeZoneOffset `json:"standardOffset,omitempty"`
 	// DaylightOffset undocumented
 	DaylightOffset *DaylightTimeZoneOffset `json:"daylightOffset,omitempty"`
+	// StandardOffset undocumented
+	StandardOffset *StandardTimeZoneOffset `json:"standardOffset,omitempty"`
+}
+
+// CustomUpdateTimeWindow Custom update time window
+type CustomUpdateTimeWindow struct {
+	// Object is the base model of CustomUpdateTimeWindow
+	Object
+	// EndDay End day of the time window
+	EndDay *DayOfWeek `json:"endDay,omitempty"`
+	// EndTime End time of the time window
+	EndTime *TimeOfDay `json:"endTime,omitempty"`
+	// StartDay Start day of the time window
+	StartDay *DayOfWeek `json:"startDay,omitempty"`
+	// StartTime Start time of the time window
+	StartTime *TimeOfDay `json:"startTime,omitempty"`
 }

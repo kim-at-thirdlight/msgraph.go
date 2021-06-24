@@ -217,6 +217,109 @@ func (r *PlannerPlansCollectionRequest) Add(ctx context.Context, reqObj *Planner
 	return
 }
 
+// Rosters returns request builder for PlannerRoster collection
+func (b *PlannerRequestBuilder) Rosters() *PlannerRostersCollectionRequestBuilder {
+	bb := &PlannerRostersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/rosters"
+	return bb
+}
+
+// PlannerRostersCollectionRequestBuilder is request builder for PlannerRoster collection
+type PlannerRostersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PlannerRoster collection
+func (b *PlannerRostersCollectionRequestBuilder) Request() *PlannerRostersCollectionRequest {
+	return &PlannerRostersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PlannerRoster item
+func (b *PlannerRostersCollectionRequestBuilder) ID(id string) *PlannerRosterRequestBuilder {
+	bb := &PlannerRosterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// PlannerRostersCollectionRequest is request for PlannerRoster collection
+type PlannerRostersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PlannerRoster collection
+func (r *PlannerRostersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PlannerRoster, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PlannerRoster
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PlannerRoster
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PlannerRoster collection, max N pages
+func (r *PlannerRostersCollectionRequest) GetN(ctx context.Context, n int) ([]PlannerRoster, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PlannerRoster collection
+func (r *PlannerRostersCollectionRequest) Get(ctx context.Context) ([]PlannerRoster, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PlannerRoster collection
+func (r *PlannerRostersCollectionRequest) Add(ctx context.Context, reqObj *PlannerRoster) (resObj *PlannerRoster, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Tasks returns request builder for PlannerTask collection
 func (b *PlannerRequestBuilder) Tasks() *PlannerTasksCollectionRequestBuilder {
 	bb := &PlannerTasksCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -739,6 +842,212 @@ func (r *PlannerPlanTasksCollectionRequest) Add(ctx context.Context, reqObj *Pla
 	return
 }
 
+// Members returns request builder for PlannerRosterMember collection
+func (b *PlannerRosterRequestBuilder) Members() *PlannerRosterMembersCollectionRequestBuilder {
+	bb := &PlannerRosterMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/members"
+	return bb
+}
+
+// PlannerRosterMembersCollectionRequestBuilder is request builder for PlannerRosterMember collection
+type PlannerRosterMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PlannerRosterMember collection
+func (b *PlannerRosterMembersCollectionRequestBuilder) Request() *PlannerRosterMembersCollectionRequest {
+	return &PlannerRosterMembersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PlannerRosterMember item
+func (b *PlannerRosterMembersCollectionRequestBuilder) ID(id string) *PlannerRosterMemberRequestBuilder {
+	bb := &PlannerRosterMemberRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// PlannerRosterMembersCollectionRequest is request for PlannerRosterMember collection
+type PlannerRosterMembersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PlannerRosterMember collection
+func (r *PlannerRosterMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PlannerRosterMember, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PlannerRosterMember
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PlannerRosterMember
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PlannerRosterMember collection, max N pages
+func (r *PlannerRosterMembersCollectionRequest) GetN(ctx context.Context, n int) ([]PlannerRosterMember, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PlannerRosterMember collection
+func (r *PlannerRosterMembersCollectionRequest) Get(ctx context.Context) ([]PlannerRosterMember, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PlannerRosterMember collection
+func (r *PlannerRosterMembersCollectionRequest) Add(ctx context.Context, reqObj *PlannerRosterMember) (resObj *PlannerRosterMember, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Plans returns request builder for PlannerPlan collection
+func (b *PlannerRosterRequestBuilder) Plans() *PlannerRosterPlansCollectionRequestBuilder {
+	bb := &PlannerRosterPlansCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/plans"
+	return bb
+}
+
+// PlannerRosterPlansCollectionRequestBuilder is request builder for PlannerPlan collection
+type PlannerRosterPlansCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PlannerPlan collection
+func (b *PlannerRosterPlansCollectionRequestBuilder) Request() *PlannerRosterPlansCollectionRequest {
+	return &PlannerRosterPlansCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PlannerPlan item
+func (b *PlannerRosterPlansCollectionRequestBuilder) ID(id string) *PlannerPlanRequestBuilder {
+	bb := &PlannerPlanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// PlannerRosterPlansCollectionRequest is request for PlannerPlan collection
+type PlannerRosterPlansCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PlannerPlan collection
+func (r *PlannerRosterPlansCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PlannerPlan, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PlannerPlan
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PlannerPlan
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PlannerPlan collection, max N pages
+func (r *PlannerRosterPlansCollectionRequest) GetN(ctx context.Context, n int) ([]PlannerPlan, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PlannerPlan collection
+func (r *PlannerRosterPlansCollectionRequest) Get(ctx context.Context) ([]PlannerPlan, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PlannerPlan collection
+func (r *PlannerRosterPlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // AssignedToTaskBoardFormat is navigation property
 func (b *PlannerTaskRequestBuilder) AssignedToTaskBoardFormat() *PlannerAssignedToTaskBoardTaskFormatRequestBuilder {
 	bb := &PlannerAssignedToTaskBoardTaskFormatRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1175,6 +1484,109 @@ func (r *PlannerUserRecentPlansCollectionRequest) Get(ctx context.Context) ([]Pl
 
 // Add performs POST request for PlannerPlan collection
 func (r *PlannerUserRecentPlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RosterPlans returns request builder for PlannerPlan collection
+func (b *PlannerUserRequestBuilder) RosterPlans() *PlannerUserRosterPlansCollectionRequestBuilder {
+	bb := &PlannerUserRosterPlansCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/rosterPlans"
+	return bb
+}
+
+// PlannerUserRosterPlansCollectionRequestBuilder is request builder for PlannerPlan collection
+type PlannerUserRosterPlansCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PlannerPlan collection
+func (b *PlannerUserRosterPlansCollectionRequestBuilder) Request() *PlannerUserRosterPlansCollectionRequest {
+	return &PlannerUserRosterPlansCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PlannerPlan item
+func (b *PlannerUserRosterPlansCollectionRequestBuilder) ID(id string) *PlannerPlanRequestBuilder {
+	bb := &PlannerPlanRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// PlannerUserRosterPlansCollectionRequest is request for PlannerPlan collection
+type PlannerUserRosterPlansCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PlannerPlan collection
+func (r *PlannerUserRosterPlansCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PlannerPlan, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PlannerPlan
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PlannerPlan
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PlannerPlan collection, max N pages
+func (r *PlannerUserRosterPlansCollectionRequest) GetN(ctx context.Context, n int) ([]PlannerPlan, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PlannerPlan collection
+func (r *PlannerUserRosterPlansCollectionRequest) Get(ctx context.Context) ([]PlannerPlan, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PlannerPlan collection
+func (r *PlannerUserRosterPlansCollectionRequest) Add(ctx context.Context, reqObj *PlannerPlan) (resObj *PlannerPlan, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -34,6 +34,10 @@ const (
 	AttributeFlowTypeVObjectAddOnly AttributeFlowType = "ObjectAddOnly"
 	// AttributeFlowTypeVMultiValueAddOnly undocumented
 	AttributeFlowTypeVMultiValueAddOnly AttributeFlowType = "MultiValueAddOnly"
+	// AttributeFlowTypeVValueAddOnly undocumented
+	AttributeFlowTypeVValueAddOnly AttributeFlowType = "ValueAddOnly"
+	// AttributeFlowTypeVAttributeAddOnly undocumented
+	AttributeFlowTypeVAttributeAddOnly AttributeFlowType = "AttributeAddOnly"
 )
 
 var (
@@ -43,12 +47,18 @@ var (
 	AttributeFlowTypePObjectAddOnly = &_AttributeFlowTypePObjectAddOnly
 	// AttributeFlowTypePMultiValueAddOnly is a pointer to AttributeFlowTypeVMultiValueAddOnly
 	AttributeFlowTypePMultiValueAddOnly = &_AttributeFlowTypePMultiValueAddOnly
+	// AttributeFlowTypePValueAddOnly is a pointer to AttributeFlowTypeVValueAddOnly
+	AttributeFlowTypePValueAddOnly = &_AttributeFlowTypePValueAddOnly
+	// AttributeFlowTypePAttributeAddOnly is a pointer to AttributeFlowTypeVAttributeAddOnly
+	AttributeFlowTypePAttributeAddOnly = &_AttributeFlowTypePAttributeAddOnly
 )
 
 var (
 	_AttributeFlowTypePAlways            = AttributeFlowTypeVAlways
 	_AttributeFlowTypePObjectAddOnly     = AttributeFlowTypeVObjectAddOnly
 	_AttributeFlowTypePMultiValueAddOnly = AttributeFlowTypeVMultiValueAddOnly
+	_AttributeFlowTypePValueAddOnly      = AttributeFlowTypeVValueAddOnly
+	_AttributeFlowTypePAttributeAddOnly  = AttributeFlowTypeVAttributeAddOnly
 )
 
 // AttributeMappingSourceType undocumented
@@ -82,40 +92,40 @@ var (
 type AttributeType string
 
 const (
-	// AttributeTypeVDateTime undocumented
-	AttributeTypeVDateTime AttributeType = "DateTime"
-	// AttributeTypeVBoolean undocumented
-	AttributeTypeVBoolean AttributeType = "Boolean"
-	// AttributeTypeVBinary undocumented
-	AttributeTypeVBinary AttributeType = "Binary"
-	// AttributeTypeVReference undocumented
-	AttributeTypeVReference AttributeType = "Reference"
-	// AttributeTypeVInteger undocumented
-	AttributeTypeVInteger AttributeType = "Integer"
 	// AttributeTypeVString undocumented
 	AttributeTypeVString AttributeType = "String"
+	// AttributeTypeVInteger undocumented
+	AttributeTypeVInteger AttributeType = "Integer"
+	// AttributeTypeVReference undocumented
+	AttributeTypeVReference AttributeType = "Reference"
+	// AttributeTypeVBinary undocumented
+	AttributeTypeVBinary AttributeType = "Binary"
+	// AttributeTypeVBoolean undocumented
+	AttributeTypeVBoolean AttributeType = "Boolean"
+	// AttributeTypeVDateTime undocumented
+	AttributeTypeVDateTime AttributeType = "DateTime"
 )
 
 var (
-	// AttributeTypePDateTime is a pointer to AttributeTypeVDateTime
-	AttributeTypePDateTime = &_AttributeTypePDateTime
-	// AttributeTypePBoolean is a pointer to AttributeTypeVBoolean
-	AttributeTypePBoolean = &_AttributeTypePBoolean
-	// AttributeTypePBinary is a pointer to AttributeTypeVBinary
-	AttributeTypePBinary = &_AttributeTypePBinary
-	// AttributeTypePReference is a pointer to AttributeTypeVReference
-	AttributeTypePReference = &_AttributeTypePReference
-	// AttributeTypePInteger is a pointer to AttributeTypeVInteger
-	AttributeTypePInteger = &_AttributeTypePInteger
 	// AttributeTypePString is a pointer to AttributeTypeVString
 	AttributeTypePString = &_AttributeTypePString
+	// AttributeTypePInteger is a pointer to AttributeTypeVInteger
+	AttributeTypePInteger = &_AttributeTypePInteger
+	// AttributeTypePReference is a pointer to AttributeTypeVReference
+	AttributeTypePReference = &_AttributeTypePReference
+	// AttributeTypePBinary is a pointer to AttributeTypeVBinary
+	AttributeTypePBinary = &_AttributeTypePBinary
+	// AttributeTypePBoolean is a pointer to AttributeTypeVBoolean
+	AttributeTypePBoolean = &_AttributeTypePBoolean
+	// AttributeTypePDateTime is a pointer to AttributeTypeVDateTime
+	AttributeTypePDateTime = &_AttributeTypePDateTime
 )
 
 var (
-	_AttributeTypePDateTime  = AttributeTypeVDateTime
-	_AttributeTypePBoolean   = AttributeTypeVBoolean
-	_AttributeTypePBinary    = AttributeTypeVBinary
-	_AttributeTypePReference = AttributeTypeVReference
-	_AttributeTypePInteger   = AttributeTypeVInteger
 	_AttributeTypePString    = AttributeTypeVString
+	_AttributeTypePInteger   = AttributeTypeVInteger
+	_AttributeTypePReference = AttributeTypeVReference
+	_AttributeTypePBinary    = AttributeTypeVBinary
+	_AttributeTypePBoolean   = AttributeTypeVBoolean
+	_AttributeTypePDateTime  = AttributeTypeVDateTime
 )

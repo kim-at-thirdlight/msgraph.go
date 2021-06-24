@@ -6,6 +6,8 @@ package msgraph
 type Site struct {
 	// BaseItem is the base model of Site
 	BaseItem
+	// Deleted undocumented
+	Deleted *Deleted `json:"deleted,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// Root undocumented
@@ -24,14 +26,20 @@ type Site struct {
 	Drive *Drive `json:"drive,omitempty"`
 	// Drives undocumented
 	Drives []Drive `json:"drives,omitempty"`
+	// ExternalColumns undocumented
+	ExternalColumns []ColumnDefinition `json:"externalColumns,omitempty"`
 	// Items undocumented
 	Items []BaseItem `json:"items,omitempty"`
 	// Lists undocumented
 	Lists []List `json:"lists,omitempty"`
 	// Pages undocumented
 	Pages []SitePage `json:"pages,omitempty"`
+	// Permissions undocumented
+	Permissions []Permission `json:"permissions,omitempty"`
 	// Sites undocumented
 	Sites []Site `json:"sites,omitempty"`
+	// TermStore undocumented
+	TermStore *TermStorestore `json:"termStore,omitempty"`
 	// Onenote undocumented
 	Onenote *Onenote `json:"onenote,omitempty"`
 }
@@ -40,20 +48,20 @@ type Site struct {
 type SiteActivitySummary struct {
 	// Entity is the base model of SiteActivitySummary
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// ViewedOrEdited undocumented
-	ViewedOrEdited *int `json:"viewedOrEdited,omitempty"`
-	// Synced undocumented
-	Synced *int `json:"synced,omitempty"`
-	// SharedInternally undocumented
-	SharedInternally *int `json:"sharedInternally,omitempty"`
-	// SharedExternally undocumented
-	SharedExternally *int `json:"sharedExternally,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// SharedExternally undocumented
+	SharedExternally *int `json:"sharedExternally,omitempty"`
+	// SharedInternally undocumented
+	SharedInternally *int `json:"sharedInternally,omitempty"`
+	// Synced undocumented
+	Synced *int `json:"synced,omitempty"`
+	// ViewedOrEdited undocumented
+	ViewedOrEdited *int `json:"viewedOrEdited,omitempty"`
 }
 
 // SiteCollection undocumented
@@ -72,16 +80,16 @@ type SiteCollection struct {
 type SitePage struct {
 	// BaseItem is the base model of SitePage
 	BaseItem
-	// Title undocumented
-	Title *string `json:"title,omitempty"`
 	// ContentType undocumented
 	ContentType *ContentTypeInfo `json:"contentType,omitempty"`
 	// PageLayoutType undocumented
 	PageLayoutType *string `json:"pageLayoutType,omitempty"`
-	// WebParts undocumented
-	WebParts []WebPart `json:"webParts,omitempty"`
 	// PublishingState undocumented
 	PublishingState *PublicationFacet `json:"publishingState,omitempty"`
+	// Title undocumented
+	Title *string `json:"title,omitempty"`
+	// WebParts undocumented
+	WebParts []WebPart `json:"webParts,omitempty"`
 }
 
 // SitePageData undocumented
@@ -94,14 +102,14 @@ type SitePageData struct {
 type SiteUsageStorage struct {
 	// Entity is the base model of SiteUsageStorage
 	Entity
+	// ReportDate undocumented
+	ReportDate *Date `json:"reportDate,omitempty"`
+	// ReportPeriod undocumented
+	ReportPeriod *string `json:"reportPeriod,omitempty"`
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// SiteType undocumented
 	SiteType *string `json:"siteType,omitempty"`
 	// StorageUsedInBytes undocumented
 	StorageUsedInBytes *int `json:"storageUsedInBytes,omitempty"`
-	// ReportDate undocumented
-	ReportDate *Date `json:"reportDate,omitempty"`
-	// ReportPeriod undocumented
-	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }

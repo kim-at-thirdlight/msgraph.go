@@ -6,12 +6,12 @@ package msgraph
 type Filter struct {
 	// Object is the base model of Filter
 	Object
+	// CategoryFilterGroups undocumented
+	CategoryFilterGroups []FilterGroup `json:"categoryFilterGroups,omitempty"`
 	// Groups undocumented
 	Groups []FilterGroup `json:"groups,omitempty"`
 	// InputFilterGroups undocumented
 	InputFilterGroups []FilterGroup `json:"inputFilterGroups,omitempty"`
-	// CategoryFilterGroups undocumented
-	CategoryFilterGroups []FilterGroup `json:"categoryFilterGroups,omitempty"`
 }
 
 // FilterClause undocumented

@@ -2,13 +2,13 @@
 
 package msgraph
 
-// DeliveryOptimizationBandwidth undocumented
+// DeliveryOptimizationBandwidth Bandwidth restriction types
 type DeliveryOptimizationBandwidth struct {
 	// Object is the base model of DeliveryOptimizationBandwidth
 	Object
 }
 
-// DeliveryOptimizationBandwidthAbsolute undocumented
+// DeliveryOptimizationBandwidthAbsolute Bandwidth limits in kilobytes per second.
 type DeliveryOptimizationBandwidthAbsolute struct {
 	// DeliveryOptimizationBandwidth is the base model of DeliveryOptimizationBandwidthAbsolute
 	DeliveryOptimizationBandwidth
@@ -18,7 +18,7 @@ type DeliveryOptimizationBandwidthAbsolute struct {
 	MaximumUploadBandwidthInKilobytesPerSecond *int `json:"maximumUploadBandwidthInKilobytesPerSecond,omitempty"`
 }
 
-// DeliveryOptimizationBandwidthBusinessHoursLimit undocumented
+// DeliveryOptimizationBandwidthBusinessHoursLimit Bandwidth business hours and percentages type
 type DeliveryOptimizationBandwidthBusinessHoursLimit struct {
 	// Object is the base model of DeliveryOptimizationBandwidthBusinessHoursLimit
 	Object
@@ -32,7 +32,7 @@ type DeliveryOptimizationBandwidthBusinessHoursLimit struct {
 	BandwidthPercentageOutsideBusinessHours *int `json:"bandwidthPercentageOutsideBusinessHours,omitempty"`
 }
 
-// DeliveryOptimizationBandwidthHoursWithPercentage undocumented
+// DeliveryOptimizationBandwidthHoursWithPercentage Bandwidth limit as a percentage with business hours.
 type DeliveryOptimizationBandwidthHoursWithPercentage struct {
 	// DeliveryOptimizationBandwidth is the base model of DeliveryOptimizationBandwidthHoursWithPercentage
 	DeliveryOptimizationBandwidth
@@ -42,7 +42,7 @@ type DeliveryOptimizationBandwidthHoursWithPercentage struct {
 	BandwidthForegroundPercentageHours *DeliveryOptimizationBandwidthBusinessHoursLimit `json:"bandwidthForegroundPercentageHours,omitempty"`
 }
 
-// DeliveryOptimizationBandwidthPercentage undocumented
+// DeliveryOptimizationBandwidthPercentage Bandwidth limits specified as a percentage.
 type DeliveryOptimizationBandwidthPercentage struct {
 	// DeliveryOptimizationBandwidth is the base model of DeliveryOptimizationBandwidthPercentage
 	DeliveryOptimizationBandwidth
@@ -52,7 +52,7 @@ type DeliveryOptimizationBandwidthPercentage struct {
 	MaximumForegroundBandwidthPercentage *int `json:"maximumForegroundBandwidthPercentage,omitempty"`
 }
 
-// DeliveryOptimizationGroupIDCustom undocumented
+// DeliveryOptimizationGroupIDCustom Custom group id type
 type DeliveryOptimizationGroupIDCustom struct {
 	// DeliveryOptimizationGroupIDSource is the base model of DeliveryOptimizationGroupIDCustom
 	DeliveryOptimizationGroupIDSource
@@ -60,13 +60,13 @@ type DeliveryOptimizationGroupIDCustom struct {
 	GroupIDCustom *string `json:"groupIdCustom,omitempty"`
 }
 
-// DeliveryOptimizationGroupIDSource undocumented
+// DeliveryOptimizationGroupIDSource GroupId Support Types
 type DeliveryOptimizationGroupIDSource struct {
 	// Object is the base model of DeliveryOptimizationGroupIDSource
 	Object
 }
 
-// DeliveryOptimizationGroupIDSourceOptions undocumented
+// DeliveryOptimizationGroupIDSourceOptions Group id options type
 type DeliveryOptimizationGroupIDSourceOptions struct {
 	// DeliveryOptimizationGroupIDSource is the base model of DeliveryOptimizationGroupIDSourceOptions
 	DeliveryOptimizationGroupIDSource
@@ -74,13 +74,13 @@ type DeliveryOptimizationGroupIDSourceOptions struct {
 	GroupIDSourceOption *DeliveryOptimizationGroupIDOptionsType `json:"groupIdSourceOption,omitempty"`
 }
 
-// DeliveryOptimizationMaxCacheSize undocumented
+// DeliveryOptimizationMaxCacheSize Delivery Optimization max cache size types.
 type DeliveryOptimizationMaxCacheSize struct {
 	// Object is the base model of DeliveryOptimizationMaxCacheSize
 	Object
 }
 
-// DeliveryOptimizationMaxCacheSizeAbsolute undocumented
+// DeliveryOptimizationMaxCacheSizeAbsolute Delivery Optimization max cache size absolute type.
 type DeliveryOptimizationMaxCacheSizeAbsolute struct {
 	// DeliveryOptimizationMaxCacheSize is the base model of DeliveryOptimizationMaxCacheSizeAbsolute
 	DeliveryOptimizationMaxCacheSize
@@ -88,7 +88,7 @@ type DeliveryOptimizationMaxCacheSizeAbsolute struct {
 	MaximumCacheSizeInGigabytes *int `json:"maximumCacheSizeInGigabytes,omitempty"`
 }
 
-// DeliveryOptimizationMaxCacheSizePercentage undocumented
+// DeliveryOptimizationMaxCacheSizePercentage Delivery Optimization Max cache size percentage types.
 type DeliveryOptimizationMaxCacheSizePercentage struct {
 	// DeliveryOptimizationMaxCacheSize is the base model of DeliveryOptimizationMaxCacheSizePercentage
 	DeliveryOptimizationMaxCacheSize

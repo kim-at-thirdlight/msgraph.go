@@ -2,20 +2,170 @@
 
 package msgraph
 
+import "time"
+
+// UnifiedRbacResourceAction undocumented
+type UnifiedRbacResourceAction struct {
+	// Entity is the base model of UnifiedRbacResourceAction
+	Entity
+	// ActionVerb undocumented
+	ActionVerb *string `json:"actionVerb,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// ResourceScopeID undocumented
+	ResourceScopeID *string `json:"resourceScopeId,omitempty"`
+	// ResourceScope undocumented
+	ResourceScope *UnifiedRbacResourceScope `json:"resourceScope,omitempty"`
+}
+
+// UnifiedRbacResourceNamespace undocumented
+type UnifiedRbacResourceNamespace struct {
+	// Entity is the base model of UnifiedRbacResourceNamespace
+	Entity
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// ResourceActions undocumented
+	ResourceActions []UnifiedRbacResourceAction `json:"resourceActions,omitempty"`
+}
+
+// UnifiedRbacResourceScope undocumented
+type UnifiedRbacResourceScope struct {
+	// Entity is the base model of UnifiedRbacResourceScope
+	Entity
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Scope undocumented
+	Scope *string `json:"scope,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+}
+
 // UnifiedRoleAssignment undocumented
 type UnifiedRoleAssignment struct {
 	// Entity is the base model of UnifiedRoleAssignment
 	Entity
+	// AppScopeID undocumented
+	AppScopeID *string `json:"appScopeId,omitempty"`
+	// Condition undocumented
+	Condition *string `json:"condition,omitempty"`
+	// DirectoryScopeID undocumented
+	DirectoryScopeID *string `json:"directoryScopeId,omitempty"`
 	// PrincipalID undocumented
 	PrincipalID *string `json:"principalId,omitempty"`
 	// ResourceScope undocumented
 	ResourceScope *string `json:"resourceScope,omitempty"`
 	// RoleDefinitionID undocumented
 	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// AppScope undocumented
+	AppScope *AppScope `json:"appScope,omitempty"`
+	// DirectoryScope undocumented
+	DirectoryScope *DirectoryObject `json:"directoryScope,omitempty"`
 	// Principal undocumented
 	Principal *DirectoryObject `json:"principal,omitempty"`
 	// RoleDefinition undocumented
 	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
+}
+
+// UnifiedRoleAssignmentMultiple undocumented
+type UnifiedRoleAssignmentMultiple struct {
+	// Entity is the base model of UnifiedRoleAssignmentMultiple
+	Entity
+	// AppScopeIDs undocumented
+	AppScopeIDs []string `json:"appScopeIds,omitempty"`
+	// Condition undocumented
+	Condition *string `json:"condition,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DirectoryScopeIDs undocumented
+	DirectoryScopeIDs []string `json:"directoryScopeIds,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// PrincipalIDs undocumented
+	PrincipalIDs []string `json:"principalIds,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// AppScopes undocumented
+	AppScopes []AppScope `json:"appScopes,omitempty"`
+	// DirectoryScopes undocumented
+	DirectoryScopes []DirectoryObject `json:"directoryScopes,omitempty"`
+	// Principals undocumented
+	Principals []DirectoryObject `json:"principals,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
+}
+
+// UnifiedRoleAssignmentSchedule undocumented
+type UnifiedRoleAssignmentSchedule struct {
+	// UnifiedRoleScheduleBase is the base model of UnifiedRoleAssignmentSchedule
+	UnifiedRoleScheduleBase
+	// AssignmentType undocumented
+	AssignmentType *string `json:"assignmentType,omitempty"`
+	// MemberType undocumented
+	MemberType *string `json:"memberType,omitempty"`
+	// ScheduleInfo undocumented
+	ScheduleInfo *RequestSchedule `json:"scheduleInfo,omitempty"`
+	// ActivatedUsing undocumented
+	ActivatedUsing *UnifiedRoleEligibilitySchedule `json:"activatedUsing,omitempty"`
+}
+
+// UnifiedRoleAssignmentScheduleInstance undocumented
+type UnifiedRoleAssignmentScheduleInstance struct {
+	// UnifiedRoleScheduleInstanceBase is the base model of UnifiedRoleAssignmentScheduleInstance
+	UnifiedRoleScheduleInstanceBase
+	// AssignmentType undocumented
+	AssignmentType *string `json:"assignmentType,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// MemberType undocumented
+	MemberType *string `json:"memberType,omitempty"`
+	// RoleAssignmentOriginID undocumented
+	RoleAssignmentOriginID *string `json:"roleAssignmentOriginId,omitempty"`
+	// RoleAssignmentScheduleID undocumented
+	RoleAssignmentScheduleID *string `json:"roleAssignmentScheduleId,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// ActivatedUsing undocumented
+	ActivatedUsing *UnifiedRoleEligibilityScheduleInstance `json:"activatedUsing,omitempty"`
+}
+
+// UnifiedRoleAssignmentScheduleRequestObject undocumented
+type UnifiedRoleAssignmentScheduleRequestObject struct {
+	// Request is the base model of UnifiedRoleAssignmentScheduleRequestObject
+	Request
+	// Action undocumented
+	Action *string `json:"action,omitempty"`
+	// AppScopeID undocumented
+	AppScopeID *string `json:"appScopeId,omitempty"`
+	// DirectoryScopeID undocumented
+	DirectoryScopeID *string `json:"directoryScopeId,omitempty"`
+	// IsValidationOnly undocumented
+	IsValidationOnly *bool `json:"isValidationOnly,omitempty"`
+	// Justification undocumented
+	Justification *string `json:"justification,omitempty"`
+	// PrincipalID undocumented
+	PrincipalID *string `json:"principalId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// ScheduleInfo undocumented
+	ScheduleInfo *RequestSchedule `json:"scheduleInfo,omitempty"`
+	// TargetScheduleID undocumented
+	TargetScheduleID *string `json:"targetScheduleId,omitempty"`
+	// TicketInfo undocumented
+	TicketInfo *TicketInfo `json:"ticketInfo,omitempty"`
+	// ActivatedUsing undocumented
+	ActivatedUsing *UnifiedRoleEligibilitySchedule `json:"activatedUsing,omitempty"`
+	// AppScope undocumented
+	AppScope *AppScope `json:"appScope,omitempty"`
+	// DirectoryScope undocumented
+	DirectoryScope *DirectoryObject `json:"directoryScope,omitempty"`
+	// Principal undocumented
+	Principal *DirectoryObject `json:"principal,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
+	// TargetSchedule undocumented
+	TargetSchedule *UnifiedRoleAssignmentSchedule `json:"targetSchedule,omitempty"`
 }
 
 // UnifiedRoleDefinition undocumented
@@ -38,6 +188,186 @@ type UnifiedRoleDefinition struct {
 	TemplateID *string `json:"templateId,omitempty"`
 	// Version undocumented
 	Version *string `json:"version,omitempty"`
+	// InheritsPermissionsFrom undocumented
+	InheritsPermissionsFrom []UnifiedRoleDefinition `json:"inheritsPermissionsFrom,omitempty"`
+}
+
+// UnifiedRoleEligibilitySchedule undocumented
+type UnifiedRoleEligibilitySchedule struct {
+	// UnifiedRoleScheduleBase is the base model of UnifiedRoleEligibilitySchedule
+	UnifiedRoleScheduleBase
+	// MemberType undocumented
+	MemberType *string `json:"memberType,omitempty"`
+	// ScheduleInfo undocumented
+	ScheduleInfo *RequestSchedule `json:"scheduleInfo,omitempty"`
+}
+
+// UnifiedRoleEligibilityScheduleInstance undocumented
+type UnifiedRoleEligibilityScheduleInstance struct {
+	// UnifiedRoleScheduleInstanceBase is the base model of UnifiedRoleEligibilityScheduleInstance
+	UnifiedRoleScheduleInstanceBase
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// MemberType undocumented
+	MemberType *string `json:"memberType,omitempty"`
+	// RoleEligibilityScheduleID undocumented
+	RoleEligibilityScheduleID *string `json:"roleEligibilityScheduleId,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+}
+
+// UnifiedRoleEligibilityScheduleRequestObject undocumented
+type UnifiedRoleEligibilityScheduleRequestObject struct {
+	// Request is the base model of UnifiedRoleEligibilityScheduleRequestObject
+	Request
+	// Action undocumented
+	Action *string `json:"action,omitempty"`
+	// AppScopeID undocumented
+	AppScopeID *string `json:"appScopeId,omitempty"`
+	// DirectoryScopeID undocumented
+	DirectoryScopeID *string `json:"directoryScopeId,omitempty"`
+	// IsValidationOnly undocumented
+	IsValidationOnly *bool `json:"isValidationOnly,omitempty"`
+	// Justification undocumented
+	Justification *string `json:"justification,omitempty"`
+	// PrincipalID undocumented
+	PrincipalID *string `json:"principalId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// ScheduleInfo undocumented
+	ScheduleInfo *RequestSchedule `json:"scheduleInfo,omitempty"`
+	// TargetScheduleID undocumented
+	TargetScheduleID *string `json:"targetScheduleId,omitempty"`
+	// TicketInfo undocumented
+	TicketInfo *TicketInfo `json:"ticketInfo,omitempty"`
+	// AppScope undocumented
+	AppScope *AppScope `json:"appScope,omitempty"`
+	// DirectoryScope undocumented
+	DirectoryScope *DirectoryObject `json:"directoryScope,omitempty"`
+	// Principal undocumented
+	Principal *DirectoryObject `json:"principal,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
+	// TargetSchedule undocumented
+	TargetSchedule *UnifiedRoleEligibilitySchedule `json:"targetSchedule,omitempty"`
+}
+
+// UnifiedRoleManagementPolicy undocumented
+type UnifiedRoleManagementPolicy struct {
+	// Entity is the base model of UnifiedRoleManagementPolicy
+	Entity
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsOrganizationDefault undocumented
+	IsOrganizationDefault *bool `json:"isOrganizationDefault,omitempty"`
+	// LastModifiedBy undocumented
+	LastModifiedBy *Identity `json:"lastModifiedBy,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// ScopeID undocumented
+	ScopeID *string `json:"scopeId,omitempty"`
+	// ScopeType undocumented
+	ScopeType *string `json:"scopeType,omitempty"`
+	// EffectiveRules undocumented
+	EffectiveRules []UnifiedRoleManagementPolicyRule `json:"effectiveRules,omitempty"`
+	// Rules undocumented
+	Rules []UnifiedRoleManagementPolicyRule `json:"rules,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyApprovalRule undocumented
+type UnifiedRoleManagementPolicyApprovalRule struct {
+	// UnifiedRoleManagementPolicyRule is the base model of UnifiedRoleManagementPolicyApprovalRule
+	UnifiedRoleManagementPolicyRule
+	// Setting undocumented
+	Setting *ApprovalSettings `json:"setting,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyAssignment undocumented
+type UnifiedRoleManagementPolicyAssignment struct {
+	// Entity is the base model of UnifiedRoleManagementPolicyAssignment
+	Entity
+	// PolicyID undocumented
+	PolicyID *string `json:"policyId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// ScopeID undocumented
+	ScopeID *string `json:"scopeId,omitempty"`
+	// ScopeType undocumented
+	ScopeType *string `json:"scopeType,omitempty"`
+	// Policy undocumented
+	Policy *UnifiedRoleManagementPolicy `json:"policy,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyAuthenticationContextRule undocumented
+type UnifiedRoleManagementPolicyAuthenticationContextRule struct {
+	// UnifiedRoleManagementPolicyRule is the base model of UnifiedRoleManagementPolicyAuthenticationContextRule
+	UnifiedRoleManagementPolicyRule
+	// ClaimValue undocumented
+	ClaimValue *string `json:"claimValue,omitempty"`
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyEnablementRule undocumented
+type UnifiedRoleManagementPolicyEnablementRule struct {
+	// UnifiedRoleManagementPolicyRule is the base model of UnifiedRoleManagementPolicyEnablementRule
+	UnifiedRoleManagementPolicyRule
+	// EnabledRules undocumented
+	EnabledRules []string `json:"enabledRules,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyExpirationRule undocumented
+type UnifiedRoleManagementPolicyExpirationRule struct {
+	// UnifiedRoleManagementPolicyRule is the base model of UnifiedRoleManagementPolicyExpirationRule
+	UnifiedRoleManagementPolicyRule
+	// IsExpirationRequired undocumented
+	IsExpirationRequired *bool `json:"isExpirationRequired,omitempty"`
+	// MaximumDuration undocumented
+	MaximumDuration *Duration `json:"maximumDuration,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyNotificationRule undocumented
+type UnifiedRoleManagementPolicyNotificationRule struct {
+	// UnifiedRoleManagementPolicyRule is the base model of UnifiedRoleManagementPolicyNotificationRule
+	UnifiedRoleManagementPolicyRule
+	// IsDefaultRecipientsEnabled undocumented
+	IsDefaultRecipientsEnabled *bool `json:"isDefaultRecipientsEnabled,omitempty"`
+	// NotificationLevel undocumented
+	NotificationLevel *string `json:"notificationLevel,omitempty"`
+	// NotificationRecipients undocumented
+	NotificationRecipients []string `json:"notificationRecipients,omitempty"`
+	// NotificationType undocumented
+	NotificationType *string `json:"notificationType,omitempty"`
+	// RecipientType undocumented
+	RecipientType *string `json:"recipientType,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyRule undocumented
+type UnifiedRoleManagementPolicyRule struct {
+	// Entity is the base model of UnifiedRoleManagementPolicyRule
+	Entity
+	// Target undocumented
+	Target *UnifiedRoleManagementPolicyRuleTarget `json:"target,omitempty"`
+}
+
+// UnifiedRoleManagementPolicyRuleTarget undocumented
+type UnifiedRoleManagementPolicyRuleTarget struct {
+	// Object is the base model of UnifiedRoleManagementPolicyRuleTarget
+	Object
+	// Caller undocumented
+	Caller *string `json:"caller,omitempty"`
+	// EnforcedSettings undocumented
+	EnforcedSettings []string `json:"enforcedSettings,omitempty"`
+	// InheritableSettings undocumented
+	InheritableSettings []string `json:"inheritableSettings,omitempty"`
+	// Level undocumented
+	Level *string `json:"level,omitempty"`
+	// Operations undocumented
+	Operations []string `json:"operations,omitempty"`
+	// TargetObjects undocumented
+	TargetObjects []DirectoryObject `json:"targetObjects,omitempty"`
 }
 
 // UnifiedRolePermission undocumented
@@ -48,4 +378,58 @@ type UnifiedRolePermission struct {
 	AllowedResourceActions []string `json:"allowedResourceActions,omitempty"`
 	// Condition undocumented
 	Condition *string `json:"condition,omitempty"`
+	// ExcludedResourceActions undocumented
+	ExcludedResourceActions []string `json:"excludedResourceActions,omitempty"`
+}
+
+// UnifiedRoleScheduleBase undocumented
+type UnifiedRoleScheduleBase struct {
+	// Entity is the base model of UnifiedRoleScheduleBase
+	Entity
+	// AppScopeID undocumented
+	AppScopeID *string `json:"appScopeId,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// CreatedUsing undocumented
+	CreatedUsing *string `json:"createdUsing,omitempty"`
+	// DirectoryScopeID undocumented
+	DirectoryScopeID *string `json:"directoryScopeId,omitempty"`
+	// ModifiedDateTime undocumented
+	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
+	// PrincipalID undocumented
+	PrincipalID *string `json:"principalId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+	// AppScope undocumented
+	AppScope *AppScope `json:"appScope,omitempty"`
+	// DirectoryScope undocumented
+	DirectoryScope *DirectoryObject `json:"directoryScope,omitempty"`
+	// Principal undocumented
+	Principal *DirectoryObject `json:"principal,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
+}
+
+// UnifiedRoleScheduleInstanceBase undocumented
+type UnifiedRoleScheduleInstanceBase struct {
+	// Entity is the base model of UnifiedRoleScheduleInstanceBase
+	Entity
+	// AppScopeID undocumented
+	AppScopeID *string `json:"appScopeId,omitempty"`
+	// DirectoryScopeID undocumented
+	DirectoryScopeID *string `json:"directoryScopeId,omitempty"`
+	// PrincipalID undocumented
+	PrincipalID *string `json:"principalId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
+	// AppScope undocumented
+	AppScope *AppScope `json:"appScope,omitempty"`
+	// DirectoryScope undocumented
+	DirectoryScope *DirectoryObject `json:"directoryScope,omitempty"`
+	// Principal undocumented
+	Principal *DirectoryObject `json:"principal,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *UnifiedRoleDefinition `json:"roleDefinition,omitempty"`
 }

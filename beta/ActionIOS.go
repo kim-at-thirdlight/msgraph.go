@@ -37,18 +37,18 @@ type IOSVPPAppRevokeAllLicensesRequestParameter struct {
 	NotifyManagedDevices *bool `json:"notifyManagedDevices,omitempty"`
 }
 
-// IOSVPPAppRevokeUserLicenseRequestParameter undocumented
-type IOSVPPAppRevokeUserLicenseRequestParameter struct {
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// NotifyManagedDevices undocumented
-	NotifyManagedDevices *bool `json:"notifyManagedDevices,omitempty"`
-}
-
 // IOSVPPAppRevokeDeviceLicenseRequestParameter undocumented
 type IOSVPPAppRevokeDeviceLicenseRequestParameter struct {
 	// ManagedDeviceID undocumented
 	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// NotifyManagedDevices undocumented
+	NotifyManagedDevices *bool `json:"notifyManagedDevices,omitempty"`
+}
+
+// IOSVPPAppRevokeUserLicenseRequestParameter undocumented
+type IOSVPPAppRevokeUserLicenseRequestParameter struct {
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// NotifyManagedDevices undocumented
 	NotifyManagedDevices *bool `json:"notifyManagedDevices,omitempty"`
 }

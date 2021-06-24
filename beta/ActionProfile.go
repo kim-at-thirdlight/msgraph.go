@@ -114,35 +114,35 @@ func (r *ProfileAccountCollectionRequest) Add(ctx context.Context, reqObj *UserA
 	return
 }
 
-// Anniversaries returns request builder for PersonAnniversary collection
-func (b *ProfileRequestBuilder) Anniversaries() *ProfileAnniversariesCollectionRequestBuilder {
-	bb := &ProfileAnniversariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/anniversaries"
+// Addresses returns request builder for ItemAddress collection
+func (b *ProfileRequestBuilder) Addresses() *ProfileAddressesCollectionRequestBuilder {
+	bb := &ProfileAddressesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/addresses"
 	return bb
 }
 
-// ProfileAnniversariesCollectionRequestBuilder is request builder for PersonAnniversary collection
-type ProfileAnniversariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+// ProfileAddressesCollectionRequestBuilder is request builder for ItemAddress collection
+type ProfileAddressesCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for PersonAnniversary collection
-func (b *ProfileAnniversariesCollectionRequestBuilder) Request() *ProfileAnniversariesCollectionRequest {
-	return &ProfileAnniversariesCollectionRequest{
+// Request returns request for ItemAddress collection
+func (b *ProfileAddressesCollectionRequestBuilder) Request() *ProfileAddressesCollectionRequest {
+	return &ProfileAddressesCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for PersonAnniversary item
-func (b *ProfileAnniversariesCollectionRequestBuilder) ID(id string) *PersonAnniversaryRequestBuilder {
-	bb := &PersonAnniversaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for ItemAddress item
+func (b *ProfileAddressesCollectionRequestBuilder) ID(id string) *ItemAddressRequestBuilder {
+	bb := &ItemAddressRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// ProfileAnniversariesCollectionRequest is request for PersonAnniversary collection
-type ProfileAnniversariesCollectionRequest struct{ BaseRequest }
+// ProfileAddressesCollectionRequest is request for ItemAddress collection
+type ProfileAddressesCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for PersonAnniversary collection
-func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonAnniversary, error) {
+// Paging perfoms paging operation for ItemAddress collection
+func (r *ProfileAddressesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemAddress, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -154,7 +154,7 @@ func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, meth
 	if err != nil {
 		return nil, err
 	}
-	var values []PersonAnniversary
+	var values []ItemAddress
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -168,7 +168,7 @@ func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, meth
 		}
 		var (
 			paging Paging
-			value  []PersonAnniversary
+			value  []ItemAddress
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -197,8 +197,8 @@ func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// GetN performs GET request for PersonAnniversary collection, max N pages
-func (r *ProfileAnniversariesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonAnniversary, error) {
+// GetN performs GET request for ItemAddress collection, max N pages
+func (r *ProfileAddressesCollectionRequest) GetN(ctx context.Context, n int) ([]ItemAddress, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -206,13 +206,322 @@ func (r *ProfileAnniversariesCollectionRequest) GetN(ctx context.Context, n int)
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for PersonAnniversary collection
-func (r *ProfileAnniversariesCollectionRequest) Get(ctx context.Context) ([]PersonAnniversary, error) {
+// Get performs GET request for ItemAddress collection
+func (r *ProfileAddressesCollectionRequest) Get(ctx context.Context) ([]ItemAddress, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for PersonAnniversary collection
-func (r *ProfileAnniversariesCollectionRequest) Add(ctx context.Context, reqObj *PersonAnniversary) (resObj *PersonAnniversary, err error) {
+// Add performs POST request for ItemAddress collection
+func (r *ProfileAddressesCollectionRequest) Add(ctx context.Context, reqObj *ItemAddress) (resObj *ItemAddress, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Anniversaries returns request builder for PersonAnnualEvent collection
+func (b *ProfileRequestBuilder) Anniversaries() *ProfileAnniversariesCollectionRequestBuilder {
+	bb := &ProfileAnniversariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/anniversaries"
+	return bb
+}
+
+// ProfileAnniversariesCollectionRequestBuilder is request builder for PersonAnnualEvent collection
+type ProfileAnniversariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PersonAnnualEvent collection
+func (b *ProfileAnniversariesCollectionRequestBuilder) Request() *ProfileAnniversariesCollectionRequest {
+	return &ProfileAnniversariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PersonAnnualEvent item
+func (b *ProfileAnniversariesCollectionRequestBuilder) ID(id string) *PersonAnnualEventRequestBuilder {
+	bb := &PersonAnnualEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfileAnniversariesCollectionRequest is request for PersonAnnualEvent collection
+type ProfileAnniversariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PersonAnnualEvent collection
+func (r *ProfileAnniversariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonAnnualEvent, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PersonAnnualEvent
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PersonAnnualEvent
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PersonAnnualEvent collection, max N pages
+func (r *ProfileAnniversariesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonAnnualEvent, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonAnnualEvent collection
+func (r *ProfileAnniversariesCollectionRequest) Get(ctx context.Context) ([]PersonAnnualEvent, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PersonAnnualEvent collection
+func (r *ProfileAnniversariesCollectionRequest) Add(ctx context.Context, reqObj *PersonAnnualEvent) (resObj *PersonAnnualEvent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Awards returns request builder for PersonAward collection
+func (b *ProfileRequestBuilder) Awards() *ProfileAwardsCollectionRequestBuilder {
+	bb := &ProfileAwardsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/awards"
+	return bb
+}
+
+// ProfileAwardsCollectionRequestBuilder is request builder for PersonAward collection
+type ProfileAwardsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PersonAward collection
+func (b *ProfileAwardsCollectionRequestBuilder) Request() *ProfileAwardsCollectionRequest {
+	return &ProfileAwardsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PersonAward item
+func (b *ProfileAwardsCollectionRequestBuilder) ID(id string) *PersonAwardRequestBuilder {
+	bb := &PersonAwardRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfileAwardsCollectionRequest is request for PersonAward collection
+type ProfileAwardsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PersonAward collection
+func (r *ProfileAwardsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonAward, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PersonAward
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PersonAward
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PersonAward collection, max N pages
+func (r *ProfileAwardsCollectionRequest) GetN(ctx context.Context, n int) ([]PersonAward, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonAward collection
+func (r *ProfileAwardsCollectionRequest) Get(ctx context.Context) ([]PersonAward, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PersonAward collection
+func (r *ProfileAwardsCollectionRequest) Add(ctx context.Context, reqObj *PersonAward) (resObj *PersonAward, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Certifications returns request builder for PersonCertification collection
+func (b *ProfileRequestBuilder) Certifications() *ProfileCertificationsCollectionRequestBuilder {
+	bb := &ProfileCertificationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/certifications"
+	return bb
+}
+
+// ProfileCertificationsCollectionRequestBuilder is request builder for PersonCertification collection
+type ProfileCertificationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PersonCertification collection
+func (b *ProfileCertificationsCollectionRequestBuilder) Request() *ProfileCertificationsCollectionRequest {
+	return &ProfileCertificationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PersonCertification item
+func (b *ProfileCertificationsCollectionRequestBuilder) ID(id string) *PersonCertificationRequestBuilder {
+	bb := &PersonCertificationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfileCertificationsCollectionRequest is request for PersonCertification collection
+type ProfileCertificationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PersonCertification collection
+func (r *ProfileCertificationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonCertification, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PersonCertification
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PersonCertification
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PersonCertification collection, max N pages
+func (r *ProfileCertificationsCollectionRequest) GetN(ctx context.Context, n int) ([]PersonCertification, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonCertification collection
+func (r *ProfileCertificationsCollectionRequest) Get(ctx context.Context) ([]PersonCertification, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PersonCertification collection
+func (r *ProfileCertificationsCollectionRequest) Add(ctx context.Context, reqObj *PersonCertification) (resObj *PersonCertification, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -732,6 +1041,212 @@ func (r *ProfileNamesCollectionRequest) Add(ctx context.Context, reqObj *PersonN
 	return
 }
 
+// Notes returns request builder for PersonAnnotation collection
+func (b *ProfileRequestBuilder) Notes() *ProfileNotesCollectionRequestBuilder {
+	bb := &ProfileNotesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/notes"
+	return bb
+}
+
+// ProfileNotesCollectionRequestBuilder is request builder for PersonAnnotation collection
+type ProfileNotesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for PersonAnnotation collection
+func (b *ProfileNotesCollectionRequestBuilder) Request() *ProfileNotesCollectionRequest {
+	return &ProfileNotesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for PersonAnnotation item
+func (b *ProfileNotesCollectionRequestBuilder) ID(id string) *PersonAnnotationRequestBuilder {
+	bb := &PersonAnnotationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfileNotesCollectionRequest is request for PersonAnnotation collection
+type ProfileNotesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for PersonAnnotation collection
+func (r *ProfileNotesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]PersonAnnotation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []PersonAnnotation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []PersonAnnotation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for PersonAnnotation collection, max N pages
+func (r *ProfileNotesCollectionRequest) GetN(ctx context.Context, n int) ([]PersonAnnotation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for PersonAnnotation collection
+func (r *ProfileNotesCollectionRequest) Get(ctx context.Context) ([]PersonAnnotation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for PersonAnnotation collection
+func (r *ProfileNotesCollectionRequest) Add(ctx context.Context, reqObj *PersonAnnotation) (resObj *PersonAnnotation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Patents returns request builder for ItemPatent collection
+func (b *ProfileRequestBuilder) Patents() *ProfilePatentsCollectionRequestBuilder {
+	bb := &ProfilePatentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/patents"
+	return bb
+}
+
+// ProfilePatentsCollectionRequestBuilder is request builder for ItemPatent collection
+type ProfilePatentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ItemPatent collection
+func (b *ProfilePatentsCollectionRequestBuilder) Request() *ProfilePatentsCollectionRequest {
+	return &ProfilePatentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ItemPatent item
+func (b *ProfilePatentsCollectionRequestBuilder) ID(id string) *ItemPatentRequestBuilder {
+	bb := &ItemPatentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfilePatentsCollectionRequest is request for ItemPatent collection
+type ProfilePatentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ItemPatent collection
+func (r *ProfilePatentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemPatent, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ItemPatent
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ItemPatent
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ItemPatent collection, max N pages
+func (r *ProfilePatentsCollectionRequest) GetN(ctx context.Context, n int) ([]ItemPatent, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemPatent collection
+func (r *ProfilePatentsCollectionRequest) Get(ctx context.Context) ([]ItemPatent, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ItemPatent collection
+func (r *ProfilePatentsCollectionRequest) Add(ctx context.Context, reqObj *ItemPatent) (resObj *ItemPatent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Phones returns request builder for ItemPhone collection
 func (b *ProfileRequestBuilder) Phones() *ProfilePhonesCollectionRequestBuilder {
 	bb := &ProfilePhonesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1037,6 +1552,109 @@ func (r *ProfileProjectsCollectionRequest) Get(ctx context.Context) ([]ProjectPa
 
 // Add performs POST request for ProjectParticipation collection
 func (r *ProfileProjectsCollectionRequest) Add(ctx context.Context, reqObj *ProjectParticipation) (resObj *ProjectParticipation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Publications returns request builder for ItemPublication collection
+func (b *ProfileRequestBuilder) Publications() *ProfilePublicationsCollectionRequestBuilder {
+	bb := &ProfilePublicationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/publications"
+	return bb
+}
+
+// ProfilePublicationsCollectionRequestBuilder is request builder for ItemPublication collection
+type ProfilePublicationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ItemPublication collection
+func (b *ProfilePublicationsCollectionRequestBuilder) Request() *ProfilePublicationsCollectionRequest {
+	return &ProfilePublicationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ItemPublication item
+func (b *ProfilePublicationsCollectionRequestBuilder) ID(id string) *ItemPublicationRequestBuilder {
+	bb := &ItemPublicationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ProfilePublicationsCollectionRequest is request for ItemPublication collection
+type ProfilePublicationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ItemPublication collection
+func (r *ProfilePublicationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ItemPublication, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ItemPublication
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ItemPublication
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ItemPublication collection, max N pages
+func (r *ProfilePublicationsCollectionRequest) GetN(ctx context.Context, n int) ([]ItemPublication, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ItemPublication collection
+func (r *ProfilePublicationsCollectionRequest) Get(ctx context.Context) ([]ItemPublication, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ItemPublication collection
+func (r *ProfilePublicationsCollectionRequest) Add(ctx context.Context, reqObj *ItemPublication) (resObj *ItemPublication, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

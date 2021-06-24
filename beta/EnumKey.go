@@ -10,6 +10,8 @@ const (
 	KeySizeVSize1024 KeySize = "size1024"
 	// KeySizeVSize2048 undocumented
 	KeySizeVSize2048 KeySize = "size2048"
+	// KeySizeVSize4096 undocumented
+	KeySizeVSize4096 KeySize = "size4096"
 )
 
 var (
@@ -17,11 +19,14 @@ var (
 	KeySizePSize1024 = &_KeySizePSize1024
 	// KeySizePSize2048 is a pointer to KeySizeVSize2048
 	KeySizePSize2048 = &_KeySizePSize2048
+	// KeySizePSize4096 is a pointer to KeySizeVSize4096
+	KeySizePSize4096 = &_KeySizePSize4096
 )
 
 var (
 	_KeySizePSize1024 = KeySizeVSize1024
 	_KeySizePSize2048 = KeySizeVSize2048
+	_KeySizePSize4096 = KeySizeVSize4096
 )
 
 // KeyStorageProviderOption undocumented

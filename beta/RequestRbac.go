@@ -36,3 +36,36 @@ func (r *RbacApplicationRequest) Update(ctx context.Context, reqObj *RbacApplica
 func (r *RbacApplicationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// RbacApplicationMultipleRequestBuilder is request builder for RbacApplicationMultiple
+type RbacApplicationMultipleRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns RbacApplicationMultipleRequest
+func (b *RbacApplicationMultipleRequestBuilder) Request() *RbacApplicationMultipleRequest {
+	return &RbacApplicationMultipleRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// RbacApplicationMultipleRequest is request for RbacApplicationMultiple
+type RbacApplicationMultipleRequest struct{ BaseRequest }
+
+// Get performs GET request for RbacApplicationMultiple
+func (r *RbacApplicationMultipleRequest) Get(ctx context.Context) (resObj *RbacApplicationMultiple, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for RbacApplicationMultiple
+func (r *RbacApplicationMultipleRequest) Update(ctx context.Context, reqObj *RbacApplicationMultiple) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for RbacApplicationMultiple
+func (r *RbacApplicationMultipleRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}

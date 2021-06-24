@@ -22,6 +22,8 @@ type SignIn struct {
 	AuthenticationMethodsUsed []string `json:"authenticationMethodsUsed,omitempty"`
 	// AuthenticationProcessingDetails undocumented
 	AuthenticationProcessingDetails []KeyValue `json:"authenticationProcessingDetails,omitempty"`
+	// AuthenticationRequirement undocumented
+	AuthenticationRequirement *string `json:"authenticationRequirement,omitempty"`
 	// AuthenticationRequirementPolicies undocumented
 	AuthenticationRequirementPolicies []AuthenticationRequirementPolicy `json:"authenticationRequirementPolicies,omitempty"`
 	// ClientAppUsed undocumented
@@ -34,10 +36,16 @@ type SignIn struct {
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// DeviceDetail undocumented
 	DeviceDetail *DeviceDetail `json:"deviceDetail,omitempty"`
-	// IsInteractive undocumented
-	IsInteractive *bool `json:"isInteractive,omitempty"`
+	// FlaggedForReview undocumented
+	FlaggedForReview *bool `json:"flaggedForReview,omitempty"`
+	// HomeTenantID undocumented
+	HomeTenantID *string `json:"homeTenantId,omitempty"`
 	// IPAddress undocumented
 	IPAddress *string `json:"ipAddress,omitempty"`
+	// IPAddressFromResourceProvider undocumented
+	IPAddressFromResourceProvider *string `json:"ipAddressFromResourceProvider,omitempty"`
+	// IsInteractive undocumented
+	IsInteractive *bool `json:"isInteractive,omitempty"`
 	// Location undocumented
 	Location *SignInLocation `json:"location,omitempty"`
 	// MFADetail undocumented
@@ -48,24 +56,34 @@ type SignIn struct {
 	OriginalRequestID *string `json:"originalRequestId,omitempty"`
 	// ProcessingTimeInMilliseconds undocumented
 	ProcessingTimeInMilliseconds *int `json:"processingTimeInMilliseconds,omitempty"`
+	// ResourceDisplayName undocumented
+	ResourceDisplayName *string `json:"resourceDisplayName,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
+	// ResourceTenantID undocumented
+	ResourceTenantID *string `json:"resourceTenantId,omitempty"`
 	// RiskDetail undocumented
 	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
 	// RiskEventTypes undocumented
 	RiskEventTypes []RiskEventType `json:"riskEventTypes,omitempty"`
+	// RiskEventTypes_v2 undocumented
+	RiskEventTypes_v2 []string `json:"riskEventTypes_v2,omitempty"`
 	// RiskLevelAggregated undocumented
 	RiskLevelAggregated *RiskLevel `json:"riskLevelAggregated,omitempty"`
 	// RiskLevelDuringSignIn undocumented
 	RiskLevelDuringSignIn *RiskLevel `json:"riskLevelDuringSignIn,omitempty"`
 	// RiskState undocumented
 	RiskState *RiskState `json:"riskState,omitempty"`
-	// ResourceDisplayName undocumented
-	ResourceDisplayName *string `json:"resourceDisplayName,omitempty"`
-	// ResourceID undocumented
-	ResourceID *string `json:"resourceId,omitempty"`
 	// ServicePrincipalID undocumented
 	ServicePrincipalID *string `json:"servicePrincipalId,omitempty"`
 	// ServicePrincipalName undocumented
 	ServicePrincipalName *string `json:"servicePrincipalName,omitempty"`
+	// SignInEventTypes undocumented
+	SignInEventTypes []string `json:"signInEventTypes,omitempty"`
+	// SignInIdentifier undocumented
+	SignInIdentifier *string `json:"signInIdentifier,omitempty"`
+	// SignInIdentifierType undocumented
+	SignInIdentifierType *SignInIdentifierType `json:"signInIdentifierType,omitempty"`
 	// Status undocumented
 	Status *SignInStatus `json:"status,omitempty"`
 	// TokenIssuerName undocumented
@@ -80,6 +98,8 @@ type SignIn struct {
 	UserID *string `json:"userId,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// UserType undocumented
+	UserType *SignInUserType `json:"userType,omitempty"`
 }
 
 // SignInActivity undocumented
@@ -96,10 +116,10 @@ type SignInActivity struct {
 type SignInFrequencySessionControl struct {
 	// ConditionalAccessSessionControl is the base model of SignInFrequencySessionControl
 	ConditionalAccessSessionControl
-	// Value undocumented
-	Value *int `json:"value,omitempty"`
 	// Type undocumented
 	Type *SigninFrequencyType `json:"type,omitempty"`
+	// Value undocumented
+	Value *int `json:"value,omitempty"`
 }
 
 // SignInLocation undocumented
@@ -108,22 +128,22 @@ type SignInLocation struct {
 	Object
 	// City undocumented
 	City *string `json:"city,omitempty"`
-	// State undocumented
-	State *string `json:"state,omitempty"`
 	// CountryOrRegion undocumented
 	CountryOrRegion *string `json:"countryOrRegion,omitempty"`
 	// GeoCoordinates undocumented
 	GeoCoordinates *GeoCoordinates `json:"geoCoordinates,omitempty"`
+	// State undocumented
+	State *string `json:"state,omitempty"`
 }
 
 // SignInStatus undocumented
 type SignInStatus struct {
 	// Object is the base model of SignInStatus
 	Object
+	// AdditionalDetails undocumented
+	AdditionalDetails *string `json:"additionalDetails,omitempty"`
 	// ErrorCode undocumented
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// FailureReason undocumented
 	FailureReason *string `json:"failureReason,omitempty"`
-	// AdditionalDetails undocumented
-	AdditionalDetails *string `json:"additionalDetails,omitempty"`
 }

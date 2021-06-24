@@ -23,3 +23,72 @@ var (
 	_SignInAssistantOptionsPNotConfigured = SignInAssistantOptionsVNotConfigured
 	_SignInAssistantOptionsPDisabled      = SignInAssistantOptionsVDisabled
 )
+
+// SignInIdentifierType undocumented
+type SignInIdentifierType string
+
+const (
+	// SignInIdentifierTypeVUserPrincipalName undocumented
+	SignInIdentifierTypeVUserPrincipalName SignInIdentifierType = "userPrincipalName"
+	// SignInIdentifierTypeVPhoneNumber undocumented
+	SignInIdentifierTypeVPhoneNumber SignInIdentifierType = "phoneNumber"
+	// SignInIdentifierTypeVProxyAddress undocumented
+	SignInIdentifierTypeVProxyAddress SignInIdentifierType = "proxyAddress"
+	// SignInIdentifierTypeVQrCode undocumented
+	SignInIdentifierTypeVQrCode SignInIdentifierType = "qrCode"
+	// SignInIdentifierTypeVOnPremisesUserPrincipalName undocumented
+	SignInIdentifierTypeVOnPremisesUserPrincipalName SignInIdentifierType = "onPremisesUserPrincipalName"
+	// SignInIdentifierTypeVUnknownFutureValue undocumented
+	SignInIdentifierTypeVUnknownFutureValue SignInIdentifierType = "unknownFutureValue"
+)
+
+var (
+	// SignInIdentifierTypePUserPrincipalName is a pointer to SignInIdentifierTypeVUserPrincipalName
+	SignInIdentifierTypePUserPrincipalName = &_SignInIdentifierTypePUserPrincipalName
+	// SignInIdentifierTypePPhoneNumber is a pointer to SignInIdentifierTypeVPhoneNumber
+	SignInIdentifierTypePPhoneNumber = &_SignInIdentifierTypePPhoneNumber
+	// SignInIdentifierTypePProxyAddress is a pointer to SignInIdentifierTypeVProxyAddress
+	SignInIdentifierTypePProxyAddress = &_SignInIdentifierTypePProxyAddress
+	// SignInIdentifierTypePQrCode is a pointer to SignInIdentifierTypeVQrCode
+	SignInIdentifierTypePQrCode = &_SignInIdentifierTypePQrCode
+	// SignInIdentifierTypePOnPremisesUserPrincipalName is a pointer to SignInIdentifierTypeVOnPremisesUserPrincipalName
+	SignInIdentifierTypePOnPremisesUserPrincipalName = &_SignInIdentifierTypePOnPremisesUserPrincipalName
+	// SignInIdentifierTypePUnknownFutureValue is a pointer to SignInIdentifierTypeVUnknownFutureValue
+	SignInIdentifierTypePUnknownFutureValue = &_SignInIdentifierTypePUnknownFutureValue
+)
+
+var (
+	_SignInIdentifierTypePUserPrincipalName           = SignInIdentifierTypeVUserPrincipalName
+	_SignInIdentifierTypePPhoneNumber                 = SignInIdentifierTypeVPhoneNumber
+	_SignInIdentifierTypePProxyAddress                = SignInIdentifierTypeVProxyAddress
+	_SignInIdentifierTypePQrCode                      = SignInIdentifierTypeVQrCode
+	_SignInIdentifierTypePOnPremisesUserPrincipalName = SignInIdentifierTypeVOnPremisesUserPrincipalName
+	_SignInIdentifierTypePUnknownFutureValue          = SignInIdentifierTypeVUnknownFutureValue
+)
+
+// SignInUserType undocumented
+type SignInUserType string
+
+const (
+	// SignInUserTypeVMember undocumented
+	SignInUserTypeVMember SignInUserType = "member"
+	// SignInUserTypeVGuest undocumented
+	SignInUserTypeVGuest SignInUserType = "guest"
+	// SignInUserTypeVUnknownFutureValue undocumented
+	SignInUserTypeVUnknownFutureValue SignInUserType = "unknownFutureValue"
+)
+
+var (
+	// SignInUserTypePMember is a pointer to SignInUserTypeVMember
+	SignInUserTypePMember = &_SignInUserTypePMember
+	// SignInUserTypePGuest is a pointer to SignInUserTypeVGuest
+	SignInUserTypePGuest = &_SignInUserTypePGuest
+	// SignInUserTypePUnknownFutureValue is a pointer to SignInUserTypeVUnknownFutureValue
+	SignInUserTypePUnknownFutureValue = &_SignInUserTypePUnknownFutureValue
+)
+
+var (
+	_SignInUserTypePMember             = SignInUserTypeVMember
+	_SignInUserTypePGuest              = SignInUserTypeVGuest
+	_SignInUserTypePUnknownFutureValue = SignInUserTypeVUnknownFutureValue
+)

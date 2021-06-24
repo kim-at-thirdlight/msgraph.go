@@ -4,50 +4,50 @@ package msgraph
 
 // TrustFramework undocumented
 type TrustFramework struct {
-	// Entity is the base model of TrustFramework
-	Entity
-	// Policies undocumented
-	Policies []TrustFrameworkPolicy `json:"policies,omitempty"`
+	// Object is the base model of TrustFramework
+	Object
 	// KeySets undocumented
 	KeySets []TrustFrameworkKeySet `json:"keySets,omitempty"`
+	// Policies undocumented
+	Policies []TrustFrameworkPolicy `json:"policies,omitempty"`
 }
 
 // TrustFrameworkKey undocumented
 type TrustFrameworkKey struct {
 	// Object is the base model of TrustFrameworkKey
 	Object
-	// K undocumented
-	K *string `json:"k,omitempty"`
-	// X5c undocumented
-	X5c []string `json:"x5c,omitempty"`
-	// X5t undocumented
-	X5t *string `json:"x5t,omitempty"`
-	// Kty undocumented
-	Kty *string `json:"kty,omitempty"`
-	// Use undocumented
-	Use *string `json:"use,omitempty"`
-	// Exp undocumented
-	Exp *int `json:"exp,omitempty"`
-	// Nbf undocumented
-	Nbf *int `json:"nbf,omitempty"`
-	// Kid undocumented
-	Kid *string `json:"kid,omitempty"`
-	// E undocumented
-	E *string `json:"e,omitempty"`
-	// N undocumented
-	N *string `json:"n,omitempty"`
 	// D undocumented
 	D *string `json:"d,omitempty"`
-	// P undocumented
-	P *string `json:"p,omitempty"`
-	// Q undocumented
-	Q *string `json:"q,omitempty"`
 	// Dp undocumented
 	Dp *string `json:"dp,omitempty"`
 	// Dq undocumented
 	Dq *string `json:"dq,omitempty"`
+	// E undocumented
+	E *string `json:"e,omitempty"`
+	// Exp undocumented
+	Exp *int `json:"exp,omitempty"`
+	// K undocumented
+	K *string `json:"k,omitempty"`
+	// Kid undocumented
+	Kid *string `json:"kid,omitempty"`
+	// Kty undocumented
+	Kty *string `json:"kty,omitempty"`
+	// N undocumented
+	N *string `json:"n,omitempty"`
+	// Nbf undocumented
+	Nbf *int `json:"nbf,omitempty"`
+	// P undocumented
+	P *string `json:"p,omitempty"`
+	// Q undocumented
+	Q *string `json:"q,omitempty"`
 	// Qi undocumented
 	Qi *string `json:"qi,omitempty"`
+	// Use undocumented
+	Use *string `json:"use,omitempty"`
+	// X5c undocumented
+	X5c []string `json:"x5c,omitempty"`
+	// X5t undocumented
+	X5t *string `json:"x5t,omitempty"`
 }
 
 // TrustFrameworkKeySet undocumented

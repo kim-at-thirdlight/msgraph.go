@@ -6,15 +6,15 @@ package msgraph
 type InsightIdentity struct {
 	// Object is the base model of InsightIdentity
 	Object
+	// Address undocumented
+	Address *string `json:"address,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
-	// Address undocumented
-	Address *string `json:"address,omitempty"`
 }
 
-// InsightValueDouble undocumented
+// InsightValueDouble The value in an user experience analytics insight.
 type InsightValueDouble struct {
 	// UserExperienceAnalyticsInsightValue is the base model of InsightValueDouble
 	UserExperienceAnalyticsInsightValue
@@ -22,7 +22,7 @@ type InsightValueDouble struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-// InsightValueInt undocumented
+// InsightValueInt The value in an user experience analytics insight.
 type InsightValueInt struct {
 	// UserExperienceAnalyticsInsightValue is the base model of InsightValueInt
 	UserExperienceAnalyticsInsightValue

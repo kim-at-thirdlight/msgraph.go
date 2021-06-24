@@ -10,7 +10,7 @@ type IPv6CidrRange struct {
 	CIDRAddress *string `json:"cidrAddress,omitempty"`
 }
 
-// IPv6Range undocumented
+// IPv6Range IPv6 Range definition.
 type IPv6Range struct {
 	// IPRange is the base model of IPv6Range
 	IPRange

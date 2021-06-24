@@ -11,20 +11,8 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// EventDismissReminderRequestParameter undocumented
-type EventDismissReminderRequestParameter struct {
-}
-
-// EventSnoozeReminderRequestParameter undocumented
-type EventSnoozeReminderRequestParameter struct {
-	// NewReminderTime undocumented
-	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
-}
-
-// EventForwardRequestParameter undocumented
-type EventForwardRequestParameter struct {
-	// ToRecipients undocumented
-	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
+// EventCancelRequestParameter undocumented
+type EventCancelRequestParameter struct {
 	// Comment undocumented
 	Comment *string `json:"Comment,omitempty"`
 }
@@ -47,6 +35,24 @@ type EventDeclineRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
+// EventDismissReminderRequestParameter undocumented
+type EventDismissReminderRequestParameter struct {
+}
+
+// EventForwardRequestParameter undocumented
+type EventForwardRequestParameter struct {
+	// ToRecipients undocumented
+	ToRecipients []Recipient `json:"ToRecipients,omitempty"`
+	// Comment undocumented
+	Comment *string `json:"Comment,omitempty"`
+}
+
+// EventSnoozeReminderRequestParameter undocumented
+type EventSnoozeReminderRequestParameter struct {
+	// NewReminderTime undocumented
+	NewReminderTime *DateTimeTimeZone `json:"NewReminderTime,omitempty"`
+}
+
 // EventTentativelyAcceptRequestParameter undocumented
 type EventTentativelyAcceptRequestParameter struct {
 	// ProposedNewTime undocumented
@@ -57,22 +63,16 @@ type EventTentativelyAcceptRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventCancelRequestParameter undocumented
-type EventCancelRequestParameter struct {
-	// Comment undocumented
-	Comment *string `json:"Comment,omitempty"`
-}
-
-// EventMessageRequestObjectAcceptRequestParameter undocumented
-type EventMessageRequestObjectAcceptRequestParameter struct {
+// EventMessageRequestAcceptRequestParameter undocumented
+type EventMessageRequestAcceptRequestParameter struct {
 	// SendResponse undocumented
 	SendResponse *bool `json:"SendResponse,omitempty"`
 	// Comment undocumented
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventMessageRequestObjectDeclineRequestParameter undocumented
-type EventMessageRequestObjectDeclineRequestParameter struct {
+// EventMessageRequestDeclineRequestParameter undocumented
+type EventMessageRequestDeclineRequestParameter struct {
 	// ProposedNewTime undocumented
 	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented
@@ -81,8 +81,8 @@ type EventMessageRequestObjectDeclineRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventMessageRequestObjectTentativelyAcceptRequestParameter undocumented
-type EventMessageRequestObjectTentativelyAcceptRequestParameter struct {
+// EventMessageRequestTentativelyAcceptRequestParameter undocumented
+type EventMessageRequestTentativelyAcceptRequestParameter struct {
 	// ProposedNewTime undocumented
 	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented
@@ -199,6 +199,109 @@ func (b *EventRequestBuilder) Calendar() *CalendarRequestBuilder {
 	bb := &CalendarRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/calendar"
 	return bb
+}
+
+// ExceptionOccurrences returns request builder for Event collection
+func (b *EventRequestBuilder) ExceptionOccurrences() *EventExceptionOccurrencesCollectionRequestBuilder {
+	bb := &EventExceptionOccurrencesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/exceptionOccurrences"
+	return bb
+}
+
+// EventExceptionOccurrencesCollectionRequestBuilder is request builder for Event collection
+type EventExceptionOccurrencesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Event collection
+func (b *EventExceptionOccurrencesCollectionRequestBuilder) Request() *EventExceptionOccurrencesCollectionRequest {
+	return &EventExceptionOccurrencesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Event item
+func (b *EventExceptionOccurrencesCollectionRequestBuilder) ID(id string) *EventRequestBuilder {
+	bb := &EventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// EventExceptionOccurrencesCollectionRequest is request for Event collection
+type EventExceptionOccurrencesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Event collection
+func (r *EventExceptionOccurrencesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Event
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Event
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for Event collection, max N pages
+func (r *EventExceptionOccurrencesCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Event collection
+func (r *EventExceptionOccurrencesCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for Event collection
+func (r *EventExceptionOccurrencesCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // Extensions returns request builder for Extension collection

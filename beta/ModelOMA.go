@@ -4,19 +4,23 @@ package msgraph
 
 import "time"
 
-// OMASetting undocumented
+// OMASetting OMA Settings definition.
 type OMASetting struct {
 	// Object is the base model of OMASetting
 	Object
-	// DisplayName Display Name.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Description.
 	Description *string `json:"description,omitempty"`
+	// DisplayName Display Name.
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsEncrypted Indicates whether the value field is encrypted. This property is read-only.
+	IsEncrypted *bool `json:"isEncrypted,omitempty"`
 	// OMAURI OMA.
 	OMAURI *string `json:"omaUri,omitempty"`
+	// SecretReferenceValueID ReferenceId for looking up secret for decryption. This property is read-only.
+	SecretReferenceValueID *string `json:"secretReferenceValueId,omitempty"`
 }
 
-// OMASettingBase64 undocumented
+// OMASettingBase64 OMA Settings Base64 definition.
 type OMASettingBase64 struct {
 	// OMASetting is the base model of OMASettingBase64
 	OMASetting
@@ -26,7 +30,7 @@ type OMASettingBase64 struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// OMASettingBoolean undocumented
+// OMASettingBoolean OMA Settings Boolean definition.
 type OMASettingBoolean struct {
 	// OMASetting is the base model of OMASettingBoolean
 	OMASetting
@@ -34,7 +38,7 @@ type OMASettingBoolean struct {
 	Value *bool `json:"value,omitempty"`
 }
 
-// OMASettingDateTime undocumented
+// OMASettingDateTime OMA Settings DateTime definition.
 type OMASettingDateTime struct {
 	// OMASetting is the base model of OMASettingDateTime
 	OMASetting
@@ -42,7 +46,7 @@ type OMASettingDateTime struct {
 	Value *time.Time `json:"value,omitempty"`
 }
 
-// OMASettingFloatingPoint undocumented
+// OMASettingFloatingPoint OMA Settings Floating Point definition.
 type OMASettingFloatingPoint struct {
 	// OMASetting is the base model of OMASettingFloatingPoint
 	OMASetting
@@ -50,17 +54,17 @@ type OMASettingFloatingPoint struct {
 	Value *float64 `json:"value,omitempty"`
 }
 
-// OMASettingInteger undocumented
+// OMASettingInteger OMA Settings Integer definition.
 type OMASettingInteger struct {
 	// OMASetting is the base model of OMASettingInteger
 	OMASetting
-	// Value Value.
-	Value *int `json:"value,omitempty"`
 	// IsReadOnly By setting to true, the CSP (configuration service provider) specified in the OMA-URI will perform a get, instead of set
 	IsReadOnly *bool `json:"isReadOnly,omitempty"`
+	// Value Value.
+	Value *int `json:"value,omitempty"`
 }
 
-// OMASettingString undocumented
+// OMASettingString OMA Settings String definition.
 type OMASettingString struct {
 	// OMASetting is the base model of OMASettingString
 	OMASetting
@@ -68,7 +72,7 @@ type OMASettingString struct {
 	Value *string `json:"value,omitempty"`
 }
 
-// OMASettingStringXML undocumented
+// OMASettingStringXML OMA Settings StringXML definition.
 type OMASettingStringXML struct {
 	// OMASetting is the base model of OMASettingStringXML
 	OMASetting

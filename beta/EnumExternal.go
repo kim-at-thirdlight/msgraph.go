@@ -28,3 +28,106 @@ var (
 	_ExternalAudienceScopePContactsOnly = ExternalAudienceScopeVContactsOnly
 	_ExternalAudienceScopePAll          = ExternalAudienceScopeVAll
 )
+
+// ExternalAuthenticationType undocumented
+type ExternalAuthenticationType string
+
+const (
+	// ExternalAuthenticationTypeVPassthru undocumented
+	ExternalAuthenticationTypeVPassthru ExternalAuthenticationType = "passthru"
+	// ExternalAuthenticationTypeVAadPreAuthentication undocumented
+	ExternalAuthenticationTypeVAadPreAuthentication ExternalAuthenticationType = "aadPreAuthentication"
+)
+
+var (
+	// ExternalAuthenticationTypePPassthru is a pointer to ExternalAuthenticationTypeVPassthru
+	ExternalAuthenticationTypePPassthru = &_ExternalAuthenticationTypePPassthru
+	// ExternalAuthenticationTypePAadPreAuthentication is a pointer to ExternalAuthenticationTypeVAadPreAuthentication
+	ExternalAuthenticationTypePAadPreAuthentication = &_ExternalAuthenticationTypePAadPreAuthentication
+)
+
+var (
+	_ExternalAuthenticationTypePPassthru             = ExternalAuthenticationTypeVPassthru
+	_ExternalAuthenticationTypePAadPreAuthentication = ExternalAuthenticationTypeVAadPreAuthentication
+)
+
+// ExternalEmailOtpState undocumented
+type ExternalEmailOtpState string
+
+const (
+	// ExternalEmailOtpStateVDefault undocumented
+	ExternalEmailOtpStateVDefault ExternalEmailOtpState = "default"
+	// ExternalEmailOtpStateVEnabled undocumented
+	ExternalEmailOtpStateVEnabled ExternalEmailOtpState = "enabled"
+	// ExternalEmailOtpStateVDisabled undocumented
+	ExternalEmailOtpStateVDisabled ExternalEmailOtpState = "disabled"
+	// ExternalEmailOtpStateVUnknownFutureValue undocumented
+	ExternalEmailOtpStateVUnknownFutureValue ExternalEmailOtpState = "unknownFutureValue"
+)
+
+var (
+	// ExternalEmailOtpStatePDefault is a pointer to ExternalEmailOtpStateVDefault
+	ExternalEmailOtpStatePDefault = &_ExternalEmailOtpStatePDefault
+	// ExternalEmailOtpStatePEnabled is a pointer to ExternalEmailOtpStateVEnabled
+	ExternalEmailOtpStatePEnabled = &_ExternalEmailOtpStatePEnabled
+	// ExternalEmailOtpStatePDisabled is a pointer to ExternalEmailOtpStateVDisabled
+	ExternalEmailOtpStatePDisabled = &_ExternalEmailOtpStatePDisabled
+	// ExternalEmailOtpStatePUnknownFutureValue is a pointer to ExternalEmailOtpStateVUnknownFutureValue
+	ExternalEmailOtpStatePUnknownFutureValue = &_ExternalEmailOtpStatePUnknownFutureValue
+)
+
+var (
+	_ExternalEmailOtpStatePDefault            = ExternalEmailOtpStateVDefault
+	_ExternalEmailOtpStatePEnabled            = ExternalEmailOtpStateVEnabled
+	_ExternalEmailOtpStatePDisabled           = ExternalEmailOtpStateVDisabled
+	_ExternalEmailOtpStatePUnknownFutureValue = ExternalEmailOtpStateVUnknownFutureValue
+)
+
+// ExternalGroupMemberType undocumented
+type ExternalGroupMemberType string
+
+const (
+	// ExternalGroupMemberTypeVUser undocumented
+	ExternalGroupMemberTypeVUser ExternalGroupMemberType = "user"
+	// ExternalGroupMemberTypeVGroup undocumented
+	ExternalGroupMemberTypeVGroup ExternalGroupMemberType = "group"
+)
+
+var (
+	// ExternalGroupMemberTypePUser is a pointer to ExternalGroupMemberTypeVUser
+	ExternalGroupMemberTypePUser = &_ExternalGroupMemberTypePUser
+	// ExternalGroupMemberTypePGroup is a pointer to ExternalGroupMemberTypeVGroup
+	ExternalGroupMemberTypePGroup = &_ExternalGroupMemberTypePGroup
+)
+
+var (
+	_ExternalGroupMemberTypePUser  = ExternalGroupMemberTypeVUser
+	_ExternalGroupMemberTypePGroup = ExternalGroupMemberTypeVGroup
+)
+
+// ExternalItemContentType undocumented
+type ExternalItemContentType string
+
+const (
+	// ExternalItemContentTypeVText undocumented
+	ExternalItemContentTypeVText ExternalItemContentType = "text"
+	// ExternalItemContentTypeVHTML undocumented
+	ExternalItemContentTypeVHTML ExternalItemContentType = "html"
+	// ExternalItemContentTypeVUnknownFutureValue undocumented
+	ExternalItemContentTypeVUnknownFutureValue ExternalItemContentType = "unknownFutureValue"
+)
+
+var (
+	// ExternalItemContentTypePText is a pointer to ExternalItemContentTypeVText
+	ExternalItemContentTypePText = &_ExternalItemContentTypePText
+	// ExternalItemContentTypePHTML is a pointer to ExternalItemContentTypeVHTML
+	ExternalItemContentTypePHTML = &_ExternalItemContentTypePHTML
+	// ExternalItemContentTypePUnknownFutureValue is a pointer to ExternalItemContentTypeVUnknownFutureValue
+	ExternalItemContentTypePUnknownFutureValue = &_ExternalItemContentTypePUnknownFutureValue
+)
+
+var (
+	_ExternalItemContentTypePText               = ExternalItemContentTypeVText
+	_ExternalItemContentTypePHTML               = ExternalItemContentTypeVHTML
+	_ExternalItemContentTypePUnknownFutureValue = ExternalItemContentTypeVUnknownFutureValue
+)

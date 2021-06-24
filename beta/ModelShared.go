@@ -22,14 +22,14 @@ type Shared struct {
 type SharedAppleDeviceUser struct {
 	// Object is the base model of SharedAppleDeviceUser
 	Object
-	// UserPrincipalName User name
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// DataToSync Data to sync
-	DataToSync *bool `json:"dataToSync,omitempty"`
 	// DataQuota Data quota
 	DataQuota *int `json:"dataQuota,omitempty"`
+	// DataToSync Data to sync
+	DataToSync *bool `json:"dataToSync,omitempty"`
 	// DataUsed Data quota
 	DataUsed *int `json:"dataUsed,omitempty"`
+	// UserPrincipalName User name
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // SharedDriveItem undocumented
@@ -54,25 +54,45 @@ type SharedDriveItem struct {
 	Site *Site `json:"site,omitempty"`
 }
 
+// SharedEmailDomain undocumented
+type SharedEmailDomain struct {
+	// Entity is the base model of SharedEmailDomain
+	Entity
+	// ProvisioningStatus undocumented
+	ProvisioningStatus *string `json:"provisioningStatus,omitempty"`
+}
+
+// SharedEmailDomainInvitation undocumented
+type SharedEmailDomainInvitation struct {
+	// Entity is the base model of SharedEmailDomainInvitation
+	Entity
+	// ExpiryTime undocumented
+	ExpiryTime *time.Time `json:"expiryTime,omitempty"`
+	// InvitationDomain undocumented
+	InvitationDomain *string `json:"invitationDomain,omitempty"`
+	// InvitationStatus undocumented
+	InvitationStatus *string `json:"invitationStatus,omitempty"`
+}
+
 // SharedInsight undocumented
 type SharedInsight struct {
 	// Entity is the base model of SharedInsight
 	Entity
 	// LastShared undocumented
 	LastShared *SharingDetail `json:"lastShared,omitempty"`
-	// SharingHistory undocumented
-	SharingHistory []SharingDetail `json:"sharingHistory,omitempty"`
-	// ResourceVisualization undocumented
-	ResourceVisualization *ResourceVisualization `json:"resourceVisualization,omitempty"`
 	// ResourceReference undocumented
 	ResourceReference *ResourceReference `json:"resourceReference,omitempty"`
+	// ResourceVisualization undocumented
+	ResourceVisualization *ResourceVisualization `json:"resourceVisualization,omitempty"`
+	// SharingHistory undocumented
+	SharingHistory []SharingDetail `json:"sharingHistory,omitempty"`
 	// LastSharedMethod undocumented
 	LastSharedMethod *Entity `json:"lastSharedMethod,omitempty"`
 	// Resource undocumented
 	Resource *Entity `json:"resource,omitempty"`
 }
 
-// SharedPCAccountManagerPolicy undocumented
+// SharedPCAccountManagerPolicy SharedPC Account Manager Policy. Only applies when the account manager is enabled.
 type SharedPCAccountManagerPolicy struct {
 	// Object is the base model of SharedPCAccountManagerPolicy
 	Object
@@ -94,36 +114,36 @@ type SharedPCConfiguration struct {
 	AccountManagerPolicy *SharedPCAccountManagerPolicy `json:"accountManagerPolicy,omitempty"`
 	// AllowedAccounts Indicates which type of accounts are allowed to use on a shared PC.
 	AllowedAccounts *SharedPCAllowedAccountType `json:"allowedAccounts,omitempty"`
-	// LocalStorage Specifies whether local storage is allowed on a shared PC.
-	LocalStorage *Enablement `json:"localStorage,omitempty"`
 	// AllowLocalStorage Specifies whether local storage is allowed on a shared PC.
 	AllowLocalStorage *bool `json:"allowLocalStorage,omitempty"`
-	// SetAccountManager Disables the account manager for shared PC mode.
-	SetAccountManager *Enablement `json:"setAccountManager,omitempty"`
 	// DisableAccountManager Disables the account manager for shared PC mode.
 	DisableAccountManager *bool `json:"disableAccountManager,omitempty"`
-	// SetEduPolicies Specifies whether the default shared PC education environment policies should be enabled/disabled/not configured. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true.
-	SetEduPolicies *Enablement `json:"setEduPolicies,omitempty"`
 	// DisableEduPolicies Specifies whether the default shared PC education environment policies should be disabled. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true.
 	DisableEduPolicies *bool `json:"disableEduPolicies,omitempty"`
-	// SetPowerPolicies Specifies whether the default shared PC power policies should be enabled/disabled.
-	SetPowerPolicies *Enablement `json:"setPowerPolicies,omitempty"`
 	// DisablePowerPolicies Specifies whether the default shared PC power policies should be disabled.
 	DisablePowerPolicies *bool `json:"disablePowerPolicies,omitempty"`
-	// SignInOnResume Specifies the requirement to sign in whenever the device wakes up from sleep mode.
-	SignInOnResume *Enablement `json:"signInOnResume,omitempty"`
 	// DisableSignInOnResume Disables the requirement to sign in whenever the device wakes up from sleep mode.
 	DisableSignInOnResume *bool `json:"disableSignInOnResume,omitempty"`
 	// Enabled Enables shared PC mode and applies the shared pc policies.
 	Enabled *bool `json:"enabled,omitempty"`
+	// FastFirstSignIn Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts
+	FastFirstSignIn *Enablement `json:"fastFirstSignIn,omitempty"`
 	// IdleTimeBeforeSleepInSeconds Specifies the time in seconds that a device must sit idle before the PC goes to sleep. Setting this value to 0 prevents the sleep timeout from occurring.
 	IdleTimeBeforeSleepInSeconds *int `json:"idleTimeBeforeSleepInSeconds,omitempty"`
 	// KioskAppDisplayName Specifies the display text for the account shown on the sign-in screen which launches the app specified by SetKioskAppUserModelId. Only applies when KioskAppUserModelId is set.
 	KioskAppDisplayName *string `json:"kioskAppDisplayName,omitempty"`
 	// KioskAppUserModelID Specifies the application user model ID of the app to use with assigned access.
 	KioskAppUserModelID *string `json:"kioskAppUserModelId,omitempty"`
+	// LocalStorage Specifies whether local storage is allowed on a shared PC.
+	LocalStorage *Enablement `json:"localStorage,omitempty"`
 	// MaintenanceStartTime Specifies the daily start time of maintenance hour.
 	MaintenanceStartTime *TimeOfDay `json:"maintenanceStartTime,omitempty"`
-	// FastFirstSignIn Specifies whether to auto connect new non-admin Azure AD accounts to pre-configured candidate local accounts
-	FastFirstSignIn *Enablement `json:"fastFirstSignIn,omitempty"`
+	// SetAccountManager Disables the account manager for shared PC mode.
+	SetAccountManager *Enablement `json:"setAccountManager,omitempty"`
+	// SetEduPolicies Specifies whether the default shared PC education environment policies should be enabled/disabled/not configured. For Windows 10 RS2 and later, this policy will be applied without setting Enabled to true.
+	SetEduPolicies *Enablement `json:"setEduPolicies,omitempty"`
+	// SetPowerPolicies Specifies whether the default shared PC power policies should be enabled/disabled.
+	SetPowerPolicies *Enablement `json:"setPowerPolicies,omitempty"`
+	// SignInOnResume Specifies the requirement to sign in whenever the device wakes up from sleep mode.
+	SignInOnResume *Enablement `json:"signInOnResume,omitempty"`
 }

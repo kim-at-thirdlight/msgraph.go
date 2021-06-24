@@ -2,7 +2,7 @@
 
 package msgraph
 
-// VariableManagementConditionExpression undocumented
+// VariableManagementConditionExpression Evaluates the management condition state as a Boolean expression.
 type VariableManagementConditionExpression struct {
 	// ManagementConditionExpressionModel is the base model of VariableManagementConditionExpression
 	ManagementConditionExpressionModel

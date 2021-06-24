@@ -63,30 +63,3 @@ func (r *ParticipantCollectionInviteRequest) Post(ctx context.Context) (resObj *
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }
-
-//
-type ParticipantMuteRequestBuilder struct{ BaseRequestBuilder }
-
-// Mute action undocumented
-func (b *ParticipantRequestBuilder) Mute(reqObj *ParticipantMuteRequestParameter) *ParticipantMuteRequestBuilder {
-	bb := &ParticipantMuteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/mute"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ParticipantMuteRequest struct{ BaseRequest }
-
-//
-func (b *ParticipantMuteRequestBuilder) Request() *ParticipantMuteRequest {
-	return &ParticipantMuteRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ParticipantMuteRequest) Post(ctx context.Context) (resObj *MuteParticipantOperation, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}

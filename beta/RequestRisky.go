@@ -69,3 +69,55 @@ func (r *RiskyUserHistoryItemRequest) Update(ctx context.Context, reqObj *RiskyU
 func (r *RiskyUserHistoryItemRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+//
+type RiskyUserCollectionConfirmCompromisedRequestBuilder struct{ BaseRequestBuilder }
+
+// ConfirmCompromised action undocumented
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) ConfirmCompromised(reqObj *RiskyUserCollectionConfirmCompromisedRequestParameter) *RiskyUserCollectionConfirmCompromisedRequestBuilder {
+	bb := &RiskyUserCollectionConfirmCompromisedRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/confirmCompromised"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RiskyUserCollectionConfirmCompromisedRequest struct{ BaseRequest }
+
+//
+func (b *RiskyUserCollectionConfirmCompromisedRequestBuilder) Request() *RiskyUserCollectionConfirmCompromisedRequest {
+	return &RiskyUserCollectionConfirmCompromisedRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *RiskyUserCollectionConfirmCompromisedRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type RiskyUserCollectionDismissRequestBuilder struct{ BaseRequestBuilder }
+
+// Dismiss action undocumented
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) Dismiss(reqObj *RiskyUserCollectionDismissRequestParameter) *RiskyUserCollectionDismissRequestBuilder {
+	bb := &RiskyUserCollectionDismissRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/dismiss"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RiskyUserCollectionDismissRequest struct{ BaseRequest }
+
+//
+func (b *RiskyUserCollectionDismissRequestBuilder) Request() *RiskyUserCollectionDismissRequest {
+	return &RiskyUserCollectionDismissRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *RiskyUserCollectionDismissRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}

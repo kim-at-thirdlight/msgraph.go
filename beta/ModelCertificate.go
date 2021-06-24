@@ -8,14 +8,14 @@ import "time"
 type CertificateAuthority struct {
 	// Object is the base model of CertificateAuthority
 	Object
-	// IsRootAuthority undocumented
-	IsRootAuthority *bool `json:"isRootAuthority,omitempty"`
+	// Certificate undocumented
+	Certificate *Binary `json:"certificate,omitempty"`
 	// CertificateRevocationListURL undocumented
 	CertificateRevocationListURL *string `json:"certificateRevocationListUrl,omitempty"`
 	// DeltaCertificateRevocationListURL undocumented
 	DeltaCertificateRevocationListURL *string `json:"deltaCertificateRevocationListUrl,omitempty"`
-	// Certificate undocumented
-	Certificate *Binary `json:"certificate,omitempty"`
+	// IsRootAuthority undocumented
+	IsRootAuthority *bool `json:"isRootAuthority,omitempty"`
 	// Issuer undocumented
 	Issuer *string `json:"issuer,omitempty"`
 	// IssuerSki undocumented
@@ -30,20 +30,20 @@ type CertificateBasedAuthConfiguration struct {
 	CertificateAuthorities []CertificateAuthority `json:"certificateAuthorities,omitempty"`
 }
 
-// CertificateConnectorSetting undocumented
+// CertificateConnectorSetting Certificate connector settings.
 type CertificateConnectorSetting struct {
 	// Object is the base model of CertificateConnectorSetting
 	Object
-	// Status Certificate connector status
-	Status *int `json:"status,omitempty"`
 	// CertExpiryTime Certificate expire time
 	CertExpiryTime *time.Time `json:"certExpiryTime,omitempty"`
+	// ConnectorVersion Version of certificate connector
+	ConnectorVersion *string `json:"connectorVersion,omitempty"`
 	// EnrollmentError Certificate connector enrollment error
 	EnrollmentError *string `json:"enrollmentError,omitempty"`
 	// LastConnectorConnectionTime Last time certificate connector connected
 	LastConnectorConnectionTime *time.Time `json:"lastConnectorConnectionTime,omitempty"`
-	// ConnectorVersion Version of certificate connector
-	ConnectorVersion *string `json:"connectorVersion,omitempty"`
 	// LastUploadVersion Version of last uploaded certificate connector
 	LastUploadVersion *int `json:"lastUploadVersion,omitempty"`
+	// Status Certificate connector status
+	Status *int `json:"status,omitempty"`
 }

@@ -8,10 +8,10 @@ type EvaluateDynamicMembershipResult struct {
 	Object
 	// MembershipRule undocumented
 	MembershipRule *string `json:"membershipRule,omitempty"`
-	// MembershipRuleEvaluationResult undocumented
-	MembershipRuleEvaluationResult *bool `json:"membershipRuleEvaluationResult,omitempty"`
 	// MembershipRuleEvaluationDetails undocumented
 	MembershipRuleEvaluationDetails *ExpressionEvaluationDetails `json:"membershipRuleEvaluationDetails,omitempty"`
+	// MembershipRuleEvaluationResult undocumented
+	MembershipRuleEvaluationResult *bool `json:"membershipRuleEvaluationResult,omitempty"`
 }
 
 // EvaluateLabelJobResponse undocumented
@@ -26,12 +26,12 @@ type EvaluateLabelJobResponse struct {
 type EvaluateLabelJobResult struct {
 	// Object is the base model of EvaluateLabelJobResult
 	Object
-	// SensitivityLabel undocumented
-	SensitivityLabel *MatchingLabel `json:"sensitivityLabel,omitempty"`
-	// ResponsibleSensitiveTypes undocumented
-	ResponsibleSensitiveTypes []ResponsibleSensitiveType `json:"responsibleSensitiveTypes,omitempty"`
 	// ResponsiblePolicy undocumented
 	ResponsiblePolicy *ResponsiblePolicy `json:"responsiblePolicy,omitempty"`
+	// ResponsibleSensitiveTypes undocumented
+	ResponsibleSensitiveTypes []ResponsibleSensitiveType `json:"responsibleSensitiveTypes,omitempty"`
+	// SensitivityLabel undocumented
+	SensitivityLabel *MatchingLabel `json:"sensitivityLabel,omitempty"`
 }
 
 // EvaluateLabelJobResultGroup undocumented
@@ -44,32 +44,12 @@ type EvaluateLabelJobResultGroup struct {
 	Recommended *EvaluateLabelJobResult `json:"recommended,omitempty"`
 }
 
-// EvaluateLabelsAndPoliciesJobResponse undocumented
-type EvaluateLabelsAndPoliciesJobResponse struct {
-	// JobResponseBase is the base model of EvaluateLabelsAndPoliciesJobResponse
-	JobResponseBase
-	// Result undocumented
-	Result *EvaluateLabelsAndPoliciesResult `json:"result,omitempty"`
-}
-
-// EvaluateLabelsAndPoliciesResult undocumented
-type EvaluateLabelsAndPoliciesResult struct {
-	// Object is the base model of EvaluateLabelsAndPoliciesResult
-	Object
-	// SensitivityLabelsResult undocumented
-	SensitivityLabelsResult *EvaluateLabelJobResultGroup `json:"sensitivityLabelsResult,omitempty"`
-	// DataLossPreventionPoliciesResult undocumented
-	DataLossPreventionPoliciesResult *DlpPoliciesJobResult `json:"dataLossPreventionPoliciesResult,omitempty"`
-	// ClassificationResult undocumented
-	ClassificationResult *DetectedSensitiveContentWrapper `json:"classificationResult,omitempty"`
-}
-
 // EvaluateSensitivityLabelsRequestObject undocumented
 type EvaluateSensitivityLabelsRequestObject struct {
 	// Object is the base model of EvaluateSensitivityLabelsRequestObject
 	Object
-	// DiscoveredSensitiveTypes undocumented
-	DiscoveredSensitiveTypes []DiscoveredSensitiveType `json:"discoveredSensitiveTypes,omitempty"`
 	// CurrentLabel undocumented
 	CurrentLabel *CurrentLabel `json:"currentLabel,omitempty"`
+	// DiscoveredSensitiveTypes undocumented
+	DiscoveredSensitiveTypes []DiscoveredSensitiveType `json:"discoveredSensitiveTypes,omitempty"`
 }

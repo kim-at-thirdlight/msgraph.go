@@ -11,6 +11,12 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// MobileAppCollectionValidateXMLRequestParameter undocumented
+type MobileAppCollectionValidateXMLRequestParameter struct {
+	// OfficeConfigurationXML undocumented
+	OfficeConfigurationXML *Binary `json:"officeConfigurationXml,omitempty"`
+}
+
 // MobileAppCollectionHasPayloadLinksRequestParameter undocumented
 type MobileAppCollectionHasPayloadLinksRequestParameter struct {
 	// PayloadIDs undocumented
@@ -774,35 +780,35 @@ func (b *MobileAppInstallStatusRequestBuilder) App() *MobileAppRequestBuilder {
 	return bb
 }
 
-// AppLogCollectionRequests returns request builder for AppLogCollectionRequestObject collection
+// AppLogCollectionRequests returns request builder for AppLogCollectionRequest collection
 func (b *MobileAppTroubleshootingEventRequestBuilder) AppLogCollectionRequests() *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder {
 	bb := &MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/appLogCollectionRequests"
 	return bb
 }
 
-// MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder is request builder for AppLogCollectionRequestObject collection
+// MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder is request builder for AppLogCollectionRequest collection
 type MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AppLogCollectionRequestObject collection
+// Request returns request for AppLogCollectionRequest collection
 func (b *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder) Request() *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest {
 	return &MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AppLogCollectionRequestObject item
-func (b *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder) ID(id string) *AppLogCollectionRequestObjectRequestBuilder {
-	bb := &AppLogCollectionRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for AppLogCollectionRequest item
+func (b *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequestBuilder) ID(id string) *AppLogCollectionRequestRequestBuilder {
+	bb := &AppLogCollectionRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest is request for AppLogCollectionRequestObject collection
+// MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest is request for AppLogCollectionRequest collection
 type MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AppLogCollectionRequestObject, error) {
+// Paging perfoms paging operation for AppLogCollectionRequest collection
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AppLogCollectionRequest, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -814,7 +820,7 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 	if err != nil {
 		return nil, err
 	}
-	var values []AppLogCollectionRequestObject
+	var values []AppLogCollectionRequest
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -828,7 +834,7 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 		}
 		var (
 			paging Paging
-			value  []AppLogCollectionRequestObject
+			value  []AppLogCollectionRequest
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -857,8 +863,8 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 	}
 }
 
-// GetN performs GET request for AppLogCollectionRequestObject collection, max N pages
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AppLogCollectionRequestObject, error) {
+// GetN performs GET request for AppLogCollectionRequest collection, max N pages
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AppLogCollectionRequest, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -866,13 +872,13 @@ func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest)
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Get(ctx context.Context) ([]AppLogCollectionRequestObject, error) {
+// Get performs GET request for AppLogCollectionRequest collection
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Get(ctx context.Context) ([]AppLogCollectionRequest, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AppLogCollectionRequestObject collection
-func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(ctx context.Context, reqObj *AppLogCollectionRequestObject) (resObj *AppLogCollectionRequestObject, err error) {
+// Add performs POST request for AppLogCollectionRequest collection
+func (r *MobileAppTroubleshootingEventAppLogCollectionRequestsCollectionRequest) Add(ctx context.Context, reqObj *AppLogCollectionRequest) (resObj *AppLogCollectionRequest, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

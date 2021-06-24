@@ -8,14 +8,12 @@ import "time"
 type TeamsApp struct {
 	// Entity is the base model of TeamsApp
 	Entity
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// DistributionMethod undocumented
 	DistributionMethod *TeamsAppDistributionMethod `json:"distributionMethod,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// AppDefinitions undocumented
 	AppDefinitions []TeamsAppDefinition `json:"appDefinitions,omitempty"`
 }
@@ -24,12 +22,42 @@ type TeamsApp struct {
 type TeamsAppDefinition struct {
 	// Entity is the base model of TeamsAppDefinition
 	Entity
-	// TeamsAppID undocumented
-	TeamsAppID *string `json:"teamsAppId,omitempty"`
+	// AllowedInstallationScopes undocumented
+	AllowedInstallationScopes *TeamsAppInstallationScopes `json:"allowedInstallationScopes,omitempty"`
+	// AzureADAppID undocumented
+	AzureADAppID *string `json:"azureADAppId,omitempty"`
+	// CreatedBy undocumented
+	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// PublishingState undocumented
+	PublishingState *TeamsAppPublishingState `json:"publishingState,omitempty"`
+	// Shortdescription undocumented
+	Shortdescription *string `json:"shortdescription,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
 	// Version undocumented
 	Version *string `json:"version,omitempty"`
+	// Bot undocumented
+	Bot *TeamworkBot `json:"bot,omitempty"`
+	// ColorIcon undocumented
+	ColorIcon *TeamsAppIcon `json:"colorIcon,omitempty"`
+	// OutlineIcon undocumented
+	OutlineIcon *TeamsAppIcon `json:"outlineIcon,omitempty"`
+}
+
+// TeamsAppIcon undocumented
+type TeamsAppIcon struct {
+	// Entity is the base model of TeamsAppIcon
+	Entity
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+	// HostedContent undocumented
+	HostedContent *TeamworkHostedContent `json:"hostedContent,omitempty"`
 }
 
 // TeamsAppInstallation undocumented
@@ -42,134 +70,170 @@ type TeamsAppInstallation struct {
 	TeamsAppDefinition *TeamsAppDefinition `json:"teamsAppDefinition,omitempty"`
 }
 
+// TeamsAppInstalledEventMessageDetail undocumented
+type TeamsAppInstalledEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamsAppInstalledEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamsAppDisplayName undocumented
+	TeamsAppDisplayName *string `json:"teamsAppDisplayName,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
+}
+
+// TeamsAppRemovedEventMessageDetail undocumented
+type TeamsAppRemovedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamsAppRemovedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamsAppDisplayName undocumented
+	TeamsAppDisplayName *string `json:"teamsAppDisplayName,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
+}
+
+// TeamsAppUpgradedEventMessageDetail undocumented
+type TeamsAppUpgradedEventMessageDetail struct {
+	// EventMessageDetail is the base model of TeamsAppUpgradedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// TeamsAppDisplayName undocumented
+	TeamsAppDisplayName *string `json:"teamsAppDisplayName,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
+}
+
 // TeamsAsyncOperation undocumented
 type TeamsAsyncOperation struct {
 	// Entity is the base model of TeamsAsyncOperation
 	Entity
-	// OperationType undocumented
-	OperationType *TeamsAsyncOperationType `json:"operationType,omitempty"`
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// Status undocumented
-	Status *TeamsAsyncOperationStatus `json:"status,omitempty"`
-	// LastActionDateTime undocumented
-	LastActionDateTime *time.Time `json:"lastActionDateTime,omitempty"`
 	// AttemptsCount undocumented
 	AttemptsCount *int `json:"attemptsCount,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Error undocumented
+	Error *OperationError `json:"error,omitempty"`
+	// LastActionDateTime undocumented
+	LastActionDateTime *time.Time `json:"lastActionDateTime,omitempty"`
+	// OperationType undocumented
+	OperationType *TeamsAsyncOperationType `json:"operationType,omitempty"`
+	// Status undocumented
+	Status *TeamsAsyncOperationStatus `json:"status,omitempty"`
 	// TargetResourceID undocumented
 	TargetResourceID *string `json:"targetResourceId,omitempty"`
 	// TargetResourceLocation undocumented
 	TargetResourceLocation *string `json:"targetResourceLocation,omitempty"`
-	// Error undocumented
-	Error *OperationError `json:"error,omitempty"`
-}
-
-// TeamsCatalogApp undocumented
-type TeamsCatalogApp struct {
-	// Entity is the base model of TeamsCatalogApp
-	Entity
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// DistributionMethod undocumented
-	DistributionMethod *TeamsAppDistributionMethod `json:"distributionMethod,omitempty"`
 }
 
 // TeamsDeviceUsageDistributionUserCounts undocumented
 type TeamsDeviceUsageDistributionUserCounts struct {
 	// Entity is the base model of TeamsDeviceUsageDistributionUserCounts
 	Entity
+	// AndroidPhone undocumented
+	AndroidPhone *int `json:"androidPhone,omitempty"`
+	// ChromeOS undocumented
+	ChromeOS *int `json:"chromeOS,omitempty"`
+	// IOS undocumented
+	IOS *int `json:"ios,omitempty"`
+	// Linux undocumented
+	Linux *int `json:"linux,omitempty"`
+	// Mac undocumented
+	Mac *int `json:"mac,omitempty"`
+	// ReportPeriod undocumented
+	ReportPeriod *string `json:"reportPeriod,omitempty"`
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Web undocumented
 	Web *int `json:"web,omitempty"`
-	// WindowsPhone undocumented
-	WindowsPhone *int `json:"windowsPhone,omitempty"`
-	// AndroidPhone undocumented
-	AndroidPhone *int `json:"androidPhone,omitempty"`
-	// IOS undocumented
-	IOS *int `json:"ios,omitempty"`
-	// Mac undocumented
-	Mac *int `json:"mac,omitempty"`
 	// Windows undocumented
 	Windows *int `json:"windows,omitempty"`
-	// ReportPeriod undocumented
-	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// WindowsPhone undocumented
+	WindowsPhone *int `json:"windowsPhone,omitempty"`
 }
 
 // TeamsDeviceUsageUserCounts undocumented
 type TeamsDeviceUsageUserCounts struct {
 	// Entity is the base model of TeamsDeviceUsageUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// Web undocumented
-	Web *int `json:"web,omitempty"`
-	// WindowsPhone undocumented
-	WindowsPhone *int `json:"windowsPhone,omitempty"`
 	// AndroidPhone undocumented
 	AndroidPhone *int `json:"androidPhone,omitempty"`
+	// ChromeOS undocumented
+	ChromeOS *int `json:"chromeOS,omitempty"`
 	// IOS undocumented
 	IOS *int `json:"ios,omitempty"`
+	// Linux undocumented
+	Linux *int `json:"linux,omitempty"`
 	// Mac undocumented
 	Mac *int `json:"mac,omitempty"`
-	// Windows undocumented
-	Windows *int `json:"windows,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// Web undocumented
+	Web *int `json:"web,omitempty"`
+	// Windows undocumented
+	Windows *int `json:"windows,omitempty"`
+	// WindowsPhone undocumented
+	WindowsPhone *int `json:"windowsPhone,omitempty"`
 }
 
 // TeamsDeviceUsageUserDetail undocumented
 type TeamsDeviceUsageUserDetail struct {
 	// Entity is the base model of TeamsDeviceUsageUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// LastActivityDate undocumented
-	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
-	// IsDeleted undocumented
-	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// DeletedDate undocumented
 	DeletedDate *Date `json:"deletedDate,omitempty"`
-	// UsedWeb undocumented
-	UsedWeb *bool `json:"usedWeb,omitempty"`
-	// UsedWindowsPhone undocumented
-	UsedWindowsPhone *bool `json:"usedWindowsPhone,omitempty"`
-	// UsediOS undocumented
-	UsediOS *bool `json:"usediOS,omitempty"`
-	// UsedMac undocumented
-	UsedMac *bool `json:"usedMac,omitempty"`
-	// UsedAndroidPhone undocumented
-	UsedAndroidPhone *bool `json:"usedAndroidPhone,omitempty"`
-	// UsedWindows undocumented
-	UsedWindows *bool `json:"usedWindows,omitempty"`
+	// IsDeleted undocumented
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	// IsLicensed undocumented
+	IsLicensed *bool `json:"isLicensed,omitempty"`
+	// LastActivityDate undocumented
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// UsedAndroidPhone undocumented
+	UsedAndroidPhone *bool `json:"usedAndroidPhone,omitempty"`
+	// UsedChromeOS undocumented
+	UsedChromeOS *bool `json:"usedChromeOS,omitempty"`
+	// UsediOS undocumented
+	UsediOS *bool `json:"usediOS,omitempty"`
+	// UsedLinux undocumented
+	UsedLinux *bool `json:"usedLinux,omitempty"`
+	// UsedMac undocumented
+	UsedMac *bool `json:"usedMac,omitempty"`
+	// UsedWeb undocumented
+	UsedWeb *bool `json:"usedWeb,omitempty"`
+	// UsedWindows undocumented
+	UsedWindows *bool `json:"usedWindows,omitempty"`
+	// UsedWindowsPhone undocumented
+	UsedWindowsPhone *bool `json:"usedWindowsPhone,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // TeamsTab undocumented
 type TeamsTab struct {
 	// Entity is the base model of TeamsTab
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// TeamsAppID undocumented
-	TeamsAppID *string `json:"teamsAppId,omitempty"`
-	// SortOrderIndex undocumented
-	SortOrderIndex *string `json:"sortOrderIndex,omitempty"`
-	// MessageID undocumented
-	MessageID *string `json:"messageId,omitempty"`
-	// WebURL undocumented
-	WebURL *string `json:"webUrl,omitempty"`
 	// Configuration undocumented
 	Configuration *TeamsTabConfiguration `json:"configuration,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MessageID undocumented
+	MessageID *string `json:"messageId,omitempty"`
+	// SortOrderIndex undocumented
+	SortOrderIndex *string `json:"sortOrderIndex,omitempty"`
+	// TeamsAppID undocumented
+	TeamsAppID *string `json:"teamsAppId,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 	// TeamsApp undocumented
 	TeamsApp *TeamsApp `json:"teamsApp,omitempty"`
 }
@@ -178,10 +242,10 @@ type TeamsTab struct {
 type TeamsTabConfiguration struct {
 	// Object is the base model of TeamsTabConfiguration
 	Object
-	// EntityID undocumented
-	EntityID *string `json:"entityId,omitempty"`
 	// ContentURL undocumented
 	ContentURL *string `json:"contentUrl,omitempty"`
+	// EntityID undocumented
+	EntityID *string `json:"entityId,omitempty"`
 	// RemoveURL undocumented
 	RemoveURL *string `json:"removeUrl,omitempty"`
 	// WebsiteURL undocumented
@@ -198,70 +262,112 @@ type TeamsTemplate struct {
 type TeamsUserActivityCounts struct {
 	// Entity is the base model of TeamsUserActivityCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// ReportDate undocumented
-	ReportDate *Date `json:"reportDate,omitempty"`
-	// TeamChatMessages undocumented
-	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
-	// PrivateChatMessages undocumented
-	PrivateChatMessages *int `json:"privateChatMessages,omitempty"`
 	// Calls undocumented
 	Calls *int `json:"calls,omitempty"`
 	// Meetings undocumented
 	Meetings *int `json:"meetings,omitempty"`
+	// PrivateChatMessages undocumented
+	PrivateChatMessages *int `json:"privateChatMessages,omitempty"`
+	// ReportDate undocumented
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// TeamChatMessages undocumented
+	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
+}
+
+// TeamsUserActivityDistributionUserCounts undocumented
+type TeamsUserActivityDistributionUserCounts struct {
+	// Entity is the base model of TeamsUserActivityDistributionUserCounts
+	Entity
+	// Calls undocumented
+	Calls *int `json:"calls,omitempty"`
+	// Meetings undocumented
+	Meetings *int `json:"meetings,omitempty"`
+	// PrivateChatMessages undocumented
+	PrivateChatMessages *int `json:"privateChatMessages,omitempty"`
+	// ReportPeriod undocumented
+	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// TeamChatMessages undocumented
+	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
 }
 
 // TeamsUserActivityUserCounts undocumented
 type TeamsUserActivityUserCounts struct {
 	// Entity is the base model of TeamsUserActivityUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// ReportDate undocumented
-	ReportDate *Date `json:"reportDate,omitempty"`
-	// TeamChatMessages undocumented
-	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
-	// PrivateChatMessages undocumented
-	PrivateChatMessages *int `json:"privateChatMessages,omitempty"`
 	// Calls undocumented
 	Calls *int `json:"calls,omitempty"`
 	// Meetings undocumented
 	Meetings *int `json:"meetings,omitempty"`
 	// OtherActions undocumented
 	OtherActions *int `json:"otherActions,omitempty"`
+	// PrivateChatMessages undocumented
+	PrivateChatMessages *int `json:"privateChatMessages,omitempty"`
+	// ReportDate undocumented
+	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// TeamChatMessages undocumented
+	TeamChatMessages *int `json:"teamChatMessages,omitempty"`
 }
 
 // TeamsUserActivityUserDetail undocumented
 type TeamsUserActivityUserDetail struct {
 	// Entity is the base model of TeamsUserActivityUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// LastActivityDate undocumented
-	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
-	// IsDeleted undocumented
-	IsDeleted *bool `json:"isDeleted,omitempty"`
-	// DeletedDate undocumented
-	DeletedDate *Date `json:"deletedDate,omitempty"`
+	// AdHocMeetingsAttendedCount undocumented
+	AdHocMeetingsAttendedCount *int `json:"adHocMeetingsAttendedCount,omitempty"`
+	// AdHocMeetingsOrganizedCount undocumented
+	AdHocMeetingsOrganizedCount *int `json:"adHocMeetingsOrganizedCount,omitempty"`
 	// AssignedProducts undocumented
 	AssignedProducts []string `json:"assignedProducts,omitempty"`
-	// TeamChatMessageCount undocumented
-	TeamChatMessageCount *int `json:"teamChatMessageCount,omitempty"`
-	// PrivateChatMessageCount undocumented
-	PrivateChatMessageCount *int `json:"privateChatMessageCount,omitempty"`
+	// AudioDuration undocumented
+	AudioDuration *Duration `json:"audioDuration,omitempty"`
 	// CallCount undocumented
 	CallCount *int `json:"callCount,omitempty"`
-	// MeetingCount undocumented
-	MeetingCount *int `json:"meetingCount,omitempty"`
+	// DeletedDate undocumented
+	DeletedDate *Date `json:"deletedDate,omitempty"`
 	// HasOtherAction undocumented
 	HasOtherAction *bool `json:"hasOtherAction,omitempty"`
+	// IsDeleted undocumented
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	// IsLicensed undocumented
+	IsLicensed *bool `json:"isLicensed,omitempty"`
+	// LastActivityDate undocumented
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
+	// MeetingCount undocumented
+	MeetingCount *int `json:"meetingCount,omitempty"`
+	// MeetingsAttendedCount undocumented
+	MeetingsAttendedCount *int `json:"meetingsAttendedCount,omitempty"`
+	// MeetingsOrganizedCount undocumented
+	MeetingsOrganizedCount *int `json:"meetingsOrganizedCount,omitempty"`
+	// PrivateChatMessageCount undocumented
+	PrivateChatMessageCount *int `json:"privateChatMessageCount,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// ScheduledOneTimeMeetingsAttendedCount undocumented
+	ScheduledOneTimeMeetingsAttendedCount *int `json:"scheduledOneTimeMeetingsAttendedCount,omitempty"`
+	// ScheduledOneTimeMeetingsOrganizedCount undocumented
+	ScheduledOneTimeMeetingsOrganizedCount *int `json:"scheduledOneTimeMeetingsOrganizedCount,omitempty"`
+	// ScheduledRecurringMeetingsAttendedCount undocumented
+	ScheduledRecurringMeetingsAttendedCount *int `json:"scheduledRecurringMeetingsAttendedCount,omitempty"`
+	// ScheduledRecurringMeetingsOrganizedCount undocumented
+	ScheduledRecurringMeetingsOrganizedCount *int `json:"scheduledRecurringMeetingsOrganizedCount,omitempty"`
+	// ScreenShareDuration undocumented
+	ScreenShareDuration *Duration `json:"screenShareDuration,omitempty"`
+	// TeamChatMessageCount undocumented
+	TeamChatMessageCount *int `json:"teamChatMessageCount,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// VideoDuration undocumented
+	VideoDuration *Duration `json:"videoDuration,omitempty"`
 }

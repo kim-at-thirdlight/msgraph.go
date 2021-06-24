@@ -2,6 +2,34 @@
 
 package msgraph
 
+// OpenShift undocumented
+type OpenShift struct {
+	// ChangeTrackedEntity is the base model of OpenShift
+	ChangeTrackedEntity
+	// DraftOpenShift undocumented
+	DraftOpenShift *OpenShiftItem `json:"draftOpenShift,omitempty"`
+	// SchedulingGroupID undocumented
+	SchedulingGroupID *string `json:"schedulingGroupId,omitempty"`
+	// SharedOpenShift undocumented
+	SharedOpenShift *OpenShiftItem `json:"sharedOpenShift,omitempty"`
+}
+
+// OpenShiftChangeRequestObject undocumented
+type OpenShiftChangeRequestObject struct {
+	// ScheduleChangeRequest is the base model of OpenShiftChangeRequestObject
+	ScheduleChangeRequest
+	// OpenShiftID undocumented
+	OpenShiftID *string `json:"openShiftId,omitempty"`
+}
+
+// OpenShiftItem undocumented
+type OpenShiftItem struct {
+	// ShiftItem is the base model of OpenShiftItem
+	ShiftItem
+	// OpenSlotCount undocumented
+	OpenSlotCount *int `json:"openSlotCount,omitempty"`
+}
+
 // OpenTypeExtension undocumented
 type OpenTypeExtension struct {
 	// Extension is the base model of OpenTypeExtension

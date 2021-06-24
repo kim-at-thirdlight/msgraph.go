@@ -11,24 +11,68 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// AccessPackageAssignmentRequestObjectCancelRequestParameter undocumented
-type AccessPackageAssignmentRequestObjectCancelRequestParameter struct {
+// AccessPackageGetApplicablePolicyRequirementsRequestParameter undocumented
+type AccessPackageGetApplicablePolicyRequirementsRequestParameter struct {
+}
+
+// AccessPackageAssignmentRequestCancelRequestParameter undocumented
+type AccessPackageAssignmentRequestCancelRequestParameter struct {
 }
 
 // AccessReviewStopRequestParameter undocumented
 type AccessReviewStopRequestParameter struct {
 }
 
-// AccessReviewSendReminderRequestParameter undocumented
-type AccessReviewSendReminderRequestParameter struct {
+// AccessReviewApplyDecisionsRequestParameter undocumented
+type AccessReviewApplyDecisionsRequestParameter struct {
 }
 
 // AccessReviewResetDecisionsRequestParameter undocumented
 type AccessReviewResetDecisionsRequestParameter struct {
 }
 
-// AccessReviewApplyDecisionsRequestParameter undocumented
-type AccessReviewApplyDecisionsRequestParameter struct {
+// AccessReviewSendReminderRequestParameter undocumented
+type AccessReviewSendReminderRequestParameter struct {
+}
+
+// AccessReviewHistoryDefinitionGenerateDownloadURIRequestParameter undocumented
+type AccessReviewHistoryDefinitionGenerateDownloadURIRequestParameter struct {
+}
+
+// AccessReviewInstanceStopRequestParameter undocumented
+type AccessReviewInstanceStopRequestParameter struct {
+}
+
+// AccessReviewInstanceAcceptRecommendationsRequestParameter undocumented
+type AccessReviewInstanceAcceptRecommendationsRequestParameter struct {
+}
+
+// AccessReviewInstanceApplyDecisionsRequestParameter undocumented
+type AccessReviewInstanceApplyDecisionsRequestParameter struct {
+}
+
+// AccessReviewInstanceBatchRecordDecisionsRequestParameter undocumented
+type AccessReviewInstanceBatchRecordDecisionsRequestParameter struct {
+	// Decision undocumented
+	Decision *string `json:"decision,omitempty"`
+	// Justification undocumented
+	Justification *string `json:"justification,omitempty"`
+	// PrincipalID undocumented
+	PrincipalID *string `json:"principalId,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
+}
+
+// AccessReviewInstanceResetDecisionsRequestParameter undocumented
+type AccessReviewInstanceResetDecisionsRequestParameter struct {
+}
+
+// AccessReviewInstanceSendReminderRequestParameter undocumented
+type AccessReviewInstanceSendReminderRequestParameter struct {
+}
+
+// AccessReviewScheduleDefinitionStopRequestParameter undocumented
+type AccessReviewScheduleDefinitionStopRequestParameter struct {
 }
 
 // AccessPackageAssignmentPolicies returns request builder for AccessPackageAssignmentPolicy collection
@@ -258,35 +302,35 @@ func (b *AccessPackageAssignmentRequestBuilder) AccessPackageAssignmentPolicy() 
 	return bb
 }
 
-// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequestObject collection
+// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequest collection
 func (b *AccessPackageAssignmentRequestBuilder) AccessPackageAssignmentRequests() *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder {
 	bb := &AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/accessPackageAssignmentRequests"
 	return bb
 }
 
-// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequestObject collection
+// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequest collection
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AccessPackageAssignmentRequestObject collection
+// Request returns request for AccessPackageAssignmentRequest collection
 func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) Request() *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest {
 	return &AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AccessPackageAssignmentRequestObject item
-func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestObjectRequestBuilder {
-	bb := &AccessPackageAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for AccessPackageAssignmentRequest item
+func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestRequestBuilder {
+	bb := &AccessPackageAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequestObject collection
+// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequest collection
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequestObject, error) {
+// Paging perfoms paging operation for AccessPackageAssignmentRequest collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequest, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -298,7 +342,7 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	if err != nil {
 		return nil, err
 	}
-	var values []AccessPackageAssignmentRequestObject
+	var values []AccessPackageAssignmentRequest
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -312,7 +356,7 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 		}
 		var (
 			paging Paging
-			value  []AccessPackageAssignmentRequestObject
+			value  []AccessPackageAssignmentRequest
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -341,8 +385,8 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	}
 }
 
-// GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequestObject, error) {
+// GetN performs GET request for AccessPackageAssignmentRequest collection, max N pages
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequest, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -350,13 +394,13 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
+// Get performs GET request for AccessPackageAssignmentRequest collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequest, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AccessPackageAssignmentRequestObject collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
+// Add performs POST request for AccessPackageAssignmentRequest collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequest) (resObj *AccessPackageAssignmentRequest, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -1042,6 +1086,13 @@ func (r *AccessPackageCatalogAccessPackagesCollectionRequest) Add(ctx context.Co
 	return
 }
 
+// AccessPackageResourceEnvironment is navigation property
+func (b *AccessPackageResourceRequestBuilder) AccessPackageResourceEnvironment() *AccessPackageResourceEnvironmentRequestBuilder {
+	bb := &AccessPackageResourceEnvironmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/accessPackageResourceEnvironment"
+	return bb
+}
+
 // AccessPackageResourceRoles returns request builder for AccessPackageResourceRole collection
 func (b *AccessPackageResourceRequestBuilder) AccessPackageResourceRoles() *AccessPackageResourceAccessPackageResourceRolesCollectionRequestBuilder {
 	bb := &AccessPackageResourceAccessPackageResourceRolesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1248,6 +1299,109 @@ func (r *AccessPackageResourceAccessPackageResourceScopesCollectionRequest) Add(
 	return
 }
 
+// AccessPackageResources returns request builder for AccessPackageResource collection
+func (b *AccessPackageResourceEnvironmentRequestBuilder) AccessPackageResources() *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder {
+	bb := &AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/accessPackageResources"
+	return bb
+}
+
+// AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder is request builder for AccessPackageResource collection
+type AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AccessPackageResource collection
+func (b *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder) Request() *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest {
+	return &AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AccessPackageResource item
+func (b *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequestBuilder) ID(id string) *AccessPackageResourceRequestBuilder {
+	bb := &AccessPackageResourceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest is request for AccessPackageResource collection
+type AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AccessPackageResource collection
+func (r *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResource, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AccessPackageResource
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AccessPackageResource
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AccessPackageResource collection, max N pages
+func (r *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResource, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessPackageResource collection
+func (r *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResource, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AccessPackageResource collection
+func (r *AccessPackageResourceEnvironmentAccessPackageResourcesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResource) (resObj *AccessPackageResource, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // AccessPackageResource is navigation property
 func (b *AccessPackageResourceRequestObjectRequestBuilder) AccessPackageResource() *AccessPackageResourceRequestBuilder {
 	bb := &AccessPackageResourceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1287,6 +1441,13 @@ func (b *AccessPackageResourceRoleScopeRequestBuilder) AccessPackageResourceScop
 func (b *AccessPackageResourceScopeRequestBuilder) AccessPackageResource() *AccessPackageResourceRequestBuilder {
 	bb := &AccessPackageResourceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/accessPackageResource"
+	return bb
+}
+
+// ConnectedOrganization is navigation property
+func (b *AccessPackageSubjectRequestBuilder) ConnectedOrganization() *ConnectedOrganizationRequestBuilder {
+	bb := &ConnectedOrganizationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/connectedOrganization"
 	return bb
 }
 
@@ -1700,4 +1861,430 @@ func (r *AccessReviewReviewersCollectionRequest) Get(ctx context.Context) ([]Acc
 func (r *AccessReviewReviewersCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewReviewer) (resObj *AccessReviewReviewer, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// Decisions returns request builder for AccessReviewInstanceDecisionItem collection
+func (b *AccessReviewInstanceRequestBuilder) Decisions() *AccessReviewInstanceDecisionsCollectionRequestBuilder {
+	bb := &AccessReviewInstanceDecisionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/decisions"
+	return bb
+}
+
+// AccessReviewInstanceDecisionsCollectionRequestBuilder is request builder for AccessReviewInstanceDecisionItem collection
+type AccessReviewInstanceDecisionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AccessReviewInstanceDecisionItem collection
+func (b *AccessReviewInstanceDecisionsCollectionRequestBuilder) Request() *AccessReviewInstanceDecisionsCollectionRequest {
+	return &AccessReviewInstanceDecisionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AccessReviewInstanceDecisionItem item
+func (b *AccessReviewInstanceDecisionsCollectionRequestBuilder) ID(id string) *AccessReviewInstanceDecisionItemRequestBuilder {
+	bb := &AccessReviewInstanceDecisionItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AccessReviewInstanceDecisionsCollectionRequest is request for AccessReviewInstanceDecisionItem collection
+type AccessReviewInstanceDecisionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AccessReviewInstanceDecisionItem collection
+func (r *AccessReviewInstanceDecisionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewInstanceDecisionItem, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AccessReviewInstanceDecisionItem
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AccessReviewInstanceDecisionItem
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AccessReviewInstanceDecisionItem collection, max N pages
+func (r *AccessReviewInstanceDecisionsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewInstanceDecisionItem, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewInstanceDecisionItem collection
+func (r *AccessReviewInstanceDecisionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewInstanceDecisionItem, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AccessReviewInstanceDecisionItem collection
+func (r *AccessReviewInstanceDecisionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewInstanceDecisionItem) (resObj *AccessReviewInstanceDecisionItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Definition is navigation property
+func (b *AccessReviewInstanceRequestBuilder) Definition() *AccessReviewScheduleDefinitionRequestBuilder {
+	bb := &AccessReviewScheduleDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definition"
+	return bb
+}
+
+// Instances returns request builder for AccessReviewInstance collection
+func (b *AccessReviewScheduleDefinitionRequestBuilder) Instances() *AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder {
+	bb := &AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/instances"
+	return bb
+}
+
+// AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder is request builder for AccessReviewInstance collection
+type AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AccessReviewInstance collection
+func (b *AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder) Request() *AccessReviewScheduleDefinitionInstancesCollectionRequest {
+	return &AccessReviewScheduleDefinitionInstancesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AccessReviewInstance item
+func (b *AccessReviewScheduleDefinitionInstancesCollectionRequestBuilder) ID(id string) *AccessReviewInstanceRequestBuilder {
+	bb := &AccessReviewInstanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AccessReviewScheduleDefinitionInstancesCollectionRequest is request for AccessReviewInstance collection
+type AccessReviewScheduleDefinitionInstancesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AccessReviewInstance collection
+func (r *AccessReviewScheduleDefinitionInstancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewInstance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AccessReviewInstance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AccessReviewInstance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AccessReviewInstance collection, max N pages
+func (r *AccessReviewScheduleDefinitionInstancesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewInstance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewInstance collection
+func (r *AccessReviewScheduleDefinitionInstancesCollectionRequest) Get(ctx context.Context) ([]AccessReviewInstance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AccessReviewInstance collection
+func (r *AccessReviewScheduleDefinitionInstancesCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewInstance) (resObj *AccessReviewInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Definitions returns request builder for AccessReviewScheduleDefinition collection
+func (b *AccessReviewSetRequestBuilder) Definitions() *AccessReviewSetDefinitionsCollectionRequestBuilder {
+	bb := &AccessReviewSetDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definitions"
+	return bb
+}
+
+// AccessReviewSetDefinitionsCollectionRequestBuilder is request builder for AccessReviewScheduleDefinition collection
+type AccessReviewSetDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AccessReviewScheduleDefinition collection
+func (b *AccessReviewSetDefinitionsCollectionRequestBuilder) Request() *AccessReviewSetDefinitionsCollectionRequest {
+	return &AccessReviewSetDefinitionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AccessReviewScheduleDefinition item
+func (b *AccessReviewSetDefinitionsCollectionRequestBuilder) ID(id string) *AccessReviewScheduleDefinitionRequestBuilder {
+	bb := &AccessReviewScheduleDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AccessReviewSetDefinitionsCollectionRequest is request for AccessReviewScheduleDefinition collection
+type AccessReviewSetDefinitionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AccessReviewScheduleDefinition collection
+func (r *AccessReviewSetDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewScheduleDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AccessReviewScheduleDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AccessReviewScheduleDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AccessReviewScheduleDefinition collection, max N pages
+func (r *AccessReviewSetDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewScheduleDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewScheduleDefinition collection
+func (r *AccessReviewSetDefinitionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewScheduleDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AccessReviewScheduleDefinition collection
+func (r *AccessReviewSetDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewScheduleDefinition) (resObj *AccessReviewScheduleDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// HistoryDefinitions returns request builder for AccessReviewHistoryDefinition collection
+func (b *AccessReviewSetRequestBuilder) HistoryDefinitions() *AccessReviewSetHistoryDefinitionsCollectionRequestBuilder {
+	bb := &AccessReviewSetHistoryDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/historyDefinitions"
+	return bb
+}
+
+// AccessReviewSetHistoryDefinitionsCollectionRequestBuilder is request builder for AccessReviewHistoryDefinition collection
+type AccessReviewSetHistoryDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AccessReviewHistoryDefinition collection
+func (b *AccessReviewSetHistoryDefinitionsCollectionRequestBuilder) Request() *AccessReviewSetHistoryDefinitionsCollectionRequest {
+	return &AccessReviewSetHistoryDefinitionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AccessReviewHistoryDefinition item
+func (b *AccessReviewSetHistoryDefinitionsCollectionRequestBuilder) ID(id string) *AccessReviewHistoryDefinitionRequestBuilder {
+	bb := &AccessReviewHistoryDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// AccessReviewSetHistoryDefinitionsCollectionRequest is request for AccessReviewHistoryDefinition collection
+type AccessReviewSetHistoryDefinitionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AccessReviewHistoryDefinition collection
+func (r *AccessReviewSetHistoryDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessReviewHistoryDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AccessReviewHistoryDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AccessReviewHistoryDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AccessReviewHistoryDefinition collection, max N pages
+func (r *AccessReviewSetHistoryDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessReviewHistoryDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AccessReviewHistoryDefinition collection
+func (r *AccessReviewSetHistoryDefinitionsCollectionRequest) Get(ctx context.Context) ([]AccessReviewHistoryDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AccessReviewHistoryDefinition collection
+func (r *AccessReviewSetHistoryDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *AccessReviewHistoryDefinition) (resObj *AccessReviewHistoryDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Policy is navigation property
+func (b *AccessReviewSetRequestBuilder) Policy() *AccessReviewPolicyRequestBuilder {
+	bb := &AccessReviewPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/policy"
+	return bb
 }

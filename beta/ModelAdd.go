@@ -6,60 +6,60 @@ package msgraph
 type AddContentFooterAction struct {
 	// InformationProtectionAction is the base model of AddContentFooterAction
 	InformationProtectionAction
-	// UIElementName undocumented
-	UIElementName *string `json:"uiElementName,omitempty"`
-	// Text undocumented
-	Text *string `json:"text,omitempty"`
+	// Alignment undocumented
+	Alignment *ContentAlignment `json:"alignment,omitempty"`
+	// FontColor undocumented
+	FontColor *string `json:"fontColor,omitempty"`
 	// FontName undocumented
 	FontName *string `json:"fontName,omitempty"`
 	// FontSize undocumented
 	FontSize *int `json:"fontSize,omitempty"`
-	// FontColor undocumented
-	FontColor *string `json:"fontColor,omitempty"`
-	// Alignment undocumented
-	Alignment *ContentAlignment `json:"alignment,omitempty"`
 	// Margin undocumented
 	Margin *int `json:"margin,omitempty"`
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
+	// UIElementName undocumented
+	UIElementName *string `json:"uiElementName,omitempty"`
 }
 
 // AddContentHeaderAction undocumented
 type AddContentHeaderAction struct {
 	// InformationProtectionAction is the base model of AddContentHeaderAction
 	InformationProtectionAction
-	// UIElementName undocumented
-	UIElementName *string `json:"uiElementName,omitempty"`
-	// Text undocumented
-	Text *string `json:"text,omitempty"`
+	// Alignment undocumented
+	Alignment *ContentAlignment `json:"alignment,omitempty"`
+	// FontColor undocumented
+	FontColor *string `json:"fontColor,omitempty"`
 	// FontName undocumented
 	FontName *string `json:"fontName,omitempty"`
 	// FontSize undocumented
 	FontSize *int `json:"fontSize,omitempty"`
-	// FontColor undocumented
-	FontColor *string `json:"fontColor,omitempty"`
-	// Alignment undocumented
-	Alignment *ContentAlignment `json:"alignment,omitempty"`
 	// Margin undocumented
 	Margin *int `json:"margin,omitempty"`
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
+	// UIElementName undocumented
+	UIElementName *string `json:"uiElementName,omitempty"`
 }
 
 // AddFooter undocumented
 type AddFooter struct {
 	// MarkContent is the base model of AddFooter
 	MarkContent
-	// Margin undocumented
-	Margin *int `json:"margin,omitempty"`
 	// Alignment undocumented
 	Alignment *Alignment `json:"alignment,omitempty"`
+	// Margin undocumented
+	Margin *int `json:"margin,omitempty"`
 }
 
 // AddHeader undocumented
 type AddHeader struct {
 	// MarkContent is the base model of AddHeader
 	MarkContent
-	// Margin undocumented
-	Margin *int `json:"margin,omitempty"`
 	// Alignment undocumented
 	Alignment *Alignment `json:"alignment,omitempty"`
+	// Margin undocumented
+	Margin *int `json:"margin,omitempty"`
 }
 
 // AddIn undocumented
@@ -68,10 +68,10 @@ type AddIn struct {
 	Object
 	// ID undocumented
 	ID *UUID `json:"id,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
 	// Properties undocumented
 	Properties []KeyValue `json:"properties,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }
 
 // AddWatermark undocumented
@@ -86,16 +86,16 @@ type AddWatermark struct {
 type AddWatermarkAction struct {
 	// InformationProtectionAction is the base model of AddWatermarkAction
 	InformationProtectionAction
-	// UIElementName undocumented
-	UIElementName *string `json:"uiElementName,omitempty"`
-	// Layout undocumented
-	Layout *WatermarkLayout `json:"layout,omitempty"`
-	// Text undocumented
-	Text *string `json:"text,omitempty"`
+	// FontColor undocumented
+	FontColor *string `json:"fontColor,omitempty"`
 	// FontName undocumented
 	FontName *string `json:"fontName,omitempty"`
 	// FontSize undocumented
 	FontSize *int `json:"fontSize,omitempty"`
-	// FontColor undocumented
-	FontColor *string `json:"fontColor,omitempty"`
+	// Layout undocumented
+	Layout *WatermarkLayout `json:"layout,omitempty"`
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
+	// UIElementName undocumented
+	UIElementName *string `json:"uiElementName,omitempty"`
 }

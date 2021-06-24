@@ -350,6 +350,109 @@ func (r *SiteDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (r
 	return
 }
 
+// ExternalColumns returns request builder for ColumnDefinition collection
+func (b *SiteRequestBuilder) ExternalColumns() *SiteExternalColumnsCollectionRequestBuilder {
+	bb := &SiteExternalColumnsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/externalColumns"
+	return bb
+}
+
+// SiteExternalColumnsCollectionRequestBuilder is request builder for ColumnDefinition collection
+type SiteExternalColumnsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ColumnDefinition collection
+func (b *SiteExternalColumnsCollectionRequestBuilder) Request() *SiteExternalColumnsCollectionRequest {
+	return &SiteExternalColumnsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ColumnDefinition item
+func (b *SiteExternalColumnsCollectionRequestBuilder) ID(id string) *ColumnDefinitionRequestBuilder {
+	bb := &ColumnDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// SiteExternalColumnsCollectionRequest is request for ColumnDefinition collection
+type SiteExternalColumnsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ColumnDefinition collection
+func (r *SiteExternalColumnsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ColumnDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ColumnDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ColumnDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ColumnDefinition collection, max N pages
+func (r *SiteExternalColumnsCollectionRequest) GetN(ctx context.Context, n int) ([]ColumnDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ColumnDefinition collection
+func (r *SiteExternalColumnsCollectionRequest) Get(ctx context.Context) ([]ColumnDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ColumnDefinition collection
+func (r *SiteExternalColumnsCollectionRequest) Add(ctx context.Context, reqObj *ColumnDefinition) (resObj *ColumnDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Items returns request builder for BaseItem collection
 func (b *SiteRequestBuilder) Items() *SiteItemsCollectionRequestBuilder {
 	bb := &SiteItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -666,6 +769,109 @@ func (r *SitePagesCollectionRequest) Add(ctx context.Context, reqObj *SitePage) 
 	return
 }
 
+// Permissions returns request builder for Permission collection
+func (b *SiteRequestBuilder) Permissions() *SitePermissionsCollectionRequestBuilder {
+	bb := &SitePermissionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/permissions"
+	return bb
+}
+
+// SitePermissionsCollectionRequestBuilder is request builder for Permission collection
+type SitePermissionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Permission collection
+func (b *SitePermissionsCollectionRequestBuilder) Request() *SitePermissionsCollectionRequest {
+	return &SitePermissionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Permission item
+func (b *SitePermissionsCollectionRequestBuilder) ID(id string) *PermissionRequestBuilder {
+	bb := &PermissionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// SitePermissionsCollectionRequest is request for Permission collection
+type SitePermissionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Permission collection
+func (r *SitePermissionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Permission, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Permission
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Permission
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for Permission collection, max N pages
+func (r *SitePermissionsCollectionRequest) GetN(ctx context.Context, n int) ([]Permission, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Permission collection
+func (r *SitePermissionsCollectionRequest) Get(ctx context.Context) ([]Permission, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for Permission collection
+func (r *SitePermissionsCollectionRequest) Add(ctx context.Context, reqObj *Permission) (resObj *Permission, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Sites returns request builder for Site collection
 func (b *SiteRequestBuilder) Sites() *SiteSitesCollectionRequestBuilder {
 	bb := &SiteSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -767,4 +973,11 @@ func (r *SiteSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
 func (r *SiteSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// TermStore is navigation property
+func (b *SiteRequestBuilder) TermStore() *TermStorestoreRequestBuilder {
+	bb := &TermStorestoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/termStore"
+	return bb
 }

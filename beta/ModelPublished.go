@@ -8,10 +8,10 @@ type PublishedResource struct {
 	Entity
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// ResourceName undocumented
-	ResourceName *string `json:"resourceName,omitempty"`
 	// PublishingType undocumented
 	PublishingType *OnPremisesPublishingType `json:"publishingType,omitempty"`
+	// ResourceName undocumented
+	ResourceName *string `json:"resourceName,omitempty"`
 	// AgentGroups undocumented
 	AgentGroups []OnPremisesAgentGroup `json:"agentGroups,omitempty"`
 }

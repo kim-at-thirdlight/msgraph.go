@@ -31,20 +31,6 @@ type GroupPolicyMigrationReportCollectionCreateMigrationReportRequestParameter s
 	GroupPolicyObjectFile *GroupPolicyObjectFile `json:"groupPolicyObjectFile,omitempty"`
 }
 
-// GroupValidatePropertiesRequestParameter undocumented
-type GroupValidatePropertiesRequestParameter struct {
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// GroupCheckGrantedPermissionsForAppRequestParameter undocumented
-type GroupCheckGrantedPermissionsForAppRequestParameter struct {
-}
-
 // GroupAssignLicenseRequestParameter undocumented
 type GroupAssignLicenseRequestParameter struct {
 	// AddLicenses undocumented
@@ -53,12 +39,18 @@ type GroupAssignLicenseRequestParameter struct {
 	RemoveLicenses []UUID `json:"removeLicenses,omitempty"`
 }
 
-// GroupSubscribeByMailRequestParameter undocumented
-type GroupSubscribeByMailRequestParameter struct {
+// GroupCheckGrantedPermissionsForAppRequestParameter undocumented
+type GroupCheckGrantedPermissionsForAppRequestParameter struct {
 }
 
-// GroupUnsubscribeByMailRequestParameter undocumented
-type GroupUnsubscribeByMailRequestParameter struct {
+// GroupValidatePropertiesRequestParameter undocumented
+type GroupValidatePropertiesRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
 }
 
 // GroupAddFavoriteRequestParameter undocumented
@@ -73,14 +65,22 @@ type GroupRemoveFavoriteRequestParameter struct {
 type GroupResetUnseenCountRequestParameter struct {
 }
 
-// GroupRenewRequestParameter undocumented
-type GroupRenewRequestParameter struct {
+// GroupSubscribeByMailRequestParameter undocumented
+type GroupSubscribeByMailRequestParameter struct {
+}
+
+// GroupUnsubscribeByMailRequestParameter undocumented
+type GroupUnsubscribeByMailRequestParameter struct {
 }
 
 // GroupEvaluateDynamicMembershipRequestParameter undocumented
 type GroupEvaluateDynamicMembershipRequestParameter struct {
 	// MemberID undocumented
 	MemberID *string `json:"memberId,omitempty"`
+}
+
+// GroupRenewRequestParameter undocumented
+type GroupRenewRequestParameter struct {
 }
 
 // GroupLifecyclePolicyAddGroupRequestParameter undocumented
@@ -109,6 +109,36 @@ type GroupPolicyConfigurationUpdateDefinitionValuesRequestParameter struct {
 	Updated []GroupPolicyDefinitionValue `json:"updated,omitempty"`
 	// DeletedIDs undocumented
 	DeletedIDs []string `json:"deletedIds,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileRemoveRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileRemoveRequestParameter struct {
+}
+
+// GroupPolicyUploadedDefinitionFileAddLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileAddLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileRemoveLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileRemoveLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileUpdateLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileUpdateLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileUploadNewVersionRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileUploadNewVersionRequestParameter struct {
+	// Content undocumented
+	Content *Binary `json:"content,omitempty"`
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
 }
 
 // AcceptedSenders returns request builder for DirectoryObject collection
@@ -2323,6 +2353,226 @@ func (r *GroupTransitiveMembersCollectionRequest) Add(ctx context.Context, reqOb
 	return
 }
 
+// Children returns request builder for GroupPolicyCategory collection
+func (b *GroupPolicyCategoryRequestBuilder) Children() *GroupPolicyCategoryChildrenCollectionRequestBuilder {
+	bb := &GroupPolicyCategoryChildrenCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/children"
+	return bb
+}
+
+// GroupPolicyCategoryChildrenCollectionRequestBuilder is request builder for GroupPolicyCategory collection
+type GroupPolicyCategoryChildrenCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyCategory collection
+func (b *GroupPolicyCategoryChildrenCollectionRequestBuilder) Request() *GroupPolicyCategoryChildrenCollectionRequest {
+	return &GroupPolicyCategoryChildrenCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyCategory item
+func (b *GroupPolicyCategoryChildrenCollectionRequestBuilder) ID(id string) *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyCategoryChildrenCollectionRequest is request for GroupPolicyCategory collection
+type GroupPolicyCategoryChildrenCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyCategory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyCategory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyCategory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyCategory collection, max N pages
+func (r *GroupPolicyCategoryChildrenCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyCategory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Get(ctx context.Context) ([]GroupPolicyCategory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyCategory) (resObj *GroupPolicyCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DefinitionFile is navigation property
+func (b *GroupPolicyCategoryRequestBuilder) DefinitionFile() *GroupPolicyDefinitionFileRequestBuilder {
+	bb := &GroupPolicyDefinitionFileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definitionFile"
+	return bb
+}
+
+// Definitions returns request builder for GroupPolicyDefinition collection
+func (b *GroupPolicyCategoryRequestBuilder) Definitions() *GroupPolicyCategoryDefinitionsCollectionRequestBuilder {
+	bb := &GroupPolicyCategoryDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definitions"
+	return bb
+}
+
+// GroupPolicyCategoryDefinitionsCollectionRequestBuilder is request builder for GroupPolicyDefinition collection
+type GroupPolicyCategoryDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyDefinition collection
+func (b *GroupPolicyCategoryDefinitionsCollectionRequestBuilder) Request() *GroupPolicyCategoryDefinitionsCollectionRequest {
+	return &GroupPolicyCategoryDefinitionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyDefinition item
+func (b *GroupPolicyCategoryDefinitionsCollectionRequestBuilder) ID(id string) *GroupPolicyDefinitionRequestBuilder {
+	bb := &GroupPolicyDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyCategoryDefinitionsCollectionRequest is request for GroupPolicyDefinition collection
+type GroupPolicyCategoryDefinitionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyDefinition collection, max N pages
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Get(ctx context.Context) ([]GroupPolicyDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinition) (resObj *GroupPolicyDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Parent is navigation property
+func (b *GroupPolicyCategoryRequestBuilder) Parent() *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/parent"
+	return bb
+}
+
 // Assignments returns request builder for GroupPolicyConfigurationAssignment collection
 func (b *GroupPolicyConfigurationRequestBuilder) Assignments() *GroupPolicyConfigurationAssignmentsCollectionRequestBuilder {
 	bb := &GroupPolicyConfigurationAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2527,6 +2777,13 @@ func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Get(ctx cont
 func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinitionValue) (resObj *GroupPolicyDefinitionValue, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// Category is navigation property
+func (b *GroupPolicyDefinitionRequestBuilder) Category() *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/category"
+	return bb
 }
 
 // DefinitionFile is navigation property
@@ -2955,6 +3212,109 @@ func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) 
 	return
 }
 
+// UnsupportedGroupPolicyExtensions returns request builder for UnsupportedGroupPolicyExtension collection
+func (b *GroupPolicyMigrationReportRequestBuilder) UnsupportedGroupPolicyExtensions() *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder {
+	bb := &GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/unsupportedGroupPolicyExtensions"
+	return bb
+}
+
+// GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder is request builder for UnsupportedGroupPolicyExtension collection
+type GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UnsupportedGroupPolicyExtension collection
+func (b *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder) Request() *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest {
+	return &GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UnsupportedGroupPolicyExtension item
+func (b *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder) ID(id string) *UnsupportedGroupPolicyExtensionRequestBuilder {
+	bb := &UnsupportedGroupPolicyExtensionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest is request for UnsupportedGroupPolicyExtension collection
+type GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UnsupportedGroupPolicyExtension, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UnsupportedGroupPolicyExtension
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UnsupportedGroupPolicyExtension
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UnsupportedGroupPolicyExtension collection, max N pages
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]UnsupportedGroupPolicyExtension, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Get(ctx context.Context) ([]UnsupportedGroupPolicyExtension, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Add(ctx context.Context, reqObj *UnsupportedGroupPolicyExtension) (resObj *UnsupportedGroupPolicyExtension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Definition is navigation property
 func (b *GroupPolicyPresentationRequestBuilder) Definition() *GroupPolicyDefinitionRequestBuilder {
 	bb := &GroupPolicyDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2974,4 +3334,107 @@ func (b *GroupPolicyPresentationValueRequestBuilder) Presentation() *GroupPolicy
 	bb := &GroupPolicyPresentationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/presentation"
 	return bb
+}
+
+// GroupPolicyOperations returns request builder for GroupPolicyOperation collection
+func (b *GroupPolicyUploadedDefinitionFileRequestBuilder) GroupPolicyOperations() *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder {
+	bb := &GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupPolicyOperations"
+	return bb
+}
+
+// GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder is request builder for GroupPolicyOperation collection
+type GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyOperation collection
+func (b *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder) Request() *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest {
+	return &GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyOperation item
+func (b *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder) ID(id string) *GroupPolicyOperationRequestBuilder {
+	bb := &GroupPolicyOperationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest is request for GroupPolicyOperation collection
+type GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyOperation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyOperation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyOperation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyOperation collection, max N pages
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyOperation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Get(ctx context.Context) ([]GroupPolicyOperation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyOperation) (resObj *GroupPolicyOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }

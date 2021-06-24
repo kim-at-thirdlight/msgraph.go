@@ -6,16 +6,22 @@ package msgraph
 type Property struct {
 	// Object is the base model of Property
 	Object
+	// Aliases undocumented
+	Aliases []string `json:"aliases,omitempty"`
+	// IsQueryable undocumented
+	IsQueryable *bool `json:"isQueryable,omitempty"`
+	// IsRefinable undocumented
+	IsRefinable *bool `json:"isRefinable,omitempty"`
+	// IsRetrievable undocumented
+	IsRetrievable *bool `json:"isRetrievable,omitempty"`
+	// IsSearchable undocumented
+	IsSearchable *bool `json:"isSearchable,omitempty"`
+	// Labels undocumented
+	Labels []Label `json:"labels,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Type undocumented
 	Type *PropertyType `json:"type,omitempty"`
-	// IsSearchable undocumented
-	IsSearchable *bool `json:"isSearchable,omitempty"`
-	// IsRetrievable undocumented
-	IsRetrievable *bool `json:"isRetrievable,omitempty"`
-	// IsQueryable undocumented
-	IsQueryable *bool `json:"isQueryable,omitempty"`
 }
 
 // PropertyToEvaluate undocumented

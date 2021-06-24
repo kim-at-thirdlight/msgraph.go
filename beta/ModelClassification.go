@@ -4,6 +4,16 @@ package msgraph
 
 import "time"
 
+// ClassificationAttribute undocumented
+type ClassificationAttribute struct {
+	// Object is the base model of ClassificationAttribute
+	Object
+	// Confidence undocumented
+	Confidence *int `json:"confidence,omitempty"`
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+}
+
 // ClassificationError undocumented
 type ClassificationError struct {
 	// ClassifcationErrorBase is the base model of ClassificationError
@@ -16,14 +26,14 @@ type ClassificationError struct {
 type ClassificationInnerError struct {
 	// Object is the base model of ClassificationInnerError
 	Object
-	// ErrorDateTime undocumented
-	ErrorDateTime *time.Time `json:"errorDateTime,omitempty"`
-	// Code undocumented
-	Code *string `json:"code,omitempty"`
-	// ClientRequestID undocumented
-	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// ActivityID undocumented
 	ActivityID *string `json:"activityId,omitempty"`
+	// ClientRequestID undocumented
+	ClientRequestID *string `json:"clientRequestId,omitempty"`
+	// Code undocumented
+	Code *string `json:"code,omitempty"`
+	// ErrorDateTime undocumented
+	ErrorDateTime *time.Time `json:"errorDateTime,omitempty"`
 }
 
 // ClassificationJobResponse undocumented
@@ -38,10 +48,10 @@ type ClassificationJobResponse struct {
 type ClassificationResult struct {
 	// Object is the base model of ClassificationResult
 	Object
-	// SensitiveTypeID undocumented
-	SensitiveTypeID *UUID `json:"sensitiveTypeId,omitempty"`
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
 	// ConfidenceLevel undocumented
 	ConfidenceLevel *int `json:"confidenceLevel,omitempty"`
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+	// SensitiveTypeID undocumented
+	SensitiveTypeID *UUID `json:"sensitiveTypeId,omitempty"`
 }

@@ -12,10 +12,10 @@ type TaxArea struct {
 	Code *string `json:"code,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// TaxType undocumented
-	TaxType *string `json:"taxType,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// TaxType undocumented
+	TaxType *string `json:"taxType,omitempty"`
 }
 
 // TaxGroup undocumented
@@ -26,8 +26,8 @@ type TaxGroup struct {
 	Code *string `json:"code,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// TaxType undocumented
-	TaxType *string `json:"taxType,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// TaxType undocumented
+	TaxType *string `json:"taxType,omitempty"`
 }

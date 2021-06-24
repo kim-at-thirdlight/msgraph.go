@@ -526,6 +526,212 @@ func (r *OnPremisesPublishingProfileAgentsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// ConnectorGroups returns request builder for ConnectorGroup collection
+func (b *OnPremisesPublishingProfileRequestBuilder) ConnectorGroups() *OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder {
+	bb := &OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/connectorGroups"
+	return bb
+}
+
+// OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder is request builder for ConnectorGroup collection
+type OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ConnectorGroup collection
+func (b *OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder) Request() *OnPremisesPublishingProfileConnectorGroupsCollectionRequest {
+	return &OnPremisesPublishingProfileConnectorGroupsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ConnectorGroup item
+func (b *OnPremisesPublishingProfileConnectorGroupsCollectionRequestBuilder) ID(id string) *ConnectorGroupRequestBuilder {
+	bb := &ConnectorGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// OnPremisesPublishingProfileConnectorGroupsCollectionRequest is request for ConnectorGroup collection
+type OnPremisesPublishingProfileConnectorGroupsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ConnectorGroup collection
+func (r *OnPremisesPublishingProfileConnectorGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConnectorGroup, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ConnectorGroup
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ConnectorGroup
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ConnectorGroup collection, max N pages
+func (r *OnPremisesPublishingProfileConnectorGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]ConnectorGroup, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConnectorGroup collection
+func (r *OnPremisesPublishingProfileConnectorGroupsCollectionRequest) Get(ctx context.Context) ([]ConnectorGroup, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ConnectorGroup collection
+func (r *OnPremisesPublishingProfileConnectorGroupsCollectionRequest) Add(ctx context.Context, reqObj *ConnectorGroup) (resObj *ConnectorGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Connectors returns request builder for Connector collection
+func (b *OnPremisesPublishingProfileRequestBuilder) Connectors() *OnPremisesPublishingProfileConnectorsCollectionRequestBuilder {
+	bb := &OnPremisesPublishingProfileConnectorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/connectors"
+	return bb
+}
+
+// OnPremisesPublishingProfileConnectorsCollectionRequestBuilder is request builder for Connector collection
+type OnPremisesPublishingProfileConnectorsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Connector collection
+func (b *OnPremisesPublishingProfileConnectorsCollectionRequestBuilder) Request() *OnPremisesPublishingProfileConnectorsCollectionRequest {
+	return &OnPremisesPublishingProfileConnectorsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Connector item
+func (b *OnPremisesPublishingProfileConnectorsCollectionRequestBuilder) ID(id string) *ConnectorRequestBuilder {
+	bb := &ConnectorRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// OnPremisesPublishingProfileConnectorsCollectionRequest is request for Connector collection
+type OnPremisesPublishingProfileConnectorsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Connector collection
+func (r *OnPremisesPublishingProfileConnectorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Connector, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Connector
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Connector
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for Connector collection, max N pages
+func (r *OnPremisesPublishingProfileConnectorsCollectionRequest) GetN(ctx context.Context, n int) ([]Connector, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Connector collection
+func (r *OnPremisesPublishingProfileConnectorsCollectionRequest) Get(ctx context.Context) ([]Connector, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for Connector collection
+func (r *OnPremisesPublishingProfileConnectorsCollectionRequest) Add(ctx context.Context, reqObj *Connector) (resObj *Connector, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // PublishedResources returns request builder for PublishedResource collection
 func (b *OnPremisesPublishingProfileRequestBuilder) PublishedResources() *OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder {
 	bb := &OnPremisesPublishingProfilePublishedResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
