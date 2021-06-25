@@ -9,6 +9,8 @@ const (
 	colPrefix = "Collection("
 )
 
+// TODO: instead of current method, store
+//       each namespace under its own structure
 var nsPrefixes = map[string]struct{}{
 	"microsoft.graph.": {},
 	"graph.":           {},
