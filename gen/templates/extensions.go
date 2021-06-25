@@ -14,6 +14,9 @@ import (
 
 // BEGIN - everything below this line will be copied to the output
 
+// CallRecordscallRecord is undefined in the spec, so we add a simple interface typedef
+type CallRecordscallRecord interface{}
+
 // ItemWithPath returns DriveItemRequestBuilder addressed by relative path
 func (b *DriveItemRequestBuilder) ItemWithPath(path string) *DriveItemRequestBuilder {
 	bb := &DriveItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
