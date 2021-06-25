@@ -57,7 +57,14 @@ func formatNS(t string) (string, bool) {
 }
 
 func exported(n string) string {
-	return lintName(strings.Title(n))
+	n = lintName(strings.Title(n))
+	if strings.HasSuffix(n, "Request") {
+		// NOTE: this is a really hacky place to put this
+		//       logic, but it ensures it occurs to all exported
+		//       names (which was previously an issue)
+		n += "Object"
+	}
+	return n
 }
 
 func isCollectionType(t string) bool {

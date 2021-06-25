@@ -136,10 +136,6 @@ func (g *Generator) Generate() error {
 			t := "microsoft.graph." + n // ensure we exit on formatNS()
 			b, _ := m["BaseType"]
 			et := &EntityType{Name: n, Sym: exported(n), Type: t, Base: b, Description: "undocumented"}
-			if strings.HasSuffix(et.Sym, "Request") {
-				et.Sym += "Object"
-				g.SymTypeMap[t] = et.Sym
-			}
 			for _, y := range x.Elems {
 				ma := y.AttrMap()
 				switch y.XMLName.Local {
