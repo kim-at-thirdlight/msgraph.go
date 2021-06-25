@@ -37,21 +37,21 @@ func (r *OpenShiftRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// OpenShiftChangeRequestRequestBuilder is request builder for OpenShiftChangeRequest
-type OpenShiftChangeRequestRequestBuilder struct{ BaseRequestBuilder }
+// OpenShiftChangeRequestObjectRequestBuilder is request builder for OpenShiftChangeRequestObject
+type OpenShiftChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns OpenShiftChangeRequestRequest
-func (b *OpenShiftChangeRequestRequestBuilder) Request() *OpenShiftChangeRequestRequest {
-	return &OpenShiftChangeRequestRequest{
+// Request returns OpenShiftChangeRequestObjectRequest
+func (b *OpenShiftChangeRequestObjectRequestBuilder) Request() *OpenShiftChangeRequestObjectRequest {
+	return &OpenShiftChangeRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// OpenShiftChangeRequestRequest is request for OpenShiftChangeRequest
-type OpenShiftChangeRequestRequest struct{ BaseRequest }
+// OpenShiftChangeRequestObjectRequest is request for OpenShiftChangeRequestObject
+type OpenShiftChangeRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for OpenShiftChangeRequest
-func (r *OpenShiftChangeRequestRequest) Get(ctx context.Context) (resObj *OpenShiftChangeRequest, err error) {
+// Get performs GET request for OpenShiftChangeRequestObject
+func (r *OpenShiftChangeRequestObjectRequest) Get(ctx context.Context) (resObj *OpenShiftChangeRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -60,12 +60,12 @@ func (r *OpenShiftChangeRequestRequest) Get(ctx context.Context) (resObj *OpenSh
 	return
 }
 
-// Update performs PATCH request for OpenShiftChangeRequest
-func (r *OpenShiftChangeRequestRequest) Update(ctx context.Context, reqObj *OpenShiftChangeRequest) error {
+// Update performs PATCH request for OpenShiftChangeRequestObject
+func (r *OpenShiftChangeRequestObjectRequest) Update(ctx context.Context, reqObj *OpenShiftChangeRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for OpenShiftChangeRequest
-func (r *OpenShiftChangeRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for OpenShiftChangeRequestObject
+func (r *OpenShiftChangeRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

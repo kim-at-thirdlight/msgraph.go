@@ -387,7 +387,7 @@ type MobileAppTroubleshootingEvent struct {
 	// UserID Identifier for the user that tried to enroll the device.
 	UserID *string `json:"userId,omitempty"`
 	// AppLogCollectionRequests undocumented
-	AppLogCollectionRequests []AppLogCollectionRequest `json:"appLogCollectionRequests,omitempty"`
+	AppLogCollectionRequests []AppLogCollectionRequestObject `json:"appLogCollectionRequests,omitempty"`
 }
 
 // MobileAppTroubleshootingHistoryItem History Item contained in the Mobile App Troubleshooting Event.

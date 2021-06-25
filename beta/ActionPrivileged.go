@@ -51,8 +51,8 @@ type PrivilegedRoleAssignmentMakePermanentRequestParameter struct {
 	TicketSystem *string `json:"ticketSystem,omitempty"`
 }
 
-// PrivilegedRoleAssignmentRequestCancelRequestParameter undocumented
-type PrivilegedRoleAssignmentRequestCancelRequestParameter struct {
+// PrivilegedRoleAssignmentRequestObjectCancelRequestParameter undocumented
+type PrivilegedRoleAssignmentRequestObjectCancelRequestParameter struct {
 }
 
 // Resources returns request builder for GovernanceResource collection
@@ -158,35 +158,35 @@ func (r *PrivilegedAccessResourcesCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
-// RoleAssignmentRequests returns request builder for GovernanceRoleAssignmentRequest collection
+// RoleAssignmentRequests returns request builder for GovernanceRoleAssignmentRequestObject collection
 func (b *PrivilegedAccessRequestBuilder) RoleAssignmentRequests() *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder {
 	bb := &PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/roleAssignmentRequests"
 	return bb
 }
 
-// PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder is request builder for GovernanceRoleAssignmentRequest collection
+// PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder is request builder for GovernanceRoleAssignmentRequestObject collection
 type PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for GovernanceRoleAssignmentRequest collection
+// Request returns request for GovernanceRoleAssignmentRequestObject collection
 func (b *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder) Request() *PrivilegedAccessRoleAssignmentRequestsCollectionRequest {
 	return &PrivilegedAccessRoleAssignmentRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for GovernanceRoleAssignmentRequest item
-func (b *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder) ID(id string) *GovernanceRoleAssignmentRequestRequestBuilder {
-	bb := &GovernanceRoleAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for GovernanceRoleAssignmentRequestObject item
+func (b *PrivilegedAccessRoleAssignmentRequestsCollectionRequestBuilder) ID(id string) *GovernanceRoleAssignmentRequestObjectRequestBuilder {
+	bb := &GovernanceRoleAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// PrivilegedAccessRoleAssignmentRequestsCollectionRequest is request for GovernanceRoleAssignmentRequest collection
+// PrivilegedAccessRoleAssignmentRequestsCollectionRequest is request for GovernanceRoleAssignmentRequestObject collection
 type PrivilegedAccessRoleAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for GovernanceRoleAssignmentRequest collection
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequest, error) {
+// Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -198,7 +198,7 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 	if err != nil {
 		return nil, err
 	}
-	var values []GovernanceRoleAssignmentRequest
+	var values []GovernanceRoleAssignmentRequestObject
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -212,7 +212,7 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 		}
 		var (
 			paging Paging
-			value  []GovernanceRoleAssignmentRequest
+			value  []GovernanceRoleAssignmentRequestObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -241,8 +241,8 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Paging(ctx con
 	}
 }
 
-// GetN performs GET request for GovernanceRoleAssignmentRequest collection, max N pages
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequest, error) {
+// GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -250,13 +250,13 @@ func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) GetN(ctx conte
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for GovernanceRoleAssignmentRequest collection
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequest, error) {
+// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for GovernanceRoleAssignmentRequest collection
-func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleAssignmentRequest) (resObj *GovernanceRoleAssignmentRequest, err error) {
+// Add performs POST request for GovernanceRoleAssignmentRequestObject collection
+func (r *PrivilegedAccessRoleAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleAssignmentRequestObject) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -570,9 +570,9 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
-// RequestNavigation is navigation property
-func (b *PrivilegedApprovalRequestBuilder) RequestNavigation() *PrivilegedRoleAssignmentRequestRequestBuilder {
-	bb := &PrivilegedRoleAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// RequestObject is navigation property
+func (b *PrivilegedApprovalRequestBuilder) RequestObject() *PrivilegedRoleAssignmentRequestObjectRequestBuilder {
+	bb := &PrivilegedRoleAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/request"
 	return bb
 }

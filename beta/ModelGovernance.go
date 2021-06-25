@@ -89,7 +89,7 @@ type GovernanceResource struct {
 	// Parent undocumented
 	Parent *GovernanceResource `json:"parent,omitempty"`
 	// RoleAssignmentRequests undocumented
-	RoleAssignmentRequests []GovernanceRoleAssignmentRequest `json:"roleAssignmentRequests,omitempty"`
+	RoleAssignmentRequests []GovernanceRoleAssignmentRequestObject `json:"roleAssignmentRequests,omitempty"`
 	// RoleAssignments undocumented
 	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
 	// RoleDefinitions undocumented

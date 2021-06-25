@@ -15,8 +15,8 @@ import (
 type AccessPackageGetApplicablePolicyRequirementsRequestParameter struct {
 }
 
-// AccessPackageAssignmentRequestCancelRequestParameter undocumented
-type AccessPackageAssignmentRequestCancelRequestParameter struct {
+// AccessPackageAssignmentRequestObjectCancelRequestParameter undocumented
+type AccessPackageAssignmentRequestObjectCancelRequestParameter struct {
 }
 
 // AccessReviewStopRequestParameter undocumented
@@ -302,35 +302,35 @@ func (b *AccessPackageAssignmentRequestBuilder) AccessPackageAssignmentPolicy() 
 	return bb
 }
 
-// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequest collection
+// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequestObject collection
 func (b *AccessPackageAssignmentRequestBuilder) AccessPackageAssignmentRequests() *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder {
 	bb := &AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/accessPackageAssignmentRequests"
 	return bb
 }
 
-// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequest collection
+// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequestObject collection
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AccessPackageAssignmentRequest collection
+// Request returns request for AccessPackageAssignmentRequestObject collection
 func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) Request() *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest {
 	return &AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AccessPackageAssignmentRequest item
-func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestRequestBuilder {
-	bb := &AccessPackageAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for AccessPackageAssignmentRequestObject item
+func (b *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestObjectRequestBuilder {
+	bb := &AccessPackageAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequest collection
+// AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequestObject collection
 type AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AccessPackageAssignmentRequest collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequest, error) {
+// Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -342,7 +342,7 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	if err != nil {
 		return nil, err
 	}
-	var values []AccessPackageAssignmentRequest
+	var values []AccessPackageAssignmentRequestObject
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -356,7 +356,7 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 		}
 		var (
 			paging Paging
-			value  []AccessPackageAssignmentRequest
+			value  []AccessPackageAssignmentRequestObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -385,8 +385,8 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	}
 }
 
-// GetN performs GET request for AccessPackageAssignmentRequest collection, max N pages
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequest, error) {
+// GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -394,13 +394,13 @@ func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AccessPackageAssignmentRequest collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequest, error) {
+// Get performs GET request for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AccessPackageAssignmentRequest collection
-func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequest) (resObj *AccessPackageAssignmentRequest, err error) {
+// Add performs POST request for AccessPackageAssignmentRequestObject collection
+func (r *AccessPackageAssignmentAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

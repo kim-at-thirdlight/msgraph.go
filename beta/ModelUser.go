@@ -223,7 +223,7 @@ type User struct {
 	// Extensions undocumented
 	Extensions []Extension `json:"extensions,omitempty"`
 	// AppConsentRequestsForApproval undocumented
-	AppConsentRequestsForApproval []AppConsentRequest `json:"appConsentRequestsForApproval,omitempty"`
+	AppConsentRequestsForApproval []AppConsentRequestObject `json:"appConsentRequestsForApproval,omitempty"`
 	// Approvals undocumented
 	Approvals []Approval `json:"approvals,omitempty"`
 	// PendingAccessReviewInstances undocumented
@@ -420,8 +420,8 @@ type UserConfiguration struct {
 
 // UserConsentRequestObject undocumented
 type UserConsentRequestObject struct {
-	// Request is the base model of UserConsentRequestObject
-	Request
+	// RequestObject is the base model of UserConsentRequestObject
+	RequestObject
 	// Reason undocumented
 	Reason *string `json:"reason,omitempty"`
 	// Approval undocumented

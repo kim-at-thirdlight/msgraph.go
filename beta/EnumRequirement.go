@@ -8,8 +8,8 @@ type RequirementProvider string
 const (
 	// RequirementProviderVUser undocumented
 	RequirementProviderVUser RequirementProvider = "user"
-	// RequirementProviderVRequest undocumented
-	RequirementProviderVRequest RequirementProvider = "request"
+	// RequirementProviderVRequestObject undocumented
+	RequirementProviderVRequestObject RequirementProvider = "request"
 	// RequirementProviderVServicePrincipal undocumented
 	RequirementProviderVServicePrincipal RequirementProvider = "servicePrincipal"
 	// RequirementProviderVV1ConditionalAccess undocumented
@@ -38,8 +38,8 @@ const (
 	RequirementProviderVSecurityDefaults RequirementProvider = "securityDefaults"
 	// RequirementProviderVMFARegistrationRequiredBySecurityDefaults undocumented
 	RequirementProviderVMFARegistrationRequiredBySecurityDefaults RequirementProvider = "mfaRegistrationRequiredBySecurityDefaults"
-	// RequirementProviderVProofUpCodeRequest undocumented
-	RequirementProviderVProofUpCodeRequest RequirementProvider = "proofUpCodeRequest"
+	// RequirementProviderVProofUpCodeRequestObject undocumented
+	RequirementProviderVProofUpCodeRequestObject RequirementProvider = "proofUpCodeRequest"
 	// RequirementProviderVCrossTenantOutboundRule undocumented
 	RequirementProviderVCrossTenantOutboundRule RequirementProvider = "crossTenantOutboundRule"
 	// RequirementProviderVGpsLocationCondition undocumented
@@ -53,8 +53,8 @@ const (
 var (
 	// RequirementProviderPUser is a pointer to RequirementProviderVUser
 	RequirementProviderPUser = &_RequirementProviderPUser
-	// RequirementProviderPRequest is a pointer to RequirementProviderVRequest
-	RequirementProviderPRequest = &_RequirementProviderPRequest
+	// RequirementProviderPRequestObject is a pointer to RequirementProviderVRequestObject
+	RequirementProviderPRequestObject = &_RequirementProviderPRequestObject
 	// RequirementProviderPServicePrincipal is a pointer to RequirementProviderVServicePrincipal
 	RequirementProviderPServicePrincipal = &_RequirementProviderPServicePrincipal
 	// RequirementProviderPV1ConditionalAccess is a pointer to RequirementProviderVV1ConditionalAccess
@@ -83,8 +83,8 @@ var (
 	RequirementProviderPSecurityDefaults = &_RequirementProviderPSecurityDefaults
 	// RequirementProviderPMFARegistrationRequiredBySecurityDefaults is a pointer to RequirementProviderVMFARegistrationRequiredBySecurityDefaults
 	RequirementProviderPMFARegistrationRequiredBySecurityDefaults = &_RequirementProviderPMFARegistrationRequiredBySecurityDefaults
-	// RequirementProviderPProofUpCodeRequest is a pointer to RequirementProviderVProofUpCodeRequest
-	RequirementProviderPProofUpCodeRequest = &_RequirementProviderPProofUpCodeRequest
+	// RequirementProviderPProofUpCodeRequestObject is a pointer to RequirementProviderVProofUpCodeRequestObject
+	RequirementProviderPProofUpCodeRequestObject = &_RequirementProviderPProofUpCodeRequestObject
 	// RequirementProviderPCrossTenantOutboundRule is a pointer to RequirementProviderVCrossTenantOutboundRule
 	RequirementProviderPCrossTenantOutboundRule = &_RequirementProviderPCrossTenantOutboundRule
 	// RequirementProviderPGpsLocationCondition is a pointer to RequirementProviderVGpsLocationCondition
@@ -97,7 +97,7 @@ var (
 
 var (
 	_RequirementProviderPUser                                              = RequirementProviderVUser
-	_RequirementProviderPRequest                                           = RequirementProviderVRequest
+	_RequirementProviderPRequestObject                                     = RequirementProviderVRequestObject
 	_RequirementProviderPServicePrincipal                                  = RequirementProviderVServicePrincipal
 	_RequirementProviderPV1ConditionalAccess                               = RequirementProviderVV1ConditionalAccess
 	_RequirementProviderPMultiConditionalAccess                            = RequirementProviderVMultiConditionalAccess
@@ -112,7 +112,7 @@ var (
 	_RequirementProviderPEnforcedForCspAdmins                              = RequirementProviderVEnforcedForCspAdmins
 	_RequirementProviderPSecurityDefaults                                  = RequirementProviderVSecurityDefaults
 	_RequirementProviderPMFARegistrationRequiredBySecurityDefaults         = RequirementProviderVMFARegistrationRequiredBySecurityDefaults
-	_RequirementProviderPProofUpCodeRequest                                = RequirementProviderVProofUpCodeRequest
+	_RequirementProviderPProofUpCodeRequestObject                          = RequirementProviderVProofUpCodeRequestObject
 	_RequirementProviderPCrossTenantOutboundRule                           = RequirementProviderVCrossTenantOutboundRule
 	_RequirementProviderPGpsLocationCondition                              = RequirementProviderVGpsLocationCondition
 	_RequirementProviderPRiskBasedPolicy                                   = RequirementProviderVRiskBasedPolicy

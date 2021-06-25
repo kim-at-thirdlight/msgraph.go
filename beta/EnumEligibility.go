@@ -8,10 +8,10 @@ type EligibilityFilteringEnabledEntities string
 const (
 	// EligibilityFilteringEnabledEntitiesVNone undocumented
 	EligibilityFilteringEnabledEntitiesVNone EligibilityFilteringEnabledEntities = "none"
-	// EligibilityFilteringEnabledEntitiesVSwapRequest undocumented
-	EligibilityFilteringEnabledEntitiesVSwapRequest EligibilityFilteringEnabledEntities = "swapRequest"
-	// EligibilityFilteringEnabledEntitiesVOfferShiftRequest undocumented
-	EligibilityFilteringEnabledEntitiesVOfferShiftRequest EligibilityFilteringEnabledEntities = "offerShiftRequest"
+	// EligibilityFilteringEnabledEntitiesVSwapRequestObject undocumented
+	EligibilityFilteringEnabledEntitiesVSwapRequestObject EligibilityFilteringEnabledEntities = "swapRequest"
+	// EligibilityFilteringEnabledEntitiesVOfferShiftRequestObject undocumented
+	EligibilityFilteringEnabledEntitiesVOfferShiftRequestObject EligibilityFilteringEnabledEntities = "offerShiftRequest"
 	// EligibilityFilteringEnabledEntitiesVUnknownFutureValue undocumented
 	EligibilityFilteringEnabledEntitiesVUnknownFutureValue EligibilityFilteringEnabledEntities = "unknownFutureValue"
 )
@@ -19,17 +19,17 @@ const (
 var (
 	// EligibilityFilteringEnabledEntitiesPNone is a pointer to EligibilityFilteringEnabledEntitiesVNone
 	EligibilityFilteringEnabledEntitiesPNone = &_EligibilityFilteringEnabledEntitiesPNone
-	// EligibilityFilteringEnabledEntitiesPSwapRequest is a pointer to EligibilityFilteringEnabledEntitiesVSwapRequest
-	EligibilityFilteringEnabledEntitiesPSwapRequest = &_EligibilityFilteringEnabledEntitiesPSwapRequest
-	// EligibilityFilteringEnabledEntitiesPOfferShiftRequest is a pointer to EligibilityFilteringEnabledEntitiesVOfferShiftRequest
-	EligibilityFilteringEnabledEntitiesPOfferShiftRequest = &_EligibilityFilteringEnabledEntitiesPOfferShiftRequest
+	// EligibilityFilteringEnabledEntitiesPSwapRequestObject is a pointer to EligibilityFilteringEnabledEntitiesVSwapRequestObject
+	EligibilityFilteringEnabledEntitiesPSwapRequestObject = &_EligibilityFilteringEnabledEntitiesPSwapRequestObject
+	// EligibilityFilteringEnabledEntitiesPOfferShiftRequestObject is a pointer to EligibilityFilteringEnabledEntitiesVOfferShiftRequestObject
+	EligibilityFilteringEnabledEntitiesPOfferShiftRequestObject = &_EligibilityFilteringEnabledEntitiesPOfferShiftRequestObject
 	// EligibilityFilteringEnabledEntitiesPUnknownFutureValue is a pointer to EligibilityFilteringEnabledEntitiesVUnknownFutureValue
 	EligibilityFilteringEnabledEntitiesPUnknownFutureValue = &_EligibilityFilteringEnabledEntitiesPUnknownFutureValue
 )
 
 var (
-	_EligibilityFilteringEnabledEntitiesPNone               = EligibilityFilteringEnabledEntitiesVNone
-	_EligibilityFilteringEnabledEntitiesPSwapRequest        = EligibilityFilteringEnabledEntitiesVSwapRequest
-	_EligibilityFilteringEnabledEntitiesPOfferShiftRequest  = EligibilityFilteringEnabledEntitiesVOfferShiftRequest
-	_EligibilityFilteringEnabledEntitiesPUnknownFutureValue = EligibilityFilteringEnabledEntitiesVUnknownFutureValue
+	_EligibilityFilteringEnabledEntitiesPNone                    = EligibilityFilteringEnabledEntitiesVNone
+	_EligibilityFilteringEnabledEntitiesPSwapRequestObject       = EligibilityFilteringEnabledEntitiesVSwapRequestObject
+	_EligibilityFilteringEnabledEntitiesPOfferShiftRequestObject = EligibilityFilteringEnabledEntitiesVOfferShiftRequestObject
+	_EligibilityFilteringEnabledEntitiesPUnknownFutureValue      = EligibilityFilteringEnabledEntitiesVUnknownFutureValue
 )

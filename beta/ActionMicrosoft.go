@@ -12,8 +12,8 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// MicrosoftTunnelServerCreateServerLogCollectionRequestActionRequestParameter undocumented
-type MicrosoftTunnelServerCreateServerLogCollectionRequestActionRequestParameter struct {
+// MicrosoftTunnelServerCreateServerLogCollectionRequestObjectRequestParameter undocumented
+type MicrosoftTunnelServerCreateServerLogCollectionRequestObjectRequestParameter struct {
 	// StartDateTime undocumented
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime undocumented

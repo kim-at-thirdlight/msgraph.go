@@ -4,21 +4,21 @@ package msgraph
 
 import "context"
 
-// TextClassificationRequestRequestBuilder is request builder for TextClassificationRequest
-type TextClassificationRequestRequestBuilder struct{ BaseRequestBuilder }
+// TextClassificationRequestObjectRequestBuilder is request builder for TextClassificationRequestObject
+type TextClassificationRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns TextClassificationRequestRequest
-func (b *TextClassificationRequestRequestBuilder) Request() *TextClassificationRequestRequest {
-	return &TextClassificationRequestRequest{
+// Request returns TextClassificationRequestObjectRequest
+func (b *TextClassificationRequestObjectRequestBuilder) Request() *TextClassificationRequestObjectRequest {
+	return &TextClassificationRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// TextClassificationRequestRequest is request for TextClassificationRequest
-type TextClassificationRequestRequest struct{ BaseRequest }
+// TextClassificationRequestObjectRequest is request for TextClassificationRequestObject
+type TextClassificationRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for TextClassificationRequest
-func (r *TextClassificationRequestRequest) Get(ctx context.Context) (resObj *TextClassificationRequest, err error) {
+// Get performs GET request for TextClassificationRequestObject
+func (r *TextClassificationRequestObjectRequest) Get(ctx context.Context) (resObj *TextClassificationRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,12 +27,12 @@ func (r *TextClassificationRequestRequest) Get(ctx context.Context) (resObj *Tex
 	return
 }
 
-// Update performs PATCH request for TextClassificationRequest
-func (r *TextClassificationRequestRequest) Update(ctx context.Context, reqObj *TextClassificationRequest) error {
+// Update performs PATCH request for TextClassificationRequestObject
+func (r *TextClassificationRequestObjectRequest) Update(ctx context.Context, reqObj *TextClassificationRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for TextClassificationRequest
-func (r *TextClassificationRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for TextClassificationRequestObject
+func (r *TextClassificationRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

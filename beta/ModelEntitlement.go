@@ -11,7 +11,7 @@ type EntitlementManagement struct {
 	// AccessPackageAssignmentPolicies undocumented
 	AccessPackageAssignmentPolicies []AccessPackageAssignmentPolicy `json:"accessPackageAssignmentPolicies,omitempty"`
 	// AccessPackageAssignmentRequests undocumented
-	AccessPackageAssignmentRequests []AccessPackageAssignmentRequest `json:"accessPackageAssignmentRequests,omitempty"`
+	AccessPackageAssignmentRequests []AccessPackageAssignmentRequestObject `json:"accessPackageAssignmentRequests,omitempty"`
 	// AccessPackageAssignmentResourceRoles undocumented
 	AccessPackageAssignmentResourceRoles []AccessPackageAssignmentResourceRole `json:"accessPackageAssignmentResourceRoles,omitempty"`
 	// AccessPackageAssignments undocumented
@@ -21,7 +21,7 @@ type EntitlementManagement struct {
 	// AccessPackageResourceEnvironments undocumented
 	AccessPackageResourceEnvironments []AccessPackageResourceEnvironment `json:"accessPackageResourceEnvironments,omitempty"`
 	// AccessPackageResourceRequests undocumented
-	AccessPackageResourceRequests []AccessPackageResourceRequest `json:"accessPackageResourceRequests,omitempty"`
+	AccessPackageResourceRequests []AccessPackageResourceRequestObject `json:"accessPackageResourceRequests,omitempty"`
 	// AccessPackageResourceRoleScopes undocumented
 	AccessPackageResourceRoleScopes []AccessPackageResourceRoleScope `json:"accessPackageResourceRoleScopes,omitempty"`
 	// AccessPackageResources undocumented

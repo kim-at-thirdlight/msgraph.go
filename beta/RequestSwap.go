@@ -4,21 +4,21 @@ package msgraph
 
 import "context"
 
-// SwapShiftsChangeRequestRequestBuilder is request builder for SwapShiftsChangeRequest
-type SwapShiftsChangeRequestRequestBuilder struct{ BaseRequestBuilder }
+// SwapShiftsChangeRequestObjectRequestBuilder is request builder for SwapShiftsChangeRequestObject
+type SwapShiftsChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns SwapShiftsChangeRequestRequest
-func (b *SwapShiftsChangeRequestRequestBuilder) Request() *SwapShiftsChangeRequestRequest {
-	return &SwapShiftsChangeRequestRequest{
+// Request returns SwapShiftsChangeRequestObjectRequest
+func (b *SwapShiftsChangeRequestObjectRequestBuilder) Request() *SwapShiftsChangeRequestObjectRequest {
+	return &SwapShiftsChangeRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// SwapShiftsChangeRequestRequest is request for SwapShiftsChangeRequest
-type SwapShiftsChangeRequestRequest struct{ BaseRequest }
+// SwapShiftsChangeRequestObjectRequest is request for SwapShiftsChangeRequestObject
+type SwapShiftsChangeRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for SwapShiftsChangeRequest
-func (r *SwapShiftsChangeRequestRequest) Get(ctx context.Context) (resObj *SwapShiftsChangeRequest, err error) {
+// Get performs GET request for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) Get(ctx context.Context) (resObj *SwapShiftsChangeRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,12 +27,12 @@ func (r *SwapShiftsChangeRequestRequest) Get(ctx context.Context) (resObj *SwapS
 	return
 }
 
-// Update performs PATCH request for SwapShiftsChangeRequest
-func (r *SwapShiftsChangeRequestRequest) Update(ctx context.Context, reqObj *SwapShiftsChangeRequest) error {
+// Update performs PATCH request for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) Update(ctx context.Context, reqObj *SwapShiftsChangeRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for SwapShiftsChangeRequest
-func (r *SwapShiftsChangeRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for SwapShiftsChangeRequestObject
+func (r *SwapShiftsChangeRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

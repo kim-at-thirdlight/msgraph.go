@@ -103,39 +103,6 @@ func (r *AccessPackageAssignmentPolicyRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// AccessPackageAssignmentRequestRequestBuilder is request builder for AccessPackageAssignmentRequest
-type AccessPackageAssignmentRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns AccessPackageAssignmentRequestRequest
-func (b *AccessPackageAssignmentRequestRequestBuilder) Request() *AccessPackageAssignmentRequestRequest {
-	return &AccessPackageAssignmentRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// AccessPackageAssignmentRequestRequest is request for AccessPackageAssignmentRequest
-type AccessPackageAssignmentRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for AccessPackageAssignmentRequest
-func (r *AccessPackageAssignmentRequestRequest) Get(ctx context.Context) (resObj *AccessPackageAssignmentRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for AccessPackageAssignmentRequest
-func (r *AccessPackageAssignmentRequestRequest) Update(ctx context.Context, reqObj *AccessPackageAssignmentRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for AccessPackageAssignmentRequest
-func (r *AccessPackageAssignmentRequestRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
 // AccessPackageAssignmentRequestObjectRequestBuilder is request builder for AccessPackageAssignmentRequestObject
 type AccessPackageAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -298,39 +265,6 @@ func (r *AccessPackageResourceEnvironmentRequest) Update(ctx context.Context, re
 
 // Delete performs DELETE request for AccessPackageResourceEnvironment
 func (r *AccessPackageResourceEnvironmentRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-// AccessPackageResourceRequestRequestBuilder is request builder for AccessPackageResourceRequest
-type AccessPackageResourceRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns AccessPackageResourceRequestRequest
-func (b *AccessPackageResourceRequestRequestBuilder) Request() *AccessPackageResourceRequestRequest {
-	return &AccessPackageResourceRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// AccessPackageResourceRequestRequest is request for AccessPackageResourceRequest
-type AccessPackageResourceRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for AccessPackageResourceRequest
-func (r *AccessPackageResourceRequestRequest) Get(ctx context.Context) (resObj *AccessPackageResourceRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for AccessPackageResourceRequest
-func (r *AccessPackageResourceRequestRequest) Update(ctx context.Context, reqObj *AccessPackageResourceRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for AccessPackageResourceRequest
-func (r *AccessPackageResourceRequestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 

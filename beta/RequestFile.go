@@ -4,21 +4,21 @@ package msgraph
 
 import "context"
 
-// FileClassificationRequestRequestBuilder is request builder for FileClassificationRequest
-type FileClassificationRequestRequestBuilder struct{ BaseRequestBuilder }
+// FileClassificationRequestObjectRequestBuilder is request builder for FileClassificationRequestObject
+type FileClassificationRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns FileClassificationRequestRequest
-func (b *FileClassificationRequestRequestBuilder) Request() *FileClassificationRequestRequest {
-	return &FileClassificationRequestRequest{
+// Request returns FileClassificationRequestObjectRequest
+func (b *FileClassificationRequestObjectRequestBuilder) Request() *FileClassificationRequestObjectRequest {
+	return &FileClassificationRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// FileClassificationRequestRequest is request for FileClassificationRequest
-type FileClassificationRequestRequest struct{ BaseRequest }
+// FileClassificationRequestObjectRequest is request for FileClassificationRequestObject
+type FileClassificationRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for FileClassificationRequest
-func (r *FileClassificationRequestRequest) Get(ctx context.Context) (resObj *FileClassificationRequest, err error) {
+// Get performs GET request for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) Get(ctx context.Context) (resObj *FileClassificationRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,13 +27,13 @@ func (r *FileClassificationRequestRequest) Get(ctx context.Context) (resObj *Fil
 	return
 }
 
-// Update performs PATCH request for FileClassificationRequest
-func (r *FileClassificationRequestRequest) Update(ctx context.Context, reqObj *FileClassificationRequest) error {
+// Update performs PATCH request for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) Update(ctx context.Context, reqObj *FileClassificationRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for FileClassificationRequest
-func (r *FileClassificationRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for FileClassificationRequestObject
+func (r *FileClassificationRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 

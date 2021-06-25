@@ -13,7 +13,7 @@ type PrivilegedAccess struct {
 	// Resources undocumented
 	Resources []GovernanceResource `json:"resources,omitempty"`
 	// RoleAssignmentRequests undocumented
-	RoleAssignmentRequests []GovernanceRoleAssignmentRequest `json:"roleAssignmentRequests,omitempty"`
+	RoleAssignmentRequests []GovernanceRoleAssignmentRequestObject `json:"roleAssignmentRequests,omitempty"`
 	// RoleAssignments undocumented
 	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
 	// RoleDefinitions undocumented
@@ -44,8 +44,8 @@ type PrivilegedApproval struct {
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`
-	// RequestNavigation undocumented
-	RequestNavigation *PrivilegedRoleAssignmentRequest `json:"request,omitempty"`
+	// RequestObject undocumented
+	RequestObject *PrivilegedRoleAssignmentRequestObject `json:"request,omitempty"`
 	// RoleInfo undocumented
 	RoleInfo *PrivilegedRole `json:"roleInfo,omitempty"`
 }

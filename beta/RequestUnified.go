@@ -235,39 +235,6 @@ func (r *UnifiedRoleAssignmentScheduleInstanceRequest) Delete(ctx context.Contex
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// UnifiedRoleAssignmentScheduleRequestRequestBuilder is request builder for UnifiedRoleAssignmentScheduleRequest
-type UnifiedRoleAssignmentScheduleRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns UnifiedRoleAssignmentScheduleRequestRequest
-func (b *UnifiedRoleAssignmentScheduleRequestRequestBuilder) Request() *UnifiedRoleAssignmentScheduleRequestRequest {
-	return &UnifiedRoleAssignmentScheduleRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// UnifiedRoleAssignmentScheduleRequestRequest is request for UnifiedRoleAssignmentScheduleRequest
-type UnifiedRoleAssignmentScheduleRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for UnifiedRoleAssignmentScheduleRequest
-func (r *UnifiedRoleAssignmentScheduleRequestRequest) Get(ctx context.Context) (resObj *UnifiedRoleAssignmentScheduleRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for UnifiedRoleAssignmentScheduleRequest
-func (r *UnifiedRoleAssignmentScheduleRequestRequest) Update(ctx context.Context, reqObj *UnifiedRoleAssignmentScheduleRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for UnifiedRoleAssignmentScheduleRequest
-func (r *UnifiedRoleAssignmentScheduleRequestRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
 // UnifiedRoleAssignmentScheduleRequestObjectRequestBuilder is request builder for UnifiedRoleAssignmentScheduleRequestObject
 type UnifiedRoleAssignmentScheduleRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -397,39 +364,6 @@ func (r *UnifiedRoleEligibilityScheduleInstanceRequest) Update(ctx context.Conte
 
 // Delete performs DELETE request for UnifiedRoleEligibilityScheduleInstance
 func (r *UnifiedRoleEligibilityScheduleInstanceRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-// UnifiedRoleEligibilityScheduleRequestRequestBuilder is request builder for UnifiedRoleEligibilityScheduleRequest
-type UnifiedRoleEligibilityScheduleRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns UnifiedRoleEligibilityScheduleRequestRequest
-func (b *UnifiedRoleEligibilityScheduleRequestRequestBuilder) Request() *UnifiedRoleEligibilityScheduleRequestRequest {
-	return &UnifiedRoleEligibilityScheduleRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// UnifiedRoleEligibilityScheduleRequestRequest is request for UnifiedRoleEligibilityScheduleRequest
-type UnifiedRoleEligibilityScheduleRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for UnifiedRoleEligibilityScheduleRequest
-func (r *UnifiedRoleEligibilityScheduleRequestRequest) Get(ctx context.Context) (resObj *UnifiedRoleEligibilityScheduleRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for UnifiedRoleEligibilityScheduleRequest
-func (r *UnifiedRoleEligibilityScheduleRequestRequest) Update(ctx context.Context, reqObj *UnifiedRoleEligibilityScheduleRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for UnifiedRoleEligibilityScheduleRequest
-func (r *UnifiedRoleEligibilityScheduleRequestRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 

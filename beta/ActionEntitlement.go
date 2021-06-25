@@ -217,35 +217,35 @@ func (r *EntitlementManagementAccessPackageAssignmentPoliciesCollectionRequest) 
 	return
 }
 
-// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequest collection
+// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequestObject collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageAssignmentRequests() *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/accessPackageAssignmentRequests"
 	return bb
 }
 
-// EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequest collection
+// EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequestObject collection
 type EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AccessPackageAssignmentRequest collection
+// Request returns request for AccessPackageAssignmentRequestObject collection
 func (b *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest {
 	return &EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AccessPackageAssignmentRequest item
-func (b *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestRequestBuilder {
-	bb := &AccessPackageAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for AccessPackageAssignmentRequestObject item
+func (b *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestObjectRequestBuilder {
+	bb := &AccessPackageAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequest collection
+// EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequestObject collection
 type EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AccessPackageAssignmentRequest collection
-func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequest, error) {
+// Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -257,7 +257,7 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 	if err != nil {
 		return nil, err
 	}
-	var values []AccessPackageAssignmentRequest
+	var values []AccessPackageAssignmentRequestObject
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -271,7 +271,7 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 		}
 		var (
 			paging Paging
-			value  []AccessPackageAssignmentRequest
+			value  []AccessPackageAssignmentRequestObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -300,8 +300,8 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 	}
 }
 
-// GetN performs GET request for AccessPackageAssignmentRequest collection, max N pages
-func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequest, error) {
+// GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -309,13 +309,13 @@ func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) 
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AccessPackageAssignmentRequest collection
-func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequest, error) {
+// Get performs GET request for AccessPackageAssignmentRequestObject collection
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AccessPackageAssignmentRequest collection
-func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequest) (resObj *AccessPackageAssignmentRequest, err error) {
+// Add performs POST request for AccessPackageAssignmentRequestObject collection
+func (r *EntitlementManagementAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -732,35 +732,35 @@ func (r *EntitlementManagementAccessPackageResourceEnvironmentsCollectionRequest
 	return
 }
 
-// AccessPackageResourceRequests returns request builder for AccessPackageResourceRequest collection
+// AccessPackageResourceRequests returns request builder for AccessPackageResourceRequestObject collection
 func (b *EntitlementManagementRequestBuilder) AccessPackageResourceRequests() *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder {
 	bb := &EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/accessPackageResourceRequests"
 	return bb
 }
 
-// EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder is request builder for AccessPackageResourceRequest collection
+// EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder is request builder for AccessPackageResourceRequestObject collection
 type EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AccessPackageResourceRequest collection
+// Request returns request for AccessPackageResourceRequestObject collection
 func (b *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder) Request() *EntitlementManagementAccessPackageResourceRequestsCollectionRequest {
 	return &EntitlementManagementAccessPackageResourceRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AccessPackageResourceRequest item
-func (b *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder) ID(id string) *AccessPackageResourceRequestRequestBuilder {
-	bb := &AccessPackageResourceRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for AccessPackageResourceRequestObject item
+func (b *EntitlementManagementAccessPackageResourceRequestsCollectionRequestBuilder) ID(id string) *AccessPackageResourceRequestObjectRequestBuilder {
+	bb := &AccessPackageResourceRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// EntitlementManagementAccessPackageResourceRequestsCollectionRequest is request for AccessPackageResourceRequest collection
+// EntitlementManagementAccessPackageResourceRequestsCollectionRequest is request for AccessPackageResourceRequestObject collection
 type EntitlementManagementAccessPackageResourceRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AccessPackageResourceRequest collection
-func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRequest, error) {
+// Paging perfoms paging operation for AccessPackageResourceRequestObject collection
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -772,7 +772,7 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Pa
 	if err != nil {
 		return nil, err
 	}
-	var values []AccessPackageResourceRequest
+	var values []AccessPackageResourceRequestObject
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -786,7 +786,7 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Pa
 		}
 		var (
 			paging Paging
-			value  []AccessPackageResourceRequest
+			value  []AccessPackageResourceRequestObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -815,8 +815,8 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Pa
 	}
 }
 
-// GetN performs GET request for AccessPackageResourceRequest collection, max N pages
-func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRequest, error) {
+// GetN performs GET request for AccessPackageResourceRequestObject collection, max N pages
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -824,13 +824,13 @@ func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Ge
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AccessPackageResourceRequest collection
-func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRequest, error) {
+// Get performs GET request for AccessPackageResourceRequestObject collection
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRequestObject, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AccessPackageResourceRequest collection
-func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRequest) (resObj *AccessPackageResourceRequest, err error) {
+// Add performs POST request for AccessPackageResourceRequestObject collection
+func (r *EntitlementManagementAccessPackageResourceRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRequestObject) (resObj *AccessPackageResourceRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

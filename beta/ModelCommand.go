@@ -13,7 +13,7 @@ type Command struct {
 	// PackageFamilyName undocumented
 	PackageFamilyName *string `json:"packageFamilyName,omitempty"`
 	// Payload undocumented
-	Payload *PayloadRequest `json:"payload,omitempty"`
+	Payload *PayloadRequestObject `json:"payload,omitempty"`
 	// PermissionTicket undocumented
 	PermissionTicket *string `json:"permissionTicket,omitempty"`
 	// PostBackURI undocumented

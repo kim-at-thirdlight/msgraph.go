@@ -11,11 +11,11 @@ type DataClassificationService struct {
 	// ExactMatchDataStores undocumented
 	ExactMatchDataStores []ExactMatchDataStore `json:"exactMatchDataStores,omitempty"`
 	// ClassifyFile undocumented
-	ClassifyFile []FileClassificationRequest `json:"classifyFile,omitempty"`
+	ClassifyFile []FileClassificationRequestObject `json:"classifyFile,omitempty"`
 	// ClassifyFileJobs undocumented
 	ClassifyFileJobs []JobResponseBase `json:"classifyFileJobs,omitempty"`
 	// ClassifyText undocumented
-	ClassifyText []TextClassificationRequest `json:"classifyText,omitempty"`
+	ClassifyText []TextClassificationRequestObject `json:"classifyText,omitempty"`
 	// ClassifyTextJobs undocumented
 	ClassifyTextJobs []JobResponseBase `json:"classifyTextJobs,omitempty"`
 	// EvaluateDlpPoliciesJobs undocumented

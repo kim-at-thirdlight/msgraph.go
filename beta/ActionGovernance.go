@@ -17,12 +17,12 @@ type GovernanceResourceCollectionRegisterRequestParameter struct {
 	ExternalID *string `json:"externalId,omitempty"`
 }
 
-// GovernanceRoleAssignmentRequestCancelRequestParameter undocumented
-type GovernanceRoleAssignmentRequestCancelRequestParameter struct {
+// GovernanceRoleAssignmentRequestObjectCancelRequestParameter undocumented
+type GovernanceRoleAssignmentRequestObjectCancelRequestParameter struct {
 }
 
-// GovernanceRoleAssignmentRequestUpdateRequestActionRequestParameter undocumented
-type GovernanceRoleAssignmentRequestUpdateRequestActionRequestParameter struct {
+// GovernanceRoleAssignmentRequestObjectUpdateRequestObjectRequestParameter undocumented
+type GovernanceRoleAssignmentRequestObjectUpdateRequestObjectRequestParameter struct {
 	// Decision undocumented
 	Decision *string `json:"decision,omitempty"`
 	// AssignmentState undocumented
@@ -40,35 +40,35 @@ func (b *GovernanceResourceRequestBuilder) Parent() *GovernanceResourceRequestBu
 	return bb
 }
 
-// RoleAssignmentRequests returns request builder for GovernanceRoleAssignmentRequest collection
+// RoleAssignmentRequests returns request builder for GovernanceRoleAssignmentRequestObject collection
 func (b *GovernanceResourceRequestBuilder) RoleAssignmentRequests() *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder {
 	bb := &GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/roleAssignmentRequests"
 	return bb
 }
 
-// GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder is request builder for GovernanceRoleAssignmentRequest collection
+// GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder is request builder for GovernanceRoleAssignmentRequestObject collection
 type GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for GovernanceRoleAssignmentRequest collection
+// Request returns request for GovernanceRoleAssignmentRequestObject collection
 func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) Request() *GovernanceResourceRoleAssignmentRequestsCollectionRequest {
 	return &GovernanceResourceRoleAssignmentRequestsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for GovernanceRoleAssignmentRequest item
-func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) ID(id string) *GovernanceRoleAssignmentRequestRequestBuilder {
-	bb := &GovernanceRoleAssignmentRequestRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for GovernanceRoleAssignmentRequestObject item
+func (b *GovernanceResourceRoleAssignmentRequestsCollectionRequestBuilder) ID(id string) *GovernanceRoleAssignmentRequestObjectRequestBuilder {
+	bb := &GovernanceRoleAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// GovernanceResourceRoleAssignmentRequestsCollectionRequest is request for GovernanceRoleAssignmentRequest collection
+// GovernanceResourceRoleAssignmentRequestsCollectionRequest is request for GovernanceRoleAssignmentRequestObject collection
 type GovernanceResourceRoleAssignmentRequestsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for GovernanceRoleAssignmentRequest collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequest, error) {
+// Paging perfoms paging operation for GovernanceRoleAssignmentRequestObject collection
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -80,7 +80,7 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 	if err != nil {
 		return nil, err
 	}
-	var values []GovernanceRoleAssignmentRequest
+	var values []GovernanceRoleAssignmentRequestObject
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -94,7 +94,7 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 		}
 		var (
 			paging Paging
-			value  []GovernanceRoleAssignmentRequest
+			value  []GovernanceRoleAssignmentRequestObject
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -123,8 +123,8 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Paging(ctx c
 	}
 }
 
-// GetN performs GET request for GovernanceRoleAssignmentRequest collection, max N pages
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequest, error) {
+// GetN performs GET request for GovernanceRoleAssignmentRequestObject collection, max N pages
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]GovernanceRoleAssignmentRequestObject, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -132,13 +132,13 @@ func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) GetN(ctx con
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for GovernanceRoleAssignmentRequest collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequest, error) {
+// Get performs GET request for GovernanceRoleAssignmentRequestObject collection
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]GovernanceRoleAssignmentRequestObject, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for GovernanceRoleAssignmentRequest collection
-func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleAssignmentRequest) (resObj *GovernanceRoleAssignmentRequest, err error) {
+// Add performs POST request for GovernanceRoleAssignmentRequestObject collection
+func (r *GovernanceResourceRoleAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *GovernanceRoleAssignmentRequestObject) (resObj *GovernanceRoleAssignmentRequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

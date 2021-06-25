@@ -70,39 +70,6 @@ func (r *AppConsentApprovalRouteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// AppConsentRequestRequestBuilder is request builder for AppConsentRequest
-type AppConsentRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns AppConsentRequestRequest
-func (b *AppConsentRequestRequestBuilder) Request() *AppConsentRequestRequest {
-	return &AppConsentRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// AppConsentRequestRequest is request for AppConsentRequest
-type AppConsentRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for AppConsentRequest
-func (r *AppConsentRequestRequest) Get(ctx context.Context) (resObj *AppConsentRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for AppConsentRequest
-func (r *AppConsentRequestRequest) Update(ctx context.Context, reqObj *AppConsentRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for AppConsentRequest
-func (r *AppConsentRequestRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
 // AppConsentRequestObjectRequestBuilder is request builder for AppConsentRequestObject
 type AppConsentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
@@ -136,21 +103,21 @@ func (r *AppConsentRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// AppLogCollectionRequestRequestBuilder is request builder for AppLogCollectionRequest
-type AppLogCollectionRequestRequestBuilder struct{ BaseRequestBuilder }
+// AppLogCollectionRequestObjectRequestBuilder is request builder for AppLogCollectionRequestObject
+type AppLogCollectionRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns AppLogCollectionRequestRequest
-func (b *AppLogCollectionRequestRequestBuilder) Request() *AppLogCollectionRequestRequest {
-	return &AppLogCollectionRequestRequest{
+// Request returns AppLogCollectionRequestObjectRequest
+func (b *AppLogCollectionRequestObjectRequestBuilder) Request() *AppLogCollectionRequestObjectRequest {
+	return &AppLogCollectionRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// AppLogCollectionRequestRequest is request for AppLogCollectionRequest
-type AppLogCollectionRequestRequest struct{ BaseRequest }
+// AppLogCollectionRequestObjectRequest is request for AppLogCollectionRequestObject
+type AppLogCollectionRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for AppLogCollectionRequest
-func (r *AppLogCollectionRequestRequest) Get(ctx context.Context) (resObj *AppLogCollectionRequest, err error) {
+// Get performs GET request for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) Get(ctx context.Context) (resObj *AppLogCollectionRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -159,13 +126,13 @@ func (r *AppLogCollectionRequestRequest) Get(ctx context.Context) (resObj *AppLo
 	return
 }
 
-// Update performs PATCH request for AppLogCollectionRequest
-func (r *AppLogCollectionRequestRequest) Update(ctx context.Context, reqObj *AppLogCollectionRequest) error {
+// Update performs PATCH request for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) Update(ctx context.Context, reqObj *AppLogCollectionRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for AppLogCollectionRequest
-func (r *AppLogCollectionRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for AppLogCollectionRequestObject
+func (r *AppLogCollectionRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 

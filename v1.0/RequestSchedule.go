@@ -37,21 +37,21 @@ func (r *ScheduleRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// ScheduleChangeRequestRequestBuilder is request builder for ScheduleChangeRequest
-type ScheduleChangeRequestRequestBuilder struct{ BaseRequestBuilder }
+// ScheduleChangeRequestObjectRequestBuilder is request builder for ScheduleChangeRequestObject
+type ScheduleChangeRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns ScheduleChangeRequestRequest
-func (b *ScheduleChangeRequestRequestBuilder) Request() *ScheduleChangeRequestRequest {
-	return &ScheduleChangeRequestRequest{
+// Request returns ScheduleChangeRequestObjectRequest
+func (b *ScheduleChangeRequestObjectRequestBuilder) Request() *ScheduleChangeRequestObjectRequest {
+	return &ScheduleChangeRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ScheduleChangeRequestRequest is request for ScheduleChangeRequest
-type ScheduleChangeRequestRequest struct{ BaseRequest }
+// ScheduleChangeRequestObjectRequest is request for ScheduleChangeRequestObject
+type ScheduleChangeRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for ScheduleChangeRequest
-func (r *ScheduleChangeRequestRequest) Get(ctx context.Context) (resObj *ScheduleChangeRequest, err error) {
+// Get performs GET request for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) Get(ctx context.Context) (resObj *ScheduleChangeRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -60,12 +60,12 @@ func (r *ScheduleChangeRequestRequest) Get(ctx context.Context) (resObj *Schedul
 	return
 }
 
-// Update performs PATCH request for ScheduleChangeRequest
-func (r *ScheduleChangeRequestRequest) Update(ctx context.Context, reqObj *ScheduleChangeRequest) error {
+// Update performs PATCH request for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) Update(ctx context.Context, reqObj *ScheduleChangeRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for ScheduleChangeRequest
-func (r *ScheduleChangeRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for ScheduleChangeRequestObject
+func (r *ScheduleChangeRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

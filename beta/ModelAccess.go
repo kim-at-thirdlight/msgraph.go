@@ -95,7 +95,7 @@ type AccessPackageAssignment struct {
 	// AccessPackageAssignmentPolicy undocumented
 	AccessPackageAssignmentPolicy *AccessPackageAssignmentPolicy `json:"accessPackageAssignmentPolicy,omitempty"`
 	// AccessPackageAssignmentRequests undocumented
-	AccessPackageAssignmentRequests []AccessPackageAssignmentRequest `json:"accessPackageAssignmentRequests,omitempty"`
+	AccessPackageAssignmentRequests []AccessPackageAssignmentRequestObject `json:"accessPackageAssignmentRequests,omitempty"`
 	// AccessPackageAssignmentResourceRoles undocumented
 	AccessPackageAssignmentResourceRoles []AccessPackageAssignmentResourceRole `json:"accessPackageAssignmentResourceRoles,omitempty"`
 	// Target undocumented

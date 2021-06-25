@@ -42,37 +42,41 @@ func ptrType(t string) string {
 	return "*" + t
 }
 
-func formatNS(t string) (string, bool) {
+func stripNS(t string) (string, bool) {
 	for ns := range nsPrefixes {
 		if strings.HasPrefix(t, ns) {
-			return strings.Replace(
-				t[len(ns):],
-				".",
-				"",
-				-1,
-			), true
+			return t[len(ns):], true
 		}
 	}
 	return t, false
 }
 
+func formatNS(t string) (string, bool) {
+	t, ok := stripNS(t)
+	return strings.Replace(t, ".", "", -1), ok
+}
+
 func exported(n string) string {
-	n = lintName(strings.Title(n))
-	if strings.HasSuffix(n, "Request") {
-		// NOTE: this is a really hacky place to put this
-		//       logic, but it ensures it occurs to all exported
-		//       names (which was previously an issue)
-		n += "Object"
-	}
-	return n
+	return lintName(strings.Title(n))
 }
 
 func isCollectionType(t string) bool {
 	return strings.HasPrefix(t, colPrefix)
 }
 
+func (g *Generator) AddSymTypeMapping(t string, sym string) {
+	t, _ = stripNS(t)
+	g.SymTypeMap[t] = sym
+}
+
+func (g *Generator) GetSymTypeMapping(t string) (string, bool) {
+	t, _ = stripNS(t)
+	sym, ok := g.SymTypeMap[t]
+	return sym, ok
+}
+
 func (g *Generator) SymBaseType(t string) string {
-	if x, ok := g.SymTypeMap[t]; ok {
+	if x, ok := g.GetSymTypeMapping(t); ok {
 		return x
 	}
 	if x, ok := formatNS(t); ok {
@@ -85,7 +89,7 @@ func (g *Generator) SymBaseType(t string) string {
 }
 
 func (g *Generator) SymFromType(t string) string {
-	if x, ok := g.SymTypeMap[t]; ok {
+	if x, ok := g.GetSymTypeMapping(t); ok {
 		return x
 	}
 	if x, ok := formatNS(t); ok {
@@ -101,7 +105,7 @@ func (g *Generator) TypeFromType(t string) string {
 	if x, ok := reservedTypeTable[t]; ok {
 		return ptrType(x)
 	}
-	if x, ok := g.SymTypeMap[t]; ok {
+	if x, ok := g.GetSymTypeMapping(t); ok {
 		return ptrType(x)
 	}
 	if x, ok := formatNS(t); ok {

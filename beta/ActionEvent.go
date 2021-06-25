@@ -63,16 +63,16 @@ type EventTentativelyAcceptRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventMessageRequestAcceptRequestParameter undocumented
-type EventMessageRequestAcceptRequestParameter struct {
+// EventMessageRequestObjectAcceptRequestParameter undocumented
+type EventMessageRequestObjectAcceptRequestParameter struct {
 	// SendResponse undocumented
 	SendResponse *bool `json:"SendResponse,omitempty"`
 	// Comment undocumented
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventMessageRequestDeclineRequestParameter undocumented
-type EventMessageRequestDeclineRequestParameter struct {
+// EventMessageRequestObjectDeclineRequestParameter undocumented
+type EventMessageRequestObjectDeclineRequestParameter struct {
 	// ProposedNewTime undocumented
 	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented
@@ -81,8 +81,8 @@ type EventMessageRequestDeclineRequestParameter struct {
 	Comment *string `json:"Comment,omitempty"`
 }
 
-// EventMessageRequestTentativelyAcceptRequestParameter undocumented
-type EventMessageRequestTentativelyAcceptRequestParameter struct {
+// EventMessageRequestObjectTentativelyAcceptRequestParameter undocumented
+type EventMessageRequestObjectTentativelyAcceptRequestParameter struct {
 	// ProposedNewTime undocumented
 	ProposedNewTime *TimeSlot `json:"ProposedNewTime,omitempty"`
 	// SendResponse undocumented

@@ -7,5 +7,5 @@ type InformationProtection struct {
 	// Entity is the base model of InformationProtection
 	Entity
 	// ThreatAssessmentRequests undocumented
-	ThreatAssessmentRequests []ThreatAssessmentRequest `json:"threatAssessmentRequests,omitempty"`
+	ThreatAssessmentRequests []ThreatAssessmentRequestObject `json:"threatAssessmentRequests,omitempty"`
 }

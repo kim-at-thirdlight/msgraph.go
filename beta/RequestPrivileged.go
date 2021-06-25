@@ -169,39 +169,6 @@ func (r *PrivilegedRoleAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// PrivilegedRoleAssignmentRequestRequestBuilder is request builder for PrivilegedRoleAssignmentRequest
-type PrivilegedRoleAssignmentRequestRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns PrivilegedRoleAssignmentRequestRequest
-func (b *PrivilegedRoleAssignmentRequestRequestBuilder) Request() *PrivilegedRoleAssignmentRequestRequest {
-	return &PrivilegedRoleAssignmentRequestRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// PrivilegedRoleAssignmentRequestRequest is request for PrivilegedRoleAssignmentRequest
-type PrivilegedRoleAssignmentRequestRequest struct{ BaseRequest }
-
-// Get performs GET request for PrivilegedRoleAssignmentRequest
-func (r *PrivilegedRoleAssignmentRequestRequest) Get(ctx context.Context) (resObj *PrivilegedRoleAssignmentRequest, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for PrivilegedRoleAssignmentRequest
-func (r *PrivilegedRoleAssignmentRequestRequest) Update(ctx context.Context, reqObj *PrivilegedRoleAssignmentRequest) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for PrivilegedRoleAssignmentRequest
-func (r *PrivilegedRoleAssignmentRequestRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
 // PrivilegedRoleAssignmentRequestObjectRequestBuilder is request builder for PrivilegedRoleAssignmentRequestObject
 type PrivilegedRoleAssignmentRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 

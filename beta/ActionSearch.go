@@ -5,7 +5,7 @@ package msgraph
 // SearchEntityQueryRequestParameter undocumented
 type SearchEntityQueryRequestParameter struct {
 	// Requests undocumented
-	Requests []SearchRequest `json:"requests,omitempty"`
+	Requests []SearchRequestObject `json:"requests,omitempty"`
 	// QueryAlterationOptions undocumented
 	QueryAlterationOptions *SearchAlterationOptions `json:"queryAlterationOptions,omitempty"`
 }

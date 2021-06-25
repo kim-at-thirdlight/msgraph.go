@@ -70,21 +70,21 @@ func (r *EventMessageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// EventMessageRequestRequestBuilder is request builder for EventMessageRequest
-type EventMessageRequestRequestBuilder struct{ BaseRequestBuilder }
+// EventMessageRequestObjectRequestBuilder is request builder for EventMessageRequestObject
+type EventMessageRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns EventMessageRequestRequest
-func (b *EventMessageRequestRequestBuilder) Request() *EventMessageRequestRequest {
-	return &EventMessageRequestRequest{
+// Request returns EventMessageRequestObjectRequest
+func (b *EventMessageRequestObjectRequestBuilder) Request() *EventMessageRequestObjectRequest {
+	return &EventMessageRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// EventMessageRequestRequest is request for EventMessageRequest
-type EventMessageRequestRequest struct{ BaseRequest }
+// EventMessageRequestObjectRequest is request for EventMessageRequestObject
+type EventMessageRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for EventMessageRequest
-func (r *EventMessageRequestRequest) Get(ctx context.Context) (resObj *EventMessageRequest, err error) {
+// Get performs GET request for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) Get(ctx context.Context) (resObj *EventMessageRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -93,12 +93,12 @@ func (r *EventMessageRequestRequest) Get(ctx context.Context) (resObj *EventMess
 	return
 }
 
-// Update performs PATCH request for EventMessageRequest
-func (r *EventMessageRequestRequest) Update(ctx context.Context, reqObj *EventMessageRequest) error {
+// Update performs PATCH request for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) Update(ctx context.Context, reqObj *EventMessageRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for EventMessageRequest
-func (r *EventMessageRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for EventMessageRequestObject
+func (r *EventMessageRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

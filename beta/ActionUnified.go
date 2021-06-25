@@ -21,12 +21,12 @@ type UnifiedRbacResourceNamespaceImportResourceActionsRequestParameter struct {
 	OverwriteResourceNamespace *bool `json:"overwriteResourceNamespace,omitempty"`
 }
 
-// UnifiedRoleAssignmentScheduleRequestCancelRequestParameter undocumented
-type UnifiedRoleAssignmentScheduleRequestCancelRequestParameter struct {
+// UnifiedRoleAssignmentScheduleRequestObjectCancelRequestParameter undocumented
+type UnifiedRoleAssignmentScheduleRequestObjectCancelRequestParameter struct {
 }
 
-// UnifiedRoleEligibilityScheduleRequestCancelRequestParameter undocumented
-type UnifiedRoleEligibilityScheduleRequestCancelRequestParameter struct {
+// UnifiedRoleEligibilityScheduleRequestObjectCancelRequestParameter undocumented
+type UnifiedRoleEligibilityScheduleRequestObjectCancelRequestParameter struct {
 }
 
 // ResourceScope is navigation property

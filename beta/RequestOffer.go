@@ -4,21 +4,21 @@ package msgraph
 
 import "context"
 
-// OfferShiftRequestRequestBuilder is request builder for OfferShiftRequest
-type OfferShiftRequestRequestBuilder struct{ BaseRequestBuilder }
+// OfferShiftRequestObjectRequestBuilder is request builder for OfferShiftRequestObject
+type OfferShiftRequestObjectRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns OfferShiftRequestRequest
-func (b *OfferShiftRequestRequestBuilder) Request() *OfferShiftRequestRequest {
-	return &OfferShiftRequestRequest{
+// Request returns OfferShiftRequestObjectRequest
+func (b *OfferShiftRequestObjectRequestBuilder) Request() *OfferShiftRequestObjectRequest {
+	return &OfferShiftRequestObjectRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// OfferShiftRequestRequest is request for OfferShiftRequest
-type OfferShiftRequestRequest struct{ BaseRequest }
+// OfferShiftRequestObjectRequest is request for OfferShiftRequestObject
+type OfferShiftRequestObjectRequest struct{ BaseRequest }
 
-// Get performs GET request for OfferShiftRequest
-func (r *OfferShiftRequestRequest) Get(ctx context.Context) (resObj *OfferShiftRequest, err error) {
+// Get performs GET request for OfferShiftRequestObject
+func (r *OfferShiftRequestObjectRequest) Get(ctx context.Context) (resObj *OfferShiftRequestObject, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -27,12 +27,12 @@ func (r *OfferShiftRequestRequest) Get(ctx context.Context) (resObj *OfferShiftR
 	return
 }
 
-// Update performs PATCH request for OfferShiftRequest
-func (r *OfferShiftRequestRequest) Update(ctx context.Context, reqObj *OfferShiftRequest) error {
+// Update performs PATCH request for OfferShiftRequestObject
+func (r *OfferShiftRequestObjectRequest) Update(ctx context.Context, reqObj *OfferShiftRequestObject) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for OfferShiftRequest
-func (r *OfferShiftRequestRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for OfferShiftRequestObject
+func (r *OfferShiftRequestObjectRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

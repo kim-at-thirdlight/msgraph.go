@@ -2,12 +2,12 @@
 
 package msgraph
 
-// RequestStopRequestParameter undocumented
-type RequestStopRequestParameter struct {
+// RequestObjectStopRequestParameter undocumented
+type RequestObjectStopRequestParameter struct {
 }
 
-// RequestRecordDecisionsRequestParameter undocumented
-type RequestRecordDecisionsRequestParameter struct {
+// RequestObjectRecordDecisionsRequestParameter undocumented
+type RequestObjectRecordDecisionsRequestParameter struct {
 	// ReviewResult undocumented
 	ReviewResult *string `json:"reviewResult,omitempty"`
 	// Justification undocumented
