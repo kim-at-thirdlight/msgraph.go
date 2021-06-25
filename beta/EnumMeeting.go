@@ -62,8 +62,8 @@ type MeetingMessageType string
 const (
 	// MeetingMessageTypeVNone undocumented
 	MeetingMessageTypeVNone MeetingMessageType = "none"
-	// MeetingMessageTypeVMeetingRequestObject undocumented
-	MeetingMessageTypeVMeetingRequestObject MeetingMessageType = "meetingRequest"
+	// MeetingMessageTypeVMeetingRequest undocumented
+	MeetingMessageTypeVMeetingRequest MeetingMessageType = "meetingRequest"
 	// MeetingMessageTypeVMeetingCancelled undocumented
 	MeetingMessageTypeVMeetingCancelled MeetingMessageType = "meetingCancelled"
 	// MeetingMessageTypeVMeetingAccepted undocumented
@@ -77,8 +77,8 @@ const (
 var (
 	// MeetingMessageTypePNone is a pointer to MeetingMessageTypeVNone
 	MeetingMessageTypePNone = &_MeetingMessageTypePNone
-	// MeetingMessageTypePMeetingRequestObject is a pointer to MeetingMessageTypeVMeetingRequestObject
-	MeetingMessageTypePMeetingRequestObject = &_MeetingMessageTypePMeetingRequestObject
+	// MeetingMessageTypePMeetingRequest is a pointer to MeetingMessageTypeVMeetingRequest
+	MeetingMessageTypePMeetingRequest = &_MeetingMessageTypePMeetingRequest
 	// MeetingMessageTypePMeetingCancelled is a pointer to MeetingMessageTypeVMeetingCancelled
 	MeetingMessageTypePMeetingCancelled = &_MeetingMessageTypePMeetingCancelled
 	// MeetingMessageTypePMeetingAccepted is a pointer to MeetingMessageTypeVMeetingAccepted
@@ -91,7 +91,7 @@ var (
 
 var (
 	_MeetingMessageTypePNone                       = MeetingMessageTypeVNone
-	_MeetingMessageTypePMeetingRequestObject       = MeetingMessageTypeVMeetingRequestObject
+	_MeetingMessageTypePMeetingRequest             = MeetingMessageTypeVMeetingRequest
 	_MeetingMessageTypePMeetingCancelled           = MeetingMessageTypeVMeetingCancelled
 	_MeetingMessageTypePMeetingAccepted            = MeetingMessageTypeVMeetingAccepted
 	_MeetingMessageTypePMeetingTentativelyAccepted = MeetingMessageTypeVMeetingTentativelyAccepted

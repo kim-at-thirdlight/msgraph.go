@@ -44,8 +44,8 @@ type PrivilegedApproval struct {
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// UserID undocumented
 	UserID *string `json:"userId,omitempty"`
-	// RequestObject undocumented
-	RequestObject *PrivilegedRoleAssignmentRequestObject `json:"request,omitempty"`
+	// RequestNavigation undocumented
+	RequestNavigation *PrivilegedRoleAssignmentRequestObject `json:"request,omitempty"`
 	// RoleInfo undocumented
 	RoleInfo *PrivilegedRole `json:"roleInfo,omitempty"`
 }

@@ -81,8 +81,8 @@ type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
 	KeepUserData *bool `json:"keepUserData,omitempty"`
 }
 
-// ManagedDeviceCreateDeviceLogCollectionRequestObjectRequestParameter undocumented
-type ManagedDeviceCreateDeviceLogCollectionRequestObjectRequestParameter struct {
+// ManagedDeviceCreateDeviceLogCollectionRequestActionRequestParameter undocumented
+type ManagedDeviceCreateDeviceLogCollectionRequestActionRequestParameter struct {
 	// TemplateType undocumented
 	TemplateType *DeviceLogCollectionRequestObject `json:"templateType,omitempty"`
 }

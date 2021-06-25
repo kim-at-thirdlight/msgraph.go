@@ -8,8 +8,8 @@ import "time"
 type Approval struct {
 	// Entity is the base model of Approval
 	Entity
-	// RequestObject undocumented
-	RequestObject *RequestObject `json:"request,omitempty"`
+	// RequestNavigation undocumented
+	RequestNavigation *RequestObject `json:"request,omitempty"`
 	// Steps undocumented
 	Steps []ApprovalStep `json:"steps,omitempty"`
 }

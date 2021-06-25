@@ -32,16 +32,16 @@ const (
 	WorkforceIntegrationSupportedEntitiesVNone WorkforceIntegrationSupportedEntities = "none"
 	// WorkforceIntegrationSupportedEntitiesVShift undocumented
 	WorkforceIntegrationSupportedEntitiesVShift WorkforceIntegrationSupportedEntities = "shift"
-	// WorkforceIntegrationSupportedEntitiesVSwapRequestObject undocumented
-	WorkforceIntegrationSupportedEntitiesVSwapRequestObject WorkforceIntegrationSupportedEntities = "swapRequest"
+	// WorkforceIntegrationSupportedEntitiesVSwapRequest undocumented
+	WorkforceIntegrationSupportedEntitiesVSwapRequest WorkforceIntegrationSupportedEntities = "swapRequest"
 	// WorkforceIntegrationSupportedEntitiesVUserShiftPreferences undocumented
 	WorkforceIntegrationSupportedEntitiesVUserShiftPreferences WorkforceIntegrationSupportedEntities = "userShiftPreferences"
 	// WorkforceIntegrationSupportedEntitiesVOpenShift undocumented
 	WorkforceIntegrationSupportedEntitiesVOpenShift WorkforceIntegrationSupportedEntities = "openShift"
-	// WorkforceIntegrationSupportedEntitiesVOpenShiftRequestObject undocumented
-	WorkforceIntegrationSupportedEntitiesVOpenShiftRequestObject WorkforceIntegrationSupportedEntities = "openShiftRequest"
-	// WorkforceIntegrationSupportedEntitiesVOfferShiftRequestObject undocumented
-	WorkforceIntegrationSupportedEntitiesVOfferShiftRequestObject WorkforceIntegrationSupportedEntities = "offerShiftRequest"
+	// WorkforceIntegrationSupportedEntitiesVOpenShiftRequest undocumented
+	WorkforceIntegrationSupportedEntitiesVOpenShiftRequest WorkforceIntegrationSupportedEntities = "openShiftRequest"
+	// WorkforceIntegrationSupportedEntitiesVOfferShiftRequest undocumented
+	WorkforceIntegrationSupportedEntitiesVOfferShiftRequest WorkforceIntegrationSupportedEntities = "offerShiftRequest"
 	// WorkforceIntegrationSupportedEntitiesVUnknownFutureValue undocumented
 	WorkforceIntegrationSupportedEntitiesVUnknownFutureValue WorkforceIntegrationSupportedEntities = "unknownFutureValue"
 	// WorkforceIntegrationSupportedEntitiesVTimeCard undocumented
@@ -50,8 +50,8 @@ const (
 	WorkforceIntegrationSupportedEntitiesVTimeOffReason WorkforceIntegrationSupportedEntities = "timeOffReason"
 	// WorkforceIntegrationSupportedEntitiesVTimeOff undocumented
 	WorkforceIntegrationSupportedEntitiesVTimeOff WorkforceIntegrationSupportedEntities = "timeOff"
-	// WorkforceIntegrationSupportedEntitiesVTimeOffRequestObject undocumented
-	WorkforceIntegrationSupportedEntitiesVTimeOffRequestObject WorkforceIntegrationSupportedEntities = "timeOffRequest"
+	// WorkforceIntegrationSupportedEntitiesVTimeOffRequest undocumented
+	WorkforceIntegrationSupportedEntitiesVTimeOffRequest WorkforceIntegrationSupportedEntities = "timeOffRequest"
 )
 
 var (
@@ -59,16 +59,16 @@ var (
 	WorkforceIntegrationSupportedEntitiesPNone = &_WorkforceIntegrationSupportedEntitiesPNone
 	// WorkforceIntegrationSupportedEntitiesPShift is a pointer to WorkforceIntegrationSupportedEntitiesVShift
 	WorkforceIntegrationSupportedEntitiesPShift = &_WorkforceIntegrationSupportedEntitiesPShift
-	// WorkforceIntegrationSupportedEntitiesPSwapRequestObject is a pointer to WorkforceIntegrationSupportedEntitiesVSwapRequestObject
-	WorkforceIntegrationSupportedEntitiesPSwapRequestObject = &_WorkforceIntegrationSupportedEntitiesPSwapRequestObject
+	// WorkforceIntegrationSupportedEntitiesPSwapRequest is a pointer to WorkforceIntegrationSupportedEntitiesVSwapRequest
+	WorkforceIntegrationSupportedEntitiesPSwapRequest = &_WorkforceIntegrationSupportedEntitiesPSwapRequest
 	// WorkforceIntegrationSupportedEntitiesPUserShiftPreferences is a pointer to WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
 	WorkforceIntegrationSupportedEntitiesPUserShiftPreferences = &_WorkforceIntegrationSupportedEntitiesPUserShiftPreferences
 	// WorkforceIntegrationSupportedEntitiesPOpenShift is a pointer to WorkforceIntegrationSupportedEntitiesVOpenShift
 	WorkforceIntegrationSupportedEntitiesPOpenShift = &_WorkforceIntegrationSupportedEntitiesPOpenShift
-	// WorkforceIntegrationSupportedEntitiesPOpenShiftRequestObject is a pointer to WorkforceIntegrationSupportedEntitiesVOpenShiftRequestObject
-	WorkforceIntegrationSupportedEntitiesPOpenShiftRequestObject = &_WorkforceIntegrationSupportedEntitiesPOpenShiftRequestObject
-	// WorkforceIntegrationSupportedEntitiesPOfferShiftRequestObject is a pointer to WorkforceIntegrationSupportedEntitiesVOfferShiftRequestObject
-	WorkforceIntegrationSupportedEntitiesPOfferShiftRequestObject = &_WorkforceIntegrationSupportedEntitiesPOfferShiftRequestObject
+	// WorkforceIntegrationSupportedEntitiesPOpenShiftRequest is a pointer to WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
+	WorkforceIntegrationSupportedEntitiesPOpenShiftRequest = &_WorkforceIntegrationSupportedEntitiesPOpenShiftRequest
+	// WorkforceIntegrationSupportedEntitiesPOfferShiftRequest is a pointer to WorkforceIntegrationSupportedEntitiesVOfferShiftRequest
+	WorkforceIntegrationSupportedEntitiesPOfferShiftRequest = &_WorkforceIntegrationSupportedEntitiesPOfferShiftRequest
 	// WorkforceIntegrationSupportedEntitiesPUnknownFutureValue is a pointer to WorkforceIntegrationSupportedEntitiesVUnknownFutureValue
 	WorkforceIntegrationSupportedEntitiesPUnknownFutureValue = &_WorkforceIntegrationSupportedEntitiesPUnknownFutureValue
 	// WorkforceIntegrationSupportedEntitiesPTimeCard is a pointer to WorkforceIntegrationSupportedEntitiesVTimeCard
@@ -77,21 +77,21 @@ var (
 	WorkforceIntegrationSupportedEntitiesPTimeOffReason = &_WorkforceIntegrationSupportedEntitiesPTimeOffReason
 	// WorkforceIntegrationSupportedEntitiesPTimeOff is a pointer to WorkforceIntegrationSupportedEntitiesVTimeOff
 	WorkforceIntegrationSupportedEntitiesPTimeOff = &_WorkforceIntegrationSupportedEntitiesPTimeOff
-	// WorkforceIntegrationSupportedEntitiesPTimeOffRequestObject is a pointer to WorkforceIntegrationSupportedEntitiesVTimeOffRequestObject
-	WorkforceIntegrationSupportedEntitiesPTimeOffRequestObject = &_WorkforceIntegrationSupportedEntitiesPTimeOffRequestObject
+	// WorkforceIntegrationSupportedEntitiesPTimeOffRequest is a pointer to WorkforceIntegrationSupportedEntitiesVTimeOffRequest
+	WorkforceIntegrationSupportedEntitiesPTimeOffRequest = &_WorkforceIntegrationSupportedEntitiesPTimeOffRequest
 )
 
 var (
-	_WorkforceIntegrationSupportedEntitiesPNone                    = WorkforceIntegrationSupportedEntitiesVNone
-	_WorkforceIntegrationSupportedEntitiesPShift                   = WorkforceIntegrationSupportedEntitiesVShift
-	_WorkforceIntegrationSupportedEntitiesPSwapRequestObject       = WorkforceIntegrationSupportedEntitiesVSwapRequestObject
-	_WorkforceIntegrationSupportedEntitiesPUserShiftPreferences    = WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
-	_WorkforceIntegrationSupportedEntitiesPOpenShift               = WorkforceIntegrationSupportedEntitiesVOpenShift
-	_WorkforceIntegrationSupportedEntitiesPOpenShiftRequestObject  = WorkforceIntegrationSupportedEntitiesVOpenShiftRequestObject
-	_WorkforceIntegrationSupportedEntitiesPOfferShiftRequestObject = WorkforceIntegrationSupportedEntitiesVOfferShiftRequestObject
-	_WorkforceIntegrationSupportedEntitiesPUnknownFutureValue      = WorkforceIntegrationSupportedEntitiesVUnknownFutureValue
-	_WorkforceIntegrationSupportedEntitiesPTimeCard                = WorkforceIntegrationSupportedEntitiesVTimeCard
-	_WorkforceIntegrationSupportedEntitiesPTimeOffReason           = WorkforceIntegrationSupportedEntitiesVTimeOffReason
-	_WorkforceIntegrationSupportedEntitiesPTimeOff                 = WorkforceIntegrationSupportedEntitiesVTimeOff
-	_WorkforceIntegrationSupportedEntitiesPTimeOffRequestObject    = WorkforceIntegrationSupportedEntitiesVTimeOffRequestObject
+	_WorkforceIntegrationSupportedEntitiesPNone                 = WorkforceIntegrationSupportedEntitiesVNone
+	_WorkforceIntegrationSupportedEntitiesPShift                = WorkforceIntegrationSupportedEntitiesVShift
+	_WorkforceIntegrationSupportedEntitiesPSwapRequest          = WorkforceIntegrationSupportedEntitiesVSwapRequest
+	_WorkforceIntegrationSupportedEntitiesPUserShiftPreferences = WorkforceIntegrationSupportedEntitiesVUserShiftPreferences
+	_WorkforceIntegrationSupportedEntitiesPOpenShift            = WorkforceIntegrationSupportedEntitiesVOpenShift
+	_WorkforceIntegrationSupportedEntitiesPOpenShiftRequest     = WorkforceIntegrationSupportedEntitiesVOpenShiftRequest
+	_WorkforceIntegrationSupportedEntitiesPOfferShiftRequest    = WorkforceIntegrationSupportedEntitiesVOfferShiftRequest
+	_WorkforceIntegrationSupportedEntitiesPUnknownFutureValue   = WorkforceIntegrationSupportedEntitiesVUnknownFutureValue
+	_WorkforceIntegrationSupportedEntitiesPTimeCard             = WorkforceIntegrationSupportedEntitiesVTimeCard
+	_WorkforceIntegrationSupportedEntitiesPTimeOffReason        = WorkforceIntegrationSupportedEntitiesVTimeOffReason
+	_WorkforceIntegrationSupportedEntitiesPTimeOff              = WorkforceIntegrationSupportedEntitiesVTimeOff
+	_WorkforceIntegrationSupportedEntitiesPTimeOffRequest       = WorkforceIntegrationSupportedEntitiesVTimeOffRequest
 )

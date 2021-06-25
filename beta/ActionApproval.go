@@ -11,8 +11,8 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// RequestObject is navigation property
-func (b *ApprovalRequestBuilder) RequestObject() *RequestObjectRequestBuilder {
+// RequestNavigation is navigation property
+func (b *ApprovalRequestBuilder) RequestNavigation() *RequestObjectRequestBuilder {
 	bb := &RequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/request"
 	return bb

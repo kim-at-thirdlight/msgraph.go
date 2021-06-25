@@ -630,8 +630,8 @@ const (
 	DeviceEnrollmentFailureReasonVDeviceNotSupported DeviceEnrollmentFailureReason = "deviceNotSupported"
 	// DeviceEnrollmentFailureReasonVInMaintenance undocumented
 	DeviceEnrollmentFailureReasonVInMaintenance DeviceEnrollmentFailureReason = "inMaintenance"
-	// DeviceEnrollmentFailureReasonVBadRequestObject undocumented
-	DeviceEnrollmentFailureReasonVBadRequestObject DeviceEnrollmentFailureReason = "badRequest"
+	// DeviceEnrollmentFailureReasonVBadRequest undocumented
+	DeviceEnrollmentFailureReasonVBadRequest DeviceEnrollmentFailureReason = "badRequest"
 	// DeviceEnrollmentFailureReasonVFeatureNotSupported undocumented
 	DeviceEnrollmentFailureReasonVFeatureNotSupported DeviceEnrollmentFailureReason = "featureNotSupported"
 	// DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced undocumented
@@ -657,8 +657,8 @@ var (
 	DeviceEnrollmentFailureReasonPDeviceNotSupported = &_DeviceEnrollmentFailureReasonPDeviceNotSupported
 	// DeviceEnrollmentFailureReasonPInMaintenance is a pointer to DeviceEnrollmentFailureReasonVInMaintenance
 	DeviceEnrollmentFailureReasonPInMaintenance = &_DeviceEnrollmentFailureReasonPInMaintenance
-	// DeviceEnrollmentFailureReasonPBadRequestObject is a pointer to DeviceEnrollmentFailureReasonVBadRequestObject
-	DeviceEnrollmentFailureReasonPBadRequestObject = &_DeviceEnrollmentFailureReasonPBadRequestObject
+	// DeviceEnrollmentFailureReasonPBadRequest is a pointer to DeviceEnrollmentFailureReasonVBadRequest
+	DeviceEnrollmentFailureReasonPBadRequest = &_DeviceEnrollmentFailureReasonPBadRequest
 	// DeviceEnrollmentFailureReasonPFeatureNotSupported is a pointer to DeviceEnrollmentFailureReasonVFeatureNotSupported
 	DeviceEnrollmentFailureReasonPFeatureNotSupported = &_DeviceEnrollmentFailureReasonPFeatureNotSupported
 	// DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced is a pointer to DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
@@ -677,7 +677,7 @@ var (
 	_DeviceEnrollmentFailureReasonPUserValidation                 = DeviceEnrollmentFailureReasonVUserValidation
 	_DeviceEnrollmentFailureReasonPDeviceNotSupported             = DeviceEnrollmentFailureReasonVDeviceNotSupported
 	_DeviceEnrollmentFailureReasonPInMaintenance                  = DeviceEnrollmentFailureReasonVInMaintenance
-	_DeviceEnrollmentFailureReasonPBadRequestObject               = DeviceEnrollmentFailureReasonVBadRequestObject
+	_DeviceEnrollmentFailureReasonPBadRequest                     = DeviceEnrollmentFailureReasonVBadRequest
 	_DeviceEnrollmentFailureReasonPFeatureNotSupported            = DeviceEnrollmentFailureReasonVFeatureNotSupported
 	_DeviceEnrollmentFailureReasonPEnrollmentRestrictionsEnforced = DeviceEnrollmentFailureReasonVEnrollmentRestrictionsEnforced
 	_DeviceEnrollmentFailureReasonPClientDisconnected             = DeviceEnrollmentFailureReasonVClientDisconnected

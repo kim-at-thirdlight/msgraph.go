@@ -570,8 +570,8 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
-// RequestObject is navigation property
-func (b *PrivilegedApprovalRequestBuilder) RequestObject() *PrivilegedRoleAssignmentRequestObjectRequestBuilder {
+// RequestNavigation is navigation property
+func (b *PrivilegedApprovalRequestBuilder) RequestNavigation() *PrivilegedRoleAssignmentRequestObjectRequestBuilder {
 	bb := &PrivilegedRoleAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/request"
 	return bb

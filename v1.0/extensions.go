@@ -9,6 +9,9 @@ import (
 	"strings"
 )
 
+// CallRecordscallRecord is undefined in the spec, so we add a simple interface typedef
+type CallRecordscallRecord interface{}
+
 // ItemWithPath returns DriveItemRequestBuilder addressed by relative path
 func (b *DriveItemRequestBuilder) ItemWithPath(path string) *DriveItemRequestBuilder {
 	bb := &DriveItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

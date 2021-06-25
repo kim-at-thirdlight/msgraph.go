@@ -146,16 +146,16 @@ type MessageRulePredicates struct {
 	HeaderContains []string `json:"headerContains,omitempty"`
 	// Importance undocumented
 	Importance *Importance `json:"importance,omitempty"`
-	// IsApprovalRequestObject undocumented
-	IsApprovalRequestObject *bool `json:"isApprovalRequest,omitempty"`
+	// IsApprovalRequest undocumented
+	IsApprovalRequest *bool `json:"isApprovalRequest,omitempty"`
 	// IsAutomaticForward undocumented
 	IsAutomaticForward *bool `json:"isAutomaticForward,omitempty"`
 	// IsAutomaticReply undocumented
 	IsAutomaticReply *bool `json:"isAutomaticReply,omitempty"`
 	// IsEncrypted undocumented
 	IsEncrypted *bool `json:"isEncrypted,omitempty"`
-	// IsMeetingRequestObject undocumented
-	IsMeetingRequestObject *bool `json:"isMeetingRequest,omitempty"`
+	// IsMeetingRequest undocumented
+	IsMeetingRequest *bool `json:"isMeetingRequest,omitempty"`
 	// IsMeetingResponse undocumented
 	IsMeetingResponse *bool `json:"isMeetingResponse,omitempty"`
 	// IsNonDeliveryReport undocumented

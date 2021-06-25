@@ -21,8 +21,8 @@ type GovernanceResourceCollectionRegisterRequestParameter struct {
 type GovernanceRoleAssignmentRequestObjectCancelRequestParameter struct {
 }
 
-// GovernanceRoleAssignmentRequestObjectUpdateRequestObjectRequestParameter undocumented
-type GovernanceRoleAssignmentRequestObjectUpdateRequestObjectRequestParameter struct {
+// GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestParameter undocumented
+type GovernanceRoleAssignmentRequestObjectUpdateRequestActionRequestParameter struct {
 	// Decision undocumented
 	Decision *string `json:"decision,omitempty"`
 	// AssignmentState undocumented
