@@ -8,14 +8,16 @@ import "time"
 type InformationProtection struct {
 	// Entity is the base model of InformationProtection
 	Entity
-	// Policy undocumented
-	Policy *InformationProtectionPolicy `json:"policy,omitempty"`
+	// Bitlocker undocumented
+	Bitlocker *Bitlocker `json:"bitlocker,omitempty"`
+	// DataLossPreventionPolicies undocumented
+	DataLossPreventionPolicies []DataLossPreventionPolicy `json:"dataLossPreventionPolicies,omitempty"`
 	// SensitivityLabels undocumented
 	SensitivityLabels []SensitivityLabel `json:"sensitivityLabels,omitempty"`
 	// SensitivityPolicySettings undocumented
 	SensitivityPolicySettings *SensitivityPolicySettings `json:"sensitivityPolicySettings,omitempty"`
-	// DataLossPreventionPolicies undocumented
-	DataLossPreventionPolicies []DataLossPreventionPolicy `json:"dataLossPreventionPolicies,omitempty"`
+	// Policy undocumented
+	Policy *InformationProtectionPolicy `json:"policy,omitempty"`
 	// ThreatAssessmentRequests undocumented
 	ThreatAssessmentRequests []ThreatAssessmentRequestObject `json:"threatAssessmentRequests,omitempty"`
 }
@@ -30,10 +32,10 @@ type InformationProtectionAction struct {
 type InformationProtectionContentLabel struct {
 	// Object is the base model of InformationProtectionContentLabel
 	Object
-	// CreationDateTime undocumented
-	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
 	// AssignmentMethod undocumented
 	AssignmentMethod *AssignmentMethod `json:"assignmentMethod,omitempty"`
+	// CreationDateTime undocumented
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
 	// Label undocumented
 	Label *LabelDetails `json:"label,omitempty"`
 }
@@ -42,18 +44,20 @@ type InformationProtectionContentLabel struct {
 type InformationProtectionLabel struct {
 	// Entity is the base model of InformationProtectionLabel
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
 	// Color undocumented
 	Color *string `json:"color,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// IsActive undocumented
+	IsActive *bool `json:"isActive,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Parent undocumented
+	Parent *ParentLabelDetails `json:"parent,omitempty"`
 	// Sensitivity undocumented
 	Sensitivity *int `json:"sensitivity,omitempty"`
 	// Tooltip undocumented
 	Tooltip *string `json:"tooltip,omitempty"`
-	// IsActive undocumented
-	IsActive *bool `json:"isActive,omitempty"`
 }
 
 // InformationProtectionPolicy undocumented

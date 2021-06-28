@@ -8,6 +8,12 @@ type WorkPosition struct {
 	ItemFacet
 	// Categories undocumented
 	Categories []string `json:"categories,omitempty"`
+	// Colleagues undocumented
+	Colleagues []RelatedPerson `json:"colleagues,omitempty"`
 	// Detail undocumented
 	Detail *PositionDetail `json:"detail,omitempty"`
+	// IsCurrent undocumented
+	IsCurrent *bool `json:"isCurrent,omitempty"`
+	// Manager undocumented
+	Manager *RelatedPerson `json:"manager,omitempty"`
 }

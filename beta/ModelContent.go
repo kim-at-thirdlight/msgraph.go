@@ -4,18 +4,24 @@ package msgraph
 
 import "time"
 
+// ContentApprovalStatusColumn undocumented
+type ContentApprovalStatusColumn struct {
+	// Object is the base model of ContentApprovalStatusColumn
+	Object
+}
+
 // ContentClassification undocumented
 type ContentClassification struct {
 	// Object is the base model of ContentClassification
 	Object
-	// SensitiveTypeID undocumented
-	SensitiveTypeID *string `json:"sensitiveTypeId,omitempty"`
-	// UniqueCount undocumented
-	UniqueCount *int `json:"uniqueCount,omitempty"`
 	// Confidence undocumented
 	Confidence *int `json:"confidence,omitempty"`
 	// Matches undocumented
 	Matches []MatchLocation `json:"matches,omitempty"`
+	// SensitiveTypeID undocumented
+	SensitiveTypeID *string `json:"sensitiveTypeId,omitempty"`
+	// UniqueCount undocumented
+	UniqueCount *int `json:"uniqueCount,omitempty"`
 }
 
 // ContentInfo undocumented
@@ -24,12 +30,12 @@ type ContentInfo struct {
 	Object
 	// Format undocumented
 	Format *ContentFormat `json:"format,omitempty"`
-	// State undocumented
-	State *ContentState `json:"state,omitempty"`
 	// Identifier undocumented
 	Identifier *string `json:"identifier,omitempty"`
 	// Metadata undocumented
 	Metadata []KeyValuePair `json:"metadata,omitempty"`
+	// State undocumented
+	State *ContentState `json:"state,omitempty"`
 }
 
 // ContentMetadata undocumented
@@ -44,38 +50,56 @@ type ContentProperties struct {
 	Object
 	// Extensions undocumented
 	Extensions []string `json:"extensions,omitempty"`
-	// Metadata undocumented
-	Metadata *ContentMetadata `json:"metadata,omitempty"`
-	// LastModifiedDateTime undocumented
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// LastModifiedBy undocumented
 	LastModifiedBy *string `json:"lastModifiedBy,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Metadata undocumented
+	Metadata *ContentMetadata `json:"metadata,omitempty"`
 }
 
 // ContentType undocumented
 type ContentType struct {
 	// Entity is the base model of ContentType
 	Entity
+	// AssociatedHubsUrls undocumented
+	AssociatedHubsUrls []string `json:"associatedHubsUrls,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DocumentSet undocumented
+	DocumentSet *DocumentSet `json:"documentSet,omitempty"`
+	// DocumentTemplate undocumented
+	DocumentTemplate *DocumentSetContent `json:"documentTemplate,omitempty"`
 	// Group undocumented
 	Group *string `json:"group,omitempty"`
 	// Hidden undocumented
 	Hidden *bool `json:"hidden,omitempty"`
 	// InheritedFrom undocumented
 	InheritedFrom *ItemReference `json:"inheritedFrom,omitempty"`
+	// IsBuiltIn undocumented
+	IsBuiltIn *bool `json:"isBuiltIn,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Order undocumented
 	Order *ContentTypeOrder `json:"order,omitempty"`
 	// ParentID undocumented
 	ParentID *string `json:"parentId,omitempty"`
+	// PropagateChanges undocumented
+	PropagateChanges *bool `json:"propagateChanges,omitempty"`
 	// ReadOnly undocumented
 	ReadOnly *bool `json:"readOnly,omitempty"`
 	// Sealed undocumented
 	Sealed *bool `json:"sealed,omitempty"`
+	// Base undocumented
+	Base *ContentType `json:"base,omitempty"`
+	// BaseTypes undocumented
+	BaseTypes []ContentType `json:"baseTypes,omitempty"`
 	// ColumnLinks undocumented
 	ColumnLinks []ColumnLink `json:"columnLinks,omitempty"`
+	// ColumnPositions undocumented
+	ColumnPositions []ColumnDefinition `json:"columnPositions,omitempty"`
+	// Columns undocumented
+	Columns []ColumnDefinition `json:"columns,omitempty"`
 }
 
 // ContentTypeInfo undocumented

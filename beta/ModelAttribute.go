@@ -14,6 +14,8 @@ type AttributeDefinition struct {
 	CaseExact *bool `json:"caseExact,omitempty"`
 	// DefaultValue undocumented
 	DefaultValue *string `json:"defaultValue,omitempty"`
+	// FlowNullValues undocumented
+	FlowNullValues *bool `json:"flowNullValues,omitempty"`
 	// Metadata undocumented
 	Metadata []MetadataEntry `json:"metadata,omitempty"`
 	// Multivalued undocumented
@@ -22,10 +24,10 @@ type AttributeDefinition struct {
 	Mutability *Mutability `json:"mutability,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Required undocumented
-	Required *bool `json:"required,omitempty"`
 	// ReferencedObjects undocumented
 	ReferencedObjects []ReferencedObject `json:"referencedObjects,omitempty"`
+	// Required undocumented
+	Required *bool `json:"required,omitempty"`
 	// Type undocumented
 	Type *AttributeType `json:"type,omitempty"`
 }

@@ -16,16 +16,16 @@ type ResponsiblePolicy struct {
 type ResponsibleSensitiveType struct {
 	// Object is the base model of ResponsibleSensitiveType
 	Object
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
 	// ID undocumented
 	ID *string `json:"id,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
+	// PublisherName undocumented
+	PublisherName *string `json:"publisherName,omitempty"`
 	// RulePackageID undocumented
 	RulePackageID *string `json:"rulePackageId,omitempty"`
 	// RulePackageType undocumented
 	RulePackageType *string `json:"rulePackageType,omitempty"`
-	// PublisherName undocumented
-	PublisherName *string `json:"publisherName,omitempty"`
 }

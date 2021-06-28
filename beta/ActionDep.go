@@ -11,24 +11,28 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DepOnboardingSettingUploadDepTokenRequestParameter undocumented
-type DepOnboardingSettingUploadDepTokenRequestParameter struct {
-	// AppleID undocumented
-	AppleID *string `json:"appleId,omitempty"`
-	// DepToken undocumented
-	DepToken *string `json:"depToken,omitempty"`
-}
-
-// DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestParameter undocumented
-type DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestParameter struct {
+// DepOnboardingSettingGenerateEncryptionPublicKeyRequestParameter undocumented
+type DepOnboardingSettingGenerateEncryptionPublicKeyRequestParameter struct {
 }
 
 // DepOnboardingSettingShareForSchoolDataSyncServiceRequestParameter undocumented
 type DepOnboardingSettingShareForSchoolDataSyncServiceRequestParameter struct {
 }
 
+// DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestParameter undocumented
+type DepOnboardingSettingSyncWithAppleDeviceEnrollmentProgramRequestParameter struct {
+}
+
 // DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestParameter undocumented
 type DepOnboardingSettingUnshareForSchoolDataSyncServiceRequestParameter struct {
+}
+
+// DepOnboardingSettingUploadDepTokenRequestParameter undocumented
+type DepOnboardingSettingUploadDepTokenRequestParameter struct {
+	// AppleID undocumented
+	AppleID *string `json:"appleId,omitempty"`
+	// DepToken undocumented
+	DepToken *string `json:"depToken,omitempty"`
 }
 
 // DefaultIOSEnrollmentProfile is navigation property

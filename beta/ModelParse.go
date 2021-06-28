@@ -8,10 +8,10 @@ type ParseExpressionResponse struct {
 	Object
 	// Error undocumented
 	Error *PublicError `json:"error,omitempty"`
-	// EvaluationSucceeded undocumented
-	EvaluationSucceeded *bool `json:"evaluationSucceeded,omitempty"`
 	// EvaluationResult undocumented
 	EvaluationResult []string `json:"evaluationResult,omitempty"`
+	// EvaluationSucceeded undocumented
+	EvaluationSucceeded *bool `json:"evaluationSucceeded,omitempty"`
 	// ParsedExpression undocumented
 	ParsedExpression *AttributeMappingSource `json:"parsedExpression,omitempty"`
 	// ParsingSucceeded undocumented

@@ -37,108 +37,68 @@ func (r *ApplicationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type ApplicationAddKeyRequestBuilder struct{ BaseRequestBuilder }
+// ApplicationServicePrincipalRequestBuilder is request builder for ApplicationServicePrincipal
+type ApplicationServicePrincipalRequestBuilder struct{ BaseRequestBuilder }
 
-// AddKey action undocumented
-func (b *ApplicationRequestBuilder) AddKey(reqObj *ApplicationAddKeyRequestParameter) *ApplicationAddKeyRequestBuilder {
-	bb := &ApplicationAddKeyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addKey"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ApplicationAddKeyRequest struct{ BaseRequest }
-
-//
-func (b *ApplicationAddKeyRequestBuilder) Request() *ApplicationAddKeyRequest {
-	return &ApplicationAddKeyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns ApplicationServicePrincipalRequest
+func (b *ApplicationServicePrincipalRequestBuilder) Request() *ApplicationServicePrincipalRequest {
+	return &ApplicationServicePrincipalRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *ApplicationAddKeyRequest) Post(ctx context.Context) (resObj *KeyCredential, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+// ApplicationServicePrincipalRequest is request for ApplicationServicePrincipal
+type ApplicationServicePrincipalRequest struct{ BaseRequest }
+
+// Get performs GET request for ApplicationServicePrincipal
+func (r *ApplicationServicePrincipalRequest) Get(ctx context.Context) (resObj *ApplicationServicePrincipal, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
-//
-type ApplicationAddPasswordRequestBuilder struct{ BaseRequestBuilder }
-
-// AddPassword action undocumented
-func (b *ApplicationRequestBuilder) AddPassword(reqObj *ApplicationAddPasswordRequestParameter) *ApplicationAddPasswordRequestBuilder {
-	bb := &ApplicationAddPasswordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/addPassword"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// Update performs PATCH request for ApplicationServicePrincipal
+func (r *ApplicationServicePrincipalRequest) Update(ctx context.Context, reqObj *ApplicationServicePrincipal) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-//
-type ApplicationAddPasswordRequest struct{ BaseRequest }
+// Delete performs DELETE request for ApplicationServicePrincipal
+func (r *ApplicationServicePrincipalRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
 
-//
-func (b *ApplicationAddPasswordRequestBuilder) Request() *ApplicationAddPasswordRequest {
-	return &ApplicationAddPasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// ApplicationTemplateRequestBuilder is request builder for ApplicationTemplate
+type ApplicationTemplateRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ApplicationTemplateRequest
+func (b *ApplicationTemplateRequestBuilder) Request() *ApplicationTemplateRequest {
+	return &ApplicationTemplateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *ApplicationAddPasswordRequest) Post(ctx context.Context) (resObj *PasswordCredential, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+// ApplicationTemplateRequest is request for ApplicationTemplate
+type ApplicationTemplateRequest struct{ BaseRequest }
+
+// Get performs GET request for ApplicationTemplate
+func (r *ApplicationTemplateRequest) Get(ctx context.Context) (resObj *ApplicationTemplate, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
 	return
 }
 
-//
-type ApplicationRemoveKeyRequestBuilder struct{ BaseRequestBuilder }
-
-// RemoveKey action undocumented
-func (b *ApplicationRequestBuilder) RemoveKey(reqObj *ApplicationRemoveKeyRequestParameter) *ApplicationRemoveKeyRequestBuilder {
-	bb := &ApplicationRemoveKeyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removeKey"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
+// Update performs PATCH request for ApplicationTemplate
+func (r *ApplicationTemplateRequest) Update(ctx context.Context, reqObj *ApplicationTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-//
-type ApplicationRemoveKeyRequest struct{ BaseRequest }
-
-//
-func (b *ApplicationRemoveKeyRequestBuilder) Request() *ApplicationRemoveKeyRequest {
-	return &ApplicationRemoveKeyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ApplicationRemoveKeyRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type ApplicationRemovePasswordRequestBuilder struct{ BaseRequestBuilder }
-
-// RemovePassword action undocumented
-func (b *ApplicationRequestBuilder) RemovePassword(reqObj *ApplicationRemovePasswordRequestParameter) *ApplicationRemovePasswordRequestBuilder {
-	bb := &ApplicationRemovePasswordRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/removePassword"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ApplicationRemovePasswordRequest struct{ BaseRequest }
-
-//
-func (b *ApplicationRemovePasswordRequestBuilder) Request() *ApplicationRemovePasswordRequest {
-	return &ApplicationRemovePasswordRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ApplicationRemovePasswordRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// Delete performs DELETE request for ApplicationTemplate
+func (r *ApplicationTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

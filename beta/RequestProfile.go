@@ -37,6 +37,39 @@ func (r *ProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ProfileCardPropertyRequestBuilder is request builder for ProfileCardProperty
+type ProfileCardPropertyRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ProfileCardPropertyRequest
+func (b *ProfileCardPropertyRequestBuilder) Request() *ProfileCardPropertyRequest {
+	return &ProfileCardPropertyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ProfileCardPropertyRequest is request for ProfileCardProperty
+type ProfileCardPropertyRequest struct{ BaseRequest }
+
+// Get performs GET request for ProfileCardProperty
+func (r *ProfileCardPropertyRequest) Get(ctx context.Context) (resObj *ProfileCardProperty, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ProfileCardProperty
+func (r *ProfileCardPropertyRequest) Update(ctx context.Context, reqObj *ProfileCardProperty) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ProfileCardProperty
+func (r *ProfileCardPropertyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ProfilePhotoRequestBuilder is request builder for ProfilePhoto
 type ProfilePhotoRequestBuilder struct{ BaseRequestBuilder }
 

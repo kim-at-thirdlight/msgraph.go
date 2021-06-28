@@ -77,16 +77,41 @@ func (r *SitePageRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// SiteSourceRequestBuilder is request builder for SiteSource
+type SiteSourceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns SiteSourceRequest
+func (b *SiteSourceRequestBuilder) Request() *SiteSourceRequest {
+	return &SiteSourceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// SiteSourceRequest is request for SiteSource
+type SiteSourceRequest struct{ BaseRequest }
+
+// Get performs GET request for SiteSource
+func (r *SiteSourceRequest) Get(ctx context.Context) (resObj *SiteSource, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for SiteSource
+func (r *SiteSourceRequest) Update(ctx context.Context, reqObj *SiteSource) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for SiteSource
+func (r *SiteSourceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 //
 type SiteCollectionAddRequestBuilder struct{ BaseRequestBuilder }
-
-// Add action undocumented
-func (b *GroupSitesCollectionRequestBuilder) Add(reqObj *SiteCollectionAddRequestParameter) *SiteCollectionAddRequestBuilder {
-	bb := &SiteCollectionAddRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/add"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
 
 // Add action undocumented
 func (b *SiteSitesCollectionRequestBuilder) Add(reqObj *SiteCollectionAddRequestParameter) *SiteCollectionAddRequestBuilder {
@@ -184,14 +209,6 @@ func (r *SiteCollectionAddRequest) Post(ctx context.Context) ([]Site, error) {
 type SiteCollectionRemoveRequestBuilder struct{ BaseRequestBuilder }
 
 // Remove action undocumented
-func (b *GroupSitesCollectionRequestBuilder) Remove(reqObj *SiteCollectionRemoveRequestParameter) *SiteCollectionRemoveRequestBuilder {
-	bb := &SiteCollectionRemoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/remove"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-// Remove action undocumented
 func (b *SiteSitesCollectionRequestBuilder) Remove(reqObj *SiteCollectionRemoveRequestParameter) *SiteCollectionRemoveRequestBuilder {
 	bb := &SiteCollectionRemoveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.BaseRequestBuilder.baseURL += "/remove"
@@ -281,30 +298,4 @@ func (r *SiteCollectionRemoveRequest) PostN(ctx context.Context, n int) ([]Site,
 //
 func (r *SiteCollectionRemoveRequest) Post(ctx context.Context) ([]Site, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type SitePagePublishRequestBuilder struct{ BaseRequestBuilder }
-
-// Publish action undocumented
-func (b *SitePageRequestBuilder) Publish(reqObj *SitePagePublishRequestParameter) *SitePagePublishRequestBuilder {
-	bb := &SitePagePublishRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/publish"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type SitePagePublishRequest struct{ BaseRequest }
-
-//
-func (b *SitePagePublishRequestBuilder) Request() *SitePagePublishRequest {
-	return &SitePagePublishRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *SitePagePublishRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

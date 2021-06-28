@@ -6,6 +6,12 @@ package msgraph
 type IosikEv2VpnConfiguration struct {
 	// IOSVPNConfiguration is the base model of IosikEv2VpnConfiguration
 	IOSVPNConfiguration
+	// AllowDefaultChildSecurityAssociationParameters Allows the use of child security association parameters by setting all parameters to the device's default unless explicitly specified.
+	AllowDefaultChildSecurityAssociationParameters *bool `json:"allowDefaultChildSecurityAssociationParameters,omitempty"`
+	// AllowDefaultSecurityAssociationParameters Allows the use of security association parameters by setting all parameters to the device's default unless explicitly specified.
+	AllowDefaultSecurityAssociationParameters *bool `json:"allowDefaultSecurityAssociationParameters,omitempty"`
+	// AlwaysOnConfiguration AlwaysOn Configuration
+	AlwaysOnConfiguration *AppleVPNAlwaysOnConfiguration `json:"alwaysOnConfiguration,omitempty"`
 	// ChildSecurityAssociationParameters Child Security Association Parameters
 	ChildSecurityAssociationParameters *IOSVPNSecurityAssociationParameters `json:"childSecurityAssociationParameters,omitempty"`
 	// ClientAuthenticationType Type of Client Authentication the VPN client will use.
@@ -16,6 +22,8 @@ type IosikEv2VpnConfiguration struct {
 	DisableMobilityAndMultihoming *bool `json:"disableMobilityAndMultihoming,omitempty"`
 	// DisableRedirect Disable Redirect
 	DisableRedirect *bool `json:"disableRedirect,omitempty"`
+	// EnableAlwaysOnConfiguration Determines if Always on VPN is enabled
+	EnableAlwaysOnConfiguration *bool `json:"enableAlwaysOnConfiguration,omitempty"`
 	// EnableCertificateRevocationCheck Enables a best-effort revocation check; server response timeouts will not cause it to fail
 	EnableCertificateRevocationCheck *bool `json:"enableCertificateRevocationCheck,omitempty"`
 	// EnableEAP Enables EAP only authentication
@@ -26,6 +34,8 @@ type IosikEv2VpnConfiguration struct {
 	EnableUseInternalSubnetAttributes *bool `json:"enableUseInternalSubnetAttributes,omitempty"`
 	// LocalIdentifier Method of identifying the client that is trying to connect via VPN.
 	LocalIdentifier *VPNLocalIdentifier `json:"localIdentifier,omitempty"`
+	// MtuSizeInBytes Maximum transmission unit. Valid values 1280 to 1400
+	MtuSizeInBytes *int `json:"mtuSizeInBytes,omitempty"`
 	// RemoteIdentifier Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
 	RemoteIdentifier *string `json:"remoteIdentifier,omitempty"`
 	// SecurityAssociationParameters Security Association Parameters
@@ -42,8 +52,4 @@ type IosikEv2VpnConfiguration struct {
 	TLSMaximumVersion *string `json:"tlsMaximumVersion,omitempty"`
 	// TLSMinimumVersion The minimum TLS version to be used with EAP-TLS authentication
 	TLSMinimumVersion *string `json:"tlsMinimumVersion,omitempty"`
-	// AllowDefaultSecurityAssociationParameters Allows the use of security association parameters by setting all parameters to the device's default unless explicitly specified.
-	AllowDefaultSecurityAssociationParameters *bool `json:"allowDefaultSecurityAssociationParameters,omitempty"`
-	// AllowDefaultChildSecurityAssociationParameters Allows the use of child security association parameters by setting all parameters to the device's default unless explicitly specified.
-	AllowDefaultChildSecurityAssociationParameters *bool `json:"allowDefaultChildSecurityAssociationParameters,omitempty"`
 }

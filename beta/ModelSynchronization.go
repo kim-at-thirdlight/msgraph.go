@@ -32,16 +32,26 @@ type SynchronizationError struct {
 type SynchronizationJob struct {
 	// Entity is the base model of SynchronizationJob
 	Entity
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
 	// Schedule undocumented
 	Schedule *SynchronizationSchedule `json:"schedule,omitempty"`
 	// Status undocumented
 	Status *SynchronizationStatus `json:"status,omitempty"`
 	// SynchronizationJobSettings undocumented
 	SynchronizationJobSettings []KeyValuePair `json:"synchronizationJobSettings,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
 	// Schema undocumented
 	Schema *SynchronizationSchema `json:"schema,omitempty"`
+}
+
+// SynchronizationJobApplicationParameters undocumented
+type SynchronizationJobApplicationParameters struct {
+	// Object is the base model of SynchronizationJobApplicationParameters
+	Object
+	// RuleID undocumented
+	RuleID *string `json:"ruleId,omitempty"`
+	// Subjects undocumented
+	Subjects []SynchronizationJobSubject `json:"subjects,omitempty"`
 }
 
 // SynchronizationJobRestartCriteria undocumented
@@ -50,6 +60,16 @@ type SynchronizationJobRestartCriteria struct {
 	Object
 	// ResetScope undocumented
 	ResetScope *SynchronizationJobRestartScope `json:"resetScope,omitempty"`
+}
+
+// SynchronizationJobSubject undocumented
+type SynchronizationJobSubject struct {
+	// Object is the base model of SynchronizationJobSubject
+	Object
+	// ObjectID undocumented
+	ObjectID *string `json:"objectId,omitempty"`
+	// ObjectTypeName undocumented
+	ObjectTypeName *string `json:"objectTypeName,omitempty"`
 }
 
 // SynchronizationProgress undocumented
@@ -72,6 +92,8 @@ type SynchronizationQuarantine struct {
 	Object
 	// CurrentBegan undocumented
 	CurrentBegan *time.Time `json:"currentBegan,omitempty"`
+	// Error undocumented
+	Error *SynchronizationError `json:"error,omitempty"`
 	// NextAttempt undocumented
 	NextAttempt *time.Time `json:"nextAttempt,omitempty"`
 	// Reason undocumented
@@ -120,8 +142,6 @@ type SynchronizationSchedule struct {
 type SynchronizationSchema struct {
 	// Entity is the base model of SynchronizationSchema
 	Entity
-	// ProvisioningTaskIdentifier undocumented
-	ProvisioningTaskIdentifier *string `json:"provisioningTaskIdentifier,omitempty"`
 	// SynchronizationRules undocumented
 	SynchronizationRules []SynchronizationRule `json:"synchronizationRules,omitempty"`
 	// Version undocumented
@@ -144,12 +164,12 @@ type SynchronizationSecretKeyStringValuePair struct {
 type SynchronizationStatus struct {
 	// Object is the base model of SynchronizationStatus
 	Object
+	// Code undocumented
+	Code *SynchronizationStatusCode `json:"code,omitempty"`
 	// CountSuccessiveCompleteFailures undocumented
 	CountSuccessiveCompleteFailures *int `json:"countSuccessiveCompleteFailures,omitempty"`
 	// EscrowsPruned undocumented
 	EscrowsPruned *bool `json:"escrowsPruned,omitempty"`
-	// Code undocumented
-	Code *SynchronizationStatusCode `json:"code,omitempty"`
 	// LastExecution undocumented
 	LastExecution *SynchronizationTaskExecution `json:"lastExecution,omitempty"`
 	// LastSuccessfulExecution undocumented
@@ -194,10 +214,10 @@ type SynchronizationTaskExecution struct {
 	CountImportedDeltas *int `json:"countImportedDeltas,omitempty"`
 	// CountImportedReferenceDeltas undocumented
 	CountImportedReferenceDeltas *int `json:"countImportedReferenceDeltas,omitempty"`
-	// State undocumented
-	State *SynchronizationTaskExecutionResult `json:"state,omitempty"`
 	// Error undocumented
 	Error *SynchronizationError `json:"error,omitempty"`
+	// State undocumented
+	State *SynchronizationTaskExecutionResult `json:"state,omitempty"`
 	// TimeBegan undocumented
 	TimeBegan *time.Time `json:"timeBegan,omitempty"`
 	// TimeEnded undocumented

@@ -131,6 +131,8 @@ var (
 type ThreatCategory string
 
 const (
+	// ThreatCategoryVUndefined undocumented
+	ThreatCategoryVUndefined ThreatCategory = "undefined"
 	// ThreatCategoryVSpam undocumented
 	ThreatCategoryVSpam ThreatCategory = "spam"
 	// ThreatCategoryVPhishing undocumented
@@ -142,6 +144,8 @@ const (
 )
 
 var (
+	// ThreatCategoryPUndefined is a pointer to ThreatCategoryVUndefined
+	ThreatCategoryPUndefined = &_ThreatCategoryPUndefined
 	// ThreatCategoryPSpam is a pointer to ThreatCategoryVSpam
 	ThreatCategoryPSpam = &_ThreatCategoryPSpam
 	// ThreatCategoryPPhishing is a pointer to ThreatCategoryVPhishing
@@ -153,6 +157,7 @@ var (
 )
 
 var (
+	_ThreatCategoryPUndefined          = ThreatCategoryVUndefined
 	_ThreatCategoryPSpam               = ThreatCategoryVSpam
 	_ThreatCategoryPPhishing           = ThreatCategoryVPhishing
 	_ThreatCategoryPMalware            = ThreatCategoryVMalware

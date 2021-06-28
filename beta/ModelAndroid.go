@@ -8,18 +8,18 @@ import "time"
 type AndroidCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of AndroidCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
-	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
+	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
+	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 	// RootCertificate undocumented
 	RootCertificate *AndroidTrustedRootCertificate `json:"rootCertificate,omitempty"`
 }
@@ -28,54 +28,60 @@ type AndroidCertificateProfileBase struct {
 type AndroidCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of AndroidCompliancePolicy
 	DeviceCompliancePolicy
-	// PasswordRequired Require a password to unlock device.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
-	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
-	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
-	// PasswordRequiredType Type of characters in password
-	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
-	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
-	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
-	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
-	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
-	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
-	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
-	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
-	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
-	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
+	// AdvancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance.
+	AdvancedThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"advancedThreatProtectionRequiredSecurityLevel,omitempty"`
+	// ConditionStatementID Condition statement id.
+	ConditionStatementID *string `json:"conditionStatementId,omitempty"`
 	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
 	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
 	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
 	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
-	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
-	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
-	// OsMinimumVersion Minimum Android version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum Android version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
 	// MinAndroidSecurityPatchLevel Minimum Android security patch level.
 	MinAndroidSecurityPatchLevel *string `json:"minAndroidSecurityPatchLevel,omitempty"`
-	// StorageRequireEncryption Require encryption on Android devices.
-	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
+	// OsMaximumVersion Maximum Android version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum Android version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
+	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
+	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
+	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
+	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
+	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	// PasswordRequired Require a password to unlock device.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of characters in password
+	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// RequiredPasswordComplexity Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is a new API targeted to Android 11+.
+	RequiredPasswordComplexity *AndroidRequiredPasswordComplexity `json:"requiredPasswordComplexity,omitempty"`
+	// RestrictedApps Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
+	RestrictedApps []AppListItem `json:"restrictedApps,omitempty"`
+	// SecurityBlockDeviceAdministratorManagedDevices Block device administrator managed devices.
+	SecurityBlockDeviceAdministratorManagedDevices *bool `json:"securityBlockDeviceAdministratorManagedDevices,omitempty"`
+	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
+	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
+	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
+	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
+	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
+	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
+	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
+	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
+	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
+	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireSafetyNetAttestationBasicIntegrity Require the device to pass the SafetyNet basic integrity check.
 	SecurityRequireSafetyNetAttestationBasicIntegrity *bool `json:"securityRequireSafetyNetAttestationBasicIntegrity,omitempty"`
 	// SecurityRequireSafetyNetAttestationCertifiedDevice Require the device to pass the SafetyNet certified device check.
 	SecurityRequireSafetyNetAttestationCertifiedDevice *bool `json:"securityRequireSafetyNetAttestationCertifiedDevice,omitempty"`
-	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
-	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireUpToDateSecurityProviders Require the device to have up to date security providers. The device will require Google Play Services to be enabled and up to date.
 	SecurityRequireUpToDateSecurityProviders *bool `json:"securityRequireUpToDateSecurityProviders,omitempty"`
-	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
-	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
-	// ConditionStatementID Condition statement id.
-	ConditionStatementID *string `json:"conditionStatementId,omitempty"`
-	// RestrictedApps Require the device to not have the specified apps installed. This collection can contain a maximum of 100 elements.
-	RestrictedApps []AppListItem `json:"restrictedApps,omitempty"`
+	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
+	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
+	// StorageRequireEncryption Require encryption on Android devices.
+	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 }
 
 // AndroidCustomConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the androidCustomConfiguration resource.
@@ -114,18 +120,18 @@ type AndroidDeviceComplianceLocalActionLockDeviceWithPasscode struct {
 type AndroidDeviceOwnerCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of AndroidDeviceOwnerCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
 	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
 	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 	// RootCertificate undocumented
 	RootCertificate *AndroidDeviceOwnerTrustedRootCertificate `json:"rootCertificate,omitempty"`
 }
@@ -134,22 +140,20 @@ type AndroidDeviceOwnerCertificateProfileBase struct {
 type AndroidDeviceOwnerCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of AndroidDeviceOwnerCompliancePolicy
 	DeviceCompliancePolicy
+	// AdvancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance.
+	AdvancedThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"advancedThreatProtectionRequiredSecurityLevel,omitempty"`
 	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
 	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
 	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
 	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
-	// SecurityRequireSafetyNetAttestationBasicIntegrity Require the device to pass the SafetyNet basic integrity check.
-	SecurityRequireSafetyNetAttestationBasicIntegrity *bool `json:"securityRequireSafetyNetAttestationBasicIntegrity,omitempty"`
-	// SecurityRequireSafetyNetAttestationCertifiedDevice Require the device to pass the SafetyNet certified device check.
-	SecurityRequireSafetyNetAttestationCertifiedDevice *bool `json:"securityRequireSafetyNetAttestationCertifiedDevice,omitempty"`
-	// OsMinimumVersion Minimum Android version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum Android version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
 	// MinAndroidSecurityPatchLevel Minimum Android security patch level.
 	MinAndroidSecurityPatchLevel *string `json:"minAndroidSecurityPatchLevel,omitempty"`
-	// PasswordRequired Require a password to unlock device.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// OsMaximumVersion Maximum Android version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum Android version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
 	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
 	// PasswordMinimumLetterCharacters Indicates the minimum number of letter characters required for device password. Valid values 1 to 16
@@ -164,66 +168,84 @@ type AndroidDeviceOwnerCompliancePolicy struct {
 	PasswordMinimumSymbolCharacters *int `json:"passwordMinimumSymbolCharacters,omitempty"`
 	// PasswordMinimumUpperCaseCharacters Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
 	PasswordMinimumUpperCaseCharacters *int `json:"passwordMinimumUpperCaseCharacters,omitempty"`
-	// PasswordRequiredType Type of characters in password
-	PasswordRequiredType *AndroidDeviceOwnerRequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
 	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
-	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
 	// PasswordPreviousPasswordCountToBlock Number of previous passwords to block. Valid values 1 to 24
 	PasswordPreviousPasswordCountToBlock *int `json:"passwordPreviousPasswordCountToBlock,omitempty"`
+	// PasswordRequired Require a password to unlock device.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of characters in password
+	PasswordRequiredType *AndroidDeviceOwnerRequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// SecurityRequireSafetyNetAttestationBasicIntegrity Require the device to pass the SafetyNet basic integrity check.
+	SecurityRequireSafetyNetAttestationBasicIntegrity *bool `json:"securityRequireSafetyNetAttestationBasicIntegrity,omitempty"`
+	// SecurityRequireSafetyNetAttestationCertifiedDevice Require the device to pass the SafetyNet certified device check.
+	SecurityRequireSafetyNetAttestationCertifiedDevice *bool `json:"securityRequireSafetyNetAttestationCertifiedDevice,omitempty"`
 	// StorageRequireEncryption Require encryption on Android devices.
 	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 }
 
-// AndroidDeviceOwnerEnrollmentProfile Enrollment Profile used to enroll COSU devices using Google's Cloud Management.
+// AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration Android COBO Derived Credential profile.
+type AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration struct {
+	// DeviceConfiguration is the base model of AndroidDeviceOwnerDerivedCredentialAuthenticationConfiguration
+	DeviceConfiguration
+	// DerivedCredentialSettings undocumented
+	DerivedCredentialSettings *DeviceManagementDerivedCredentialSettings `json:"derivedCredentialSettings,omitempty"`
+}
+
+// AndroidDeviceOwnerEnrollmentProfile Enrollment Profile used to enroll Android Enterprise devices using Google's Cloud Management.
 type AndroidDeviceOwnerEnrollmentProfile struct {
 	// Entity is the base model of AndroidDeviceOwnerEnrollmentProfile
 	Entity
 	// AccountID Tenant GUID the enrollment profile belongs to.
 	AccountID *string `json:"accountId,omitempty"`
-	// DisplayName Display name for the enrollment profile.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Description for the enrollment profile.
-	Description *string `json:"description,omitempty"`
 	// CreatedDateTime Date time the enrollment profile was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime Date time the enrollment profile was last modified.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// TokenValue Value of the most recently created token for this enrollment profile.
-	TokenValue *string `json:"tokenValue,omitempty"`
-	// TokenCreationDateTime Date time the most recently created token was created.
-	TokenCreationDateTime *time.Time `json:"tokenCreationDateTime,omitempty"`
-	// TokenExpirationDateTime Date time the most recently created token will expire.
-	TokenExpirationDateTime *time.Time `json:"tokenExpirationDateTime,omitempty"`
+	// Description Description for the enrollment profile.
+	Description *string `json:"description,omitempty"`
+	// DisplayName Display name for the enrollment profile.
+	DisplayName *string `json:"displayName,omitempty"`
 	// EnrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
 	EnrolledDeviceCount *int `json:"enrolledDeviceCount,omitempty"`
+	// EnrollmentMode The enrollment mode of devices that use this enrollment profile.
+	EnrollmentMode *AndroidDeviceOwnerEnrollmentMode `json:"enrollmentMode,omitempty"`
+	// EnrollmentTokenType The enrollment token type for an enrollment profile.
+	EnrollmentTokenType *AndroidDeviceOwnerEnrollmentTokenType `json:"enrollmentTokenType,omitempty"`
+	// LastModifiedDateTime Date time the enrollment profile was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// QrCodeContent String used to generate a QR code for the token.
 	QrCodeContent *string `json:"qrCodeContent,omitempty"`
 	// QrCodeImage String used to generate a QR code for the token.
 	QrCodeImage *MimeContent `json:"qrCodeImage,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// TokenCreationDateTime Date time the most recently created token was created.
+	TokenCreationDateTime *time.Time `json:"tokenCreationDateTime,omitempty"`
+	// TokenExpirationDateTime Date time the most recently created token will expire.
+	TokenExpirationDateTime *time.Time `json:"tokenExpirationDateTime,omitempty"`
+	// TokenValue Value of the most recently created token for this enrollment profile.
+	TokenValue *string `json:"tokenValue,omitempty"`
 }
 
 // AndroidDeviceOwnerEnterpriseWiFiConfiguration By providing the configurations in this profile you can instruct the Android Device Owner device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
 type AndroidDeviceOwnerEnterpriseWiFiConfiguration struct {
 	// AndroidDeviceOwnerWiFiConfiguration is the base model of AndroidDeviceOwnerEnterpriseWiFiConfiguration
 	AndroidDeviceOwnerWiFiConfiguration
-	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// AuthenticationMethod Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// InnerAuthenticationProtocolForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEapTtls,omitempty"`
 	// InnerAuthenticationProtocolForPeap Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForPeap *NonEapAuthenticationMethodForPeap `json:"innerAuthenticationProtocolForPeap,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *AndroidDeviceOwnerTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// DerivedCredentialSettings undocumented
+	DerivedCredentialSettings *DeviceManagementDerivedCredentialSettings `json:"derivedCredentialSettings,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *AndroidDeviceOwnerCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *AndroidDeviceOwnerTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
 }
 
 // AndroidDeviceOwnerGeneralDeviceConfiguration This topic provides descriptions of the declared methods, properties and relationships exposed by the androidDeviceOwnerGeneralDeviceConfiguration resource.
@@ -248,48 +270,110 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	CameraBlocked *bool `json:"cameraBlocked,omitempty"`
 	// CellularBlockWiFiTethering Indicates whether or not to block Wi-Fi tethering.
 	CellularBlockWiFiTethering *bool `json:"cellularBlockWiFiTethering,omitempty"`
+	// CertificateCredentialConfigurationDisabled Indicates whether or not to block users from any certificate credential configuration.
+	CertificateCredentialConfigurationDisabled *bool `json:"certificateCredentialConfigurationDisabled,omitempty"`
 	// DataRoamingBlocked Indicates whether or not to block a user from data roaming.
 	DataRoamingBlocked *bool `json:"dataRoamingBlocked,omitempty"`
 	// DateTimeConfigurationBlocked Indicates whether or not to block the user from manually changing the date or time on the device
 	DateTimeConfigurationBlocked *bool `json:"dateTimeConfigurationBlocked,omitempty"`
-	// FactoryResetDeviceAdministratorEmails List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.
-	FactoryResetDeviceAdministratorEmails []string `json:"factoryResetDeviceAdministratorEmails,omitempty"`
+	// EnrollmentProfile Indicates which enrollment profile you want to configure.
+	EnrollmentProfile *AndroidDeviceOwnerEnrollmentProfileType `json:"enrollmentProfile,omitempty"`
 	// FactoryResetBlocked Indicates whether or not the factory reset option in settings is disabled.
 	FactoryResetBlocked *bool `json:"factoryResetBlocked,omitempty"`
+	// FactoryResetDeviceAdministratorEmails List of Google account emails that will be required to authenticate after a device is factory reset before it can be set up.
+	FactoryResetDeviceAdministratorEmails []string `json:"factoryResetDeviceAdministratorEmails,omitempty"`
 	// GlobalProxy Proxy is set up directly with host, port and excluded hosts.
 	GlobalProxy *AndroidDeviceOwnerGlobalProxy `json:"globalProxy,omitempty"`
 	// GoogleAccountsBlocked Indicates whether or not google accounts will be blocked.
 	GoogleAccountsBlocked *bool `json:"googleAccountsBlocked,omitempty"`
-	// KioskModeScreenSaverConfigurationEnabled Whether or not to enable screen saver mode or not in Kiosk Mode.
-	KioskModeScreenSaverConfigurationEnabled *bool `json:"kioskModeScreenSaverConfigurationEnabled,omitempty"`
-	// KioskModeScreenSaverImageURL URL for an image that will be the device's screen saver in Kiosk Mode.
-	KioskModeScreenSaverImageURL *string `json:"kioskModeScreenSaverImageUrl,omitempty"`
-	// KioskModeScreenSaverDisplayTimeInSeconds The number of seconds that the device will display the screen saver for in Kiosk Mode. Valid values 0 to 9999999
-	KioskModeScreenSaverDisplayTimeInSeconds *int `json:"kioskModeScreenSaverDisplayTimeInSeconds,omitempty"`
-	// KioskModeScreenSaverStartDelayInSeconds The number of seconds the device needs to be inactive for before the screen saver is shown in Kiosk Mode. Valid values 1 to 9999999
-	KioskModeScreenSaverStartDelayInSeconds *int `json:"kioskModeScreenSaverStartDelayInSeconds,omitempty"`
-	// KioskModeScreenSaverDetectMediaDisabled Whether or not the device screen should show the screen saver if audio/video is playing in Kiosk Mode.
-	KioskModeScreenSaverDetectMediaDisabled *bool `json:"kioskModeScreenSaverDetectMediaDisabled,omitempty"`
+	// KioskCustomizationDeviceSettingsBlocked Indicates whether a user can access the device's Settings app while in Kiosk Mode.
+	KioskCustomizationDeviceSettingsBlocked *bool `json:"kioskCustomizationDeviceSettingsBlocked,omitempty"`
+	// KioskCustomizationPowerButtonActionsBlocked Whether the power menu is shown when a user long presses the Power button of a device in Kiosk Mode.
+	KioskCustomizationPowerButtonActionsBlocked *bool `json:"kioskCustomizationPowerButtonActionsBlocked,omitempty"`
+	// KioskCustomizationStatusBar Indicates whether system info and notifications are disabled in Kiosk Mode.
+	KioskCustomizationStatusBar *AndroidDeviceOwnerKioskCustomizationStatusBar `json:"kioskCustomizationStatusBar,omitempty"`
+	// KioskCustomizationSystemErrorWarnings Indicates whether system error dialogs for crashed or unresponsive apps are shown in Kiosk Mode.
+	KioskCustomizationSystemErrorWarnings *bool `json:"kioskCustomizationSystemErrorWarnings,omitempty"`
+	// KioskCustomizationSystemNavigation Indicates which navigation features are enabled in Kiosk Mode.
+	KioskCustomizationSystemNavigation *AndroidDeviceOwnerKioskCustomizationSystemNavigation `json:"kioskCustomizationSystemNavigation,omitempty"`
+	// KioskModeAppOrderEnabled Whether or not to enable app ordering in Kiosk Mode.
+	KioskModeAppOrderEnabled *bool `json:"kioskModeAppOrderEnabled,omitempty"`
+	// KioskModeAppPositions The ordering of items on Kiosk Mode Managed Home Screen. This collection can contain a maximum of 500 elements.
+	KioskModeAppPositions []AndroidDeviceOwnerKioskModeAppPositionItem `json:"kioskModeAppPositions,omitempty"`
 	// KioskModeApps A list of managed apps that will be shown when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
 	KioskModeApps []AppListItem `json:"kioskModeApps,omitempty"`
-	// KioskModeWallpaperURL URL to a publicly accessible image to use for the wallpaper when the device is in Kiosk Mode.
-	KioskModeWallpaperURL *string `json:"kioskModeWallpaperUrl,omitempty"`
+	// KioskModeAppsInFolderOrderedByName Whether or not to alphabetize applications within a folder in Kiosk Mode.
+	KioskModeAppsInFolderOrderedByName *bool `json:"kioskModeAppsInFolderOrderedByName,omitempty"`
+	// KioskModeBluetoothConfigurationEnabled Whether or not to allow a user to configure Bluetooth settings in Kiosk Mode.
+	KioskModeBluetoothConfigurationEnabled *bool `json:"kioskModeBluetoothConfigurationEnabled,omitempty"`
+	// KioskModeDebugMenuEasyAccessEnabled Whether or not to allow a user to easy access to the debug menu in Kiosk Mode.
+	KioskModeDebugMenuEasyAccessEnabled *bool `json:"kioskModeDebugMenuEasyAccessEnabled,omitempty"`
 	// KioskModeExitCode Exit code to allow a user to escape from Kiosk Mode when the device is in Kiosk Mode.
 	KioskModeExitCode *string `json:"kioskModeExitCode,omitempty"`
+	// KioskModeFlashlightConfigurationEnabled Whether or not to allow a user to use the flashlight in Kiosk Mode.
+	KioskModeFlashlightConfigurationEnabled *bool `json:"kioskModeFlashlightConfigurationEnabled,omitempty"`
+	// KioskModeFolderIcon Folder icon configuration for managed home screen in Kiosk Mode.
+	KioskModeFolderIcon *AndroidDeviceOwnerKioskModeFolderIcon `json:"kioskModeFolderIcon,omitempty"`
+	// KioskModeGridHeight Number of rows for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999
+	KioskModeGridHeight *int `json:"kioskModeGridHeight,omitempty"`
+	// KioskModeGridWidth Number of columns for Managed Home Screen grid with app ordering enabled in Kiosk Mode. Valid values 1 to 9999999
+	KioskModeGridWidth *int `json:"kioskModeGridWidth,omitempty"`
+	// KioskModeIconSize Icon size configuration for managed home screen in Kiosk Mode.
+	KioskModeIconSize *AndroidDeviceOwnerKioskModeIconSize `json:"kioskModeIconSize,omitempty"`
+	// KioskModeLockHomeScreen Whether or not to lock home screen to the end user in Kiosk Mode.
+	KioskModeLockHomeScreen *bool `json:"kioskModeLockHomeScreen,omitempty"`
+	// KioskModeManagedFolders A list of managed folders for a device in Kiosk Mode. This collection can contain a maximum of 500 elements.
+	KioskModeManagedFolders []AndroidDeviceOwnerKioskModeManagedFolder `json:"kioskModeManagedFolders,omitempty"`
+	// KioskModeManagedSettingsEntryDisabled Whether or not to display the Managed Settings entry point on the managed home screen in Kiosk Mode.
+	KioskModeManagedSettingsEntryDisabled *bool `json:"kioskModeManagedSettingsEntryDisabled,omitempty"`
+	// KioskModeMediaVolumeConfigurationEnabled Whether or not to allow a user to change the media volume in Kiosk Mode.
+	KioskModeMediaVolumeConfigurationEnabled *bool `json:"kioskModeMediaVolumeConfigurationEnabled,omitempty"`
+	// KioskModeScreenOrientation Screen orientation configuration for managed home screen in Kiosk Mode.
+	KioskModeScreenOrientation *AndroidDeviceOwnerKioskModeScreenOrientation `json:"kioskModeScreenOrientation,omitempty"`
+	// KioskModeScreenSaverConfigurationEnabled Whether or not to enable screen saver mode or not in Kiosk Mode.
+	KioskModeScreenSaverConfigurationEnabled *bool `json:"kioskModeScreenSaverConfigurationEnabled,omitempty"`
+	// KioskModeScreenSaverDetectMediaDisabled Whether or not the device screen should show the screen saver if audio/video is playing in Kiosk Mode.
+	KioskModeScreenSaverDetectMediaDisabled *bool `json:"kioskModeScreenSaverDetectMediaDisabled,omitempty"`
+	// KioskModeScreenSaverDisplayTimeInSeconds The number of seconds that the device will display the screen saver for in Kiosk Mode. Valid values 0 to 9999999
+	KioskModeScreenSaverDisplayTimeInSeconds *int `json:"kioskModeScreenSaverDisplayTimeInSeconds,omitempty"`
+	// KioskModeScreenSaverImageURL URL for an image that will be the device's screen saver in Kiosk Mode.
+	KioskModeScreenSaverImageURL *string `json:"kioskModeScreenSaverImageUrl,omitempty"`
+	// KioskModeScreenSaverStartDelayInSeconds The number of seconds the device needs to be inactive for before the screen saver is shown in Kiosk Mode. Valid values 1 to 9999999
+	KioskModeScreenSaverStartDelayInSeconds *int `json:"kioskModeScreenSaverStartDelayInSeconds,omitempty"`
+	// KioskModeShowAppNotificationBadge Whether or not to display application notification badges in Kiosk Mode.
+	KioskModeShowAppNotificationBadge *bool `json:"kioskModeShowAppNotificationBadge,omitempty"`
+	// KioskModeShowDeviceInfo Whether or not to allow a user to access basic device information.
+	KioskModeShowDeviceInfo *bool `json:"kioskModeShowDeviceInfo,omitempty"`
 	// KioskModeVirtualHomeButtonEnabled Whether or not to display a virtual home button when the device is in Kiosk Mode.
 	KioskModeVirtualHomeButtonEnabled *bool `json:"kioskModeVirtualHomeButtonEnabled,omitempty"`
 	// KioskModeVirtualHomeButtonType Indicates whether the virtual home button is a swipe up home button or a floating home button.
 	KioskModeVirtualHomeButtonType *AndroidDeviceOwnerVirtualHomeButtonType `json:"kioskModeVirtualHomeButtonType,omitempty"`
-	// KioskModeBluetoothConfigurationEnabled Whether or not to allow a user to configure Bluetooth settings in Kiosk Mode.
-	KioskModeBluetoothConfigurationEnabled *bool `json:"kioskModeBluetoothConfigurationEnabled,omitempty"`
+	// KioskModeWallpaperURL URL to a publicly accessible image to use for the wallpaper when the device is in Kiosk Mode.
+	KioskModeWallpaperURL *string `json:"kioskModeWallpaperUrl,omitempty"`
+	// KioskModeWiFiAllowedSsids The restricted set of WIFI SSIDs available for the user to configure in Kiosk Mode. This collection can contain a maximum of 500 elements.
+	KioskModeWiFiAllowedSsids []string `json:"kioskModeWifiAllowedSsids,omitempty"`
 	// KioskModeWiFiConfigurationEnabled Whether or not to allow a user to configure Wi-Fi settings in Kiosk Mode.
 	KioskModeWiFiConfigurationEnabled *bool `json:"kioskModeWiFiConfigurationEnabled,omitempty"`
-	// KioskModeFlashlightConfigurationEnabled Whether or not to allow a user to use the flashlight in Kiosk Mode.
-	KioskModeFlashlightConfigurationEnabled *bool `json:"kioskModeFlashlightConfigurationEnabled,omitempty"`
-	// KioskModeMediaVolumeConfigurationEnabled Whether or not to allow a user to change the media volume in Kiosk Mode.
-	KioskModeMediaVolumeConfigurationEnabled *bool `json:"kioskModeMediaVolumeConfigurationEnabled,omitempty"`
 	// MicrophoneForceMute Indicates whether or not to block unmuting the microphone on the device.
 	MicrophoneForceMute *bool `json:"microphoneForceMute,omitempty"`
+	// MicrosoftLauncherConfigurationEnabled Indicates whether or not to you want configure Microsoft Launcher.
+	MicrosoftLauncherConfigurationEnabled *bool `json:"microsoftLauncherConfigurationEnabled,omitempty"`
+	// MicrosoftLauncherCustomWallpaperAllowUserModification Indicates whether or not the user can modify the wallpaper to personalize their device.
+	MicrosoftLauncherCustomWallpaperAllowUserModification *bool `json:"microsoftLauncherCustomWallpaperAllowUserModification,omitempty"`
+	// MicrosoftLauncherCustomWallpaperEnabled Indicates whether or not to configure the wallpaper on the targeted devices.
+	MicrosoftLauncherCustomWallpaperEnabled *bool `json:"microsoftLauncherCustomWallpaperEnabled,omitempty"`
+	// MicrosoftLauncherCustomWallpaperImageURL Indicates the URL for the image file to use as the wallpaper on the targeted devices.
+	MicrosoftLauncherCustomWallpaperImageURL *string `json:"microsoftLauncherCustomWallpaperImageUrl,omitempty"`
+	// MicrosoftLauncherDockPresenceAllowUserModification Indicates whether or not the user can modify the device dock configuration on the device.
+	MicrosoftLauncherDockPresenceAllowUserModification *bool `json:"microsoftLauncherDockPresenceAllowUserModification,omitempty"`
+	// MicrosoftLauncherDockPresenceConfiguration Indicates whether or not you want to configure the device dock.
+	MicrosoftLauncherDockPresenceConfiguration *MicrosoftLauncherDockPresence `json:"microsoftLauncherDockPresenceConfiguration,omitempty"`
+	// MicrosoftLauncherFeedAllowUserModification Indicates whether or not the user can modify the launcher feed on the device.
+	MicrosoftLauncherFeedAllowUserModification *bool `json:"microsoftLauncherFeedAllowUserModification,omitempty"`
+	// MicrosoftLauncherFeedEnabled Indicates whether or not you want to enable the launcher feed on the device.
+	MicrosoftLauncherFeedEnabled *bool `json:"microsoftLauncherFeedEnabled,omitempty"`
+	// MicrosoftLauncherSearchBarPlacementConfiguration Indicates the search bar placement configuration on the device.
+	MicrosoftLauncherSearchBarPlacementConfiguration *MicrosoftLauncherSearchBarPlacement `json:"microsoftLauncherSearchBarPlacementConfiguration,omitempty"`
 	// NetworkEscapeHatchAllowed Indicates whether or not the device will allow connecting to a temporary network connection at boot time.
 	NetworkEscapeHatchAllowed *bool `json:"networkEscapeHatchAllowed,omitempty"`
 	// NfcBlockOutgoingBeam Indicates whether or not to block NFC outgoing beam.
@@ -298,7 +382,7 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	PasswordBlockKeyguard *bool `json:"passwordBlockKeyguard,omitempty"`
 	// PasswordBlockKeyguardFeatures List of device keyguard features to block. This collection can contain a maximum of 7 elements.
 	PasswordBlockKeyguardFeatures []AndroidKeyguardFeature `json:"passwordBlockKeyguardFeatures,omitempty"`
-	// PasswordExpirationDays Indicates the amount of time in seconds that a password can be set for before it expires and a new password will be required. Valid values 1 to 365
+	// PasswordExpirationDays Indicates the amount of time that a password can be set for before it expires and a new password will be required. Valid values 1 to 365
 	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
 	// PasswordMinimumLength Indicates the minimum length of the password required on the device. Valid values 4 to 16
 	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
@@ -312,9 +396,9 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	PasswordMinimumNumericCharacters *int `json:"passwordMinimumNumericCharacters,omitempty"`
 	// PasswordMinimumSymbolCharacters Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16
 	PasswordMinimumSymbolCharacters *int `json:"passwordMinimumSymbolCharacters,omitempty"`
-	// PasswordMinimumUpperCaseCharacters Indicates the minimum number of upper caseletter characters required for device password. Valid values 1 to 16
+	// PasswordMinimumUpperCaseCharacters Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16
 	PasswordMinimumUpperCaseCharacters *int `json:"passwordMinimumUpperCaseCharacters,omitempty"`
-	// PasswordMinutesOfInactivityBeforeScreenTimeout Milliseconds of inactivity before the screen times out.
+	// PasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
 	// PasswordPreviousPasswordCountToBlock Indicates the length of password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24
 	PasswordPreviousPasswordCountToBlock *int `json:"passwordPreviousPasswordCountToBlock,omitempty"`
@@ -322,6 +406,12 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	PasswordRequiredType *AndroidDeviceOwnerRequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordSignInFailureCountBeforeFactoryReset Indicates the number of times a user can enter an incorrect password before the device is wiped. Valid values 4 to 11
 	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// PersonalProfileAppsAllowInstallFromUnknownSources Indicates whether the user can install apps from unknown sources on the personal profile.
+	PersonalProfileAppsAllowInstallFromUnknownSources *bool `json:"personalProfileAppsAllowInstallFromUnknownSources,omitempty"`
+	// PersonalProfileCameraBlocked Indicates whether to disable the use of the camera on the personal profile.
+	PersonalProfileCameraBlocked *bool `json:"personalProfileCameraBlocked,omitempty"`
+	// PersonalProfileScreenCaptureBlocked Indicates whether to disable the capability to take screenshots on the personal profile.
+	PersonalProfileScreenCaptureBlocked *bool `json:"personalProfileScreenCaptureBlocked,omitempty"`
 	// PlayStoreMode Indicates the Play Store mode of the device.
 	PlayStoreMode *AndroidDeviceOwnerPlayStoreMode `json:"playStoreMode,omitempty"`
 	// SafeBootBlocked Indicates whether or not rebooting the device into safe boot is disabled.
@@ -342,12 +432,12 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	StorageBlockExternalMedia *bool `json:"storageBlockExternalMedia,omitempty"`
 	// StorageBlockUsbFileTransfer Indicates whether or not to block USB file transfer.
 	StorageBlockUsbFileTransfer *bool `json:"storageBlockUsbFileTransfer,omitempty"`
-	// SystemUpdateWindowStartMinutesAfterMidnight Indicates the number of minutes after midnight that the system update window starts. Valid values 0 to 1440
-	SystemUpdateWindowStartMinutesAfterMidnight *int `json:"systemUpdateWindowStartMinutesAfterMidnight,omitempty"`
-	// SystemUpdateWindowEndMinutesAfterMidnight Indicates the number of minutes after midnight that the system update window ends. Valid values 0 to 1440
-	SystemUpdateWindowEndMinutesAfterMidnight *int `json:"systemUpdateWindowEndMinutesAfterMidnight,omitempty"`
 	// SystemUpdateInstallType The type of system update configuration.
 	SystemUpdateInstallType *AndroidDeviceOwnerSystemUpdateInstallType `json:"systemUpdateInstallType,omitempty"`
+	// SystemUpdateWindowEndMinutesAfterMidnight Indicates the number of minutes after midnight that the system update window ends. Valid values 0 to 1440
+	SystemUpdateWindowEndMinutesAfterMidnight *int `json:"systemUpdateWindowEndMinutesAfterMidnight,omitempty"`
+	// SystemUpdateWindowStartMinutesAfterMidnight Indicates the number of minutes after midnight that the system update window starts. Valid values 0 to 1440
+	SystemUpdateWindowStartMinutesAfterMidnight *int `json:"systemUpdateWindowStartMinutesAfterMidnight,omitempty"`
 	// SystemWindowsBlocked Whether or not to block Android system prompt windows, like toasts, phone activities, and system alerts.
 	SystemWindowsBlocked *bool `json:"systemWindowsBlocked,omitempty"`
 	// UsersBlockAdd Indicates whether or not adding users and profiles is disabled.
@@ -356,23 +446,45 @@ type AndroidDeviceOwnerGeneralDeviceConfiguration struct {
 	UsersBlockRemove *bool `json:"usersBlockRemove,omitempty"`
 	// VolumeBlockAdjustment Indicates whether or not adjusting the master volume is disabled.
 	VolumeBlockAdjustment *bool `json:"volumeBlockAdjustment,omitempty"`
-	// VPNAlwaysOnPackageIdentifier Android app package name for app that will handle an always-on VPN connection.
-	VPNAlwaysOnPackageIdentifier *string `json:"vpnAlwaysOnPackageIdentifier,omitempty"`
 	// VPNAlwaysOnLockdownMode If an always on VPN package name is specified, whether or not to lock network traffic when that VPN is disconnected.
 	VPNAlwaysOnLockdownMode *bool `json:"vpnAlwaysOnLockdownMode,omitempty"`
+	// VPNAlwaysOnPackageIdentifier Android app package name for app that will handle an always-on VPN connection.
+	VPNAlwaysOnPackageIdentifier *string `json:"vpnAlwaysOnPackageIdentifier,omitempty"`
 	// WiFiBlockEditConfigurations Indicates whether or not to block the user from editing the wifi connection settings.
 	WiFiBlockEditConfigurations *bool `json:"wifiBlockEditConfigurations,omitempty"`
 	// WiFiBlockEditPolicyDefinedConfigurations Indicates whether or not to block the user from editing just the networks defined by the policy.
 	WiFiBlockEditPolicyDefinedConfigurations *bool `json:"wifiBlockEditPolicyDefinedConfigurations,omitempty"`
+	// WorkProfilePasswordExpirationDays Indicates the number of days that a work profile password can be set before it expires and a new password will be required. Valid values 1 to 365
+	WorkProfilePasswordExpirationDays *int `json:"workProfilePasswordExpirationDays,omitempty"`
+	// WorkProfilePasswordMinimumLength Indicates the minimum length of the work profile password. Valid values 4 to 16
+	WorkProfilePasswordMinimumLength *int `json:"workProfilePasswordMinimumLength,omitempty"`
+	// WorkProfilePasswordMinimumLetterCharacters Indicates the minimum number of letter characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumLetterCharacters *int `json:"workProfilePasswordMinimumLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinimumLowerCaseCharacters Indicates the minimum number of lower-case characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumLowerCaseCharacters *int `json:"workProfilePasswordMinimumLowerCaseCharacters,omitempty"`
+	// WorkProfilePasswordMinimumNonLetterCharacters Indicates the minimum number of non-letter characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumNonLetterCharacters *int `json:"workProfilePasswordMinimumNonLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinimumNumericCharacters Indicates the minimum number of numeric characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumNumericCharacters *int `json:"workProfilePasswordMinimumNumericCharacters,omitempty"`
+	// WorkProfilePasswordMinimumSymbolCharacters Indicates the minimum number of symbol characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumSymbolCharacters *int `json:"workProfilePasswordMinimumSymbolCharacters,omitempty"`
+	// WorkProfilePasswordMinimumUpperCaseCharacters Indicates the minimum number of upper-case letter characters required for the work profile password. Valid values 1 to 16
+	WorkProfilePasswordMinimumUpperCaseCharacters *int `json:"workProfilePasswordMinimumUpperCaseCharacters,omitempty"`
+	// WorkProfilePasswordPreviousPasswordCountToBlock Indicates the length of the work profile password history, where the user will not be able to enter a new password that is the same as any password in the history. Valid values 0 to 24
+	WorkProfilePasswordPreviousPasswordCountToBlock *int `json:"workProfilePasswordPreviousPasswordCountToBlock,omitempty"`
+	// WorkProfilePasswordRequiredType Indicates the minimum password quality required on the work profile password.
+	WorkProfilePasswordRequiredType *AndroidDeviceOwnerRequiredPasswordType `json:"workProfilePasswordRequiredType,omitempty"`
+	// WorkProfilePasswordSignInFailureCountBeforeFactoryReset Indicates the number of times a user can enter an incorrect work profile password before the device is wiped. Valid values 4 to 11
+	WorkProfilePasswordSignInFailureCountBeforeFactoryReset *int `json:"workProfilePasswordSignInFailureCountBeforeFactoryReset,omitempty"`
 }
 
-// AndroidDeviceOwnerGlobalProxy undocumented
+// AndroidDeviceOwnerGlobalProxy Android Device Owner Global Proxy.
 type AndroidDeviceOwnerGlobalProxy struct {
 	// Object is the base model of AndroidDeviceOwnerGlobalProxy
 	Object
 }
 
-// AndroidDeviceOwnerGlobalProxyAutoConfig undocumented
+// AndroidDeviceOwnerGlobalProxyAutoConfig Android Device Owner Global Proxy Auto Config.
 type AndroidDeviceOwnerGlobalProxyAutoConfig struct {
 	// AndroidDeviceOwnerGlobalProxy is the base model of AndroidDeviceOwnerGlobalProxyAutoConfig
 	AndroidDeviceOwnerGlobalProxy
@@ -380,38 +492,136 @@ type AndroidDeviceOwnerGlobalProxyAutoConfig struct {
 	ProxyAutoConfigURL *string `json:"proxyAutoConfigURL,omitempty"`
 }
 
-// AndroidDeviceOwnerGlobalProxyDirect undocumented
+// AndroidDeviceOwnerGlobalProxyDirect Android Device Owner Global Proxy Direct.
 type AndroidDeviceOwnerGlobalProxyDirect struct {
 	// AndroidDeviceOwnerGlobalProxy is the base model of AndroidDeviceOwnerGlobalProxyDirect
 	AndroidDeviceOwnerGlobalProxy
+	// ExcludedHosts The excluded hosts
+	ExcludedHosts []string `json:"excludedHosts,omitempty"`
 	// Host The host name
 	Host *string `json:"host,omitempty"`
 	// Port The port
 	Port *int `json:"port,omitempty"`
-	// ExcludedHosts The excluded hosts
-	ExcludedHosts []string `json:"excludedHosts,omitempty"`
+}
+
+// AndroidDeviceOwnerImportedPFXCertificateProfile Android Device Owner PFX Import certificate profile
+type AndroidDeviceOwnerImportedPFXCertificateProfile struct {
+	// AndroidDeviceOwnerCertificateProfileBase is the base model of AndroidDeviceOwnerImportedPFXCertificateProfile
+	AndroidDeviceOwnerCertificateProfileBase
+	// IntendedPurpose Intended Purpose of the Certificate Profile - which could be Unassigned, SmimeEncryption, SmimeSigning etc.
+	IntendedPurpose *IntendedPurpose `json:"intendedPurpose,omitempty"`
+	// ManagedDeviceCertificateStates undocumented
+	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
+}
+
+// AndroidDeviceOwnerKioskModeApp An application on the Android Device Owner Managed Home Screen
+type AndroidDeviceOwnerKioskModeApp struct {
+	// AndroidDeviceOwnerKioskModeFolderItem is the base model of AndroidDeviceOwnerKioskModeApp
+	AndroidDeviceOwnerKioskModeFolderItem
+	// ClassName Class name of application
+	ClassName *string `json:"className,omitempty"`
+	// Package Package name of application
+	Package *string `json:"package,omitempty"`
+}
+
+// AndroidDeviceOwnerKioskModeAppPositionItem An item in the list of app positions that sets the order of items on the Managed Home Screen
+type AndroidDeviceOwnerKioskModeAppPositionItem struct {
+	// Object is the base model of AndroidDeviceOwnerKioskModeAppPositionItem
+	Object
+	// Item Item to be arranged
+	Item *AndroidDeviceOwnerKioskModeHomeScreenItem `json:"item,omitempty"`
+	// Position Position of the item on the grid. Valid values 0 to 9999999
+	Position *int `json:"position,omitempty"`
+}
+
+// AndroidDeviceOwnerKioskModeFolderItem Represents an item that can be added to Android Device Owner folder (application or weblink)
+type AndroidDeviceOwnerKioskModeFolderItem struct {
+	// AndroidDeviceOwnerKioskModeHomeScreenItem is the base model of AndroidDeviceOwnerKioskModeFolderItem
+	AndroidDeviceOwnerKioskModeHomeScreenItem
+}
+
+// AndroidDeviceOwnerKioskModeHomeScreenItem Represents an item on the Android Device Owner Managed Home Screen (application, weblink or folder
+type AndroidDeviceOwnerKioskModeHomeScreenItem struct {
+	// Object is the base model of AndroidDeviceOwnerKioskModeHomeScreenItem
+	Object
+}
+
+// AndroidDeviceOwnerKioskModeManagedFolder A folder containing pages of apps and weblinks on the Managed Home Screen
+type AndroidDeviceOwnerKioskModeManagedFolder struct {
+	// Object is the base model of AndroidDeviceOwnerKioskModeManagedFolder
+	Object
+	// FolderIdentifier Unique identifier for the folder
+	FolderIdentifier *string `json:"folderIdentifier,omitempty"`
+	// FolderName Display name for the folder
+	FolderName *string `json:"folderName,omitempty"`
+	// Items Items to be added to managed folder. This collection can contain a maximum of 500 elements.
+	Items []AndroidDeviceOwnerKioskModeFolderItem `json:"items,omitempty"`
+}
+
+// AndroidDeviceOwnerKioskModeManagedFolderReference A reference to folder containing apps and weblinks on the Managed Home Screen
+type AndroidDeviceOwnerKioskModeManagedFolderReference struct {
+	// AndroidDeviceOwnerKioskModeHomeScreenItem is the base model of AndroidDeviceOwnerKioskModeManagedFolderReference
+	AndroidDeviceOwnerKioskModeHomeScreenItem
+	// FolderIdentifier Unique identifier for the folder
+	FolderIdentifier *string `json:"folderIdentifier,omitempty"`
+	// FolderName Name of the folder
+	FolderName *string `json:"folderName,omitempty"`
+}
+
+// AndroidDeviceOwnerKioskModeWeblink A weblink on the Android Device Owner Managed Home Screen
+type AndroidDeviceOwnerKioskModeWeblink struct {
+	// AndroidDeviceOwnerKioskModeFolderItem is the base model of AndroidDeviceOwnerKioskModeWeblink
+	AndroidDeviceOwnerKioskModeFolderItem
+	// Label Display name for weblink
+	Label *string `json:"label,omitempty"`
+	// Link Link for weblink
+	Link *string `json:"link,omitempty"`
+}
+
+// AndroidDeviceOwnerPkcsCertificateProfile Android Device Owner PKCS certificate profile
+type AndroidDeviceOwnerPkcsCertificateProfile struct {
+	// AndroidDeviceOwnerCertificateProfileBase is the base model of AndroidDeviceOwnerPkcsCertificateProfile
+	AndroidDeviceOwnerCertificateProfileBase
+	// CertificateStore Target store certificate
+	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
+	// CertificateTemplateName PKCS Certificate Template Name
+	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
+	// CertificationAuthority PKCS Certification Authority
+	CertificationAuthority *string `json:"certificationAuthority,omitempty"`
+	// CertificationAuthorityName PKCS Certification Authority Name
+	CertificationAuthorityName *string `json:"certificationAuthorityName,omitempty"`
+	// CertificationAuthorityType Certification authority type
+	CertificationAuthorityType *DeviceManagementCertificationAuthority `json:"certificationAuthorityType,omitempty"`
+	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
+	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
+	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
+	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
+	// ManagedDeviceCertificateStates undocumented
+	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
 
 // AndroidDeviceOwnerScepCertificateProfile Android Device Owner SCEP certificate profile
 type AndroidDeviceOwnerScepCertificateProfile struct {
 	// AndroidDeviceOwnerCertificateProfileBase is the base model of AndroidDeviceOwnerScepCertificateProfile
 	AndroidDeviceOwnerCertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s)
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size
-	KeySize *KeySize `json:"keySize,omitempty"`
-	// HashAlgorithm SCEP Hash Algorithm
-	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
-	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// CertificateStore Target store certificate
 	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
 	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
 	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
+	// HashAlgorithm SCEP Hash Algorithm
+	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s)
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
+	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
+	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
@@ -420,18 +630,36 @@ type AndroidDeviceOwnerScepCertificateProfile struct {
 type AndroidDeviceOwnerTrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of AndroidDeviceOwnerTrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // AndroidDeviceOwnerVPNConfiguration By providing the configurations in this profile you can instruct the Android Fully Managed device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type AndroidDeviceOwnerVPNConfiguration struct {
 	// VPNConfiguration is the base model of AndroidDeviceOwnerVPNConfiguration
 	VPNConfiguration
+	// AlwaysOn Whether or not to enable always-on VPN connection.
+	AlwaysOn *bool `json:"alwaysOn,omitempty"`
+	// AlwaysOnLockdown If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.
+	AlwaysOnLockdown *bool `json:"alwaysOnLockdown,omitempty"`
 	// ConnectionType Connection type.
 	ConnectionType *AndroidVPNConnectionType `json:"connectionType,omitempty"`
+	// CustomData Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
+	CustomData []KeyValue `json:"customData,omitempty"`
+	// CustomKeyValueData Custom data to define key/value pairs specific to a VPN provider. This collection can contain a maximum of 25 elements.
+	CustomKeyValueData []KeyValuePair `json:"customKeyValueData,omitempty"`
+	// MicrosoftTunnelSiteID Microsoft Tunnel site ID.
+	MicrosoftTunnelSiteID *string `json:"microsoftTunnelSiteId,omitempty"`
+	// ProxyServer Proxy server.
+	ProxyServer *VPNProxyServer `json:"proxyServer,omitempty"`
+	// TargetedMobileApps Targeted mobile apps. This collection can contain a maximum of 500 elements.
+	TargetedMobileApps []AppListItem `json:"targetedMobileApps,omitempty"`
+	// TargetedPackageIDs Targeted App package IDs.
+	TargetedPackageIDs []string `json:"targetedPackageIds,omitempty"`
+	// DerivedCredentialSettings undocumented
+	DerivedCredentialSettings *DeviceManagementDerivedCredentialSettings `json:"derivedCredentialSettings,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *AndroidDeviceOwnerCertificateProfileBase `json:"identityCertificate,omitempty"`
 }
@@ -440,20 +668,20 @@ type AndroidDeviceOwnerVPNConfiguration struct {
 type AndroidDeviceOwnerWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidDeviceOwnerWiFiConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-	Ssid *string `json:"ssid,omitempty"`
 	// ConnectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
-	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
-	WiFiSecurityType *AndroidDeviceOwnerWiFiSecurityType `json:"wiFiSecurityType,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
 	// PreSharedKey This is the pre-shared key for WPA Personal Wi-Fi network.
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
 	// PreSharedKeyIsSet This is the pre-shared key for WPA Personal Wi-Fi network.
 	PreSharedKeyIsSet *bool `json:"preSharedKeyIsSet,omitempty"`
+	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
+	Ssid *string `json:"ssid,omitempty"`
+	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
+	WiFiSecurityType *AndroidDeviceOwnerWiFiSecurityType `json:"wiFiSecurityType,omitempty"`
 }
 
 // AndroidEasEmailProfileConfiguration By providing configurations in this profile you can instruct the native email client on KNOX devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
@@ -464,14 +692,8 @@ type AndroidEasEmailProfileConfiguration struct {
 	AccountName *string `json:"accountName,omitempty"`
 	// AuthenticationMethod Authentication method for Exchange ActiveSync.
 	AuthenticationMethod *EasAuthenticationMethod `json:"authenticationMethod,omitempty"`
-	// SyncCalendar Toggles syncing the calendar. If set to false calendar is turned off on the device.
-	SyncCalendar *bool `json:"syncCalendar,omitempty"`
-	// SyncContacts Toggles syncing contacts. If set to false contacts are turned off on the device.
-	SyncContacts *bool `json:"syncContacts,omitempty"`
-	// SyncTasks Toggles syncing tasks. If set to false tasks are turned off on the device.
-	SyncTasks *bool `json:"syncTasks,omitempty"`
-	// SyncNotes Toggles syncing notes. If set to false notes are turned off on the device.
-	SyncNotes *bool `json:"syncNotes,omitempty"`
+	// CustomDomainName Custom domain name value used while generating an email profile before installing on the device.
+	CustomDomainName *string `json:"customDomainName,omitempty"`
 	// DurationOfEmailToSync Duration of time email should be synced to.
 	DurationOfEmailToSync *EmailSyncDuration `json:"durationOfEmailToSync,omitempty"`
 	// EmailAddressSource Email attribute that is picked from AAD and injected into this profile before installing on the device.
@@ -484,19 +706,25 @@ type AndroidEasEmailProfileConfiguration struct {
 	RequireSmime *bool `json:"requireSmime,omitempty"`
 	// RequireSsl Indicates whether or not to use SSL.
 	RequireSsl *bool `json:"requireSsl,omitempty"`
-	// UsernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device.
-	UsernameSource *AndroidUsernameSource `json:"usernameSource,omitempty"`
+	// SyncCalendar Toggles syncing the calendar. If set to false calendar is turned off on the device.
+	SyncCalendar *bool `json:"syncCalendar,omitempty"`
+	// SyncContacts Toggles syncing contacts. If set to false contacts are turned off on the device.
+	SyncContacts *bool `json:"syncContacts,omitempty"`
+	// SyncNotes Toggles syncing notes. If set to false notes are turned off on the device.
+	SyncNotes *bool `json:"syncNotes,omitempty"`
+	// SyncTasks Toggles syncing tasks. If set to false tasks are turned off on the device.
+	SyncTasks *bool `json:"syncTasks,omitempty"`
 	// UserDomainNameSource UserDomainname attribute that is picked from AAD and injected into this profile before installing on the device.
 	UserDomainNameSource *DomainNameSource `json:"userDomainNameSource,omitempty"`
-	// CustomDomainName Custom domain name value used while generating an email profile before installing on the device.
-	CustomDomainName *string `json:"customDomainName,omitempty"`
+	// UsernameSource Username attribute that is picked from AAD and injected into this profile before installing on the device.
+	UsernameSource *AndroidUsernameSource `json:"usernameSource,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *AndroidCertificateProfileBase `json:"identityCertificate,omitempty"`
 	// SmimeSigningCertificate undocumented
 	SmimeSigningCertificate *AndroidCertificateProfileBase `json:"smimeSigningCertificate,omitempty"`
 }
 
-// AndroidEnrollmentCompanyCode undocumented
+// AndroidEnrollmentCompanyCode A class to hold specialty enrollment data used for enrolling via Google's Android Management API, such as Token, Url, and QR code content
 type AndroidEnrollmentCompanyCode struct {
 	// Object is the base model of AndroidEnrollmentCompanyCode
 	Object
@@ -512,42 +740,42 @@ type AndroidEnrollmentCompanyCode struct {
 type AndroidEnterpriseWiFiConfiguration struct {
 	// AndroidWiFiConfiguration is the base model of AndroidEnterpriseWiFiConfiguration
 	AndroidWiFiConfiguration
-	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// AuthenticationMethod Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// InnerAuthenticationProtocolForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEapTtls,omitempty"`
 	// InnerAuthenticationProtocolForPeap Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForPeap *NonEapAuthenticationMethodForPeap `json:"innerAuthenticationProtocolForPeap,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// UsernameFormatString Username format string used to build the username to connect to wifi
-	UsernameFormatString *string `json:"usernameFormatString,omitempty"`
 	// PasswordFormatString Password format string used to build the password to connect to wifi
 	PasswordFormatString *string `json:"passwordFormatString,omitempty"`
 	// PreSharedKey PreSharedKey used to build the password to connect to wifi
 	PreSharedKey *string `json:"preSharedKey,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *AndroidTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// UsernameFormatString Username format string used to build the username to connect to wifi
+	UsernameFormatString *string `json:"usernameFormatString,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *AndroidCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *AndroidTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
 }
 
 // AndroidForWorkApp Contains properties and inherited properties for Android for Work (AFW) Apps.
 type AndroidForWorkApp struct {
 	// MobileApp is the base model of AndroidForWorkApp
 	MobileApp
-	// PackageID The package identifier.
-	PackageID *string `json:"packageId,omitempty"`
 	// AppIdentifier The Identity Name.
 	AppIdentifier *string `json:"appIdentifier,omitempty"`
-	// UsedLicenseCount The number of VPP licenses in use.
-	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
-	// TotalLicenseCount The total number of VPP licenses.
-	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
 	// AppStoreURL The Play for Work Store app URL.
 	AppStoreURL *string `json:"appStoreUrl,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
+	// TotalLicenseCount The total number of VPP licenses.
+	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
+	// UsedLicenseCount The number of VPP licenses in use.
+	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
 }
 
 // AndroidForWorkAppConfigurationSchema Schema describing an Android for Work application's custom configurations.
@@ -560,26 +788,26 @@ type AndroidForWorkAppConfigurationSchema struct {
 	SchemaItems []AndroidForWorkAppConfigurationSchemaItem `json:"schemaItems,omitempty"`
 }
 
-// AndroidForWorkAppConfigurationSchemaItem undocumented
+// AndroidForWorkAppConfigurationSchemaItem Single configuration item inside an Android for Work application's custom configuration schema.
 type AndroidForWorkAppConfigurationSchemaItem struct {
 	// Object is the base model of AndroidForWorkAppConfigurationSchemaItem
 	Object
-	// SchemaItemKey Unique key the application uses to identify the item
-	SchemaItemKey *string `json:"schemaItemKey,omitempty"`
-	// DisplayName Human readable name
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Description of what the item controls within the application
-	Description *string `json:"description,omitempty"`
+	// DataType The type of value this item describes
+	DataType *AndroidForWorkAppConfigurationSchemaItemDataType `json:"dataType,omitempty"`
 	// DefaultBoolValue Default value for boolean type items, if specified by the app developer
 	DefaultBoolValue *bool `json:"defaultBoolValue,omitempty"`
 	// DefaultIntValue Default value for integer type items, if specified by the app developer
 	DefaultIntValue *int `json:"defaultIntValue,omitempty"`
-	// DefaultStringValue Default value for string type items, if specified by the app developer
-	DefaultStringValue *string `json:"defaultStringValue,omitempty"`
 	// DefaultStringArrayValue Default value for string array type items, if specified by the app developer
 	DefaultStringArrayValue []string `json:"defaultStringArrayValue,omitempty"`
-	// DataType The type of value this item describes
-	DataType *AndroidForWorkAppConfigurationSchemaItemDataType `json:"dataType,omitempty"`
+	// DefaultStringValue Default value for string type items, if specified by the app developer
+	DefaultStringValue *string `json:"defaultStringValue,omitempty"`
+	// Description Description of what the item controls within the application
+	Description *string `json:"description,omitempty"`
+	// DisplayName Human readable name
+	DisplayName *string `json:"displayName,omitempty"`
+	// SchemaItemKey Unique key the application uses to identify the item
+	SchemaItemKey *string `json:"schemaItemKey,omitempty"`
 	// Selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
 	Selections []KeyValuePair `json:"selections,omitempty"`
 }
@@ -588,18 +816,18 @@ type AndroidForWorkAppConfigurationSchemaItem struct {
 type AndroidForWorkCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of AndroidForWorkCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
 	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
 	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 	// RootCertificate undocumented
 	RootCertificate *AndroidForWorkTrustedRootCertificate `json:"rootCertificate,omitempty"`
 }
@@ -608,50 +836,52 @@ type AndroidForWorkCertificateProfileBase struct {
 type AndroidForWorkCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of AndroidForWorkCompliancePolicy
 	DeviceCompliancePolicy
-	// PasswordRequired Require a password to unlock device.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
-	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
-	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
-	// PasswordRequiredType Type of characters in password
-	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
-	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
-	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
-	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
-	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
-	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
-	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
-	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
-	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
-	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
 	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
 	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
 	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
 	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
-	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
-	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
-	// OsMinimumVersion Minimum Android version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum Android version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
 	// MinAndroidSecurityPatchLevel Minimum Android security patch level.
 	MinAndroidSecurityPatchLevel *string `json:"minAndroidSecurityPatchLevel,omitempty"`
-	// StorageRequireEncryption Require encryption on Android devices.
-	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
+	// OsMaximumVersion Maximum Android version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum Android version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
+	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
+	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
+	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
+	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
+	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	// PasswordRequired Require a password to unlock device.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of characters in password
+	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
+	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
+	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
+	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
+	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
+	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
+	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
+	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
+	// SecurityRequiredAndroidSafetyNetEvaluationType Require a specific SafetyNet evaluation type for compliance.
+	SecurityRequiredAndroidSafetyNetEvaluationType *AndroidSafetyNetEvaluationType `json:"securityRequiredAndroidSafetyNetEvaluationType,omitempty"`
+	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
+	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireSafetyNetAttestationBasicIntegrity Require the device to pass the SafetyNet basic integrity check.
 	SecurityRequireSafetyNetAttestationBasicIntegrity *bool `json:"securityRequireSafetyNetAttestationBasicIntegrity,omitempty"`
 	// SecurityRequireSafetyNetAttestationCertifiedDevice Require the device to pass the SafetyNet certified device check.
 	SecurityRequireSafetyNetAttestationCertifiedDevice *bool `json:"securityRequireSafetyNetAttestationCertifiedDevice,omitempty"`
-	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
-	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireUpToDateSecurityProviders Require the device to have up to date security providers. The device will require Google Play Services to be enabled and up to date.
 	SecurityRequireUpToDateSecurityProviders *bool `json:"securityRequireUpToDateSecurityProviders,omitempty"`
-	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
-	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
+	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
+	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
+	// StorageRequireEncryption Require encryption on Android devices.
+	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 }
 
 // AndroidForWorkCustomConfiguration Android For Work custom configuration
@@ -688,52 +918,56 @@ type AndroidForWorkEnrollmentProfile struct {
 	Entity
 	// AccountID Tenant GUID the enrollment profile belongs to.
 	AccountID *string `json:"accountId,omitempty"`
-	// DisplayName Display name for the enrollment profile.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Description for the enrollment profile.
-	Description *string `json:"description,omitempty"`
 	// CreatedDateTime Date time the enrollment profile was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime Date time the enrollment profile was last modified.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// TokenValue Value of the most recently created token for this enrollment profile.
-	TokenValue *string `json:"tokenValue,omitempty"`
-	// TokenExpirationDateTime Date time the most recently created token will expire.
-	TokenExpirationDateTime *time.Time `json:"tokenExpirationDateTime,omitempty"`
+	// Description Description for the enrollment profile.
+	Description *string `json:"description,omitempty"`
+	// DisplayName Display name for the enrollment profile.
+	DisplayName *string `json:"displayName,omitempty"`
 	// EnrolledDeviceCount Total number of Android devices that have enrolled using this enrollment profile.
 	EnrolledDeviceCount *int `json:"enrolledDeviceCount,omitempty"`
+	// LastModifiedDateTime Date time the enrollment profile was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// QrCodeContent String used to generate a QR code for the token.
 	QrCodeContent *string `json:"qrCodeContent,omitempty"`
 	// QrCodeImage String used to generate a QR code for the token.
 	QrCodeImage *MimeContent `json:"qrCodeImage,omitempty"`
+	// TokenExpirationDateTime Date time the most recently created token will expire.
+	TokenExpirationDateTime *time.Time `json:"tokenExpirationDateTime,omitempty"`
+	// TokenValue Value of the most recently created token for this enrollment profile.
+	TokenValue *string `json:"tokenValue,omitempty"`
 }
 
 // AndroidForWorkEnterpriseWiFiConfiguration By providing the configurations in this profile you can instruct the Android for Work device to connect to desired Wi-Fi endpoint. By specifying the authentication method and security types expected by Wi-Fi endpoint you can make the Wi-Fi connection seamless for end user.
 type AndroidForWorkEnterpriseWiFiConfiguration struct {
 	// AndroidForWorkWiFiConfiguration is the base model of AndroidForWorkEnterpriseWiFiConfiguration
 	AndroidForWorkWiFiConfiguration
-	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// AuthenticationMethod Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// InnerAuthenticationProtocolForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEapTtls,omitempty"`
 	// InnerAuthenticationProtocolForPeap Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForPeap *NonEapAuthenticationMethodForPeap `json:"innerAuthenticationProtocolForPeap,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *AndroidForWorkTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *AndroidForWorkCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *AndroidForWorkTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
 }
 
 // AndroidForWorkGeneralDeviceConfiguration Android For Work general device configuration.
 type AndroidForWorkGeneralDeviceConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidForWorkGeneralDeviceConfiguration
 	DeviceConfiguration
+	// PasswordBlockFaceUnlock Indicates whether or not to block face unlock.
+	PasswordBlockFaceUnlock *bool `json:"passwordBlockFaceUnlock,omitempty"`
 	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
 	PasswordBlockFingerprintUnlock *bool `json:"passwordBlockFingerprintUnlock,omitempty"`
+	// PasswordBlockIrisUnlock Indicates whether or not to block iris unlock.
+	PasswordBlockIrisUnlock *bool `json:"passwordBlockIrisUnlock,omitempty"`
 	// PasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents.
 	PasswordBlockTrustAgents *bool `json:"passwordBlockTrustAgents,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
@@ -744,60 +978,10 @@ type AndroidForWorkGeneralDeviceConfiguration struct {
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 0 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// PasswordRequiredType Type of password that is required.
 	PasswordRequiredType *AndroidForWorkRequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// WorkProfileDataSharingType Type of data sharing that is allowed.
-	WorkProfileDataSharingType *AndroidForWorkCrossProfileDataSharingType `json:"workProfileDataSharingType,omitempty"`
-	// WorkProfileBlockNotificationsWhileDeviceLocked Indicates whether or not to block notifications while device locked.
-	WorkProfileBlockNotificationsWhileDeviceLocked *bool `json:"workProfileBlockNotificationsWhileDeviceLocked,omitempty"`
-	// WorkProfileBlockAddingAccounts Block users from adding/removing accounts in work profile.
-	WorkProfileBlockAddingAccounts *bool `json:"workProfileBlockAddingAccounts,omitempty"`
-	// WorkProfileBluetoothEnableContactSharing Allow bluetooth devices to access enterprise contacts.
-	WorkProfileBluetoothEnableContactSharing *bool `json:"workProfileBluetoothEnableContactSharing,omitempty"`
-	// WorkProfileBlockScreenCapture Block screen capture in work profile.
-	WorkProfileBlockScreenCapture *bool `json:"workProfileBlockScreenCapture,omitempty"`
-	// WorkProfileBlockCrossProfileCallerID Block display work profile caller ID in personal profile.
-	WorkProfileBlockCrossProfileCallerID *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
-	// WorkProfileBlockCamera Block work profile camera.
-	WorkProfileBlockCamera *bool `json:"workProfileBlockCamera,omitempty"`
-	// WorkProfileBlockCrossProfileContactsSearch Block work profile contacts availability in personal profile.
-	WorkProfileBlockCrossProfileContactsSearch *bool `json:"workProfileBlockCrossProfileContactsSearch,omitempty"`
-	// WorkProfileBlockCrossProfileCopyPaste Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
-	WorkProfileBlockCrossProfileCopyPaste *bool `json:"workProfileBlockCrossProfileCopyPaste,omitempty"`
-	// WorkProfileDefaultAppPermissionPolicy Type of password that is required.
-	WorkProfileDefaultAppPermissionPolicy *AndroidForWorkDefaultAppPermissionPolicyType `json:"workProfileDefaultAppPermissionPolicy,omitempty"`
-	// WorkProfilePasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock for work profile.
-	WorkProfilePasswordBlockFingerprintUnlock *bool `json:"workProfilePasswordBlockFingerprintUnlock,omitempty"`
-	// WorkProfilePasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents for work profile.
-	WorkProfilePasswordBlockTrustAgents *bool `json:"workProfilePasswordBlockTrustAgents,omitempty"`
-	// WorkProfilePasswordExpirationDays Number of days before the work profile password expires. Valid values 1 to 365
-	WorkProfilePasswordExpirationDays *int `json:"workProfilePasswordExpirationDays,omitempty"`
-	// WorkProfilePasswordMinimumLength Minimum length of work profile password. Valid values 4 to 16
-	WorkProfilePasswordMinimumLength *int `json:"workProfilePasswordMinimumLength,omitempty"`
-	// WorkProfilePasswordMinNumericCharacters Minimum # of numeric characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinNumericCharacters *int `json:"workProfilePasswordMinNumericCharacters,omitempty"`
-	// WorkProfilePasswordMinNonLetterCharacters Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinNonLetterCharacters *int `json:"workProfilePasswordMinNonLetterCharacters,omitempty"`
-	// WorkProfilePasswordMinLetterCharacters Minimum # of letter characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinLetterCharacters *int `json:"workProfilePasswordMinLetterCharacters,omitempty"`
-	// WorkProfilePasswordMinLowerCaseCharacters Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinLowerCaseCharacters *int `json:"workProfilePasswordMinLowerCaseCharacters,omitempty"`
-	// WorkProfilePasswordMinUpperCaseCharacters Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinUpperCaseCharacters *int `json:"workProfilePasswordMinUpperCaseCharacters,omitempty"`
-	// WorkProfilePasswordMinSymbolCharacters Minimum # of symbols required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinSymbolCharacters *int `json:"workProfilePasswordMinSymbolCharacters,omitempty"`
-	// WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
-	WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"workProfilePasswordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
-	// WorkProfilePasswordPreviousPasswordBlockCount Number of previous work profile passwords to block. Valid values 0 to 24
-	WorkProfilePasswordPreviousPasswordBlockCount *int `json:"workProfilePasswordPreviousPasswordBlockCount,omitempty"`
-	// WorkProfilePasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
-	WorkProfilePasswordSignInFailureCountBeforeFactoryReset *int `json:"workProfilePasswordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// WorkProfilePasswordRequiredType Type of work profile password that is required.
-	WorkProfilePasswordRequiredType *AndroidForWorkRequiredPasswordType `json:"workProfilePasswordRequiredType,omitempty"`
-	// WorkProfileRequirePassword Password is required or not for work profile
-	WorkProfileRequirePassword *bool `json:"workProfileRequirePassword,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
 	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
 	// VPNAlwaysOnPackageIdentifier Enable lockdown mode for always-on VPN.
@@ -806,8 +990,62 @@ type AndroidForWorkGeneralDeviceConfiguration struct {
 	VPNEnableAlwaysOnLockdownMode *bool `json:"vpnEnableAlwaysOnLockdownMode,omitempty"`
 	// WorkProfileAllowWidgets Allow widgets from work profile apps.
 	WorkProfileAllowWidgets *bool `json:"workProfileAllowWidgets,omitempty"`
+	// WorkProfileBlockAddingAccounts Block users from adding/removing accounts in work profile.
+	WorkProfileBlockAddingAccounts *bool `json:"workProfileBlockAddingAccounts,omitempty"`
+	// WorkProfileBlockCamera Block work profile camera.
+	WorkProfileBlockCamera *bool `json:"workProfileBlockCamera,omitempty"`
+	// WorkProfileBlockCrossProfileCallerID Block display work profile caller ID in personal profile.
+	WorkProfileBlockCrossProfileCallerID *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
+	// WorkProfileBlockCrossProfileContactsSearch Block work profile contacts availability in personal profile.
+	WorkProfileBlockCrossProfileContactsSearch *bool `json:"workProfileBlockCrossProfileContactsSearch,omitempty"`
+	// WorkProfileBlockCrossProfileCopyPaste Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
+	WorkProfileBlockCrossProfileCopyPaste *bool `json:"workProfileBlockCrossProfileCopyPaste,omitempty"`
+	// WorkProfileBlockNotificationsWhileDeviceLocked Indicates whether or not to block notifications while device locked.
+	WorkProfileBlockNotificationsWhileDeviceLocked *bool `json:"workProfileBlockNotificationsWhileDeviceLocked,omitempty"`
 	// WorkProfileBlockPersonalAppInstallsFromUnknownSources Prevent app installations from unknown sources in the personal profile.
 	WorkProfileBlockPersonalAppInstallsFromUnknownSources *bool `json:"workProfileBlockPersonalAppInstallsFromUnknownSources,omitempty"`
+	// WorkProfileBlockScreenCapture Block screen capture in work profile.
+	WorkProfileBlockScreenCapture *bool `json:"workProfileBlockScreenCapture,omitempty"`
+	// WorkProfileBluetoothEnableContactSharing Allow bluetooth devices to access enterprise contacts.
+	WorkProfileBluetoothEnableContactSharing *bool `json:"workProfileBluetoothEnableContactSharing,omitempty"`
+	// WorkProfileDataSharingType Type of data sharing that is allowed.
+	WorkProfileDataSharingType *AndroidForWorkCrossProfileDataSharingType `json:"workProfileDataSharingType,omitempty"`
+	// WorkProfileDefaultAppPermissionPolicy Type of password that is required.
+	WorkProfileDefaultAppPermissionPolicy *AndroidForWorkDefaultAppPermissionPolicyType `json:"workProfileDefaultAppPermissionPolicy,omitempty"`
+	// WorkProfilePasswordBlockFaceUnlock Indicates whether or not to block face unlock for work profile.
+	WorkProfilePasswordBlockFaceUnlock *bool `json:"workProfilePasswordBlockFaceUnlock,omitempty"`
+	// WorkProfilePasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock for work profile.
+	WorkProfilePasswordBlockFingerprintUnlock *bool `json:"workProfilePasswordBlockFingerprintUnlock,omitempty"`
+	// WorkProfilePasswordBlockIrisUnlock Indicates whether or not to block iris unlock for work profile.
+	WorkProfilePasswordBlockIrisUnlock *bool `json:"workProfilePasswordBlockIrisUnlock,omitempty"`
+	// WorkProfilePasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents for work profile.
+	WorkProfilePasswordBlockTrustAgents *bool `json:"workProfilePasswordBlockTrustAgents,omitempty"`
+	// WorkProfilePasswordExpirationDays Number of days before the work profile password expires. Valid values 1 to 365
+	WorkProfilePasswordExpirationDays *int `json:"workProfilePasswordExpirationDays,omitempty"`
+	// WorkProfilePasswordMinimumLength Minimum length of work profile password. Valid values 4 to 16
+	WorkProfilePasswordMinimumLength *int `json:"workProfilePasswordMinimumLength,omitempty"`
+	// WorkProfilePasswordMinLetterCharacters Minimum # of letter characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinLetterCharacters *int `json:"workProfilePasswordMinLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinLowerCaseCharacters Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinLowerCaseCharacters *int `json:"workProfilePasswordMinLowerCaseCharacters,omitempty"`
+	// WorkProfilePasswordMinNonLetterCharacters Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinNonLetterCharacters *int `json:"workProfilePasswordMinNonLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinNumericCharacters Minimum # of numeric characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinNumericCharacters *int `json:"workProfilePasswordMinNumericCharacters,omitempty"`
+	// WorkProfilePasswordMinSymbolCharacters Minimum # of symbols required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinSymbolCharacters *int `json:"workProfilePasswordMinSymbolCharacters,omitempty"`
+	// WorkProfilePasswordMinUpperCaseCharacters Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinUpperCaseCharacters *int `json:"workProfilePasswordMinUpperCaseCharacters,omitempty"`
+	// WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
+	WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"workProfilePasswordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
+	// WorkProfilePasswordPreviousPasswordBlockCount Number of previous work profile passwords to block. Valid values 0 to 24
+	WorkProfilePasswordPreviousPasswordBlockCount *int `json:"workProfilePasswordPreviousPasswordBlockCount,omitempty"`
+	// WorkProfilePasswordRequiredType Type of work profile password that is required.
+	WorkProfilePasswordRequiredType *AndroidForWorkRequiredPasswordType `json:"workProfilePasswordRequiredType,omitempty"`
+	// WorkProfilePasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
+	WorkProfilePasswordSignInFailureCountBeforeFactoryReset *int `json:"workProfilePasswordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// WorkProfileRequirePassword Password is required or not for work profile
+	WorkProfileRequirePassword *bool `json:"workProfileRequirePassword,omitempty"`
 }
 
 // AndroidForWorkGmailEasConfiguration By providing configurations in this profile you can instruct the Gmail email client on Android For Work devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
@@ -836,6 +1074,8 @@ type AndroidForWorkMobileAppConfiguration struct {
 	PayloadJSON *string `json:"payloadJson,omitempty"`
 	// PermissionActions List of Android app permissions and corresponding permission actions.
 	PermissionActions []AndroidPermissionAction `json:"permissionActions,omitempty"`
+	// ProfileApplicability Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)).
+	ProfileApplicability *AndroidProfileApplicability `json:"profileApplicability,omitempty"`
 }
 
 // AndroidForWorkNineWorkEasConfiguration By providing configurations in this profile you can instruct the Nine Work email client on Android For Work devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
@@ -854,12 +1094,12 @@ type AndroidForWorkNineWorkEasConfiguration struct {
 type AndroidForWorkPkcsCertificateProfile struct {
 	// AndroidForWorkCertificateProfileBase is the base model of AndroidForWorkPkcsCertificateProfile
 	AndroidForWorkCertificateProfileBase
+	// CertificateTemplateName PKCS Certificate Template Name
+	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// CertificationAuthority PKCS Certification Authority
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`
 	// CertificationAuthorityName PKCS Certification Authority Name
 	CertificationAuthorityName *string `json:"certificationAuthorityName,omitempty"`
-	// CertificateTemplateName PKCS Certificate Template Name
-	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
@@ -870,22 +1110,22 @@ type AndroidForWorkPkcsCertificateProfile struct {
 type AndroidForWorkScepCertificateProfile struct {
 	// AndroidForWorkCertificateProfileBase is the base model of AndroidForWorkScepCertificateProfile
 	AndroidForWorkCertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s)
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size
-	KeySize *KeySize `json:"keySize,omitempty"`
-	// HashAlgorithm SCEP Hash Algorithm
-	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
-	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// CertificateStore Target store certificate
 	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
 	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
 	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
+	// HashAlgorithm SCEP Hash Algorithm
+	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s)
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
+	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
+	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
@@ -896,56 +1136,56 @@ type AndroidForWorkSettings struct {
 	Entity
 	// BindStatus Bind status of the tenant with the Google EMM API
 	BindStatus *AndroidForWorkBindStatus `json:"bindStatus,omitempty"`
+	// DeviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
+	DeviceOwnerManagementEnabled *bool `json:"deviceOwnerManagementEnabled,omitempty"`
+	// EnrollmentTarget Indicates which users can enroll devices in Android for Work device management
+	EnrollmentTarget *AndroidForWorkEnrollmentTarget `json:"enrollmentTarget,omitempty"`
 	// LastAppSyncDateTime Last completion time for app sync
 	LastAppSyncDateTime *time.Time `json:"lastAppSyncDateTime,omitempty"`
 	// LastAppSyncStatus Last application sync result
 	LastAppSyncStatus *AndroidForWorkSyncStatus `json:"lastAppSyncStatus,omitempty"`
-	// OwnerUserPrincipalName Owner UPN that created the enterprise
-	OwnerUserPrincipalName *string `json:"ownerUserPrincipalName,omitempty"`
-	// OwnerOrganizationName Organization name used when onboarding Android for Work
-	OwnerOrganizationName *string `json:"ownerOrganizationName,omitempty"`
 	// LastModifiedDateTime Last modification time for Android for Work settings
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// EnrollmentTarget Indicates which users can enroll devices in Android for Work device management
-	EnrollmentTarget *AndroidForWorkEnrollmentTarget `json:"enrollmentTarget,omitempty"`
+	// OwnerOrganizationName Organization name used when onboarding Android for Work
+	OwnerOrganizationName *string `json:"ownerOrganizationName,omitempty"`
+	// OwnerUserPrincipalName Owner UPN that created the enterprise
+	OwnerUserPrincipalName *string `json:"ownerUserPrincipalName,omitempty"`
 	// TargetGroupIDs Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
 	TargetGroupIDs []string `json:"targetGroupIds,omitempty"`
-	// DeviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-	DeviceOwnerManagementEnabled *bool `json:"deviceOwnerManagementEnabled,omitempty"`
 }
 
 // AndroidForWorkTrustedRootCertificate Android For Work Trusted Root Certificate configuration profile
 type AndroidForWorkTrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of AndroidForWorkTrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // AndroidForWorkVPNConfiguration By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type AndroidForWorkVPNConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidForWorkVPNConfiguration
 	DeviceConfiguration
+	// AuthenticationMethod Authentication method.
+	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`
 	// ConnectionType Connection type.
 	ConnectionType *AndroidForWorkVPNConnectionType `json:"connectionType,omitempty"`
-	// Role Role when connection type is set to Pulse Secure.
-	Role *string `json:"role,omitempty"`
-	// Realm Realm when connection type is set to Pulse Secure.
-	Realm *string `json:"realm,omitempty"`
-	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-	Servers []VPNServer `json:"servers,omitempty"`
-	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
-	Fingerprint *string `json:"fingerprint,omitempty"`
 	// CustomData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomData []KeyValue `json:"customData,omitempty"`
 	// CustomKeyValueData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomKeyValueData []KeyValuePair `json:"customKeyValueData,omitempty"`
-	// AuthenticationMethod Authentication method.
-	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
+	Fingerprint *string `json:"fingerprint,omitempty"`
+	// Realm Realm when connection type is set to Pulse Secure.
+	Realm *string `json:"realm,omitempty"`
+	// Role Role when connection type is set to Pulse Secure.
+	Role *string `json:"role,omitempty"`
+	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
+	Servers []VPNServer `json:"servers,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *AndroidForWorkCertificateProfileBase `json:"identityCertificate,omitempty"`
 }
@@ -954,14 +1194,14 @@ type AndroidForWorkVPNConfiguration struct {
 type AndroidForWorkWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidForWorkWiFiConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-	Ssid *string `json:"ssid,omitempty"`
 	// ConnectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
+	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
+	Ssid *string `json:"ssid,omitempty"`
 	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
 	WiFiSecurityType *AndroidWiFiSecurityType `json:"wiFiSecurityType,omitempty"`
 }
@@ -976,6 +1216,12 @@ type AndroidGeneralDeviceConfiguration struct {
 	AppsBlockCopyPaste *bool `json:"appsBlockCopyPaste,omitempty"`
 	// AppsBlockYouTube Indicates whether or not to block the YouTube app.
 	AppsBlockYouTube *bool `json:"appsBlockYouTube,omitempty"`
+	// AppsHideList List of apps to be hidden on the KNOX device. This collection can contain a maximum of 500 elements.
+	AppsHideList []AppListItem `json:"appsHideList,omitempty"`
+	// AppsInstallAllowList List of apps which can be installed on the KNOX device. This collection can contain a maximum of 500 elements.
+	AppsInstallAllowList []AppListItem `json:"appsInstallAllowList,omitempty"`
+	// AppsLaunchBlockList List of apps which are blocked from being launched on the KNOX device. This collection can contain a maximum of 500 elements.
+	AppsLaunchBlockList []AppListItem `json:"appsLaunchBlockList,omitempty"`
 	// BluetoothBlocked Indicates whether or not to block Bluetooth.
 	BluetoothBlocked *bool `json:"bluetoothBlocked,omitempty"`
 	// CameraBlocked Indicates whether or not to block the use of the camera.
@@ -988,26 +1234,30 @@ type AndroidGeneralDeviceConfiguration struct {
 	CellularBlockVoiceRoaming *bool `json:"cellularBlockVoiceRoaming,omitempty"`
 	// CellularBlockWiFiTethering Indicates whether or not to block syncing Wi-Fi tethering.
 	CellularBlockWiFiTethering *bool `json:"cellularBlockWiFiTethering,omitempty"`
-	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
-	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
 	// CompliantAppListType Type of list that is in the CompliantAppsList.
 	CompliantAppListType *AppListType `json:"compliantAppListType,omitempty"`
+	// CompliantAppsList List of apps in the compliance (either allow list or block list, controlled by CompliantAppListType). This collection can contain a maximum of 10000 elements.
+	CompliantAppsList []AppListItem `json:"compliantAppsList,omitempty"`
+	// DateAndTimeBlockChanges Indicates whether or not to block changing date and time while in KNOX Mode.
+	DateAndTimeBlockChanges *bool `json:"dateAndTimeBlockChanges,omitempty"`
+	// DeviceSharingAllowed Indicates whether or not to allow device sharing mode.
+	DeviceSharingAllowed *bool `json:"deviceSharingAllowed,omitempty"`
 	// DiagnosticDataBlockSubmission Indicates whether or not to block diagnostic data submission.
 	DiagnosticDataBlockSubmission *bool `json:"diagnosticDataBlockSubmission,omitempty"`
-	// LocationServicesBlocked Indicates whether or not to block location services.
-	LocationServicesBlocked *bool `json:"locationServicesBlocked,omitempty"`
+	// FactoryResetBlocked Indicates whether or not to block user performing a factory reset.
+	FactoryResetBlocked *bool `json:"factoryResetBlocked,omitempty"`
 	// GoogleAccountBlockAutoSync Indicates whether or not to block Google account auto sync.
 	GoogleAccountBlockAutoSync *bool `json:"googleAccountBlockAutoSync,omitempty"`
 	// GooglePlayStoreBlocked Indicates whether or not to block the Google Play store.
 	GooglePlayStoreBlocked *bool `json:"googlePlayStoreBlocked,omitempty"`
+	// KioskModeApps A list of apps that will be allowed to run when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
+	KioskModeApps []AppListItem `json:"kioskModeApps,omitempty"`
 	// KioskModeBlockSleepButton Indicates whether or not to block the screen sleep button while in Kiosk Mode.
 	KioskModeBlockSleepButton *bool `json:"kioskModeBlockSleepButton,omitempty"`
 	// KioskModeBlockVolumeButtons Indicates whether or not to block the volume buttons while in Kiosk Mode.
 	KioskModeBlockVolumeButtons *bool `json:"kioskModeBlockVolumeButtons,omitempty"`
-	// DateAndTimeBlockChanges Indicates whether or not to block changing date and time while in KNOX Mode.
-	DateAndTimeBlockChanges *bool `json:"dateAndTimeBlockChanges,omitempty"`
-	// KioskModeApps A list of apps that will be allowed to run when the device is in Kiosk Mode. This collection can contain a maximum of 500 elements.
-	KioskModeApps []AppListItem `json:"kioskModeApps,omitempty"`
+	// LocationServicesBlocked Indicates whether or not to block location services.
+	LocationServicesBlocked *bool `json:"locationServicesBlocked,omitempty"`
 	// NfcBlocked Indicates whether or not to block Near-Field Communication.
 	NfcBlocked *bool `json:"nfcBlocked,omitempty"`
 	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
@@ -1022,20 +1272,20 @@ type AndroidGeneralDeviceConfiguration struct {
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 0 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// PasswordRequiredType Type of password that is required.
-	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
 	// PasswordRequired Indicates whether or not to require a password.
 	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of password that is required.
+	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// PowerOffBlocked Indicates whether or not to block powering off the device.
 	PowerOffBlocked *bool `json:"powerOffBlocked,omitempty"`
-	// FactoryResetBlocked Indicates whether or not to block user performing a factory reset.
-	FactoryResetBlocked *bool `json:"factoryResetBlocked,omitempty"`
+	// RequiredPasswordComplexity Indicates the required password complexity on Android. One of: NONE, LOW, MEDIUM, HIGH. This is an API targeted to Android 11+.
+	RequiredPasswordComplexity *AndroidRequiredPasswordComplexity `json:"requiredPasswordComplexity,omitempty"`
 	// ScreenCaptureBlocked Indicates whether or not to block screenshots.
 	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
-	// DeviceSharingAllowed Indicates whether or not to allow device sharing mode.
-	DeviceSharingAllowed *bool `json:"deviceSharingAllowed,omitempty"`
+	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
+	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
 	// StorageBlockGoogleBackup Indicates whether or not to block Google Backup.
 	StorageBlockGoogleBackup *bool `json:"storageBlockGoogleBackup,omitempty"`
 	// StorageBlockRemovableStorage Indicates whether or not to block removable storage usage.
@@ -1048,26 +1298,18 @@ type AndroidGeneralDeviceConfiguration struct {
 	VoiceAssistantBlocked *bool `json:"voiceAssistantBlocked,omitempty"`
 	// VoiceDialingBlocked Indicates whether or not to block voice dialing.
 	VoiceDialingBlocked *bool `json:"voiceDialingBlocked,omitempty"`
-	// WebBrowserBlockPopups Indicates whether or not to block popups within the web browser.
-	WebBrowserBlockPopups *bool `json:"webBrowserBlockPopups,omitempty"`
 	// WebBrowserBlockAutofill Indicates whether or not to block the web browser's auto fill feature.
 	WebBrowserBlockAutofill *bool `json:"webBrowserBlockAutofill,omitempty"`
-	// WebBrowserBlockJavaScript Indicates whether or not to block JavaScript within the web browser.
-	WebBrowserBlockJavaScript *bool `json:"webBrowserBlockJavaScript,omitempty"`
 	// WebBrowserBlocked Indicates whether or not to block the web browser.
 	WebBrowserBlocked *bool `json:"webBrowserBlocked,omitempty"`
+	// WebBrowserBlockJavaScript Indicates whether or not to block JavaScript within the web browser.
+	WebBrowserBlockJavaScript *bool `json:"webBrowserBlockJavaScript,omitempty"`
+	// WebBrowserBlockPopups Indicates whether or not to block popups within the web browser.
+	WebBrowserBlockPopups *bool `json:"webBrowserBlockPopups,omitempty"`
 	// WebBrowserCookieSettings Cookie settings within the web browser.
 	WebBrowserCookieSettings *WebBrowserCookieSettings `json:"webBrowserCookieSettings,omitempty"`
 	// WiFiBlocked Indicates whether or not to block syncing Wi-Fi.
 	WiFiBlocked *bool `json:"wiFiBlocked,omitempty"`
-	// AppsInstallAllowList List of apps which can be installed on the KNOX device. This collection can contain a maximum of 500 elements.
-	AppsInstallAllowList []AppListItem `json:"appsInstallAllowList,omitempty"`
-	// AppsLaunchBlockList List of apps which are blocked from being launched on the KNOX device. This collection can contain a maximum of 500 elements.
-	AppsLaunchBlockList []AppListItem `json:"appsLaunchBlockList,omitempty"`
-	// AppsHideList List of apps to be hidden on the KNOX device. This collection can contain a maximum of 500 elements.
-	AppsHideList []AppListItem `json:"appsHideList,omitempty"`
-	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
-	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
 }
 
 // AndroidImportedPFXCertificateProfile Android PFX Import certificate profile
@@ -1084,66 +1326,88 @@ type AndroidImportedPFXCertificateProfile struct {
 type AndroidLobApp struct {
 	// MobileLobApp is the base model of AndroidLobApp
 	MobileLobApp
-	// PackageID The package identifier.
-	PackageID *string `json:"packageId,omitempty"`
 	// IdentityName The Identity Name.
 	IdentityName *string `json:"identityName,omitempty"`
-	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
-	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
-	// VersionName The version name of Android Line of Business (LoB) app.
-	VersionName *string `json:"versionName,omitempty"`
-	// VersionCode The version code of Android Line of Business (LoB) app.
-	VersionCode *string `json:"versionCode,omitempty"`
 	// IdentityVersion The identity version.
 	IdentityVersion *string `json:"identityVersion,omitempty"`
+	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
+	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
+	// VersionCode The version code of Android Line of Business (LoB) app.
+	VersionCode *string `json:"versionCode,omitempty"`
+	// VersionName The version name of Android Line of Business (LoB) app.
+	VersionName *string `json:"versionName,omitempty"`
 }
 
 // AndroidManagedAppProtection Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device
 type AndroidManagedAppProtection struct {
 	// TargetedManagedAppProtection is the base model of AndroidManagedAppProtection
 	TargetedManagedAppProtection
-	// ScreenCaptureBlocked Indicates whether a managed user can take screen captures of managed apps
-	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
+	// AllowedAndroidDeviceManufacturers Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.
+	AllowedAndroidDeviceManufacturers *string `json:"allowedAndroidDeviceManufacturers,omitempty"`
+	// AllowedAndroidDeviceModels List of device models allowed, as a string, for the managed app to work.
+	AllowedAndroidDeviceModels []string `json:"allowedAndroidDeviceModels,omitempty"`
+	// AppActionIfAndroidDeviceManufacturerNotAllowed Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed.
+	AppActionIfAndroidDeviceManufacturerNotAllowed *ManagedAppRemediationAction `json:"appActionIfAndroidDeviceManufacturerNotAllowed,omitempty"`
+	// AppActionIfAndroidDeviceModelNotAllowed Defines a managed app behavior, either block or wipe, if the specified device model is not allowed.
+	AppActionIfAndroidDeviceModelNotAllowed *ManagedAppRemediationAction `json:"appActionIfAndroidDeviceModelNotAllowed,omitempty"`
+	// AppActionIfAndroidSafetyNetAppsVerificationFailed Defines a managed app behavior, either warn or block, if the specified Android App Verification requirement fails.
+	AppActionIfAndroidSafetyNetAppsVerificationFailed *ManagedAppRemediationAction `json:"appActionIfAndroidSafetyNetAppsVerificationFailed,omitempty"`
+	// AppActionIfAndroidSafetyNetDeviceAttestationFailed Defines a managed app behavior, either warn or block, if the specified Android SafetyNet Attestation requirement fails.
+	AppActionIfAndroidSafetyNetDeviceAttestationFailed *ManagedAppRemediationAction `json:"appActionIfAndroidSafetyNetDeviceAttestationFailed,omitempty"`
+	// AppActionIfDeviceLockNotSet Defines a managed app behavior, either warn, block or wipe, if the screen lock is required on android device but is not set.
+	AppActionIfDeviceLockNotSet *ManagedAppRemediationAction `json:"appActionIfDeviceLockNotSet,omitempty"`
+	// ApprovedKeyboards If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
+	ApprovedKeyboards []KeyValuePair `json:"approvedKeyboards,omitempty"`
+	// BiometricAuthenticationBlocked Indicates whether use of the biometric authentication is allowed in place of a pin if PinRequired is set to True.
+	BiometricAuthenticationBlocked *bool `json:"biometricAuthenticationBlocked,omitempty"`
+	// BlockAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or app access will be blocked.
+	BlockAfterCompanyPortalUpdateDeferralInDays *int `json:"blockAfterCompanyPortalUpdateDeferralInDays,omitempty"`
+	// CustomBrowserDisplayName Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+	CustomBrowserDisplayName *string `json:"customBrowserDisplayName,omitempty"`
+	// CustomBrowserPackageID Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+	CustomBrowserPackageID *string `json:"customBrowserPackageId,omitempty"`
+	// CustomDialerAppDisplayName Friendly name of a custom dialer app to click-to-open a phone number on Android.
+	CustomDialerAppDisplayName *string `json:"customDialerAppDisplayName,omitempty"`
+	// CustomDialerAppPackageID PackageId of a custom dialer app to click-to-open a phone number on Android.
+	CustomDialerAppPackageID *string `json:"customDialerAppPackageId,omitempty"`
+	// DeployedAppCount Count of apps to which the current policy is deployed.
+	DeployedAppCount *int `json:"deployedAppCount,omitempty"`
+	// DeviceLockRequired Defines if any kind of lock must be required on android device
+	DeviceLockRequired *bool `json:"deviceLockRequired,omitempty"`
 	// DisableAppEncryptionIfDeviceEncryptionIsEnabled When this setting is enabled, app level encryption is disabled if device level encryption is enabled
 	DisableAppEncryptionIfDeviceEncryptionIsEnabled *bool `json:"disableAppEncryptionIfDeviceEncryptionIsEnabled,omitempty"`
 	// EncryptAppData Indicates whether application data for managed apps should be encrypted
 	EncryptAppData *bool `json:"encryptAppData,omitempty"`
-	// DeployedAppCount Count of apps to which the current policy is deployed.
-	DeployedAppCount *int `json:"deployedAppCount,omitempty"`
-	// MinimumRequiredPatchVersion Define the oldest required Android security patch level a user can have to gain secure access to the app.
-	MinimumRequiredPatchVersion *string `json:"minimumRequiredPatchVersion,omitempty"`
-	// MinimumWarningPatchVersion Define the oldest recommended Android security patch level a user can have for secure access to the app.
-	MinimumWarningPatchVersion *string `json:"minimumWarningPatchVersion,omitempty"`
 	// ExemptedAppPackages App packages in this list will be exempt from the policy and will be able to receive data from managed apps.
 	ExemptedAppPackages []KeyValuePair `json:"exemptedAppPackages,omitempty"`
-	// MinimumWipePatchVersion Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data.
-	MinimumWipePatchVersion *string `json:"minimumWipePatchVersion,omitempty"`
-	// AllowedAndroidDeviceManufacturers Semicolon seperated list of device manufacturers allowed, as a string, for the managed app to work.
-	AllowedAndroidDeviceManufacturers *string `json:"allowedAndroidDeviceManufacturers,omitempty"`
-	// AppActionIfAndroidDeviceManufacturerNotAllowed Defines a managed app behavior, either block or wipe, if the specified device manufacturer is not allowed.
-	AppActionIfAndroidDeviceManufacturerNotAllowed *ManagedAppRemediationAction `json:"appActionIfAndroidDeviceManufacturerNotAllowed,omitempty"`
-	// RequiredAndroidSafetyNetDeviceAttestationType Defines the Android SafetyNet Device Attestation requirement for a managed app to work.
-	RequiredAndroidSafetyNetDeviceAttestationType *AndroidManagedAppSafetyNetDeviceAttestationType `json:"requiredAndroidSafetyNetDeviceAttestationType,omitempty"`
-	// AppActionIfAndroidSafetyNetDeviceAttestationFailed Defines a managed app behavior, either warn or block, if the specified Android SafetyNet Attestation requirment fails.
-	AppActionIfAndroidSafetyNetDeviceAttestationFailed *ManagedAppRemediationAction `json:"appActionIfAndroidSafetyNetDeviceAttestationFailed,omitempty"`
-	// RequiredAndroidSafetyNetAppsVerificationType Defines the Android SafetyNet Apps Verification requirement for a managed app to work.
-	RequiredAndroidSafetyNetAppsVerificationType *AndroidManagedAppSafetyNetAppsVerificationType `json:"requiredAndroidSafetyNetAppsVerificationType,omitempty"`
-	// AppActionIfAndroidSafetyNetAppsVerificationFailed Defines a managed app behavior, either warn or block, if the specified Android App Verification requirment fails.
-	AppActionIfAndroidSafetyNetAppsVerificationFailed *ManagedAppRemediationAction `json:"appActionIfAndroidSafetyNetAppsVerificationFailed,omitempty"`
-	// CustomBrowserPackageID Unique identifier of a custom browser to open weblink on Android.
-	CustomBrowserPackageID *string `json:"customBrowserPackageId,omitempty"`
-	// CustomBrowserDisplayName Friendly name of the preferred custom browser to open weblink on Android.
-	CustomBrowserDisplayName *string `json:"customBrowserDisplayName,omitempty"`
-	// MinimumRequiredCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or app access will be blocked
-	MinimumRequiredCompanyPortalVersion *string `json:"minimumRequiredCompanyPortalVersion,omitempty"`
-	// MinimumWarningCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the user will receive a warning
-	MinimumWarningCompanyPortalVersion *string `json:"minimumWarningCompanyPortalVersion,omitempty"`
-	// MinimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
-	MinimumWipeCompanyPortalVersion *string `json:"minimumWipeCompanyPortalVersion,omitempty"`
 	// KeyboardsRestricted Indicates if keyboard restriction is enabled. If enabled list of approved keyboards must be provided as well.
 	KeyboardsRestricted *bool `json:"keyboardsRestricted,omitempty"`
-	// ApprovedKeyboards If Keyboard Restriction is enabled, only keyboards in this approved list will be allowed. A key should be Android package id for a keyboard and value should be a friendly name
-	ApprovedKeyboards []KeyValuePair `json:"approvedKeyboards,omitempty"`
+	// MinimumRequiredCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or app access will be blocked
+	MinimumRequiredCompanyPortalVersion *string `json:"minimumRequiredCompanyPortalVersion,omitempty"`
+	// MinimumRequiredPatchVersion Define the oldest required Android security patch level a user can have to gain secure access to the app.
+	MinimumRequiredPatchVersion *string `json:"minimumRequiredPatchVersion,omitempty"`
+	// MinimumWarningCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the user will receive a warning
+	MinimumWarningCompanyPortalVersion *string `json:"minimumWarningCompanyPortalVersion,omitempty"`
+	// MinimumWarningPatchVersion Define the oldest recommended Android security patch level a user can have for secure access to the app.
+	MinimumWarningPatchVersion *string `json:"minimumWarningPatchVersion,omitempty"`
+	// MinimumWipeCompanyPortalVersion Minimum version of the Company portal that must be installed on the device or the company data on the app will be wiped
+	MinimumWipeCompanyPortalVersion *string `json:"minimumWipeCompanyPortalVersion,omitempty"`
+	// MinimumWipePatchVersion Android security patch level  less than or equal to the specified value will wipe the managed app and the associated company data.
+	MinimumWipePatchVersion *string `json:"minimumWipePatchVersion,omitempty"`
+	// RequiredAndroidSafetyNetAppsVerificationType Defines the Android SafetyNet Apps Verification requirement for a managed app to work.
+	RequiredAndroidSafetyNetAppsVerificationType *AndroidManagedAppSafetyNetAppsVerificationType `json:"requiredAndroidSafetyNetAppsVerificationType,omitempty"`
+	// RequiredAndroidSafetyNetDeviceAttestationType Defines the Android SafetyNet Device Attestation requirement for a managed app to work.
+	RequiredAndroidSafetyNetDeviceAttestationType *AndroidManagedAppSafetyNetDeviceAttestationType `json:"requiredAndroidSafetyNetDeviceAttestationType,omitempty"`
+	// RequiredAndroidSafetyNetEvaluationType Defines the Android SafetyNet evaluation type requirement for a managed app to work.
+	RequiredAndroidSafetyNetEvaluationType *AndroidManagedAppSafetyNetEvaluationType `json:"requiredAndroidSafetyNetEvaluationType,omitempty"`
+	// ScreenCaptureBlocked Indicates whether a managed user can take screen captures of managed apps
+	ScreenCaptureBlocked *bool `json:"screenCaptureBlocked,omitempty"`
+	// WarnAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or the user will receive the warning
+	WarnAfterCompanyPortalUpdateDeferralInDays *int `json:"warnAfterCompanyPortalUpdateDeferralInDays,omitempty"`
+	// WipeAfterCompanyPortalUpdateDeferralInDays Maximum number of days Company Portal update can be deferred on the device or the company data on the app will be wiped
+	WipeAfterCompanyPortalUpdateDeferralInDays *int `json:"wipeAfterCompanyPortalUpdateDeferralInDays,omitempty"`
 	// Apps undocumented
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 	// DeploymentSummary undocumented
@@ -1162,64 +1426,76 @@ type AndroidManagedAppRegistration struct {
 type AndroidManagedStoreAccountEnterpriseSettings struct {
 	// Entity is the base model of AndroidManagedStoreAccountEnterpriseSettings
 	Entity
+	// AndroidDeviceOwnerFullyManagedEnrollmentEnabled Company codes for AndroidManagedStoreAccountEnterpriseSettings
+	AndroidDeviceOwnerFullyManagedEnrollmentEnabled *bool `json:"androidDeviceOwnerFullyManagedEnrollmentEnabled,omitempty"`
 	// BindStatus Bind status of the tenant with the Google EMM API
 	BindStatus *AndroidManagedStoreAccountBindStatus `json:"bindStatus,omitempty"`
+	// CompanyCodes Company codes for AndroidManagedStoreAccountEnterpriseSettings
+	CompanyCodes []AndroidEnrollmentCompanyCode `json:"companyCodes,omitempty"`
+	// DeviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
+	DeviceOwnerManagementEnabled *bool `json:"deviceOwnerManagementEnabled,omitempty"`
+	// EnrollmentTarget Indicates which users can enroll devices in Android Enterprise device management
+	EnrollmentTarget *AndroidManagedStoreAccountEnrollmentTarget `json:"enrollmentTarget,omitempty"`
 	// LastAppSyncDateTime Last completion time for app sync
 	LastAppSyncDateTime *time.Time `json:"lastAppSyncDateTime,omitempty"`
 	// LastAppSyncStatus Last application sync result
 	LastAppSyncStatus *AndroidManagedStoreAccountAppSyncStatus `json:"lastAppSyncStatus,omitempty"`
-	// OwnerUserPrincipalName Owner UPN that created the enterprise
-	OwnerUserPrincipalName *string `json:"ownerUserPrincipalName,omitempty"`
-	// OwnerOrganizationName Organization name used when onboarding Android Enterprise
-	OwnerOrganizationName *string `json:"ownerOrganizationName,omitempty"`
 	// LastModifiedDateTime Last modification time for Android enterprise settings
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// EnrollmentTarget Indicates which users can enroll devices in Android Enterprise device management
-	EnrollmentTarget *AndroidManagedStoreAccountEnrollmentTarget `json:"enrollmentTarget,omitempty"`
+	// OwnerOrganizationName Organization name used when onboarding Android Enterprise
+	OwnerOrganizationName *string `json:"ownerOrganizationName,omitempty"`
+	// OwnerUserPrincipalName Owner UPN that created the enterprise
+	OwnerUserPrincipalName *string `json:"ownerUserPrincipalName,omitempty"`
 	// TargetGroupIDs Specifies which AAD groups can enroll devices in Android for Work device management if enrollmentTarget is set to 'Targeted'
 	TargetGroupIDs []string `json:"targetGroupIds,omitempty"`
-	// DeviceOwnerManagementEnabled Indicates if this account is flighting for Android Device Owner Management with CloudDPC.
-	DeviceOwnerManagementEnabled *bool `json:"deviceOwnerManagementEnabled,omitempty"`
-	// CompanyCodes Company codes for AndroidManagedStoreAccountEnterpriseSettings
-	CompanyCodes []AndroidEnrollmentCompanyCode `json:"companyCodes,omitempty"`
-	// AndroidDeviceOwnerFullyManagedEnrollmentEnabled Company codes for AndroidManagedStoreAccountEnterpriseSettings
-	AndroidDeviceOwnerFullyManagedEnrollmentEnabled *bool `json:"androidDeviceOwnerFullyManagedEnrollmentEnabled,omitempty"`
 }
 
 // AndroidManagedStoreApp Contains properties and inherited properties for Android Managed Store Apps.
 type AndroidManagedStoreApp struct {
 	// MobileApp is the base model of AndroidManagedStoreApp
 	MobileApp
-	// PackageID The package identifier.
-	PackageID *string `json:"packageId,omitempty"`
 	// AppIdentifier The Identity Name.
 	AppIdentifier *string `json:"appIdentifier,omitempty"`
-	// UsedLicenseCount The number of VPP licenses in use.
-	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
-	// TotalLicenseCount The total number of VPP licenses.
-	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
 	// AppStoreURL The Play for Work Store app URL.
 	AppStoreURL *string `json:"appStoreUrl,omitempty"`
+	// AppTracks The tracks that are visible to this enterprise.
+	AppTracks []AndroidManagedStoreAppTrack `json:"appTracks,omitempty"`
 	// IsPrivate Indicates whether the app is only available to a given enterprise's users.
 	IsPrivate *bool `json:"isPrivate,omitempty"`
 	// IsSystemApp Indicates whether the app is a preinstalled system app.
 	IsSystemApp *bool `json:"isSystemApp,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
 	// SupportsOemConfig Whether this app supports OEMConfig policy.
 	SupportsOemConfig *bool `json:"supportsOemConfig,omitempty"`
+	// TotalLicenseCount The total number of VPP licenses.
+	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
+	// UsedLicenseCount The number of VPP licenses in use.
+	UsedLicenseCount *int `json:"usedLicenseCount,omitempty"`
+}
+
+// AndroidManagedStoreAppAssignmentSettings Contains properties used to assign an Android Managed Store mobile app to a group.
+type AndroidManagedStoreAppAssignmentSettings struct {
+	// MobileAppAssignmentSettings is the base model of AndroidManagedStoreAppAssignmentSettings
+	MobileAppAssignmentSettings
+	// AndroidManagedStoreAppTrackIDs The track IDs to enable for this app assignment.
+	AndroidManagedStoreAppTrackIDs []string `json:"androidManagedStoreAppTrackIds,omitempty"`
 }
 
 // AndroidManagedStoreAppConfiguration Contains properties, inherited properties and actions for Android Enterprise mobile app configurations.
 type AndroidManagedStoreAppConfiguration struct {
 	// ManagedDeviceMobileAppConfiguration is the base model of AndroidManagedStoreAppConfiguration
 	ManagedDeviceMobileAppConfiguration
+	// AppSupportsOemConfig Whether or not this AppConfig is an OEMConfig policy.
+	AppSupportsOemConfig *bool `json:"appSupportsOemConfig,omitempty"`
 	// PackageID Android Enterprise app configuration package id.
 	PackageID *string `json:"packageId,omitempty"`
 	// PayloadJSON Android Enterprise app configuration JSON payload.
 	PayloadJSON *string `json:"payloadJson,omitempty"`
 	// PermissionActions List of Android app permissions and corresponding permission actions.
 	PermissionActions []AndroidPermissionAction `json:"permissionActions,omitempty"`
-	// AppSupportsOemConfig Whether or not this AppConfig is an OEMConfig policy.
-	AppSupportsOemConfig *bool `json:"appSupportsOemConfig,omitempty"`
+	// ProfileApplicability Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)).
+	ProfileApplicability *AndroidProfileApplicability `json:"profileApplicability,omitempty"`
 }
 
 // AndroidManagedStoreAppConfigurationSchema Schema describing an Android application's custom configurations.
@@ -1228,38 +1504,48 @@ type AndroidManagedStoreAppConfigurationSchema struct {
 	Entity
 	// ExampleJSON UTF8 encoded byte array containing example JSON string conforming to this schema that demonstrates how to set the configuration for this app
 	ExampleJSON *Binary `json:"exampleJson,omitempty"`
-	// SchemaItems Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
-	SchemaItems []AndroidManagedStoreAppConfigurationSchemaItem `json:"schemaItems,omitempty"`
 	// NestedSchemaItems Collection of items each representing a named configuration option in the schema. It contains a flat list of all configuration.
 	NestedSchemaItems []AndroidManagedStoreAppConfigurationSchemaItem `json:"nestedSchemaItems,omitempty"`
+	// SchemaItems Collection of items each representing a named configuration option in the schema. It only contains the root-level configuration.
+	SchemaItems []AndroidManagedStoreAppConfigurationSchemaItem `json:"schemaItems,omitempty"`
 }
 
-// AndroidManagedStoreAppConfigurationSchemaItem undocumented
+// AndroidManagedStoreAppConfigurationSchemaItem Single configuration item inside an Android application's custom configuration schema.
 type AndroidManagedStoreAppConfigurationSchemaItem struct {
 	// Object is the base model of AndroidManagedStoreAppConfigurationSchemaItem
 	Object
+	// DataType The type of value this item describes
+	DataType *AndroidManagedStoreAppConfigurationSchemaItemDataType `json:"dataType,omitempty"`
+	// DefaultBoolValue Default value for boolean type items, if specified by the app developer
+	DefaultBoolValue *bool `json:"defaultBoolValue,omitempty"`
+	// DefaultIntValue Default value for integer type items, if specified by the app developer
+	DefaultIntValue *int `json:"defaultIntValue,omitempty"`
+	// DefaultStringArrayValue Default value for string array type items, if specified by the app developer
+	DefaultStringArrayValue []string `json:"defaultStringArrayValue,omitempty"`
+	// DefaultStringValue Default value for string type items, if specified by the app developer
+	DefaultStringValue *string `json:"defaultStringValue,omitempty"`
+	// Description Description of what the item controls within the application
+	Description *string `json:"description,omitempty"`
+	// DisplayName Human readable name
+	DisplayName *string `json:"displayName,omitempty"`
 	// Index Unique index the application uses to maintain nested schema items
 	Index *int `json:"index,omitempty"`
 	// ParentIndex Index of parent schema item to track nested schema items
 	ParentIndex *int `json:"parentIndex,omitempty"`
 	// SchemaItemKey Unique key the application uses to identify the item
 	SchemaItemKey *string `json:"schemaItemKey,omitempty"`
-	// DisplayName Human readable name
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Description of what the item controls within the application
-	Description *string `json:"description,omitempty"`
-	// DefaultBoolValue Default value for boolean type items, if specified by the app developer
-	DefaultBoolValue *bool `json:"defaultBoolValue,omitempty"`
-	// DefaultIntValue Default value for integer type items, if specified by the app developer
-	DefaultIntValue *int `json:"defaultIntValue,omitempty"`
-	// DefaultStringValue Default value for string type items, if specified by the app developer
-	DefaultStringValue *string `json:"defaultStringValue,omitempty"`
-	// DefaultStringArrayValue Default value for string array type items, if specified by the app developer
-	DefaultStringArrayValue []string `json:"defaultStringArrayValue,omitempty"`
-	// DataType The type of value this item describes
-	DataType *AndroidManagedStoreAppConfigurationSchemaItemDataType `json:"dataType,omitempty"`
 	// Selections List of human readable name/value pairs for the valid values that can be set for this item (Choice and Multiselect items only)
 	Selections []KeyValuePair `json:"selections,omitempty"`
+}
+
+// AndroidManagedStoreAppTrack Contains track information for Android Managed Store apps.
+type AndroidManagedStoreAppTrack struct {
+	// Object is the base model of AndroidManagedStoreAppTrack
+	Object
+	// TrackAlias Friendly name for track.
+	TrackAlias *string `json:"trackAlias,omitempty"`
+	// TrackID Unique track identifier.
+	TrackID *string `json:"trackId,omitempty"`
 }
 
 // AndroidManagedStoreWebApp Contains properties and inherited properties for web apps configured to be distributed via the managed Android app store.
@@ -1268,10 +1554,14 @@ type AndroidManagedStoreWebApp struct {
 	AndroidManagedStoreApp
 }
 
-// AndroidMinimumOperatingSystem undocumented
+// AndroidMinimumOperatingSystem Contains properties for the minimum operating system required for an Android mobile app.
 type AndroidMinimumOperatingSystem struct {
 	// Object is the base model of AndroidMinimumOperatingSystem
 	Object
+	// V10_0 Version 10.0 or later.
+	V10_0 *bool `json:"v10_0,omitempty"`
+	// V11_0 Version 11.0 or later.
+	V11_0 *bool `json:"v11_0,omitempty"`
 	// V4_0 Version 4.0 or later.
 	V4_0 *bool `json:"v4_0,omitempty"`
 	// V4_0_3 Version 4.0.3 or later.
@@ -1302,7 +1592,7 @@ type AndroidMinimumOperatingSystem struct {
 	V9_0 *bool `json:"v9_0,omitempty"`
 }
 
-// AndroidMobileAppIdentifier undocumented
+// AndroidMobileAppIdentifier The identifier for an Android app.
 type AndroidMobileAppIdentifier struct {
 	// MobileAppIdentifier is the base model of AndroidMobileAppIdentifier
 	MobileAppIdentifier
@@ -1318,26 +1608,26 @@ type AndroidOMACpConfiguration struct {
 	ConfigurationXML *Binary `json:"configurationXml,omitempty"`
 }
 
-// AndroidPermissionAction undocumented
+// AndroidPermissionAction Mapping between an Android app permission and the action Android should take when that permission is requested.
 type AndroidPermissionAction struct {
 	// Object is the base model of AndroidPermissionAction
 	Object
-	// Permission Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
-	Permission *string `json:"permission,omitempty"`
 	// Action Type of Android permission action.
 	Action *AndroidPermissionActionType `json:"action,omitempty"`
+	// Permission Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
+	Permission *string `json:"permission,omitempty"`
 }
 
 // AndroidPkcsCertificateProfile Android PKCS certificate profile
 type AndroidPkcsCertificateProfile struct {
 	// AndroidCertificateProfileBase is the base model of AndroidPkcsCertificateProfile
 	AndroidCertificateProfileBase
+	// CertificateTemplateName PKCS Certificate Template Name
+	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// CertificationAuthority PKCS Certification Authority
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`
 	// CertificationAuthorityName PKCS Certification Authority Name
 	CertificationAuthorityName *string `json:"certificationAuthorityName,omitempty"`
-	// CertificateTemplateName PKCS Certificate Template Name
-	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
@@ -1348,18 +1638,18 @@ type AndroidPkcsCertificateProfile struct {
 type AndroidScepCertificateProfile struct {
 	// AndroidCertificateProfileBase is the base model of AndroidScepCertificateProfile
 	AndroidCertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s)
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size
-	KeySize *KeySize `json:"keySize,omitempty"`
 	// HashAlgorithm SCEP Hash Algorithm
 	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s)
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
@@ -1368,48 +1658,48 @@ type AndroidScepCertificateProfile struct {
 type AndroidStoreApp struct {
 	// MobileApp is the base model of AndroidStoreApp
 	MobileApp
-	// PackageID The package identifier.
-	PackageID *string `json:"packageId,omitempty"`
 	// AppIdentifier The Identity Name.
 	AppIdentifier *string `json:"appIdentifier,omitempty"`
 	// AppStoreURL The Android app store URL.
 	AppStoreURL *string `json:"appStoreUrl,omitempty"`
 	// MinimumSupportedOperatingSystem The value for the minimum applicable operating system.
 	MinimumSupportedOperatingSystem *AndroidMinimumOperatingSystem `json:"minimumSupportedOperatingSystem,omitempty"`
+	// PackageID The package identifier.
+	PackageID *string `json:"packageId,omitempty"`
 }
 
 // AndroidTrustedRootCertificate Android Trusted Root Certificate configuration profile
 type AndroidTrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of AndroidTrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // AndroidVPNConfiguration By providing the configurations in this profile you can instruct the Android device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type AndroidVPNConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidVPNConfiguration
 	DeviceConfiguration
+	// AuthenticationMethod Authentication method.
+	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`
 	// ConnectionType Connection type.
 	ConnectionType *AndroidVPNConnectionType `json:"connectionType,omitempty"`
-	// Role Role when connection type is set to Pulse Secure.
-	Role *string `json:"role,omitempty"`
-	// Realm Realm when connection type is set to Pulse Secure.
-	Realm *string `json:"realm,omitempty"`
-	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-	Servers []VPNServer `json:"servers,omitempty"`
-	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
-	Fingerprint *string `json:"fingerprint,omitempty"`
 	// CustomData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomData []KeyValue `json:"customData,omitempty"`
 	// CustomKeyValueData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomKeyValueData []KeyValuePair `json:"customKeyValueData,omitempty"`
-	// AuthenticationMethod Authentication method.
-	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
+	Fingerprint *string `json:"fingerprint,omitempty"`
+	// Realm Realm when connection type is set to Pulse Secure.
+	Realm *string `json:"realm,omitempty"`
+	// Role Role when connection type is set to Pulse Secure.
+	Role *string `json:"role,omitempty"`
+	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
+	Servers []VPNServer `json:"servers,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *AndroidCertificateProfileBase `json:"identityCertificate,omitempty"`
 }
@@ -1418,14 +1708,14 @@ type AndroidVPNConfiguration struct {
 type AndroidWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidWiFiConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-	Ssid *string `json:"ssid,omitempty"`
 	// ConnectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
+	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
+	Ssid *string `json:"ssid,omitempty"`
 	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
 	WiFiSecurityType *AndroidWiFiSecurityType `json:"wiFiSecurityType,omitempty"`
 }
@@ -1434,18 +1724,18 @@ type AndroidWiFiConfiguration struct {
 type AndroidWorkProfileCertificateProfileBase struct {
 	// DeviceConfiguration is the base model of AndroidWorkProfileCertificateProfileBase
 	DeviceConfiguration
-	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
-	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
-	// SubjectNameFormat Certificate Subject Name Format.
-	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
-	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
-	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// CertificateValidityPeriodScale Scale for the Certificate Validity Period.
 	CertificateValidityPeriodScale *CertificateValidityPeriodScale `json:"certificateValidityPeriodScale,omitempty"`
+	// CertificateValidityPeriodValue Value for the Certificate Validity Period.
+	CertificateValidityPeriodValue *int `json:"certificateValidityPeriodValue,omitempty"`
 	// ExtendedKeyUsages Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.
 	ExtendedKeyUsages []ExtendedKeyUsage `json:"extendedKeyUsages,omitempty"`
+	// RenewalThresholdPercentage Certificate renewal threshold percentage. Valid values 1 to 99
+	RenewalThresholdPercentage *int `json:"renewalThresholdPercentage,omitempty"`
 	// SubjectAlternativeNameType Certificate Subject Alternative Name Type.
 	SubjectAlternativeNameType *SubjectAlternativeNameType `json:"subjectAlternativeNameType,omitempty"`
+	// SubjectNameFormat Certificate Subject Name Format.
+	SubjectNameFormat *SubjectNameFormat `json:"subjectNameFormat,omitempty"`
 	// RootCertificate undocumented
 	RootCertificate *AndroidWorkProfileTrustedRootCertificate `json:"rootCertificate,omitempty"`
 }
@@ -1454,50 +1744,54 @@ type AndroidWorkProfileCertificateProfileBase struct {
 type AndroidWorkProfileCompliancePolicy struct {
 	// DeviceCompliancePolicy is the base model of AndroidWorkProfileCompliancePolicy
 	DeviceCompliancePolicy
-	// PasswordRequired Require a password to unlock device.
-	PasswordRequired *bool `json:"passwordRequired,omitempty"`
-	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
-	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
-	// PasswordRequiredType Type of characters in password
-	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
-	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
-	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
-	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
-	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
-	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
-	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
-	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
-	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
-	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
-	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
+	// AdvancedThreatProtectionRequiredSecurityLevel MDATP Require Mobile Threat Protection minimum risk level to report noncompliance.
+	AdvancedThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"advancedThreatProtectionRequiredSecurityLevel,omitempty"`
 	// DeviceThreatProtectionEnabled Require that devices have enabled device threat protection.
 	DeviceThreatProtectionEnabled *bool `json:"deviceThreatProtectionEnabled,omitempty"`
 	// DeviceThreatProtectionRequiredSecurityLevel Require Mobile Threat Protection minimum risk level to report noncompliance.
 	DeviceThreatProtectionRequiredSecurityLevel *DeviceThreatProtectionLevel `json:"deviceThreatProtectionRequiredSecurityLevel,omitempty"`
-	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
-	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
-	// OsMinimumVersion Minimum Android version.
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
-	// OsMaximumVersion Maximum Android version.
-	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
 	// MinAndroidSecurityPatchLevel Minimum Android security patch level.
 	MinAndroidSecurityPatchLevel *string `json:"minAndroidSecurityPatchLevel,omitempty"`
-	// StorageRequireEncryption Require encryption on Android devices.
-	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
+	// OsMaximumVersion Maximum Android version.
+	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Minimum Android version.
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
+	PasswordExpirationDays *int `json:"passwordExpirationDays,omitempty"`
+	// PasswordMinimumLength Minimum password length. Valid values 4 to 16
+	PasswordMinimumLength *int `json:"passwordMinimumLength,omitempty"`
+	// PasswordMinutesOfInactivityBeforeLock Minutes of inactivity before a password is required.
+	PasswordMinutesOfInactivityBeforeLock *int `json:"passwordMinutesOfInactivityBeforeLock,omitempty"`
+	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 1 to 24
+	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
+	// PasswordRequired Require a password to unlock device.
+	PasswordRequired *bool `json:"passwordRequired,omitempty"`
+	// PasswordRequiredType Type of characters in password
+	PasswordRequiredType *AndroidRequiredPasswordType `json:"passwordRequiredType,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign-in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// SecurityBlockJailbrokenDevices Devices must not be jailbroken or rooted.
+	SecurityBlockJailbrokenDevices *bool `json:"securityBlockJailbrokenDevices,omitempty"`
+	// SecurityDisableUsbDebugging Disable USB debugging on Android devices.
+	SecurityDisableUsbDebugging *bool `json:"securityDisableUsbDebugging,omitempty"`
+	// SecurityPreventInstallAppsFromUnknownSources Require that devices disallow installation of apps from unknown sources.
+	SecurityPreventInstallAppsFromUnknownSources *bool `json:"securityPreventInstallAppsFromUnknownSources,omitempty"`
+	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
+	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
+	// SecurityRequiredAndroidSafetyNetEvaluationType Require a specific SafetyNet evaluation type for compliance.
+	SecurityRequiredAndroidSafetyNetEvaluationType *AndroidSafetyNetEvaluationType `json:"securityRequiredAndroidSafetyNetEvaluationType,omitempty"`
+	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
+	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireSafetyNetAttestationBasicIntegrity Require the device to pass the SafetyNet basic integrity check.
 	SecurityRequireSafetyNetAttestationBasicIntegrity *bool `json:"securityRequireSafetyNetAttestationBasicIntegrity,omitempty"`
 	// SecurityRequireSafetyNetAttestationCertifiedDevice Require the device to pass the SafetyNet certified device check.
 	SecurityRequireSafetyNetAttestationCertifiedDevice *bool `json:"securityRequireSafetyNetAttestationCertifiedDevice,omitempty"`
-	// SecurityRequireGooglePlayServices Require Google Play Services to be installed and enabled on the device.
-	SecurityRequireGooglePlayServices *bool `json:"securityRequireGooglePlayServices,omitempty"`
 	// SecurityRequireUpToDateSecurityProviders Require the device to have up to date security providers. The device will require Google Play Services to be enabled and up to date.
 	SecurityRequireUpToDateSecurityProviders *bool `json:"securityRequireUpToDateSecurityProviders,omitempty"`
-	// SecurityRequireCompanyPortalAppIntegrity Require the device to pass the Company Portal client app runtime integrity check.
-	SecurityRequireCompanyPortalAppIntegrity *bool `json:"securityRequireCompanyPortalAppIntegrity,omitempty"`
+	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
+	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
+	// StorageRequireEncryption Require encryption on Android devices.
+	StorageRequireEncryption *bool `json:"storageRequireEncryption,omitempty"`
 }
 
 // AndroidWorkProfileCustomConfiguration Android Work Profile custom configuration
@@ -1532,28 +1826,36 @@ type AndroidWorkProfileEasEmailProfileBase struct {
 type AndroidWorkProfileEnterpriseWiFiConfiguration struct {
 	// AndroidWorkProfileWiFiConfiguration is the base model of AndroidWorkProfileEnterpriseWiFiConfiguration
 	AndroidWorkProfileWiFiConfiguration
-	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
-	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// AuthenticationMethod Indicates the Authentication Method the client (device) needs to use when the EAP Type is configured to PEAP or EAP-TTLS.
 	AuthenticationMethod *WiFiAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// EapType Indicates the type of EAP protocol set on the Wi-Fi endpoint (router).
+	EapType *AndroidEapType `json:"eapType,omitempty"`
 	// InnerAuthenticationProtocolForEapTtls Non-EAP Method for Authentication (Inner Identity) when EAP Type is EAP-TTLS and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForEapTtls *NonEapAuthenticationMethodForEapTtlsType `json:"innerAuthenticationProtocolForEapTtls,omitempty"`
 	// InnerAuthenticationProtocolForPeap Non-EAP Method for Authentication (Inner Identity) when EAP Type is PEAP and Authenticationmethod is Username and Password.
 	InnerAuthenticationProtocolForPeap *NonEapAuthenticationMethodForPeap `json:"innerAuthenticationProtocolForPeap,omitempty"`
 	// OuterIdentityPrivacyTemporaryValue Enable identity privacy (Outer Identity) when EAP Type is configured to EAP-TTLS or PEAP. The String provided here is used to mask the username of individual users when they attempt to connect to Wi-Fi network.
 	OuterIdentityPrivacyTemporaryValue *string `json:"outerIdentityPrivacyTemporaryValue,omitempty"`
-	// RootCertificateForServerValidation undocumented
-	RootCertificateForServerValidation *AndroidWorkProfileTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
+	// ProxyAutomaticConfigurationURL URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.
+	ProxyAutomaticConfigurationURL *string `json:"proxyAutomaticConfigurationUrl,omitempty"`
+	// ProxySettings Proxy Type for this Wi-Fi connection
+	ProxySettings *WiFiProxySetting `json:"proxySettings,omitempty"`
 	// IdentityCertificateForClientAuthentication undocumented
 	IdentityCertificateForClientAuthentication *AndroidWorkProfileCertificateProfileBase `json:"identityCertificateForClientAuthentication,omitempty"`
+	// RootCertificateForServerValidation undocumented
+	RootCertificateForServerValidation *AndroidWorkProfileTrustedRootCertificate `json:"rootCertificateForServerValidation,omitempty"`
 }
 
 // AndroidWorkProfileGeneralDeviceConfiguration Android Work Profile general device configuration.
 type AndroidWorkProfileGeneralDeviceConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidWorkProfileGeneralDeviceConfiguration
 	DeviceConfiguration
+	// PasswordBlockFaceUnlock Indicates whether or not to block face unlock.
+	PasswordBlockFaceUnlock *bool `json:"passwordBlockFaceUnlock,omitempty"`
 	// PasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock.
 	PasswordBlockFingerprintUnlock *bool `json:"passwordBlockFingerprintUnlock,omitempty"`
+	// PasswordBlockIrisUnlock Indicates whether or not to block iris unlock.
+	PasswordBlockIrisUnlock *bool `json:"passwordBlockIrisUnlock,omitempty"`
 	// PasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents.
 	PasswordBlockTrustAgents *bool `json:"passwordBlockTrustAgents,omitempty"`
 	// PasswordExpirationDays Number of days before the password expires. Valid values 1 to 365
@@ -1564,70 +1866,76 @@ type AndroidWorkProfileGeneralDeviceConfiguration struct {
 	PasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"passwordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
 	// PasswordPreviousPasswordBlockCount Number of previous passwords to block. Valid values 0 to 24
 	PasswordPreviousPasswordBlockCount *int `json:"passwordPreviousPasswordBlockCount,omitempty"`
-	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
-	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// PasswordRequiredType Type of password that is required.
 	PasswordRequiredType *AndroidWorkProfileRequiredPasswordType `json:"passwordRequiredType,omitempty"`
-	// WorkProfileDataSharingType Type of data sharing that is allowed.
-	WorkProfileDataSharingType *AndroidWorkProfileCrossProfileDataSharingType `json:"workProfileDataSharingType,omitempty"`
-	// WorkProfileBlockNotificationsWhileDeviceLocked Indicates whether or not to block notifications while device locked.
-	WorkProfileBlockNotificationsWhileDeviceLocked *bool `json:"workProfileBlockNotificationsWhileDeviceLocked,omitempty"`
-	// WorkProfileBlockAddingAccounts Block users from adding/removing accounts in work profile.
-	WorkProfileBlockAddingAccounts *bool `json:"workProfileBlockAddingAccounts,omitempty"`
-	// WorkProfileBluetoothEnableContactSharing Allow bluetooth devices to access enterprise contacts.
-	WorkProfileBluetoothEnableContactSharing *bool `json:"workProfileBluetoothEnableContactSharing,omitempty"`
-	// WorkProfileBlockScreenCapture Block screen capture in work profile.
-	WorkProfileBlockScreenCapture *bool `json:"workProfileBlockScreenCapture,omitempty"`
-	// WorkProfileBlockCrossProfileCallerID Block display work profile caller ID in personal profile.
-	WorkProfileBlockCrossProfileCallerID *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
-	// WorkProfileBlockCamera Block work profile camera.
-	WorkProfileBlockCamera *bool `json:"workProfileBlockCamera,omitempty"`
-	// WorkProfileBlockCrossProfileContactsSearch Block work profile contacts availability in personal profile.
-	WorkProfileBlockCrossProfileContactsSearch *bool `json:"workProfileBlockCrossProfileContactsSearch,omitempty"`
-	// WorkProfileBlockCrossProfileCopyPaste Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
-	WorkProfileBlockCrossProfileCopyPaste *bool `json:"workProfileBlockCrossProfileCopyPaste,omitempty"`
-	// WorkProfileDefaultAppPermissionPolicy Type of password that is required.
-	WorkProfileDefaultAppPermissionPolicy *AndroidWorkProfileDefaultAppPermissionPolicyType `json:"workProfileDefaultAppPermissionPolicy,omitempty"`
-	// WorkProfilePasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock for work profile.
-	WorkProfilePasswordBlockFingerprintUnlock *bool `json:"workProfilePasswordBlockFingerprintUnlock,omitempty"`
-	// WorkProfilePasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents for work profile.
-	WorkProfilePasswordBlockTrustAgents *bool `json:"workProfilePasswordBlockTrustAgents,omitempty"`
-	// WorkProfilePasswordExpirationDays Number of days before the work profile password expires. Valid values 1 to 365
-	WorkProfilePasswordExpirationDays *int `json:"workProfilePasswordExpirationDays,omitempty"`
-	// WorkProfilePasswordMinimumLength Minimum length of work profile password. Valid values 4 to 16
-	WorkProfilePasswordMinimumLength *int `json:"workProfilePasswordMinimumLength,omitempty"`
-	// WorkProfilePasswordMinNumericCharacters Minimum # of numeric characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinNumericCharacters *int `json:"workProfilePasswordMinNumericCharacters,omitempty"`
-	// WorkProfilePasswordMinNonLetterCharacters Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinNonLetterCharacters *int `json:"workProfilePasswordMinNonLetterCharacters,omitempty"`
-	// WorkProfilePasswordMinLetterCharacters Minimum # of letter characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinLetterCharacters *int `json:"workProfilePasswordMinLetterCharacters,omitempty"`
-	// WorkProfilePasswordMinLowerCaseCharacters Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinLowerCaseCharacters *int `json:"workProfilePasswordMinLowerCaseCharacters,omitempty"`
-	// WorkProfilePasswordMinUpperCaseCharacters Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinUpperCaseCharacters *int `json:"workProfilePasswordMinUpperCaseCharacters,omitempty"`
-	// WorkProfilePasswordMinSymbolCharacters Minimum # of symbols required in work profile password. Valid values 1 to 10
-	WorkProfilePasswordMinSymbolCharacters *int `json:"workProfilePasswordMinSymbolCharacters,omitempty"`
-	// WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
-	WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"workProfilePasswordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
-	// WorkProfilePasswordPreviousPasswordBlockCount Number of previous work profile passwords to block. Valid values 0 to 24
-	WorkProfilePasswordPreviousPasswordBlockCount *int `json:"workProfilePasswordPreviousPasswordBlockCount,omitempty"`
-	// WorkProfilePasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
-	WorkProfilePasswordSignInFailureCountBeforeFactoryReset *int `json:"workProfilePasswordSignInFailureCountBeforeFactoryReset,omitempty"`
-	// WorkProfilePasswordRequiredType Type of work profile password that is required.
-	WorkProfilePasswordRequiredType *AndroidWorkProfileRequiredPasswordType `json:"workProfilePasswordRequiredType,omitempty"`
-	// WorkProfileRequirePassword Password is required or not for work profile
-	WorkProfileRequirePassword *bool `json:"workProfileRequirePassword,omitempty"`
+	// PasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before factory reset. Valid values 1 to 16
+	PasswordSignInFailureCountBeforeFactoryReset *int `json:"passwordSignInFailureCountBeforeFactoryReset,omitempty"`
 	// SecurityRequireVerifyApps Require the Android Verify apps feature is turned on.
 	SecurityRequireVerifyApps *bool `json:"securityRequireVerifyApps,omitempty"`
 	// VPNAlwaysOnPackageIdentifier Enable lockdown mode for always-on VPN.
 	VPNAlwaysOnPackageIdentifier *string `json:"vpnAlwaysOnPackageIdentifier,omitempty"`
 	// VPNEnableAlwaysOnLockdownMode Enable lockdown mode for always-on VPN.
 	VPNEnableAlwaysOnLockdownMode *bool `json:"vpnEnableAlwaysOnLockdownMode,omitempty"`
+	// WorkProfileAllowAppInstallsFromUnknownSources Indicates whether to allow installation of apps from unknown sources.
+	WorkProfileAllowAppInstallsFromUnknownSources *bool `json:"workProfileAllowAppInstallsFromUnknownSources,omitempty"`
 	// WorkProfileAllowWidgets Allow widgets from work profile apps.
 	WorkProfileAllowWidgets *bool `json:"workProfileAllowWidgets,omitempty"`
+	// WorkProfileBlockAddingAccounts Block users from adding/removing accounts in work profile.
+	WorkProfileBlockAddingAccounts *bool `json:"workProfileBlockAddingAccounts,omitempty"`
+	// WorkProfileBlockCamera Block work profile camera.
+	WorkProfileBlockCamera *bool `json:"workProfileBlockCamera,omitempty"`
+	// WorkProfileBlockCrossProfileCallerID Block display work profile caller ID in personal profile.
+	WorkProfileBlockCrossProfileCallerID *bool `json:"workProfileBlockCrossProfileCallerId,omitempty"`
+	// WorkProfileBlockCrossProfileContactsSearch Block work profile contacts availability in personal profile.
+	WorkProfileBlockCrossProfileContactsSearch *bool `json:"workProfileBlockCrossProfileContactsSearch,omitempty"`
+	// WorkProfileBlockCrossProfileCopyPaste Boolean that indicates if the setting disallow cross profile copy/paste is enabled.
+	WorkProfileBlockCrossProfileCopyPaste *bool `json:"workProfileBlockCrossProfileCopyPaste,omitempty"`
+	// WorkProfileBlockNotificationsWhileDeviceLocked Indicates whether or not to block notifications while device locked.
+	WorkProfileBlockNotificationsWhileDeviceLocked *bool `json:"workProfileBlockNotificationsWhileDeviceLocked,omitempty"`
 	// WorkProfileBlockPersonalAppInstallsFromUnknownSources Prevent app installations from unknown sources in the personal profile.
 	WorkProfileBlockPersonalAppInstallsFromUnknownSources *bool `json:"workProfileBlockPersonalAppInstallsFromUnknownSources,omitempty"`
+	// WorkProfileBlockScreenCapture Block screen capture in work profile.
+	WorkProfileBlockScreenCapture *bool `json:"workProfileBlockScreenCapture,omitempty"`
+	// WorkProfileBluetoothEnableContactSharing Allow bluetooth devices to access enterprise contacts.
+	WorkProfileBluetoothEnableContactSharing *bool `json:"workProfileBluetoothEnableContactSharing,omitempty"`
+	// WorkProfileDataSharingType Type of data sharing that is allowed.
+	WorkProfileDataSharingType *AndroidWorkProfileCrossProfileDataSharingType `json:"workProfileDataSharingType,omitempty"`
+	// WorkProfileDefaultAppPermissionPolicy Type of password that is required.
+	WorkProfileDefaultAppPermissionPolicy *AndroidWorkProfileDefaultAppPermissionPolicyType `json:"workProfileDefaultAppPermissionPolicy,omitempty"`
+	// WorkProfilePasswordBlockFaceUnlock Indicates whether or not to block face unlock for work profile.
+	WorkProfilePasswordBlockFaceUnlock *bool `json:"workProfilePasswordBlockFaceUnlock,omitempty"`
+	// WorkProfilePasswordBlockFingerprintUnlock Indicates whether or not to block fingerprint unlock for work profile.
+	WorkProfilePasswordBlockFingerprintUnlock *bool `json:"workProfilePasswordBlockFingerprintUnlock,omitempty"`
+	// WorkProfilePasswordBlockIrisUnlock Indicates whether or not to block iris unlock for work profile.
+	WorkProfilePasswordBlockIrisUnlock *bool `json:"workProfilePasswordBlockIrisUnlock,omitempty"`
+	// WorkProfilePasswordBlockTrustAgents Indicates whether or not to block Smart Lock and other trust agents for work profile.
+	WorkProfilePasswordBlockTrustAgents *bool `json:"workProfilePasswordBlockTrustAgents,omitempty"`
+	// WorkProfilePasswordExpirationDays Number of days before the work profile password expires. Valid values 1 to 365
+	WorkProfilePasswordExpirationDays *int `json:"workProfilePasswordExpirationDays,omitempty"`
+	// WorkProfilePasswordMinimumLength Minimum length of work profile password. Valid values 4 to 16
+	WorkProfilePasswordMinimumLength *int `json:"workProfilePasswordMinimumLength,omitempty"`
+	// WorkProfilePasswordMinLetterCharacters Minimum # of letter characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinLetterCharacters *int `json:"workProfilePasswordMinLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinLowerCaseCharacters Minimum # of lower-case characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinLowerCaseCharacters *int `json:"workProfilePasswordMinLowerCaseCharacters,omitempty"`
+	// WorkProfilePasswordMinNonLetterCharacters Minimum # of non-letter characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinNonLetterCharacters *int `json:"workProfilePasswordMinNonLetterCharacters,omitempty"`
+	// WorkProfilePasswordMinNumericCharacters Minimum # of numeric characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinNumericCharacters *int `json:"workProfilePasswordMinNumericCharacters,omitempty"`
+	// WorkProfilePasswordMinSymbolCharacters Minimum # of symbols required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinSymbolCharacters *int `json:"workProfilePasswordMinSymbolCharacters,omitempty"`
+	// WorkProfilePasswordMinUpperCaseCharacters Minimum # of upper-case characters required in work profile password. Valid values 1 to 10
+	WorkProfilePasswordMinUpperCaseCharacters *int `json:"workProfilePasswordMinUpperCaseCharacters,omitempty"`
+	// WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout Minutes of inactivity before the screen times out.
+	WorkProfilePasswordMinutesOfInactivityBeforeScreenTimeout *int `json:"workProfilePasswordMinutesOfInactivityBeforeScreenTimeout,omitempty"`
+	// WorkProfilePasswordPreviousPasswordBlockCount Number of previous work profile passwords to block. Valid values 0 to 24
+	WorkProfilePasswordPreviousPasswordBlockCount *int `json:"workProfilePasswordPreviousPasswordBlockCount,omitempty"`
+	// WorkProfilePasswordRequiredType Type of work profile password that is required.
+	WorkProfilePasswordRequiredType *AndroidWorkProfileRequiredPasswordType `json:"workProfilePasswordRequiredType,omitempty"`
+	// WorkProfilePasswordSignInFailureCountBeforeFactoryReset Number of sign in failures allowed before work profile is removed and all corporate data deleted. Valid values 1 to 16
+	WorkProfilePasswordSignInFailureCountBeforeFactoryReset *int `json:"workProfilePasswordSignInFailureCountBeforeFactoryReset,omitempty"`
+	// WorkProfileRequirePassword Password is required or not for work profile
+	WorkProfileRequirePassword *bool `json:"workProfileRequirePassword,omitempty"`
 }
 
 // AndroidWorkProfileGmailEasConfiguration By providing configurations in this profile you can instruct the Gmail email client on Android Work Profile devices to communicate with an Exchange server and get email, contacts, calendar, tasks, and notes. Furthermore, you can also specify how much email to sync and how often the device should sync.
@@ -1652,14 +1960,20 @@ type AndroidWorkProfileNineWorkEasConfiguration struct {
 type AndroidWorkProfilePkcsCertificateProfile struct {
 	// AndroidWorkProfileCertificateProfileBase is the base model of AndroidWorkProfilePkcsCertificateProfile
 	AndroidWorkProfileCertificateProfileBase
+	// CertificateStore Target store certificate
+	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
+	// CertificateTemplateName PKCS Certificate Template Name
+	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
 	// CertificationAuthority PKCS Certification Authority
 	CertificationAuthority *string `json:"certificationAuthority,omitempty"`
 	// CertificationAuthorityName PKCS Certification Authority Name
 	CertificationAuthorityName *string `json:"certificationAuthorityName,omitempty"`
-	// CertificateTemplateName PKCS Certificate Template Name
-	CertificateTemplateName *string `json:"certificateTemplateName,omitempty"`
+	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
+	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
 	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
 	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
@@ -1668,22 +1982,22 @@ type AndroidWorkProfilePkcsCertificateProfile struct {
 type AndroidWorkProfileScepCertificateProfile struct {
 	// AndroidWorkProfileCertificateProfileBase is the base model of AndroidWorkProfileScepCertificateProfile
 	AndroidWorkProfileCertificateProfileBase
-	// ScepServerUrls SCEP Server Url(s)
-	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
-	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
-	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
-	// KeyUsage SCEP Key Usage
-	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
-	// KeySize SCEP Key Size
-	KeySize *KeySize `json:"keySize,omitempty"`
-	// HashAlgorithm SCEP Hash Algorithm
-	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
-	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
-	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
 	// CertificateStore Target store certificate
 	CertificateStore *CertificateStore `json:"certificateStore,omitempty"`
 	// CustomSubjectAlternativeNames Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.
 	CustomSubjectAlternativeNames []CustomSubjectAlternativeName `json:"customSubjectAlternativeNames,omitempty"`
+	// HashAlgorithm SCEP Hash Algorithm
+	HashAlgorithm *HashAlgorithms `json:"hashAlgorithm,omitempty"`
+	// KeySize SCEP Key Size
+	KeySize *KeySize `json:"keySize,omitempty"`
+	// KeyUsage SCEP Key Usage
+	KeyUsage *KeyUsages `json:"keyUsage,omitempty"`
+	// ScepServerUrls SCEP Server Url(s)
+	ScepServerUrls []string `json:"scepServerUrls,omitempty"`
+	// SubjectAlternativeNameFormatString Custom String that defines the AAD Attribute.
+	SubjectAlternativeNameFormatString *string `json:"subjectAlternativeNameFormatString,omitempty"`
+	// SubjectNameFormatString Custom format to use with SubjectNameFormat = Custom. Example: CN={{EmailAddress}},E={{EmailAddress}},OU=Enterprise Users,O=Contoso Corporation,L=Redmond,ST=WA,C=US
+	SubjectNameFormatString *string `json:"subjectNameFormatString,omitempty"`
 	// ManagedDeviceCertificateStates undocumented
 	ManagedDeviceCertificateStates []ManagedDeviceCertificateState `json:"managedDeviceCertificateStates,omitempty"`
 }
@@ -1692,34 +2006,46 @@ type AndroidWorkProfileScepCertificateProfile struct {
 type AndroidWorkProfileTrustedRootCertificate struct {
 	// DeviceConfiguration is the base model of AndroidWorkProfileTrustedRootCertificate
 	DeviceConfiguration
-	// TrustedRootCertificate Trusted Root Certificate
-	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 	// CertFileName File name to display in UI.
 	CertFileName *string `json:"certFileName,omitempty"`
+	// TrustedRootCertificate Trusted Root Certificate
+	TrustedRootCertificate *Binary `json:"trustedRootCertificate,omitempty"`
 }
 
 // AndroidWorkProfileVPNConfiguration By providing the configurations in this profile you can instruct the Android Work Profile device to connect to desired VPN endpoint. By specifying the authentication method and security types expected by VPN endpoint you can make the VPN connection seamless for end user.
 type AndroidWorkProfileVPNConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidWorkProfileVPNConfiguration
 	DeviceConfiguration
+	// AlwaysOn Whether or not to enable always-on VPN connection.
+	AlwaysOn *bool `json:"alwaysOn,omitempty"`
+	// AlwaysOnLockdown If always-on VPN connection is enabled, whether or not to lock network traffic when that VPN is disconnected.
+	AlwaysOnLockdown *bool `json:"alwaysOnLockdown,omitempty"`
+	// AuthenticationMethod Authentication method.
+	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
 	// ConnectionName Connection name displayed to the user.
 	ConnectionName *string `json:"connectionName,omitempty"`
 	// ConnectionType Connection type.
 	ConnectionType *AndroidWorkProfileVPNConnectionType `json:"connectionType,omitempty"`
-	// Role Role when connection type is set to Pulse Secure.
-	Role *string `json:"role,omitempty"`
-	// Realm Realm when connection type is set to Pulse Secure.
-	Realm *string `json:"realm,omitempty"`
-	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
-	Servers []VPNServer `json:"servers,omitempty"`
-	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
-	Fingerprint *string `json:"fingerprint,omitempty"`
 	// CustomData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomData []KeyValue `json:"customData,omitempty"`
 	// CustomKeyValueData Custom data when connection type is set to Citrix. This collection can contain a maximum of 25 elements.
 	CustomKeyValueData []KeyValuePair `json:"customKeyValueData,omitempty"`
-	// AuthenticationMethod Authentication method.
-	AuthenticationMethod *VPNAuthenticationMethod `json:"authenticationMethod,omitempty"`
+	// Fingerprint Fingerprint is a string that will be used to verify the VPN server can be trusted, which is only applicable when connection type is Check Point Capsule VPN.
+	Fingerprint *string `json:"fingerprint,omitempty"`
+	// MicrosoftTunnelSiteID Microsoft Tunnel site ID.
+	MicrosoftTunnelSiteID *string `json:"microsoftTunnelSiteId,omitempty"`
+	// ProxyServer Proxy server.
+	ProxyServer *VPNProxyServer `json:"proxyServer,omitempty"`
+	// Realm Realm when connection type is set to Pulse Secure.
+	Realm *string `json:"realm,omitempty"`
+	// Role Role when connection type is set to Pulse Secure.
+	Role *string `json:"role,omitempty"`
+	// Servers List of VPN Servers on the network. Make sure end users can access these network locations. This collection can contain a maximum of 500 elements.
+	Servers []VPNServer `json:"servers,omitempty"`
+	// TargetedMobileApps Targeted mobile apps. This collection can contain a maximum of 500 elements.
+	TargetedMobileApps []AppListItem `json:"targetedMobileApps,omitempty"`
+	// TargetedPackageIDs Targeted App package IDs.
+	TargetedPackageIDs []string `json:"targetedPackageIds,omitempty"`
 	// IdentityCertificate undocumented
 	IdentityCertificate *AndroidWorkProfileCertificateProfileBase `json:"identityCertificate,omitempty"`
 }
@@ -1728,14 +2054,14 @@ type AndroidWorkProfileVPNConfiguration struct {
 type AndroidWorkProfileWiFiConfiguration struct {
 	// DeviceConfiguration is the base model of AndroidWorkProfileWiFiConfiguration
 	DeviceConfiguration
-	// NetworkName Network Name
-	NetworkName *string `json:"networkName,omitempty"`
-	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
-	Ssid *string `json:"ssid,omitempty"`
 	// ConnectAutomatically Connect automatically when this network is in range. Setting this to true will skip the user prompt and automatically connect the device to Wi-Fi network.
 	ConnectAutomatically *bool `json:"connectAutomatically,omitempty"`
 	// ConnectWhenNetworkNameIsHidden When set to true, this profile forces the device to connect to a network that doesn't broadcast its SSID to all devices.
 	ConnectWhenNetworkNameIsHidden *bool `json:"connectWhenNetworkNameIsHidden,omitempty"`
+	// NetworkName Network Name
+	NetworkName *string `json:"networkName,omitempty"`
+	// Ssid This is the name of the Wi-Fi network that is broadcast to all devices.
+	Ssid *string `json:"ssid,omitempty"`
 	// WiFiSecurityType Indicates whether Wi-Fi endpoint uses an EAP based security type.
 	WiFiSecurityType *AndroidWiFiSecurityType `json:"wiFiSecurityType,omitempty"`
 }

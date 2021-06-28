@@ -14,6 +14,10 @@ const (
 	ACLTypeVEveryone ACLType = "everyone"
 	// ACLTypeVEveryoneExceptGuests undocumented
 	ACLTypeVEveryoneExceptGuests ACLType = "everyoneExceptGuests"
+	// ACLTypeVExternalGroup undocumented
+	ACLTypeVExternalGroup ACLType = "externalGroup"
+	// ACLTypeVUnknownFutureValue undocumented
+	ACLTypeVUnknownFutureValue ACLType = "unknownFutureValue"
 )
 
 var (
@@ -25,6 +29,10 @@ var (
 	ACLTypePEveryone = &_ACLTypePEveryone
 	// ACLTypePEveryoneExceptGuests is a pointer to ACLTypeVEveryoneExceptGuests
 	ACLTypePEveryoneExceptGuests = &_ACLTypePEveryoneExceptGuests
+	// ACLTypePExternalGroup is a pointer to ACLTypeVExternalGroup
+	ACLTypePExternalGroup = &_ACLTypePExternalGroup
+	// ACLTypePUnknownFutureValue is a pointer to ACLTypeVUnknownFutureValue
+	ACLTypePUnknownFutureValue = &_ACLTypePUnknownFutureValue
 )
 
 var (
@@ -32,4 +40,6 @@ var (
 	_ACLTypePGroup                = ACLTypeVGroup
 	_ACLTypePEveryone             = ACLTypeVEveryone
 	_ACLTypePEveryoneExceptGuests = ACLTypeVEveryoneExceptGuests
+	_ACLTypePExternalGroup        = ACLTypeVExternalGroup
+	_ACLTypePUnknownFutureValue   = ACLTypeVUnknownFutureValue
 )

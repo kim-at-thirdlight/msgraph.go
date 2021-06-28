@@ -8,10 +8,14 @@ type SkillProficiency struct {
 	ItemFacet
 	// Categories undocumented
 	Categories []string `json:"categories,omitempty"`
+	// CollaborationTags undocumented
+	CollaborationTags []string `json:"collaborationTags,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// Proficiency undocumented
 	Proficiency *SkillProficiencyLevel `json:"proficiency,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
 }

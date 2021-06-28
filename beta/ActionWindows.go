@@ -23,12 +23,26 @@ type WindowsAutopilotDeploymentProfileAssignRequestParameter struct {
 	DeviceIDs []string `json:"deviceIds,omitempty"`
 }
 
+// WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AddressableUserName undocumented
+	AddressableUserName *string `json:"addressableUserName,omitempty"`
+	// ResourceAccountName undocumented
+	ResourceAccountName *string `json:"resourceAccountName,omitempty"`
+}
+
 // WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter undocumented
 type WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter struct {
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// AddressableUserName undocumented
 	AddressableUserName *string `json:"addressableUserName,omitempty"`
+}
+
+// WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestParameter struct {
 }
 
 // WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestParameter undocumented
@@ -45,20 +59,6 @@ type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter struct
 	GroupTag *string `json:"groupTag,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-}
-
-// WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter undocumented
-type WindowsAutopilotDeviceIdentityAssignResourceAccountToDeviceRequestParameter struct {
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// AddressableUserName undocumented
-	AddressableUserName *string `json:"addressableUserName,omitempty"`
-	// ResourceAccountName undocumented
-	ResourceAccountName *string `json:"resourceAccountName,omitempty"`
-}
-
-// WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestParameter undocumented
-type WindowsAutopilotDeviceIdentityUnassignResourceAccountFromDeviceRequestParameter struct {
 }
 
 // WindowsAutopilotSettingsSyncRequestParameter undocumented
@@ -87,12 +87,29 @@ type WindowsInformationProtectionAssignRequestParameter struct {
 type WindowsInformationProtectionDeviceRegistrationWipeRequestParameter struct {
 }
 
+// WindowsManagementAppSetAsManagedInstallerRequestParameter undocumented
+type WindowsManagementAppSetAsManagedInstallerRequestParameter struct {
+}
+
+// WindowsQualityUpdateProfileAssignRequestParameter undocumented
+type WindowsQualityUpdateProfileAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []WindowsQualityUpdateProfileAssignment `json:"assignments,omitempty"`
+}
+
 // WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestParameter undocumented
 type WindowsUpdateForBusinessConfigurationExtendFeatureUpdatesPauseRequestParameter struct {
 }
 
 // WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequestParameter undocumented
 type WindowsUpdateForBusinessConfigurationExtendQualityUpdatesPauseRequestParameter struct {
+}
+
+// Updates is navigation property
+func (b *WindowsRequestBuilder) Updates() *UpdatesRequestBuilder {
+	bb := &UpdatesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/updates"
+	return bb
 }
 
 // AssignedDevices returns request builder for WindowsAutopilotDeviceIdentity collection
@@ -844,6 +861,13 @@ func (r *WindowsFeatureUpdateProfileDeviceUpdateStatesCollectionRequest) Add(ctx
 	return
 }
 
+// Device is navigation property
+func (b *WindowsHelloForBusinessAuthenticationMethodRequestBuilder) Device() *DeviceRequestBuilder {
+	bb := &DeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/device"
+	return bb
+}
+
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection
 func (b *WindowsInformationProtectionRequestBuilder) Assignments() *WindowsInformationProtectionAssignmentsCollectionRequestBuilder {
 	bb := &WindowsInformationProtectionAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1153,35 +1177,35 @@ func (r *WindowsInformationProtectionProtectedAppLockerFilesCollectionRequest) A
 	return
 }
 
-// WindowsDevicesProtectionState returns request builder for WindowsProtectionState collection
-func (b *WindowsMalwareInformationRequestBuilder) WindowsDevicesProtectionState() *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder {
-	bb := &WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/windowsDevicesProtectionState"
+// DeviceMalwareStates returns request builder for MalwareStateForWindowsDevice collection
+func (b *WindowsMalwareInformationRequestBuilder) DeviceMalwareStates() *WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder {
+	bb := &WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceMalwareStates"
 	return bb
 }
 
-// WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder is request builder for WindowsProtectionState collection
-type WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder struct{ BaseRequestBuilder }
+// WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder is request builder for MalwareStateForWindowsDevice collection
+type WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for WindowsProtectionState collection
-func (b *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder) Request() *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest {
-	return &WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest{
+// Request returns request for MalwareStateForWindowsDevice collection
+func (b *WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder) Request() *WindowsMalwareInformationDeviceMalwareStatesCollectionRequest {
+	return &WindowsMalwareInformationDeviceMalwareStatesCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for WindowsProtectionState item
-func (b *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequestBuilder) ID(id string) *WindowsProtectionStateRequestBuilder {
-	bb := &WindowsProtectionStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for MalwareStateForWindowsDevice item
+func (b *WindowsMalwareInformationDeviceMalwareStatesCollectionRequestBuilder) ID(id string) *MalwareStateForWindowsDeviceRequestBuilder {
+	bb := &MalwareStateForWindowsDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest is request for WindowsProtectionState collection
-type WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest struct{ BaseRequest }
+// WindowsMalwareInformationDeviceMalwareStatesCollectionRequest is request for MalwareStateForWindowsDevice collection
+type WindowsMalwareInformationDeviceMalwareStatesCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for WindowsProtectionState collection
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsProtectionState, error) {
+// Paging perfoms paging operation for MalwareStateForWindowsDevice collection
+func (r *WindowsMalwareInformationDeviceMalwareStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MalwareStateForWindowsDevice, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1193,7 +1217,7 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 	if err != nil {
 		return nil, err
 	}
-	var values []WindowsProtectionState
+	var values []MalwareStateForWindowsDevice
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -1207,7 +1231,7 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 		}
 		var (
 			paging Paging
-			value  []WindowsProtectionState
+			value  []MalwareStateForWindowsDevice
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -1236,8 +1260,8 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 	}
 }
 
-// GetN performs GET request for WindowsProtectionState collection, max N pages
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsProtectionState, error) {
+// GetN performs GET request for MalwareStateForWindowsDevice collection, max N pages
+func (r *WindowsMalwareInformationDeviceMalwareStatesCollectionRequest) GetN(ctx context.Context, n int) ([]MalwareStateForWindowsDevice, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -1245,13 +1269,13 @@ func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for WindowsProtectionState collection
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Get(ctx context.Context) ([]WindowsProtectionState, error) {
+// Get performs GET request for MalwareStateForWindowsDevice collection
+func (r *WindowsMalwareInformationDeviceMalwareStatesCollectionRequest) Get(ctx context.Context) ([]MalwareStateForWindowsDevice, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for WindowsProtectionState collection
-func (r *WindowsMalwareInformationWindowsDevicesProtectionStateCollectionRequest) Add(ctx context.Context, reqObj *WindowsProtectionState) (resObj *WindowsProtectionState, err error) {
+// Add performs POST request for MalwareStateForWindowsDevice collection
+func (r *WindowsMalwareInformationDeviceMalwareStatesCollectionRequest) Add(ctx context.Context, reqObj *MalwareStateForWindowsDevice) (resObj *MalwareStateForWindowsDevice, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -1579,35 +1603,35 @@ func (b *WindowsPhone81VpnConfigurationRequestBuilder) IdentityCertificate() *Wi
 	return bb
 }
 
-// DetectedMalwareState returns request builder for WindowsDeviceMalwareState collection
-func (b *WindowsProtectionStateRequestBuilder) DetectedMalwareState() *WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder {
-	bb := &WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/detectedMalwareState"
+// Assignments returns request builder for WindowsQualityUpdateProfileAssignment collection
+func (b *WindowsQualityUpdateProfileRequestBuilder) Assignments() *WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder {
+	bb := &WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
 	return bb
 }
 
-// WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder is request builder for WindowsDeviceMalwareState collection
-type WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder struct{ BaseRequestBuilder }
+// WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder is request builder for WindowsQualityUpdateProfileAssignment collection
+type WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for WindowsDeviceMalwareState collection
-func (b *WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder) Request() *WindowsProtectionStateDetectedMalwareStateCollectionRequest {
-	return &WindowsProtectionStateDetectedMalwareStateCollectionRequest{
+// Request returns request for WindowsQualityUpdateProfileAssignment collection
+func (b *WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder) Request() *WindowsQualityUpdateProfileAssignmentsCollectionRequest {
+	return &WindowsQualityUpdateProfileAssignmentsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for WindowsDeviceMalwareState item
-func (b *WindowsProtectionStateDetectedMalwareStateCollectionRequestBuilder) ID(id string) *WindowsDeviceMalwareStateRequestBuilder {
-	bb := &WindowsDeviceMalwareStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for WindowsQualityUpdateProfileAssignment item
+func (b *WindowsQualityUpdateProfileAssignmentsCollectionRequestBuilder) ID(id string) *WindowsQualityUpdateProfileAssignmentRequestBuilder {
+	bb := &WindowsQualityUpdateProfileAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// WindowsProtectionStateDetectedMalwareStateCollectionRequest is request for WindowsDeviceMalwareState collection
-type WindowsProtectionStateDetectedMalwareStateCollectionRequest struct{ BaseRequest }
+// WindowsQualityUpdateProfileAssignmentsCollectionRequest is request for WindowsQualityUpdateProfileAssignment collection
+type WindowsQualityUpdateProfileAssignmentsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsDeviceMalwareState, error) {
+// Paging perfoms paging operation for WindowsQualityUpdateProfileAssignment collection
+func (r *WindowsQualityUpdateProfileAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsQualityUpdateProfileAssignment, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -1619,7 +1643,7 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx
 	if err != nil {
 		return nil, err
 	}
-	var values []WindowsDeviceMalwareState
+	var values []WindowsQualityUpdateProfileAssignment
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -1633,7 +1657,7 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx
 		}
 		var (
 			paging Paging
-			value  []WindowsDeviceMalwareState
+			value  []WindowsQualityUpdateProfileAssignment
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -1662,8 +1686,8 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Paging(ctx
 	}
 }
 
-// GetN performs GET request for WindowsDeviceMalwareState collection, max N pages
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsDeviceMalwareState, error) {
+// GetN performs GET request for WindowsQualityUpdateProfileAssignment collection, max N pages
+func (r *WindowsQualityUpdateProfileAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsQualityUpdateProfileAssignment, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -1671,13 +1695,13 @@ func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) GetN(ctx c
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Get(ctx context.Context) ([]WindowsDeviceMalwareState, error) {
+// Get performs GET request for WindowsQualityUpdateProfileAssignment collection
+func (r *WindowsQualityUpdateProfileAssignmentsCollectionRequest) Get(ctx context.Context) ([]WindowsQualityUpdateProfileAssignment, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for WindowsDeviceMalwareState collection
-func (r *WindowsProtectionStateDetectedMalwareStateCollectionRequest) Add(ctx context.Context, reqObj *WindowsDeviceMalwareState) (resObj *WindowsDeviceMalwareState, err error) {
+// Add performs POST request for WindowsQualityUpdateProfileAssignment collection
+func (r *WindowsQualityUpdateProfileAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *WindowsQualityUpdateProfileAssignment) (resObj *WindowsQualityUpdateProfileAssignment, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -1892,6 +1916,13 @@ func (r *WindowsUpdateForBusinessConfigurationDeviceUpdateStatesCollectionReques
 func (b *WindowsWiFiEnterpriseEAPConfigurationRequestBuilder) IdentityCertificateForClientAuthentication() *WindowsCertificateProfileBaseRequestBuilder {
 	bb := &WindowsCertificateProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/identityCertificateForClientAuthentication"
+	return bb
+}
+
+// RootCertificateForClientValidation is navigation property
+func (b *WindowsWiFiEnterpriseEAPConfigurationRequestBuilder) RootCertificateForClientValidation() *Windows81TrustedRootCertificateRequestBuilder {
+	bb := &Windows81TrustedRootCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/rootCertificateForClientValidation"
 	return bb
 }
 

@@ -69,29 +69,3 @@ func (r *JournalLineRequest) Update(ctx context.Context, reqObj *JournalLine) er
 func (r *JournalLineRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
-
-//
-type JournalPostRequestBuilder struct{ BaseRequestBuilder }
-
-// Post action undocumented
-func (b *JournalRequestBuilder) Post(reqObj *JournalPostRequestParameter) *JournalPostRequestBuilder {
-	bb := &JournalPostRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/post"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type JournalPostRequest struct{ BaseRequest }
-
-//
-func (b *JournalPostRequestBuilder) Request() *JournalPostRequest {
-	return &JournalPostRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *JournalPostRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}

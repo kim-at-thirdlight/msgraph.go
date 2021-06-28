@@ -2,6 +2,26 @@
 
 package msgraph
 
+// ExternalItem undocumented
+type ExternalItem struct {
+	// Entity is the base model of ExternalItem
+	Entity
+	// Content undocumented
+	Content *ExternalItemContent `json:"content,omitempty"`
+	// Properties undocumented
+	Properties *Properties `json:"properties,omitempty"`
+}
+
+// ExternalItemContent undocumented
+type ExternalItemContent struct {
+	// Object is the base model of ExternalItemContent
+	Object
+	// Type undocumented
+	Type *ExternalItemContentType `json:"type,omitempty"`
+	// Value undocumented
+	Value *string `json:"value,omitempty"`
+}
+
 // ExternalLink undocumented
 type ExternalLink struct {
 	// Object is the base model of ExternalLink

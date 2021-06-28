@@ -6,47 +6,47 @@ package msgraph
 type SynchronizationJobRestartScope string
 
 const (
-	// SynchronizationJobRestartScopeVForceDeletes undocumented
-	SynchronizationJobRestartScopeVForceDeletes SynchronizationJobRestartScope = "ForceDeletes"
-	// SynchronizationJobRestartScopeVFull undocumented
-	SynchronizationJobRestartScopeVFull SynchronizationJobRestartScope = "Full"
-	// SynchronizationJobRestartScopeVQuarantineState undocumented
-	SynchronizationJobRestartScopeVQuarantineState SynchronizationJobRestartScope = "QuarantineState"
-	// SynchronizationJobRestartScopeVWatermark undocumented
-	SynchronizationJobRestartScopeVWatermark SynchronizationJobRestartScope = "Watermark"
-	// SynchronizationJobRestartScopeVEscrows undocumented
-	SynchronizationJobRestartScopeVEscrows SynchronizationJobRestartScope = "Escrows"
-	// SynchronizationJobRestartScopeVConnectorDataStore undocumented
-	SynchronizationJobRestartScopeVConnectorDataStore SynchronizationJobRestartScope = "ConnectorDataStore"
 	// SynchronizationJobRestartScopeVNone undocumented
 	SynchronizationJobRestartScopeVNone SynchronizationJobRestartScope = "None"
+	// SynchronizationJobRestartScopeVConnectorDataStore undocumented
+	SynchronizationJobRestartScopeVConnectorDataStore SynchronizationJobRestartScope = "ConnectorDataStore"
+	// SynchronizationJobRestartScopeVEscrows undocumented
+	SynchronizationJobRestartScopeVEscrows SynchronizationJobRestartScope = "Escrows"
+	// SynchronizationJobRestartScopeVWatermark undocumented
+	SynchronizationJobRestartScopeVWatermark SynchronizationJobRestartScope = "Watermark"
+	// SynchronizationJobRestartScopeVQuarantineState undocumented
+	SynchronizationJobRestartScopeVQuarantineState SynchronizationJobRestartScope = "QuarantineState"
+	// SynchronizationJobRestartScopeVFull undocumented
+	SynchronizationJobRestartScopeVFull SynchronizationJobRestartScope = "Full"
+	// SynchronizationJobRestartScopeVForceDeletes undocumented
+	SynchronizationJobRestartScopeVForceDeletes SynchronizationJobRestartScope = "ForceDeletes"
 )
 
 var (
-	// SynchronizationJobRestartScopePForceDeletes is a pointer to SynchronizationJobRestartScopeVForceDeletes
-	SynchronizationJobRestartScopePForceDeletes = &_SynchronizationJobRestartScopePForceDeletes
-	// SynchronizationJobRestartScopePFull is a pointer to SynchronizationJobRestartScopeVFull
-	SynchronizationJobRestartScopePFull = &_SynchronizationJobRestartScopePFull
-	// SynchronizationJobRestartScopePQuarantineState is a pointer to SynchronizationJobRestartScopeVQuarantineState
-	SynchronizationJobRestartScopePQuarantineState = &_SynchronizationJobRestartScopePQuarantineState
-	// SynchronizationJobRestartScopePWatermark is a pointer to SynchronizationJobRestartScopeVWatermark
-	SynchronizationJobRestartScopePWatermark = &_SynchronizationJobRestartScopePWatermark
-	// SynchronizationJobRestartScopePEscrows is a pointer to SynchronizationJobRestartScopeVEscrows
-	SynchronizationJobRestartScopePEscrows = &_SynchronizationJobRestartScopePEscrows
-	// SynchronizationJobRestartScopePConnectorDataStore is a pointer to SynchronizationJobRestartScopeVConnectorDataStore
-	SynchronizationJobRestartScopePConnectorDataStore = &_SynchronizationJobRestartScopePConnectorDataStore
 	// SynchronizationJobRestartScopePNone is a pointer to SynchronizationJobRestartScopeVNone
 	SynchronizationJobRestartScopePNone = &_SynchronizationJobRestartScopePNone
+	// SynchronizationJobRestartScopePConnectorDataStore is a pointer to SynchronizationJobRestartScopeVConnectorDataStore
+	SynchronizationJobRestartScopePConnectorDataStore = &_SynchronizationJobRestartScopePConnectorDataStore
+	// SynchronizationJobRestartScopePEscrows is a pointer to SynchronizationJobRestartScopeVEscrows
+	SynchronizationJobRestartScopePEscrows = &_SynchronizationJobRestartScopePEscrows
+	// SynchronizationJobRestartScopePWatermark is a pointer to SynchronizationJobRestartScopeVWatermark
+	SynchronizationJobRestartScopePWatermark = &_SynchronizationJobRestartScopePWatermark
+	// SynchronizationJobRestartScopePQuarantineState is a pointer to SynchronizationJobRestartScopeVQuarantineState
+	SynchronizationJobRestartScopePQuarantineState = &_SynchronizationJobRestartScopePQuarantineState
+	// SynchronizationJobRestartScopePFull is a pointer to SynchronizationJobRestartScopeVFull
+	SynchronizationJobRestartScopePFull = &_SynchronizationJobRestartScopePFull
+	// SynchronizationJobRestartScopePForceDeletes is a pointer to SynchronizationJobRestartScopeVForceDeletes
+	SynchronizationJobRestartScopePForceDeletes = &_SynchronizationJobRestartScopePForceDeletes
 )
 
 var (
-	_SynchronizationJobRestartScopePForceDeletes       = SynchronizationJobRestartScopeVForceDeletes
-	_SynchronizationJobRestartScopePFull               = SynchronizationJobRestartScopeVFull
-	_SynchronizationJobRestartScopePQuarantineState    = SynchronizationJobRestartScopeVQuarantineState
-	_SynchronizationJobRestartScopePWatermark          = SynchronizationJobRestartScopeVWatermark
-	_SynchronizationJobRestartScopePEscrows            = SynchronizationJobRestartScopeVEscrows
-	_SynchronizationJobRestartScopePConnectorDataStore = SynchronizationJobRestartScopeVConnectorDataStore
 	_SynchronizationJobRestartScopePNone               = SynchronizationJobRestartScopeVNone
+	_SynchronizationJobRestartScopePConnectorDataStore = SynchronizationJobRestartScopeVConnectorDataStore
+	_SynchronizationJobRestartScopePEscrows            = SynchronizationJobRestartScopeVEscrows
+	_SynchronizationJobRestartScopePWatermark          = SynchronizationJobRestartScopeVWatermark
+	_SynchronizationJobRestartScopePQuarantineState    = SynchronizationJobRestartScopeVQuarantineState
+	_SynchronizationJobRestartScopePFull               = SynchronizationJobRestartScopeVFull
+	_SynchronizationJobRestartScopePForceDeletes       = SynchronizationJobRestartScopeVForceDeletes
 )
 
 // SynchronizationScheduleState undocumented
@@ -57,6 +57,8 @@ const (
 	SynchronizationScheduleStateVActive SynchronizationScheduleState = "Active"
 	// SynchronizationScheduleStateVDisabled undocumented
 	SynchronizationScheduleStateVDisabled SynchronizationScheduleState = "Disabled"
+	// SynchronizationScheduleStateVPaused undocumented
+	SynchronizationScheduleStateVPaused SynchronizationScheduleState = "Paused"
 )
 
 var (
@@ -64,11 +66,14 @@ var (
 	SynchronizationScheduleStatePActive = &_SynchronizationScheduleStatePActive
 	// SynchronizationScheduleStatePDisabled is a pointer to SynchronizationScheduleStateVDisabled
 	SynchronizationScheduleStatePDisabled = &_SynchronizationScheduleStatePDisabled
+	// SynchronizationScheduleStatePPaused is a pointer to SynchronizationScheduleStateVPaused
+	SynchronizationScheduleStatePPaused = &_SynchronizationScheduleStatePPaused
 )
 
 var (
 	_SynchronizationScheduleStatePActive   = SynchronizationScheduleStateVActive
 	_SynchronizationScheduleStatePDisabled = SynchronizationScheduleStateVDisabled
+	_SynchronizationScheduleStatePPaused   = SynchronizationScheduleStateVPaused
 )
 
 // SynchronizationSecret undocumented
@@ -135,6 +140,14 @@ const (
 	SynchronizationSecretVEnforceDomain SynchronizationSecret = "EnforceDomain"
 	// SynchronizationSecretVSyncNotificationSettings undocumented
 	SynchronizationSecretVSyncNotificationSettings SynchronizationSecret = "SyncNotificationSettings"
+	// SynchronizationSecretVSkipOutOfScopeDeletions undocumented
+	SynchronizationSecretVSkipOutOfScopeDeletions SynchronizationSecret = "SkipOutOfScopeDeletions"
+	// SynchronizationSecretVOAuth2AuthorizationCode undocumented
+	SynchronizationSecretVOAuth2AuthorizationCode SynchronizationSecret = "Oauth2AuthorizationCode"
+	// SynchronizationSecretVOAuth2RedirectURI undocumented
+	SynchronizationSecretVOAuth2RedirectURI SynchronizationSecret = "Oauth2RedirectUri"
+	// SynchronizationSecretVApplicationTemplateIdentifier undocumented
+	SynchronizationSecretVApplicationTemplateIdentifier SynchronizationSecret = "ApplicationTemplateIdentifier"
 	// SynchronizationSecretVServer undocumented
 	SynchronizationSecretVServer SynchronizationSecret = "Server"
 	// SynchronizationSecretVPerformInboundEntitlementGrants undocumented
@@ -212,6 +225,14 @@ var (
 	SynchronizationSecretPEnforceDomain = &_SynchronizationSecretPEnforceDomain
 	// SynchronizationSecretPSyncNotificationSettings is a pointer to SynchronizationSecretVSyncNotificationSettings
 	SynchronizationSecretPSyncNotificationSettings = &_SynchronizationSecretPSyncNotificationSettings
+	// SynchronizationSecretPSkipOutOfScopeDeletions is a pointer to SynchronizationSecretVSkipOutOfScopeDeletions
+	SynchronizationSecretPSkipOutOfScopeDeletions = &_SynchronizationSecretPSkipOutOfScopeDeletions
+	// SynchronizationSecretPOAuth2AuthorizationCode is a pointer to SynchronizationSecretVOAuth2AuthorizationCode
+	SynchronizationSecretPOAuth2AuthorizationCode = &_SynchronizationSecretPOAuth2AuthorizationCode
+	// SynchronizationSecretPOAuth2RedirectURI is a pointer to SynchronizationSecretVOAuth2RedirectURI
+	SynchronizationSecretPOAuth2RedirectURI = &_SynchronizationSecretPOAuth2RedirectURI
+	// SynchronizationSecretPApplicationTemplateIdentifier is a pointer to SynchronizationSecretVApplicationTemplateIdentifier
+	SynchronizationSecretPApplicationTemplateIdentifier = &_SynchronizationSecretPApplicationTemplateIdentifier
 	// SynchronizationSecretPServer is a pointer to SynchronizationSecretVServer
 	SynchronizationSecretPServer = &_SynchronizationSecretPServer
 	// SynchronizationSecretPPerformInboundEntitlementGrants is a pointer to SynchronizationSecretVPerformInboundEntitlementGrants
@@ -259,6 +280,10 @@ var (
 	_SynchronizationSecretPSandboxName                     = SynchronizationSecretVSandboxName
 	_SynchronizationSecretPEnforceDomain                   = SynchronizationSecretVEnforceDomain
 	_SynchronizationSecretPSyncNotificationSettings        = SynchronizationSecretVSyncNotificationSettings
+	_SynchronizationSecretPSkipOutOfScopeDeletions         = SynchronizationSecretVSkipOutOfScopeDeletions
+	_SynchronizationSecretPOAuth2AuthorizationCode         = SynchronizationSecretVOAuth2AuthorizationCode
+	_SynchronizationSecretPOAuth2RedirectURI               = SynchronizationSecretVOAuth2RedirectURI
+	_SynchronizationSecretPApplicationTemplateIdentifier   = SynchronizationSecretVApplicationTemplateIdentifier
 	_SynchronizationSecretPServer                          = SynchronizationSecretVServer
 	_SynchronizationSecretPPerformInboundEntitlementGrants = SynchronizationSecretVPerformInboundEntitlementGrants
 	_SynchronizationSecretPHardDeletesEnabled              = SynchronizationSecretVHardDeletesEnabled

@@ -8,8 +8,14 @@ type Profile struct {
 	Entity
 	// Account undocumented
 	Account []UserAccountInformation `json:"account,omitempty"`
+	// Addresses undocumented
+	Addresses []ItemAddress `json:"addresses,omitempty"`
 	// Anniversaries undocumented
-	Anniversaries []PersonAnniversary `json:"anniversaries,omitempty"`
+	Anniversaries []PersonAnnualEvent `json:"anniversaries,omitempty"`
+	// Awards undocumented
+	Awards []PersonAward `json:"awards,omitempty"`
+	// Certifications undocumented
+	Certifications []PersonCertification `json:"certifications,omitempty"`
 	// EducationalActivities undocumented
 	EducationalActivities []EducationalActivity `json:"educationalActivities,omitempty"`
 	// Emails undocumented
@@ -20,18 +26,44 @@ type Profile struct {
 	Languages []LanguageProficiency `json:"languages,omitempty"`
 	// Names undocumented
 	Names []PersonName `json:"names,omitempty"`
+	// Notes undocumented
+	Notes []PersonAnnotation `json:"notes,omitempty"`
+	// Patents undocumented
+	Patents []ItemPatent `json:"patents,omitempty"`
 	// Phones undocumented
 	Phones []ItemPhone `json:"phones,omitempty"`
 	// Positions undocumented
 	Positions []WorkPosition `json:"positions,omitempty"`
 	// Projects undocumented
 	Projects []ProjectParticipation `json:"projects,omitempty"`
+	// Publications undocumented
+	Publications []ItemPublication `json:"publications,omitempty"`
 	// Skills undocumented
 	Skills []SkillProficiency `json:"skills,omitempty"`
 	// WebAccounts undocumented
 	WebAccounts []WebAccount `json:"webAccounts,omitempty"`
 	// Websites undocumented
 	Websites []PersonWebsite `json:"websites,omitempty"`
+}
+
+// ProfileCardAnnotation undocumented
+type ProfileCardAnnotation struct {
+	// Object is the base model of ProfileCardAnnotation
+	Object
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Localizations undocumented
+	Localizations []DisplayNameLocalization `json:"localizations,omitempty"`
+}
+
+// ProfileCardProperty undocumented
+type ProfileCardProperty struct {
+	// Entity is the base model of ProfileCardProperty
+	Entity
+	// Annotations undocumented
+	Annotations []ProfileCardAnnotation `json:"annotations,omitempty"`
+	// DirectoryPropertyName undocumented
+	DirectoryPropertyName *string `json:"directoryPropertyName,omitempty"`
 }
 
 // ProfilePhoto undocumented

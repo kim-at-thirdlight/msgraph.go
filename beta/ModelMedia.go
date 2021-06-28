@@ -2,6 +2,26 @@
 
 package msgraph
 
+import "time"
+
+// Media undocumented
+type Media struct {
+	// Object is the base model of Media
+	Object
+	// CalleeDevice undocumented
+	CalleeDevice *DeviceInfo `json:"calleeDevice,omitempty"`
+	// CalleeNetwork undocumented
+	CalleeNetwork *NetworkInfo `json:"calleeNetwork,omitempty"`
+	// CallerDevice undocumented
+	CallerDevice *DeviceInfo `json:"callerDevice,omitempty"`
+	// CallerNetwork undocumented
+	CallerNetwork *NetworkInfo `json:"callerNetwork,omitempty"`
+	// Label undocumented
+	Label *string `json:"label,omitempty"`
+	// Streams undocumented
+	Streams []MediaStream `json:"streams,omitempty"`
+}
+
 // MediaConfig undocumented
 type MediaConfig struct {
 	// Object is the base model of MediaConfig
@@ -104,34 +124,82 @@ type MediaContentRatingUnitedStates struct {
 type MediaInfo struct {
 	// Object is the base model of MediaInfo
 	Object
-	// URI undocumented
-	URI *string `json:"uri,omitempty"`
 	// ResourceID undocumented
 	ResourceID *string `json:"resourceId,omitempty"`
+	// URI undocumented
+	URI *string `json:"uri,omitempty"`
 }
 
 // MediaPrompt undocumented
 type MediaPrompt struct {
 	// Prompt is the base model of MediaPrompt
 	Prompt
-	// MediaInfo undocumented
-	MediaInfo *MediaInfo `json:"mediaInfo,omitempty"`
 	// Loop undocumented
 	Loop *int `json:"loop,omitempty"`
+	// MediaInfo undocumented
+	MediaInfo *MediaInfo `json:"mediaInfo,omitempty"`
+}
+
+// MediaSource undocumented
+type MediaSource struct {
+	// Object is the base model of MediaSource
+	Object
+	// ContentCategory undocumented
+	ContentCategory *MediaSourceContentCategory `json:"contentCategory,omitempty"`
 }
 
 // MediaStream undocumented
 type MediaStream struct {
 	// Object is the base model of MediaStream
 	Object
-	// MediaType undocumented
-	MediaType *Modality `json:"mediaType,omitempty"`
-	// Label undocumented
-	Label *string `json:"label,omitempty"`
-	// SourceID undocumented
-	SourceID *string `json:"sourceId,omitempty"`
-	// Direction undocumented
-	Direction *MediaDirection `json:"direction,omitempty"`
-	// ServerMuted undocumented
-	ServerMuted *bool `json:"serverMuted,omitempty"`
+	// AverageAudioDegradation undocumented
+	AverageAudioDegradation *float64 `json:"averageAudioDegradation,omitempty"`
+	// AverageAudioNetworkJitter undocumented
+	AverageAudioNetworkJitter *Duration `json:"averageAudioNetworkJitter,omitempty"`
+	// AverageBandwidthEstimate undocumented
+	AverageBandwidthEstimate *int `json:"averageBandwidthEstimate,omitempty"`
+	// AverageJitter undocumented
+	AverageJitter *Duration `json:"averageJitter,omitempty"`
+	// AveragePacketLossRate undocumented
+	AveragePacketLossRate *float64 `json:"averagePacketLossRate,omitempty"`
+	// AverageRatioOfConcealedSamples undocumented
+	AverageRatioOfConcealedSamples *float64 `json:"averageRatioOfConcealedSamples,omitempty"`
+	// AverageReceivedFrameRate undocumented
+	AverageReceivedFrameRate *float64 `json:"averageReceivedFrameRate,omitempty"`
+	// AverageRoundTripTime undocumented
+	AverageRoundTripTime *Duration `json:"averageRoundTripTime,omitempty"`
+	// AverageVideoFrameLossPercentage undocumented
+	AverageVideoFrameLossPercentage *float64 `json:"averageVideoFrameLossPercentage,omitempty"`
+	// AverageVideoFrameRate undocumented
+	AverageVideoFrameRate *float64 `json:"averageVideoFrameRate,omitempty"`
+	// AverageVideoPacketLossRate undocumented
+	AverageVideoPacketLossRate *float64 `json:"averageVideoPacketLossRate,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// LowFrameRateRatio undocumented
+	LowFrameRateRatio *float64 `json:"lowFrameRateRatio,omitempty"`
+	// LowVideoProcessingCapabilityRatio undocumented
+	LowVideoProcessingCapabilityRatio *float64 `json:"lowVideoProcessingCapabilityRatio,omitempty"`
+	// MaxAudioNetworkJitter undocumented
+	MaxAudioNetworkJitter *Duration `json:"maxAudioNetworkJitter,omitempty"`
+	// MaxJitter undocumented
+	MaxJitter *Duration `json:"maxJitter,omitempty"`
+	// MaxPacketLossRate undocumented
+	MaxPacketLossRate *float64 `json:"maxPacketLossRate,omitempty"`
+	// MaxRatioOfConcealedSamples undocumented
+	MaxRatioOfConcealedSamples *float64 `json:"maxRatioOfConcealedSamples,omitempty"`
+	// MaxRoundTripTime undocumented
+	MaxRoundTripTime *Duration `json:"maxRoundTripTime,omitempty"`
+	// PacketUtilization undocumented
+	PacketUtilization *int `json:"packetUtilization,omitempty"`
+	// PostForwardErrorCorrectionPacketLossRate undocumented
+	PostForwardErrorCorrectionPacketLossRate *float64 `json:"postForwardErrorCorrectionPacketLossRate,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// StreamDirection undocumented
+	StreamDirection *MediaStreamDirection `json:"streamDirection,omitempty"`
+	// StreamID undocumented
+	StreamID *string `json:"streamId,omitempty"`
+	// WasMediaBypassed undocumented
+	WasMediaBypassed *bool `json:"wasMediaBypassed,omitempty"`
 }

@@ -103,6 +103,247 @@ var (
 	_AndroidDeviceOwnerDefaultAppPermissionPolicyTypePAutoDeny      = AndroidDeviceOwnerDefaultAppPermissionPolicyTypeVAutoDeny
 )
 
+// AndroidDeviceOwnerEnrollmentMode undocumented
+type AndroidDeviceOwnerEnrollmentMode string
+
+const (
+	// AndroidDeviceOwnerEnrollmentModeVCorporateOwnedDedicatedDevice undocumented
+	AndroidDeviceOwnerEnrollmentModeVCorporateOwnedDedicatedDevice AndroidDeviceOwnerEnrollmentMode = "corporateOwnedDedicatedDevice"
+	// AndroidDeviceOwnerEnrollmentModeVCorporateOwnedFullyManaged undocumented
+	AndroidDeviceOwnerEnrollmentModeVCorporateOwnedFullyManaged AndroidDeviceOwnerEnrollmentMode = "corporateOwnedFullyManaged"
+	// AndroidDeviceOwnerEnrollmentModeVCorporateOwnedWorkProfile undocumented
+	AndroidDeviceOwnerEnrollmentModeVCorporateOwnedWorkProfile AndroidDeviceOwnerEnrollmentMode = "corporateOwnedWorkProfile"
+)
+
+var (
+	// AndroidDeviceOwnerEnrollmentModePCorporateOwnedDedicatedDevice is a pointer to AndroidDeviceOwnerEnrollmentModeVCorporateOwnedDedicatedDevice
+	AndroidDeviceOwnerEnrollmentModePCorporateOwnedDedicatedDevice = &_AndroidDeviceOwnerEnrollmentModePCorporateOwnedDedicatedDevice
+	// AndroidDeviceOwnerEnrollmentModePCorporateOwnedFullyManaged is a pointer to AndroidDeviceOwnerEnrollmentModeVCorporateOwnedFullyManaged
+	AndroidDeviceOwnerEnrollmentModePCorporateOwnedFullyManaged = &_AndroidDeviceOwnerEnrollmentModePCorporateOwnedFullyManaged
+	// AndroidDeviceOwnerEnrollmentModePCorporateOwnedWorkProfile is a pointer to AndroidDeviceOwnerEnrollmentModeVCorporateOwnedWorkProfile
+	AndroidDeviceOwnerEnrollmentModePCorporateOwnedWorkProfile = &_AndroidDeviceOwnerEnrollmentModePCorporateOwnedWorkProfile
+)
+
+var (
+	_AndroidDeviceOwnerEnrollmentModePCorporateOwnedDedicatedDevice = AndroidDeviceOwnerEnrollmentModeVCorporateOwnedDedicatedDevice
+	_AndroidDeviceOwnerEnrollmentModePCorporateOwnedFullyManaged    = AndroidDeviceOwnerEnrollmentModeVCorporateOwnedFullyManaged
+	_AndroidDeviceOwnerEnrollmentModePCorporateOwnedWorkProfile     = AndroidDeviceOwnerEnrollmentModeVCorporateOwnedWorkProfile
+)
+
+// AndroidDeviceOwnerEnrollmentProfileType undocumented
+type AndroidDeviceOwnerEnrollmentProfileType string
+
+const (
+	// AndroidDeviceOwnerEnrollmentProfileTypeVNotConfigured undocumented
+	AndroidDeviceOwnerEnrollmentProfileTypeVNotConfigured AndroidDeviceOwnerEnrollmentProfileType = "notConfigured"
+	// AndroidDeviceOwnerEnrollmentProfileTypeVDedicatedDevice undocumented
+	AndroidDeviceOwnerEnrollmentProfileTypeVDedicatedDevice AndroidDeviceOwnerEnrollmentProfileType = "dedicatedDevice"
+	// AndroidDeviceOwnerEnrollmentProfileTypeVFullyManaged undocumented
+	AndroidDeviceOwnerEnrollmentProfileTypeVFullyManaged AndroidDeviceOwnerEnrollmentProfileType = "fullyManaged"
+)
+
+var (
+	// AndroidDeviceOwnerEnrollmentProfileTypePNotConfigured is a pointer to AndroidDeviceOwnerEnrollmentProfileTypeVNotConfigured
+	AndroidDeviceOwnerEnrollmentProfileTypePNotConfigured = &_AndroidDeviceOwnerEnrollmentProfileTypePNotConfigured
+	// AndroidDeviceOwnerEnrollmentProfileTypePDedicatedDevice is a pointer to AndroidDeviceOwnerEnrollmentProfileTypeVDedicatedDevice
+	AndroidDeviceOwnerEnrollmentProfileTypePDedicatedDevice = &_AndroidDeviceOwnerEnrollmentProfileTypePDedicatedDevice
+	// AndroidDeviceOwnerEnrollmentProfileTypePFullyManaged is a pointer to AndroidDeviceOwnerEnrollmentProfileTypeVFullyManaged
+	AndroidDeviceOwnerEnrollmentProfileTypePFullyManaged = &_AndroidDeviceOwnerEnrollmentProfileTypePFullyManaged
+)
+
+var (
+	_AndroidDeviceOwnerEnrollmentProfileTypePNotConfigured   = AndroidDeviceOwnerEnrollmentProfileTypeVNotConfigured
+	_AndroidDeviceOwnerEnrollmentProfileTypePDedicatedDevice = AndroidDeviceOwnerEnrollmentProfileTypeVDedicatedDevice
+	_AndroidDeviceOwnerEnrollmentProfileTypePFullyManaged    = AndroidDeviceOwnerEnrollmentProfileTypeVFullyManaged
+)
+
+// AndroidDeviceOwnerEnrollmentTokenType undocumented
+type AndroidDeviceOwnerEnrollmentTokenType string
+
+const (
+	// AndroidDeviceOwnerEnrollmentTokenTypeVDefault undocumented
+	AndroidDeviceOwnerEnrollmentTokenTypeVDefault AndroidDeviceOwnerEnrollmentTokenType = "default"
+	// AndroidDeviceOwnerEnrollmentTokenTypeVCorporateOwnedDedicatedDeviceWithAzureADSharedMode undocumented
+	AndroidDeviceOwnerEnrollmentTokenTypeVCorporateOwnedDedicatedDeviceWithAzureADSharedMode AndroidDeviceOwnerEnrollmentTokenType = "corporateOwnedDedicatedDeviceWithAzureADSharedMode"
+)
+
+var (
+	// AndroidDeviceOwnerEnrollmentTokenTypePDefault is a pointer to AndroidDeviceOwnerEnrollmentTokenTypeVDefault
+	AndroidDeviceOwnerEnrollmentTokenTypePDefault = &_AndroidDeviceOwnerEnrollmentTokenTypePDefault
+	// AndroidDeviceOwnerEnrollmentTokenTypePCorporateOwnedDedicatedDeviceWithAzureADSharedMode is a pointer to AndroidDeviceOwnerEnrollmentTokenTypeVCorporateOwnedDedicatedDeviceWithAzureADSharedMode
+	AndroidDeviceOwnerEnrollmentTokenTypePCorporateOwnedDedicatedDeviceWithAzureADSharedMode = &_AndroidDeviceOwnerEnrollmentTokenTypePCorporateOwnedDedicatedDeviceWithAzureADSharedMode
+)
+
+var (
+	_AndroidDeviceOwnerEnrollmentTokenTypePDefault                                            = AndroidDeviceOwnerEnrollmentTokenTypeVDefault
+	_AndroidDeviceOwnerEnrollmentTokenTypePCorporateOwnedDedicatedDeviceWithAzureADSharedMode = AndroidDeviceOwnerEnrollmentTokenTypeVCorporateOwnedDedicatedDeviceWithAzureADSharedMode
+)
+
+// AndroidDeviceOwnerKioskCustomizationStatusBar undocumented
+type AndroidDeviceOwnerKioskCustomizationStatusBar string
+
+const (
+	// AndroidDeviceOwnerKioskCustomizationStatusBarVNotConfigured undocumented
+	AndroidDeviceOwnerKioskCustomizationStatusBarVNotConfigured AndroidDeviceOwnerKioskCustomizationStatusBar = "notConfigured"
+	// AndroidDeviceOwnerKioskCustomizationStatusBarVNotificationsAndSystemInfoEnabled undocumented
+	AndroidDeviceOwnerKioskCustomizationStatusBarVNotificationsAndSystemInfoEnabled AndroidDeviceOwnerKioskCustomizationStatusBar = "notificationsAndSystemInfoEnabled"
+	// AndroidDeviceOwnerKioskCustomizationStatusBarVSystemInfoOnly undocumented
+	AndroidDeviceOwnerKioskCustomizationStatusBarVSystemInfoOnly AndroidDeviceOwnerKioskCustomizationStatusBar = "systemInfoOnly"
+)
+
+var (
+	// AndroidDeviceOwnerKioskCustomizationStatusBarPNotConfigured is a pointer to AndroidDeviceOwnerKioskCustomizationStatusBarVNotConfigured
+	AndroidDeviceOwnerKioskCustomizationStatusBarPNotConfigured = &_AndroidDeviceOwnerKioskCustomizationStatusBarPNotConfigured
+	// AndroidDeviceOwnerKioskCustomizationStatusBarPNotificationsAndSystemInfoEnabled is a pointer to AndroidDeviceOwnerKioskCustomizationStatusBarVNotificationsAndSystemInfoEnabled
+	AndroidDeviceOwnerKioskCustomizationStatusBarPNotificationsAndSystemInfoEnabled = &_AndroidDeviceOwnerKioskCustomizationStatusBarPNotificationsAndSystemInfoEnabled
+	// AndroidDeviceOwnerKioskCustomizationStatusBarPSystemInfoOnly is a pointer to AndroidDeviceOwnerKioskCustomizationStatusBarVSystemInfoOnly
+	AndroidDeviceOwnerKioskCustomizationStatusBarPSystemInfoOnly = &_AndroidDeviceOwnerKioskCustomizationStatusBarPSystemInfoOnly
+)
+
+var (
+	_AndroidDeviceOwnerKioskCustomizationStatusBarPNotConfigured                     = AndroidDeviceOwnerKioskCustomizationStatusBarVNotConfigured
+	_AndroidDeviceOwnerKioskCustomizationStatusBarPNotificationsAndSystemInfoEnabled = AndroidDeviceOwnerKioskCustomizationStatusBarVNotificationsAndSystemInfoEnabled
+	_AndroidDeviceOwnerKioskCustomizationStatusBarPSystemInfoOnly                    = AndroidDeviceOwnerKioskCustomizationStatusBarVSystemInfoOnly
+)
+
+// AndroidDeviceOwnerKioskCustomizationSystemNavigation undocumented
+type AndroidDeviceOwnerKioskCustomizationSystemNavigation string
+
+const (
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationVNotConfigured undocumented
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationVNotConfigured AndroidDeviceOwnerKioskCustomizationSystemNavigation = "notConfigured"
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationVNavigationEnabled undocumented
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationVNavigationEnabled AndroidDeviceOwnerKioskCustomizationSystemNavigation = "navigationEnabled"
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationVHomeButtonOnly undocumented
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationVHomeButtonOnly AndroidDeviceOwnerKioskCustomizationSystemNavigation = "homeButtonOnly"
+)
+
+var (
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationPNotConfigured is a pointer to AndroidDeviceOwnerKioskCustomizationSystemNavigationVNotConfigured
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationPNotConfigured = &_AndroidDeviceOwnerKioskCustomizationSystemNavigationPNotConfigured
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationPNavigationEnabled is a pointer to AndroidDeviceOwnerKioskCustomizationSystemNavigationVNavigationEnabled
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationPNavigationEnabled = &_AndroidDeviceOwnerKioskCustomizationSystemNavigationPNavigationEnabled
+	// AndroidDeviceOwnerKioskCustomizationSystemNavigationPHomeButtonOnly is a pointer to AndroidDeviceOwnerKioskCustomizationSystemNavigationVHomeButtonOnly
+	AndroidDeviceOwnerKioskCustomizationSystemNavigationPHomeButtonOnly = &_AndroidDeviceOwnerKioskCustomizationSystemNavigationPHomeButtonOnly
+)
+
+var (
+	_AndroidDeviceOwnerKioskCustomizationSystemNavigationPNotConfigured     = AndroidDeviceOwnerKioskCustomizationSystemNavigationVNotConfigured
+	_AndroidDeviceOwnerKioskCustomizationSystemNavigationPNavigationEnabled = AndroidDeviceOwnerKioskCustomizationSystemNavigationVNavigationEnabled
+	_AndroidDeviceOwnerKioskCustomizationSystemNavigationPHomeButtonOnly    = AndroidDeviceOwnerKioskCustomizationSystemNavigationVHomeButtonOnly
+)
+
+// AndroidDeviceOwnerKioskModeFolderIcon undocumented
+type AndroidDeviceOwnerKioskModeFolderIcon string
+
+const (
+	// AndroidDeviceOwnerKioskModeFolderIconVNotConfigured undocumented
+	AndroidDeviceOwnerKioskModeFolderIconVNotConfigured AndroidDeviceOwnerKioskModeFolderIcon = "notConfigured"
+	// AndroidDeviceOwnerKioskModeFolderIconVDarkSquare undocumented
+	AndroidDeviceOwnerKioskModeFolderIconVDarkSquare AndroidDeviceOwnerKioskModeFolderIcon = "darkSquare"
+	// AndroidDeviceOwnerKioskModeFolderIconVDarkCircle undocumented
+	AndroidDeviceOwnerKioskModeFolderIconVDarkCircle AndroidDeviceOwnerKioskModeFolderIcon = "darkCircle"
+	// AndroidDeviceOwnerKioskModeFolderIconVLightSquare undocumented
+	AndroidDeviceOwnerKioskModeFolderIconVLightSquare AndroidDeviceOwnerKioskModeFolderIcon = "lightSquare"
+	// AndroidDeviceOwnerKioskModeFolderIconVLightCircle undocumented
+	AndroidDeviceOwnerKioskModeFolderIconVLightCircle AndroidDeviceOwnerKioskModeFolderIcon = "lightCircle"
+)
+
+var (
+	// AndroidDeviceOwnerKioskModeFolderIconPNotConfigured is a pointer to AndroidDeviceOwnerKioskModeFolderIconVNotConfigured
+	AndroidDeviceOwnerKioskModeFolderIconPNotConfigured = &_AndroidDeviceOwnerKioskModeFolderIconPNotConfigured
+	// AndroidDeviceOwnerKioskModeFolderIconPDarkSquare is a pointer to AndroidDeviceOwnerKioskModeFolderIconVDarkSquare
+	AndroidDeviceOwnerKioskModeFolderIconPDarkSquare = &_AndroidDeviceOwnerKioskModeFolderIconPDarkSquare
+	// AndroidDeviceOwnerKioskModeFolderIconPDarkCircle is a pointer to AndroidDeviceOwnerKioskModeFolderIconVDarkCircle
+	AndroidDeviceOwnerKioskModeFolderIconPDarkCircle = &_AndroidDeviceOwnerKioskModeFolderIconPDarkCircle
+	// AndroidDeviceOwnerKioskModeFolderIconPLightSquare is a pointer to AndroidDeviceOwnerKioskModeFolderIconVLightSquare
+	AndroidDeviceOwnerKioskModeFolderIconPLightSquare = &_AndroidDeviceOwnerKioskModeFolderIconPLightSquare
+	// AndroidDeviceOwnerKioskModeFolderIconPLightCircle is a pointer to AndroidDeviceOwnerKioskModeFolderIconVLightCircle
+	AndroidDeviceOwnerKioskModeFolderIconPLightCircle = &_AndroidDeviceOwnerKioskModeFolderIconPLightCircle
+)
+
+var (
+	_AndroidDeviceOwnerKioskModeFolderIconPNotConfigured = AndroidDeviceOwnerKioskModeFolderIconVNotConfigured
+	_AndroidDeviceOwnerKioskModeFolderIconPDarkSquare    = AndroidDeviceOwnerKioskModeFolderIconVDarkSquare
+	_AndroidDeviceOwnerKioskModeFolderIconPDarkCircle    = AndroidDeviceOwnerKioskModeFolderIconVDarkCircle
+	_AndroidDeviceOwnerKioskModeFolderIconPLightSquare   = AndroidDeviceOwnerKioskModeFolderIconVLightSquare
+	_AndroidDeviceOwnerKioskModeFolderIconPLightCircle   = AndroidDeviceOwnerKioskModeFolderIconVLightCircle
+)
+
+// AndroidDeviceOwnerKioskModeIconSize undocumented
+type AndroidDeviceOwnerKioskModeIconSize string
+
+const (
+	// AndroidDeviceOwnerKioskModeIconSizeVNotConfigured undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVNotConfigured AndroidDeviceOwnerKioskModeIconSize = "notConfigured"
+	// AndroidDeviceOwnerKioskModeIconSizeVSmallest undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVSmallest AndroidDeviceOwnerKioskModeIconSize = "smallest"
+	// AndroidDeviceOwnerKioskModeIconSizeVSmall undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVSmall AndroidDeviceOwnerKioskModeIconSize = "small"
+	// AndroidDeviceOwnerKioskModeIconSizeVRegular undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVRegular AndroidDeviceOwnerKioskModeIconSize = "regular"
+	// AndroidDeviceOwnerKioskModeIconSizeVLarge undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVLarge AndroidDeviceOwnerKioskModeIconSize = "large"
+	// AndroidDeviceOwnerKioskModeIconSizeVLargest undocumented
+	AndroidDeviceOwnerKioskModeIconSizeVLargest AndroidDeviceOwnerKioskModeIconSize = "largest"
+)
+
+var (
+	// AndroidDeviceOwnerKioskModeIconSizePNotConfigured is a pointer to AndroidDeviceOwnerKioskModeIconSizeVNotConfigured
+	AndroidDeviceOwnerKioskModeIconSizePNotConfigured = &_AndroidDeviceOwnerKioskModeIconSizePNotConfigured
+	// AndroidDeviceOwnerKioskModeIconSizePSmallest is a pointer to AndroidDeviceOwnerKioskModeIconSizeVSmallest
+	AndroidDeviceOwnerKioskModeIconSizePSmallest = &_AndroidDeviceOwnerKioskModeIconSizePSmallest
+	// AndroidDeviceOwnerKioskModeIconSizePSmall is a pointer to AndroidDeviceOwnerKioskModeIconSizeVSmall
+	AndroidDeviceOwnerKioskModeIconSizePSmall = &_AndroidDeviceOwnerKioskModeIconSizePSmall
+	// AndroidDeviceOwnerKioskModeIconSizePRegular is a pointer to AndroidDeviceOwnerKioskModeIconSizeVRegular
+	AndroidDeviceOwnerKioskModeIconSizePRegular = &_AndroidDeviceOwnerKioskModeIconSizePRegular
+	// AndroidDeviceOwnerKioskModeIconSizePLarge is a pointer to AndroidDeviceOwnerKioskModeIconSizeVLarge
+	AndroidDeviceOwnerKioskModeIconSizePLarge = &_AndroidDeviceOwnerKioskModeIconSizePLarge
+	// AndroidDeviceOwnerKioskModeIconSizePLargest is a pointer to AndroidDeviceOwnerKioskModeIconSizeVLargest
+	AndroidDeviceOwnerKioskModeIconSizePLargest = &_AndroidDeviceOwnerKioskModeIconSizePLargest
+)
+
+var (
+	_AndroidDeviceOwnerKioskModeIconSizePNotConfigured = AndroidDeviceOwnerKioskModeIconSizeVNotConfigured
+	_AndroidDeviceOwnerKioskModeIconSizePSmallest      = AndroidDeviceOwnerKioskModeIconSizeVSmallest
+	_AndroidDeviceOwnerKioskModeIconSizePSmall         = AndroidDeviceOwnerKioskModeIconSizeVSmall
+	_AndroidDeviceOwnerKioskModeIconSizePRegular       = AndroidDeviceOwnerKioskModeIconSizeVRegular
+	_AndroidDeviceOwnerKioskModeIconSizePLarge         = AndroidDeviceOwnerKioskModeIconSizeVLarge
+	_AndroidDeviceOwnerKioskModeIconSizePLargest       = AndroidDeviceOwnerKioskModeIconSizeVLargest
+)
+
+// AndroidDeviceOwnerKioskModeScreenOrientation undocumented
+type AndroidDeviceOwnerKioskModeScreenOrientation string
+
+const (
+	// AndroidDeviceOwnerKioskModeScreenOrientationVNotConfigured undocumented
+	AndroidDeviceOwnerKioskModeScreenOrientationVNotConfigured AndroidDeviceOwnerKioskModeScreenOrientation = "notConfigured"
+	// AndroidDeviceOwnerKioskModeScreenOrientationVPortrait undocumented
+	AndroidDeviceOwnerKioskModeScreenOrientationVPortrait AndroidDeviceOwnerKioskModeScreenOrientation = "portrait"
+	// AndroidDeviceOwnerKioskModeScreenOrientationVLandscape undocumented
+	AndroidDeviceOwnerKioskModeScreenOrientationVLandscape AndroidDeviceOwnerKioskModeScreenOrientation = "landscape"
+	// AndroidDeviceOwnerKioskModeScreenOrientationVAutoRotate undocumented
+	AndroidDeviceOwnerKioskModeScreenOrientationVAutoRotate AndroidDeviceOwnerKioskModeScreenOrientation = "autoRotate"
+)
+
+var (
+	// AndroidDeviceOwnerKioskModeScreenOrientationPNotConfigured is a pointer to AndroidDeviceOwnerKioskModeScreenOrientationVNotConfigured
+	AndroidDeviceOwnerKioskModeScreenOrientationPNotConfigured = &_AndroidDeviceOwnerKioskModeScreenOrientationPNotConfigured
+	// AndroidDeviceOwnerKioskModeScreenOrientationPPortrait is a pointer to AndroidDeviceOwnerKioskModeScreenOrientationVPortrait
+	AndroidDeviceOwnerKioskModeScreenOrientationPPortrait = &_AndroidDeviceOwnerKioskModeScreenOrientationPPortrait
+	// AndroidDeviceOwnerKioskModeScreenOrientationPLandscape is a pointer to AndroidDeviceOwnerKioskModeScreenOrientationVLandscape
+	AndroidDeviceOwnerKioskModeScreenOrientationPLandscape = &_AndroidDeviceOwnerKioskModeScreenOrientationPLandscape
+	// AndroidDeviceOwnerKioskModeScreenOrientationPAutoRotate is a pointer to AndroidDeviceOwnerKioskModeScreenOrientationVAutoRotate
+	AndroidDeviceOwnerKioskModeScreenOrientationPAutoRotate = &_AndroidDeviceOwnerKioskModeScreenOrientationPAutoRotate
+)
+
+var (
+	_AndroidDeviceOwnerKioskModeScreenOrientationPNotConfigured = AndroidDeviceOwnerKioskModeScreenOrientationVNotConfigured
+	_AndroidDeviceOwnerKioskModeScreenOrientationPPortrait      = AndroidDeviceOwnerKioskModeScreenOrientationVPortrait
+	_AndroidDeviceOwnerKioskModeScreenOrientationPLandscape     = AndroidDeviceOwnerKioskModeScreenOrientationVLandscape
+	_AndroidDeviceOwnerKioskModeScreenOrientationPAutoRotate    = AndroidDeviceOwnerKioskModeScreenOrientationVAutoRotate
+)
+
 // AndroidDeviceOwnerPlayStoreMode undocumented
 type AndroidDeviceOwnerPlayStoreMode string
 
@@ -722,6 +963,28 @@ var (
 	_AndroidManagedAppSafetyNetDeviceAttestationTypePBasicIntegrityAndDeviceCertification = AndroidManagedAppSafetyNetDeviceAttestationTypeVBasicIntegrityAndDeviceCertification
 )
 
+// AndroidManagedAppSafetyNetEvaluationType undocumented
+type AndroidManagedAppSafetyNetEvaluationType string
+
+const (
+	// AndroidManagedAppSafetyNetEvaluationTypeVBasic undocumented
+	AndroidManagedAppSafetyNetEvaluationTypeVBasic AndroidManagedAppSafetyNetEvaluationType = "basic"
+	// AndroidManagedAppSafetyNetEvaluationTypeVHardwareBacked undocumented
+	AndroidManagedAppSafetyNetEvaluationTypeVHardwareBacked AndroidManagedAppSafetyNetEvaluationType = "hardwareBacked"
+)
+
+var (
+	// AndroidManagedAppSafetyNetEvaluationTypePBasic is a pointer to AndroidManagedAppSafetyNetEvaluationTypeVBasic
+	AndroidManagedAppSafetyNetEvaluationTypePBasic = &_AndroidManagedAppSafetyNetEvaluationTypePBasic
+	// AndroidManagedAppSafetyNetEvaluationTypePHardwareBacked is a pointer to AndroidManagedAppSafetyNetEvaluationTypeVHardwareBacked
+	AndroidManagedAppSafetyNetEvaluationTypePHardwareBacked = &_AndroidManagedAppSafetyNetEvaluationTypePHardwareBacked
+)
+
+var (
+	_AndroidManagedAppSafetyNetEvaluationTypePBasic          = AndroidManagedAppSafetyNetEvaluationTypeVBasic
+	_AndroidManagedAppSafetyNetEvaluationTypePHardwareBacked = AndroidManagedAppSafetyNetEvaluationTypeVHardwareBacked
+)
+
 // AndroidManagedStoreAccountAppSyncStatus undocumented
 type AndroidManagedStoreAccountAppSyncStatus string
 
@@ -907,6 +1170,65 @@ var (
 	_AndroidPermissionActionTypePAutoDeny  = AndroidPermissionActionTypeVAutoDeny
 )
 
+// AndroidProfileApplicability undocumented
+type AndroidProfileApplicability string
+
+const (
+	// AndroidProfileApplicabilityVDefault undocumented
+	AndroidProfileApplicabilityVDefault AndroidProfileApplicability = "default"
+	// AndroidProfileApplicabilityVAndroidWorkProfile undocumented
+	AndroidProfileApplicabilityVAndroidWorkProfile AndroidProfileApplicability = "androidWorkProfile"
+	// AndroidProfileApplicabilityVAndroidDeviceOwner undocumented
+	AndroidProfileApplicabilityVAndroidDeviceOwner AndroidProfileApplicability = "androidDeviceOwner"
+)
+
+var (
+	// AndroidProfileApplicabilityPDefault is a pointer to AndroidProfileApplicabilityVDefault
+	AndroidProfileApplicabilityPDefault = &_AndroidProfileApplicabilityPDefault
+	// AndroidProfileApplicabilityPAndroidWorkProfile is a pointer to AndroidProfileApplicabilityVAndroidWorkProfile
+	AndroidProfileApplicabilityPAndroidWorkProfile = &_AndroidProfileApplicabilityPAndroidWorkProfile
+	// AndroidProfileApplicabilityPAndroidDeviceOwner is a pointer to AndroidProfileApplicabilityVAndroidDeviceOwner
+	AndroidProfileApplicabilityPAndroidDeviceOwner = &_AndroidProfileApplicabilityPAndroidDeviceOwner
+)
+
+var (
+	_AndroidProfileApplicabilityPDefault            = AndroidProfileApplicabilityVDefault
+	_AndroidProfileApplicabilityPAndroidWorkProfile = AndroidProfileApplicabilityVAndroidWorkProfile
+	_AndroidProfileApplicabilityPAndroidDeviceOwner = AndroidProfileApplicabilityVAndroidDeviceOwner
+)
+
+// AndroidRequiredPasswordComplexity undocumented
+type AndroidRequiredPasswordComplexity string
+
+const (
+	// AndroidRequiredPasswordComplexityVNone undocumented
+	AndroidRequiredPasswordComplexityVNone AndroidRequiredPasswordComplexity = "none"
+	// AndroidRequiredPasswordComplexityVLow undocumented
+	AndroidRequiredPasswordComplexityVLow AndroidRequiredPasswordComplexity = "low"
+	// AndroidRequiredPasswordComplexityVMedium undocumented
+	AndroidRequiredPasswordComplexityVMedium AndroidRequiredPasswordComplexity = "medium"
+	// AndroidRequiredPasswordComplexityVHigh undocumented
+	AndroidRequiredPasswordComplexityVHigh AndroidRequiredPasswordComplexity = "high"
+)
+
+var (
+	// AndroidRequiredPasswordComplexityPNone is a pointer to AndroidRequiredPasswordComplexityVNone
+	AndroidRequiredPasswordComplexityPNone = &_AndroidRequiredPasswordComplexityPNone
+	// AndroidRequiredPasswordComplexityPLow is a pointer to AndroidRequiredPasswordComplexityVLow
+	AndroidRequiredPasswordComplexityPLow = &_AndroidRequiredPasswordComplexityPLow
+	// AndroidRequiredPasswordComplexityPMedium is a pointer to AndroidRequiredPasswordComplexityVMedium
+	AndroidRequiredPasswordComplexityPMedium = &_AndroidRequiredPasswordComplexityPMedium
+	// AndroidRequiredPasswordComplexityPHigh is a pointer to AndroidRequiredPasswordComplexityVHigh
+	AndroidRequiredPasswordComplexityPHigh = &_AndroidRequiredPasswordComplexityPHigh
+)
+
+var (
+	_AndroidRequiredPasswordComplexityPNone   = AndroidRequiredPasswordComplexityVNone
+	_AndroidRequiredPasswordComplexityPLow    = AndroidRequiredPasswordComplexityVLow
+	_AndroidRequiredPasswordComplexityPMedium = AndroidRequiredPasswordComplexityVMedium
+	_AndroidRequiredPasswordComplexityPHigh   = AndroidRequiredPasswordComplexityVHigh
+)
+
 // AndroidRequiredPasswordType undocumented
 type AndroidRequiredPasswordType string
 
@@ -959,6 +1281,28 @@ var (
 	_AndroidRequiredPasswordTypePAny                     = AndroidRequiredPasswordTypeVAny
 )
 
+// AndroidSafetyNetEvaluationType undocumented
+type AndroidSafetyNetEvaluationType string
+
+const (
+	// AndroidSafetyNetEvaluationTypeVBasic undocumented
+	AndroidSafetyNetEvaluationTypeVBasic AndroidSafetyNetEvaluationType = "basic"
+	// AndroidSafetyNetEvaluationTypeVHardwareBacked undocumented
+	AndroidSafetyNetEvaluationTypeVHardwareBacked AndroidSafetyNetEvaluationType = "hardwareBacked"
+)
+
+var (
+	// AndroidSafetyNetEvaluationTypePBasic is a pointer to AndroidSafetyNetEvaluationTypeVBasic
+	AndroidSafetyNetEvaluationTypePBasic = &_AndroidSafetyNetEvaluationTypePBasic
+	// AndroidSafetyNetEvaluationTypePHardwareBacked is a pointer to AndroidSafetyNetEvaluationTypeVHardwareBacked
+	AndroidSafetyNetEvaluationTypePHardwareBacked = &_AndroidSafetyNetEvaluationTypePHardwareBacked
+)
+
+var (
+	_AndroidSafetyNetEvaluationTypePBasic          = AndroidSafetyNetEvaluationTypeVBasic
+	_AndroidSafetyNetEvaluationTypePHardwareBacked = AndroidSafetyNetEvaluationTypeVHardwareBacked
+)
+
 // AndroidUsernameSource undocumented
 type AndroidUsernameSource string
 
@@ -1007,6 +1351,12 @@ const (
 	AndroidVPNConnectionTypeVCheckPointCapsuleVPN AndroidVPNConnectionType = "checkPointCapsuleVpn"
 	// AndroidVPNConnectionTypeVCitrix undocumented
 	AndroidVPNConnectionTypeVCitrix AndroidVPNConnectionType = "citrix"
+	// AndroidVPNConnectionTypeVMicrosoftTunnel undocumented
+	AndroidVPNConnectionTypeVMicrosoftTunnel AndroidVPNConnectionType = "microsoftTunnel"
+	// AndroidVPNConnectionTypeVNetMotionMobility undocumented
+	AndroidVPNConnectionTypeVNetMotionMobility AndroidVPNConnectionType = "netMotionMobility"
+	// AndroidVPNConnectionTypeVMicrosoftProtect undocumented
+	AndroidVPNConnectionTypeVMicrosoftProtect AndroidVPNConnectionType = "microsoftProtect"
 )
 
 var (
@@ -1022,6 +1372,12 @@ var (
 	AndroidVPNConnectionTypePCheckPointCapsuleVPN = &_AndroidVPNConnectionTypePCheckPointCapsuleVPN
 	// AndroidVPNConnectionTypePCitrix is a pointer to AndroidVPNConnectionTypeVCitrix
 	AndroidVPNConnectionTypePCitrix = &_AndroidVPNConnectionTypePCitrix
+	// AndroidVPNConnectionTypePMicrosoftTunnel is a pointer to AndroidVPNConnectionTypeVMicrosoftTunnel
+	AndroidVPNConnectionTypePMicrosoftTunnel = &_AndroidVPNConnectionTypePMicrosoftTunnel
+	// AndroidVPNConnectionTypePNetMotionMobility is a pointer to AndroidVPNConnectionTypeVNetMotionMobility
+	AndroidVPNConnectionTypePNetMotionMobility = &_AndroidVPNConnectionTypePNetMotionMobility
+	// AndroidVPNConnectionTypePMicrosoftProtect is a pointer to AndroidVPNConnectionTypeVMicrosoftProtect
+	AndroidVPNConnectionTypePMicrosoftProtect = &_AndroidVPNConnectionTypePMicrosoftProtect
 )
 
 var (
@@ -1031,6 +1387,9 @@ var (
 	_AndroidVPNConnectionTypePDellSonicWallMobileConnect = AndroidVPNConnectionTypeVDellSonicWallMobileConnect
 	_AndroidVPNConnectionTypePCheckPointCapsuleVPN       = AndroidVPNConnectionTypeVCheckPointCapsuleVPN
 	_AndroidVPNConnectionTypePCitrix                     = AndroidVPNConnectionTypeVCitrix
+	_AndroidVPNConnectionTypePMicrosoftTunnel            = AndroidVPNConnectionTypeVMicrosoftTunnel
+	_AndroidVPNConnectionTypePNetMotionMobility          = AndroidVPNConnectionTypeVNetMotionMobility
+	_AndroidVPNConnectionTypePMicrosoftProtect           = AndroidVPNConnectionTypeVMicrosoftProtect
 )
 
 // AndroidWiFiSecurityType undocumented
@@ -1194,6 +1553,12 @@ const (
 	AndroidWorkProfileVPNConnectionTypeVCitrix AndroidWorkProfileVPNConnectionType = "citrix"
 	// AndroidWorkProfileVPNConnectionTypeVPaloAltoGlobalProtect undocumented
 	AndroidWorkProfileVPNConnectionTypeVPaloAltoGlobalProtect AndroidWorkProfileVPNConnectionType = "paloAltoGlobalProtect"
+	// AndroidWorkProfileVPNConnectionTypeVMicrosoftTunnel undocumented
+	AndroidWorkProfileVPNConnectionTypeVMicrosoftTunnel AndroidWorkProfileVPNConnectionType = "microsoftTunnel"
+	// AndroidWorkProfileVPNConnectionTypeVNetMotionMobility undocumented
+	AndroidWorkProfileVPNConnectionTypeVNetMotionMobility AndroidWorkProfileVPNConnectionType = "netMotionMobility"
+	// AndroidWorkProfileVPNConnectionTypeVMicrosoftProtect undocumented
+	AndroidWorkProfileVPNConnectionTypeVMicrosoftProtect AndroidWorkProfileVPNConnectionType = "microsoftProtect"
 )
 
 var (
@@ -1211,6 +1576,12 @@ var (
 	AndroidWorkProfileVPNConnectionTypePCitrix = &_AndroidWorkProfileVPNConnectionTypePCitrix
 	// AndroidWorkProfileVPNConnectionTypePPaloAltoGlobalProtect is a pointer to AndroidWorkProfileVPNConnectionTypeVPaloAltoGlobalProtect
 	AndroidWorkProfileVPNConnectionTypePPaloAltoGlobalProtect = &_AndroidWorkProfileVPNConnectionTypePPaloAltoGlobalProtect
+	// AndroidWorkProfileVPNConnectionTypePMicrosoftTunnel is a pointer to AndroidWorkProfileVPNConnectionTypeVMicrosoftTunnel
+	AndroidWorkProfileVPNConnectionTypePMicrosoftTunnel = &_AndroidWorkProfileVPNConnectionTypePMicrosoftTunnel
+	// AndroidWorkProfileVPNConnectionTypePNetMotionMobility is a pointer to AndroidWorkProfileVPNConnectionTypeVNetMotionMobility
+	AndroidWorkProfileVPNConnectionTypePNetMotionMobility = &_AndroidWorkProfileVPNConnectionTypePNetMotionMobility
+	// AndroidWorkProfileVPNConnectionTypePMicrosoftProtect is a pointer to AndroidWorkProfileVPNConnectionTypeVMicrosoftProtect
+	AndroidWorkProfileVPNConnectionTypePMicrosoftProtect = &_AndroidWorkProfileVPNConnectionTypePMicrosoftProtect
 )
 
 var (
@@ -1221,4 +1592,7 @@ var (
 	_AndroidWorkProfileVPNConnectionTypePCheckPointCapsuleVPN       = AndroidWorkProfileVPNConnectionTypeVCheckPointCapsuleVPN
 	_AndroidWorkProfileVPNConnectionTypePCitrix                     = AndroidWorkProfileVPNConnectionTypeVCitrix
 	_AndroidWorkProfileVPNConnectionTypePPaloAltoGlobalProtect      = AndroidWorkProfileVPNConnectionTypeVPaloAltoGlobalProtect
+	_AndroidWorkProfileVPNConnectionTypePMicrosoftTunnel            = AndroidWorkProfileVPNConnectionTypeVMicrosoftTunnel
+	_AndroidWorkProfileVPNConnectionTypePNetMotionMobility          = AndroidWorkProfileVPNConnectionTypeVNetMotionMobility
+	_AndroidWorkProfileVPNConnectionTypePMicrosoftProtect           = AndroidWorkProfileVPNConnectionTypeVMicrosoftProtect
 )

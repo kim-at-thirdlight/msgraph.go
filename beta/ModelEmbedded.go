@@ -4,7 +4,7 @@ package msgraph
 
 import "time"
 
-// EmbeddedSIMActivationCode undocumented
+// EmbeddedSIMActivationCode The embedded SIM activation code as provided by the mobile operator.
 type EmbeddedSIMActivationCode struct {
 	// Object is the base model of EmbeddedSIMActivationCode
 	Object
@@ -20,16 +20,16 @@ type EmbeddedSIMActivationCode struct {
 type EmbeddedSIMActivationCodePool struct {
 	// Entity is the base model of EmbeddedSIMActivationCodePool
 	Entity
-	// DisplayName The admin defined name of the embedded SIM activation code pool.
-	DisplayName *string `json:"displayName,omitempty"`
-	// CreatedDateTime The time the embedded SIM activation code pool was created. Generated service side.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ModifiedDateTime The time the embedded SIM activation code pool was last modified. Updated service side.
-	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
-	// ActivationCodes The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
-	ActivationCodes []EmbeddedSIMActivationCode `json:"activationCodes,omitempty"`
 	// ActivationCodeCount The total count of activation codes which belong to this pool.
 	ActivationCodeCount *int `json:"activationCodeCount,omitempty"`
+	// ActivationCodes The activation codes which belong to this pool. This navigation property is used to post activation codes to Intune but cannot be used to read activation codes from Intune.
+	ActivationCodes []EmbeddedSIMActivationCode `json:"activationCodes,omitempty"`
+	// CreatedDateTime The time the embedded SIM activation code pool was created. Generated service side.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DisplayName The admin defined name of the embedded SIM activation code pool.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ModifiedDateTime The time the embedded SIM activation code pool was last modified. Updated service side.
+	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
 	// Assignments undocumented
 	Assignments []EmbeddedSIMActivationCodePoolAssignment `json:"assignments,omitempty"`
 	// DeviceStates undocumented
@@ -50,18 +50,18 @@ type EmbeddedSIMDeviceState struct {
 	Entity
 	// CreatedDateTime The time the embedded SIM device status was created. Generated service side.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ModifiedDateTime The time the embedded SIM device status was last modified. Updated service side.
-	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
-	// LastSyncDateTime The time the embedded SIM device last checked in. Updated service side.
-	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// UniversalIntegratedCircuitCardIdentifier The Universal Integrated Circuit Card Identifier (UICCID) identifying the hardware onto which a profile is to be deployed.
-	UniversalIntegratedCircuitCardIdentifier *string `json:"universalIntegratedCircuitCardIdentifier,omitempty"`
 	// DeviceName Device name to which the subscription was provisioned e.g. DESKTOP-JOE
 	DeviceName *string `json:"deviceName,omitempty"`
-	// UserName Username which the subscription was provisioned to e.g. joe@contoso.com
-	UserName *string `json:"userName,omitempty"`
+	// LastSyncDateTime The time the embedded SIM device last checked in. Updated service side.
+	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
+	// ModifiedDateTime The time the embedded SIM device status was last modified. Updated service side.
+	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
 	// State The state of the profile operation applied to the device.
 	State *EmbeddedSIMDeviceStateValue `json:"state,omitempty"`
 	// StateDetails String description of the provisioning state.
 	StateDetails *string `json:"stateDetails,omitempty"`
+	// UniversalIntegratedCircuitCardIdentifier The Universal Integrated Circuit Card Identifier (UICCID) identifying the hardware onto which a profile is to be deployed.
+	UniversalIntegratedCircuitCardIdentifier *string `json:"universalIntegratedCircuitCardIdentifier,omitempty"`
+	// UserName Username which the subscription was provisioned to e.g. joe@contoso.com
+	UserName *string `json:"userName,omitempty"`
 }

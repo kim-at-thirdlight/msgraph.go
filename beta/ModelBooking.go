@@ -6,48 +6,24 @@ package msgraph
 type BookingAppointment struct {
 	// Entity is the base model of BookingAppointment
 	Entity
-	// SelfServiceAppointmentID undocumented
-	SelfServiceAppointmentID *string `json:"selfServiceAppointmentId,omitempty"`
-	// CustomerID The id of the booking customer associated with this appointment.
-	CustomerID *string `json:"customerId,omitempty"`
-	// CustomerName undocumented
-	CustomerName *string `json:"customerName,omitempty"`
+	// AdditionalInformation undocumented
+	AdditionalInformation *string `json:"additionalInformation,omitempty"`
 	// CustomerEmailAddress undocumented
 	CustomerEmailAddress *string `json:"customerEmailAddress,omitempty"`
-	// CustomerPhone undocumented
-	CustomerPhone *string `json:"customerPhone,omitempty"`
+	// CustomerID The id of the booking customer associated with this appointment.
+	CustomerID *string `json:"customerId,omitempty"`
 	// CustomerLocation undocumented
 	CustomerLocation *Location `json:"customerLocation,omitempty"`
+	// CustomerName undocumented
+	CustomerName *string `json:"customerName,omitempty"`
 	// CustomerNotes Notes from the customer associated with this appointment.
 	CustomerNotes *string `json:"customerNotes,omitempty"`
-	// ServiceID The id of the booking service associated with this appointment.
-	ServiceID *string `json:"serviceId,omitempty"`
-	// ServiceName The name of the booking service associated with this appointment.
-	ServiceName *string `json:"serviceName,omitempty"`
-	// Start undocumented
-	Start *DateTimeTimeZone `json:"start,omitempty"`
-	// End undocumented
-	End *DateTimeTimeZone `json:"end,omitempty"`
+	// CustomerPhone undocumented
+	CustomerPhone *string `json:"customerPhone,omitempty"`
 	// Duration undocumented
 	Duration *Duration `json:"duration,omitempty"`
-	// PreBuffer undocumented
-	PreBuffer *Duration `json:"preBuffer,omitempty"`
-	// PostBuffer undocumented
-	PostBuffer *Duration `json:"postBuffer,omitempty"`
-	// ServiceLocation undocumented
-	ServiceLocation *Location `json:"serviceLocation,omitempty"`
-	// PriceType undocumented
-	PriceType *BookingPriceType `json:"priceType,omitempty"`
-	// Price undocumented
-	Price *float64 `json:"price,omitempty"`
-	// ServiceNotes undocumented
-	ServiceNotes *string `json:"serviceNotes,omitempty"`
-	// Reminders undocumented
-	Reminders []BookingReminder `json:"reminders,omitempty"`
-	// OptOutOfCustomerEmail undocumented
-	OptOutOfCustomerEmail *bool `json:"optOutOfCustomerEmail,omitempty"`
-	// StaffMemberIDs undocumented
-	StaffMemberIDs []string `json:"staffMemberIds,omitempty"`
+	// End undocumented
+	End *DateTimeTimeZone `json:"end,omitempty"`
 	// InvoiceAmount undocumented
 	InvoiceAmount *float64 `json:"invoiceAmount,omitempty"`
 	// InvoiceDate undocumented
@@ -58,32 +34,62 @@ type BookingAppointment struct {
 	InvoiceStatus *BookingInvoiceStatus `json:"invoiceStatus,omitempty"`
 	// InvoiceURL undocumented
 	InvoiceURL *string `json:"invoiceUrl,omitempty"`
+	// IsLocationOnline undocumented
+	IsLocationOnline *bool `json:"isLocationOnline,omitempty"`
+	// OnlineMeetingURL undocumented
+	OnlineMeetingURL *string `json:"onlineMeetingUrl,omitempty"`
+	// OptOutOfCustomerEmail undocumented
+	OptOutOfCustomerEmail *bool `json:"optOutOfCustomerEmail,omitempty"`
+	// PostBuffer undocumented
+	PostBuffer *Duration `json:"postBuffer,omitempty"`
+	// PreBuffer undocumented
+	PreBuffer *Duration `json:"preBuffer,omitempty"`
+	// Price undocumented
+	Price *float64 `json:"price,omitempty"`
+	// PriceType undocumented
+	PriceType *BookingPriceType `json:"priceType,omitempty"`
+	// Reminders undocumented
+	Reminders []BookingReminder `json:"reminders,omitempty"`
+	// SelfServiceAppointmentID undocumented
+	SelfServiceAppointmentID *string `json:"selfServiceAppointmentId,omitempty"`
+	// ServiceID The id of the booking service associated with this appointment.
+	ServiceID *string `json:"serviceId,omitempty"`
+	// ServiceLocation undocumented
+	ServiceLocation *Location `json:"serviceLocation,omitempty"`
+	// ServiceName The name of the booking service associated with this appointment.
+	ServiceName *string `json:"serviceName,omitempty"`
+	// ServiceNotes undocumented
+	ServiceNotes *string `json:"serviceNotes,omitempty"`
+	// StaffMemberIDs undocumented
+	StaffMemberIDs []string `json:"staffMemberIds,omitempty"`
+	// Start undocumented
+	Start *DateTimeTimeZone `json:"start,omitempty"`
 }
 
 // BookingBusiness Represents a Microsot Bookings Business.
 type BookingBusiness struct {
 	// BookingNamedEntity is the base model of BookingBusiness
 	BookingNamedEntity
-	// BusinessType undocumented
-	BusinessType *string `json:"businessType,omitempty"`
 	// Address undocumented
 	Address *PhysicalAddress `json:"address,omitempty"`
-	// Phone undocumented
-	Phone *string `json:"phone,omitempty"`
-	// Email undocumented
-	Email *string `json:"email,omitempty"`
-	// WebSiteURL The URL of the business web site.
-	WebSiteURL *string `json:"webSiteUrl,omitempty"`
-	// DefaultCurrencyIso undocumented
-	DefaultCurrencyIso *string `json:"defaultCurrencyIso,omitempty"`
 	// BusinessHours undocumented
 	BusinessHours []BookingWorkHours `json:"businessHours,omitempty"`
-	// SchedulingPolicy undocumented
-	SchedulingPolicy *BookingSchedulingPolicy `json:"schedulingPolicy,omitempty"`
+	// BusinessType undocumented
+	BusinessType *string `json:"businessType,omitempty"`
+	// DefaultCurrencyIso undocumented
+	DefaultCurrencyIso *string `json:"defaultCurrencyIso,omitempty"`
+	// Email undocumented
+	Email *string `json:"email,omitempty"`
 	// IsPublished undocumented
 	IsPublished *bool `json:"isPublished,omitempty"`
+	// Phone undocumented
+	Phone *string `json:"phone,omitempty"`
 	// PublicURL undocumented
 	PublicURL *string `json:"publicUrl,omitempty"`
+	// SchedulingPolicy undocumented
+	SchedulingPolicy *BookingSchedulingPolicy `json:"schedulingPolicy,omitempty"`
+	// WebSiteURL The URL of the business web site.
+	WebSiteURL *string `json:"webSiteUrl,omitempty"`
 	// Appointments undocumented
 	Appointments []BookingAppointment `json:"appointments,omitempty"`
 	// CalendarView undocumented
@@ -126,38 +132,40 @@ type BookingPerson struct {
 	EmailAddress *string `json:"emailAddress,omitempty"`
 }
 
-// BookingReminder undocumented
+// BookingReminder This type represents when and to whom to send an e-mail reminder.
 type BookingReminder struct {
 	// Object is the base model of BookingReminder
 	Object
+	// Message Message to send.
+	Message *string `json:"message,omitempty"`
 	// Offset How much time before an appointment the reminder should be sent.
 	Offset *Duration `json:"offset,omitempty"`
 	// Recipients Who should receive the reminder.
 	Recipients *BookingReminderRecipients `json:"recipients,omitempty"`
-	// Message Message to send.
-	Message *string `json:"message,omitempty"`
 }
 
-// BookingSchedulingPolicy undocumented
+// BookingSchedulingPolicy This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.
 type BookingSchedulingPolicy struct {
 	// Object is the base model of BookingSchedulingPolicy
 	Object
-	// TimeSlotInterval Duration of each time slot.
-	TimeSlotInterval *Duration `json:"timeSlotInterval,omitempty"`
-	// MinimumLeadTime Minimum lead time for bookings and cancellations.
-	MinimumLeadTime *Duration `json:"minimumLeadTime,omitempty"`
-	// MaximumAdvance Maximum number of days in advance that a booking can be made.
-	MaximumAdvance *Duration `json:"maximumAdvance,omitempty"`
-	// SendConfirmationsToOwner Notify the business via email when a booking is created or changed.
-	SendConfirmationsToOwner *bool `json:"sendConfirmationsToOwner,omitempty"`
 	// AllowStaffSelection Allow customers to choose a specific person for the booking.
 	AllowStaffSelection *bool `json:"allowStaffSelection,omitempty"`
+	// MaximumAdvance Maximum number of days in advance that a booking can be made.
+	MaximumAdvance *Duration `json:"maximumAdvance,omitempty"`
+	// MinimumLeadTime Minimum lead time for bookings and cancellations.
+	MinimumLeadTime *Duration `json:"minimumLeadTime,omitempty"`
+	// SendConfirmationsToOwner Notify the business via email when a booking is created or changed.
+	SendConfirmationsToOwner *bool `json:"sendConfirmationsToOwner,omitempty"`
+	// TimeSlotInterval Duration of each time slot.
+	TimeSlotInterval *Duration `json:"timeSlotInterval,omitempty"`
 }
 
 // BookingService Represents a particular service offered by a booking business.
 type BookingService struct {
 	// BookingNamedEntity is the base model of BookingService
 	BookingNamedEntity
+	// AdditionalInformation undocumented
+	AdditionalInformation *string `json:"additionalInformation,omitempty"`
 	// DefaultDuration undocumented
 	DefaultDuration *Duration `json:"defaultDuration,omitempty"`
 	// DefaultLocation undocumented
@@ -172,12 +180,14 @@ type BookingService struct {
 	Description *string `json:"description,omitempty"`
 	// IsHiddenFromCustomers undocumented
 	IsHiddenFromCustomers *bool `json:"isHiddenFromCustomers,omitempty"`
+	// IsLocationOnline undocumented
+	IsLocationOnline *bool `json:"isLocationOnline,omitempty"`
 	// Notes undocumented
 	Notes *string `json:"notes,omitempty"`
-	// PreBuffer undocumented
-	PreBuffer *Duration `json:"preBuffer,omitempty"`
 	// PostBuffer undocumented
 	PostBuffer *Duration `json:"postBuffer,omitempty"`
+	// PreBuffer undocumented
+	PreBuffer *Duration `json:"preBuffer,omitempty"`
 	// SchedulingPolicy undocumented
 	SchedulingPolicy *BookingSchedulingPolicy `json:"schedulingPolicy,omitempty"`
 	// StaffMemberIDs undocumented
@@ -200,7 +210,7 @@ type BookingStaffMember struct {
 	WorkingHours []BookingWorkHours `json:"workingHours,omitempty"`
 }
 
-// BookingWorkHours undocumented
+// BookingWorkHours This type represents the set of working hours in a single day of the week.
 type BookingWorkHours struct {
 	// Object is the base model of BookingWorkHours
 	Object
@@ -214,8 +224,8 @@ type BookingWorkHours struct {
 type BookingWorkTimeSlot struct {
 	// Object is the base model of BookingWorkTimeSlot
 	Object
-	// Start undocumented
-	Start *TimeOfDay `json:"start,omitempty"`
 	// End undocumented
 	End *TimeOfDay `json:"end,omitempty"`
+	// Start undocumented
+	Start *TimeOfDay `json:"start,omitempty"`
 }

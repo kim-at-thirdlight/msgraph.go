@@ -69,29 +69,3 @@ func (r *BusinessFlowTemplateRequest) Update(ctx context.Context, reqObj *Busine
 func (r *BusinessFlowTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
-
-//
-type BusinessFlowRecordDecisionsRequestBuilder struct{ BaseRequestBuilder }
-
-// RecordDecisions action undocumented
-func (b *BusinessFlowRequestBuilder) RecordDecisions(reqObj *BusinessFlowRecordDecisionsRequestParameter) *BusinessFlowRecordDecisionsRequestBuilder {
-	bb := &BusinessFlowRecordDecisionsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/recordDecisions"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type BusinessFlowRecordDecisionsRequest struct{ BaseRequest }
-
-//
-func (b *BusinessFlowRecordDecisionsRequestBuilder) Request() *BusinessFlowRecordDecisionsRequest {
-	return &BusinessFlowRecordDecisionsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *BusinessFlowRecordDecisionsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}

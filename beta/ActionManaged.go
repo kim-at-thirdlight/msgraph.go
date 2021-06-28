@@ -11,6 +11,12 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ManagedDeviceCollectionBulkReprovisionCloudPcRequestParameter undocumented
+type ManagedDeviceCollectionBulkReprovisionCloudPcRequestParameter struct {
+	// ManagedDeviceIDs undocumented
+	ManagedDeviceIDs []string `json:"managedDeviceIds,omitempty"`
+}
+
 // ManagedDeviceCollectionExecuteActionRequestParameter undocumented
 type ManagedDeviceCollectionExecuteActionRequestParameter struct {
 	// ActionName undocumented
@@ -41,12 +47,54 @@ type ManagedAppProtectionTargetAppsRequestParameter struct {
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 }
 
+// ManagedDeviceReprovisionCloudPcRequestParameter undocumented
+type ManagedDeviceReprovisionCloudPcRequestParameter struct {
+}
+
+// ManagedDeviceResizeCloudPcRequestParameter undocumented
+type ManagedDeviceResizeCloudPcRequestParameter struct {
+	// TargetServicePlanID undocumented
+	TargetServicePlanID *string `json:"targetServicePlanId,omitempty"`
+}
+
 // ManagedDeviceOverrideComplianceStateRequestParameter undocumented
 type ManagedDeviceOverrideComplianceStateRequestParameter struct {
 	// ComplianceState undocumented
 	ComplianceState *AdministratorConfiguredDeviceComplianceState `json:"complianceState,omitempty"`
 	// RemediationURL undocumented
 	RemediationURL *string `json:"remediationUrl,omitempty"`
+}
+
+// ManagedDeviceActivateDeviceEsimRequestParameter undocumented
+type ManagedDeviceActivateDeviceEsimRequestParameter struct {
+	// CarrierURL undocumented
+	CarrierURL *string `json:"carrierUrl,omitempty"`
+}
+
+// ManagedDeviceBypassActivationLockRequestParameter undocumented
+type ManagedDeviceBypassActivationLockRequestParameter struct {
+}
+
+// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
+type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+}
+
+// ManagedDeviceCreateDeviceLogCollectionRequestObjectRequestParameter undocumented
+type ManagedDeviceCreateDeviceLogCollectionRequestObjectRequestParameter struct {
+	// TemplateType undocumented
+	TemplateType *DeviceLogCollectionRequestObject `json:"templateType,omitempty"`
+}
+
+// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// ManagedDeviceDisableLostModeRequestParameter undocumented
+type ManagedDeviceDisableLostModeRequestParameter struct {
 }
 
 // ManagedDeviceEnableLostModeRequestParameter undocumented
@@ -59,36 +107,24 @@ type ManagedDeviceEnableLostModeRequestParameter struct {
 	Footer *string `json:"footer,omitempty"`
 }
 
+// ManagedDeviceLocateDeviceRequestParameter undocumented
+type ManagedDeviceLocateDeviceRequestParameter struct {
+}
+
+// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
+}
+
 // ManagedDevicePlayLostModeSoundRequestParameter undocumented
 type ManagedDevicePlayLostModeSoundRequestParameter struct {
 }
 
-// ManagedDeviceSetDeviceNameRequestParameter undocumented
-type ManagedDeviceSetDeviceNameRequestParameter struct {
-	// DeviceName undocumented
-	DeviceName *string `json:"deviceName,omitempty"`
+// ManagedDeviceRebootNowRequestParameter undocumented
+type ManagedDeviceRebootNowRequestParameter struct {
 }
 
-// ManagedDeviceRotateFileVaultKeyRequestParameter undocumented
-type ManagedDeviceRotateFileVaultKeyRequestParameter struct {
-}
-
-// ManagedDeviceRetireRequestParameter undocumented
-type ManagedDeviceRetireRequestParameter struct {
-}
-
-// ManagedDeviceWipeRequestParameter undocumented
-type ManagedDeviceWipeRequestParameter struct {
-	// KeepEnrollmentData undocumented
-	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-	// MacOsUnlockCode undocumented
-	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
-}
-
-// ManagedDeviceResetPasscodeRequestParameter undocumented
-type ManagedDeviceResetPasscodeRequestParameter struct {
+// ManagedDeviceRecoverPasscodeRequestParameter undocumented
+type ManagedDeviceRecoverPasscodeRequestParameter struct {
 }
 
 // ManagedDeviceRemoteLockRequestParameter undocumented
@@ -99,48 +135,58 @@ type ManagedDeviceRemoteLockRequestParameter struct {
 type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
 }
 
-// ManagedDeviceDisableLostModeRequestParameter undocumented
-type ManagedDeviceDisableLostModeRequestParameter struct {
+// ManagedDeviceResetPasscodeRequestParameter undocumented
+type ManagedDeviceResetPasscodeRequestParameter struct {
 }
 
-// ManagedDeviceLocateDeviceRequestParameter undocumented
-type ManagedDeviceLocateDeviceRequestParameter struct {
+// ManagedDeviceRetireRequestParameter undocumented
+type ManagedDeviceRetireRequestParameter struct {
 }
 
-// ManagedDeviceBypassActivationLockRequestParameter undocumented
-type ManagedDeviceBypassActivationLockRequestParameter struct {
+// ManagedDeviceRevokeAppleVPPLicensesRequestParameter undocumented
+type ManagedDeviceRevokeAppleVPPLicensesRequestParameter struct {
 }
 
-// ManagedDeviceRebootNowRequestParameter undocumented
-type ManagedDeviceRebootNowRequestParameter struct {
+// ManagedDeviceRotateBitLockerKeysRequestParameter undocumented
+type ManagedDeviceRotateBitLockerKeysRequestParameter struct {
+}
+
+// ManagedDeviceRotateFileVaultKeyRequestParameter undocumented
+type ManagedDeviceRotateFileVaultKeyRequestParameter struct {
+}
+
+// ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter undocumented
+type ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter struct {
+	// NotificationTitle undocumented
+	NotificationTitle *string `json:"notificationTitle,omitempty"`
+	// NotificationBody undocumented
+	NotificationBody *string `json:"notificationBody,omitempty"`
+}
+
+// ManagedDeviceSetDeviceNameRequestParameter undocumented
+type ManagedDeviceSetDeviceNameRequestParameter struct {
+	// DeviceName undocumented
+	DeviceName *string `json:"deviceName,omitempty"`
 }
 
 // ManagedDeviceShutDownRequestParameter undocumented
 type ManagedDeviceShutDownRequestParameter struct {
 }
 
-// ManagedDeviceRecoverPasscodeRequestParameter undocumented
-type ManagedDeviceRecoverPasscodeRequestParameter struct {
-}
-
-// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
-type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
-}
-
-// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
-}
-
-// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-}
-
 // ManagedDeviceSyncDeviceRequestParameter undocumented
 type ManagedDeviceSyncDeviceRequestParameter struct {
+}
+
+// ManagedDeviceTriggerConfigurationManagerActionRequestParameter undocumented
+type ManagedDeviceTriggerConfigurationManagerActionRequestParameter struct {
+	// ConfigurationManagerAction undocumented
+	ConfigurationManagerAction *ConfigurationManagerAction `json:"configurationManagerAction,omitempty"`
+}
+
+// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
+type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
+	// UpdateWindowsDeviceAccountActionParameter undocumented
+	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
 }
 
 // ManagedDeviceWindowsDefenderScanRequestParameter undocumented
@@ -153,32 +199,18 @@ type ManagedDeviceWindowsDefenderScanRequestParameter struct {
 type ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter struct {
 }
 
-// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
-type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
-	// UpdateWindowsDeviceAccountActionParameter undocumented
-	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
-}
-
-// ManagedDeviceRevokeAppleVPPLicensesRequestParameter undocumented
-type ManagedDeviceRevokeAppleVPPLicensesRequestParameter struct {
-}
-
-// ManagedDeviceRotateBitLockerKeysRequestParameter undocumented
-type ManagedDeviceRotateBitLockerKeysRequestParameter struct {
-}
-
-// ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter undocumented
-type ManagedDeviceSendCustomNotificationToCompanyPortalRequestParameter struct {
-	// NotificationTitle undocumented
-	NotificationTitle *string `json:"notificationTitle,omitempty"`
-	// NotificationBody undocumented
-	NotificationBody *string `json:"notificationBody,omitempty"`
-}
-
-// ManagedDeviceTriggerConfigurationManagerActionRequestParameter undocumented
-type ManagedDeviceTriggerConfigurationManagerActionRequestParameter struct {
-	// ConfigurationManagerAction undocumented
-	ConfigurationManagerAction *ConfigurationManagerAction `json:"configurationManagerAction,omitempty"`
+// ManagedDeviceWipeRequestParameter undocumented
+type ManagedDeviceWipeRequestParameter struct {
+	// KeepEnrollmentData undocumented
+	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+	// MacOsUnlockCode undocumented
+	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
+	// PersistEsimDataPlan undocumented
+	PersistEsimDataPlan *bool `json:"persistEsimDataPlan,omitempty"`
+	// UseProtectedWipe undocumented
+	UseProtectedWipe *bool `json:"useProtectedWipe,omitempty"`
 }
 
 // ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented
@@ -502,6 +534,109 @@ func (r *ManagedAppRegistrationOperationsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
+// AssignmentFilterEvaluationStatusDetails returns request builder for AssignmentFilterEvaluationStatusDetails collection
+func (b *ManagedDeviceRequestBuilder) AssignmentFilterEvaluationStatusDetails() *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder {
+	bb := &ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignmentFilterEvaluationStatusDetails"
+	return bb
+}
+
+// ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder is request builder for AssignmentFilterEvaluationStatusDetails collection
+type ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AssignmentFilterEvaluationStatusDetails collection
+func (b *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder) Request() *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest {
+	return &ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AssignmentFilterEvaluationStatusDetails item
+func (b *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequestBuilder) ID(id string) *AssignmentFilterEvaluationStatusDetailsRequestBuilder {
+	bb := &AssignmentFilterEvaluationStatusDetailsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest is request for AssignmentFilterEvaluationStatusDetails collection
+type ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AssignmentFilterEvaluationStatusDetails
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AssignmentFilterEvaluationStatusDetails
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AssignmentFilterEvaluationStatusDetails collection, max N pages
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Get(ctx context.Context) ([]AssignmentFilterEvaluationStatusDetails, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AssignmentFilterEvaluationStatusDetails collection
+func (r *ManagedDeviceAssignmentFilterEvaluationStatusDetailsCollectionRequest) Add(ctx context.Context, reqObj *AssignmentFilterEvaluationStatusDetails) (resObj *AssignmentFilterEvaluationStatusDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // DetectedApps returns request builder for DetectedApp collection
 func (b *ManagedDeviceRequestBuilder) DetectedApps() *ManagedDeviceDetectedAppsCollectionRequestBuilder {
 	bb := &ManagedDeviceDetectedAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -814,6 +949,109 @@ func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Get(ctx contex
 
 // Add performs POST request for DeviceConfigurationState collection
 func (r *ManagedDeviceDeviceConfigurationStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceConfigurationState) (resObj *DeviceConfigurationState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// LogCollectionRequests returns request builder for DeviceLogCollectionResponse collection
+func (b *ManagedDeviceRequestBuilder) LogCollectionRequests() *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder {
+	bb := &ManagedDeviceLogCollectionRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/logCollectionRequests"
+	return bb
+}
+
+// ManagedDeviceLogCollectionRequestsCollectionRequestBuilder is request builder for DeviceLogCollectionResponse collection
+type ManagedDeviceLogCollectionRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceLogCollectionResponse collection
+func (b *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder) Request() *ManagedDeviceLogCollectionRequestsCollectionRequest {
+	return &ManagedDeviceLogCollectionRequestsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceLogCollectionResponse item
+func (b *ManagedDeviceLogCollectionRequestsCollectionRequestBuilder) ID(id string) *DeviceLogCollectionResponseRequestBuilder {
+	bb := &DeviceLogCollectionResponseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedDeviceLogCollectionRequestsCollectionRequest is request for DeviceLogCollectionResponse collection
+type ManagedDeviceLogCollectionRequestsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceLogCollectionResponse, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceLogCollectionResponse
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceLogCollectionResponse
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceLogCollectionResponse collection, max N pages
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceLogCollectionResponse, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Get(ctx context.Context) ([]DeviceLogCollectionResponse, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceLogCollectionResponse collection
+func (r *ManagedDeviceLogCollectionRequestsCollectionRequest) Add(ctx context.Context, reqObj *DeviceLogCollectionResponse) (resObj *DeviceLogCollectionResponse, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -1975,6 +2213,2169 @@ func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Get(ctx context.Co
 
 // Add performs POST request for MobileAppContent collection
 func (r *ManagedMobileLobAppContentVersionsCollectionRequest) Add(ctx context.Context, reqObj *MobileAppContent) (resObj *MobileAppContent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// AggregatedPolicyCompliances returns request builder for AggregatedPolicyCompliance collection
+func (b *ManagedTenantRequestBuilder) AggregatedPolicyCompliances() *ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder {
+	bb := &ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/aggregatedPolicyCompliances"
+	return bb
+}
+
+// ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder is request builder for AggregatedPolicyCompliance collection
+type ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AggregatedPolicyCompliance collection
+func (b *ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder) Request() *ManagedTenantAggregatedPolicyCompliancesCollectionRequest {
+	return &ManagedTenantAggregatedPolicyCompliancesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AggregatedPolicyCompliance item
+func (b *ManagedTenantAggregatedPolicyCompliancesCollectionRequestBuilder) ID(id string) *AggregatedPolicyComplianceRequestBuilder {
+	bb := &AggregatedPolicyComplianceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantAggregatedPolicyCompliancesCollectionRequest is request for AggregatedPolicyCompliance collection
+type ManagedTenantAggregatedPolicyCompliancesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AggregatedPolicyCompliance collection
+func (r *ManagedTenantAggregatedPolicyCompliancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AggregatedPolicyCompliance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AggregatedPolicyCompliance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AggregatedPolicyCompliance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AggregatedPolicyCompliance collection, max N pages
+func (r *ManagedTenantAggregatedPolicyCompliancesCollectionRequest) GetN(ctx context.Context, n int) ([]AggregatedPolicyCompliance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AggregatedPolicyCompliance collection
+func (r *ManagedTenantAggregatedPolicyCompliancesCollectionRequest) Get(ctx context.Context) ([]AggregatedPolicyCompliance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AggregatedPolicyCompliance collection
+func (r *ManagedTenantAggregatedPolicyCompliancesCollectionRequest) Add(ctx context.Context, reqObj *AggregatedPolicyCompliance) (resObj *AggregatedPolicyCompliance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// CloudPcConnections returns request builder for CloudPcConnection collection
+func (b *ManagedTenantRequestBuilder) CloudPcConnections() *ManagedTenantCloudPcConnectionsCollectionRequestBuilder {
+	bb := &ManagedTenantCloudPcConnectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/cloudPcConnections"
+	return bb
+}
+
+// ManagedTenantCloudPcConnectionsCollectionRequestBuilder is request builder for CloudPcConnection collection
+type ManagedTenantCloudPcConnectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for CloudPcConnection collection
+func (b *ManagedTenantCloudPcConnectionsCollectionRequestBuilder) Request() *ManagedTenantCloudPcConnectionsCollectionRequest {
+	return &ManagedTenantCloudPcConnectionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for CloudPcConnection item
+func (b *ManagedTenantCloudPcConnectionsCollectionRequestBuilder) ID(id string) *CloudPcConnectionRequestBuilder {
+	bb := &CloudPcConnectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantCloudPcConnectionsCollectionRequest is request for CloudPcConnection collection
+type ManagedTenantCloudPcConnectionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for CloudPcConnection collection
+func (r *ManagedTenantCloudPcConnectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CloudPcConnection, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []CloudPcConnection
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []CloudPcConnection
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for CloudPcConnection collection, max N pages
+func (r *ManagedTenantCloudPcConnectionsCollectionRequest) GetN(ctx context.Context, n int) ([]CloudPcConnection, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CloudPcConnection collection
+func (r *ManagedTenantCloudPcConnectionsCollectionRequest) Get(ctx context.Context) ([]CloudPcConnection, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for CloudPcConnection collection
+func (r *ManagedTenantCloudPcConnectionsCollectionRequest) Add(ctx context.Context, reqObj *CloudPcConnection) (resObj *CloudPcConnection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// CloudPcDevices returns request builder for CloudPcDevice collection
+func (b *ManagedTenantRequestBuilder) CloudPcDevices() *ManagedTenantCloudPcDevicesCollectionRequestBuilder {
+	bb := &ManagedTenantCloudPcDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/cloudPcDevices"
+	return bb
+}
+
+// ManagedTenantCloudPcDevicesCollectionRequestBuilder is request builder for CloudPcDevice collection
+type ManagedTenantCloudPcDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for CloudPcDevice collection
+func (b *ManagedTenantCloudPcDevicesCollectionRequestBuilder) Request() *ManagedTenantCloudPcDevicesCollectionRequest {
+	return &ManagedTenantCloudPcDevicesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for CloudPcDevice item
+func (b *ManagedTenantCloudPcDevicesCollectionRequestBuilder) ID(id string) *CloudPcDeviceRequestBuilder {
+	bb := &CloudPcDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantCloudPcDevicesCollectionRequest is request for CloudPcDevice collection
+type ManagedTenantCloudPcDevicesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for CloudPcDevice collection
+func (r *ManagedTenantCloudPcDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CloudPcDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []CloudPcDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []CloudPcDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for CloudPcDevice collection, max N pages
+func (r *ManagedTenantCloudPcDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]CloudPcDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CloudPcDevice collection
+func (r *ManagedTenantCloudPcDevicesCollectionRequest) Get(ctx context.Context) ([]CloudPcDevice, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for CloudPcDevice collection
+func (r *ManagedTenantCloudPcDevicesCollectionRequest) Add(ctx context.Context, reqObj *CloudPcDevice) (resObj *CloudPcDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// CloudPcsOverview returns request builder for CloudPcOverview collection
+func (b *ManagedTenantRequestBuilder) CloudPcsOverview() *ManagedTenantCloudPcsOverviewCollectionRequestBuilder {
+	bb := &ManagedTenantCloudPcsOverviewCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/cloudPcsOverview"
+	return bb
+}
+
+// ManagedTenantCloudPcsOverviewCollectionRequestBuilder is request builder for CloudPcOverview collection
+type ManagedTenantCloudPcsOverviewCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for CloudPcOverview collection
+func (b *ManagedTenantCloudPcsOverviewCollectionRequestBuilder) Request() *ManagedTenantCloudPcsOverviewCollectionRequest {
+	return &ManagedTenantCloudPcsOverviewCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for CloudPcOverview item
+func (b *ManagedTenantCloudPcsOverviewCollectionRequestBuilder) ID(id string) *CloudPcOverviewRequestBuilder {
+	bb := &CloudPcOverviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantCloudPcsOverviewCollectionRequest is request for CloudPcOverview collection
+type ManagedTenantCloudPcsOverviewCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for CloudPcOverview collection
+func (r *ManagedTenantCloudPcsOverviewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CloudPcOverview, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []CloudPcOverview
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []CloudPcOverview
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for CloudPcOverview collection, max N pages
+func (r *ManagedTenantCloudPcsOverviewCollectionRequest) GetN(ctx context.Context, n int) ([]CloudPcOverview, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CloudPcOverview collection
+func (r *ManagedTenantCloudPcsOverviewCollectionRequest) Get(ctx context.Context) ([]CloudPcOverview, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for CloudPcOverview collection
+func (r *ManagedTenantCloudPcsOverviewCollectionRequest) Add(ctx context.Context, reqObj *CloudPcOverview) (resObj *CloudPcOverview, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConditionalAccessPolicyCoverages returns request builder for ConditionalAccessPolicyCoverage collection
+func (b *ManagedTenantRequestBuilder) ConditionalAccessPolicyCoverages() *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder {
+	bb := &ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/conditionalAccessPolicyCoverages"
+	return bb
+}
+
+// ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder is request builder for ConditionalAccessPolicyCoverage collection
+type ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ConditionalAccessPolicyCoverage collection
+func (b *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder) Request() *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest {
+	return &ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ConditionalAccessPolicyCoverage item
+func (b *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequestBuilder) ID(id string) *ConditionalAccessPolicyCoverageRequestBuilder {
+	bb := &ConditionalAccessPolicyCoverageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest is request for ConditionalAccessPolicyCoverage collection
+type ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ConditionalAccessPolicyCoverage collection
+func (r *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConditionalAccessPolicyCoverage, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ConditionalAccessPolicyCoverage
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ConditionalAccessPolicyCoverage
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ConditionalAccessPolicyCoverage collection, max N pages
+func (r *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest) GetN(ctx context.Context, n int) ([]ConditionalAccessPolicyCoverage, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConditionalAccessPolicyCoverage collection
+func (r *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest) Get(ctx context.Context) ([]ConditionalAccessPolicyCoverage, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ConditionalAccessPolicyCoverage collection
+func (r *ManagedTenantConditionalAccessPolicyCoveragesCollectionRequest) Add(ctx context.Context, reqObj *ConditionalAccessPolicyCoverage) (resObj *ConditionalAccessPolicyCoverage, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// CredentialUserRegistrationsSummaries returns request builder for CredentialUserRegistrationsSummary collection
+func (b *ManagedTenantRequestBuilder) CredentialUserRegistrationsSummaries() *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder {
+	bb := &ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/credentialUserRegistrationsSummaries"
+	return bb
+}
+
+// ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder is request builder for CredentialUserRegistrationsSummary collection
+type ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for CredentialUserRegistrationsSummary collection
+func (b *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder) Request() *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest {
+	return &ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for CredentialUserRegistrationsSummary item
+func (b *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequestBuilder) ID(id string) *CredentialUserRegistrationsSummaryRequestBuilder {
+	bb := &CredentialUserRegistrationsSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest is request for CredentialUserRegistrationsSummary collection
+type ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for CredentialUserRegistrationsSummary collection
+func (r *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CredentialUserRegistrationsSummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []CredentialUserRegistrationsSummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []CredentialUserRegistrationsSummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for CredentialUserRegistrationsSummary collection, max N pages
+func (r *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest) GetN(ctx context.Context, n int) ([]CredentialUserRegistrationsSummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CredentialUserRegistrationsSummary collection
+func (r *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest) Get(ctx context.Context) ([]CredentialUserRegistrationsSummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for CredentialUserRegistrationsSummary collection
+func (r *ManagedTenantCredentialUserRegistrationsSummariesCollectionRequest) Add(ctx context.Context, reqObj *CredentialUserRegistrationsSummary) (resObj *CredentialUserRegistrationsSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DeviceCompliancePolicySettingStateSummaries returns request builder for DeviceCompliancePolicySettingStateSummary collection
+func (b *ManagedTenantRequestBuilder) DeviceCompliancePolicySettingStateSummaries() *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder {
+	bb := &ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceCompliancePolicySettingStateSummaries"
+	return bb
+}
+
+// ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder is request builder for DeviceCompliancePolicySettingStateSummary collection
+type ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceCompliancePolicySettingStateSummary collection
+func (b *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder) Request() *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest {
+	return &ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceCompliancePolicySettingStateSummary item
+func (b *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequestBuilder) ID(id string) *DeviceCompliancePolicySettingStateSummaryRequestBuilder {
+	bb := &DeviceCompliancePolicySettingStateSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest is request for DeviceCompliancePolicySettingStateSummary collection
+type ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceCompliancePolicySettingStateSummary collection
+func (r *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceCompliancePolicySettingStateSummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceCompliancePolicySettingStateSummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceCompliancePolicySettingStateSummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceCompliancePolicySettingStateSummary collection, max N pages
+func (r *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceCompliancePolicySettingStateSummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceCompliancePolicySettingStateSummary collection
+func (r *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest) Get(ctx context.Context) ([]DeviceCompliancePolicySettingStateSummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceCompliancePolicySettingStateSummary collection
+func (r *ManagedTenantDeviceCompliancePolicySettingStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *DeviceCompliancePolicySettingStateSummary) (resObj *DeviceCompliancePolicySettingStateSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagedDeviceComplianceTrends returns request builder for ManagedDeviceComplianceTrend collection
+func (b *ManagedTenantRequestBuilder) ManagedDeviceComplianceTrends() *ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder {
+	bb := &ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDeviceComplianceTrends"
+	return bb
+}
+
+// ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder is request builder for ManagedDeviceComplianceTrend collection
+type ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagedDeviceComplianceTrend collection
+func (b *ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder) Request() *ManagedTenantManagedDeviceComplianceTrendsCollectionRequest {
+	return &ManagedTenantManagedDeviceComplianceTrendsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagedDeviceComplianceTrend item
+func (b *ManagedTenantManagedDeviceComplianceTrendsCollectionRequestBuilder) ID(id string) *ManagedDeviceComplianceTrendRequestBuilder {
+	bb := &ManagedDeviceComplianceTrendRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagedDeviceComplianceTrendsCollectionRequest is request for ManagedDeviceComplianceTrend collection
+type ManagedTenantManagedDeviceComplianceTrendsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagedDeviceComplianceTrend collection
+func (r *ManagedTenantManagedDeviceComplianceTrendsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceComplianceTrend, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagedDeviceComplianceTrend
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagedDeviceComplianceTrend
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagedDeviceComplianceTrend collection, max N pages
+func (r *ManagedTenantManagedDeviceComplianceTrendsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceComplianceTrend, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceComplianceTrend collection
+func (r *ManagedTenantManagedDeviceComplianceTrendsCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceComplianceTrend, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagedDeviceComplianceTrend collection
+func (r *ManagedTenantManagedDeviceComplianceTrendsCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceComplianceTrend) (resObj *ManagedDeviceComplianceTrend, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagedDeviceCompliances returns request builder for ManagedDeviceCompliance collection
+func (b *ManagedTenantRequestBuilder) ManagedDeviceCompliances() *ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder {
+	bb := &ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDeviceCompliances"
+	return bb
+}
+
+// ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder is request builder for ManagedDeviceCompliance collection
+type ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagedDeviceCompliance collection
+func (b *ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder) Request() *ManagedTenantManagedDeviceCompliancesCollectionRequest {
+	return &ManagedTenantManagedDeviceCompliancesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagedDeviceCompliance item
+func (b *ManagedTenantManagedDeviceCompliancesCollectionRequestBuilder) ID(id string) *ManagedDeviceComplianceRequestBuilder {
+	bb := &ManagedDeviceComplianceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagedDeviceCompliancesCollectionRequest is request for ManagedDeviceCompliance collection
+type ManagedTenantManagedDeviceCompliancesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagedDeviceCompliance collection
+func (r *ManagedTenantManagedDeviceCompliancesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDeviceCompliance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagedDeviceCompliance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagedDeviceCompliance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagedDeviceCompliance collection, max N pages
+func (r *ManagedTenantManagedDeviceCompliancesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDeviceCompliance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDeviceCompliance collection
+func (r *ManagedTenantManagedDeviceCompliancesCollectionRequest) Get(ctx context.Context) ([]ManagedDeviceCompliance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagedDeviceCompliance collection
+func (r *ManagedTenantManagedDeviceCompliancesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDeviceCompliance) (resObj *ManagedDeviceCompliance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagementActionTenantDeploymentStatuses returns request builder for ManagementActionTenantDeploymentStatus collection
+func (b *ManagedTenantRequestBuilder) ManagementActionTenantDeploymentStatuses() *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder {
+	bb := &ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managementActionTenantDeploymentStatuses"
+	return bb
+}
+
+// ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder is request builder for ManagementActionTenantDeploymentStatus collection
+type ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagementActionTenantDeploymentStatus collection
+func (b *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder) Request() *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest {
+	return &ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagementActionTenantDeploymentStatus item
+func (b *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder) ID(id string) *ManagementActionTenantDeploymentStatusRequestBuilder {
+	bb := &ManagementActionTenantDeploymentStatusRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest is request for ManagementActionTenantDeploymentStatus collection
+type ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagementActionTenantDeploymentStatus collection
+func (r *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementActionTenantDeploymentStatus, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagementActionTenantDeploymentStatus
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagementActionTenantDeploymentStatus
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagementActionTenantDeploymentStatus collection, max N pages
+func (r *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementActionTenantDeploymentStatus, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementActionTenantDeploymentStatus collection
+func (r *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest) Get(ctx context.Context) ([]ManagementActionTenantDeploymentStatus, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagementActionTenantDeploymentStatus collection
+func (r *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequest) Add(ctx context.Context, reqObj *ManagementActionTenantDeploymentStatus) (resObj *ManagementActionTenantDeploymentStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagementActions returns request builder for ManagementAction collection
+func (b *ManagedTenantRequestBuilder) ManagementActions() *ManagedTenantManagementActionsCollectionRequestBuilder {
+	bb := &ManagedTenantManagementActionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managementActions"
+	return bb
+}
+
+// ManagedTenantManagementActionsCollectionRequestBuilder is request builder for ManagementAction collection
+type ManagedTenantManagementActionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagementAction collection
+func (b *ManagedTenantManagementActionsCollectionRequestBuilder) Request() *ManagedTenantManagementActionsCollectionRequest {
+	return &ManagedTenantManagementActionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagementAction item
+func (b *ManagedTenantManagementActionsCollectionRequestBuilder) ID(id string) *ManagementActionRequestBuilder {
+	bb := &ManagementActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagementActionsCollectionRequest is request for ManagementAction collection
+type ManagedTenantManagementActionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagementAction collection
+func (r *ManagedTenantManagementActionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementAction, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagementAction
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagementAction
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagementAction collection, max N pages
+func (r *ManagedTenantManagementActionsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementAction, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementAction collection
+func (r *ManagedTenantManagementActionsCollectionRequest) Get(ctx context.Context) ([]ManagementAction, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagementAction collection
+func (r *ManagedTenantManagementActionsCollectionRequest) Add(ctx context.Context, reqObj *ManagementAction) (resObj *ManagementAction, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagementIntents returns request builder for ManagementIntent collection
+func (b *ManagedTenantRequestBuilder) ManagementIntents() *ManagedTenantManagementIntentsCollectionRequestBuilder {
+	bb := &ManagedTenantManagementIntentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managementIntents"
+	return bb
+}
+
+// ManagedTenantManagementIntentsCollectionRequestBuilder is request builder for ManagementIntent collection
+type ManagedTenantManagementIntentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagementIntent collection
+func (b *ManagedTenantManagementIntentsCollectionRequestBuilder) Request() *ManagedTenantManagementIntentsCollectionRequest {
+	return &ManagedTenantManagementIntentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagementIntent item
+func (b *ManagedTenantManagementIntentsCollectionRequestBuilder) ID(id string) *ManagementIntentRequestBuilder {
+	bb := &ManagementIntentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagementIntentsCollectionRequest is request for ManagementIntent collection
+type ManagedTenantManagementIntentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagementIntent collection
+func (r *ManagedTenantManagementIntentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementIntent, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagementIntent
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagementIntent
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagementIntent collection, max N pages
+func (r *ManagedTenantManagementIntentsCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementIntent, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementIntent collection
+func (r *ManagedTenantManagementIntentsCollectionRequest) Get(ctx context.Context) ([]ManagementIntent, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagementIntent collection
+func (r *ManagedTenantManagementIntentsCollectionRequest) Add(ctx context.Context, reqObj *ManagementIntent) (resObj *ManagementIntent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ManagementTemplates returns request builder for ManagementTemplate collection
+func (b *ManagedTenantRequestBuilder) ManagementTemplates() *ManagedTenantManagementTemplatesCollectionRequestBuilder {
+	bb := &ManagedTenantManagementTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managementTemplates"
+	return bb
+}
+
+// ManagedTenantManagementTemplatesCollectionRequestBuilder is request builder for ManagementTemplate collection
+type ManagedTenantManagementTemplatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagementTemplate collection
+func (b *ManagedTenantManagementTemplatesCollectionRequestBuilder) Request() *ManagedTenantManagementTemplatesCollectionRequest {
+	return &ManagedTenantManagementTemplatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagementTemplate item
+func (b *ManagedTenantManagementTemplatesCollectionRequestBuilder) ID(id string) *ManagementTemplateRequestBuilder {
+	bb := &ManagementTemplateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantManagementTemplatesCollectionRequest is request for ManagementTemplate collection
+type ManagedTenantManagementTemplatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagementTemplate collection
+func (r *ManagedTenantManagementTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagementTemplate, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagementTemplate
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagementTemplate
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagementTemplate collection, max N pages
+func (r *ManagedTenantManagementTemplatesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagementTemplate, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagementTemplate collection
+func (r *ManagedTenantManagementTemplatesCollectionRequest) Get(ctx context.Context) ([]ManagementTemplate, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagementTemplate collection
+func (r *ManagedTenantManagementTemplatesCollectionRequest) Add(ctx context.Context, reqObj *ManagementTemplate) (resObj *ManagementTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RiskyUsers returns request builder for RiskyUser collection
+func (b *ManagedTenantRequestBuilder) RiskyUsers() *ManagedTenantRiskyUsersCollectionRequestBuilder {
+	bb := &ManagedTenantRiskyUsersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/riskyUsers"
+	return bb
+}
+
+// ManagedTenantRiskyUsersCollectionRequestBuilder is request builder for RiskyUser collection
+type ManagedTenantRiskyUsersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for RiskyUser collection
+func (b *ManagedTenantRiskyUsersCollectionRequestBuilder) Request() *ManagedTenantRiskyUsersCollectionRequest {
+	return &ManagedTenantRiskyUsersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for RiskyUser item
+func (b *ManagedTenantRiskyUsersCollectionRequestBuilder) ID(id string) *RiskyUserRequestBuilder {
+	bb := &RiskyUserRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantRiskyUsersCollectionRequest is request for RiskyUser collection
+type ManagedTenantRiskyUsersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for RiskyUser collection
+func (r *ManagedTenantRiskyUsersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RiskyUser, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []RiskyUser
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []RiskyUser
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for RiskyUser collection, max N pages
+func (r *ManagedTenantRiskyUsersCollectionRequest) GetN(ctx context.Context, n int) ([]RiskyUser, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for RiskyUser collection
+func (r *ManagedTenantRiskyUsersCollectionRequest) Get(ctx context.Context) ([]RiskyUser, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for RiskyUser collection
+func (r *ManagedTenantRiskyUsersCollectionRequest) Add(ctx context.Context, reqObj *RiskyUser) (resObj *RiskyUser, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// TenantGroups returns request builder for TenantGroup collection
+func (b *ManagedTenantRequestBuilder) TenantGroups() *ManagedTenantTenantGroupsCollectionRequestBuilder {
+	bb := &ManagedTenantTenantGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenantGroups"
+	return bb
+}
+
+// ManagedTenantTenantGroupsCollectionRequestBuilder is request builder for TenantGroup collection
+type ManagedTenantTenantGroupsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TenantGroup collection
+func (b *ManagedTenantTenantGroupsCollectionRequestBuilder) Request() *ManagedTenantTenantGroupsCollectionRequest {
+	return &ManagedTenantTenantGroupsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TenantGroup item
+func (b *ManagedTenantTenantGroupsCollectionRequestBuilder) ID(id string) *TenantGroupRequestBuilder {
+	bb := &TenantGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantTenantGroupsCollectionRequest is request for TenantGroup collection
+type ManagedTenantTenantGroupsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TenantGroup collection
+func (r *ManagedTenantTenantGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TenantGroup, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TenantGroup
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TenantGroup
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TenantGroup collection, max N pages
+func (r *ManagedTenantTenantGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]TenantGroup, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TenantGroup collection
+func (r *ManagedTenantTenantGroupsCollectionRequest) Get(ctx context.Context) ([]TenantGroup, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TenantGroup collection
+func (r *ManagedTenantTenantGroupsCollectionRequest) Add(ctx context.Context, reqObj *TenantGroup) (resObj *TenantGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// TenantTags returns request builder for TenantTag collection
+func (b *ManagedTenantRequestBuilder) TenantTags() *ManagedTenantTenantTagsCollectionRequestBuilder {
+	bb := &ManagedTenantTenantTagsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenantTags"
+	return bb
+}
+
+// ManagedTenantTenantTagsCollectionRequestBuilder is request builder for TenantTag collection
+type ManagedTenantTenantTagsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TenantTag collection
+func (b *ManagedTenantTenantTagsCollectionRequestBuilder) Request() *ManagedTenantTenantTagsCollectionRequest {
+	return &ManagedTenantTenantTagsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TenantTag item
+func (b *ManagedTenantTenantTagsCollectionRequestBuilder) ID(id string) *TenantTagRequestBuilder {
+	bb := &TenantTagRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantTenantTagsCollectionRequest is request for TenantTag collection
+type ManagedTenantTenantTagsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TenantTag collection
+func (r *ManagedTenantTenantTagsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TenantTag, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TenantTag
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TenantTag
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TenantTag collection, max N pages
+func (r *ManagedTenantTenantTagsCollectionRequest) GetN(ctx context.Context, n int) ([]TenantTag, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TenantTag collection
+func (r *ManagedTenantTenantTagsCollectionRequest) Get(ctx context.Context) ([]TenantTag, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TenantTag collection
+func (r *ManagedTenantTenantTagsCollectionRequest) Add(ctx context.Context, reqObj *TenantTag) (resObj *TenantTag, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Tenants returns request builder for Tenant collection
+func (b *ManagedTenantRequestBuilder) Tenants() *ManagedTenantTenantsCollectionRequestBuilder {
+	bb := &ManagedTenantTenantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenants"
+	return bb
+}
+
+// ManagedTenantTenantsCollectionRequestBuilder is request builder for Tenant collection
+type ManagedTenantTenantsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Tenant collection
+func (b *ManagedTenantTenantsCollectionRequestBuilder) Request() *ManagedTenantTenantsCollectionRequest {
+	return &ManagedTenantTenantsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Tenant item
+func (b *ManagedTenantTenantsCollectionRequestBuilder) ID(id string) *TenantRequestBuilder {
+	bb := &TenantRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantTenantsCollectionRequest is request for Tenant collection
+type ManagedTenantTenantsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Tenant collection
+func (r *ManagedTenantTenantsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Tenant, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Tenant
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Tenant
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for Tenant collection, max N pages
+func (r *ManagedTenantTenantsCollectionRequest) GetN(ctx context.Context, n int) ([]Tenant, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Tenant collection
+func (r *ManagedTenantTenantsCollectionRequest) Get(ctx context.Context) ([]Tenant, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for Tenant collection
+func (r *ManagedTenantTenantsCollectionRequest) Add(ctx context.Context, reqObj *Tenant) (resObj *Tenant, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// TenantsCustomizedInformation returns request builder for TenantCustomizedInformation collection
+func (b *ManagedTenantRequestBuilder) TenantsCustomizedInformation() *ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder {
+	bb := &ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenantsCustomizedInformation"
+	return bb
+}
+
+// ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder is request builder for TenantCustomizedInformation collection
+type ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TenantCustomizedInformation collection
+func (b *ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder) Request() *ManagedTenantTenantsCustomizedInformationCollectionRequest {
+	return &ManagedTenantTenantsCustomizedInformationCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TenantCustomizedInformation item
+func (b *ManagedTenantTenantsCustomizedInformationCollectionRequestBuilder) ID(id string) *TenantCustomizedInformationRequestBuilder {
+	bb := &TenantCustomizedInformationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantTenantsCustomizedInformationCollectionRequest is request for TenantCustomizedInformation collection
+type ManagedTenantTenantsCustomizedInformationCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TenantCustomizedInformation collection
+func (r *ManagedTenantTenantsCustomizedInformationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TenantCustomizedInformation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TenantCustomizedInformation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TenantCustomizedInformation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TenantCustomizedInformation collection, max N pages
+func (r *ManagedTenantTenantsCustomizedInformationCollectionRequest) GetN(ctx context.Context, n int) ([]TenantCustomizedInformation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TenantCustomizedInformation collection
+func (r *ManagedTenantTenantsCustomizedInformationCollectionRequest) Get(ctx context.Context) ([]TenantCustomizedInformation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TenantCustomizedInformation collection
+func (r *ManagedTenantTenantsCustomizedInformationCollectionRequest) Add(ctx context.Context, reqObj *TenantCustomizedInformation) (resObj *TenantCustomizedInformation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// TenantsDetailedInformation returns request builder for TenantDetailedInformation collection
+func (b *ManagedTenantRequestBuilder) TenantsDetailedInformation() *ManagedTenantTenantsDetailedInformationCollectionRequestBuilder {
+	bb := &ManagedTenantTenantsDetailedInformationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenantsDetailedInformation"
+	return bb
+}
+
+// ManagedTenantTenantsDetailedInformationCollectionRequestBuilder is request builder for TenantDetailedInformation collection
+type ManagedTenantTenantsDetailedInformationCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TenantDetailedInformation collection
+func (b *ManagedTenantTenantsDetailedInformationCollectionRequestBuilder) Request() *ManagedTenantTenantsDetailedInformationCollectionRequest {
+	return &ManagedTenantTenantsDetailedInformationCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TenantDetailedInformation item
+func (b *ManagedTenantTenantsDetailedInformationCollectionRequestBuilder) ID(id string) *TenantDetailedInformationRequestBuilder {
+	bb := &TenantDetailedInformationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantTenantsDetailedInformationCollectionRequest is request for TenantDetailedInformation collection
+type ManagedTenantTenantsDetailedInformationCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TenantDetailedInformation collection
+func (r *ManagedTenantTenantsDetailedInformationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TenantDetailedInformation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TenantDetailedInformation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TenantDetailedInformation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TenantDetailedInformation collection, max N pages
+func (r *ManagedTenantTenantsDetailedInformationCollectionRequest) GetN(ctx context.Context, n int) ([]TenantDetailedInformation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TenantDetailedInformation collection
+func (r *ManagedTenantTenantsDetailedInformationCollectionRequest) Get(ctx context.Context) ([]TenantDetailedInformation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TenantDetailedInformation collection
+func (r *ManagedTenantTenantsDetailedInformationCollectionRequest) Add(ctx context.Context, reqObj *TenantDetailedInformation) (resObj *TenantDetailedInformation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// WindowsDeviceMalwareStates returns request builder for WindowsDeviceMalwareState collection
+func (b *ManagedTenantRequestBuilder) WindowsDeviceMalwareStates() *ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder {
+	bb := &ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/windowsDeviceMalwareStates"
+	return bb
+}
+
+// ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder is request builder for WindowsDeviceMalwareState collection
+type ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsDeviceMalwareState collection
+func (b *ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder) Request() *ManagedTenantWindowsDeviceMalwareStatesCollectionRequest {
+	return &ManagedTenantWindowsDeviceMalwareStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsDeviceMalwareState item
+func (b *ManagedTenantWindowsDeviceMalwareStatesCollectionRequestBuilder) ID(id string) *WindowsDeviceMalwareStateRequestBuilder {
+	bb := &WindowsDeviceMalwareStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantWindowsDeviceMalwareStatesCollectionRequest is request for WindowsDeviceMalwareState collection
+type ManagedTenantWindowsDeviceMalwareStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsDeviceMalwareState collection
+func (r *ManagedTenantWindowsDeviceMalwareStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsDeviceMalwareState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsDeviceMalwareState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsDeviceMalwareState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for WindowsDeviceMalwareState collection, max N pages
+func (r *ManagedTenantWindowsDeviceMalwareStatesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsDeviceMalwareState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsDeviceMalwareState collection
+func (r *ManagedTenantWindowsDeviceMalwareStatesCollectionRequest) Get(ctx context.Context) ([]WindowsDeviceMalwareState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for WindowsDeviceMalwareState collection
+func (r *ManagedTenantWindowsDeviceMalwareStatesCollectionRequest) Add(ctx context.Context, reqObj *WindowsDeviceMalwareState) (resObj *WindowsDeviceMalwareState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// WindowsProtectionStates returns request builder for WindowsProtectionState collection
+func (b *ManagedTenantRequestBuilder) WindowsProtectionStates() *ManagedTenantWindowsProtectionStatesCollectionRequestBuilder {
+	bb := &ManagedTenantWindowsProtectionStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/windowsProtectionStates"
+	return bb
+}
+
+// ManagedTenantWindowsProtectionStatesCollectionRequestBuilder is request builder for WindowsProtectionState collection
+type ManagedTenantWindowsProtectionStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsProtectionState collection
+func (b *ManagedTenantWindowsProtectionStatesCollectionRequestBuilder) Request() *ManagedTenantWindowsProtectionStatesCollectionRequest {
+	return &ManagedTenantWindowsProtectionStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsProtectionState item
+func (b *ManagedTenantWindowsProtectionStatesCollectionRequestBuilder) ID(id string) *WindowsProtectionStateRequestBuilder {
+	bb := &WindowsProtectionStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ManagedTenantWindowsProtectionStatesCollectionRequest is request for WindowsProtectionState collection
+type ManagedTenantWindowsProtectionStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsProtectionState collection
+func (r *ManagedTenantWindowsProtectionStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsProtectionState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsProtectionState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsProtectionState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for WindowsProtectionState collection, max N pages
+func (r *ManagedTenantWindowsProtectionStatesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsProtectionState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsProtectionState collection
+func (r *ManagedTenantWindowsProtectionStatesCollectionRequest) Get(ctx context.Context) ([]WindowsProtectionState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for WindowsProtectionState collection
+func (r *ManagedTenantWindowsProtectionStatesCollectionRequest) Add(ctx context.Context, reqObj *WindowsProtectionState) (resObj *WindowsProtectionState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

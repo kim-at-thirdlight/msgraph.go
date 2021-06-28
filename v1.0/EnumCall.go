@@ -85,3 +85,67 @@ var (
 	_CallStatePTerminated         = CallStateVTerminated
 	_CallStatePUnknownFutureValue = CallStateVUnknownFutureValue
 )
+
+// CallTranscriptionState undocumented
+type CallTranscriptionState string
+
+const (
+	// CallTranscriptionStateVNotStarted undocumented
+	CallTranscriptionStateVNotStarted CallTranscriptionState = "notStarted"
+	// CallTranscriptionStateVActive undocumented
+	CallTranscriptionStateVActive CallTranscriptionState = "active"
+	// CallTranscriptionStateVInactive undocumented
+	CallTranscriptionStateVInactive CallTranscriptionState = "inactive"
+	// CallTranscriptionStateVUnknownFutureValue undocumented
+	CallTranscriptionStateVUnknownFutureValue CallTranscriptionState = "unknownFutureValue"
+)
+
+var (
+	// CallTranscriptionStatePNotStarted is a pointer to CallTranscriptionStateVNotStarted
+	CallTranscriptionStatePNotStarted = &_CallTranscriptionStatePNotStarted
+	// CallTranscriptionStatePActive is a pointer to CallTranscriptionStateVActive
+	CallTranscriptionStatePActive = &_CallTranscriptionStatePActive
+	// CallTranscriptionStatePInactive is a pointer to CallTranscriptionStateVInactive
+	CallTranscriptionStatePInactive = &_CallTranscriptionStatePInactive
+	// CallTranscriptionStatePUnknownFutureValue is a pointer to CallTranscriptionStateVUnknownFutureValue
+	CallTranscriptionStatePUnknownFutureValue = &_CallTranscriptionStatePUnknownFutureValue
+)
+
+var (
+	_CallTranscriptionStatePNotStarted         = CallTranscriptionStateVNotStarted
+	_CallTranscriptionStatePActive             = CallTranscriptionStateVActive
+	_CallTranscriptionStatePInactive           = CallTranscriptionStateVInactive
+	_CallTranscriptionStatePUnknownFutureValue = CallTranscriptionStateVUnknownFutureValue
+)
+
+// CallType undocumented
+type CallType string
+
+const (
+	// CallTypeVUnknown undocumented
+	CallTypeVUnknown CallType = "unknown"
+	// CallTypeVGroupCall undocumented
+	CallTypeVGroupCall CallType = "groupCall"
+	// CallTypeVPeerToPeer undocumented
+	CallTypeVPeerToPeer CallType = "peerToPeer"
+	// CallTypeVUnknownFutureValue undocumented
+	CallTypeVUnknownFutureValue CallType = "unknownFutureValue"
+)
+
+var (
+	// CallTypePUnknown is a pointer to CallTypeVUnknown
+	CallTypePUnknown = &_CallTypePUnknown
+	// CallTypePGroupCall is a pointer to CallTypeVGroupCall
+	CallTypePGroupCall = &_CallTypePGroupCall
+	// CallTypePPeerToPeer is a pointer to CallTypeVPeerToPeer
+	CallTypePPeerToPeer = &_CallTypePPeerToPeer
+	// CallTypePUnknownFutureValue is a pointer to CallTypeVUnknownFutureValue
+	CallTypePUnknownFutureValue = &_CallTypePUnknownFutureValue
+)
+
+var (
+	_CallTypePUnknown            = CallTypeVUnknown
+	_CallTypePGroupCall          = CallTypeVGroupCall
+	_CallTypePPeerToPeer         = CallTypeVPeerToPeer
+	_CallTypePUnknownFutureValue = CallTypeVUnknownFutureValue
+)

@@ -474,6 +474,33 @@ func (r *MobileThreatDefenseConnectorRequest) Delete(ctx context.Context) error 
 }
 
 //
+type MobileAppCollectionValidateXMLRequestBuilder struct{ BaseRequestBuilder }
+
+// ValidateXML action undocumented
+func (b *DeviceAppManagementMobileAppsCollectionRequestBuilder) ValidateXML(reqObj *MobileAppCollectionValidateXMLRequestParameter) *MobileAppCollectionValidateXMLRequestBuilder {
+	bb := &MobileAppCollectionValidateXMLRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateXml"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type MobileAppCollectionValidateXMLRequest struct{ BaseRequest }
+
+//
+func (b *MobileAppCollectionValidateXMLRequestBuilder) Request() *MobileAppCollectionValidateXMLRequest {
+	return &MobileAppCollectionValidateXMLRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *MobileAppCollectionValidateXMLRequest) Post(ctx context.Context) (resObj *string, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
+//
 type MobileAppCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -558,108 +585,4 @@ func (r *MobileAppCollectionHasPayloadLinksRequest) PostN(ctx context.Context, n
 //
 func (r *MobileAppCollectionHasPayloadLinksRequest) Post(ctx context.Context) ([]HasPayloadLinkResultItem, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type MobileAppAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *MobileAppRequestBuilder) Assign(reqObj *MobileAppAssignRequestParameter) *MobileAppAssignRequestBuilder {
-	bb := &MobileAppAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppAssignRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppAssignRequestBuilder) Request() *MobileAppAssignRequest {
-	return &MobileAppAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type MobileAppUpdateRelationshipsRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateRelationships action undocumented
-func (b *MobileAppRequestBuilder) UpdateRelationships(reqObj *MobileAppUpdateRelationshipsRequestParameter) *MobileAppUpdateRelationshipsRequestBuilder {
-	bb := &MobileAppUpdateRelationshipsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateRelationships"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppUpdateRelationshipsRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppUpdateRelationshipsRequestBuilder) Request() *MobileAppUpdateRelationshipsRequest {
-	return &MobileAppUpdateRelationshipsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppUpdateRelationshipsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type MobileAppContentFileCommitRequestBuilder struct{ BaseRequestBuilder }
-
-// Commit action undocumented
-func (b *MobileAppContentFileRequestBuilder) Commit(reqObj *MobileAppContentFileCommitRequestParameter) *MobileAppContentFileCommitRequestBuilder {
-	bb := &MobileAppContentFileCommitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/commit"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileCommitRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppContentFileCommitRequestBuilder) Request() *MobileAppContentFileCommitRequest {
-	return &MobileAppContentFileCommitRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppContentFileCommitRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type MobileAppContentFileRenewUploadRequestBuilder struct{ BaseRequestBuilder }
-
-// RenewUpload action undocumented
-func (b *MobileAppContentFileRequestBuilder) RenewUpload(reqObj *MobileAppContentFileRenewUploadRequestParameter) *MobileAppContentFileRenewUploadRequestBuilder {
-	bb := &MobileAppContentFileRenewUploadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/renewUpload"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type MobileAppContentFileRenewUploadRequest struct{ BaseRequest }
-
-//
-func (b *MobileAppContentFileRenewUploadRequestBuilder) Request() *MobileAppContentFileRenewUploadRequest {
-	return &MobileAppContentFileRenewUploadRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *MobileAppContentFileRenewUploadRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

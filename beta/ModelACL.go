@@ -6,12 +6,12 @@ package msgraph
 type ACL struct {
 	// Object is the base model of ACL
 	Object
+	// AccessType undocumented
+	AccessType *AccessType `json:"accessType,omitempty"`
+	// IdentitySource undocumented
+	IdentitySource *IdentitySourceType `json:"identitySource,omitempty"`
 	// Type undocumented
 	Type *ACLType `json:"type,omitempty"`
 	// Value undocumented
 	Value *string `json:"value,omitempty"`
-	// AccessType undocumented
-	AccessType *AccessType `json:"accessType,omitempty"`
-	// IdentitySource undocumented
-	IdentitySource *string `json:"identitySource,omitempty"`
 }

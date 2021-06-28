@@ -2,20 +2,184 @@
 
 package msgraph
 
+import "time"
+
+// Tenant undocumented
+type Tenant struct {
+	// Entity is the base model of Tenant
+	Entity
+	// Contract undocumented
+	Contract *TenantContract `json:"contract,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastUpdatedDateTime undocumented
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// TenantStatusInformation undocumented
+	TenantStatusInformation *TenantStatusInformation `json:"tenantStatusInformation,omitempty"`
+}
+
+// TenantContactInformation undocumented
+type TenantContactInformation struct {
+	// Object is the base model of TenantContactInformation
+	Object
+	// Email undocumented
+	Email *string `json:"email,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Notes undocumented
+	Notes *string `json:"notes,omitempty"`
+	// Phone undocumented
+	Phone *string `json:"phone,omitempty"`
+	// Title undocumented
+	Title *string `json:"title,omitempty"`
+}
+
+// TenantContract undocumented
+type TenantContract struct {
+	// Object is the base model of TenantContract
+	Object
+	// ContractType undocumented
+	ContractType *int `json:"contractType,omitempty"`
+	// DefaultDomainName undocumented
+	DefaultDomainName *string `json:"defaultDomainName,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+}
+
+// TenantCustomizedInformation undocumented
+type TenantCustomizedInformation struct {
+	// Entity is the base model of TenantCustomizedInformation
+	Entity
+	// Contacts undocumented
+	Contacts []TenantContactInformation `json:"contacts,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// Website undocumented
+	Website *string `json:"website,omitempty"`
+}
+
+// TenantDetailedInformation undocumented
+type TenantDetailedInformation struct {
+	// Entity is the base model of TenantDetailedInformation
+	Entity
+	// City undocumented
+	City *string `json:"city,omitempty"`
+	// CountryCode undocumented
+	CountryCode *string `json:"countryCode,omitempty"`
+	// CountryName undocumented
+	CountryName *string `json:"countryName,omitempty"`
+	// DefaultDomainName undocumented
+	DefaultDomainName *string `json:"defaultDomainName,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IndustryName undocumented
+	IndustryName *string `json:"industryName,omitempty"`
+	// Region undocumented
+	Region *string `json:"region,omitempty"`
+	// SegmentName undocumented
+	SegmentName *string `json:"segmentName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// VerticalName undocumented
+	VerticalName *string `json:"verticalName,omitempty"`
+}
+
+// TenantGroup undocumented
+type TenantGroup struct {
+	// Entity is the base model of TenantGroup
+	Entity
+	// AllTenantsIncluded undocumented
+	AllTenantsIncluded *bool `json:"allTenantsIncluded,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// ManagementActions undocumented
+	ManagementActions []ManagementActionInfo `json:"managementActions,omitempty"`
+	// ManagementIntents undocumented
+	ManagementIntents []ManagementIntentInfo `json:"managementIntents,omitempty"`
+	// TenantIDs undocumented
+	TenantIDs []string `json:"tenantIds,omitempty"`
+}
+
+// TenantInfo undocumented
+type TenantInfo struct {
+	// Object is the base model of TenantInfo
+	Object
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+}
+
+// TenantRelationship undocumented
+type TenantRelationship struct {
+	// Object is the base model of TenantRelationship
+	Object
+	// ManagedTenants undocumented
+	ManagedTenants *ManagedTenant `json:"managedTenants,omitempty"`
+}
+
 // TenantSetupInfo undocumented
 type TenantSetupInfo struct {
 	// Entity is the base model of TenantSetupInfo
 	Entity
-	// UserRolesActions undocumented
-	UserRolesActions *string `json:"userRolesActions,omitempty"`
 	// FirstTimeSetup undocumented
 	FirstTimeSetup *bool `json:"firstTimeSetup,omitempty"`
 	// RelevantRolesSettings undocumented
 	RelevantRolesSettings []string `json:"relevantRolesSettings,omitempty"`
-	// SkipSetup undocumented
-	SkipSetup *bool `json:"skipSetup,omitempty"`
 	// SetupStatus undocumented
 	SetupStatus *SetupStatus `json:"setupStatus,omitempty"`
+	// SkipSetup undocumented
+	SkipSetup *bool `json:"skipSetup,omitempty"`
+	// UserRolesActions undocumented
+	UserRolesActions *string `json:"userRolesActions,omitempty"`
 	// DefaultRolesSettings undocumented
 	DefaultRolesSettings *PrivilegedRoleSettings `json:"defaultRolesSettings,omitempty"`
+}
+
+// TenantStatusInformation undocumented
+type TenantStatusInformation struct {
+	// Object is the base model of TenantStatusInformation
+	Object
+	// DelegatedPrivilegeStatus undocumented
+	DelegatedPrivilegeStatus *DelegatedPrivilegeStatus `json:"delegatedPrivilegeStatus,omitempty"`
+	// LastDelegatedPrivilegeRefreshDateTime undocumented
+	LastDelegatedPrivilegeRefreshDateTime *time.Time `json:"lastDelegatedPrivilegeRefreshDateTime,omitempty"`
+	// OffboardedByUserID undocumented
+	OffboardedByUserID *string `json:"offboardedByUserId,omitempty"`
+	// OffboardedDateTime undocumented
+	OffboardedDateTime *time.Time `json:"offboardedDateTime,omitempty"`
+	// OnboardedByUserID undocumented
+	OnboardedByUserID *string `json:"onboardedByUserId,omitempty"`
+	// OnboardedDateTime undocumented
+	OnboardedDateTime *time.Time `json:"onboardedDateTime,omitempty"`
+	// OnboardingStatus undocumented
+	OnboardingStatus *TenantOnboardingStatus `json:"onboardingStatus,omitempty"`
+	// WorkloadStatuses undocumented
+	WorkloadStatuses []WorkloadStatus `json:"workloadStatuses,omitempty"`
+}
+
+// TenantTag undocumented
+type TenantTag struct {
+	// Entity is the base model of TenantTag
+	Entity
+	// CreatedByUserID undocumented
+	CreatedByUserID *string `json:"createdByUserId,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DeletedDateTime undocumented
+	DeletedDateTime *time.Time `json:"deletedDateTime,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastActionByUserID undocumented
+	LastActionByUserID *string `json:"lastActionByUserId,omitempty"`
+	// LastActionDateTime undocumented
+	LastActionDateTime *time.Time `json:"lastActionDateTime,omitempty"`
+	// Tenants undocumented
+	Tenants []TenantInfo `json:"tenants,omitempty"`
 }

@@ -97,3 +97,129 @@ var (
 	_WiFiSecurityTypePWpa2Personal   = WiFiSecurityTypeVWpa2Personal
 	_WiFiSecurityTypePWpa2Enterprise = WiFiSecurityTypeVWpa2Enterprise
 )
+
+// WiFiAuthenticationType undocumented
+type WiFiAuthenticationType string
+
+const (
+	// WiFiAuthenticationTypeVNone undocumented
+	WiFiAuthenticationTypeVNone WiFiAuthenticationType = "none"
+	// WiFiAuthenticationTypeVUser undocumented
+	WiFiAuthenticationTypeVUser WiFiAuthenticationType = "user"
+	// WiFiAuthenticationTypeVMachine undocumented
+	WiFiAuthenticationTypeVMachine WiFiAuthenticationType = "machine"
+	// WiFiAuthenticationTypeVMachineOrUser undocumented
+	WiFiAuthenticationTypeVMachineOrUser WiFiAuthenticationType = "machineOrUser"
+	// WiFiAuthenticationTypeVGuest undocumented
+	WiFiAuthenticationTypeVGuest WiFiAuthenticationType = "guest"
+)
+
+var (
+	// WiFiAuthenticationTypePNone is a pointer to WiFiAuthenticationTypeVNone
+	WiFiAuthenticationTypePNone = &_WiFiAuthenticationTypePNone
+	// WiFiAuthenticationTypePUser is a pointer to WiFiAuthenticationTypeVUser
+	WiFiAuthenticationTypePUser = &_WiFiAuthenticationTypePUser
+	// WiFiAuthenticationTypePMachine is a pointer to WiFiAuthenticationTypeVMachine
+	WiFiAuthenticationTypePMachine = &_WiFiAuthenticationTypePMachine
+	// WiFiAuthenticationTypePMachineOrUser is a pointer to WiFiAuthenticationTypeVMachineOrUser
+	WiFiAuthenticationTypePMachineOrUser = &_WiFiAuthenticationTypePMachineOrUser
+	// WiFiAuthenticationTypePGuest is a pointer to WiFiAuthenticationTypeVGuest
+	WiFiAuthenticationTypePGuest = &_WiFiAuthenticationTypePGuest
+)
+
+var (
+	_WiFiAuthenticationTypePNone          = WiFiAuthenticationTypeVNone
+	_WiFiAuthenticationTypePUser          = WiFiAuthenticationTypeVUser
+	_WiFiAuthenticationTypePMachine       = WiFiAuthenticationTypeVMachine
+	_WiFiAuthenticationTypePMachineOrUser = WiFiAuthenticationTypeVMachineOrUser
+	_WiFiAuthenticationTypePGuest         = WiFiAuthenticationTypeVGuest
+)
+
+// WiFiBand undocumented
+type WiFiBand string
+
+const (
+	// WiFiBandVUnknown undocumented
+	WiFiBandVUnknown WiFiBand = "unknown"
+	// WiFiBandVFrequency24GHz undocumented
+	WiFiBandVFrequency24GHz WiFiBand = "frequency24GHz"
+	// WiFiBandVFrequency50GHz undocumented
+	WiFiBandVFrequency50GHz WiFiBand = "frequency50GHz"
+	// WiFiBandVFrequency60GHz undocumented
+	WiFiBandVFrequency60GHz WiFiBand = "frequency60GHz"
+	// WiFiBandVUnknownFutureValue undocumented
+	WiFiBandVUnknownFutureValue WiFiBand = "unknownFutureValue"
+)
+
+var (
+	// WiFiBandPUnknown is a pointer to WiFiBandVUnknown
+	WiFiBandPUnknown = &_WiFiBandPUnknown
+	// WiFiBandPFrequency24GHz is a pointer to WiFiBandVFrequency24GHz
+	WiFiBandPFrequency24GHz = &_WiFiBandPFrequency24GHz
+	// WiFiBandPFrequency50GHz is a pointer to WiFiBandVFrequency50GHz
+	WiFiBandPFrequency50GHz = &_WiFiBandPFrequency50GHz
+	// WiFiBandPFrequency60GHz is a pointer to WiFiBandVFrequency60GHz
+	WiFiBandPFrequency60GHz = &_WiFiBandPFrequency60GHz
+	// WiFiBandPUnknownFutureValue is a pointer to WiFiBandVUnknownFutureValue
+	WiFiBandPUnknownFutureValue = &_WiFiBandPUnknownFutureValue
+)
+
+var (
+	_WiFiBandPUnknown            = WiFiBandVUnknown
+	_WiFiBandPFrequency24GHz     = WiFiBandVFrequency24GHz
+	_WiFiBandPFrequency50GHz     = WiFiBandVFrequency50GHz
+	_WiFiBandPFrequency60GHz     = WiFiBandVFrequency60GHz
+	_WiFiBandPUnknownFutureValue = WiFiBandVUnknownFutureValue
+)
+
+// WiFiRadioType undocumented
+type WiFiRadioType string
+
+const (
+	// WiFiRadioTypeVUnknown undocumented
+	WiFiRadioTypeVUnknown WiFiRadioType = "unknown"
+	// WiFiRadioTypeVWiFi80211a undocumented
+	WiFiRadioTypeVWiFi80211a WiFiRadioType = "wifi80211a"
+	// WiFiRadioTypeVWiFi80211b undocumented
+	WiFiRadioTypeVWiFi80211b WiFiRadioType = "wifi80211b"
+	// WiFiRadioTypeVWiFi80211g undocumented
+	WiFiRadioTypeVWiFi80211g WiFiRadioType = "wifi80211g"
+	// WiFiRadioTypeVWiFi80211n undocumented
+	WiFiRadioTypeVWiFi80211n WiFiRadioType = "wifi80211n"
+	// WiFiRadioTypeVWiFi80211ac undocumented
+	WiFiRadioTypeVWiFi80211ac WiFiRadioType = "wifi80211ac"
+	// WiFiRadioTypeVWiFi80211ax undocumented
+	WiFiRadioTypeVWiFi80211ax WiFiRadioType = "wifi80211ax"
+	// WiFiRadioTypeVUnknownFutureValue undocumented
+	WiFiRadioTypeVUnknownFutureValue WiFiRadioType = "unknownFutureValue"
+)
+
+var (
+	// WiFiRadioTypePUnknown is a pointer to WiFiRadioTypeVUnknown
+	WiFiRadioTypePUnknown = &_WiFiRadioTypePUnknown
+	// WiFiRadioTypePWiFi80211a is a pointer to WiFiRadioTypeVWiFi80211a
+	WiFiRadioTypePWiFi80211a = &_WiFiRadioTypePWiFi80211a
+	// WiFiRadioTypePWiFi80211b is a pointer to WiFiRadioTypeVWiFi80211b
+	WiFiRadioTypePWiFi80211b = &_WiFiRadioTypePWiFi80211b
+	// WiFiRadioTypePWiFi80211g is a pointer to WiFiRadioTypeVWiFi80211g
+	WiFiRadioTypePWiFi80211g = &_WiFiRadioTypePWiFi80211g
+	// WiFiRadioTypePWiFi80211n is a pointer to WiFiRadioTypeVWiFi80211n
+	WiFiRadioTypePWiFi80211n = &_WiFiRadioTypePWiFi80211n
+	// WiFiRadioTypePWiFi80211ac is a pointer to WiFiRadioTypeVWiFi80211ac
+	WiFiRadioTypePWiFi80211ac = &_WiFiRadioTypePWiFi80211ac
+	// WiFiRadioTypePWiFi80211ax is a pointer to WiFiRadioTypeVWiFi80211ax
+	WiFiRadioTypePWiFi80211ax = &_WiFiRadioTypePWiFi80211ax
+	// WiFiRadioTypePUnknownFutureValue is a pointer to WiFiRadioTypeVUnknownFutureValue
+	WiFiRadioTypePUnknownFutureValue = &_WiFiRadioTypePUnknownFutureValue
+)
+
+var (
+	_WiFiRadioTypePUnknown            = WiFiRadioTypeVUnknown
+	_WiFiRadioTypePWiFi80211a         = WiFiRadioTypeVWiFi80211a
+	_WiFiRadioTypePWiFi80211b         = WiFiRadioTypeVWiFi80211b
+	_WiFiRadioTypePWiFi80211g         = WiFiRadioTypeVWiFi80211g
+	_WiFiRadioTypePWiFi80211n         = WiFiRadioTypeVWiFi80211n
+	_WiFiRadioTypePWiFi80211ac        = WiFiRadioTypeVWiFi80211ac
+	_WiFiRadioTypePWiFi80211ax        = WiFiRadioTypeVWiFi80211ax
+	_WiFiRadioTypePUnknownFutureValue = WiFiRadioTypeVUnknownFutureValue
+)

@@ -16,22 +16,30 @@ type Application struct {
 	AppRoles []AppRole `json:"appRoles,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// IsFallbackPublicClient undocumented
-	IsFallbackPublicClient *bool `json:"isFallbackPublicClient,omitempty"`
-	// IdentifierUris undocumented
-	IdentifierUris []string `json:"identifierUris,omitempty"`
+	// DefaultRedirectURI undocumented
+	DefaultRedirectURI *string `json:"defaultRedirectUri,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisabledByMicrosoftStatus undocumented
+	DisabledByMicrosoftStatus *string `json:"disabledByMicrosoftStatus,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// GroupMembershipClaims undocumented
 	GroupMembershipClaims *string `json:"groupMembershipClaims,omitempty"`
+	// IdentifierUris undocumented
+	IdentifierUris []string `json:"identifierUris,omitempty"`
 	// Info undocumented
 	Info *InformationalURL `json:"info,omitempty"`
 	// IsDeviceOnlyAuthSupported undocumented
 	IsDeviceOnlyAuthSupported *bool `json:"isDeviceOnlyAuthSupported,omitempty"`
+	// IsFallbackPublicClient undocumented
+	IsFallbackPublicClient *bool `json:"isFallbackPublicClient,omitempty"`
 	// KeyCredentials undocumented
 	KeyCredentials []KeyCredential `json:"keyCredentials,omitempty"`
 	// Logo undocumented
 	Logo *Stream `json:"logo,omitempty"`
+	// Notes undocumented
+	Notes *string `json:"notes,omitempty"`
 	// OptionalClaims undocumented
 	OptionalClaims *OptionalClaims `json:"optionalClaims,omitempty"`
 	// ParentalControlSettings undocumented
@@ -46,20 +54,32 @@ type Application struct {
 	RequiredResourceAccess []RequiredResourceAccess `json:"requiredResourceAccess,omitempty"`
 	// SignInAudience undocumented
 	SignInAudience *string `json:"signInAudience,omitempty"`
+	// Spa undocumented
+	Spa *SpaApplication `json:"spa,omitempty"`
 	// Tags undocumented
 	Tags []string `json:"tags,omitempty"`
 	// TokenEncryptionKeyID undocumented
 	TokenEncryptionKeyID *UUID `json:"tokenEncryptionKeyId,omitempty"`
+	// UniqueName undocumented
+	UniqueName *string `json:"uniqueName,omitempty"`
 	// Web undocumented
 	Web *WebApplication `json:"web,omitempty"`
-	// ExtensionProperties undocumented
-	ExtensionProperties []ExtensionProperty `json:"extensionProperties,omitempty"`
+	// OnPremisesPublishing undocumented
+	OnPremisesPublishing *OnPremisesPublishing `json:"onPremisesPublishing,omitempty"`
 	// CreatedOnBehalfOf undocumented
 	CreatedOnBehalfOf *DirectoryObject `json:"createdOnBehalfOf,omitempty"`
+	// ExtensionProperties undocumented
+	ExtensionProperties []ExtensionProperty `json:"extensionProperties,omitempty"`
+	// HomeRealmDiscoveryPolicies undocumented
+	HomeRealmDiscoveryPolicies []HomeRealmDiscoveryPolicy `json:"homeRealmDiscoveryPolicies,omitempty"`
 	// Owners undocumented
 	Owners []DirectoryObject `json:"owners,omitempty"`
-	// Policies undocumented
-	Policies []DirectoryObject `json:"policies,omitempty"`
+	// TokenIssuancePolicies undocumented
+	TokenIssuancePolicies []TokenIssuancePolicy `json:"tokenIssuancePolicies,omitempty"`
+	// TokenLifetimePolicies undocumented
+	TokenLifetimePolicies []TokenLifetimePolicy `json:"tokenLifetimePolicies,omitempty"`
+	// ConnectorGroup undocumented
+	ConnectorGroup *ConnectorGroup `json:"connectorGroup,omitempty"`
 	// Synchronization undocumented
 	Synchronization *Synchronization `json:"synchronization,omitempty"`
 }
@@ -84,16 +104,16 @@ type ApplicationServicePrincipal struct {
 type ApplicationSignInDetailedSummary struct {
 	// Entity is the base model of ApplicationSignInDetailedSummary
 	Entity
-	// AppID undocumented
-	AppID *string `json:"appId,omitempty"`
-	// AppDisplayName undocumented
-	AppDisplayName *string `json:"appDisplayName,omitempty"`
-	// Status undocumented
-	Status *SignInStatus `json:"status,omitempty"`
-	// SignInCount undocumented
-	SignInCount *int `json:"signInCount,omitempty"`
 	// AggregatedEventDateTime undocumented
 	AggregatedEventDateTime *time.Time `json:"aggregatedEventDateTime,omitempty"`
+	// AppDisplayName undocumented
+	AppDisplayName *string `json:"appDisplayName,omitempty"`
+	// AppID undocumented
+	AppID *string `json:"appId,omitempty"`
+	// SignInCount undocumented
+	SignInCount *int `json:"signInCount,omitempty"`
+	// Status undocumented
+	Status *SignInStatus `json:"status,omitempty"`
 }
 
 // ApplicationSignInSummary undocumented
@@ -102,10 +122,10 @@ type ApplicationSignInSummary struct {
 	Entity
 	// AppDisplayName undocumented
 	AppDisplayName *string `json:"appDisplayName,omitempty"`
-	// SuccessfulSignInCount undocumented
-	SuccessfulSignInCount *int `json:"successfulSignInCount,omitempty"`
 	// FailedSignInCount undocumented
 	FailedSignInCount *int `json:"failedSignInCount,omitempty"`
+	// SuccessfulSignInCount undocumented
+	SuccessfulSignInCount *int `json:"successfulSignInCount,omitempty"`
 	// SuccessPercentage undocumented
 	SuccessPercentage *float64 `json:"successPercentage,omitempty"`
 }
@@ -114,20 +134,20 @@ type ApplicationSignInSummary struct {
 type ApplicationTemplate struct {
 	// Entity is the base model of ApplicationTemplate
 	Entity
+	// Categories undocumented
+	Categories []string `json:"categories,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
 	// HomePageURL undocumented
 	HomePageURL *string `json:"homePageUrl,omitempty"`
-	// SupportedSingleSignOnModes undocumented
-	SupportedSingleSignOnModes []string `json:"supportedSingleSignOnModes,omitempty"`
-	// SupportedProvisioningTypes undocumented
-	SupportedProvisioningTypes []string `json:"supportedProvisioningTypes,omitempty"`
 	// LogoURL undocumented
 	LogoURL *string `json:"logoUrl,omitempty"`
-	// Categories undocumented
-	Categories []string `json:"categories,omitempty"`
 	// Publisher undocumented
 	Publisher *string `json:"publisher,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
+	// SupportedProvisioningTypes undocumented
+	SupportedProvisioningTypes []string `json:"supportedProvisioningTypes,omitempty"`
+	// SupportedSingleSignOnModes undocumented
+	SupportedSingleSignOnModes []string `json:"supportedSingleSignOnModes,omitempty"`
 }

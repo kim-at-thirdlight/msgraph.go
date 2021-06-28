@@ -23,30 +23,20 @@ type ManagedAppProtectionTargetAppsRequestParameter struct {
 	Apps []ManagedMobileApp `json:"apps,omitempty"`
 }
 
-// ManagedDeviceRetireRequestParameter undocumented
-type ManagedDeviceRetireRequestParameter struct {
+// ManagedDeviceBypassActivationLockRequestParameter undocumented
+type ManagedDeviceBypassActivationLockRequestParameter struct {
 }
 
-// ManagedDeviceWipeRequestParameter undocumented
-type ManagedDeviceWipeRequestParameter struct {
-	// KeepEnrollmentData undocumented
-	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
+type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
 	// KeepUserData undocumented
 	KeepUserData *bool `json:"keepUserData,omitempty"`
-	// MacOsUnlockCode undocumented
-	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
 }
 
-// ManagedDeviceResetPasscodeRequestParameter undocumented
-type ManagedDeviceResetPasscodeRequestParameter struct {
-}
-
-// ManagedDeviceRemoteLockRequestParameter undocumented
-type ManagedDeviceRemoteLockRequestParameter struct {
-}
-
-// ManagedDeviceRequestRemoteAssistanceRequestParameter undocumented
-type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
+// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
+type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // ManagedDeviceDisableLostModeRequestParameter undocumented
@@ -57,40 +47,46 @@ type ManagedDeviceDisableLostModeRequestParameter struct {
 type ManagedDeviceLocateDeviceRequestParameter struct {
 }
 
-// ManagedDeviceBypassActivationLockRequestParameter undocumented
-type ManagedDeviceBypassActivationLockRequestParameter struct {
+// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
+type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
 }
 
 // ManagedDeviceRebootNowRequestParameter undocumented
 type ManagedDeviceRebootNowRequestParameter struct {
 }
 
-// ManagedDeviceShutDownRequestParameter undocumented
-type ManagedDeviceShutDownRequestParameter struct {
-}
-
 // ManagedDeviceRecoverPasscodeRequestParameter undocumented
 type ManagedDeviceRecoverPasscodeRequestParameter struct {
 }
 
-// ManagedDeviceCleanWindowsDeviceRequestParameter undocumented
-type ManagedDeviceCleanWindowsDeviceRequestParameter struct {
-	// KeepUserData undocumented
-	KeepUserData *bool `json:"keepUserData,omitempty"`
+// ManagedDeviceRemoteLockRequestParameter undocumented
+type ManagedDeviceRemoteLockRequestParameter struct {
 }
 
-// ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter undocumented
-type ManagedDeviceLogoutSharedAppleDeviceActiveUserRequestParameter struct {
+// ManagedDeviceRequestRemoteAssistanceRequestParameter undocumented
+type ManagedDeviceRequestRemoteAssistanceRequestParameter struct {
 }
 
-// ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter undocumented
-type ManagedDeviceDeleteUserFromSharedAppleDeviceRequestParameter struct {
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+// ManagedDeviceResetPasscodeRequestParameter undocumented
+type ManagedDeviceResetPasscodeRequestParameter struct {
+}
+
+// ManagedDeviceRetireRequestParameter undocumented
+type ManagedDeviceRetireRequestParameter struct {
+}
+
+// ManagedDeviceShutDownRequestParameter undocumented
+type ManagedDeviceShutDownRequestParameter struct {
 }
 
 // ManagedDeviceSyncDeviceRequestParameter undocumented
 type ManagedDeviceSyncDeviceRequestParameter struct {
+}
+
+// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
+type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
+	// UpdateWindowsDeviceAccountActionParameter undocumented
+	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
 }
 
 // ManagedDeviceWindowsDefenderScanRequestParameter undocumented
@@ -103,10 +99,16 @@ type ManagedDeviceWindowsDefenderScanRequestParameter struct {
 type ManagedDeviceWindowsDefenderUpdateSignaturesRequestParameter struct {
 }
 
-// ManagedDeviceUpdateWindowsDeviceAccountRequestParameter undocumented
-type ManagedDeviceUpdateWindowsDeviceAccountRequestParameter struct {
-	// UpdateWindowsDeviceAccountActionParameter undocumented
-	UpdateWindowsDeviceAccountActionParameter *UpdateWindowsDeviceAccountActionParameter `json:"updateWindowsDeviceAccountActionParameter,omitempty"`
+// ManagedDeviceWipeRequestParameter undocumented
+type ManagedDeviceWipeRequestParameter struct {
+	// KeepEnrollmentData undocumented
+	KeepEnrollmentData *bool `json:"keepEnrollmentData,omitempty"`
+	// KeepUserData undocumented
+	KeepUserData *bool `json:"keepUserData,omitempty"`
+	// MacOsUnlockCode undocumented
+	MacOsUnlockCode *string `json:"macOsUnlockCode,omitempty"`
+	// PersistEsimDataPlan undocumented
+	PersistEsimDataPlan *bool `json:"persistEsimDataPlan,omitempty"`
 }
 
 // ManagedDeviceMobileAppConfigurationAssignRequestParameter undocumented

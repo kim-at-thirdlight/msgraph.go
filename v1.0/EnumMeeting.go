@@ -8,8 +8,8 @@ type MeetingMessageType string
 const (
 	// MeetingMessageTypeVNone undocumented
 	MeetingMessageTypeVNone MeetingMessageType = "none"
-	// MeetingMessageTypeVMeetingRequest undocumented
-	MeetingMessageTypeVMeetingRequest MeetingMessageType = "meetingRequest"
+	// MeetingMessageTypeVMeetingRequestObject undocumented
+	MeetingMessageTypeVMeetingRequestObject MeetingMessageType = "meetingRequest"
 	// MeetingMessageTypeVMeetingCancelled undocumented
 	MeetingMessageTypeVMeetingCancelled MeetingMessageType = "meetingCancelled"
 	// MeetingMessageTypeVMeetingAccepted undocumented
@@ -23,8 +23,8 @@ const (
 var (
 	// MeetingMessageTypePNone is a pointer to MeetingMessageTypeVNone
 	MeetingMessageTypePNone = &_MeetingMessageTypePNone
-	// MeetingMessageTypePMeetingRequest is a pointer to MeetingMessageTypeVMeetingRequest
-	MeetingMessageTypePMeetingRequest = &_MeetingMessageTypePMeetingRequest
+	// MeetingMessageTypePMeetingRequestObject is a pointer to MeetingMessageTypeVMeetingRequestObject
+	MeetingMessageTypePMeetingRequestObject = &_MeetingMessageTypePMeetingRequestObject
 	// MeetingMessageTypePMeetingCancelled is a pointer to MeetingMessageTypeVMeetingCancelled
 	MeetingMessageTypePMeetingCancelled = &_MeetingMessageTypePMeetingCancelled
 	// MeetingMessageTypePMeetingAccepted is a pointer to MeetingMessageTypeVMeetingAccepted
@@ -37,9 +37,56 @@ var (
 
 var (
 	_MeetingMessageTypePNone                      = MeetingMessageTypeVNone
-	_MeetingMessageTypePMeetingRequest            = MeetingMessageTypeVMeetingRequest
+	_MeetingMessageTypePMeetingRequestObject      = MeetingMessageTypeVMeetingRequestObject
 	_MeetingMessageTypePMeetingCancelled          = MeetingMessageTypeVMeetingCancelled
 	_MeetingMessageTypePMeetingAccepted           = MeetingMessageTypeVMeetingAccepted
 	_MeetingMessageTypePMeetingTenativelyAccepted = MeetingMessageTypeVMeetingTenativelyAccepted
 	_MeetingMessageTypePMeetingDeclined           = MeetingMessageTypeVMeetingDeclined
+)
+
+// MeetingRequestType undocumented
+type MeetingRequestType string
+
+const (
+	// MeetingRequestTypeVNone undocumented
+	MeetingRequestTypeVNone MeetingRequestType = "none"
+	// MeetingRequestTypeVNewMeetingRequestObject undocumented
+	MeetingRequestTypeVNewMeetingRequestObject MeetingRequestType = "newMeetingRequest"
+	// MeetingRequestTypeVFullUpdate undocumented
+	MeetingRequestTypeVFullUpdate MeetingRequestType = "fullUpdate"
+	// MeetingRequestTypeVInformationalUpdate undocumented
+	MeetingRequestTypeVInformationalUpdate MeetingRequestType = "informationalUpdate"
+	// MeetingRequestTypeVSilentUpdate undocumented
+	MeetingRequestTypeVSilentUpdate MeetingRequestType = "silentUpdate"
+	// MeetingRequestTypeVOutdated undocumented
+	MeetingRequestTypeVOutdated MeetingRequestType = "outdated"
+	// MeetingRequestTypeVPrincipalWantsCopy undocumented
+	MeetingRequestTypeVPrincipalWantsCopy MeetingRequestType = "principalWantsCopy"
+)
+
+var (
+	// MeetingRequestTypePNone is a pointer to MeetingRequestTypeVNone
+	MeetingRequestTypePNone = &_MeetingRequestTypePNone
+	// MeetingRequestTypePNewMeetingRequestObject is a pointer to MeetingRequestTypeVNewMeetingRequestObject
+	MeetingRequestTypePNewMeetingRequestObject = &_MeetingRequestTypePNewMeetingRequestObject
+	// MeetingRequestTypePFullUpdate is a pointer to MeetingRequestTypeVFullUpdate
+	MeetingRequestTypePFullUpdate = &_MeetingRequestTypePFullUpdate
+	// MeetingRequestTypePInformationalUpdate is a pointer to MeetingRequestTypeVInformationalUpdate
+	MeetingRequestTypePInformationalUpdate = &_MeetingRequestTypePInformationalUpdate
+	// MeetingRequestTypePSilentUpdate is a pointer to MeetingRequestTypeVSilentUpdate
+	MeetingRequestTypePSilentUpdate = &_MeetingRequestTypePSilentUpdate
+	// MeetingRequestTypePOutdated is a pointer to MeetingRequestTypeVOutdated
+	MeetingRequestTypePOutdated = &_MeetingRequestTypePOutdated
+	// MeetingRequestTypePPrincipalWantsCopy is a pointer to MeetingRequestTypeVPrincipalWantsCopy
+	MeetingRequestTypePPrincipalWantsCopy = &_MeetingRequestTypePPrincipalWantsCopy
+)
+
+var (
+	_MeetingRequestTypePNone                    = MeetingRequestTypeVNone
+	_MeetingRequestTypePNewMeetingRequestObject = MeetingRequestTypeVNewMeetingRequestObject
+	_MeetingRequestTypePFullUpdate              = MeetingRequestTypeVFullUpdate
+	_MeetingRequestTypePInformationalUpdate     = MeetingRequestTypeVInformationalUpdate
+	_MeetingRequestTypePSilentUpdate            = MeetingRequestTypeVSilentUpdate
+	_MeetingRequestTypePOutdated                = MeetingRequestTypeVOutdated
+	_MeetingRequestTypePPrincipalWantsCopy      = MeetingRequestTypeVPrincipalWantsCopy
 )

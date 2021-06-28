@@ -2,16 +2,16 @@
 
 package msgraph
 
-// HasPayloadLinkResultItem undocumented
+// HasPayloadLinkResultItem A class containing the result of HasPayloadLinks action.
 type HasPayloadLinkResultItem struct {
 	// Object is the base model of HasPayloadLinkResultItem
 	Object
-	// PayloadID Key of the Payload, In the format of Guid.
-	PayloadID *string `json:"payloadId,omitempty"`
-	// HasLink Indicate whether a payload has any link or not.
-	HasLink *bool `json:"hasLink,omitempty"`
 	// Error Exception information indicates if check for this item was successful or not.Empty string for no error.
 	Error *string `json:"error,omitempty"`
+	// HasLink Indicate whether a payload has any link or not.
+	HasLink *bool `json:"hasLink,omitempty"`
+	// PayloadID Key of the Payload, In the format of Guid.
+	PayloadID *string `json:"payloadId,omitempty"`
 	// Sources The reason where the link comes from.
 	Sources []DeviceAndAppManagementAssignmentSource `json:"sources,omitempty"`
 }

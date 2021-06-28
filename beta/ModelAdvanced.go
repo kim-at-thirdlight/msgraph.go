@@ -8,52 +8,52 @@ import "time"
 type AdvancedThreatProtectionOnboardingDeviceSettingState struct {
 	// Entity is the base model of AdvancedThreatProtectionOnboardingDeviceSettingState
 	Entity
+	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
+	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
+	// DeviceID The Device Id that is being reported
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceModel The device model that is being reported
+	DeviceModel *string `json:"deviceModel,omitempty"`
+	// DeviceName The Device Name that is being reported
+	DeviceName *string `json:"deviceName,omitempty"`
 	// PlatformType Device platform type
 	PlatformType *DeviceType `json:"platformType,omitempty"`
 	// Setting The setting class name and property name.
 	Setting *string `json:"setting,omitempty"`
 	// SettingName The Setting Name that is being reported
 	SettingName *string `json:"settingName,omitempty"`
-	// DeviceID The Device Id that is being reported
-	DeviceID *string `json:"deviceId,omitempty"`
-	// DeviceName The Device Name that is being reported
-	DeviceName *string `json:"deviceName,omitempty"`
-	// UserID The user Id that is being reported
-	UserID *string `json:"userId,omitempty"`
+	// State The compliance state of the setting
+	State *ComplianceStatus `json:"state,omitempty"`
 	// UserEmail The User email address that is being reported
 	UserEmail *string `json:"userEmail,omitempty"`
+	// UserID The user Id that is being reported
+	UserID *string `json:"userId,omitempty"`
 	// UserName The User Name that is being reported
 	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName The User PrincipalName that is being reported
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// DeviceModel The device model that is being reported
-	DeviceModel *string `json:"deviceModel,omitempty"`
-	// State The compliance state of the setting
-	State *ComplianceStatus `json:"state,omitempty"`
-	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
-	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
 }
 
 // AdvancedThreatProtectionOnboardingStateSummary Windows defender advanced threat protection onboarding state summary across the account.
 type AdvancedThreatProtectionOnboardingStateSummary struct {
 	// Entity is the base model of AdvancedThreatProtectionOnboardingStateSummary
 	Entity
-	// UnknownDeviceCount Number of unknown devices
-	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
-	// NotApplicableDeviceCount Number of not applicable devices
-	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
 	// CompliantDeviceCount Number of compliant devices
 	CompliantDeviceCount *int `json:"compliantDeviceCount,omitempty"`
-	// RemediatedDeviceCount Number of remediated devices
-	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
-	// NonCompliantDeviceCount Number of NonCompliant devices
-	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
-	// ErrorDeviceCount Number of error devices
-	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
 	// ConflictDeviceCount Number of conflict devices
 	ConflictDeviceCount *int `json:"conflictDeviceCount,omitempty"`
+	// ErrorDeviceCount Number of error devices
+	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// NonCompliantDeviceCount Number of NonCompliant devices
+	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
+	// NotApplicableDeviceCount Number of not applicable devices
+	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
 	// NotAssignedDeviceCount Number of not assigned devices
 	NotAssignedDeviceCount *int `json:"notAssignedDeviceCount,omitempty"`
+	// RemediatedDeviceCount Number of remediated devices
+	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
+	// UnknownDeviceCount Number of unknown devices
+	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
 	// AdvancedThreatProtectionOnboardingDeviceSettingStates undocumented
 	AdvancedThreatProtectionOnboardingDeviceSettingStates []AdvancedThreatProtectionOnboardingDeviceSettingState `json:"advancedThreatProtectionOnboardingDeviceSettingStates,omitempty"`
 }

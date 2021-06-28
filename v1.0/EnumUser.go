@@ -38,3 +38,97 @@ var (
 	_UserAccountSecurityTypePAdministrator      = UserAccountSecurityTypeVAdministrator
 	_UserAccountSecurityTypePUnknownFutureValue = UserAccountSecurityTypeVUnknownFutureValue
 )
+
+// UserFeedbackRating undocumented
+type UserFeedbackRating string
+
+const (
+	// UserFeedbackRatingVNotRated undocumented
+	UserFeedbackRatingVNotRated UserFeedbackRating = "notRated"
+	// UserFeedbackRatingVBad undocumented
+	UserFeedbackRatingVBad UserFeedbackRating = "bad"
+	// UserFeedbackRatingVPoor undocumented
+	UserFeedbackRatingVPoor UserFeedbackRating = "poor"
+	// UserFeedbackRatingVFair undocumented
+	UserFeedbackRatingVFair UserFeedbackRating = "fair"
+	// UserFeedbackRatingVGood undocumented
+	UserFeedbackRatingVGood UserFeedbackRating = "good"
+	// UserFeedbackRatingVExcellent undocumented
+	UserFeedbackRatingVExcellent UserFeedbackRating = "excellent"
+	// UserFeedbackRatingVUnknownFutureValue undocumented
+	UserFeedbackRatingVUnknownFutureValue UserFeedbackRating = "unknownFutureValue"
+)
+
+var (
+	// UserFeedbackRatingPNotRated is a pointer to UserFeedbackRatingVNotRated
+	UserFeedbackRatingPNotRated = &_UserFeedbackRatingPNotRated
+	// UserFeedbackRatingPBad is a pointer to UserFeedbackRatingVBad
+	UserFeedbackRatingPBad = &_UserFeedbackRatingPBad
+	// UserFeedbackRatingPPoor is a pointer to UserFeedbackRatingVPoor
+	UserFeedbackRatingPPoor = &_UserFeedbackRatingPPoor
+	// UserFeedbackRatingPFair is a pointer to UserFeedbackRatingVFair
+	UserFeedbackRatingPFair = &_UserFeedbackRatingPFair
+	// UserFeedbackRatingPGood is a pointer to UserFeedbackRatingVGood
+	UserFeedbackRatingPGood = &_UserFeedbackRatingPGood
+	// UserFeedbackRatingPExcellent is a pointer to UserFeedbackRatingVExcellent
+	UserFeedbackRatingPExcellent = &_UserFeedbackRatingPExcellent
+	// UserFeedbackRatingPUnknownFutureValue is a pointer to UserFeedbackRatingVUnknownFutureValue
+	UserFeedbackRatingPUnknownFutureValue = &_UserFeedbackRatingPUnknownFutureValue
+)
+
+var (
+	_UserFeedbackRatingPNotRated           = UserFeedbackRatingVNotRated
+	_UserFeedbackRatingPBad                = UserFeedbackRatingVBad
+	_UserFeedbackRatingPPoor               = UserFeedbackRatingVPoor
+	_UserFeedbackRatingPFair               = UserFeedbackRatingVFair
+	_UserFeedbackRatingPGood               = UserFeedbackRatingVGood
+	_UserFeedbackRatingPExcellent          = UserFeedbackRatingVExcellent
+	_UserFeedbackRatingPUnknownFutureValue = UserFeedbackRatingVUnknownFutureValue
+)
+
+// UserFlowType undocumented
+type UserFlowType string
+
+const (
+	// UserFlowTypeVSignUp undocumented
+	UserFlowTypeVSignUp UserFlowType = "signUp"
+	// UserFlowTypeVSignIn undocumented
+	UserFlowTypeVSignIn UserFlowType = "signIn"
+	// UserFlowTypeVSignUpOrSignIn undocumented
+	UserFlowTypeVSignUpOrSignIn UserFlowType = "signUpOrSignIn"
+	// UserFlowTypeVPasswordReset undocumented
+	UserFlowTypeVPasswordReset UserFlowType = "passwordReset"
+	// UserFlowTypeVProfileUpdate undocumented
+	UserFlowTypeVProfileUpdate UserFlowType = "profileUpdate"
+	// UserFlowTypeVResourceOwner undocumented
+	UserFlowTypeVResourceOwner UserFlowType = "resourceOwner"
+	// UserFlowTypeVUnknownFutureValue undocumented
+	UserFlowTypeVUnknownFutureValue UserFlowType = "unknownFutureValue"
+)
+
+var (
+	// UserFlowTypePSignUp is a pointer to UserFlowTypeVSignUp
+	UserFlowTypePSignUp = &_UserFlowTypePSignUp
+	// UserFlowTypePSignIn is a pointer to UserFlowTypeVSignIn
+	UserFlowTypePSignIn = &_UserFlowTypePSignIn
+	// UserFlowTypePSignUpOrSignIn is a pointer to UserFlowTypeVSignUpOrSignIn
+	UserFlowTypePSignUpOrSignIn = &_UserFlowTypePSignUpOrSignIn
+	// UserFlowTypePPasswordReset is a pointer to UserFlowTypeVPasswordReset
+	UserFlowTypePPasswordReset = &_UserFlowTypePPasswordReset
+	// UserFlowTypePProfileUpdate is a pointer to UserFlowTypeVProfileUpdate
+	UserFlowTypePProfileUpdate = &_UserFlowTypePProfileUpdate
+	// UserFlowTypePResourceOwner is a pointer to UserFlowTypeVResourceOwner
+	UserFlowTypePResourceOwner = &_UserFlowTypePResourceOwner
+	// UserFlowTypePUnknownFutureValue is a pointer to UserFlowTypeVUnknownFutureValue
+	UserFlowTypePUnknownFutureValue = &_UserFlowTypePUnknownFutureValue
+)
+
+var (
+	_UserFlowTypePSignUp             = UserFlowTypeVSignUp
+	_UserFlowTypePSignIn             = UserFlowTypeVSignIn
+	_UserFlowTypePSignUpOrSignIn     = UserFlowTypeVSignUpOrSignIn
+	_UserFlowTypePPasswordReset      = UserFlowTypeVPasswordReset
+	_UserFlowTypePProfileUpdate      = UserFlowTypeVProfileUpdate
+	_UserFlowTypePResourceOwner      = UserFlowTypeVResourceOwner
+	_UserFlowTypePUnknownFutureValue = UserFlowTypeVUnknownFutureValue
+)

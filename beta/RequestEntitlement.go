@@ -36,3 +36,36 @@ func (r *EntitlementManagementRequest) Update(ctx context.Context, reqObj *Entit
 func (r *EntitlementManagementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// EntitlementManagementSettingsRequestBuilder is request builder for EntitlementManagementSettings
+type EntitlementManagementSettingsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EntitlementManagementSettingsRequest
+func (b *EntitlementManagementSettingsRequestBuilder) Request() *EntitlementManagementSettingsRequest {
+	return &EntitlementManagementSettingsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EntitlementManagementSettingsRequest is request for EntitlementManagementSettings
+type EntitlementManagementSettingsRequest struct{ BaseRequest }
+
+// Get performs GET request for EntitlementManagementSettings
+func (r *EntitlementManagementSettingsRequest) Get(ctx context.Context) (resObj *EntitlementManagementSettings, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EntitlementManagementSettings
+func (r *EntitlementManagementSettingsRequest) Update(ctx context.Context, reqObj *EntitlementManagementSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EntitlementManagementSettings
+func (r *EntitlementManagementSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}

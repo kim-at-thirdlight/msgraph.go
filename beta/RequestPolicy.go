@@ -11,21 +11,21 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// PolicyRequestBuilder is request builder for Policy
-type PolicyRequestBuilder struct{ BaseRequestBuilder }
+// PolicyRootRequestBuilder is request builder for PolicyRoot
+type PolicyRootRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns PolicyRequest
-func (b *PolicyRequestBuilder) Request() *PolicyRequest {
-	return &PolicyRequest{
+// Request returns PolicyRootRequest
+func (b *PolicyRootRequestBuilder) Request() *PolicyRootRequest {
+	return &PolicyRootRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// PolicyRequest is request for Policy
-type PolicyRequest struct{ BaseRequest }
+// PolicyRootRequest is request for PolicyRoot
+type PolicyRootRequest struct{ BaseRequest }
 
-// Get performs GET request for Policy
-func (r *PolicyRequest) Get(ctx context.Context) (resObj *Policy, err error) {
+// Get performs GET request for PolicyRoot
+func (r *PolicyRootRequest) Get(ctx context.Context) (resObj *PolicyRoot, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -34,13 +34,13 @@ func (r *PolicyRequest) Get(ctx context.Context) (resObj *Policy, err error) {
 	return
 }
 
-// Update performs PATCH request for Policy
-func (r *PolicyRequest) Update(ctx context.Context, reqObj *Policy) error {
+// Update performs PATCH request for PolicyRoot
+func (r *PolicyRootRequest) Update(ctx context.Context, reqObj *PolicyRoot) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for Policy
-func (r *PolicyRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for PolicyRoot
+func (r *PolicyRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -228,30 +228,4 @@ func (r *PolicySetCollectionGetPolicySetsRequest) PostN(ctx context.Context, n i
 //
 func (r *PolicySetCollectionGetPolicySetsRequest) Post(ctx context.Context) ([]PolicySet, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type PolicySetUpdateRequestBuilder struct{ BaseRequestBuilder }
-
-// Update action undocumented
-func (b *PolicySetRequestBuilder) Update(reqObj *PolicySetUpdateRequestParameter) *PolicySetUpdateRequestBuilder {
-	bb := &PolicySetUpdateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/update"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type PolicySetUpdateRequest struct{ BaseRequest }
-
-//
-func (b *PolicySetUpdateRequestBuilder) Request() *PolicySetUpdateRequest {
-	return &PolicySetUpdateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *PolicySetUpdateRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

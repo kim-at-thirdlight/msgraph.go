@@ -105,6 +105,14 @@ const (
 	AppleVPNConnectionTypeVPaloAltoGlobalProtectV2 AppleVPNConnectionType = "paloAltoGlobalProtectV2"
 	// AppleVPNConnectionTypeVIkEv2 undocumented
 	AppleVPNConnectionTypeVIkEv2 AppleVPNConnectionType = "ikEv2"
+	// AppleVPNConnectionTypeVAlwaysOn undocumented
+	AppleVPNConnectionTypeVAlwaysOn AppleVPNConnectionType = "alwaysOn"
+	// AppleVPNConnectionTypeVMicrosoftTunnel undocumented
+	AppleVPNConnectionTypeVMicrosoftTunnel AppleVPNConnectionType = "microsoftTunnel"
+	// AppleVPNConnectionTypeVNetMotionMobility undocumented
+	AppleVPNConnectionTypeVNetMotionMobility AppleVPNConnectionType = "netMotionMobility"
+	// AppleVPNConnectionTypeVMicrosoftProtect undocumented
+	AppleVPNConnectionTypeVMicrosoftProtect AppleVPNConnectionType = "microsoftProtect"
 )
 
 var (
@@ -138,6 +146,14 @@ var (
 	AppleVPNConnectionTypePPaloAltoGlobalProtectV2 = &_AppleVPNConnectionTypePPaloAltoGlobalProtectV2
 	// AppleVPNConnectionTypePIkEv2 is a pointer to AppleVPNConnectionTypeVIkEv2
 	AppleVPNConnectionTypePIkEv2 = &_AppleVPNConnectionTypePIkEv2
+	// AppleVPNConnectionTypePAlwaysOn is a pointer to AppleVPNConnectionTypeVAlwaysOn
+	AppleVPNConnectionTypePAlwaysOn = &_AppleVPNConnectionTypePAlwaysOn
+	// AppleVPNConnectionTypePMicrosoftTunnel is a pointer to AppleVPNConnectionTypeVMicrosoftTunnel
+	AppleVPNConnectionTypePMicrosoftTunnel = &_AppleVPNConnectionTypePMicrosoftTunnel
+	// AppleVPNConnectionTypePNetMotionMobility is a pointer to AppleVPNConnectionTypeVNetMotionMobility
+	AppleVPNConnectionTypePNetMotionMobility = &_AppleVPNConnectionTypePNetMotionMobility
+	// AppleVPNConnectionTypePMicrosoftProtect is a pointer to AppleVPNConnectionTypeVMicrosoftProtect
+	AppleVPNConnectionTypePMicrosoftProtect = &_AppleVPNConnectionTypePMicrosoftProtect
 )
 
 var (
@@ -156,4 +172,8 @@ var (
 	_AppleVPNConnectionTypePCitrixSso                  = AppleVPNConnectionTypeVCitrixSso
 	_AppleVPNConnectionTypePPaloAltoGlobalProtectV2    = AppleVPNConnectionTypeVPaloAltoGlobalProtectV2
 	_AppleVPNConnectionTypePIkEv2                      = AppleVPNConnectionTypeVIkEv2
+	_AppleVPNConnectionTypePAlwaysOn                   = AppleVPNConnectionTypeVAlwaysOn
+	_AppleVPNConnectionTypePMicrosoftTunnel            = AppleVPNConnectionTypeVMicrosoftTunnel
+	_AppleVPNConnectionTypePNetMotionMobility          = AppleVPNConnectionTypeVNetMotionMobility
+	_AppleVPNConnectionTypePMicrosoftProtect           = AppleVPNConnectionTypeVMicrosoftProtect
 )

@@ -6,8 +6,6 @@ package msgraph
 type YammerActivitySummary struct {
 	// Entity is the base model of YammerActivitySummary
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Liked undocumented
 	Liked *int `json:"liked,omitempty"`
 	// Posted undocumented
@@ -18,120 +16,120 @@ type YammerActivitySummary struct {
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 }
 
 // YammerActivityUserDetail undocumented
 type YammerActivityUserDetail struct {
 	// Entity is the base model of YammerActivityUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AssignedProducts undocumented
+	AssignedProducts []string `json:"assignedProducts,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// UserState undocumented
-	UserState *string `json:"userState,omitempty"`
-	// StateChangeDate undocumented
-	StateChangeDate *Date `json:"stateChangeDate,omitempty"`
 	// LastActivityDate undocumented
 	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
+	// LikedCount undocumented
+	LikedCount *int `json:"likedCount,omitempty"`
 	// PostedCount undocumented
 	PostedCount *int `json:"postedCount,omitempty"`
 	// ReadCount undocumented
 	ReadCount *int `json:"readCount,omitempty"`
-	// LikedCount undocumented
-	LikedCount *int `json:"likedCount,omitempty"`
-	// AssignedProducts undocumented
-	AssignedProducts []string `json:"assignedProducts,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// StateChangeDate undocumented
+	StateChangeDate *Date `json:"stateChangeDate,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// UserState undocumented
+	UserState *string `json:"userState,omitempty"`
 }
 
 // YammerDeviceUsageDistributionUserCounts undocumented
 type YammerDeviceUsageDistributionUserCounts struct {
 	// Entity is the base model of YammerDeviceUsageDistributionUserCounts
 	Entity
+	// AndroidPhone undocumented
+	AndroidPhone *int `json:"androidPhone,omitempty"`
+	// IPad undocumented
+	IPad *int `json:"iPad,omitempty"`
+	// IPhone undocumented
+	IPhone *int `json:"iPhone,omitempty"`
+	// Other undocumented
+	Other *int `json:"other,omitempty"`
+	// ReportPeriod undocumented
+	ReportPeriod *string `json:"reportPeriod,omitempty"`
 	// ReportRefreshDate undocumented
 	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Web undocumented
 	Web *int `json:"web,omitempty"`
 	// WindowsPhone undocumented
 	WindowsPhone *int `json:"windowsPhone,omitempty"`
-	// AndroidPhone undocumented
-	AndroidPhone *int `json:"androidPhone,omitempty"`
-	// IPhone undocumented
-	IPhone *int `json:"iPhone,omitempty"`
-	// IPad undocumented
-	IPad *int `json:"iPad,omitempty"`
-	// Other undocumented
-	Other *int `json:"other,omitempty"`
-	// ReportPeriod undocumented
-	ReportPeriod *string `json:"reportPeriod,omitempty"`
 }
 
 // YammerDeviceUsageUserCounts undocumented
 type YammerDeviceUsageUserCounts struct {
 	// Entity is the base model of YammerDeviceUsageUserCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// Web undocumented
-	Web *int `json:"web,omitempty"`
-	// WindowsPhone undocumented
-	WindowsPhone *int `json:"windowsPhone,omitempty"`
 	// AndroidPhone undocumented
 	AndroidPhone *int `json:"androidPhone,omitempty"`
-	// IPhone undocumented
-	IPhone *int `json:"iPhone,omitempty"`
 	// IPad undocumented
 	IPad *int `json:"iPad,omitempty"`
+	// IPhone undocumented
+	IPhone *int `json:"iPhone,omitempty"`
 	// Other undocumented
 	Other *int `json:"other,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// Web undocumented
+	Web *int `json:"web,omitempty"`
+	// WindowsPhone undocumented
+	WindowsPhone *int `json:"windowsPhone,omitempty"`
 }
 
 // YammerDeviceUsageUserDetail undocumented
 type YammerDeviceUsageUserDetail struct {
 	// Entity is the base model of YammerDeviceUsageUserDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// UserState undocumented
-	UserState *string `json:"userState,omitempty"`
-	// StateChangeDate undocumented
-	StateChangeDate *Date `json:"stateChangeDate,omitempty"`
 	// LastActivityDate undocumented
 	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
+	// ReportPeriod undocumented
+	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// StateChangeDate undocumented
+	StateChangeDate *Date `json:"stateChangeDate,omitempty"`
+	// UsedAndroidPhone undocumented
+	UsedAndroidPhone *bool `json:"usedAndroidPhone,omitempty"`
+	// UsediPad undocumented
+	UsediPad *bool `json:"usediPad,omitempty"`
+	// UsediPhone undocumented
+	UsediPhone *bool `json:"usediPhone,omitempty"`
+	// UsedOthers undocumented
+	UsedOthers *bool `json:"usedOthers,omitempty"`
 	// UsedWeb undocumented
 	UsedWeb *bool `json:"usedWeb,omitempty"`
 	// UsedWindowsPhone undocumented
 	UsedWindowsPhone *bool `json:"usedWindowsPhone,omitempty"`
-	// UsedAndroidPhone undocumented
-	UsedAndroidPhone *bool `json:"usedAndroidPhone,omitempty"`
-	// UsediPhone undocumented
-	UsediPhone *bool `json:"usediPhone,omitempty"`
-	// UsediPad undocumented
-	UsediPad *bool `json:"usediPad,omitempty"`
-	// UsedOthers undocumented
-	UsedOthers *bool `json:"usedOthers,omitempty"`
-	// ReportPeriod undocumented
-	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// UserState undocumented
+	UserState *string `json:"userState,omitempty"`
 }
 
 // YammerGroupsActivityCounts undocumented
 type YammerGroupsActivityCounts struct {
 	// Entity is the base model of YammerGroupsActivityCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// Liked undocumented
 	Liked *int `json:"liked,omitempty"`
 	// Posted undocumented
@@ -142,50 +140,54 @@ type YammerGroupsActivityCounts struct {
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 }
 
 // YammerGroupsActivityDetail undocumented
 type YammerGroupsActivityDetail struct {
 	// Entity is the base model of YammerGroupsActivityDetail
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 	// GroupDisplayName undocumented
 	GroupDisplayName *string `json:"groupDisplayName,omitempty"`
-	// IsDeleted undocumented
-	IsDeleted *bool `json:"isDeleted,omitempty"`
-	// OwnerPrincipalName undocumented
-	OwnerPrincipalName *string `json:"ownerPrincipalName,omitempty"`
-	// LastActivityDate undocumented
-	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
 	// GroupType undocumented
 	GroupType *string `json:"groupType,omitempty"`
-	// Office365Connected undocumented
-	Office365Connected *bool `json:"office365Connected,omitempty"`
+	// IsDeleted undocumented
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	// LastActivityDate undocumented
+	LastActivityDate *Date `json:"lastActivityDate,omitempty"`
+	// LikedCount undocumented
+	LikedCount *int `json:"likedCount,omitempty"`
 	// MemberCount undocumented
 	MemberCount *int `json:"memberCount,omitempty"`
+	// NetworkDisplayName undocumented
+	NetworkDisplayName *string `json:"networkDisplayName,omitempty"`
+	// Office365Connected undocumented
+	Office365Connected *bool `json:"office365Connected,omitempty"`
+	// OwnerPrincipalName undocumented
+	OwnerPrincipalName *string `json:"ownerPrincipalName,omitempty"`
 	// PostedCount undocumented
 	PostedCount *int `json:"postedCount,omitempty"`
 	// ReadCount undocumented
 	ReadCount *int `json:"readCount,omitempty"`
-	// LikedCount undocumented
-	LikedCount *int `json:"likedCount,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
 }
 
 // YammerGroupsActivityGroupCounts undocumented
 type YammerGroupsActivityGroupCounts struct {
 	// Entity is the base model of YammerGroupsActivityGroupCounts
 	Entity
-	// ReportRefreshDate undocumented
-	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
-	// Total undocumented
-	Total *int `json:"total,omitempty"`
 	// Active undocumented
 	Active *int `json:"active,omitempty"`
 	// ReportDate undocumented
 	ReportDate *Date `json:"reportDate,omitempty"`
 	// ReportPeriod undocumented
 	ReportPeriod *string `json:"reportPeriod,omitempty"`
+	// ReportRefreshDate undocumented
+	ReportRefreshDate *Date `json:"reportRefreshDate,omitempty"`
+	// Total undocumented
+	Total *int `json:"total,omitempty"`
 }

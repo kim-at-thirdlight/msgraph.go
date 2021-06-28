@@ -6,50 +6,50 @@ package msgraph
 type AgedAccountsPayable struct {
 	// Entity is the base model of AgedAccountsPayable
 	Entity
-	// VendorNumber undocumented
-	VendorNumber *string `json:"vendorNumber,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// CurrencyCode undocumented
-	CurrencyCode *string `json:"currencyCode,omitempty"`
+	// AgedAsOfDate undocumented
+	AgedAsOfDate *Date `json:"agedAsOfDate,omitempty"`
 	// BalanceDue undocumented
 	BalanceDue *int `json:"balanceDue,omitempty"`
+	// CurrencyCode undocumented
+	CurrencyCode *string `json:"currencyCode,omitempty"`
 	// CurrentAmount undocumented
 	CurrentAmount *int `json:"currentAmount,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 	// Period1Amount undocumented
 	Period1Amount *int `json:"period1Amount,omitempty"`
 	// Period2Amount undocumented
 	Period2Amount *int `json:"period2Amount,omitempty"`
 	// Period3Amount undocumented
 	Period3Amount *int `json:"period3Amount,omitempty"`
-	// AgedAsOfDate undocumented
-	AgedAsOfDate *Date `json:"agedAsOfDate,omitempty"`
 	// PeriodLengthFilter undocumented
 	PeriodLengthFilter *string `json:"periodLengthFilter,omitempty"`
+	// VendorNumber undocumented
+	VendorNumber *string `json:"vendorNumber,omitempty"`
 }
 
 // AgedAccountsReceivable undocumented
 type AgedAccountsReceivable struct {
 	// Entity is the base model of AgedAccountsReceivable
 	Entity
+	// AgedAsOfDate undocumented
+	AgedAsOfDate *Date `json:"agedAsOfDate,omitempty"`
+	// BalanceDue undocumented
+	BalanceDue *int `json:"balanceDue,omitempty"`
+	// CurrencyCode undocumented
+	CurrencyCode *string `json:"currencyCode,omitempty"`
+	// CurrentAmount undocumented
+	CurrentAmount *int `json:"currentAmount,omitempty"`
 	// CustomerNumber undocumented
 	CustomerNumber *string `json:"customerNumber,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// CurrencyCode undocumented
-	CurrencyCode *string `json:"currencyCode,omitempty"`
-	// BalanceDue undocumented
-	BalanceDue *int `json:"balanceDue,omitempty"`
-	// CurrentAmount undocumented
-	CurrentAmount *int `json:"currentAmount,omitempty"`
 	// Period1Amount undocumented
 	Period1Amount *int `json:"period1Amount,omitempty"`
 	// Period2Amount undocumented
 	Period2Amount *int `json:"period2Amount,omitempty"`
 	// Period3Amount undocumented
 	Period3Amount *int `json:"period3Amount,omitempty"`
-	// AgedAsOfDate undocumented
-	AgedAsOfDate *Date `json:"agedAsOfDate,omitempty"`
 	// PeriodLengthFilter undocumented
 	PeriodLengthFilter *string `json:"periodLengthFilter,omitempty"`
 }

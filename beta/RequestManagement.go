@@ -4,6 +4,72 @@ package msgraph
 
 import "context"
 
+// ManagementActionRequestBuilder is request builder for ManagementAction
+type ManagementActionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ManagementActionRequest
+func (b *ManagementActionRequestBuilder) Request() *ManagementActionRequest {
+	return &ManagementActionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ManagementActionRequest is request for ManagementAction
+type ManagementActionRequest struct{ BaseRequest }
+
+// Get performs GET request for ManagementAction
+func (r *ManagementActionRequest) Get(ctx context.Context) (resObj *ManagementAction, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ManagementAction
+func (r *ManagementActionRequest) Update(ctx context.Context, reqObj *ManagementAction) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ManagementAction
+func (r *ManagementActionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ManagementActionTenantDeploymentStatusRequestBuilder is request builder for ManagementActionTenantDeploymentStatus
+type ManagementActionTenantDeploymentStatusRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ManagementActionTenantDeploymentStatusRequest
+func (b *ManagementActionTenantDeploymentStatusRequestBuilder) Request() *ManagementActionTenantDeploymentStatusRequest {
+	return &ManagementActionTenantDeploymentStatusRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ManagementActionTenantDeploymentStatusRequest is request for ManagementActionTenantDeploymentStatus
+type ManagementActionTenantDeploymentStatusRequest struct{ BaseRequest }
+
+// Get performs GET request for ManagementActionTenantDeploymentStatus
+func (r *ManagementActionTenantDeploymentStatusRequest) Get(ctx context.Context) (resObj *ManagementActionTenantDeploymentStatus, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ManagementActionTenantDeploymentStatus
+func (r *ManagementActionTenantDeploymentStatusRequest) Update(ctx context.Context, reqObj *ManagementActionTenantDeploymentStatus) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ManagementActionTenantDeploymentStatus
+func (r *ManagementActionTenantDeploymentStatusRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ManagementConditionRequestBuilder is request builder for ManagementCondition
 type ManagementConditionRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,4 +134,97 @@ func (r *ManagementConditionStatementRequest) Update(ctx context.Context, reqObj
 // Delete performs DELETE request for ManagementConditionStatement
 func (r *ManagementConditionStatementRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ManagementIntentRequestBuilder is request builder for ManagementIntent
+type ManagementIntentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ManagementIntentRequest
+func (b *ManagementIntentRequestBuilder) Request() *ManagementIntentRequest {
+	return &ManagementIntentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ManagementIntentRequest is request for ManagementIntent
+type ManagementIntentRequest struct{ BaseRequest }
+
+// Get performs GET request for ManagementIntent
+func (r *ManagementIntentRequest) Get(ctx context.Context) (resObj *ManagementIntent, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ManagementIntent
+func (r *ManagementIntentRequest) Update(ctx context.Context, reqObj *ManagementIntent) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ManagementIntent
+func (r *ManagementIntentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ManagementTemplateRequestBuilder is request builder for ManagementTemplate
+type ManagementTemplateRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ManagementTemplateRequest
+func (b *ManagementTemplateRequestBuilder) Request() *ManagementTemplateRequest {
+	return &ManagementTemplateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ManagementTemplateRequest is request for ManagementTemplate
+type ManagementTemplateRequest struct{ BaseRequest }
+
+// Get performs GET request for ManagementTemplate
+func (r *ManagementTemplateRequest) Get(ctx context.Context) (resObj *ManagementTemplate, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ManagementTemplate
+func (r *ManagementTemplateRequest) Update(ctx context.Context, reqObj *ManagementTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ManagementTemplate
+func (r *ManagementTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+//
+type ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestBuilder struct{ BaseRequestBuilder }
+
+// ChangeDeploymentStatus action undocumented
+func (b *ManagedTenantManagementActionTenantDeploymentStatusesCollectionRequestBuilder) ChangeDeploymentStatus(reqObj *ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestParameter) *ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestBuilder {
+	bb := &ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/changeDeploymentStatus"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequest struct{ BaseRequest }
+
+//
+func (b *ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestBuilder) Request() *ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequest {
+	return &ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequest) Post(ctx context.Context) (resObj *ManagementActionDeploymentStatus, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
 }

@@ -2,6 +2,39 @@
 
 package msgraph
 
+// TenantGroupCollectionTenantSearchRequestParameter undocumented
+type TenantGroupCollectionTenantSearchRequestParameter struct {
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+}
+
+// TenantOffboardTenantRequestParameter undocumented
+type TenantOffboardTenantRequestParameter struct {
+}
+
+// TenantResetTenantOnboardingStatusRequestParameter undocumented
+type TenantResetTenantOnboardingStatusRequestParameter struct {
+}
+
+// TenantTagAssignTagRequestParameter undocumented
+type TenantTagAssignTagRequestParameter struct {
+	// TenantIDs undocumented
+	TenantIDs []string `json:"tenantIds,omitempty"`
+}
+
+// TenantTagUnassignTagRequestParameter undocumented
+type TenantTagUnassignTagRequestParameter struct {
+	// TenantIDs undocumented
+	TenantIDs []string `json:"tenantIds,omitempty"`
+}
+
+// ManagedTenants is navigation property
+func (b *TenantRelationshipRequestBuilder) ManagedTenants() *ManagedTenantRequestBuilder {
+	bb := &ManagedTenantRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedTenants"
+	return bb
+}
+
 // DefaultRolesSettings is navigation property
 func (b *TenantSetupInfoRequestBuilder) DefaultRolesSettings() *PrivilegedRoleSettingsRequestBuilder {
 	bb := &PrivilegedRoleSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

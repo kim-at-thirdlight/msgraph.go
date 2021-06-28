@@ -36,3 +36,46 @@ func (r *ContentTypeRequest) Update(ctx context.Context, reqObj *ContentType) er
 func (r *ContentTypeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+//
+type ContentTypeCollectionAddCopyRequestBuilder struct{ BaseRequestBuilder }
+
+// AddCopy action undocumented
+func (b *ContentTypeBaseTypesCollectionRequestBuilder) AddCopy(reqObj *ContentTypeCollectionAddCopyRequestParameter) *ContentTypeCollectionAddCopyRequestBuilder {
+	bb := &ContentTypeCollectionAddCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addCopy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// AddCopy action undocumented
+func (b *ListContentTypesCollectionRequestBuilder) AddCopy(reqObj *ContentTypeCollectionAddCopyRequestParameter) *ContentTypeCollectionAddCopyRequestBuilder {
+	bb := &ContentTypeCollectionAddCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addCopy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// AddCopy action undocumented
+func (b *SiteContentTypesCollectionRequestBuilder) AddCopy(reqObj *ContentTypeCollectionAddCopyRequestParameter) *ContentTypeCollectionAddCopyRequestBuilder {
+	bb := &ContentTypeCollectionAddCopyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/addCopy"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type ContentTypeCollectionAddCopyRequest struct{ BaseRequest }
+
+//
+func (b *ContentTypeCollectionAddCopyRequestBuilder) Request() *ContentTypeCollectionAddCopyRequest {
+	return &ContentTypeCollectionAddCopyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *ContentTypeCollectionAddCopyRequest) Post(ctx context.Context) (resObj *ContentType, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}

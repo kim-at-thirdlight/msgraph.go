@@ -8,10 +8,10 @@ type ClassifcationErrorBase struct {
 	Object
 	// Code undocumented
 	Code *string `json:"code,omitempty"`
+	// InnerError undocumented
+	InnerError *ClassificationInnerError `json:"innerError,omitempty"`
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
 	// Target undocumented
 	Target *string `json:"target,omitempty"`
-	// InnerError undocumented
-	InnerError *ClassificationInnerError `json:"innerError,omitempty"`
 }

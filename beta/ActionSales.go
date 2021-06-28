@@ -11,32 +11,32 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// SalesInvoiceCancelAndSendRequestParameter undocumented
-type SalesInvoiceCancelAndSendRequestParameter struct {
-}
-
 // SalesInvoiceCancelRequestParameter undocumented
 type SalesInvoiceCancelRequestParameter struct {
-}
-
-// SalesInvoicePostAndSendRequestParameter undocumented
-type SalesInvoicePostAndSendRequestParameter struct {
-}
-
-// SalesInvoicePostRequestParameter undocumented
-type SalesInvoicePostRequestParameter struct {
 }
 
 // SalesInvoiceSendRequestParameter undocumented
 type SalesInvoiceSendRequestParameter struct {
 }
 
-// SalesQuoteMakeInvoiceRequestParameter undocumented
-type SalesQuoteMakeInvoiceRequestParameter struct {
+// SalesInvoiceCancelAndSendRequestParameter undocumented
+type SalesInvoiceCancelAndSendRequestParameter struct {
+}
+
+// SalesInvoicePostRequestParameter undocumented
+type SalesInvoicePostRequestParameter struct {
+}
+
+// SalesInvoicePostAndSendRequestParameter undocumented
+type SalesInvoicePostAndSendRequestParameter struct {
 }
 
 // SalesQuoteSendRequestParameter undocumented
 type SalesQuoteSendRequestParameter struct {
+}
+
+// SalesQuoteMakeInvoiceRequestParameter undocumented
+type SalesQuoteMakeInvoiceRequestParameter struct {
 }
 
 // Currency is navigation property

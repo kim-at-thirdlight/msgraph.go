@@ -2,6 +2,38 @@
 
 package msgraph
 
+// ApprovalFilterByCurrentUserOptions undocumented
+type ApprovalFilterByCurrentUserOptions string
+
+const (
+	// ApprovalFilterByCurrentUserOptionsVTarget undocumented
+	ApprovalFilterByCurrentUserOptionsVTarget ApprovalFilterByCurrentUserOptions = "target"
+	// ApprovalFilterByCurrentUserOptionsVCreatedBy undocumented
+	ApprovalFilterByCurrentUserOptionsVCreatedBy ApprovalFilterByCurrentUserOptions = "createdBy"
+	// ApprovalFilterByCurrentUserOptionsVApprover undocumented
+	ApprovalFilterByCurrentUserOptionsVApprover ApprovalFilterByCurrentUserOptions = "approver"
+	// ApprovalFilterByCurrentUserOptionsVUnknownFutureValue undocumented
+	ApprovalFilterByCurrentUserOptionsVUnknownFutureValue ApprovalFilterByCurrentUserOptions = "unknownFutureValue"
+)
+
+var (
+	// ApprovalFilterByCurrentUserOptionsPTarget is a pointer to ApprovalFilterByCurrentUserOptionsVTarget
+	ApprovalFilterByCurrentUserOptionsPTarget = &_ApprovalFilterByCurrentUserOptionsPTarget
+	// ApprovalFilterByCurrentUserOptionsPCreatedBy is a pointer to ApprovalFilterByCurrentUserOptionsVCreatedBy
+	ApprovalFilterByCurrentUserOptionsPCreatedBy = &_ApprovalFilterByCurrentUserOptionsPCreatedBy
+	// ApprovalFilterByCurrentUserOptionsPApprover is a pointer to ApprovalFilterByCurrentUserOptionsVApprover
+	ApprovalFilterByCurrentUserOptionsPApprover = &_ApprovalFilterByCurrentUserOptionsPApprover
+	// ApprovalFilterByCurrentUserOptionsPUnknownFutureValue is a pointer to ApprovalFilterByCurrentUserOptionsVUnknownFutureValue
+	ApprovalFilterByCurrentUserOptionsPUnknownFutureValue = &_ApprovalFilterByCurrentUserOptionsPUnknownFutureValue
+)
+
+var (
+	_ApprovalFilterByCurrentUserOptionsPTarget             = ApprovalFilterByCurrentUserOptionsVTarget
+	_ApprovalFilterByCurrentUserOptionsPCreatedBy          = ApprovalFilterByCurrentUserOptionsVCreatedBy
+	_ApprovalFilterByCurrentUserOptionsPApprover           = ApprovalFilterByCurrentUserOptionsVApprover
+	_ApprovalFilterByCurrentUserOptionsPUnknownFutureValue = ApprovalFilterByCurrentUserOptionsVUnknownFutureValue
+)
+
 // ApprovalState undocumented
 type ApprovalState string
 

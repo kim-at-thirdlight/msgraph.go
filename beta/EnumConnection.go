@@ -46,6 +46,8 @@ const (
 	ConnectionOperationStatusVCompleted ConnectionOperationStatus = "completed"
 	// ConnectionOperationStatusVFailed undocumented
 	ConnectionOperationStatusVFailed ConnectionOperationStatus = "failed"
+	// ConnectionOperationStatusVUnknownFutureValue undocumented
+	ConnectionOperationStatusVUnknownFutureValue ConnectionOperationStatus = "unknownFutureValue"
 )
 
 var (
@@ -57,13 +59,53 @@ var (
 	ConnectionOperationStatusPCompleted = &_ConnectionOperationStatusPCompleted
 	// ConnectionOperationStatusPFailed is a pointer to ConnectionOperationStatusVFailed
 	ConnectionOperationStatusPFailed = &_ConnectionOperationStatusPFailed
+	// ConnectionOperationStatusPUnknownFutureValue is a pointer to ConnectionOperationStatusVUnknownFutureValue
+	ConnectionOperationStatusPUnknownFutureValue = &_ConnectionOperationStatusPUnknownFutureValue
 )
 
 var (
-	_ConnectionOperationStatusPUnspecified = ConnectionOperationStatusVUnspecified
-	_ConnectionOperationStatusPInprogress  = ConnectionOperationStatusVInprogress
-	_ConnectionOperationStatusPCompleted   = ConnectionOperationStatusVCompleted
-	_ConnectionOperationStatusPFailed      = ConnectionOperationStatusVFailed
+	_ConnectionOperationStatusPUnspecified        = ConnectionOperationStatusVUnspecified
+	_ConnectionOperationStatusPInprogress         = ConnectionOperationStatusVInprogress
+	_ConnectionOperationStatusPCompleted          = ConnectionOperationStatusVCompleted
+	_ConnectionOperationStatusPFailed             = ConnectionOperationStatusVFailed
+	_ConnectionOperationStatusPUnknownFutureValue = ConnectionOperationStatusVUnknownFutureValue
+)
+
+// ConnectionState undocumented
+type ConnectionState string
+
+const (
+	// ConnectionStateVDraft undocumented
+	ConnectionStateVDraft ConnectionState = "draft"
+	// ConnectionStateVReady undocumented
+	ConnectionStateVReady ConnectionState = "ready"
+	// ConnectionStateVObsolete undocumented
+	ConnectionStateVObsolete ConnectionState = "obsolete"
+	// ConnectionStateVLimitExceeded undocumented
+	ConnectionStateVLimitExceeded ConnectionState = "limitExceeded"
+	// ConnectionStateVUnknownFutureValue undocumented
+	ConnectionStateVUnknownFutureValue ConnectionState = "unknownFutureValue"
+)
+
+var (
+	// ConnectionStatePDraft is a pointer to ConnectionStateVDraft
+	ConnectionStatePDraft = &_ConnectionStatePDraft
+	// ConnectionStatePReady is a pointer to ConnectionStateVReady
+	ConnectionStatePReady = &_ConnectionStatePReady
+	// ConnectionStatePObsolete is a pointer to ConnectionStateVObsolete
+	ConnectionStatePObsolete = &_ConnectionStatePObsolete
+	// ConnectionStatePLimitExceeded is a pointer to ConnectionStateVLimitExceeded
+	ConnectionStatePLimitExceeded = &_ConnectionStatePLimitExceeded
+	// ConnectionStatePUnknownFutureValue is a pointer to ConnectionStateVUnknownFutureValue
+	ConnectionStatePUnknownFutureValue = &_ConnectionStatePUnknownFutureValue
+)
+
+var (
+	_ConnectionStatePDraft              = ConnectionStateVDraft
+	_ConnectionStatePReady              = ConnectionStateVReady
+	_ConnectionStatePObsolete           = ConnectionStateVObsolete
+	_ConnectionStatePLimitExceeded      = ConnectionStateVLimitExceeded
+	_ConnectionStatePUnknownFutureValue = ConnectionStateVUnknownFutureValue
 )
 
 // ConnectionStatus undocumented

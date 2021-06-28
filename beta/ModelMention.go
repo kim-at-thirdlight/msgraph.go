@@ -8,22 +8,22 @@ import "time"
 type Mention struct {
 	// Entity is the base model of Mention
 	Entity
-	// Mentioned undocumented
-	Mentioned *EmailAddress `json:"mentioned,omitempty"`
-	// MentionText undocumented
-	MentionText *string `json:"mentionText,omitempty"`
+	// Application undocumented
+	Application *string `json:"application,omitempty"`
 	// ClientReference undocumented
 	ClientReference *string `json:"clientReference,omitempty"`
 	// CreatedBy undocumented
 	CreatedBy *EmailAddress `json:"createdBy,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ServerCreatedDateTime undocumented
-	ServerCreatedDateTime *time.Time `json:"serverCreatedDateTime,omitempty"`
 	// DeepLink undocumented
 	DeepLink *string `json:"deepLink,omitempty"`
-	// Application undocumented
-	Application *string `json:"application,omitempty"`
+	// Mentioned undocumented
+	Mentioned *EmailAddress `json:"mentioned,omitempty"`
+	// MentionText undocumented
+	MentionText *string `json:"mentionText,omitempty"`
+	// ServerCreatedDateTime undocumented
+	ServerCreatedDateTime *time.Time `json:"serverCreatedDateTime,omitempty"`
 }
 
 // MentionAction undocumented

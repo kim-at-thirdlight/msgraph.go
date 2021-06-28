@@ -16,18 +16,36 @@ type Device struct {
 	ApproximateLastSignInDateTime *time.Time `json:"approximateLastSignInDateTime,omitempty"`
 	// ComplianceExpirationDateTime undocumented
 	ComplianceExpirationDateTime *time.Time `json:"complianceExpirationDateTime,omitempty"`
+	// DeviceCategory undocumented
+	DeviceCategory *string `json:"deviceCategory,omitempty"`
 	// DeviceID undocumented
 	DeviceID *string `json:"deviceId,omitempty"`
 	// DeviceMetadata undocumented
 	DeviceMetadata *string `json:"deviceMetadata,omitempty"`
+	// DeviceOwnership undocumented
+	DeviceOwnership *string `json:"deviceOwnership,omitempty"`
 	// DeviceVersion undocumented
 	DeviceVersion *int `json:"deviceVersion,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// DomainName undocumented
+	DomainName *string `json:"domainName,omitempty"`
+	// EnrollmentProfileName undocumented
+	EnrollmentProfileName *string `json:"enrollmentProfileName,omitempty"`
+	// EnrollmentType undocumented
+	EnrollmentType *string `json:"enrollmentType,omitempty"`
+	// ExtensionAttributes undocumented
+	ExtensionAttributes *OnPremisesExtensionAttributes `json:"extensionAttributes,omitempty"`
+	// Hostnames undocumented
+	Hostnames []string `json:"hostnames,omitempty"`
 	// IsCompliant undocumented
 	IsCompliant *bool `json:"isCompliant,omitempty"`
 	// IsManaged undocumented
 	IsManaged *bool `json:"isManaged,omitempty"`
+	// IsRooted undocumented
+	IsRooted *bool `json:"isRooted,omitempty"`
+	// ManagementType undocumented
+	ManagementType *string `json:"managementType,omitempty"`
 	// OnPremisesLastSyncDateTime undocumented
 	OnPremisesLastSyncDateTime *time.Time `json:"onPremisesLastSyncDateTime,omitempty"`
 	// OnPremisesSyncEnabled undocumented
@@ -40,22 +58,26 @@ type Device struct {
 	PhysicalIDs []string `json:"physicalIds,omitempty"`
 	// ProfileType undocumented
 	ProfileType *string `json:"profileType,omitempty"`
+	// RegistrationDateTime undocumented
+	RegistrationDateTime *time.Time `json:"registrationDateTime,omitempty"`
 	// SystemLabels undocumented
 	SystemLabels []string `json:"systemLabels,omitempty"`
 	// TrustType undocumented
 	TrustType *string `json:"trustType,omitempty"`
-	// Name undocumented
-	Name *string `json:"Name,omitempty"`
-	// Manufacturer undocumented
-	Manufacturer *string `json:"Manufacturer,omitempty"`
-	// Model undocumented
-	Model *string `json:"Model,omitempty"`
 	// Kind undocumented
-	Kind *string `json:"Kind,omitempty"`
-	// Status undocumented
-	Status *string `json:"Status,omitempty"`
+	Kind *string `json:"kind,omitempty"`
+	// Manufacturer undocumented
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Model undocumented
+	Model *string `json:"model,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 	// Platform undocumented
-	Platform *string `json:"Platform,omitempty"`
+	Platform *string `json:"platform,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+	// UsageRights undocumented
+	UsageRights []UsageRight `json:"usageRights,omitempty"`
 	// MemberOf undocumented
 	MemberOf []DirectoryObject `json:"memberOf,omitempty"`
 	// RegisteredOwners undocumented
@@ -70,7 +92,7 @@ type Device struct {
 	Commands []Command `json:"commands,omitempty"`
 }
 
-// DeviceActionResult undocumented
+// DeviceActionResult Device action result
 type DeviceActionResult struct {
 	// Object is the base model of DeviceActionResult
 	Object
@@ -78,29 +100,53 @@ type DeviceActionResult struct {
 	ActionName *string `json:"actionName,omitempty"`
 	// ActionState State of the action
 	ActionState *ActionState `json:"actionState,omitempty"`
-	// StartDateTime Time the action was initiated
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// LastUpdatedDateTime Time the action state was last updated
 	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// StartDateTime Time the action was initiated
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 }
 
-// DeviceAndAppManagementAssignedRoleDetails undocumented
+// DeviceAndAppManagementAssignedRoleDetails The set of Role Definitions and Role Assignments assigned to a user.
 type DeviceAndAppManagementAssignedRoleDetails struct {
 	// Object is the base model of DeviceAndAppManagementAssignedRoleDetails
 	Object
-	// RoleDefinitionIDs Role Definition IDs for the specifc Role Definitions assigned to a user.
-	RoleDefinitionIDs []string `json:"roleDefinitionIds,omitempty"`
 	// RoleAssignmentIDs Role Assignment IDs for the specifc Role Assignments assigned to a user.
 	RoleAssignmentIDs []string `json:"roleAssignmentIds,omitempty"`
+	// RoleDefinitionIDs Role Definition IDs for the specifc Role Definitions assigned to a user.
+	RoleDefinitionIDs []string `json:"roleDefinitionIds,omitempty"`
 }
 
-// DeviceAndAppManagementAssignmentTarget undocumented
+// DeviceAndAppManagementAssignmentFilter A class containing the properties used for Assignment Filter.
+type DeviceAndAppManagementAssignmentFilter struct {
+	// Entity is the base model of DeviceAndAppManagementAssignmentFilter
+	Entity
+	// CreatedDateTime Creation time of the Assignment Filter.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description Description of the Assignment Filter.
+	Description *string `json:"description,omitempty"`
+	// DisplayName DisplayName of the Assignment Filter.
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime Last modified time of the Assignment Filter.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Platform Platform type of the devices on which the Assignment Filter will be applicable.
+	Platform *DevicePlatformType `json:"platform,omitempty"`
+	// RoleScopeTags RoleScopeTags of the Assignment Filter.
+	RoleScopeTags []string `json:"roleScopeTags,omitempty"`
+	// Rule Rule definition of the Assignment Filter.
+	Rule *string `json:"rule,omitempty"`
+}
+
+// DeviceAndAppManagementAssignmentTarget Base type for assignment targets.
 type DeviceAndAppManagementAssignmentTarget struct {
 	// Object is the base model of DeviceAndAppManagementAssignmentTarget
 	Object
+	// DeviceAndAppManagementAssignmentFilterID The Id of the filter for the target assignment.
+	DeviceAndAppManagementAssignmentFilterID *string `json:"deviceAndAppManagementAssignmentFilterId,omitempty"`
+	// DeviceAndAppManagementAssignmentFilterType The type of filter of the target assignment i.e. Exclude or Include.
+	DeviceAndAppManagementAssignmentFilterType *DeviceAndAppManagementAssignmentFilterType `json:"deviceAndAppManagementAssignmentFilterType,omitempty"`
 }
 
-// DeviceAndAppManagementData undocumented
+// DeviceAndAppManagementData Exported Data
 type DeviceAndAppManagementData struct {
 	// Object is the base model of DeviceAndAppManagementData
 	Object
@@ -128,32 +174,32 @@ type DeviceAndAppManagementRoleDefinition struct {
 type DeviceAppManagement struct {
 	// Entity is the base model of DeviceAppManagement
 	Entity
-	// MicrosoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account.
-	MicrosoftStoreForBusinessLastSuccessfulSyncDateTime *time.Time `json:"microsoftStoreForBusinessLastSuccessfulSyncDateTime,omitempty"`
 	// IsEnabledForMicrosoftStoreForBusiness Whether the account is enabled for syncing applications from the Microsoft Store for Business.
 	IsEnabledForMicrosoftStoreForBusiness *bool `json:"isEnabledForMicrosoftStoreForBusiness,omitempty"`
 	// MicrosoftStoreForBusinessLanguage The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is <languagecode2>-<country/regioncode2>, where <languagecode2> is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.
 	MicrosoftStoreForBusinessLanguage *string `json:"microsoftStoreForBusinessLanguage,omitempty"`
 	// MicrosoftStoreForBusinessLastCompletedApplicationSyncTime The last time an application sync from the Microsoft Store for Business was completed.
 	MicrosoftStoreForBusinessLastCompletedApplicationSyncTime *time.Time `json:"microsoftStoreForBusinessLastCompletedApplicationSyncTime,omitempty"`
+	// MicrosoftStoreForBusinessLastSuccessfulSyncDateTime The last time the apps from the Microsoft Store for Business were synced successfully for the account.
+	MicrosoftStoreForBusinessLastSuccessfulSyncDateTime *time.Time `json:"microsoftStoreForBusinessLastSuccessfulSyncDateTime,omitempty"`
 	// MicrosoftStoreForBusinessPortalSelection The end user portal information is used to sync applications from the Microsoft Store for Business to Intune Company Portal. There are three options to pick from ['Company portal only', 'Company portal and private store', 'Private store only']
 	MicrosoftStoreForBusinessPortalSelection *MicrosoftStoreForBusinessPortalSelectionOptions `json:"microsoftStoreForBusinessPortalSelection,omitempty"`
-	// ManagedEBooks undocumented
-	ManagedEBooks []ManagedEBook `json:"managedEBooks,omitempty"`
-	// MobileApps undocumented
-	MobileApps []MobileApp `json:"mobileApps,omitempty"`
-	// MobileAppCategories undocumented
-	MobileAppCategories []MobileAppCategory `json:"mobileAppCategories,omitempty"`
+	// ManagedEBookCategories undocumented
+	ManagedEBookCategories []ManagedEBookCategory `json:"managedEBookCategories,omitempty"`
 	// EnterpriseCodeSigningCertificates undocumented
 	EnterpriseCodeSigningCertificates []EnterpriseCodeSigningCertificate `json:"enterpriseCodeSigningCertificates,omitempty"`
 	// IOSLobAppProvisioningConfigurations undocumented
 	IOSLobAppProvisioningConfigurations []IOSLobAppProvisioningConfiguration `json:"iosLobAppProvisioningConfigurations,omitempty"`
-	// SymantecCodeSigningCertificate undocumented
-	SymantecCodeSigningCertificate *SymantecCodeSigningCertificate `json:"symantecCodeSigningCertificate,omitempty"`
+	// MobileAppCategories undocumented
+	MobileAppCategories []MobileAppCategory `json:"mobileAppCategories,omitempty"`
 	// MobileAppConfigurations undocumented
 	MobileAppConfigurations []ManagedDeviceMobileAppConfiguration `json:"mobileAppConfigurations,omitempty"`
-	// ManagedEBookCategories undocumented
-	ManagedEBookCategories []ManagedEBookCategory `json:"managedEBookCategories,omitempty"`
+	// MobileApps undocumented
+	MobileApps []MobileApp `json:"mobileApps,omitempty"`
+	// SymantecCodeSigningCertificate undocumented
+	SymantecCodeSigningCertificate *SymantecCodeSigningCertificate `json:"symantecCodeSigningCertificate,omitempty"`
+	// ManagedEBooks undocumented
+	ManagedEBooks []ManagedEBook `json:"managedEBooks,omitempty"`
 	// PolicySets undocumented
 	PolicySets []PolicySet `json:"policySets,omitempty"`
 	// SideLoadingKeys undocumented
@@ -162,26 +208,26 @@ type DeviceAppManagement struct {
 	VPPTokens []VPPToken `json:"vppTokens,omitempty"`
 	// WindowsManagementApp undocumented
 	WindowsManagementApp *WindowsManagementApp `json:"windowsManagementApp,omitempty"`
-	// ManagedAppPolicies undocumented
-	ManagedAppPolicies []ManagedAppPolicy `json:"managedAppPolicies,omitempty"`
-	// IOSManagedAppProtections undocumented
-	IOSManagedAppProtections []IOSManagedAppProtection `json:"iosManagedAppProtections,omitempty"`
 	// AndroidManagedAppProtections undocumented
 	AndroidManagedAppProtections []AndroidManagedAppProtection `json:"androidManagedAppProtections,omitempty"`
 	// DefaultManagedAppProtections undocumented
 	DefaultManagedAppProtections []DefaultManagedAppProtection `json:"defaultManagedAppProtections,omitempty"`
-	// TargetedManagedAppConfigurations undocumented
-	TargetedManagedAppConfigurations []TargetedManagedAppConfiguration `json:"targetedManagedAppConfigurations,omitempty"`
-	// MDMWindowsInformationProtectionPolicies undocumented
-	MDMWindowsInformationProtectionPolicies []MDMWindowsInformationProtectionPolicy `json:"mdmWindowsInformationProtectionPolicies,omitempty"`
-	// WindowsInformationProtectionPolicies undocumented
-	WindowsInformationProtectionPolicies []WindowsInformationProtectionPolicy `json:"windowsInformationProtectionPolicies,omitempty"`
+	// IOSManagedAppProtections undocumented
+	IOSManagedAppProtections []IOSManagedAppProtection `json:"iosManagedAppProtections,omitempty"`
+	// ManagedAppPolicies undocumented
+	ManagedAppPolicies []ManagedAppPolicy `json:"managedAppPolicies,omitempty"`
 	// ManagedAppRegistrations undocumented
 	ManagedAppRegistrations []ManagedAppRegistration `json:"managedAppRegistrations,omitempty"`
 	// ManagedAppStatuses undocumented
 	ManagedAppStatuses []ManagedAppStatus `json:"managedAppStatuses,omitempty"`
+	// MDMWindowsInformationProtectionPolicies undocumented
+	MDMWindowsInformationProtectionPolicies []MDMWindowsInformationProtectionPolicy `json:"mdmWindowsInformationProtectionPolicies,omitempty"`
+	// TargetedManagedAppConfigurations undocumented
+	TargetedManagedAppConfigurations []TargetedManagedAppConfiguration `json:"targetedManagedAppConfigurations,omitempty"`
 	// WindowsInformationProtectionDeviceRegistrations undocumented
 	WindowsInformationProtectionDeviceRegistrations []WindowsInformationProtectionDeviceRegistration `json:"windowsInformationProtectionDeviceRegistrations,omitempty"`
+	// WindowsInformationProtectionPolicies undocumented
+	WindowsInformationProtectionPolicies []WindowsInformationProtectionPolicy `json:"windowsInformationProtectionPolicies,omitempty"`
 	// WindowsInformationProtectionWipeActions undocumented
 	WindowsInformationProtectionWipeActions []WindowsInformationProtectionWipeAction `json:"windowsInformationProtectionWipeActions,omitempty"`
 	// DeviceAppManagementTasks undocumented
@@ -194,96 +240,108 @@ type DeviceAppManagement struct {
 type DeviceAppManagementTask struct {
 	// Entity is the base model of DeviceAppManagementTask
 	Entity
-	// DisplayName The name.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The description.
-	Description *string `json:"description,omitempty"`
-	// CreatedDateTime The created date.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// DueDateTime The due date.
-	DueDateTime *time.Time `json:"dueDateTime,omitempty"`
+	// AssignedTo The name or email of the admin this task is assigned to.
+	AssignedTo *string `json:"assignedTo,omitempty"`
 	// Category The category.
 	Category *DeviceAppManagementTaskCategory `json:"category,omitempty"`
-	// Priority The priority.
-	Priority *DeviceAppManagementTaskPriority `json:"priority,omitempty"`
+	// CreatedDateTime The created date.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// Creator The email address of the creator.
 	Creator *string `json:"creator,omitempty"`
 	// CreatorNotes Notes from the creator.
 	CreatorNotes *string `json:"creatorNotes,omitempty"`
-	// AssignedTo The name or email of the admin this task is assigned to.
-	AssignedTo *string `json:"assignedTo,omitempty"`
+	// Description The description.
+	Description *string `json:"description,omitempty"`
+	// DisplayName The name.
+	DisplayName *string `json:"displayName,omitempty"`
+	// DueDateTime The due date.
+	DueDateTime *time.Time `json:"dueDateTime,omitempty"`
+	// Priority The priority.
+	Priority *DeviceAppManagementTaskPriority `json:"priority,omitempty"`
 	// Status The status.
 	Status *DeviceAppManagementTaskStatus `json:"status,omitempty"`
 }
 
-// DeviceCategory Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
+// DeviceCategory Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.
 type DeviceCategory struct {
 	// Entity is the base model of DeviceCategory
 	Entity
-	// DisplayName Display name for the device category.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Optional description for the device category.
 	Description *string `json:"description,omitempty"`
+	// DisplayName Display name for the device category.
+	DisplayName *string `json:"displayName,omitempty"`
 	// RoleScopeTagIDs Optional role scope tags for the device category.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+}
+
+// DeviceComanagementAuthorityConfiguration Windows 10 Co-Management Authority Page Configuration
+type DeviceComanagementAuthorityConfiguration struct {
+	// DeviceEnrollmentConfiguration is the base model of DeviceComanagementAuthorityConfiguration
+	DeviceEnrollmentConfiguration
+	// ConfigurationManagerAgentCommandLineArgument CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
+	ConfigurationManagerAgentCommandLineArgument *string `json:"configurationManagerAgentCommandLineArgument,omitempty"`
+	// InstallConfigurationManagerAgent CoManagement Authority configuration InstallConfigurationManagerAgent
+	InstallConfigurationManagerAgent *bool `json:"installConfigurationManagerAgent,omitempty"`
+	// ManagedDeviceAuthority CoManagement Authority configuration ManagedDeviceAuthority
+	ManagedDeviceAuthority *int `json:"managedDeviceAuthority,omitempty"`
 }
 
 // DeviceComplianceActionItem Scheduled Action Configuration
 type DeviceComplianceActionItem struct {
 	// Entity is the base model of DeviceComplianceActionItem
 	Entity
-	// GracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760
-	GracePeriodHours *int `json:"gracePeriodHours,omitempty"`
 	// ActionType What action to take
 	ActionType *DeviceComplianceActionType `json:"actionType,omitempty"`
-	// NotificationTemplateID What notification Message template to use
-	NotificationTemplateID *string `json:"notificationTemplateId,omitempty"`
+	// GracePeriodHours Number of hours to wait till the action will be enforced. Valid values 0 to 8760
+	GracePeriodHours *int `json:"gracePeriodHours,omitempty"`
 	// NotificationMessageCCList A list of group IDs to speicify who to CC this notification message to.
 	NotificationMessageCCList []string `json:"notificationMessageCCList,omitempty"`
+	// NotificationTemplateID What notification Message template to use
+	NotificationTemplateID *string `json:"notificationTemplateId,omitempty"`
 }
 
 // DeviceComplianceDeviceOverview undocumented
 type DeviceComplianceDeviceOverview struct {
 	// Entity is the base model of DeviceComplianceDeviceOverview
 	Entity
-	// PendingCount Number of pending devices
-	PendingCount *int `json:"pendingCount,omitempty"`
-	// NotApplicableCount Number of not applicable devices
-	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
-	// NotApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
-	NotApplicablePlatformCount *int `json:"notApplicablePlatformCount,omitempty"`
-	// SuccessCount Number of succeeded devices
-	SuccessCount *int `json:"successCount,omitempty"`
+	// ConfigurationVersion Version of the policy for that overview
+	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// ConflictCount Number of devices in conflict
+	ConflictCount *int `json:"conflictCount,omitempty"`
 	// ErrorCount Number of error devices
 	ErrorCount *int `json:"errorCount,omitempty"`
 	// FailedCount Number of failed devices
 	FailedCount *int `json:"failedCount,omitempty"`
-	// ConflictCount Number of devices in conflict
-	ConflictCount *int `json:"conflictCount,omitempty"`
 	// LastUpdateDateTime Last update time
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
-	// ConfigurationVersion Version of the policy for that overview
-	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// NotApplicableCount Number of not applicable devices
+	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
+	// NotApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
+	NotApplicablePlatformCount *int `json:"notApplicablePlatformCount,omitempty"`
+	// PendingCount Number of pending devices
+	PendingCount *int `json:"pendingCount,omitempty"`
+	// SuccessCount Number of succeeded devices
+	SuccessCount *int `json:"successCount,omitempty"`
 }
 
 // DeviceComplianceDeviceStatus undocumented
 type DeviceComplianceDeviceStatus struct {
 	// Entity is the base model of DeviceComplianceDeviceStatus
 	Entity
-	// DeviceDisplayName Device name of the DevicePolicyStatus.
-	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
-	// UserName The User Name that is being reported
-	UserName *string `json:"userName,omitempty"`
-	// DeviceModel The device model that is being reported
-	DeviceModel *string `json:"deviceModel,omitempty"`
-	// Platform Platform of the device that is being reported
-	Platform *int `json:"platform,omitempty"`
 	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
 	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
-	// Status Compliance status of the policy report.
-	Status *ComplianceStatus `json:"status,omitempty"`
+	// DeviceDisplayName Device name of the DevicePolicyStatus.
+	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceModel The device model that is being reported
+	DeviceModel *string `json:"deviceModel,omitempty"`
 	// LastReportedDateTime Last modified date time of the policy report.
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// Platform Platform of the device that is being reported
+	Platform *int `json:"platform,omitempty"`
+	// Status Compliance status of the policy report.
+	Status *ComplianceStatus `json:"status,omitempty"`
+	// UserName The User Name that is being reported
+	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
@@ -292,78 +350,78 @@ type DeviceComplianceDeviceStatus struct {
 type DeviceCompliancePolicy struct {
 	// Entity is the base model of DeviceCompliancePolicy
 	Entity
-	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
-	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// CreatedDateTime DateTime the object was created.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// Description Admin provided description of the Device Configuration.
 	Description *string `json:"description,omitempty"`
-	// LastModifiedDateTime DateTime the object was last modified.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// DisplayName Admin provided name of the device configuration.
 	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime DateTime the object was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// Version Version of the device configuration.
 	Version *int `json:"version,omitempty"`
-	// ScheduledActionsForRule undocumented
-	ScheduledActionsForRule []DeviceComplianceScheduledActionForRule `json:"scheduledActionsForRule,omitempty"`
-	// DeviceStatuses undocumented
-	DeviceStatuses []DeviceComplianceDeviceStatus `json:"deviceStatuses,omitempty"`
-	// UserStatuses undocumented
-	UserStatuses []DeviceComplianceUserStatus `json:"userStatuses,omitempty"`
-	// DeviceStatusOverview undocumented
-	DeviceStatusOverview *DeviceComplianceDeviceOverview `json:"deviceStatusOverview,omitempty"`
-	// UserStatusOverview undocumented
-	UserStatusOverview *DeviceComplianceUserOverview `json:"userStatusOverview,omitempty"`
-	// DeviceSettingStateSummaries undocumented
-	DeviceSettingStateSummaries []SettingStateDeviceSummary `json:"deviceSettingStateSummaries,omitempty"`
 	// Assignments undocumented
 	Assignments []DeviceCompliancePolicyAssignment `json:"assignments,omitempty"`
+	// DeviceSettingStateSummaries undocumented
+	DeviceSettingStateSummaries []SettingStateDeviceSummary `json:"deviceSettingStateSummaries,omitempty"`
+	// DeviceStatuses undocumented
+	DeviceStatuses []DeviceComplianceDeviceStatus `json:"deviceStatuses,omitempty"`
+	// DeviceStatusOverview undocumented
+	DeviceStatusOverview *DeviceComplianceDeviceOverview `json:"deviceStatusOverview,omitempty"`
+	// ScheduledActionsForRule undocumented
+	ScheduledActionsForRule []DeviceComplianceScheduledActionForRule `json:"scheduledActionsForRule,omitempty"`
+	// UserStatuses undocumented
+	UserStatuses []DeviceComplianceUserStatus `json:"userStatuses,omitempty"`
+	// UserStatusOverview undocumented
+	UserStatusOverview *DeviceComplianceUserOverview `json:"userStatusOverview,omitempty"`
 }
 
 // DeviceCompliancePolicyAssignment Device compliance policy assignment.
 type DeviceCompliancePolicyAssignment struct {
 	// Entity is the base model of DeviceCompliancePolicyAssignment
 	Entity
-	// Target Target for the compliance policy assignment.
-	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// Source The assignment source for the device compliance policy, direct or parcel/policySet.
 	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
 	// SourceID The identifier of the source of the assignment.
 	SourceID *string `json:"sourceId,omitempty"`
+	// Target Target for the compliance policy assignment.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
 // DeviceCompliancePolicyDeviceStateSummary undocumented
 type DeviceCompliancePolicyDeviceStateSummary struct {
 	// Entity is the base model of DeviceCompliancePolicyDeviceStateSummary
 	Entity
-	// InGracePeriodCount Number of devices that are in grace period
-	InGracePeriodCount *int `json:"inGracePeriodCount,omitempty"`
-	// ConfigManagerCount Number of devices that have compliance managed by System Center Configuration Manager
-	ConfigManagerCount *int `json:"configManagerCount,omitempty"`
-	// UnknownDeviceCount Number of unknown devices
-	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
-	// NotApplicableDeviceCount Number of not applicable devices
-	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
 	// CompliantDeviceCount Number of compliant devices
 	CompliantDeviceCount *int `json:"compliantDeviceCount,omitempty"`
-	// RemediatedDeviceCount Number of remediated devices
-	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
-	// NonCompliantDeviceCount Number of NonCompliant devices
-	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
-	// ErrorDeviceCount Number of error devices
-	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// ConfigManagerCount Number of devices that have compliance managed by System Center Configuration Manager
+	ConfigManagerCount *int `json:"configManagerCount,omitempty"`
 	// ConflictDeviceCount Number of conflict devices
 	ConflictDeviceCount *int `json:"conflictDeviceCount,omitempty"`
+	// ErrorDeviceCount Number of error devices
+	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// InGracePeriodCount Number of devices that are in grace period
+	InGracePeriodCount *int `json:"inGracePeriodCount,omitempty"`
+	// NonCompliantDeviceCount Number of NonCompliant devices
+	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
+	// NotApplicableDeviceCount Number of not applicable devices
+	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
+	// RemediatedDeviceCount Number of remediated devices
+	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
+	// UnknownDeviceCount Number of unknown devices
+	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
 }
 
 // DeviceCompliancePolicyGroupAssignment Device compliance policy group assignment.
 type DeviceCompliancePolicyGroupAssignment struct {
 	// Entity is the base model of DeviceCompliancePolicyGroupAssignment
 	Entity
-	// TargetGroupID The Id of the AAD group we are targeting the device compliance policy to.
-	TargetGroupID *string `json:"targetGroupId,omitempty"`
 	// ExcludeGroup Indicates if this group is should be excluded. Defaults that the group should be included
 	ExcludeGroup *bool `json:"excludeGroup,omitempty"`
+	// TargetGroupID The Id of the AAD group we are targeting the device compliance policy to.
+	TargetGroupID *string `json:"targetGroupId,omitempty"`
 	// DeviceCompliancePolicy undocumented
 	DeviceCompliancePolicy *DeviceCompliancePolicy `json:"deviceCompliancePolicy,omitempty"`
 }
@@ -374,84 +432,100 @@ type DeviceCompliancePolicyPolicySetItem struct {
 	PolicySetItem
 }
 
-// DeviceCompliancePolicySettingState undocumented
+// DeviceCompliancePolicyScript undocumented
+type DeviceCompliancePolicyScript struct {
+	// Object is the base model of DeviceCompliancePolicyScript
+	Object
+	// DeviceComplianceScriptID Device compliance script Id.
+	DeviceComplianceScriptID *string `json:"deviceComplianceScriptId,omitempty"`
+	// RulesContent Json of the rules.
+	RulesContent *Binary `json:"rulesContent,omitempty"`
+}
+
+// DeviceCompliancePolicySettingState Device Compilance Policy Setting State for a given device.
 type DeviceCompliancePolicySettingState struct {
 	// Object is the base model of DeviceCompliancePolicySettingState
 	Object
-	// Setting The setting that is being reported
-	Setting *string `json:"setting,omitempty"`
-	// SettingName Localized/user friendly setting name that is being reported
-	SettingName *string `json:"settingName,omitempty"`
-	// InstanceDisplayName Name of setting instance that is being reported.
-	InstanceDisplayName *string `json:"instanceDisplayName,omitempty"`
-	// State The compliance state of the setting
-	State *ComplianceStatus `json:"state,omitempty"`
+	// CurrentValue Current value of setting on device
+	CurrentValue *string `json:"currentValue,omitempty"`
 	// ErrorCode Error code for the setting
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description
 	ErrorDescription *string `json:"errorDescription,omitempty"`
+	// InstanceDisplayName Name of setting instance that is being reported.
+	InstanceDisplayName *string `json:"instanceDisplayName,omitempty"`
+	// Setting The setting that is being reported
+	Setting *string `json:"setting,omitempty"`
+	// SettingInstanceID SettingInstanceId
+	SettingInstanceID *string `json:"settingInstanceId,omitempty"`
+	// SettingName Localized/user friendly setting name that is being reported
+	SettingName *string `json:"settingName,omitempty"`
+	// Sources Contributing policies
+	Sources []SettingSource `json:"sources,omitempty"`
+	// State The compliance state of the setting
+	State *ComplianceStatus `json:"state,omitempty"`
+	// UserEmail UserEmail
+	UserEmail *string `json:"userEmail,omitempty"`
 	// UserID UserId
 	UserID *string `json:"userId,omitempty"`
 	// UserName UserName
 	UserName *string `json:"userName,omitempty"`
-	// UserEmail UserEmail
-	UserEmail *string `json:"userEmail,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// Sources Contributing policies
-	Sources []SettingSource `json:"sources,omitempty"`
-	// CurrentValue Current value of setting on device
-	CurrentValue *string `json:"currentValue,omitempty"`
 }
 
-// DeviceCompliancePolicySettingStateSummary Device Compilance Policy Setting State summary across the account.
+// DeviceCompliancePolicySettingStateSummary undocumented
 type DeviceCompliancePolicySettingStateSummary struct {
 	// Entity is the base model of DeviceCompliancePolicySettingStateSummary
 	Entity
-	// Setting The setting class name and property name.
-	Setting *string `json:"setting,omitempty"`
-	// SettingName Name of the setting.
-	SettingName *string `json:"settingName,omitempty"`
-	// PlatformType Setting platform
-	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
-	// UnknownDeviceCount Number of unknown devices
-	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
-	// NotApplicableDeviceCount Number of not applicable devices
-	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
-	// CompliantDeviceCount Number of compliant devices
-	CompliantDeviceCount *int `json:"compliantDeviceCount,omitempty"`
-	// RemediatedDeviceCount Number of remediated devices
-	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
-	// NonCompliantDeviceCount Number of NonCompliant devices
-	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
-	// ErrorDeviceCount Number of error devices
-	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
-	// ConflictDeviceCount Number of conflict devices
+	// ConflictDeviceCount undocumented
 	ConflictDeviceCount *int `json:"conflictDeviceCount,omitempty"`
-	// DeviceComplianceSettingStates undocumented
-	DeviceComplianceSettingStates []DeviceComplianceSettingState `json:"deviceComplianceSettingStates,omitempty"`
+	// ErrorDeviceCount undocumented
+	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// FailedDeviceCount undocumented
+	FailedDeviceCount *int `json:"failedDeviceCount,omitempty"`
+	// IntuneAccountID undocumented
+	IntuneAccountID *string `json:"intuneAccountId,omitempty"`
+	// IntuneSettingID undocumented
+	IntuneSettingID *string `json:"intuneSettingId,omitempty"`
+	// LastRefreshedDateTime undocumented
+	LastRefreshedDateTime *time.Time `json:"lastRefreshedDateTime,omitempty"`
+	// NotApplicableDeviceCount undocumented
+	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
+	// PendingDeviceCount undocumented
+	PendingDeviceCount *int `json:"pendingDeviceCount,omitempty"`
+	// PolicyType undocumented
+	PolicyType *string `json:"policyType,omitempty"`
+	// SettingName undocumented
+	SettingName *string `json:"settingName,omitempty"`
+	// SucceededDeviceCount undocumented
+	SucceededDeviceCount *int `json:"succeededDeviceCount,omitempty"`
+	// TenantDisplayName undocumented
+	TenantDisplayName *string `json:"tenantDisplayName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
 }
 
 // DeviceCompliancePolicyState Device Compliance Policy State for a given device.
 type DeviceCompliancePolicyState struct {
 	// Entity is the base model of DeviceCompliancePolicyState
 	Entity
-	// SettingStates undocumented
-	SettingStates []DeviceCompliancePolicySettingState `json:"settingStates,omitempty"`
 	// DisplayName The name of the policy for this policyBase
 	DisplayName *string `json:"displayName,omitempty"`
-	// Version The version of the policy
-	Version *int `json:"version,omitempty"`
 	// PlatformType Platform type that the policy applies to
 	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
-	// State The compliance state of the policy
-	State *ComplianceStatus `json:"state,omitempty"`
 	// SettingCount Count of how many setting a policy holds
 	SettingCount *int `json:"settingCount,omitempty"`
+	// SettingStates undocumented
+	SettingStates []DeviceCompliancePolicySettingState `json:"settingStates,omitempty"`
+	// State The compliance state of the policy
+	State *ComplianceStatus `json:"state,omitempty"`
 	// UserID User unique identifier, must be Guid
 	UserID *string `json:"userId,omitempty"`
 	// UserPrincipalName User Principal Name
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// Version The version of the policy
+	Version *int `json:"version,omitempty"`
 }
 
 // DeviceComplianceScheduledActionForRule Scheduled Action for Rule
@@ -464,70 +538,190 @@ type DeviceComplianceScheduledActionForRule struct {
 	ScheduledActionConfigurations []DeviceComplianceActionItem `json:"scheduledActionConfigurations,omitempty"`
 }
 
+// DeviceComplianceScript Intune will provide customer the ability to run their Powershell Compliance scripts (detection) on the enrolled windows 10 Azure Active Directory joined devices.
+type DeviceComplianceScript struct {
+	// Entity is the base model of DeviceComplianceScript
+	Entity
+	// CreatedDateTime The timestamp of when the device compliance script was created. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description Description of the device compliance script
+	Description *string `json:"description,omitempty"`
+	// DetectionScriptContent The entire content of the detection powershell script
+	DetectionScriptContent *Binary `json:"detectionScriptContent,omitempty"`
+	// DisplayName Name of the device compliance script
+	DisplayName *string `json:"displayName,omitempty"`
+	// EnforceSignatureCheck Indicate whether the script signature needs be checked
+	EnforceSignatureCheck *bool `json:"enforceSignatureCheck,omitempty"`
+	// LastModifiedDateTime The timestamp of when the device compliance script was modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Publisher Name of the device compliance script publisher
+	Publisher *string `json:"publisher,omitempty"`
+	// RoleScopeTagIDs List of Scope Tag IDs for the device compliance script
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// RunAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
+	RunAs32Bit *bool `json:"runAs32Bit,omitempty"`
+	// RunAsAccount Indicates the type of execution context
+	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// Version Version of the device compliance script
+	Version *string `json:"version,omitempty"`
+	// Assignments undocumented
+	Assignments []DeviceHealthScriptAssignment `json:"assignments,omitempty"`
+	// DeviceRunStates undocumented
+	DeviceRunStates []DeviceComplianceScriptDeviceState `json:"deviceRunStates,omitempty"`
+	// RunSummary undocumented
+	RunSummary *DeviceComplianceScriptRunSummary `json:"runSummary,omitempty"`
+}
+
+// DeviceComplianceScriptDeviceState Contains properties for device run state of the device compliance script.
+type DeviceComplianceScriptDeviceState struct {
+	// Entity is the base model of DeviceComplianceScriptDeviceState
+	Entity
+	// DetectionState Detection state from the lastest device compliance script execution
+	DetectionState *RunState `json:"detectionState,omitempty"`
+	// ExpectedStateUpdateDateTime The next timestamp of when the device compliance script is expected to execute
+	ExpectedStateUpdateDateTime *time.Time `json:"expectedStateUpdateDateTime,omitempty"`
+	// LastStateUpdateDateTime The last timestamp of when the device compliance script executed
+	LastStateUpdateDateTime *time.Time `json:"lastStateUpdateDateTime,omitempty"`
+	// LastSyncDateTime The last time that Intune Managment Extension synced with Intune
+	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
+	// ScriptError Error from the detection script
+	ScriptError *string `json:"scriptError,omitempty"`
+	// ScriptOutput Output of the detection script
+	ScriptOutput *string `json:"scriptOutput,omitempty"`
+	// ManagedDevice undocumented
+	ManagedDevice *ManagedDevice `json:"managedDevice,omitempty"`
+}
+
+// DeviceComplianceScriptError undocumented
+type DeviceComplianceScriptError struct {
+	// Object is the base model of DeviceComplianceScriptError
+	Object
+	// Code Error code.
+	Code *Code `json:"code,omitempty"`
+	// DeviceComplianceScriptRulesValidationError Error code.
+	DeviceComplianceScriptRulesValidationError *DeviceComplianceScriptRulesValidationError `json:"deviceComplianceScriptRulesValidationError,omitempty"`
+	// Message Error message.
+	Message *string `json:"message,omitempty"`
+}
+
+// DeviceComplianceScriptRule undocumented
+type DeviceComplianceScriptRule struct {
+	// Object is the base model of DeviceComplianceScriptRule
+	Object
+	// DataType Data type specified in the rule.
+	DataType *DataType `json:"dataType,omitempty"`
+	// DeviceComplianceScriptRuleDataType Data type specified in the rule.
+	DeviceComplianceScriptRuleDataType *DeviceComplianceScriptRuleDataType `json:"deviceComplianceScriptRuleDataType,omitempty"`
+	// DeviceComplianceScriptRulOperator Operator specified in the rule.
+	DeviceComplianceScriptRulOperator *DeviceComplianceScriptRulOperator `json:"deviceComplianceScriptRulOperator,omitempty"`
+	// Operand Operand specified in the rule.
+	Operand *string `json:"operand,omitempty"`
+	// Operator Operator specified in the rule.
+	Operator *Operator `json:"operator,omitempty"`
+	// SettingName Setting name specified in the rule.
+	SettingName *string `json:"settingName,omitempty"`
+}
+
+// DeviceComplianceScriptRuleError undocumented
+type DeviceComplianceScriptRuleError struct {
+	// DeviceComplianceScriptError is the base model of DeviceComplianceScriptRuleError
+	DeviceComplianceScriptError
+	// SettingName Setting name for the rule with error.
+	SettingName *string `json:"settingName,omitempty"`
+}
+
+// DeviceComplianceScriptRunSummary Contains properties for the run summary of a device management script.
+type DeviceComplianceScriptRunSummary struct {
+	// Entity is the base model of DeviceComplianceScriptRunSummary
+	Entity
+	// DetectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647
+	DetectionScriptErrorDeviceCount *int `json:"detectionScriptErrorDeviceCount,omitempty"`
+	// DetectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647
+	DetectionScriptPendingDeviceCount *int `json:"detectionScriptPendingDeviceCount,omitempty"`
+	// IssueDetectedDeviceCount Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647
+	IssueDetectedDeviceCount *int `json:"issueDetectedDeviceCount,omitempty"`
+	// LastScriptRunDateTime Last run time for the script across all devices
+	LastScriptRunDateTime *time.Time `json:"lastScriptRunDateTime,omitempty"`
+	// NoIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647
+	NoIssueDetectedDeviceCount *int `json:"noIssueDetectedDeviceCount,omitempty"`
+}
+
+// DeviceComplianceScriptValidationResult undocumented
+type DeviceComplianceScriptValidationResult struct {
+	// Object is the base model of DeviceComplianceScriptValidationResult
+	Object
+	// RuleErrors Errors in json for the script for rules.
+	RuleErrors []DeviceComplianceScriptRuleError `json:"ruleErrors,omitempty"`
+	// Rules Parsed rules from json.
+	Rules []DeviceComplianceScriptRule `json:"rules,omitempty"`
+	// ScriptErrors Errors in json for the script.
+	ScriptErrors []DeviceComplianceScriptError `json:"scriptErrors,omitempty"`
+}
+
 // DeviceComplianceSettingState Device compliance setting State for a given device.
 type DeviceComplianceSettingState struct {
 	// Entity is the base model of DeviceComplianceSettingState
 	Entity
+	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
+	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
+	// DeviceID The Device Id that is being reported
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DeviceModel The device model that is being reported
+	DeviceModel *string `json:"deviceModel,omitempty"`
+	// DeviceName The Device Name that is being reported
+	DeviceName *string `json:"deviceName,omitempty"`
 	// PlatformType Device platform type
 	PlatformType *DeviceType `json:"platformType,omitempty"`
 	// Setting The setting class name and property name.
 	Setting *string `json:"setting,omitempty"`
 	// SettingName The Setting Name that is being reported
 	SettingName *string `json:"settingName,omitempty"`
-	// DeviceID The Device Id that is being reported
-	DeviceID *string `json:"deviceId,omitempty"`
-	// DeviceName The Device Name that is being reported
-	DeviceName *string `json:"deviceName,omitempty"`
-	// UserID The user Id that is being reported
-	UserID *string `json:"userId,omitempty"`
+	// State The compliance state of the setting
+	State *ComplianceStatus `json:"state,omitempty"`
 	// UserEmail The User email address that is being reported
 	UserEmail *string `json:"userEmail,omitempty"`
+	// UserID The user Id that is being reported
+	UserID *string `json:"userId,omitempty"`
 	// UserName The User Name that is being reported
 	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName The User PrincipalName that is being reported
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// DeviceModel The device model that is being reported
-	DeviceModel *string `json:"deviceModel,omitempty"`
-	// State The compliance state of the setting
-	State *ComplianceStatus `json:"state,omitempty"`
-	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
-	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
 }
 
 // DeviceComplianceUserOverview undocumented
 type DeviceComplianceUserOverview struct {
 	// Entity is the base model of DeviceComplianceUserOverview
 	Entity
-	// PendingCount Number of pending Users
-	PendingCount *int `json:"pendingCount,omitempty"`
-	// NotApplicableCount Number of not applicable users
-	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
-	// SuccessCount Number of succeeded Users
-	SuccessCount *int `json:"successCount,omitempty"`
+	// ConfigurationVersion Version of the policy for that overview
+	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// ConflictCount Number of users in conflict
+	ConflictCount *int `json:"conflictCount,omitempty"`
 	// ErrorCount Number of error Users
 	ErrorCount *int `json:"errorCount,omitempty"`
 	// FailedCount Number of failed Users
 	FailedCount *int `json:"failedCount,omitempty"`
-	// ConflictCount Number of users in conflict
-	ConflictCount *int `json:"conflictCount,omitempty"`
 	// LastUpdateDateTime Last update time
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
-	// ConfigurationVersion Version of the policy for that overview
-	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// NotApplicableCount Number of not applicable users
+	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
+	// PendingCount Number of pending Users
+	PendingCount *int `json:"pendingCount,omitempty"`
+	// SuccessCount Number of succeeded Users
+	SuccessCount *int `json:"successCount,omitempty"`
 }
 
 // DeviceComplianceUserStatus undocumented
 type DeviceComplianceUserStatus struct {
 	// Entity is the base model of DeviceComplianceUserStatus
 	Entity
-	// UserDisplayName User name of the DevicePolicyStatus.
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// DevicesCount Devices count for that user.
 	DevicesCount *int `json:"devicesCount,omitempty"`
-	// Status Compliance status of the policy report.
-	Status *ComplianceStatus `json:"status,omitempty"`
 	// LastReportedDateTime Last modified date time of the policy report.
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// Status Compliance status of the policy report.
+	Status *ComplianceStatus `json:"status,omitempty"`
+	// UserDisplayName User name of the DevicePolicyStatus.
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
@@ -536,52 +730,52 @@ type DeviceComplianceUserStatus struct {
 type DeviceConfiguration struct {
 	// Entity is the base model of DeviceConfiguration
 	Entity
+	// CreatedDateTime DateTime the object was created.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description Admin provided description of the Device Configuration.
+	Description *string `json:"description,omitempty"`
+	// DeviceManagementApplicabilityRuleDeviceMode The device mode applicability rule for this Policy.
+	DeviceManagementApplicabilityRuleDeviceMode *DeviceManagementApplicabilityRuleDeviceMode `json:"deviceManagementApplicabilityRuleDeviceMode,omitempty"`
+	// DeviceManagementApplicabilityRuleOsEdition The OS edition applicability for this Policy.
+	DeviceManagementApplicabilityRuleOsEdition *DeviceManagementApplicabilityRuleOsEdition `json:"deviceManagementApplicabilityRuleOsEdition,omitempty"`
+	// DeviceManagementApplicabilityRuleOsVersion The OS version applicability rule for this Policy.
+	DeviceManagementApplicabilityRuleOsVersion *DeviceManagementApplicabilityRuleOsVersion `json:"deviceManagementApplicabilityRuleOsVersion,omitempty"`
+	// DisplayName Admin provided name of the device configuration.
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastModifiedDateTime DateTime the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// SupportsScopeTags Indicates whether or not the underlying Device Configuration supports the assignment of scope tags. Assigning to the ScopeTags property is not allowed when this value is false and entities will not be visible to scoped users. This occurs for Legacy policies created in Silverlight and can be resolved by deleting and recreating the policy in the Azure Portal. This property is read-only.
 	SupportsScopeTags *bool `json:"supportsScopeTags,omitempty"`
-	// DeviceManagementApplicabilityRuleOsEdition The OS edition applicability for this Policy.
-	DeviceManagementApplicabilityRuleOsEdition *DeviceManagementApplicabilityRuleOsEdition `json:"deviceManagementApplicabilityRuleOsEdition,omitempty"`
-	// DeviceManagementApplicabilityRuleOsVersion The OS version applicability rule for this Policy.
-	DeviceManagementApplicabilityRuleOsVersion *DeviceManagementApplicabilityRuleOsVersion `json:"deviceManagementApplicabilityRuleOsVersion,omitempty"`
-	// DeviceManagementApplicabilityRuleDeviceMode The device mode applicability rule for this Policy.
-	DeviceManagementApplicabilityRuleDeviceMode *DeviceManagementApplicabilityRuleDeviceMode `json:"deviceManagementApplicabilityRuleDeviceMode,omitempty"`
-	// CreatedDateTime DateTime the object was created.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// Description Admin provided description of the Device Configuration.
-	Description *string `json:"description,omitempty"`
-	// DisplayName Admin provided name of the device configuration.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Version Version of the device configuration.
 	Version *int `json:"version,omitempty"`
-	// GroupAssignments undocumented
-	GroupAssignments []DeviceConfigurationGroupAssignment `json:"groupAssignments,omitempty"`
 	// Assignments undocumented
 	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
-	// DeviceStatuses undocumented
-	DeviceStatuses []DeviceConfigurationDeviceStatus `json:"deviceStatuses,omitempty"`
-	// UserStatuses undocumented
-	UserStatuses []DeviceConfigurationUserStatus `json:"userStatuses,omitempty"`
-	// DeviceStatusOverview undocumented
-	DeviceStatusOverview *DeviceConfigurationDeviceOverview `json:"deviceStatusOverview,omitempty"`
-	// UserStatusOverview undocumented
-	UserStatusOverview *DeviceConfigurationUserOverview `json:"userStatusOverview,omitempty"`
 	// DeviceSettingStateSummaries undocumented
 	DeviceSettingStateSummaries []SettingStateDeviceSummary `json:"deviceSettingStateSummaries,omitempty"`
+	// DeviceStatuses undocumented
+	DeviceStatuses []DeviceConfigurationDeviceStatus `json:"deviceStatuses,omitempty"`
+	// DeviceStatusOverview undocumented
+	DeviceStatusOverview *DeviceConfigurationDeviceOverview `json:"deviceStatusOverview,omitempty"`
+	// GroupAssignments undocumented
+	GroupAssignments []DeviceConfigurationGroupAssignment `json:"groupAssignments,omitempty"`
+	// UserStatuses undocumented
+	UserStatuses []DeviceConfigurationUserStatus `json:"userStatuses,omitempty"`
+	// UserStatusOverview undocumented
+	UserStatusOverview *DeviceConfigurationUserOverview `json:"userStatusOverview,omitempty"`
 }
 
 // DeviceConfigurationAssignment The device configuration assignment entity assigns an AAD group to a specific device configuration.
 type DeviceConfigurationAssignment struct {
 	// Entity is the base model of DeviceConfigurationAssignment
 	Entity
-	// Target The assignment target for the device configuration.
-	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// Source The assignment source for the device configuration, direct or parcel/policySet. This property is read-only.
 	Source *DeviceAndAppManagementAssignmentSource `json:"source,omitempty"`
 	// SourceID The identifier of the source of the assignment. This property is read-only.
 	SourceID *string `json:"sourceId,omitempty"`
+	// Target The assignment target for the device configuration.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 }
 
 // DeviceConfigurationConflictSummary Conflict summary for a set of device configuration policies.
@@ -600,64 +794,64 @@ type DeviceConfigurationConflictSummary struct {
 type DeviceConfigurationDeviceOverview struct {
 	// Entity is the base model of DeviceConfigurationDeviceOverview
 	Entity
-	// PendingCount Number of pending devices
-	PendingCount *int `json:"pendingCount,omitempty"`
-	// NotApplicableCount Number of not applicable devices
-	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
-	// NotApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
-	NotApplicablePlatformCount *int `json:"notApplicablePlatformCount,omitempty"`
-	// SuccessCount Number of succeeded devices
-	SuccessCount *int `json:"successCount,omitempty"`
+	// ConfigurationVersion Version of the policy for that overview
+	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// ConflictCount Number of devices in conflict
+	ConflictCount *int `json:"conflictCount,omitempty"`
 	// ErrorCount Number of error devices
 	ErrorCount *int `json:"errorCount,omitempty"`
 	// FailedCount Number of failed devices
 	FailedCount *int `json:"failedCount,omitempty"`
-	// ConflictCount Number of devices in conflict
-	ConflictCount *int `json:"conflictCount,omitempty"`
 	// LastUpdateDateTime Last update time
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
-	// ConfigurationVersion Version of the policy for that overview
-	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// NotApplicableCount Number of not applicable devices
+	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
+	// NotApplicablePlatformCount Number of not applicable devices due to mismatch platform and policy
+	NotApplicablePlatformCount *int `json:"notApplicablePlatformCount,omitempty"`
+	// PendingCount Number of pending devices
+	PendingCount *int `json:"pendingCount,omitempty"`
+	// SuccessCount Number of succeeded devices
+	SuccessCount *int `json:"successCount,omitempty"`
 }
 
 // DeviceConfigurationDeviceStateSummary undocumented
 type DeviceConfigurationDeviceStateSummary struct {
 	// Entity is the base model of DeviceConfigurationDeviceStateSummary
 	Entity
-	// UnknownDeviceCount Number of unknown devices
-	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
-	// NotApplicableDeviceCount Number of not applicable devices
-	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
 	// CompliantDeviceCount Number of compliant devices
 	CompliantDeviceCount *int `json:"compliantDeviceCount,omitempty"`
-	// RemediatedDeviceCount Number of remediated devices
-	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
-	// NonCompliantDeviceCount Number of NonCompliant devices
-	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
-	// ErrorDeviceCount Number of error devices
-	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
 	// ConflictDeviceCount Number of conflict devices
 	ConflictDeviceCount *int `json:"conflictDeviceCount,omitempty"`
+	// ErrorDeviceCount Number of error devices
+	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// NonCompliantDeviceCount Number of NonCompliant devices
+	NonCompliantDeviceCount *int `json:"nonCompliantDeviceCount,omitempty"`
+	// NotApplicableDeviceCount Number of not applicable devices
+	NotApplicableDeviceCount *int `json:"notApplicableDeviceCount,omitempty"`
+	// RemediatedDeviceCount Number of remediated devices
+	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
+	// UnknownDeviceCount Number of unknown devices
+	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
 }
 
 // DeviceConfigurationDeviceStatus undocumented
 type DeviceConfigurationDeviceStatus struct {
 	// Entity is the base model of DeviceConfigurationDeviceStatus
 	Entity
-	// DeviceDisplayName Device name of the DevicePolicyStatus.
-	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
-	// UserName The User Name that is being reported
-	UserName *string `json:"userName,omitempty"`
-	// DeviceModel The device model that is being reported
-	DeviceModel *string `json:"deviceModel,omitempty"`
-	// Platform Platform of the device that is being reported
-	Platform *int `json:"platform,omitempty"`
 	// ComplianceGracePeriodExpirationDateTime The DateTime when device compliance grace period expires
 	ComplianceGracePeriodExpirationDateTime *time.Time `json:"complianceGracePeriodExpirationDateTime,omitempty"`
-	// Status Compliance status of the policy report.
-	Status *ComplianceStatus `json:"status,omitempty"`
+	// DeviceDisplayName Device name of the DevicePolicyStatus.
+	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceModel The device model that is being reported
+	DeviceModel *string `json:"deviceModel,omitempty"`
 	// LastReportedDateTime Last modified date time of the policy report.
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// Platform Platform of the device that is being reported
+	Platform *int `json:"platform,omitempty"`
+	// Status Compliance status of the policy report.
+	Status *ComplianceStatus `json:"status,omitempty"`
+	// UserName The User Name that is being reported
+	UserName *string `json:"userName,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
@@ -666,10 +860,10 @@ type DeviceConfigurationDeviceStatus struct {
 type DeviceConfigurationGroupAssignment struct {
 	// Entity is the base model of DeviceConfigurationGroupAssignment
 	Entity
-	// TargetGroupID The Id of the AAD group we are targeting the device configuration to.
-	TargetGroupID *string `json:"targetGroupId,omitempty"`
 	// ExcludeGroup Indicates if this group is should be excluded. Defaults that the group should be included
 	ExcludeGroup *bool `json:"excludeGroup,omitempty"`
+	// TargetGroupID The Id of the AAD group we are targeting the device configuration to.
+	TargetGroupID *string `json:"targetGroupId,omitempty"`
 	// DeviceConfiguration undocumented
 	DeviceConfiguration *DeviceConfiguration `json:"deviceConfiguration,omitempty"`
 }
@@ -680,59 +874,61 @@ type DeviceConfigurationPolicySetItem struct {
 	PolicySetItem
 }
 
-// DeviceConfigurationSettingState undocumented
+// DeviceConfigurationSettingState Device Configuration Setting State for a given device.
 type DeviceConfigurationSettingState struct {
 	// Object is the base model of DeviceConfigurationSettingState
 	Object
-	// Setting The setting that is being reported
-	Setting *string `json:"setting,omitempty"`
-	// SettingName Localized/user friendly setting name that is being reported
-	SettingName *string `json:"settingName,omitempty"`
-	// InstanceDisplayName Name of setting instance that is being reported.
-	InstanceDisplayName *string `json:"instanceDisplayName,omitempty"`
-	// State The compliance state of the setting
-	State *ComplianceStatus `json:"state,omitempty"`
+	// CurrentValue Current value of setting on device
+	CurrentValue *string `json:"currentValue,omitempty"`
 	// ErrorCode Error code for the setting
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description
 	ErrorDescription *string `json:"errorDescription,omitempty"`
+	// InstanceDisplayName Name of setting instance that is being reported.
+	InstanceDisplayName *string `json:"instanceDisplayName,omitempty"`
+	// Setting The setting that is being reported
+	Setting *string `json:"setting,omitempty"`
+	// SettingInstanceID SettingInstanceId
+	SettingInstanceID *string `json:"settingInstanceId,omitempty"`
+	// SettingName Localized/user friendly setting name that is being reported
+	SettingName *string `json:"settingName,omitempty"`
+	// Sources Contributing policies
+	Sources []SettingSource `json:"sources,omitempty"`
+	// State The compliance state of the setting
+	State *ComplianceStatus `json:"state,omitempty"`
+	// UserEmail UserEmail
+	UserEmail *string `json:"userEmail,omitempty"`
 	// UserID UserId
 	UserID *string `json:"userId,omitempty"`
 	// UserName UserName
 	UserName *string `json:"userName,omitempty"`
-	// UserEmail UserEmail
-	UserEmail *string `json:"userEmail,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// Sources Contributing policies
-	Sources []SettingSource `json:"sources,omitempty"`
-	// CurrentValue Current value of setting on device
-	CurrentValue *string `json:"currentValue,omitempty"`
 }
 
 // DeviceConfigurationState Device Configuration State for a given device.
 type DeviceConfigurationState struct {
 	// Entity is the base model of DeviceConfigurationState
 	Entity
-	// SettingStates undocumented
-	SettingStates []DeviceConfigurationSettingState `json:"settingStates,omitempty"`
 	// DisplayName The name of the policy for this policyBase
 	DisplayName *string `json:"displayName,omitempty"`
-	// Version The version of the policy
-	Version *int `json:"version,omitempty"`
 	// PlatformType Platform type that the policy applies to
 	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
-	// State The compliance state of the policy
-	State *ComplianceStatus `json:"state,omitempty"`
 	// SettingCount Count of how many setting a policy holds
 	SettingCount *int `json:"settingCount,omitempty"`
+	// SettingStates undocumented
+	SettingStates []DeviceConfigurationSettingState `json:"settingStates,omitempty"`
+	// State The compliance state of the policy
+	State *ComplianceStatus `json:"state,omitempty"`
 	// UserID User unique identifier, must be Guid
 	UserID *string `json:"userId,omitempty"`
 	// UserPrincipalName User Principal Name
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// Version The version of the policy
+	Version *int `json:"version,omitempty"`
 }
 
-// DeviceConfigurationTargetedUserAndDevice undocumented
+// DeviceConfigurationTargetedUserAndDevice Conflict summary for a set of device configuration policies.
 type DeviceConfigurationTargetedUserAndDevice struct {
 	// Object is the base model of DeviceConfigurationTargetedUserAndDevice
 	Object
@@ -740,92 +936,128 @@ type DeviceConfigurationTargetedUserAndDevice struct {
 	DeviceID *string `json:"deviceId,omitempty"`
 	// DeviceName The name of the device in the checkin.
 	DeviceName *string `json:"deviceName,omitempty"`
-	// UserID The id of the user in the checkin.
-	UserID *string `json:"userId,omitempty"`
-	// UserDisplayName The display name of the user in the checkin
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
-	// UserPrincipalName The UPN of the user in the checkin.
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// LastCheckinDateTime Last checkin time for this user/device pair.
 	LastCheckinDateTime *time.Time `json:"lastCheckinDateTime,omitempty"`
+	// UserDisplayName The display name of the user in the checkin
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserID The id of the user in the checkin.
+	UserID *string `json:"userId,omitempty"`
+	// UserPrincipalName The UPN of the user in the checkin.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // DeviceConfigurationUserOverview undocumented
 type DeviceConfigurationUserOverview struct {
 	// Entity is the base model of DeviceConfigurationUserOverview
 	Entity
-	// PendingCount Number of pending Users
-	PendingCount *int `json:"pendingCount,omitempty"`
-	// NotApplicableCount Number of not applicable users
-	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
-	// SuccessCount Number of succeeded Users
-	SuccessCount *int `json:"successCount,omitempty"`
+	// ConfigurationVersion Version of the policy for that overview
+	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// ConflictCount Number of users in conflict
+	ConflictCount *int `json:"conflictCount,omitempty"`
 	// ErrorCount Number of error Users
 	ErrorCount *int `json:"errorCount,omitempty"`
 	// FailedCount Number of failed Users
 	FailedCount *int `json:"failedCount,omitempty"`
-	// ConflictCount Number of users in conflict
-	ConflictCount *int `json:"conflictCount,omitempty"`
 	// LastUpdateDateTime Last update time
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
-	// ConfigurationVersion Version of the policy for that overview
-	ConfigurationVersion *int `json:"configurationVersion,omitempty"`
+	// NotApplicableCount Number of not applicable users
+	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
+	// PendingCount Number of pending Users
+	PendingCount *int `json:"pendingCount,omitempty"`
+	// SuccessCount Number of succeeded Users
+	SuccessCount *int `json:"successCount,omitempty"`
 }
 
 // DeviceConfigurationUserStateSummary undocumented
 type DeviceConfigurationUserStateSummary struct {
 	// Entity is the base model of DeviceConfigurationUserStateSummary
 	Entity
-	// UnknownUserCount Number of unknown users
-	UnknownUserCount *int `json:"unknownUserCount,omitempty"`
-	// NotApplicableUserCount Number of not applicable users
-	NotApplicableUserCount *int `json:"notApplicableUserCount,omitempty"`
 	// CompliantUserCount Number of compliant users
 	CompliantUserCount *int `json:"compliantUserCount,omitempty"`
-	// RemediatedUserCount Number of remediated users
-	RemediatedUserCount *int `json:"remediatedUserCount,omitempty"`
-	// NonCompliantUserCount Number of NonCompliant users
-	NonCompliantUserCount *int `json:"nonCompliantUserCount,omitempty"`
-	// ErrorUserCount Number of error users
-	ErrorUserCount *int `json:"errorUserCount,omitempty"`
 	// ConflictUserCount Number of conflict users
 	ConflictUserCount *int `json:"conflictUserCount,omitempty"`
+	// ErrorUserCount Number of error users
+	ErrorUserCount *int `json:"errorUserCount,omitempty"`
+	// NonCompliantUserCount Number of NonCompliant users
+	NonCompliantUserCount *int `json:"nonCompliantUserCount,omitempty"`
+	// NotApplicableUserCount Number of not applicable users
+	NotApplicableUserCount *int `json:"notApplicableUserCount,omitempty"`
+	// RemediatedUserCount Number of remediated users
+	RemediatedUserCount *int `json:"remediatedUserCount,omitempty"`
+	// UnknownUserCount Number of unknown users
+	UnknownUserCount *int `json:"unknownUserCount,omitempty"`
 }
 
 // DeviceConfigurationUserStatus undocumented
 type DeviceConfigurationUserStatus struct {
 	// Entity is the base model of DeviceConfigurationUserStatus
 	Entity
-	// UserDisplayName User name of the DevicePolicyStatus.
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// DevicesCount Devices count for that user.
 	DevicesCount *int `json:"devicesCount,omitempty"`
-	// Status Compliance status of the policy report.
-	Status *ComplianceStatus `json:"status,omitempty"`
 	// LastReportedDateTime Last modified date time of the policy report.
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// Status Compliance status of the policy report.
+	Status *ComplianceStatus `json:"status,omitempty"`
+	// UserDisplayName User name of the DevicePolicyStatus.
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
 	// UserPrincipalName UserPrincipalName.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+}
+
+// DeviceCustomAttributeShellScript Represents a custom attribute script for macOS.
+type DeviceCustomAttributeShellScript struct {
+	// Entity is the base model of DeviceCustomAttributeShellScript
+	Entity
+	// CreatedDateTime The date and time the device management script was created. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// CustomAttributeName The name of the custom attribute.
+	CustomAttributeName *string `json:"customAttributeName,omitempty"`
+	// CustomAttributeType The expected type of the custom attribute's value.
+	CustomAttributeType *DeviceCustomAttributeValueType `json:"customAttributeType,omitempty"`
+	// Description Optional description for the device management script.
+	Description *string `json:"description,omitempty"`
+	// DisplayName Name of the device management script.
+	DisplayName *string `json:"displayName,omitempty"`
+	// FileName Script file name.
+	FileName *string `json:"fileName,omitempty"`
+	// LastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// RoleScopeTagIDs List of Scope Tag IDs for this PowerShellScript instance.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// RunAsAccount Indicates the type of execution context.
+	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// ScriptContent The script content.
+	ScriptContent *Binary `json:"scriptContent,omitempty"`
+	// Assignments undocumented
+	Assignments []DeviceManagementScriptAssignment `json:"assignments,omitempty"`
+	// DeviceRunStates undocumented
+	DeviceRunStates []DeviceManagementScriptDeviceState `json:"deviceRunStates,omitempty"`
+	// GroupAssignments undocumented
+	GroupAssignments []DeviceManagementScriptGroupAssignment `json:"groupAssignments,omitempty"`
+	// RunSummary undocumented
+	RunSummary *DeviceManagementScriptRunSummary `json:"runSummary,omitempty"`
+	// UserRunStates undocumented
+	UserRunStates []DeviceManagementScriptUserState `json:"userRunStates,omitempty"`
 }
 
 // DeviceDetail undocumented
 type DeviceDetail struct {
 	// Object is the base model of DeviceDetail
 	Object
-	// DeviceID undocumented
-	DeviceID *string `json:"deviceId,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// OperatingSystem undocumented
-	OperatingSystem *string `json:"operatingSystem,omitempty"`
 	// Browser undocumented
 	Browser *string `json:"browser,omitempty"`
 	// BrowserID undocumented
 	BrowserID *string `json:"browserId,omitempty"`
+	// DeviceID undocumented
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// IsCompliant undocumented
 	IsCompliant *bool `json:"isCompliant,omitempty"`
 	// IsManaged undocumented
 	IsManaged *bool `json:"isManaged,omitempty"`
+	// OperatingSystem undocumented
+	OperatingSystem *string `json:"operatingSystem,omitempty"`
 	// TrustType undocumented
 	TrustType *string `json:"trustType,omitempty"`
 }
@@ -834,16 +1066,18 @@ type DeviceDetail struct {
 type DeviceEnrollmentConfiguration struct {
 	// Entity is the base model of DeviceEnrollmentConfiguration
 	Entity
-	// DisplayName The display name of the device enrollment configuration
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description The description of the device enrollment configuration
-	Description *string `json:"description,omitempty"`
-	// Priority Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
-	Priority *int `json:"priority,omitempty"`
 	// CreatedDateTime Created date time in UTC of the device enrollment configuration
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description The description of the device enrollment configuration
+	Description *string `json:"description,omitempty"`
+	// DisplayName The display name of the device enrollment configuration
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastModifiedDateTime Last modified date time in UTC of the device enrollment configuration
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Priority Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
+	Priority *int `json:"priority,omitempty"`
+	// RoleScopeTagIDs Optional role scope tags for the enrollment restrictions.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// Version The version of the device enrollment configuration
 	Version *int `json:"version,omitempty"`
 	// Assignments undocumented
@@ -858,73 +1092,81 @@ type DeviceEnrollmentLimitConfiguration struct {
 	Limit *int `json:"limit,omitempty"`
 }
 
-// DeviceEnrollmentPlatformRestriction undocumented
+// DeviceEnrollmentPlatformRestriction Platform specific enrollment restrictions
 type DeviceEnrollmentPlatformRestriction struct {
 	// Object is the base model of DeviceEnrollmentPlatformRestriction
 	Object
-	// PlatformBlocked Block the platform from enrolling
-	PlatformBlocked *bool `json:"platformBlocked,omitempty"`
-	// PersonalDeviceEnrollmentBlocked Block personally owned devices from enrolling
-	PersonalDeviceEnrollmentBlocked *bool `json:"personalDeviceEnrollmentBlocked,omitempty"`
-	// OsMinimumVersion Min OS version supported
-	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// BlockedManufacturers Collection of blocked Manufacturers.
+	BlockedManufacturers []string `json:"blockedManufacturers,omitempty"`
+	// BlockedSKUs Collection of blocked Skus.
+	BlockedSKUs []string `json:"blockedSkus,omitempty"`
 	// OsMaximumVersion Max OS version supported
 	OsMaximumVersion *string `json:"osMaximumVersion,omitempty"`
+	// OsMinimumVersion Min OS version supported
+	OsMinimumVersion *string `json:"osMinimumVersion,omitempty"`
+	// PersonalDeviceEnrollmentBlocked Block personally owned devices from enrolling
+	PersonalDeviceEnrollmentBlocked *bool `json:"personalDeviceEnrollmentBlocked,omitempty"`
+	// PlatformBlocked Block the platform from enrolling
+	PlatformBlocked *bool `json:"platformBlocked,omitempty"`
 }
 
 // DeviceEnrollmentPlatformRestrictionsConfiguration Device Enrollment Configuration that restricts the types of devices a user can enroll
 type DeviceEnrollmentPlatformRestrictionsConfiguration struct {
 	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentPlatformRestrictionsConfiguration
 	DeviceEnrollmentConfiguration
-	// IOSRestriction Ios restrictions based on platform, platform operating system version, and device ownership
-	IOSRestriction *DeviceEnrollmentPlatformRestriction `json:"iosRestriction,omitempty"`
-	// WindowsRestriction Windows restrictions based on platform, platform operating system version, and device ownership
-	WindowsRestriction *DeviceEnrollmentPlatformRestriction `json:"windowsRestriction,omitempty"`
-	// WindowsMobileRestriction Windows mobile restrictions based on platform, platform operating system version, and device ownership
-	WindowsMobileRestriction *DeviceEnrollmentPlatformRestriction `json:"windowsMobileRestriction,omitempty"`
-	// AndroidRestriction Android restrictions based on platform, platform operating system version, and device ownership
-	AndroidRestriction *DeviceEnrollmentPlatformRestriction `json:"androidRestriction,omitempty"`
 	// AndroidForWorkRestriction Android for work restrictions based on platform, platform operating system version, and device ownership
 	AndroidForWorkRestriction *DeviceEnrollmentPlatformRestriction `json:"androidForWorkRestriction,omitempty"`
-	// MacRestriction Mac restrictions based on platform, platform operating system version, and device ownership
-	MacRestriction *DeviceEnrollmentPlatformRestriction `json:"macRestriction,omitempty"`
+	// AndroidRestriction Android restrictions based on platform, platform operating system version, and device ownership
+	AndroidRestriction *DeviceEnrollmentPlatformRestriction `json:"androidRestriction,omitempty"`
+	// AospRestriction AOSP restrictions based on platform, platform operating system version, and device ownership
+	AospRestriction *DeviceEnrollmentPlatformRestriction `json:"aospRestriction,omitempty"`
+	// IOSRestriction Ios restrictions based on platform, platform operating system version, and device ownership
+	IOSRestriction *DeviceEnrollmentPlatformRestriction `json:"iosRestriction,omitempty"`
 	// MacOSRestriction Mac restrictions based on platform, platform operating system version, and device ownership
 	MacOSRestriction *DeviceEnrollmentPlatformRestriction `json:"macOSRestriction,omitempty"`
+	// MacRestriction Mac restrictions based on platform, platform operating system version, and device ownership
+	MacRestriction *DeviceEnrollmentPlatformRestriction `json:"macRestriction,omitempty"`
+	// WindowsHomeSKURestriction Windows Home Sku restrictions based on platform, platform operating system version, and device ownership
+	WindowsHomeSKURestriction *DeviceEnrollmentPlatformRestriction `json:"windowsHomeSkuRestriction,omitempty"`
+	// WindowsMobileRestriction Windows mobile restrictions based on platform, platform operating system version, and device ownership
+	WindowsMobileRestriction *DeviceEnrollmentPlatformRestriction `json:"windowsMobileRestriction,omitempty"`
+	// WindowsRestriction Windows restrictions based on platform, platform operating system version, and device ownership
+	WindowsRestriction *DeviceEnrollmentPlatformRestriction `json:"windowsRestriction,omitempty"`
 }
 
 // DeviceEnrollmentWindowsHelloForBusinessConfiguration Windows Hello for Business settings lets users access their devices using a gesture, such as biometric authentication, or a PIN. Configure settings for enrolled Windows 10, Windows 10 Mobile and later.
 type DeviceEnrollmentWindowsHelloForBusinessConfiguration struct {
 	// DeviceEnrollmentConfiguration is the base model of DeviceEnrollmentWindowsHelloForBusinessConfiguration
 	DeviceEnrollmentConfiguration
-	// PinMinimumLength Controls the minimum number of characters required for the Windows Hello for Business PIN.  This value must be between 4 and 127, inclusive, and less than or equal to the value set for the maximum PIN.
-	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
-	// PinMaximumLength Controls the maximum number of characters allowed for the Windows Hello for Business PIN. This value must be between 4 and 127, inclusive. This value must be greater than or equal to the value set for the minimum PIN.
-	PinMaximumLength *int `json:"pinMaximumLength,omitempty"`
-	// PinUppercaseCharactersUsage Controls the ability to use uppercase letters in the Windows Hello for Business PIN.  Allowed permits the use of uppercase letter(s), whereas Required ensures they are present. If set to Not Allowed, uppercase letters will not be permitted.
-	PinUppercaseCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinUppercaseCharactersUsage,omitempty"`
-	// PinLowercaseCharactersUsage Controls the ability to use lowercase letters in the Windows Hello for Business PIN.  Allowed permits the use of lowercase letter(s), whereas Required ensures they are present. If set to Not Allowed, lowercase letters will not be permitted.
-	PinLowercaseCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinLowercaseCharactersUsage,omitempty"`
-	// PinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN.  Allowed permits the use of special character(s), whereas Required ensures they are present. If set to Not Allowed, special character(s) will not be permitted.
-	PinSpecialCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinSpecialCharactersUsage,omitempty"`
-	// State Controls whether to allow the device to be configured for Windows Hello for Business. If set to disabled, the user cannot provision Windows Hello for Business except on Azure Active Directory joined mobile phones if otherwise required. If set to Not Configured, Intune will not override client defaults.
-	State *Enablement `json:"state,omitempty"`
-	// SecurityDeviceRequired Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.
-	SecurityDeviceRequired *bool `json:"securityDeviceRequired,omitempty"`
-	// UnlockWithBiometricsEnabled Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.
-	UnlockWithBiometricsEnabled *bool `json:"unlockWithBiometricsEnabled,omitempty"`
-	// RemotePassportEnabled Controls the use of Remote Windows Hello for Business. Remote Windows Hello for Business provides the ability for a portable, registered device to be usable as a companion for desktop authentication. The desktop must be Azure AD joined and the companion device must have a Windows Hello for Business PIN.
-	RemotePassportEnabled *bool `json:"remotePassportEnabled,omitempty"`
-	// PinPreviousBlockCount Controls the ability to prevent users from using past PINs. This must be set between 0 and 50, inclusive, and the current PIN of the user is included in that count. If set to 0, previous PINs are not stored. PIN history is not preserved through a PIN reset.
-	PinPreviousBlockCount *int `json:"pinPreviousBlockCount,omitempty"`
-	// PinExpirationInDays Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire
-	PinExpirationInDays *int `json:"pinExpirationInDays,omitempty"`
 	// EnhancedBiometricsState Controls the ability to use the anti-spoofing features for facial recognition on devices which support it. If set to disabled, anti-spoofing features are not allowed. If set to Not Configured, the user can choose whether they want to use anti-spoofing.
 	EnhancedBiometricsState *Enablement `json:"enhancedBiometricsState,omitempty"`
+	// PinExpirationInDays Controls the period of time (in days) that a PIN can be used before the system requires the user to change it. This must be set between 0 and 730, inclusive. If set to 0, the user's PIN will never expire
+	PinExpirationInDays *int `json:"pinExpirationInDays,omitempty"`
+	// PinLowercaseCharactersUsage Controls the ability to use lowercase letters in the Windows Hello for Business PIN.  Allowed permits the use of lowercase letter(s), whereas Required ensures they are present. If set to Not Allowed, lowercase letters will not be permitted.
+	PinLowercaseCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinLowercaseCharactersUsage,omitempty"`
+	// PinMaximumLength Controls the maximum number of characters allowed for the Windows Hello for Business PIN. This value must be between 4 and 127, inclusive. This value must be greater than or equal to the value set for the minimum PIN.
+	PinMaximumLength *int `json:"pinMaximumLength,omitempty"`
+	// PinMinimumLength Controls the minimum number of characters required for the Windows Hello for Business PIN.  This value must be between 4 and 127, inclusive, and less than or equal to the value set for the maximum PIN.
+	PinMinimumLength *int `json:"pinMinimumLength,omitempty"`
+	// PinPreviousBlockCount Controls the ability to prevent users from using past PINs. This must be set between 0 and 50, inclusive, and the current PIN of the user is included in that count. If set to 0, previous PINs are not stored. PIN history is not preserved through a PIN reset.
+	PinPreviousBlockCount *int `json:"pinPreviousBlockCount,omitempty"`
+	// PinSpecialCharactersUsage Controls the ability to use special characters in the Windows Hello for Business PIN.  Allowed permits the use of special character(s), whereas Required ensures they are present. If set to Not Allowed, special character(s) will not be permitted.
+	PinSpecialCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinSpecialCharactersUsage,omitempty"`
+	// PinUppercaseCharactersUsage Controls the ability to use uppercase letters in the Windows Hello for Business PIN.  Allowed permits the use of uppercase letter(s), whereas Required ensures they are present. If set to Not Allowed, uppercase letters will not be permitted.
+	PinUppercaseCharactersUsage *WindowsHelloForBusinessPinUsage `json:"pinUppercaseCharactersUsage,omitempty"`
+	// RemotePassportEnabled Controls the use of Remote Windows Hello for Business. Remote Windows Hello for Business provides the ability for a portable, registered device to be usable as a companion for desktop authentication. The desktop must be Azure AD joined and the companion device must have a Windows Hello for Business PIN.
+	RemotePassportEnabled *bool `json:"remotePassportEnabled,omitempty"`
+	// SecurityDeviceRequired Controls whether to require a Trusted Platform Module (TPM) for provisioning Windows Hello for Business. A TPM provides an additional security benefit in that data stored on it cannot be used on other devices. If set to False, all devices can provision Windows Hello for Business even if there is not a usable TPM.
+	SecurityDeviceRequired *bool `json:"securityDeviceRequired,omitempty"`
 	// SecurityKeyForSignIn Security key for Sign In provides the capacity for remotely turning ON/OFF Windows Hello Sercurity Keyl Not configured will honor configurations done on the clinet.
 	SecurityKeyForSignIn *Enablement `json:"securityKeyForSignIn,omitempty"`
+	// State Controls whether to allow the device to be configured for Windows Hello for Business. If set to disabled, the user cannot provision Windows Hello for Business except on Azure Active Directory joined mobile phones if otherwise required. If set to Not Configured, Intune will not override client defaults.
+	State *Enablement `json:"state,omitempty"`
+	// UnlockWithBiometricsEnabled Controls the use of biometric gestures, such as face and fingerprint, as an alternative to the Windows Hello for Business PIN.  If set to False, biometric gestures are not allowed. Users must still configure a PIN as a backup in case of failures.
+	UnlockWithBiometricsEnabled *bool `json:"unlockWithBiometricsEnabled,omitempty"`
 }
 
-// DeviceExchangeAccessStateSummary undocumented
+// DeviceExchangeAccessStateSummary Device Exchange Access State summary
 type DeviceExchangeAccessStateSummary struct {
 	// Object is the base model of DeviceExchangeAccessStateSummary
 	Object
@@ -934,224 +1176,402 @@ type DeviceExchangeAccessStateSummary struct {
 	BlockedDeviceCount *int `json:"blockedDeviceCount,omitempty"`
 	// QuarantinedDeviceCount Total count of devices with Exchange Access State: Quarantined.
 	QuarantinedDeviceCount *int `json:"quarantinedDeviceCount,omitempty"`
-	// UnknownDeviceCount Total count of devices with Exchange Access State: Unknown.
-	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
 	// UnavailableDeviceCount Total count of devices for which no Exchange Access State could be found.
 	UnavailableDeviceCount *int `json:"unavailableDeviceCount,omitempty"`
+	// UnknownDeviceCount Total count of devices with Exchange Access State: Unknown.
+	UnknownDeviceCount *int `json:"unknownDeviceCount,omitempty"`
 }
 
-// DeviceGeoLocation undocumented
+// DeviceGeoLocation Device location
 type DeviceGeoLocation struct {
 	// Object is the base model of DeviceGeoLocation
 	Object
-	// LastCollectedDateTimeUtc Time at which location was recorded, relative to UTC
-	LastCollectedDateTimeUtc *time.Time `json:"lastCollectedDateTimeUtc,omitempty"`
-	// LastCollectedDateTime Time at which location was recorded, relative to UTC
-	LastCollectedDateTime *time.Time `json:"lastCollectedDateTime,omitempty"`
-	// Longitude Longitude coordinate of the device's location
-	Longitude *float64 `json:"longitude,omitempty"`
-	// Latitude Latitude coordinate of the device's location
-	Latitude *float64 `json:"latitude,omitempty"`
 	// Altitude Altitude, given in meters above sea level
 	Altitude *float64 `json:"altitude,omitempty"`
-	// HorizontalAccuracy Accuracy of longitude and latitude in meters
-	HorizontalAccuracy *float64 `json:"horizontalAccuracy,omitempty"`
-	// VerticalAccuracy Accuracy of altitude in meters
-	VerticalAccuracy *float64 `json:"verticalAccuracy,omitempty"`
 	// Heading Heading in degrees from true north
 	Heading *float64 `json:"heading,omitempty"`
+	// HorizontalAccuracy Accuracy of longitude and latitude in meters
+	HorizontalAccuracy *float64 `json:"horizontalAccuracy,omitempty"`
+	// LastCollectedDateTime Time at which location was recorded, relative to UTC
+	LastCollectedDateTime *time.Time `json:"lastCollectedDateTime,omitempty"`
+	// LastCollectedDateTimeUtc Time at which location was recorded, relative to UTC
+	LastCollectedDateTimeUtc *time.Time `json:"lastCollectedDateTimeUtc,omitempty"`
+	// Latitude Latitude coordinate of the device's location
+	Latitude *float64 `json:"latitude,omitempty"`
+	// Longitude Longitude coordinate of the device's location
+	Longitude *float64 `json:"longitude,omitempty"`
 	// Speed Speed the device is traveling in meters per second
 	Speed *float64 `json:"speed,omitempty"`
+	// VerticalAccuracy Accuracy of altitude in meters
+	VerticalAccuracy *float64 `json:"verticalAccuracy,omitempty"`
+}
+
+// DeviceHealth undocumented
+type DeviceHealth struct {
+	// Object is the base model of DeviceHealth
+	Object
+	// LastConnectionTime undocumented
+	LastConnectionTime *time.Time `json:"lastConnectionTime,omitempty"`
 }
 
 // DeviceHealthAttestationState undocumented
 type DeviceHealthAttestationState struct {
 	// Object is the base model of DeviceHealthAttestationState
 	Object
-	// LastUpdateDateTime The Timestamp of the last update.
-	LastUpdateDateTime *string `json:"lastUpdateDateTime,omitempty"`
-	// ContentNamespaceURL The DHA report version. (Namespace version)
-	ContentNamespaceURL *string `json:"contentNamespaceUrl,omitempty"`
-	// DeviceHealthAttestationStatus The DHA report version. (Namespace version)
-	DeviceHealthAttestationStatus *string `json:"deviceHealthAttestationStatus,omitempty"`
-	// ContentVersion The HealthAttestation state schema version
-	ContentVersion *string `json:"contentVersion,omitempty"`
-	// IssuedDateTime The DateTime when device was evaluated or issued to MDM
-	IssuedDateTime *time.Time `json:"issuedDateTime,omitempty"`
 	// AttestationIdentityKey TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
 	AttestationIdentityKey *string `json:"attestationIdentityKey,omitempty"`
+	// BitLockerStatus On or Off of BitLocker Drive Encryption
+	BitLockerStatus *string `json:"bitLockerStatus,omitempty"`
+	// BootAppSecurityVersion The security version number of the Boot Application
+	BootAppSecurityVersion *string `json:"bootAppSecurityVersion,omitempty"`
+	// BootDebugging When bootDebugging is enabled, the device is used in development and testing
+	BootDebugging *string `json:"bootDebugging,omitempty"`
+	// BootManagerSecurityVersion The security version number of the Boot Application
+	BootManagerSecurityVersion *string `json:"bootManagerSecurityVersion,omitempty"`
+	// BootManagerVersion The version of the Boot Manager
+	BootManagerVersion *string `json:"bootManagerVersion,omitempty"`
+	// BootRevisionListInfo The Boot Revision List that was loaded during initial boot on the attested device
+	BootRevisionListInfo *string `json:"bootRevisionListInfo,omitempty"`
+	// CodeIntegrity  When code integrity is enabled, code execution is restricted to integrity verified code
+	CodeIntegrity *string `json:"codeIntegrity,omitempty"`
+	// CodeIntegrityCheckVersion The version of the Boot Manager
+	CodeIntegrityCheckVersion *string `json:"codeIntegrityCheckVersion,omitempty"`
+	// CodeIntegrityPolicy The Code Integrity policy that is controlling the security of the boot environment
+	CodeIntegrityPolicy *string `json:"codeIntegrityPolicy,omitempty"`
+	// ContentNamespaceURL The DHA report version. (Namespace version)
+	ContentNamespaceURL *string `json:"contentNamespaceUrl,omitempty"`
+	// ContentVersion The HealthAttestation state schema version
+	ContentVersion *string `json:"contentVersion,omitempty"`
+	// DataExcutionPolicy DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
+	DataExcutionPolicy *string `json:"dataExcutionPolicy,omitempty"`
+	// DeviceHealthAttestationStatus The DHA report version. (Namespace version)
+	DeviceHealthAttestationStatus *string `json:"deviceHealthAttestationStatus,omitempty"`
+	// EarlyLaunchAntiMalwareDriverProtection ELAM provides protection for the computers in your network when they start up
+	EarlyLaunchAntiMalwareDriverProtection *string `json:"earlyLaunchAntiMalwareDriverProtection,omitempty"`
+	// HealthAttestationSupportedStatus This attribute indicates if DHA is supported for the device
+	HealthAttestationSupportedStatus *string `json:"healthAttestationSupportedStatus,omitempty"`
+	// HealthStatusMismatchInfo This attribute appears if DHA-Service detects an integrity issue
+	HealthStatusMismatchInfo *string `json:"healthStatusMismatchInfo,omitempty"`
+	// IssuedDateTime The DateTime when device was evaluated or issued to MDM
+	IssuedDateTime *time.Time `json:"issuedDateTime,omitempty"`
+	// LastUpdateDateTime The Timestamp of the last update.
+	LastUpdateDateTime *string `json:"lastUpdateDateTime,omitempty"`
+	// OperatingSystemKernelDebugging When operatingSystemKernelDebugging is enabled, the device is used in development and testing
+	OperatingSystemKernelDebugging *string `json:"operatingSystemKernelDebugging,omitempty"`
+	// OperatingSystemRevListInfo The Operating System Revision List that was loaded during initial boot on the attested device
+	OperatingSystemRevListInfo *string `json:"operatingSystemRevListInfo,omitempty"`
+	// Pcr0 The measurement that is captured in PCR[0]
+	Pcr0 *string `json:"pcr0,omitempty"`
+	// PcrHashAlgorithm Informational attribute that identifies the HASH algorithm that was used by TPM
+	PcrHashAlgorithm *string `json:"pcrHashAlgorithm,omitempty"`
 	// ResetCount The number of times a PC device has hibernated or resumed
 	ResetCount *int `json:"resetCount,omitempty"`
 	// RestartCount The number of times a PC device has rebooted
 	RestartCount *int `json:"restartCount,omitempty"`
-	// DataExcutionPolicy DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
-	DataExcutionPolicy *string `json:"dataExcutionPolicy,omitempty"`
-	// BitLockerStatus On or Off of BitLocker Drive Encryption
-	BitLockerStatus *string `json:"bitLockerStatus,omitempty"`
-	// BootManagerVersion The version of the Boot Manager
-	BootManagerVersion *string `json:"bootManagerVersion,omitempty"`
-	// CodeIntegrityCheckVersion The version of the Boot Manager
-	CodeIntegrityCheckVersion *string `json:"codeIntegrityCheckVersion,omitempty"`
-	// SecureBoot When Secure Boot is enabled, the core components must have the correct cryptographic signatures
-	SecureBoot *string `json:"secureBoot,omitempty"`
-	// BootDebugging When bootDebugging is enabled, the device is used in development and testing
-	BootDebugging *string `json:"bootDebugging,omitempty"`
-	// OperatingSystemKernelDebugging When operatingSystemKernelDebugging is enabled, the device is used in development and testing
-	OperatingSystemKernelDebugging *string `json:"operatingSystemKernelDebugging,omitempty"`
-	// CodeIntegrity  When code integrity is enabled, code execution is restricted to integrity verified code
-	CodeIntegrity *string `json:"codeIntegrity,omitempty"`
-	// TestSigning When test signing is allowed, the device does not enforce signature validation during boot
-	TestSigning *string `json:"testSigning,omitempty"`
 	// SafeMode Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
 	SafeMode *string `json:"safeMode,omitempty"`
-	// WindowsPE Operating system running with limited services that is used to prepare a computer for Windows
-	WindowsPE *string `json:"windowsPE,omitempty"`
-	// EarlyLaunchAntiMalwareDriverProtection ELAM provides protection for the computers in your network when they start up
-	EarlyLaunchAntiMalwareDriverProtection *string `json:"earlyLaunchAntiMalwareDriverProtection,omitempty"`
-	// VirtualSecureMode VSM is a container that protects high value assets from a compromised kernel
-	VirtualSecureMode *string `json:"virtualSecureMode,omitempty"`
-	// PcrHashAlgorithm Informational attribute that identifies the HASH algorithm that was used by TPM
-	PcrHashAlgorithm *string `json:"pcrHashAlgorithm,omitempty"`
-	// BootAppSecurityVersion The security version number of the Boot Application
-	BootAppSecurityVersion *string `json:"bootAppSecurityVersion,omitempty"`
-	// BootManagerSecurityVersion The security version number of the Boot Application
-	BootManagerSecurityVersion *string `json:"bootManagerSecurityVersion,omitempty"`
-	// TpmVersion The security version number of the Boot Application
-	TpmVersion *string `json:"tpmVersion,omitempty"`
-	// Pcr0 The measurement that is captured in PCR[0]
-	Pcr0 *string `json:"pcr0,omitempty"`
+	// SecureBoot When Secure Boot is enabled, the core components must have the correct cryptographic signatures
+	SecureBoot *string `json:"secureBoot,omitempty"`
 	// SecureBootConfigurationPolicyFingerPrint Fingerprint of the Custom Secure Boot Configuration Policy
 	SecureBootConfigurationPolicyFingerPrint *string `json:"secureBootConfigurationPolicyFingerPrint,omitempty"`
-	// CodeIntegrityPolicy The Code Integrity policy that is controlling the security of the boot environment
-	CodeIntegrityPolicy *string `json:"codeIntegrityPolicy,omitempty"`
-	// BootRevisionListInfo The Boot Revision List that was loaded during initial boot on the attested device
-	BootRevisionListInfo *string `json:"bootRevisionListInfo,omitempty"`
-	// OperatingSystemRevListInfo The Operating System Revision List that was loaded during initial boot on the attested device
-	OperatingSystemRevListInfo *string `json:"operatingSystemRevListInfo,omitempty"`
-	// HealthStatusMismatchInfo This attribute appears if DHA-Service detects an integrity issue
-	HealthStatusMismatchInfo *string `json:"healthStatusMismatchInfo,omitempty"`
-	// HealthAttestationSupportedStatus This attribute indicates if DHA is supported for the device
-	HealthAttestationSupportedStatus *string `json:"healthAttestationSupportedStatus,omitempty"`
+	// TestSigning When test signing is allowed, the device does not enforce signature validation during boot
+	TestSigning *string `json:"testSigning,omitempty"`
+	// TpmVersion The security version number of the Boot Application
+	TpmVersion *string `json:"tpmVersion,omitempty"`
+	// VirtualSecureMode VSM is a container that protects high value assets from a compromised kernel
+	VirtualSecureMode *string `json:"virtualSecureMode,omitempty"`
+	// WindowsPE Operating system running with limited services that is used to prepare a computer for Windows
+	WindowsPE *string `json:"windowsPE,omitempty"`
 }
 
 // DeviceHealthScript Intune will provide customer the ability to run their Powershell Health scripts (remediation + detection) on the enrolled windows 10 Azure Active Directory joined devices.
 type DeviceHealthScript struct {
 	// Entity is the base model of DeviceHealthScript
 	Entity
-	// Publisher Name of the device health script publisher
-	Publisher *string `json:"publisher,omitempty"`
-	// Version Version of the device health script
-	Version *string `json:"version,omitempty"`
-	// DisplayName Name of the device health script
-	DisplayName *string `json:"displayName,omitempty"`
+	// CreatedDateTime The timestamp of when the device health script was created. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// Description Description of the device health script
 	Description *string `json:"description,omitempty"`
 	// DetectionScriptContent The entire content of the detection powershell script
 	DetectionScriptContent *Binary `json:"detectionScriptContent,omitempty"`
-	// RemediationScriptContent The entire content of the remediation powershell script
-	RemediationScriptContent *Binary `json:"remediationScriptContent,omitempty"`
-	// CreatedDateTime The timestamp of when the device health script was created. This property is read-only.
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime The timestamp of when the device health script was modified. This property is read-only.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// RunAsAccount Indicates the type of execution context
-	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// DetectionScriptParameters List of ComplexType DetectionScriptParameters objects.
+	DetectionScriptParameters []DeviceHealthScriptParameter `json:"detectionScriptParameters,omitempty"`
+	// DisplayName Name of the device health script
+	DisplayName *string `json:"displayName,omitempty"`
 	// EnforceSignatureCheck Indicate whether the script signature needs be checked
 	EnforceSignatureCheck *bool `json:"enforceSignatureCheck,omitempty"`
-	// RunAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
-	RunAs32Bit *bool `json:"runAs32Bit,omitempty"`
+	// HighestAvailableVersion Highest available version for a Microsoft Proprietary script
+	HighestAvailableVersion *string `json:"highestAvailableVersion,omitempty"`
+	// IsGlobalScript Determines if this is Microsoft Proprietary Script. Proprietary scripts are read-only
+	IsGlobalScript *bool `json:"isGlobalScript,omitempty"`
+	// LastModifiedDateTime The timestamp of when the device health script was modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Publisher Name of the device health script publisher
+	Publisher *string `json:"publisher,omitempty"`
+	// RemediationScriptContent The entire content of the remediation powershell script
+	RemediationScriptContent *Binary `json:"remediationScriptContent,omitempty"`
+	// RemediationScriptParameters List of ComplexType RemediationScriptParameters objects.
+	RemediationScriptParameters []DeviceHealthScriptParameter `json:"remediationScriptParameters,omitempty"`
 	// RoleScopeTagIDs List of Scope Tag IDs for the device health script
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// RunAs32Bit Indicate whether PowerShell script(s) should run as 32-bit
+	RunAs32Bit *bool `json:"runAs32Bit,omitempty"`
+	// RunAsAccount Indicates the type of execution context
+	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// Version Version of the device health script
+	Version *string `json:"version,omitempty"`
 	// Assignments undocumented
 	Assignments []DeviceHealthScriptAssignment `json:"assignments,omitempty"`
-	// RunSummary undocumented
-	RunSummary *DeviceHealthScriptRunSummary `json:"runSummary,omitempty"`
 	// DeviceRunStates undocumented
 	DeviceRunStates []DeviceHealthScriptDeviceState `json:"deviceRunStates,omitempty"`
+	// RunSummary undocumented
+	RunSummary *DeviceHealthScriptRunSummary `json:"runSummary,omitempty"`
 }
 
 // DeviceHealthScriptAssignment Contains properties used to assign a device management script to a group.
 type DeviceHealthScriptAssignment struct {
 	// Entity is the base model of DeviceHealthScriptAssignment
 	Entity
-	// Target The Azure Active Directory group we are targeting the script to
-	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
 	// RunRemediationScript Determine whether we want to run detection script only or run both detection script and remediation script
 	RunRemediationScript *bool `json:"runRemediationScript,omitempty"`
 	// RunSchedule Script run schedule for the target group
-	RunSchedule *RunSchedule `json:"runSchedule,omitempty"`
+	RunSchedule *DeviceHealthScriptRunSchedule `json:"runSchedule,omitempty"`
+	// Target The Azure Active Directory group we are targeting the script to
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+}
+
+// DeviceHealthScriptBooleanParameter Properties of the  Booolean script parameter.
+type DeviceHealthScriptBooleanParameter struct {
+	// DeviceHealthScriptParameter is the base model of DeviceHealthScriptBooleanParameter
+	DeviceHealthScriptParameter
+	// DefaultValue The default value of boolean param
+	DefaultValue *bool `json:"defaultValue,omitempty"`
+}
+
+// DeviceHealthScriptDailySchedule Device health script daily schedule.
+type DeviceHealthScriptDailySchedule struct {
+	// DeviceHealthScriptTimeSchedule is the base model of DeviceHealthScriptDailySchedule
+	DeviceHealthScriptTimeSchedule
 }
 
 // DeviceHealthScriptDeviceState Contains properties for device run state of the device health script.
 type DeviceHealthScriptDeviceState struct {
 	// Entity is the base model of DeviceHealthScriptDeviceState
 	Entity
+	// AssignmentFilterIDs A list of the assignment filter ids used for health script applicability evaluation
+	AssignmentFilterIDs []string `json:"assignmentFilterIds,omitempty"`
 	// DetectionState Detection state from the lastest device health script execution
 	DetectionState *RunState `json:"detectionState,omitempty"`
-	// LastStateUpdateDateTime The last timestamp of when the device health script executed
-	LastStateUpdateDateTime *time.Time `json:"lastStateUpdateDateTime,omitempty"`
 	// ExpectedStateUpdateDateTime The next timestamp of when the device health script is expected to execute
 	ExpectedStateUpdateDateTime *time.Time `json:"expectedStateUpdateDateTime,omitempty"`
+	// LastStateUpdateDateTime The last timestamp of when the device health script executed
+	LastStateUpdateDateTime *time.Time `json:"lastStateUpdateDateTime,omitempty"`
 	// LastSyncDateTime The last time that Intune Managment Extension synced with Intune
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// PreRemediationDetectionScriptOutput Output of the detection script before remediation
-	PreRemediationDetectionScriptOutput *string `json:"preRemediationDetectionScriptOutput,omitempty"`
-	// PreRemediationDetectionScriptError Error from the detection script before remediation
-	PreRemediationDetectionScriptError *string `json:"preRemediationDetectionScriptError,omitempty"`
-	// RemediationScriptError Error output of the remediation script
-	RemediationScriptError *string `json:"remediationScriptError,omitempty"`
-	// PostRemediationDetectionScriptOutput Detection script output after remediation
-	PostRemediationDetectionScriptOutput *string `json:"postRemediationDetectionScriptOutput,omitempty"`
 	// PostRemediationDetectionScriptError Error from the detection script after remediation
 	PostRemediationDetectionScriptError *string `json:"postRemediationDetectionScriptError,omitempty"`
+	// PostRemediationDetectionScriptOutput Detection script output after remediation
+	PostRemediationDetectionScriptOutput *string `json:"postRemediationDetectionScriptOutput,omitempty"`
+	// PreRemediationDetectionScriptError Error from the detection script before remediation
+	PreRemediationDetectionScriptError *string `json:"preRemediationDetectionScriptError,omitempty"`
+	// PreRemediationDetectionScriptOutput Output of the detection script before remediation
+	PreRemediationDetectionScriptOutput *string `json:"preRemediationDetectionScriptOutput,omitempty"`
+	// RemediationScriptError Error output of the remediation script
+	RemediationScriptError *string `json:"remediationScriptError,omitempty"`
 	// RemediationState Remediation state from the lastest device health script execution
 	RemediationState *RemediationState `json:"remediationState,omitempty"`
 	// ManagedDevice undocumented
 	ManagedDevice *ManagedDevice `json:"managedDevice,omitempty"`
 }
 
+// DeviceHealthScriptHourlySchedule Type of Device health script hourly schedule.
+type DeviceHealthScriptHourlySchedule struct {
+	// DeviceHealthScriptRunSchedule is the base model of DeviceHealthScriptHourlySchedule
+	DeviceHealthScriptRunSchedule
+}
+
+// DeviceHealthScriptIntegerParameter Properties of the  Integer script parameter.
+type DeviceHealthScriptIntegerParameter struct {
+	// DeviceHealthScriptParameter is the base model of DeviceHealthScriptIntegerParameter
+	DeviceHealthScriptParameter
+	// DefaultValue The default value of Integer param. Valid values -2147483648 to 2147483647
+	DefaultValue *int `json:"defaultValue,omitempty"`
+}
+
+// DeviceHealthScriptParameter Base properties of the script parameter.
+type DeviceHealthScriptParameter struct {
+	// Object is the base model of DeviceHealthScriptParameter
+	Object
+	// ApplyDefaultValueWhenNotAssigned Whether Apply DefaultValue When Not Assigned
+	ApplyDefaultValueWhenNotAssigned *bool `json:"applyDefaultValueWhenNotAssigned,omitempty"`
+	// Description The description of the param
+	Description *string `json:"description,omitempty"`
+	// IsRequired Whether the param is required
+	IsRequired *bool `json:"isRequired,omitempty"`
+	// Name The name of the param
+	Name *string `json:"name,omitempty"`
+}
+
+// DeviceHealthScriptRemediationHistory The number of devices remediated by a device health script on a given date with the last modified time.
+type DeviceHealthScriptRemediationHistory struct {
+	// Object is the base model of DeviceHealthScriptRemediationHistory
+	Object
+	// HistoryData The number of devices remediated by the device health script on the given date.
+	HistoryData []DeviceHealthScriptRemediationHistoryData `json:"historyData,omitempty"`
+	// LastModifiedDateTime The date on which the results history is calculated for the healthscript.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+}
+
+// DeviceHealthScriptRemediationHistoryData The number of devices remediated by a device health script on a given date.
+type DeviceHealthScriptRemediationHistoryData struct {
+	// Object is the base model of DeviceHealthScriptRemediationHistoryData
+	Object
+	// Date The date on which devices were remediated by the device health script.
+	Date *Date `json:"date,omitempty"`
+	// NoIssueDeviceCount The number of devices that were found to have no issue by the device health script.
+	NoIssueDeviceCount *int `json:"noIssueDeviceCount,omitempty"`
+	// RemediatedDeviceCount The number of devices remediated by the device health script.
+	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
+}
+
+// DeviceHealthScriptRemediationSummary The number of device health scripts deployed and the number of devices the scripts remediated.
+type DeviceHealthScriptRemediationSummary struct {
+	// Object is the base model of DeviceHealthScriptRemediationSummary
+	Object
+	// RemediatedDeviceCount The number of devices remediated by device health scripts.
+	RemediatedDeviceCount *int `json:"remediatedDeviceCount,omitempty"`
+	// ScriptCount The number of device health scripts deployed.
+	ScriptCount *int `json:"scriptCount,omitempty"`
+}
+
+// DeviceHealthScriptRunOnceSchedule Device health script run once schedule.
+type DeviceHealthScriptRunOnceSchedule struct {
+	// DeviceHealthScriptTimeSchedule is the base model of DeviceHealthScriptRunOnceSchedule
+	DeviceHealthScriptTimeSchedule
+	// Date The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
+	Date *Date `json:"date,omitempty"`
+}
+
+// DeviceHealthScriptRunSchedule Base type of Device health script run schedule.
+type DeviceHealthScriptRunSchedule struct {
+	// Object is the base model of DeviceHealthScriptRunSchedule
+	Object
+	// Interval The x value of every x hours for hourly schedule, every x days for Daily Schedule, every x weeks for weekly schedule, every x months for Monthly Schedule. Valid values 1 to 23
+	Interval *int `json:"interval,omitempty"`
+}
+
 // DeviceHealthScriptRunSummary Contains properties for the run summary of a device management script.
 type DeviceHealthScriptRunSummary struct {
 	// Entity is the base model of DeviceHealthScriptRunSummary
 	Entity
-	// NoIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy
-	NoIssueDetectedDeviceCount *int `json:"noIssueDetectedDeviceCount,omitempty"`
-	// IssueDetectedDeviceCount Number of devices for which the detection script found an issue
-	IssueDetectedDeviceCount *int `json:"issueDetectedDeviceCount,omitempty"`
 	// DetectionScriptErrorDeviceCount Number of devices on which the detection script execution encountered an error and did not complete
 	DetectionScriptErrorDeviceCount *int `json:"detectionScriptErrorDeviceCount,omitempty"`
+	// DetectionScriptNotApplicableDeviceCount Number of devices for which the detection script was not applicable
+	DetectionScriptNotApplicableDeviceCount *int `json:"detectionScriptNotApplicableDeviceCount,omitempty"`
 	// DetectionScriptPendingDeviceCount Number of devices which have not yet run the latest version of the device health script
 	DetectionScriptPendingDeviceCount *int `json:"detectionScriptPendingDeviceCount,omitempty"`
+	// IssueDetectedDeviceCount Number of devices for which the detection script found an issue
+	IssueDetectedDeviceCount *int `json:"issueDetectedDeviceCount,omitempty"`
+	// IssueRemediatedCumulativeDeviceCount Number of devices that were remediated over the last 30 days
+	IssueRemediatedCumulativeDeviceCount *int `json:"issueRemediatedCumulativeDeviceCount,omitempty"`
 	// IssueRemediatedDeviceCount Number of devices for which the remediation script was able to resolve the detected issue
 	IssueRemediatedDeviceCount *int `json:"issueRemediatedDeviceCount,omitempty"`
-	// RemediationSkippedDeviceCount Number of devices for which remediation was skipped
-	RemediationSkippedDeviceCount *int `json:"remediationSkippedDeviceCount,omitempty"`
 	// IssueReoccurredDeviceCount Number of devices for which the remediation script executed successfully but failed to resolve the detected issue
 	IssueReoccurredDeviceCount *int `json:"issueReoccurredDeviceCount,omitempty"`
-	// RemediationScriptErrorDeviceCount Number of devices for which the remediation script execution encountered an error and did not complete
-	RemediationScriptErrorDeviceCount *int `json:"remediationScriptErrorDeviceCount,omitempty"`
 	// LastScriptRunDateTime Last run time for the script across all devices
 	LastScriptRunDateTime *time.Time `json:"lastScriptRunDateTime,omitempty"`
+	// NoIssueDetectedDeviceCount Number of devices for which the detection script did not find an issue and the device is healthy
+	NoIssueDetectedDeviceCount *int `json:"noIssueDetectedDeviceCount,omitempty"`
+	// RemediationScriptErrorDeviceCount Number of devices for which the remediation script execution encountered an error and did not complete
+	RemediationScriptErrorDeviceCount *int `json:"remediationScriptErrorDeviceCount,omitempty"`
+	// RemediationSkippedDeviceCount Number of devices for which remediation was skipped
+	RemediationSkippedDeviceCount *int `json:"remediationSkippedDeviceCount,omitempty"`
+}
+
+// DeviceHealthScriptStringParameter Properties of the  String script parameter.
+type DeviceHealthScriptStringParameter struct {
+	// DeviceHealthScriptParameter is the base model of DeviceHealthScriptStringParameter
+	DeviceHealthScriptParameter
+	// DefaultValue The default value of string param
+	DefaultValue *string `json:"defaultValue,omitempty"`
+}
+
+// DeviceHealthScriptTimeSchedule Base type of Device health script time schedule.
+type DeviceHealthScriptTimeSchedule struct {
+	// DeviceHealthScriptRunSchedule is the base model of DeviceHealthScriptTimeSchedule
+	DeviceHealthScriptRunSchedule
+	// Time At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
+	Time *TimeOfDay `json:"time,omitempty"`
+	// UseUtc Indicate if the time is Utc or client local time.
+	UseUtc *bool `json:"useUtc,omitempty"`
+}
+
+// DeviceInfo undocumented
+type DeviceInfo struct {
+	// Object is the base model of DeviceInfo
+	Object
+	// CaptureDeviceDriver undocumented
+	CaptureDeviceDriver *string `json:"captureDeviceDriver,omitempty"`
+	// CaptureDeviceName undocumented
+	CaptureDeviceName *string `json:"captureDeviceName,omitempty"`
+	// CaptureNotFunctioningEventRatio undocumented
+	CaptureNotFunctioningEventRatio *float64 `json:"captureNotFunctioningEventRatio,omitempty"`
+	// CPUInsufficentEventRatio undocumented
+	CPUInsufficentEventRatio *float64 `json:"cpuInsufficentEventRatio,omitempty"`
+	// DeviceClippingEventRatio undocumented
+	DeviceClippingEventRatio *float64 `json:"deviceClippingEventRatio,omitempty"`
+	// DeviceGlitchEventRatio undocumented
+	DeviceGlitchEventRatio *float64 `json:"deviceGlitchEventRatio,omitempty"`
+	// HowlingEventCount undocumented
+	HowlingEventCount *int `json:"howlingEventCount,omitempty"`
+	// InitialSignalLevelRootMeanSquare undocumented
+	InitialSignalLevelRootMeanSquare *float64 `json:"initialSignalLevelRootMeanSquare,omitempty"`
+	// LowSpeechLevelEventRatio undocumented
+	LowSpeechLevelEventRatio *float64 `json:"lowSpeechLevelEventRatio,omitempty"`
+	// LowSpeechToNoiseEventRatio undocumented
+	LowSpeechToNoiseEventRatio *float64 `json:"lowSpeechToNoiseEventRatio,omitempty"`
+	// MicGlitchRate undocumented
+	MicGlitchRate *float64 `json:"micGlitchRate,omitempty"`
+	// ReceivedNoiseLevel undocumented
+	ReceivedNoiseLevel *int `json:"receivedNoiseLevel,omitempty"`
+	// ReceivedSignalLevel undocumented
+	ReceivedSignalLevel *int `json:"receivedSignalLevel,omitempty"`
+	// RenderDeviceDriver undocumented
+	RenderDeviceDriver *string `json:"renderDeviceDriver,omitempty"`
+	// RenderDeviceName undocumented
+	RenderDeviceName *string `json:"renderDeviceName,omitempty"`
+	// RenderMuteEventRatio undocumented
+	RenderMuteEventRatio *float64 `json:"renderMuteEventRatio,omitempty"`
+	// RenderNotFunctioningEventRatio undocumented
+	RenderNotFunctioningEventRatio *float64 `json:"renderNotFunctioningEventRatio,omitempty"`
+	// RenderZeroVolumeEventRatio undocumented
+	RenderZeroVolumeEventRatio *float64 `json:"renderZeroVolumeEventRatio,omitempty"`
+	// SentNoiseLevel undocumented
+	SentNoiseLevel *int `json:"sentNoiseLevel,omitempty"`
+	// SentSignalLevel undocumented
+	SentSignalLevel *int `json:"sentSignalLevel,omitempty"`
+	// SpeakerGlitchRate undocumented
+	SpeakerGlitchRate *float64 `json:"speakerGlitchRate,omitempty"`
 }
 
 // DeviceInstallState Contains properties for the installation state for a device.
 type DeviceInstallState struct {
 	// Entity is the base model of DeviceInstallState
 	Entity
-	// DeviceName Device name.
-	DeviceName *string `json:"deviceName,omitempty"`
 	// DeviceID Device Id.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// LastSyncDateTime Last sync date and time.
-	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// InstallState The install state of the eBook.
-	InstallState *InstallState `json:"installState,omitempty"`
+	// DeviceName Device name.
+	DeviceName *string `json:"deviceName,omitempty"`
 	// ErrorCode The error code for install failures.
 	ErrorCode *string `json:"errorCode,omitempty"`
-	// OsVersion OS Version.
-	OsVersion *string `json:"osVersion,omitempty"`
+	// InstallState The install state of the eBook.
+	InstallState *InstallState `json:"installState,omitempty"`
+	// LastSyncDateTime Last sync date and time.
+	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
 	// OsDescription OS Description.
 	OsDescription *string `json:"osDescription,omitempty"`
+	// OsVersion OS Version.
+	OsVersion *string `json:"osVersion,omitempty"`
 	// UserName Device User Name.
 	UserName *string `json:"userName,omitempty"`
 }
@@ -1160,212 +1580,342 @@ type DeviceInstallState struct {
 type DeviceKey struct {
 	// Object is the base model of DeviceKey
 	Object
-	// KeyType undocumented
-	KeyType *string `json:"keyType,omitempty"`
-	// KeyMaterial undocumented
-	KeyMaterial *Binary `json:"keyMaterial,omitempty"`
 	// DeviceID undocumented
 	DeviceID *UUID `json:"deviceId,omitempty"`
+	// KeyMaterial undocumented
+	KeyMaterial *Binary `json:"keyMaterial,omitempty"`
+	// KeyType undocumented
+	KeyType *string `json:"keyType,omitempty"`
+}
+
+// DeviceLogCollectionRequestObject Windows Log Collection request entity.
+type DeviceLogCollectionRequestObject struct {
+	// Object is the base model of DeviceLogCollectionRequestObject
+	Object
+	// ID The unique identifier
+	ID *string `json:"id,omitempty"`
+	// TemplateType The template type that is sent with the collection request
+	TemplateType *DeviceLogCollectionTemplateType `json:"templateType,omitempty"`
+}
+
+// DeviceLogCollectionResponse Windows Log Collection request entity.
+type DeviceLogCollectionResponse struct {
+	// Entity is the base model of DeviceLogCollectionResponse
+	Entity
+	// ErrorCode The error code, if any. Valid values -9.22337203685478E+18 to 9.22337203685478E+18
+	ErrorCode *int `json:"errorCode,omitempty"`
+	// ExpirationDateTimeUTC The DateTime of the expiration of the logs
+	ExpirationDateTimeUTC *time.Time `json:"expirationDateTimeUTC,omitempty"`
+	// InitiatedByUserPrincipalName The UPN for who initiated the request
+	InitiatedByUserPrincipalName *string `json:"initiatedByUserPrincipalName,omitempty"`
+	// ManagedDeviceID The device Id
+	ManagedDeviceID *UUID `json:"managedDeviceId,omitempty"`
+	// ReceivedDateTimeUTC The DateTime the request was received
+	ReceivedDateTimeUTC *time.Time `json:"receivedDateTimeUTC,omitempty"`
+	// RequestedDateTimeUTC The DateTime of the request
+	RequestedDateTimeUTC *time.Time `json:"requestedDateTimeUTC,omitempty"`
+	// Size The size of the logs. Valid values -1.79769313486232E+308 to 1.79769313486232E+308
+	Size *float64 `json:"size,omitempty"`
+	// Status The status of the log collection request
+	Status *string `json:"status,omitempty"`
 }
 
 // DeviceManagement Singleton that acts as container for a collection of UserPFXCertificate entities.
 type DeviceManagement struct {
 	// Entity is the base model of DeviceManagement
 	Entity
-	// Settings Account level settings.
-	Settings *DeviceManagementSettings `json:"settings,omitempty"`
-	// MaximumDepTokens Maximum number of dep tokens allowed per-tenant.
-	MaximumDepTokens *int `json:"maximumDepTokens,omitempty"`
+	// DeviceComplianceReportSummarizationDateTime The last requested time of device compliance reporting for this account. This property is read-only.
+	DeviceComplianceReportSummarizationDateTime *time.Time `json:"deviceComplianceReportSummarizationDateTime,omitempty"`
 	// IntuneAccountID Intune Account Id for given tenant
 	IntuneAccountID *UUID `json:"intuneAccountId,omitempty"`
 	// LastReportAggregationDateTime The last modified time of reporting for this account. This property is read-only.
 	LastReportAggregationDateTime *time.Time `json:"lastReportAggregationDateTime,omitempty"`
-	// DeviceComplianceReportSummarizationDateTime The last requested time of device compliance reporting for this account. This property is read-only.
-	DeviceComplianceReportSummarizationDateTime *time.Time `json:"deviceComplianceReportSummarizationDateTime,omitempty"`
 	// LegacyPcManangementEnabled The property to enable Non-MDM managed legacy PC management for this account. This property is read-only.
 	LegacyPcManangementEnabled *bool `json:"legacyPcManangementEnabled,omitempty"`
+	// MaximumDepTokens Maximum number of dep tokens allowed per-tenant.
+	MaximumDepTokens *int `json:"maximumDepTokens,omitempty"`
+	// Settings Account level settings.
+	Settings *DeviceManagementSettings `json:"settings,omitempty"`
+	// UnlicensedAdminstratorsEnabled When enabled, users assigned as administrators via Role Assignment Memberships do not require an assigned Intune license. Prior to this, only Intune licensed users were granted permissions with an Intune role unless they were assigned a role via Azure Active Directory. You are limited to 350 unlicensed direct members for each AAD security group in a role assignment, but you can assign multiple AAD security groups to a role if you need to support more than 350 unlicensed administrators. Licensed administrators are unaffected, do not have to be direct members, nor does the 350 member limit apply. This property is read-only.
+	UnlicensedAdminstratorsEnabled *bool `json:"unlicensedAdminstratorsEnabled,omitempty"`
 	// IntuneBrand intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.
 	IntuneBrand *IntuneBrand `json:"intuneBrand,omitempty"`
-	// SubscriptionState Tenant mobile device management subscription state.
-	SubscriptionState *DeviceManagementSubscriptionState `json:"subscriptionState,omitempty"`
-	// Subscriptions Tenant's Subscription.
-	Subscriptions *DeviceManagementSubscriptions `json:"subscriptions,omitempty"`
-	// ManagedDeviceCleanupSettings Device cleanup rule
-	ManagedDeviceCleanupSettings *ManagedDeviceCleanupSettings `json:"managedDeviceCleanupSettings,omitempty"`
+	// AccountMoveCompletionDateTime The date & time when tenant data moved between scaleunits.
+	AccountMoveCompletionDateTime *time.Time `json:"accountMoveCompletionDateTime,omitempty"`
 	// AdminConsent Admin consent information.
 	AdminConsent *AdminConsent `json:"adminConsent,omitempty"`
 	// DeviceProtectionOverview Device protection overview.
 	DeviceProtectionOverview *DeviceProtectionOverview `json:"deviceProtectionOverview,omitempty"`
+	// ManagedDeviceCleanupSettings Device cleanup rule
+	ManagedDeviceCleanupSettings *ManagedDeviceCleanupSettings `json:"managedDeviceCleanupSettings,omitempty"`
+	// Subscriptions Tenant's Subscription.
+	Subscriptions *DeviceManagementSubscriptions `json:"subscriptions,omitempty"`
+	// SubscriptionState Tenant mobile device management subscription state.
+	SubscriptionState *DeviceManagementSubscriptionState `json:"subscriptionState,omitempty"`
+	// UserExperienceAnalyticsSettings User experience analytics device settings
+	UserExperienceAnalyticsSettings *UserExperienceAnalyticsSettings `json:"userExperienceAnalyticsSettings,omitempty"`
 	// WindowsMalwareOverview Malware overview for windows devices.
 	WindowsMalwareOverview *WindowsMalwareOverview `json:"windowsMalwareOverview,omitempty"`
-	// AccountMoveCompletionDateTime The date & time when tenant data moved between scaleunits.
-	AccountMoveCompletionDateTime *time.Time `json:"accountMoveCompletionDateTime,omitempty"`
-	// GroupPolicyObjectFiles A list of Group Policy Object files uploaded.
-	GroupPolicyObjectFiles []GroupPolicyObjectFile `json:"groupPolicyObjectFiles,omitempty"`
-	// AuditEvents undocumented
-	AuditEvents []AuditEvent `json:"auditEvents,omitempty"`
-	// AndroidForWorkSettings undocumented
-	AndroidForWorkSettings *AndroidForWorkSettings `json:"androidForWorkSettings,omitempty"`
+	// AndroidDeviceOwnerEnrollmentProfiles undocumented
+	AndroidDeviceOwnerEnrollmentProfiles []AndroidDeviceOwnerEnrollmentProfile `json:"androidDeviceOwnerEnrollmentProfiles,omitempty"`
+	// VirtualEndpoint undocumented
+	VirtualEndpoint *VirtualEndpoint `json:"virtualEndpoint,omitempty"`
 	// AndroidForWorkAppConfigurationSchemas undocumented
 	AndroidForWorkAppConfigurationSchemas []AndroidForWorkAppConfigurationSchema `json:"androidForWorkAppConfigurationSchemas,omitempty"`
 	// AndroidForWorkEnrollmentProfiles undocumented
 	AndroidForWorkEnrollmentProfiles []AndroidForWorkEnrollmentProfile `json:"androidForWorkEnrollmentProfiles,omitempty"`
+	// AndroidForWorkSettings undocumented
+	AndroidForWorkSettings *AndroidForWorkSettings `json:"androidForWorkSettings,omitempty"`
 	// AndroidManagedStoreAccountEnterpriseSettings undocumented
 	AndroidManagedStoreAccountEnterpriseSettings *AndroidManagedStoreAccountEnterpriseSettings `json:"androidManagedStoreAccountEnterpriseSettings,omitempty"`
 	// AndroidManagedStoreAppConfigurationSchemas undocumented
 	AndroidManagedStoreAppConfigurationSchemas []AndroidManagedStoreAppConfigurationSchema `json:"androidManagedStoreAppConfigurationSchemas,omitempty"`
-	// AndroidDeviceOwnerEnrollmentProfiles undocumented
-	AndroidDeviceOwnerEnrollmentProfiles []AndroidDeviceOwnerEnrollmentProfile `json:"androidDeviceOwnerEnrollmentProfiles,omitempty"`
+	// AuditEvents undocumented
+	AuditEvents []AuditEvent `json:"auditEvents,omitempty"`
+	// AssignmentFilters undocumented
+	AssignmentFilters []DeviceAndAppManagementAssignmentFilter `json:"assignmentFilters,omitempty"`
+	// ChromeOSOnboardingSettings undocumented
+	ChromeOSOnboardingSettings []ChromeOSOnboardingSettings `json:"chromeOSOnboardingSettings,omitempty"`
 	// TermsAndConditions undocumented
 	TermsAndConditions []TermsAndConditions `json:"termsAndConditions,omitempty"`
-	// DeviceConfigurations undocumented
-	DeviceConfigurations []DeviceConfiguration `json:"deviceConfigurations,omitempty"`
+	// AdvancedThreatProtectionOnboardingStateSummary undocumented
+	AdvancedThreatProtectionOnboardingStateSummary *AdvancedThreatProtectionOnboardingStateSummary `json:"advancedThreatProtectionOnboardingStateSummary,omitempty"`
+	// CartToClassAssociations undocumented
+	CartToClassAssociations []CartToClassAssociation `json:"cartToClassAssociations,omitempty"`
 	// DeviceCompliancePolicies undocumented
 	DeviceCompliancePolicies []DeviceCompliancePolicy `json:"deviceCompliancePolicies,omitempty"`
-	// SoftwareUpdateStatusSummary undocumented
-	SoftwareUpdateStatusSummary *SoftwareUpdateStatusSummary `json:"softwareUpdateStatusSummary,omitempty"`
 	// DeviceCompliancePolicyDeviceStateSummary undocumented
 	DeviceCompliancePolicyDeviceStateSummary *DeviceCompliancePolicyDeviceStateSummary `json:"deviceCompliancePolicyDeviceStateSummary,omitempty"`
 	// DeviceCompliancePolicySettingStateSummaries undocumented
 	DeviceCompliancePolicySettingStateSummaries []DeviceCompliancePolicySettingStateSummary `json:"deviceCompliancePolicySettingStateSummaries,omitempty"`
-	// AdvancedThreatProtectionOnboardingStateSummary undocumented
-	AdvancedThreatProtectionOnboardingStateSummary *AdvancedThreatProtectionOnboardingStateSummary `json:"advancedThreatProtectionOnboardingStateSummary,omitempty"`
-	// DeviceConfigurationDeviceStateSummaries undocumented
-	DeviceConfigurationDeviceStateSummaries *DeviceConfigurationDeviceStateSummary `json:"deviceConfigurationDeviceStateSummaries,omitempty"`
-	// DeviceConfigurationUserStateSummaries undocumented
-	DeviceConfigurationUserStateSummaries *DeviceConfigurationUserStateSummary `json:"deviceConfigurationUserStateSummaries,omitempty"`
-	// CartToClassAssociations undocumented
-	CartToClassAssociations []CartToClassAssociation `json:"cartToClassAssociations,omitempty"`
-	// IOSUpdateStatuses undocumented
-	IOSUpdateStatuses []IOSUpdateDeviceStatus `json:"iosUpdateStatuses,omitempty"`
-	// NDESConnectors undocumented
-	NDESConnectors []NDESConnector `json:"ndesConnectors,omitempty"`
-	// DeviceConfigurationRestrictedAppsViolations undocumented
-	DeviceConfigurationRestrictedAppsViolations []RestrictedAppsViolation `json:"deviceConfigurationRestrictedAppsViolations,omitempty"`
-	// ManagedDeviceEncryptionStates undocumented
-	ManagedDeviceEncryptionStates []ManagedDeviceEncryptionState `json:"managedDeviceEncryptionStates,omitempty"`
 	// DeviceConfigurationConflictSummary undocumented
 	DeviceConfigurationConflictSummary []DeviceConfigurationConflictSummary `json:"deviceConfigurationConflictSummary,omitempty"`
+	// DeviceConfigurationDeviceStateSummaries undocumented
+	DeviceConfigurationDeviceStateSummaries *DeviceConfigurationDeviceStateSummary `json:"deviceConfigurationDeviceStateSummaries,omitempty"`
+	// DeviceConfigurationRestrictedAppsViolations undocumented
+	DeviceConfigurationRestrictedAppsViolations []RestrictedAppsViolation `json:"deviceConfigurationRestrictedAppsViolations,omitempty"`
+	// DeviceConfigurations undocumented
+	DeviceConfigurations []DeviceConfiguration `json:"deviceConfigurations,omitempty"`
 	// DeviceConfigurationsAllManagedDeviceCertificateStates undocumented
 	DeviceConfigurationsAllManagedDeviceCertificateStates []ManagedAllDeviceCertificateState `json:"deviceConfigurationsAllManagedDeviceCertificateStates,omitempty"`
-	// DeviceCategories undocumented
-	DeviceCategories []DeviceCategory `json:"deviceCategories,omitempty"`
-	// ExchangeConnectors undocumented
-	ExchangeConnectors []DeviceManagementExchangeConnector `json:"exchangeConnectors,omitempty"`
-	// DeviceEnrollmentConfigurations undocumented
-	DeviceEnrollmentConfigurations []DeviceEnrollmentConfiguration `json:"deviceEnrollmentConfigurations,omitempty"`
-	// ExchangeOnPremisesPolicy undocumented
-	ExchangeOnPremisesPolicy *DeviceManagementExchangeOnPremisesPolicy `json:"exchangeOnPremisesPolicy,omitempty"`
-	// ExchangeOnPremisesPolicies undocumented
-	ExchangeOnPremisesPolicies []DeviceManagementExchangeOnPremisesPolicy `json:"exchangeOnPremisesPolicies,omitempty"`
-	// ConditionalAccessSettings undocumented
-	ConditionalAccessSettings *OnPremisesConditionalAccessSettings `json:"conditionalAccessSettings,omitempty"`
-	// MobileThreatDefenseConnectors undocumented
-	MobileThreatDefenseConnectors []MobileThreatDefenseConnector `json:"mobileThreatDefenseConnectors,omitempty"`
-	// DeviceManagementPartners undocumented
-	DeviceManagementPartners []DeviceManagementPartner `json:"deviceManagementPartners,omitempty"`
+	// DeviceConfigurationUserStateSummaries undocumented
+	DeviceConfigurationUserStateSummaries *DeviceConfigurationUserStateSummary `json:"deviceConfigurationUserStateSummaries,omitempty"`
+	// IOSUpdateStatuses undocumented
+	IOSUpdateStatuses []IOSUpdateDeviceStatus `json:"iosUpdateStatuses,omitempty"`
+	// MacOSSoftwareUpdateAccountSummaries undocumented
+	MacOSSoftwareUpdateAccountSummaries []MacOSSoftwareUpdateAccountSummary `json:"macOSSoftwareUpdateAccountSummaries,omitempty"`
+	// ManagedDeviceEncryptionStates undocumented
+	ManagedDeviceEncryptionStates []ManagedDeviceEncryptionState `json:"managedDeviceEncryptionStates,omitempty"`
+	// NDESConnectors undocumented
+	NDESConnectors []NDESConnector `json:"ndesConnectors,omitempty"`
+	// SoftwareUpdateStatusSummary undocumented
+	SoftwareUpdateStatusSummary *SoftwareUpdateStatusSummary `json:"softwareUpdateStatusSummary,omitempty"`
+	// ConfigurationCategories undocumented
+	ConfigurationCategories []DeviceManagementConfigurationCategory `json:"configurationCategories,omitempty"`
+	// ConfigurationPolicies undocumented
+	ConfigurationPolicies []DeviceManagementConfigurationPolicy `json:"configurationPolicies,omitempty"`
+	// ConfigurationPolicyTemplates undocumented
+	ConfigurationPolicyTemplates []DeviceManagementConfigurationPolicyTemplate `json:"configurationPolicyTemplates,omitempty"`
+	// ConfigurationSettings undocumented
+	ConfigurationSettings []DeviceManagementConfigurationSettingDefinition `json:"configurationSettings,omitempty"`
+	// ReusablePolicySettings undocumented
+	ReusablePolicySettings []DeviceManagementReusablePolicySetting `json:"reusablePolicySettings,omitempty"`
+	// ReusableSettings undocumented
+	ReusableSettings []DeviceManagementConfigurationSettingDefinition `json:"reusableSettings,omitempty"`
+	// TemplateSettings undocumented
+	TemplateSettings []DeviceManagementConfigurationSettingTemplate `json:"templateSettings,omitempty"`
 	// ComplianceManagementPartners undocumented
 	ComplianceManagementPartners []ComplianceManagementPartner `json:"complianceManagementPartners,omitempty"`
+	// ConditionalAccessSettings undocumented
+	ConditionalAccessSettings *OnPremisesConditionalAccessSettings `json:"conditionalAccessSettings,omitempty"`
+	// DeviceCategories undocumented
+	DeviceCategories []DeviceCategory `json:"deviceCategories,omitempty"`
+	// DeviceEnrollmentConfigurations undocumented
+	DeviceEnrollmentConfigurations []DeviceEnrollmentConfiguration `json:"deviceEnrollmentConfigurations,omitempty"`
+	// DeviceManagementPartners undocumented
+	DeviceManagementPartners []DeviceManagementPartner `json:"deviceManagementPartners,omitempty"`
+	// ExchangeConnectors undocumented
+	ExchangeConnectors []DeviceManagementExchangeConnector `json:"exchangeConnectors,omitempty"`
+	// ExchangeOnPremisesPolicies undocumented
+	ExchangeOnPremisesPolicies []DeviceManagementExchangeOnPremisesPolicy `json:"exchangeOnPremisesPolicies,omitempty"`
+	// ExchangeOnPremisesPolicy undocumented
+	ExchangeOnPremisesPolicy *DeviceManagementExchangeOnPremisesPolicy `json:"exchangeOnPremisesPolicy,omitempty"`
+	// MobileThreatDefenseConnectors undocumented
+	MobileThreatDefenseConnectors []MobileThreatDefenseConnector `json:"mobileThreatDefenseConnectors,omitempty"`
+	// Categories undocumented
+	Categories []DeviceManagementSettingCategory `json:"categories,omitempty"`
 	// Intents undocumented
 	Intents []DeviceManagementIntent `json:"intents,omitempty"`
 	// SettingDefinitions undocumented
 	SettingDefinitions []DeviceManagementSettingDefinition `json:"settingDefinitions,omitempty"`
 	// Templates undocumented
 	Templates []DeviceManagementTemplate `json:"templates,omitempty"`
-	// Categories undocumented
-	Categories []DeviceManagementSettingCategory `json:"categories,omitempty"`
-	// RemoteActionAudits undocumented
-	RemoteActionAudits []RemoteActionAudit `json:"remoteActionAudits,omitempty"`
 	// ApplePushNotificationCertificate undocumented
 	ApplePushNotificationCertificate *ApplePushNotificationCertificate `json:"applePushNotificationCertificate,omitempty"`
-	// DeviceManagementScripts undocumented
-	DeviceManagementScripts []DeviceManagementScript `json:"deviceManagementScripts,omitempty"`
-	// DeviceHealthScripts undocumented
-	DeviceHealthScripts []DeviceHealthScript `json:"deviceHealthScripts,omitempty"`
-	// ManagedDeviceOverview undocumented
-	ManagedDeviceOverview *ManagedDeviceOverview `json:"managedDeviceOverview,omitempty"`
-	// DetectedApps undocumented
-	DetectedApps []DetectedApp `json:"detectedApps,omitempty"`
-	// ManagedDevices undocumented
-	ManagedDevices []ManagedDevice `json:"managedDevices,omitempty"`
-	// WindowsMalwareInformation undocumented
-	WindowsMalwareInformation []WindowsMalwareInformation `json:"windowsMalwareInformation,omitempty"`
+	// CloudPCConnectivityIssues undocumented
+	CloudPCConnectivityIssues []CloudPCConnectivityIssue `json:"cloudPCConnectivityIssues,omitempty"`
+	// ComanagedDevices undocumented
+	ComanagedDevices []ManagedDevice `json:"comanagedDevices,omitempty"`
+	// ComanagementEligibleDevices undocumented
+	ComanagementEligibleDevices []ComanagementEligibleDevice `json:"comanagementEligibleDevices,omitempty"`
 	// DataSharingConsents undocumented
 	DataSharingConsents []DataSharingConsent `json:"dataSharingConsents,omitempty"`
+	// DetectedApps undocumented
+	DetectedApps []DetectedApp `json:"detectedApps,omitempty"`
+	// DeviceComplianceScripts undocumented
+	DeviceComplianceScripts []DeviceComplianceScript `json:"deviceComplianceScripts,omitempty"`
+	// DeviceCustomAttributeShellScripts undocumented
+	DeviceCustomAttributeShellScripts []DeviceCustomAttributeShellScript `json:"deviceCustomAttributeShellScripts,omitempty"`
+	// DeviceHealthScripts undocumented
+	DeviceHealthScripts []DeviceHealthScript `json:"deviceHealthScripts,omitempty"`
+	// DeviceManagementScripts undocumented
+	DeviceManagementScripts []DeviceManagementScript `json:"deviceManagementScripts,omitempty"`
+	// DeviceShellScripts undocumented
+	DeviceShellScripts []DeviceShellScript `json:"deviceShellScripts,omitempty"`
+	// ManagedDeviceOverview undocumented
+	ManagedDeviceOverview *ManagedDeviceOverview `json:"managedDeviceOverview,omitempty"`
+	// ManagedDevices undocumented
+	ManagedDevices []ManagedDevice `json:"managedDevices,omitempty"`
 	// MobileAppTroubleshootingEvents undocumented
 	MobileAppTroubleshootingEvents []MobileAppTroubleshootingEvent `json:"mobileAppTroubleshootingEvents,omitempty"`
-	// UserExperienceAnalyticsOverview undocumented
-	UserExperienceAnalyticsOverview *UserExperienceAnalyticsOverview `json:"userExperienceAnalyticsOverview,omitempty"`
+	// RemoteActionAudits undocumented
+	RemoteActionAudits []RemoteActionAudit `json:"remoteActionAudits,omitempty"`
+	// UserExperienceAnalyticsAppHealthApplicationPerformance undocumented
+	UserExperienceAnalyticsAppHealthApplicationPerformance []UserExperienceAnalyticsAppHealthApplicationPerformance `json:"userExperienceAnalyticsAppHealthApplicationPerformance,omitempty"`
+	// UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion undocumented
+	UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion []UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion `json:"userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion,omitempty"`
+	// UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion undocumented
+	UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion []UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion `json:"userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion,omitempty"`
+	// UserExperienceAnalyticsAppHealthDeviceModelPerformance undocumented
+	UserExperienceAnalyticsAppHealthDeviceModelPerformance []UserExperienceAnalyticsAppHealthDeviceModelPerformance `json:"userExperienceAnalyticsAppHealthDeviceModelPerformance,omitempty"`
+	// UserExperienceAnalyticsAppHealthDevicePerformance undocumented
+	UserExperienceAnalyticsAppHealthDevicePerformance []UserExperienceAnalyticsAppHealthDevicePerformance `json:"userExperienceAnalyticsAppHealthDevicePerformance,omitempty"`
+	// UserExperienceAnalyticsAppHealthDevicePerformanceDetails undocumented
+	UserExperienceAnalyticsAppHealthDevicePerformanceDetails []UserExperienceAnalyticsAppHealthDevicePerformanceDetails `json:"userExperienceAnalyticsAppHealthDevicePerformanceDetails,omitempty"`
+	// UserExperienceAnalyticsAppHealthOSVersionPerformance undocumented
+	UserExperienceAnalyticsAppHealthOSVersionPerformance []UserExperienceAnalyticsAppHealthOSVersionPerformance `json:"userExperienceAnalyticsAppHealthOSVersionPerformance,omitempty"`
+	// UserExperienceAnalyticsAppHealthOverview undocumented
+	UserExperienceAnalyticsAppHealthOverview *UserExperienceAnalyticsCategory `json:"userExperienceAnalyticsAppHealthOverview,omitempty"`
 	// UserExperienceAnalyticsBaselines undocumented
 	UserExperienceAnalyticsBaselines []UserExperienceAnalyticsBaseline `json:"userExperienceAnalyticsBaselines,omitempty"`
 	// UserExperienceAnalyticsCategories undocumented
 	UserExperienceAnalyticsCategories []UserExperienceAnalyticsCategory `json:"userExperienceAnalyticsCategories,omitempty"`
+	// UserExperienceAnalyticsDeviceMetricHistory undocumented
+	UserExperienceAnalyticsDeviceMetricHistory []UserExperienceAnalyticsMetricHistory `json:"userExperienceAnalyticsDeviceMetricHistory,omitempty"`
 	// UserExperienceAnalyticsDevicePerformance undocumented
 	UserExperienceAnalyticsDevicePerformance []UserExperienceAnalyticsDevicePerformance `json:"userExperienceAnalyticsDevicePerformance,omitempty"`
-	// UserExperienceAnalyticsRegressionSummary undocumented
-	UserExperienceAnalyticsRegressionSummary *UserExperienceAnalyticsRegressionSummary `json:"userExperienceAnalyticsRegressionSummary,omitempty"`
+	// UserExperienceAnalyticsDeviceScores undocumented
+	UserExperienceAnalyticsDeviceScores []UserExperienceAnalyticsDeviceScores `json:"userExperienceAnalyticsDeviceScores,omitempty"`
 	// UserExperienceAnalyticsDeviceStartupHistory undocumented
 	UserExperienceAnalyticsDeviceStartupHistory []UserExperienceAnalyticsDeviceStartupHistory `json:"userExperienceAnalyticsDeviceStartupHistory,omitempty"`
+	// UserExperienceAnalyticsDeviceStartupProcesses undocumented
+	UserExperienceAnalyticsDeviceStartupProcesses []UserExperienceAnalyticsDeviceStartupProcess `json:"userExperienceAnalyticsDeviceStartupProcesses,omitempty"`
+	// UserExperienceAnalyticsDeviceStartupProcessPerformance undocumented
+	UserExperienceAnalyticsDeviceStartupProcessPerformance []UserExperienceAnalyticsDeviceStartupProcessPerformance `json:"userExperienceAnalyticsDeviceStartupProcessPerformance,omitempty"`
+	// UserExperienceAnalyticsDevicesWithoutCloudIdentity undocumented
+	UserExperienceAnalyticsDevicesWithoutCloudIdentity []UserExperienceAnalyticsDeviceWithoutCloudIdentity `json:"userExperienceAnalyticsDevicesWithoutCloudIdentity,omitempty"`
+	// UserExperienceAnalyticsImpactingProcess undocumented
+	UserExperienceAnalyticsImpactingProcess []UserExperienceAnalyticsImpactingProcess `json:"userExperienceAnalyticsImpactingProcess,omitempty"`
+	// UserExperienceAnalyticsMetricHistory undocumented
+	UserExperienceAnalyticsMetricHistory []UserExperienceAnalyticsMetricHistory `json:"userExperienceAnalyticsMetricHistory,omitempty"`
+	// UserExperienceAnalyticsNotAutopilotReadyDevice undocumented
+	UserExperienceAnalyticsNotAutopilotReadyDevice []UserExperienceAnalyticsNotAutopilotReadyDevice `json:"userExperienceAnalyticsNotAutopilotReadyDevice,omitempty"`
+	// UserExperienceAnalyticsOverview undocumented
+	UserExperienceAnalyticsOverview *UserExperienceAnalyticsOverview `json:"userExperienceAnalyticsOverview,omitempty"`
+	// UserExperienceAnalyticsRegressionSummary undocumented
+	UserExperienceAnalyticsRegressionSummary *UserExperienceAnalyticsRegressionSummary `json:"userExperienceAnalyticsRegressionSummary,omitempty"`
+	// UserExperienceAnalyticsRemoteConnection undocumented
+	UserExperienceAnalyticsRemoteConnection []UserExperienceAnalyticsRemoteConnection `json:"userExperienceAnalyticsRemoteConnection,omitempty"`
+	// UserExperienceAnalyticsResourcePerformance undocumented
+	UserExperienceAnalyticsResourcePerformance []UserExperienceAnalyticsResourcePerformance `json:"userExperienceAnalyticsResourcePerformance,omitempty"`
+	// UserExperienceAnalyticsScoreHistory undocumented
+	UserExperienceAnalyticsScoreHistory []UserExperienceAnalyticsScoreHistory `json:"userExperienceAnalyticsScoreHistory,omitempty"`
+	// UserExperienceAnalyticsWorkFromAnywhereMetrics undocumented
+	UserExperienceAnalyticsWorkFromAnywhereMetrics []UserExperienceAnalyticsWorkFromAnywhereMetric `json:"userExperienceAnalyticsWorkFromAnywhereMetrics,omitempty"`
+	// WindowsMalwareInformation undocumented
+	WindowsMalwareInformation []WindowsMalwareInformation `json:"windowsMalwareInformation,omitempty"`
 	// DerivedCredentials undocumented
 	DerivedCredentials []DeviceManagementDerivedCredentialSettings `json:"derivedCredentials,omitempty"`
-	// WindowsAutopilotSettings undocumented
-	WindowsAutopilotSettings *WindowsAutopilotSettings `json:"windowsAutopilotSettings,omitempty"`
-	// WindowsAutopilotDeviceIdentities undocumented
-	WindowsAutopilotDeviceIdentities []WindowsAutopilotDeviceIdentity `json:"windowsAutopilotDeviceIdentities,omitempty"`
-	// WindowsAutopilotDeploymentProfiles undocumented
-	WindowsAutopilotDeploymentProfiles []WindowsAutopilotDeploymentProfile `json:"windowsAutopilotDeploymentProfiles,omitempty"`
-	// ImportedDeviceIdentities undocumented
-	ImportedDeviceIdentities []ImportedDeviceIdentity `json:"importedDeviceIdentities,omitempty"`
-	// DepOnboardingSettings undocumented
-	DepOnboardingSettings []DepOnboardingSetting `json:"depOnboardingSettings,omitempty"`
-	// ImportedWindowsAutopilotDeviceIdentities undocumented
-	ImportedWindowsAutopilotDeviceIdentities []ImportedWindowsAutopilotDeviceIdentity `json:"importedWindowsAutopilotDeviceIdentities,omitempty"`
+	// ResourceAccessProfiles undocumented
+	ResourceAccessProfiles []DeviceManagementResourceAccessProfileBase `json:"resourceAccessProfiles,omitempty"`
 	// AppleUserInitiatedEnrollmentProfiles undocumented
 	AppleUserInitiatedEnrollmentProfiles []AppleUserInitiatedEnrollmentProfile `json:"appleUserInitiatedEnrollmentProfiles,omitempty"`
+	// DepOnboardingSettings undocumented
+	DepOnboardingSettings []DepOnboardingSetting `json:"depOnboardingSettings,omitempty"`
+	// ImportedDeviceIdentities undocumented
+	ImportedDeviceIdentities []ImportedDeviceIdentity `json:"importedDeviceIdentities,omitempty"`
+	// ImportedWindowsAutopilotDeviceIdentities undocumented
+	ImportedWindowsAutopilotDeviceIdentities []ImportedWindowsAutopilotDeviceIdentity `json:"importedWindowsAutopilotDeviceIdentities,omitempty"`
+	// WindowsAutopilotDeploymentProfiles undocumented
+	WindowsAutopilotDeploymentProfiles []WindowsAutopilotDeploymentProfile `json:"windowsAutopilotDeploymentProfiles,omitempty"`
+	// WindowsAutopilotDeviceIdentities undocumented
+	WindowsAutopilotDeviceIdentities []WindowsAutopilotDeviceIdentity `json:"windowsAutopilotDeviceIdentities,omitempty"`
+	// WindowsAutopilotSettings undocumented
+	WindowsAutopilotSettings *WindowsAutopilotSettings `json:"windowsAutopilotSettings,omitempty"`
 	// ManagementConditions undocumented
 	ManagementConditions []ManagementCondition `json:"managementConditions,omitempty"`
 	// ManagementConditionStatements undocumented
 	ManagementConditionStatements []ManagementConditionStatement `json:"managementConditionStatements,omitempty"`
 	// GroupPolicyMigrationReports undocumented
 	GroupPolicyMigrationReports []GroupPolicyMigrationReport `json:"groupPolicyMigrationReports,omitempty"`
+	// GroupPolicyObjectFiles undocumented
+	GroupPolicyObjectFiles []GroupPolicyObjectFile `json:"groupPolicyObjectFiles,omitempty"`
+	// GroupPolicyCategories undocumented
+	GroupPolicyCategories []GroupPolicyCategory `json:"groupPolicyCategories,omitempty"`
 	// GroupPolicyConfigurations undocumented
 	GroupPolicyConfigurations []GroupPolicyConfiguration `json:"groupPolicyConfigurations,omitempty"`
-	// GroupPolicyDefinitions undocumented
-	GroupPolicyDefinitions []GroupPolicyDefinition `json:"groupPolicyDefinitions,omitempty"`
 	// GroupPolicyDefinitionFiles undocumented
 	GroupPolicyDefinitionFiles []GroupPolicyDefinitionFile `json:"groupPolicyDefinitionFiles,omitempty"`
+	// GroupPolicyDefinitions undocumented
+	GroupPolicyDefinitions []GroupPolicyDefinition `json:"groupPolicyDefinitions,omitempty"`
+	// GroupPolicyUploadedDefinitionFiles undocumented
+	GroupPolicyUploadedDefinitionFiles []GroupPolicyUploadedDefinitionFile `json:"groupPolicyUploadedDefinitionFiles,omitempty"`
+	// MicrosoftTunnelConfigurations undocumented
+	MicrosoftTunnelConfigurations []MicrosoftTunnelConfiguration `json:"microsoftTunnelConfigurations,omitempty"`
+	// MicrosoftTunnelHealthThresholds undocumented
+	MicrosoftTunnelHealthThresholds []MicrosoftTunnelHealthThreshold `json:"microsoftTunnelHealthThresholds,omitempty"`
+	// MicrosoftTunnelServerLogCollectionResponses undocumented
+	MicrosoftTunnelServerLogCollectionResponses []MicrosoftTunnelServerLogCollectionResponse `json:"microsoftTunnelServerLogCollectionResponses,omitempty"`
+	// MicrosoftTunnelSites undocumented
+	MicrosoftTunnelSites []MicrosoftTunnelSite `json:"microsoftTunnelSites,omitempty"`
 	// NotificationMessageTemplates undocumented
 	NotificationMessageTemplates []NotificationMessageTemplate `json:"notificationMessageTemplates,omitempty"`
 	// DomainJoinConnectors undocumented
 	DomainJoinConnectors []DeviceManagementDomainJoinConnector `json:"domainJoinConnectors,omitempty"`
-	// RoleDefinitions undocumented
-	RoleDefinitions []RoleDefinition `json:"roleDefinitions,omitempty"`
-	// RoleAssignments undocumented
-	RoleAssignments []DeviceAndAppManagementRoleAssignment `json:"roleAssignments,omitempty"`
-	// RoleScopeTags undocumented
-	RoleScopeTags []RoleScopeTag `json:"roleScopeTags,omitempty"`
+	// ConfigManagerCollections undocumented
+	ConfigManagerCollections []ConfigManagerCollection `json:"configManagerCollections,omitempty"`
 	// ResourceOperations undocumented
 	ResourceOperations []ResourceOperation `json:"resourceOperations,omitempty"`
+	// RoleAssignments undocumented
+	RoleAssignments []DeviceAndAppManagementRoleAssignment `json:"roleAssignments,omitempty"`
+	// RoleDefinitions undocumented
+	RoleDefinitions []RoleDefinition `json:"roleDefinitions,omitempty"`
+	// RoleScopeTags undocumented
+	RoleScopeTags []RoleScopeTag `json:"roleScopeTags,omitempty"`
 	// RemoteAssistancePartners undocumented
 	RemoteAssistancePartners []RemoteAssistancePartner `json:"remoteAssistancePartners,omitempty"`
 	// Reports undocumented
 	Reports *DeviceManagementReports `json:"reports,omitempty"`
-	// TelecomExpenseManagementPartners undocumented
-	TelecomExpenseManagementPartners []TelecomExpenseManagementPartner `json:"telecomExpenseManagementPartners,omitempty"`
 	// EmbeddedSIMActivationCodePools undocumented
 	EmbeddedSIMActivationCodePools []EmbeddedSIMActivationCodePool `json:"embeddedSIMActivationCodePools,omitempty"`
-	// TroubleshootingEvents undocumented
-	TroubleshootingEvents []DeviceManagementTroubleshootingEvent `json:"troubleshootingEvents,omitempty"`
+	// TelecomExpenseManagementPartners undocumented
+	TelecomExpenseManagementPartners []TelecomExpenseManagementPartner `json:"telecomExpenseManagementPartners,omitempty"`
 	// AutopilotEvents undocumented
 	AutopilotEvents []DeviceManagementAutopilotEvent `json:"autopilotEvents,omitempty"`
+	// TroubleshootingEvents undocumented
+	TroubleshootingEvents []DeviceManagementTroubleshootingEvent `json:"troubleshootingEvents,omitempty"`
 	// WindowsFeatureUpdateProfiles undocumented
 	WindowsFeatureUpdateProfiles []WindowsFeatureUpdateProfile `json:"windowsFeatureUpdateProfiles,omitempty"`
+	// WindowsQualityUpdateProfiles undocumented
+	WindowsQualityUpdateProfiles []WindowsQualityUpdateProfile `json:"windowsQualityUpdateProfiles,omitempty"`
+	// WindowsUpdateCatalogItems undocumented
+	WindowsUpdateCatalogItems []WindowsUpdateCatalogItem `json:"windowsUpdateCatalogItems,omitempty"`
+	// IntuneBrandingProfiles undocumented
+	IntuneBrandingProfiles []IntuneBrandingProfile `json:"intuneBrandingProfiles,omitempty"`
 	// WindowsInformationProtectionAppLearningSummaries undocumented
 	WindowsInformationProtectionAppLearningSummaries []WindowsInformationProtectionAppLearningSummary `json:"windowsInformationProtectionAppLearningSummaries,omitempty"`
 	// WindowsInformationProtectionNetworkLearningSummaries undocumented
 	WindowsInformationProtectionNetworkLearningSummaries []WindowsInformationProtectionNetworkLearningSummary `json:"windowsInformationProtectionNetworkLearningSummaries,omitempty"`
-	// IntuneBrandingProfiles undocumented
-	IntuneBrandingProfiles []IntuneBrandingProfile `json:"intuneBrandingProfiles,omitempty"`
 	// UserPfxCertificates undocumented
 	UserPfxCertificates []UserPFXCertificate `json:"userPfxCertificates,omitempty"`
 }
@@ -1404,10 +1954,10 @@ type DeviceManagementApplicabilityRuleDeviceMode struct {
 type DeviceManagementApplicabilityRuleOsEdition struct {
 	// Object is the base model of DeviceManagementApplicabilityRuleOsEdition
 	Object
-	// OsEditionTypes Applicability rule OS edition type.
-	OsEditionTypes []Windows10EditionType `json:"osEditionTypes,omitempty"`
 	// Name Name for object.
 	Name *string `json:"name,omitempty"`
+	// OsEditionTypes Applicability rule OS edition type.
+	OsEditionTypes []Windows10EditionType `json:"osEditionTypes,omitempty"`
 	// RuleType Applicability Rule type.
 	RuleType *DeviceManagementApplicabilityRuleType `json:"ruleType,omitempty"`
 }
@@ -1416,10 +1966,10 @@ type DeviceManagementApplicabilityRuleOsEdition struct {
 type DeviceManagementApplicabilityRuleOsVersion struct {
 	// Object is the base model of DeviceManagementApplicabilityRuleOsVersion
 	Object
-	// MinOSVersion Min OS version for Applicability Rule.
-	MinOSVersion *string `json:"minOSVersion,omitempty"`
 	// MaxOSVersion Max OS version for Applicability Rule.
 	MaxOSVersion *string `json:"maxOSVersion,omitempty"`
+	// MinOSVersion Min OS version for Applicability Rule.
+	MinOSVersion *string `json:"minOSVersion,omitempty"`
 	// Name Name for object.
 	Name *string `json:"name,omitempty"`
 	// RuleType Applicability Rule type.
@@ -1430,50 +1980,78 @@ type DeviceManagementApplicabilityRuleOsVersion struct {
 type DeviceManagementAutopilotEvent struct {
 	// Entity is the base model of DeviceManagementAutopilotEvent
 	Entity
-	// EventDateTime Time when the event occurred .
-	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
-	// DeviceRegisteredDateTime Device registration date.
-	DeviceRegisteredDateTime *time.Time `json:"deviceRegisteredDateTime,omitempty"`
-	// EnrollmentStartDateTime Device enrollment start date.
-	EnrollmentStartDateTime *time.Time `json:"enrollmentStartDateTime,omitempty"`
-	// EnrollmentType Enrollment type.
-	EnrollmentType *WindowsAutopilotEnrollmentType `json:"enrollmentType,omitempty"`
-	// DeviceSerialNumber Device serial number.
-	DeviceSerialNumber *string `json:"deviceSerialNumber,omitempty"`
-	// ManagedDeviceName Managed device name.
-	ManagedDeviceName *string `json:"managedDeviceName,omitempty"`
-	// UserPrincipalName User principal name used to enroll the device.
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// WindowsAutopilotDeploymentProfileDisplayName Autopilot profile name.
-	WindowsAutopilotDeploymentProfileDisplayName *string `json:"windowsAutopilotDeploymentProfileDisplayName,omitempty"`
-	// EnrollmentState Enrollment state like Enrolled, Failed.
-	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
-	// Windows10EnrollmentCompletionPageConfigurationDisplayName Enrollment Status Page profile name
-	Windows10EnrollmentCompletionPageConfigurationDisplayName *string `json:"windows10EnrollmentCompletionPageConfigurationDisplayName,omitempty"`
-	// DeploymentState Deployment state like Success, Failure, InProgress, SuccessWithTimeout.
-	DeploymentState *WindowsAutopilotDeploymentState `json:"deploymentState,omitempty"`
-	// OsVersion Device operating system version.
-	OsVersion *string `json:"osVersion,omitempty"`
-	// DeploymentDuration Autopilot deployment duration including enrollment.
-	DeploymentDuration *Duration `json:"deploymentDuration,omitempty"`
-	// DeploymentTotalDuration Total deployment duration from enrollment to Desktop screen.
-	DeploymentTotalDuration *Duration `json:"deploymentTotalDuration,omitempty"`
-	// DevicePreparationDuration Time spent in device enrollment.
-	DevicePreparationDuration *Duration `json:"devicePreparationDuration,omitempty"`
-	// DeviceSetupDuration Time spent in device ESP.
-	DeviceSetupDuration *Duration `json:"deviceSetupDuration,omitempty"`
 	// AccountSetupDuration Time spent in user ESP.
 	AccountSetupDuration *Duration `json:"accountSetupDuration,omitempty"`
-	// DeploymentStartDateTime Deployment start time.
-	DeploymentStartDateTime *time.Time `json:"deploymentStartDateTime,omitempty"`
+	// AccountSetupStatus Deployment status for the enrollment status page account setup phase.
+	AccountSetupStatus *WindowsAutopilotDeploymentState `json:"accountSetupStatus,omitempty"`
+	// DeploymentDuration Autopilot deployment duration including enrollment.
+	DeploymentDuration *Duration `json:"deploymentDuration,omitempty"`
 	// DeploymentEndDateTime Deployment end time.
 	DeploymentEndDateTime *time.Time `json:"deploymentEndDateTime,omitempty"`
+	// DeploymentStartDateTime Deployment start time.
+	DeploymentStartDateTime *time.Time `json:"deploymentStartDateTime,omitempty"`
+	// DeploymentState Deployment state like Success, Failure, InProgress, SuccessWithTimeout.
+	DeploymentState *WindowsAutopilotDeploymentState `json:"deploymentState,omitempty"`
+	// DeploymentTotalDuration Total deployment duration from enrollment to Desktop screen.
+	DeploymentTotalDuration *Duration `json:"deploymentTotalDuration,omitempty"`
+	// DeviceID Device id associated with the object
+	DeviceID *string `json:"deviceId,omitempty"`
+	// DevicePreparationDuration Time spent in device enrollment.
+	DevicePreparationDuration *Duration `json:"devicePreparationDuration,omitempty"`
+	// DeviceRegisteredDateTime Device registration date.
+	DeviceRegisteredDateTime *time.Time `json:"deviceRegisteredDateTime,omitempty"`
+	// DeviceSerialNumber Device serial number.
+	DeviceSerialNumber *string `json:"deviceSerialNumber,omitempty"`
+	// DeviceSetupDuration Time spent in device ESP.
+	DeviceSetupDuration *Duration `json:"deviceSetupDuration,omitempty"`
+	// DeviceSetupStatus Deployment status for the enrollment status page device setup phase.
+	DeviceSetupStatus *WindowsAutopilotDeploymentState `json:"deviceSetupStatus,omitempty"`
+	// EnrollmentFailureDetails Enrollment failure details.
+	EnrollmentFailureDetails *string `json:"enrollmentFailureDetails,omitempty"`
+	// EnrollmentStartDateTime Device enrollment start date.
+	EnrollmentStartDateTime *time.Time `json:"enrollmentStartDateTime,omitempty"`
+	// EnrollmentState Enrollment state like Enrolled, Failed.
+	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
+	// EnrollmentType Enrollment type.
+	EnrollmentType *WindowsAutopilotEnrollmentType `json:"enrollmentType,omitempty"`
+	// EventDateTime Time when the event occurred .
+	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
+	// ManagedDeviceName Managed device name.
+	ManagedDeviceName *string `json:"managedDeviceName,omitempty"`
+	// OsVersion Device operating system version.
+	OsVersion *string `json:"osVersion,omitempty"`
 	// TargetedAppCount Count of applications targeted.
 	TargetedAppCount *int `json:"targetedAppCount,omitempty"`
 	// TargetedPolicyCount Count of policies targeted.
 	TargetedPolicyCount *int `json:"targetedPolicyCount,omitempty"`
-	// EnrollmentFailureDetails Enrollment failure details.
-	EnrollmentFailureDetails *string `json:"enrollmentFailureDetails,omitempty"`
+	// UserPrincipalName User principal name used to enroll the device.
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// Windows10EnrollmentCompletionPageConfigurationDisplayName Enrollment Status Page profile name
+	Windows10EnrollmentCompletionPageConfigurationDisplayName *string `json:"windows10EnrollmentCompletionPageConfigurationDisplayName,omitempty"`
+	// Windows10EnrollmentCompletionPageConfigurationID Enrollment Status Page profile ID
+	Windows10EnrollmentCompletionPageConfigurationID *string `json:"windows10EnrollmentCompletionPageConfigurationId,omitempty"`
+	// WindowsAutopilotDeploymentProfileDisplayName Autopilot profile name.
+	WindowsAutopilotDeploymentProfileDisplayName *string `json:"windowsAutopilotDeploymentProfileDisplayName,omitempty"`
+	// PolicyStatusDetails undocumented
+	PolicyStatusDetails []DeviceManagementAutopilotPolicyStatusDetail `json:"policyStatusDetails,omitempty"`
+}
+
+// DeviceManagementAutopilotPolicyStatusDetail Policy status detail item contained by an autopilot event.
+type DeviceManagementAutopilotPolicyStatusDetail struct {
+	// Entity is the base model of DeviceManagementAutopilotPolicyStatusDetail
+	Entity
+	// ComplianceStatus The policy compliance status.
+	ComplianceStatus *DeviceManagementAutopilotPolicyComplianceStatus `json:"complianceStatus,omitempty"`
+	// DisplayName The friendly name of the policy.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ErrorCode The errorode associated with the compliance or enforcement status of the policy. Error code for enforcement status takes precedence if it exists.
+	ErrorCode *int `json:"errorCode,omitempty"`
+	// LastReportedDateTime Timestamp of the reported policy status
+	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
+	// PolicyType The type of policy.
+	PolicyType *DeviceManagementAutopilotPolicyType `json:"policyType,omitempty"`
+	// TrackedOnEnrollmentStatus Indicates if this prolicy was tracked as part of the autopilot bootstrap enrollment sync session
+	TrackedOnEnrollmentStatus *bool `json:"trackedOnEnrollmentStatus,omitempty"`
 }
 
 // DeviceManagementBooleanSettingInstance A setting instance representing a boolean value
@@ -1488,20 +2066,22 @@ type DeviceManagementBooleanSettingInstance struct {
 type DeviceManagementCachedReportConfiguration struct {
 	// Entity is the base model of DeviceManagementCachedReportConfiguration
 	Entity
-	// ReportName Name of the report
-	ReportName *string `json:"reportName,omitempty"`
-	// Filter Filters applied on report creation.
-	Filter *string `json:"filter,omitempty"`
-	// Select Columns selected from the report
-	Select []string `json:"select,omitempty"`
-	// OrderBy Ordering of columns in the report
-	OrderBy []string `json:"orderBy,omitempty"`
-	// Status Status of the cached report
-	Status *DeviceManagementReportStatus `json:"status,omitempty"`
-	// LastRefreshDateTime Time that the cached report was last refreshed
-	LastRefreshDateTime *time.Time `json:"lastRefreshDateTime,omitempty"`
 	// ExpirationDateTime Time that the cached report expires
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// Filter Filters applied on report creation.
+	Filter *string `json:"filter,omitempty"`
+	// LastRefreshDateTime Time that the cached report was last refreshed
+	LastRefreshDateTime *time.Time `json:"lastRefreshDateTime,omitempty"`
+	// Metadata Caller-managed metadata associated with the report
+	Metadata *string `json:"metadata,omitempty"`
+	// OrderBy Ordering of columns in the report
+	OrderBy []string `json:"orderBy,omitempty"`
+	// ReportName Name of the report
+	ReportName *string `json:"reportName,omitempty"`
+	// Select Columns selected from the report
+	Select []string `json:"select,omitempty"`
+	// Status Status of the cached report
+	Status *DeviceManagementReportStatus `json:"status,omitempty"`
 }
 
 // DeviceManagementCollectionSettingDefinition Entity representing the defintion for a collection setting
@@ -1536,7 +2116,703 @@ type DeviceManagementComplexSettingInstance struct {
 	Value []DeviceManagementSettingInstance `json:"value,omitempty"`
 }
 
-// DeviceManagementConstraint undocumented
+// DeviceManagementConfigurationCategory Device Management Configuration Policy
+type DeviceManagementConfigurationCategory struct {
+	// Entity is the base model of DeviceManagementConfigurationCategory
+	Entity
+	// ChildCategoryIDs List of child ids of the category.
+	ChildCategoryIDs []string `json:"childCategoryIds,omitempty"`
+	// Description Description of the item
+	Description *string `json:"description,omitempty"`
+	// DisplayName Display name of the item
+	DisplayName *string `json:"displayName,omitempty"`
+	// HelpText Help text of the item
+	HelpText *string `json:"helpText,omitempty"`
+	// Name Name of the item
+	Name *string `json:"name,omitempty"`
+	// ParentCategoryID Parent id of the category.
+	ParentCategoryID *string `json:"parentCategoryId,omitempty"`
+	// Platforms Platforms types, which settings in the category have.
+	Platforms *DeviceManagementConfigurationPlatforms `json:"platforms,omitempty"`
+	// RootCategoryID Root id of the category.
+	RootCategoryID *string `json:"rootCategoryId,omitempty"`
+	// SettingUsage Indicates that the category contains settings that are used for Compliance or Configuration.
+	SettingUsage *DeviceManagementConfigurationSettingUsage `json:"settingUsage,omitempty"`
+	// Technologies Technologies types, which settings in the category have.
+	Technologies *DeviceManagementConfigurationTechnologies `json:"technologies,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingCollectionDefinition undocumented
+type DeviceManagementConfigurationChoiceSettingCollectionDefinition struct {
+	// DeviceManagementConfigurationChoiceSettingDefinition is the base model of DeviceManagementConfigurationChoiceSettingCollectionDefinition
+	DeviceManagementConfigurationChoiceSettingDefinition
+	// MaximumCount Maximum number of choices in the collection. Valid values 1 to 100
+	MaximumCount *int `json:"maximumCount,omitempty"`
+	// MinimumCount Minimum number of choices in the collection. Valid values 1 to 100
+	MinimumCount *int `json:"minimumCount,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingCollectionInstance Setting instance within policy
+type DeviceManagementConfigurationChoiceSettingCollectionInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationChoiceSettingCollectionInstance
+	DeviceManagementConfigurationSettingInstance
+	// ChoiceSettingCollectionValue Choice setting collection value
+	ChoiceSettingCollectionValue []DeviceManagementConfigurationChoiceSettingValue `json:"choiceSettingCollectionValue,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate Choice Setting Collection Instance Template
+type DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationChoiceSettingCollectionInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// AllowUnmanagedValues Linked policy may append values which are not present in the template.
+	AllowUnmanagedValues *bool `json:"allowUnmanagedValues,omitempty"`
+	// ChoiceSettingCollectionValueTemplate Choice Setting Collection Value Template
+	ChoiceSettingCollectionValueTemplate []DeviceManagementConfigurationChoiceSettingValueTemplate `json:"choiceSettingCollectionValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingDefinition undocumented
+type DeviceManagementConfigurationChoiceSettingDefinition struct {
+	// DeviceManagementConfigurationSettingDefinition is the base model of DeviceManagementConfigurationChoiceSettingDefinition
+	DeviceManagementConfigurationSettingDefinition
+	// DefaultOptionID Default option for choice setting
+	DefaultOptionID *string `json:"defaultOptionId,omitempty"`
+	// Options Options for the setting that can be selected
+	Options []DeviceManagementConfigurationOptionDefinition `json:"options,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingInstance Setting instance within policy
+type DeviceManagementConfigurationChoiceSettingInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationChoiceSettingInstance
+	DeviceManagementConfigurationSettingInstance
+	// ChoiceSettingValue Choice setting value
+	ChoiceSettingValue *DeviceManagementConfigurationChoiceSettingValue `json:"choiceSettingValue,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingInstanceTemplate Choice Setting Instance Template
+type DeviceManagementConfigurationChoiceSettingInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationChoiceSettingInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// ChoiceSettingValueTemplate Choice Setting Value Template
+	ChoiceSettingValueTemplate *DeviceManagementConfigurationChoiceSettingValueTemplate `json:"choiceSettingValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingValue Setting value
+type DeviceManagementConfigurationChoiceSettingValue struct {
+	// DeviceManagementConfigurationSettingValue is the base model of DeviceManagementConfigurationChoiceSettingValue
+	DeviceManagementConfigurationSettingValue
+	// Children Child settings.
+	Children []DeviceManagementConfigurationSettingInstance `json:"children,omitempty"`
+	// Value Choice setting value: an OptionDefinition ItemId.
+	Value *string `json:"value,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate Choice Setting Value Constant Default Template
+type DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate struct {
+	// DeviceManagementConfigurationChoiceSettingValueDefaultTemplate is the base model of DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate
+	DeviceManagementConfigurationChoiceSettingValueDefaultTemplate
+	// Children Option Children
+	Children []DeviceManagementConfigurationSettingInstanceTemplate `json:"children,omitempty"`
+	// SettingDefinitionOptionID Default Constant Value
+	SettingDefinitionOptionID *string `json:"settingDefinitionOptionId,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingValueDefaultTemplate Choice Setting Value Default Template
+type DeviceManagementConfigurationChoiceSettingValueDefaultTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationChoiceSettingValueDefaultTemplate
+	Object
+}
+
+// DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate Choice Setting Value Definition Template
+type DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate
+	Object
+	// AllowedOptions Choice Setting Allowed Options
+	AllowedOptions []DeviceManagementConfigurationOptionDefinitionTemplate `json:"allowedOptions,omitempty"`
+}
+
+// DeviceManagementConfigurationChoiceSettingValueTemplate Choice Setting Value Template
+type DeviceManagementConfigurationChoiceSettingValueTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationChoiceSettingValueTemplate
+	Object
+	// DefaultValue Choice Setting Value Default Template.
+	DefaultValue *DeviceManagementConfigurationChoiceSettingValueDefaultTemplate `json:"defaultValue,omitempty"`
+	// RecommendedValueDefinition Recommended definition override.
+	RecommendedValueDefinition *DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate `json:"recommendedValueDefinition,omitempty"`
+	// RequiredValueDefinition Required definition override.
+	RequiredValueDefinition *DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate `json:"requiredValueDefinition,omitempty"`
+	// SettingValueTemplateID Setting Value Template Id
+	SettingValueTemplateID *string `json:"settingValueTemplateId,omitempty"`
+}
+
+// DeviceManagementConfigurationDependentOn undocumented
+type DeviceManagementConfigurationDependentOn struct {
+	// Object is the base model of DeviceManagementConfigurationDependentOn
+	Object
+	// DependentOn Identifier of parent setting/ parent setting option dependent on
+	DependentOn *string `json:"dependentOn,omitempty"`
+	// ParentSettingID Identifier of parent setting/ parent setting id dependent on
+	ParentSettingID *string `json:"parentSettingId,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingCollectionInstance Instance of a GroupSettingCollection
+type DeviceManagementConfigurationGroupSettingCollectionInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationGroupSettingCollectionInstance
+	DeviceManagementConfigurationSettingInstance
+	// GroupSettingCollectionValue A collection of GroupSetting values
+	GroupSettingCollectionValue []DeviceManagementConfigurationGroupSettingValue `json:"groupSettingCollectionValue,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate Group Setting Collection Instance Template
+type DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationGroupSettingCollectionInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// AllowUnmanagedValues Linked policy may append values which are not present in the template.
+	AllowUnmanagedValues *bool `json:"allowUnmanagedValues,omitempty"`
+	// GroupSettingCollectionValueTemplate Group Setting Collection Value Template
+	GroupSettingCollectionValueTemplate []DeviceManagementConfigurationGroupSettingValueTemplate `json:"groupSettingCollectionValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingInstance Instance of a GroupSetting
+type DeviceManagementConfigurationGroupSettingInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationGroupSettingInstance
+	DeviceManagementConfigurationSettingInstance
+	// GroupSettingValue GroupSetting value
+	GroupSettingValue *DeviceManagementConfigurationGroupSettingValue `json:"groupSettingValue,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingInstanceTemplate Group Setting Instance Template
+type DeviceManagementConfigurationGroupSettingInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationGroupSettingInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// GroupSettingValueTemplate Group Setting Value Template
+	GroupSettingValueTemplate *DeviceManagementConfigurationGroupSettingValueTemplate `json:"groupSettingValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingValue Value of the GroupSetting
+type DeviceManagementConfigurationGroupSettingValue struct {
+	// DeviceManagementConfigurationSettingValue is the base model of DeviceManagementConfigurationGroupSettingValue
+	DeviceManagementConfigurationSettingValue
+	// Children Collection of child setting instances contained within this GroupSetting
+	Children []DeviceManagementConfigurationSettingInstance `json:"children,omitempty"`
+}
+
+// DeviceManagementConfigurationGroupSettingValueTemplate Group Setting Value Template
+type DeviceManagementConfigurationGroupSettingValueTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationGroupSettingValueTemplate
+	Object
+	// Children Group setting value children
+	Children []DeviceManagementConfigurationSettingInstanceTemplate `json:"children,omitempty"`
+	// SettingValueTemplateID Setting Value Template Id
+	SettingValueTemplateID *string `json:"settingValueTemplateId,omitempty"`
+}
+
+// DeviceManagementConfigurationIntegerSettingValue Simple setting value
+type DeviceManagementConfigurationIntegerSettingValue struct {
+	// DeviceManagementConfigurationSimpleSettingValue is the base model of DeviceManagementConfigurationIntegerSettingValue
+	DeviceManagementConfigurationSimpleSettingValue
+	// Value Value of the integer setting.
+	Value *int `json:"value,omitempty"`
+}
+
+// DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate Integer Setting Value Constant Default Template
+type DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate struct {
+	// DeviceManagementConfigurationIntegerSettingValueDefaultTemplate is the base model of DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate
+	DeviceManagementConfigurationIntegerSettingValueDefaultTemplate
+	// ConstantValue Default Constant Value. Valid values -2147483648 to 2147483647
+	ConstantValue *int `json:"constantValue,omitempty"`
+}
+
+// DeviceManagementConfigurationIntegerSettingValueDefaultTemplate Integer Setting Value Default Template
+type DeviceManagementConfigurationIntegerSettingValueDefaultTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationIntegerSettingValueDefaultTemplate
+	Object
+}
+
+// DeviceManagementConfigurationIntegerSettingValueDefinition undocumented
+type DeviceManagementConfigurationIntegerSettingValueDefinition struct {
+	// DeviceManagementConfigurationSettingValueDefinition is the base model of DeviceManagementConfigurationIntegerSettingValueDefinition
+	DeviceManagementConfigurationSettingValueDefinition
+	// MaximumValue Maximum allowed value of the integer
+	MaximumValue *int `json:"maximumValue,omitempty"`
+	// MinimumValue Minimum allowed value of the integer
+	MinimumValue *int `json:"minimumValue,omitempty"`
+}
+
+// DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate Integer Setting Value Definition Template
+type DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate
+	Object
+	// MaxValue Integer Setting Maximum Value. Valid values -2147483648 to 2147483647
+	MaxValue *int `json:"maxValue,omitempty"`
+	// MinValue Integer Setting Minimum Value. Valid values -2147483648 to 2147483647
+	MinValue *int `json:"minValue,omitempty"`
+}
+
+// DeviceManagementConfigurationIntegerSettingValueTemplate Integer Setting Value Template
+type DeviceManagementConfigurationIntegerSettingValueTemplate struct {
+	// DeviceManagementConfigurationSimpleSettingValueTemplate is the base model of DeviceManagementConfigurationIntegerSettingValueTemplate
+	DeviceManagementConfigurationSimpleSettingValueTemplate
+	// DefaultValue Integer Setting Value Default Template.
+	DefaultValue *DeviceManagementConfigurationIntegerSettingValueDefaultTemplate `json:"defaultValue,omitempty"`
+	// RecommendedValueDefinition Recommended value definition.
+	RecommendedValueDefinition *DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate `json:"recommendedValueDefinition,omitempty"`
+	// RequiredValueDefinition Required value definition.
+	RequiredValueDefinition *DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate `json:"requiredValueDefinition,omitempty"`
+}
+
+// DeviceManagementConfigurationOptionDefinition undocumented
+type DeviceManagementConfigurationOptionDefinition struct {
+	// Object is the base model of DeviceManagementConfigurationOptionDefinition
+	Object
+	// DependedOnBy List of Settings that depends on this option
+	DependedOnBy []DeviceManagementConfigurationSettingDependedOnBy `json:"dependedOnBy,omitempty"`
+	// DependentOn List of dependent settings for this option
+	DependentOn []DeviceManagementConfigurationDependentOn `json:"dependentOn,omitempty"`
+	// Description Description of the option
+	Description *string `json:"description,omitempty"`
+	// DisplayName Friendly name of the option
+	DisplayName *string `json:"displayName,omitempty"`
+	// HelpText Help text of the option
+	HelpText *string `json:"helpText,omitempty"`
+	// ItemID Identifier of option
+	ItemID *string `json:"itemId,omitempty"`
+	// Name Name of the option
+	Name *string `json:"name,omitempty"`
+	// OptionValue Value of the option
+	OptionValue *DeviceManagementConfigurationSettingValue `json:"optionValue,omitempty"`
+}
+
+// DeviceManagementConfigurationOptionDefinitionTemplate Option Definition Template
+type DeviceManagementConfigurationOptionDefinitionTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationOptionDefinitionTemplate
+	Object
+	// Children Option Children
+	Children []DeviceManagementConfigurationSettingInstanceTemplate `json:"children,omitempty"`
+	// ItemID Option ItemId
+	ItemID *string `json:"itemId,omitempty"`
+}
+
+// DeviceManagementConfigurationPolicy Device Management Configuration Policy
+type DeviceManagementConfigurationPolicy struct {
+	// Entity is the base model of DeviceManagementConfigurationPolicy
+	Entity
+	// CreatedDateTime Policy creation date and time. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// CreationSource Policy creation source
+	CreationSource *string `json:"creationSource,omitempty"`
+	// Description Policy description
+	Description *string `json:"description,omitempty"`
+	// IsAssigned Policy assignment status. This property is read-only.
+	IsAssigned *bool `json:"isAssigned,omitempty"`
+	// LastModifiedDateTime Policy last modification date and time. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Name Policy name
+	Name *string `json:"name,omitempty"`
+	// Platforms Platforms for this policy
+	Platforms *DeviceManagementConfigurationPlatforms `json:"platforms,omitempty"`
+	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// SettingCount Number of settings. This property is read-only.
+	SettingCount *int `json:"settingCount,omitempty"`
+	// Technologies Technologies for this policy
+	Technologies *DeviceManagementConfigurationTechnologies `json:"technologies,omitempty"`
+	// TemplateReference Template reference information
+	TemplateReference *DeviceManagementConfigurationPolicyTemplateReference `json:"templateReference,omitempty"`
+	// Assignments undocumented
+	Assignments []DeviceManagementConfigurationPolicyAssignment `json:"assignments,omitempty"`
+	// Settings undocumented
+	Settings []DeviceManagementConfigurationSetting `json:"settings,omitempty"`
+}
+
+// DeviceManagementConfigurationPolicyAssignment The DeviceManagementConfigurationPolicyAssignment entity assigns a specific DeviceManagementConfigurationPolicy to an AAD group.
+type DeviceManagementConfigurationPolicyAssignment struct {
+	// Entity is the base model of DeviceManagementConfigurationPolicyAssignment
+	Entity
+	// Target The assignment target for the DeviceManagementConfigurationPolicy.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+}
+
+// DeviceManagementConfigurationPolicyTemplate Device Management Configuration Policy Template
+type DeviceManagementConfigurationPolicyTemplate struct {
+	// Entity is the base model of DeviceManagementConfigurationPolicyTemplate
+	Entity
+	// AllowUnmanagedSettings Allow unmanaged setting templates
+	AllowUnmanagedSettings *bool `json:"allowUnmanagedSettings,omitempty"`
+	// BaseID Template base identifier
+	BaseID *string `json:"baseId,omitempty"`
+	// Description Template description
+	Description *string `json:"description,omitempty"`
+	// DisplayName Template display name
+	DisplayName *string `json:"displayName,omitempty"`
+	// DisplayVersion Description of template version
+	DisplayVersion *string `json:"displayVersion,omitempty"`
+	// LifecycleState Indicate current lifecycle state of template
+	LifecycleState *DeviceManagementTemplateLifecycleState `json:"lifecycleState,omitempty"`
+	// Platforms Platforms for this template
+	Platforms *DeviceManagementConfigurationPlatforms `json:"platforms,omitempty"`
+	// SettingTemplateCount Number of setting templates. Valid values 0 to 2147483647. This property is read-only.
+	SettingTemplateCount *int `json:"settingTemplateCount,omitempty"`
+	// Technologies Technologies for this template
+	Technologies *DeviceManagementConfigurationTechnologies `json:"technologies,omitempty"`
+	// TemplateFamily TemplateFamily for this template
+	TemplateFamily *DeviceManagementConfigurationTemplateFamily `json:"templateFamily,omitempty"`
+	// Version Template version. Valid values 1 to 2147483647. This property is read-only.
+	Version *int `json:"version,omitempty"`
+	// SettingTemplates undocumented
+	SettingTemplates []DeviceManagementConfigurationSettingTemplate `json:"settingTemplates,omitempty"`
+}
+
+// DeviceManagementConfigurationPolicyTemplateReference Policy template reference information
+type DeviceManagementConfigurationPolicyTemplateReference struct {
+	// Object is the base model of DeviceManagementConfigurationPolicyTemplateReference
+	Object
+	// TemplateDisplayName Template Display Name of the referenced template. This property is read-only.
+	TemplateDisplayName *string `json:"templateDisplayName,omitempty"`
+	// TemplateDisplayVersion Template Display Version of the referenced Template. This property is read-only.
+	TemplateDisplayVersion *string `json:"templateDisplayVersion,omitempty"`
+	// TemplateFamily Template Family of the referenced Template. This property is read-only.
+	TemplateFamily *DeviceManagementConfigurationTemplateFamily `json:"templateFamily,omitempty"`
+	// TemplateID Template id
+	TemplateID *string `json:"templateId,omitempty"`
+}
+
+// DeviceManagementConfigurationReferenceSettingValue Model for ReferenceSettingValue
+type DeviceManagementConfigurationReferenceSettingValue struct {
+	// DeviceManagementConfigurationStringSettingValue is the base model of DeviceManagementConfigurationReferenceSettingValue
+	DeviceManagementConfigurationStringSettingValue
+	// Note A note that admin can use to put some contextual information
+	Note *string `json:"note,omitempty"`
+}
+
+// DeviceManagementConfigurationReferredSettingInformation Referred setting information about reusable setting
+type DeviceManagementConfigurationReferredSettingInformation struct {
+	// Object is the base model of DeviceManagementConfigurationReferredSettingInformation
+	Object
+	// SettingDefinitionID Setting definition id that is being referred to a setting. Applicable for reusable setting
+	SettingDefinitionID *string `json:"settingDefinitionId,omitempty"`
+}
+
+// DeviceManagementConfigurationSetting Setting instance within policy
+type DeviceManagementConfigurationSetting struct {
+	// Entity is the base model of DeviceManagementConfigurationSetting
+	Entity
+	// SettingInstance Setting Instance
+	SettingInstance *DeviceManagementConfigurationSettingInstance `json:"settingInstance,omitempty"`
+	// SettingDefinitions undocumented
+	SettingDefinitions []DeviceManagementConfigurationSettingDefinition `json:"settingDefinitions,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingApplicability undocumented
+type DeviceManagementConfigurationSettingApplicability struct {
+	// Object is the base model of DeviceManagementConfigurationSettingApplicability
+	Object
+	// Description description of the setting
+	Description *string `json:"description,omitempty"`
+	// DeviceMode Device Mode that setting can be applied on
+	DeviceMode *DeviceManagementConfigurationDeviceMode `json:"deviceMode,omitempty"`
+	// Platform Platform setting can be applied on
+	Platform *DeviceManagementConfigurationPlatforms `json:"platform,omitempty"`
+	// Technologies Which technology channels this setting can be deployed through
+	Technologies *DeviceManagementConfigurationTechnologies `json:"technologies,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingDefinition undocumented
+type DeviceManagementConfigurationSettingDefinition struct {
+	// Entity is the base model of DeviceManagementConfigurationSettingDefinition
+	Entity
+	// AccessTypes Read/write access mode of the setting
+	AccessTypes *DeviceManagementConfigurationSettingAccessTypes `json:"accessTypes,omitempty"`
+	// Applicability Details which device setting is applicable on
+	Applicability *DeviceManagementConfigurationSettingApplicability `json:"applicability,omitempty"`
+	// BaseURI Base CSP Path
+	BaseURI *string `json:"baseUri,omitempty"`
+	// CategoryID Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)
+	CategoryID *string `json:"categoryId,omitempty"`
+	// Description Description of the item
+	Description *string `json:"description,omitempty"`
+	// DisplayName Display name of the item
+	DisplayName *string `json:"displayName,omitempty"`
+	// HelpText Help text of the item
+	HelpText *string `json:"helpText,omitempty"`
+	// InfoUrls List of links more info for the setting can be found at
+	InfoUrls []string `json:"infoUrls,omitempty"`
+	// Keywords Tokens which to search settings on
+	Keywords []string `json:"keywords,omitempty"`
+	// Name Name of the item
+	Name *string `json:"name,omitempty"`
+	// Occurrence Indicates whether the setting is required or not
+	Occurrence *DeviceManagementConfigurationSettingOccurrence `json:"occurrence,omitempty"`
+	// OffsetURI Offset CSP Path from Base
+	OffsetURI *string `json:"offsetUri,omitempty"`
+	// ReferredSettingInformationList List of referred setting information.
+	ReferredSettingInformationList []DeviceManagementConfigurationReferredSettingInformation `json:"referredSettingInformationList,omitempty"`
+	// RootDefinitionID Root setting definition if the setting is a child setting.
+	RootDefinitionID *string `json:"rootDefinitionId,omitempty"`
+	// SettingUsage Setting type, for example, configuration and compliance
+	SettingUsage *DeviceManagementConfigurationSettingUsage `json:"settingUsage,omitempty"`
+	// UxBehavior Setting control type representation in the UX
+	UxBehavior *DeviceManagementConfigurationControlType `json:"uxBehavior,omitempty"`
+	// Version Item Version
+	Version *string `json:"version,omitempty"`
+	// Visibility Setting visibility scope to UX
+	Visibility *DeviceManagementConfigurationSettingVisibility `json:"visibility,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingDependedOnBy undocumented
+type DeviceManagementConfigurationSettingDependedOnBy struct {
+	// Object is the base model of DeviceManagementConfigurationSettingDependedOnBy
+	Object
+	// DependedOnBy Identifier of child setting that is dependent on the current setting
+	DependedOnBy *string `json:"dependedOnBy,omitempty"`
+	// Required Value that determines if the child setting is required based on the parent setting's selection
+	Required *bool `json:"required,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingGroupCollectionDefinition undocumented
+type DeviceManagementConfigurationSettingGroupCollectionDefinition struct {
+	// DeviceManagementConfigurationSettingGroupDefinition is the base model of DeviceManagementConfigurationSettingGroupCollectionDefinition
+	DeviceManagementConfigurationSettingGroupDefinition
+	// MaximumCount Maximum number of setting group count in the collection. Valid values 1 to 100
+	MaximumCount *int `json:"maximumCount,omitempty"`
+	// MinimumCount Minimum number of setting group count in the collection. Valid values 1 to 100
+	MinimumCount *int `json:"minimumCount,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingGroupCollectionInstance Setting instance within policy
+type DeviceManagementConfigurationSettingGroupCollectionInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationSettingGroupCollectionInstance
+	DeviceManagementConfigurationSettingInstance
+}
+
+// DeviceManagementConfigurationSettingGroupDefinition undocumented
+type DeviceManagementConfigurationSettingGroupDefinition struct {
+	// DeviceManagementConfigurationSettingDefinition is the base model of DeviceManagementConfigurationSettingGroupDefinition
+	DeviceManagementConfigurationSettingDefinition
+	// ChildIDs Dependent child settings to this group of settings
+	ChildIDs []string `json:"childIds,omitempty"`
+	// DependedOnBy List of child settings that depend on this setting
+	DependedOnBy []DeviceManagementConfigurationSettingDependedOnBy `json:"dependedOnBy,omitempty"`
+	// DependentOn List of Dependencies for the setting group
+	DependentOn []DeviceManagementConfigurationDependentOn `json:"dependentOn,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingGroupInstance Setting instance within policy
+type DeviceManagementConfigurationSettingGroupInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationSettingGroupInstance
+	DeviceManagementConfigurationSettingInstance
+}
+
+// DeviceManagementConfigurationSettingInstance Setting instance within policy
+type DeviceManagementConfigurationSettingInstance struct {
+	// Object is the base model of DeviceManagementConfigurationSettingInstance
+	Object
+	// SettingDefinitionID Setting Definition Id
+	SettingDefinitionID *string `json:"settingDefinitionId,omitempty"`
+	// SettingInstanceTemplateReference Setting Instance Template Reference
+	SettingInstanceTemplateReference *DeviceManagementConfigurationSettingInstanceTemplateReference `json:"settingInstanceTemplateReference,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingInstanceTemplate Setting Instance Template
+type DeviceManagementConfigurationSettingInstanceTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationSettingInstanceTemplate
+	Object
+	// IsRequired Indicates if a policy must specify this setting.
+	IsRequired *bool `json:"isRequired,omitempty"`
+	// SettingDefinitionID Setting Definition Id
+	SettingDefinitionID *string `json:"settingDefinitionId,omitempty"`
+	// SettingInstanceTemplateID Setting Instance Template Id
+	SettingInstanceTemplateID *string `json:"settingInstanceTemplateId,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingInstanceTemplateReference Setting instance template reference information
+type DeviceManagementConfigurationSettingInstanceTemplateReference struct {
+	// Object is the base model of DeviceManagementConfigurationSettingInstanceTemplateReference
+	Object
+	// SettingInstanceTemplateID Setting instance template id
+	SettingInstanceTemplateID *string `json:"settingInstanceTemplateId,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingOccurrence undocumented
+type DeviceManagementConfigurationSettingOccurrence struct {
+	// Object is the base model of DeviceManagementConfigurationSettingOccurrence
+	Object
+	// MaxDeviceOccurrence Maximum times setting can be set on device.
+	MaxDeviceOccurrence *int `json:"maxDeviceOccurrence,omitempty"`
+	// MinDeviceOccurrence Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
+	MinDeviceOccurrence *int `json:"minDeviceOccurrence,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingTemplate Setting Template
+type DeviceManagementConfigurationSettingTemplate struct {
+	// Entity is the base model of DeviceManagementConfigurationSettingTemplate
+	Entity
+	// SettingInstanceTemplate Setting Instance Template
+	SettingInstanceTemplate *DeviceManagementConfigurationSettingInstanceTemplate `json:"settingInstanceTemplate,omitempty"`
+	// SettingDefinitions undocumented
+	SettingDefinitions []DeviceManagementConfigurationSettingDefinition `json:"settingDefinitions,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingValue Setting value
+type DeviceManagementConfigurationSettingValue struct {
+	// Object is the base model of DeviceManagementConfigurationSettingValue
+	Object
+	// SettingValueTemplateReference Setting value template reference
+	SettingValueTemplateReference *DeviceManagementConfigurationSettingValueTemplateReference `json:"settingValueTemplateReference,omitempty"`
+}
+
+// DeviceManagementConfigurationSettingValueDefinition undocumented
+type DeviceManagementConfigurationSettingValueDefinition struct {
+	// Object is the base model of DeviceManagementConfigurationSettingValueDefinition
+	Object
+}
+
+// DeviceManagementConfigurationSettingValueTemplateReference Setting value template reference information
+type DeviceManagementConfigurationSettingValueTemplateReference struct {
+	// Object is the base model of DeviceManagementConfigurationSettingValueTemplateReference
+	Object
+	// SettingValueTemplateID Setting value template id
+	SettingValueTemplateID *string `json:"settingValueTemplateId,omitempty"`
+	// UseTemplateDefault Indicates whether to update policy setting value to match template setting default value
+	UseTemplateDefault *bool `json:"useTemplateDefault,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingCollectionDefinition undocumented
+type DeviceManagementConfigurationSimpleSettingCollectionDefinition struct {
+	// DeviceManagementConfigurationSimpleSettingDefinition is the base model of DeviceManagementConfigurationSimpleSettingCollectionDefinition
+	DeviceManagementConfigurationSimpleSettingDefinition
+	// MaximumCount Maximum number of simple settings in the collection. Valid values 1 to 100
+	MaximumCount *int `json:"maximumCount,omitempty"`
+	// MinimumCount Minimum number of simple settings in the collection. Valid values 1 to 100
+	MinimumCount *int `json:"minimumCount,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingCollectionInstance Simple setting collection instance
+type DeviceManagementConfigurationSimpleSettingCollectionInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationSimpleSettingCollectionInstance
+	DeviceManagementConfigurationSettingInstance
+	// SimpleSettingCollectionValue Simple setting collection instance value
+	SimpleSettingCollectionValue []DeviceManagementConfigurationSimpleSettingValue `json:"simpleSettingCollectionValue,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate Simple Setting Collection Instance Template
+type DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationSimpleSettingCollectionInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// AllowUnmanagedValues Linked policy may append values which are not present in the template.
+	AllowUnmanagedValues *bool `json:"allowUnmanagedValues,omitempty"`
+	// SimpleSettingCollectionValueTemplate Simple Setting Collection Value Template
+	SimpleSettingCollectionValueTemplate []DeviceManagementConfigurationSimpleSettingValueTemplate `json:"simpleSettingCollectionValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingDefinition undocumented
+type DeviceManagementConfigurationSimpleSettingDefinition struct {
+	// DeviceManagementConfigurationSettingDefinition is the base model of DeviceManagementConfigurationSimpleSettingDefinition
+	DeviceManagementConfigurationSettingDefinition
+	// DefaultValue Default setting value for this setting
+	DefaultValue *DeviceManagementConfigurationSettingValue `json:"defaultValue,omitempty"`
+	// DependedOnBy list of child settings that depend on this setting
+	DependedOnBy []DeviceManagementConfigurationSettingDependedOnBy `json:"dependedOnBy,omitempty"`
+	// DependentOn list of parent settings this setting is dependent on
+	DependentOn []DeviceManagementConfigurationDependentOn `json:"dependentOn,omitempty"`
+	// ValueDefinition Definition of the value for this setting
+	ValueDefinition *DeviceManagementConfigurationSettingValueDefinition `json:"valueDefinition,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingInstance Simple setting instance
+type DeviceManagementConfigurationSimpleSettingInstance struct {
+	// DeviceManagementConfigurationSettingInstance is the base model of DeviceManagementConfigurationSimpleSettingInstance
+	DeviceManagementConfigurationSettingInstance
+	// SimpleSettingValue Simple setting instance value
+	SimpleSettingValue *DeviceManagementConfigurationSimpleSettingValue `json:"simpleSettingValue,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingInstanceTemplate Simple Setting Instance Template
+type DeviceManagementConfigurationSimpleSettingInstanceTemplate struct {
+	// DeviceManagementConfigurationSettingInstanceTemplate is the base model of DeviceManagementConfigurationSimpleSettingInstanceTemplate
+	DeviceManagementConfigurationSettingInstanceTemplate
+	// SimpleSettingValueTemplate Simple Setting Value Template
+	SimpleSettingValueTemplate *DeviceManagementConfigurationSimpleSettingValueTemplate `json:"simpleSettingValueTemplate,omitempty"`
+}
+
+// DeviceManagementConfigurationSimpleSettingValue Simple setting value
+type DeviceManagementConfigurationSimpleSettingValue struct {
+	// DeviceManagementConfigurationSettingValue is the base model of DeviceManagementConfigurationSimpleSettingValue
+	DeviceManagementConfigurationSettingValue
+}
+
+// DeviceManagementConfigurationSimpleSettingValueTemplate Simple Setting Value Template
+type DeviceManagementConfigurationSimpleSettingValueTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationSimpleSettingValueTemplate
+	Object
+	// SettingValueTemplateID Setting Value Template Id
+	SettingValueTemplateID *string `json:"settingValueTemplateId,omitempty"`
+}
+
+// DeviceManagementConfigurationStringSettingValue Simple setting value
+type DeviceManagementConfigurationStringSettingValue struct {
+	// DeviceManagementConfigurationSimpleSettingValue is the base model of DeviceManagementConfigurationStringSettingValue
+	DeviceManagementConfigurationSimpleSettingValue
+	// Value Value of the string setting.
+	Value *string `json:"value,omitempty"`
+}
+
+// DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate String Setting Value Constant Default Template
+type DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate struct {
+	// DeviceManagementConfigurationStringSettingValueDefaultTemplate is the base model of DeviceManagementConfigurationStringSettingValueConstantDefaultTemplate
+	DeviceManagementConfigurationStringSettingValueDefaultTemplate
+	// ConstantValue Default Constant Value
+	ConstantValue *string `json:"constantValue,omitempty"`
+}
+
+// DeviceManagementConfigurationStringSettingValueDefaultTemplate String Setting Value Default Template
+type DeviceManagementConfigurationStringSettingValueDefaultTemplate struct {
+	// Object is the base model of DeviceManagementConfigurationStringSettingValueDefaultTemplate
+	Object
+}
+
+// DeviceManagementConfigurationStringSettingValueDefinition String constraints
+type DeviceManagementConfigurationStringSettingValueDefinition struct {
+	// DeviceManagementConfigurationSettingValueDefinition is the base model of DeviceManagementConfigurationStringSettingValueDefinition
+	DeviceManagementConfigurationSettingValueDefinition
+	// Format Pre-defined format of the string
+	Format *DeviceManagementConfigurationStringFormat `json:"format,omitempty"`
+	// InputValidationSchema Regular expression or any xml or json schema that the input string should match
+	InputValidationSchema *string `json:"inputValidationSchema,omitempty"`
+	// IsSecret Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
+	IsSecret *bool `json:"isSecret,omitempty"`
+	// MaximumLength Maximum length of string. Valid values 0 to 87516
+	MaximumLength *int `json:"maximumLength,omitempty"`
+	// MinimumLength Minimum length of string. Valid values 0 to 87516
+	MinimumLength *int `json:"minimumLength,omitempty"`
+}
+
+// DeviceManagementConfigurationStringSettingValueTemplate String Setting Value Template
+type DeviceManagementConfigurationStringSettingValueTemplate struct {
+	// DeviceManagementConfigurationSimpleSettingValueTemplate is the base model of DeviceManagementConfigurationStringSettingValueTemplate
+	DeviceManagementConfigurationSimpleSettingValueTemplate
+	// DefaultValue String Setting Value Default Template.
+	DefaultValue *DeviceManagementConfigurationStringSettingValueDefaultTemplate `json:"defaultValue,omitempty"`
+}
+
+// DeviceManagementConfigurationWindowsSettingApplicability undocumented
+type DeviceManagementConfigurationWindowsSettingApplicability struct {
+	// DeviceManagementConfigurationSettingApplicability is the base model of DeviceManagementConfigurationWindowsSettingApplicability
+	DeviceManagementConfigurationSettingApplicability
+	// ConfigurationServiceProviderVersion Version of CSP setting is a part of
+	ConfigurationServiceProviderVersion *string `json:"configurationServiceProviderVersion,omitempty"`
+	// MaximumSupportedVersion Maximum supported version of Windows
+	MaximumSupportedVersion *string `json:"maximumSupportedVersion,omitempty"`
+	// MinimumSupportedVersion Minimum supported version of Windows
+	MinimumSupportedVersion *string `json:"minimumSupportedVersion,omitempty"`
+	// RequiredAzureAdTrustType Required AzureAD trust type
+	RequiredAzureAdTrustType *DeviceManagementConfigurationAzureAdTrustType `json:"requiredAzureAdTrustType,omitempty"`
+	// RequiresAzureAd AzureAD setting requirement
+	RequiresAzureAd *bool `json:"requiresAzureAd,omitempty"`
+	// WindowsSKUs List of Windows SKUs that the setting is applicable for
+	WindowsSKUs []DeviceManagementConfigurationWindowsSKUs `json:"windowsSkus,omitempty"`
+}
+
+// DeviceManagementConstraint Base entity for a constraint
 type DeviceManagementConstraint struct {
 	// Object is the base model of DeviceManagementConstraint
 	Object
@@ -1546,10 +2822,10 @@ type DeviceManagementConstraint struct {
 type DeviceManagementDerivedCredentialSettings struct {
 	// Entity is the base model of DeviceManagementDerivedCredentialSettings
 	Entity
-	// HelpURL The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
-	HelpURL *string `json:"helpUrl,omitempty"`
 	// DisplayName The display name for the profile.
 	DisplayName *string `json:"displayName,omitempty"`
+	// HelpURL The URL that will be accessible to end users as they retrieve a derived credential using the Company Portal.
+	HelpURL *string `json:"helpUrl,omitempty"`
 	// Issuer The derived credential provider to use.
 	Issuer *DeviceManagementDerivedCredentialIssuer `json:"issuer,omitempty"`
 	// NotificationType The methods used to inform the end user to open Company Portal to deliver Wi-Fi, VPN, or email profiles that use certificates to the device.
@@ -1570,7 +2846,7 @@ type DeviceManagementDomainJoinConnector struct {
 	Version *string `json:"version,omitempty"`
 }
 
-// DeviceManagementEnumConstraint undocumented
+// DeviceManagementEnumConstraint Constraint that enforces the setting value is from a permitted set of strings
 type DeviceManagementEnumConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementEnumConstraint
 	DeviceManagementConstraint
@@ -1578,51 +2854,51 @@ type DeviceManagementEnumConstraint struct {
 	Values []DeviceManagementEnumValue `json:"values,omitempty"`
 }
 
-// DeviceManagementEnumValue undocumented
+// DeviceManagementEnumValue Definition information for an enum value
 type DeviceManagementEnumValue struct {
 	// Object is the base model of DeviceManagementEnumValue
 	Object
-	// Value The raw enum value text
-	Value *string `json:"value,omitempty"`
 	// DisplayName Display name for this enum value
 	DisplayName *string `json:"displayName,omitempty"`
+	// Value The raw enum value text
+	Value *string `json:"value,omitempty"`
 }
 
-// DeviceManagementExchangeAccessRule undocumented
+// DeviceManagementExchangeAccessRule Device Access Rules in Exchange.
 type DeviceManagementExchangeAccessRule struct {
 	// Object is the base model of DeviceManagementExchangeAccessRule
 	Object
-	// DeviceClass Device Class which will be impacted by this rule.
-	DeviceClass *DeviceManagementExchangeDeviceClass `json:"deviceClass,omitempty"`
 	// AccessLevel Access Level for Exchange granted by this rule.
 	AccessLevel *DeviceManagementExchangeAccessLevel `json:"accessLevel,omitempty"`
+	// DeviceClass Device Class which will be impacted by this rule.
+	DeviceClass *DeviceManagementExchangeDeviceClass `json:"deviceClass,omitempty"`
 }
 
 // DeviceManagementExchangeConnector Entity which represents a connection to an Exchange environment.
 type DeviceManagementExchangeConnector struct {
 	// Entity is the base model of DeviceManagementExchangeConnector
 	Entity
+	// ConnectorServerName The name of the server hosting the Exchange Connector.
+	ConnectorServerName *string `json:"connectorServerName,omitempty"`
+	// ExchangeAlias An alias assigned to the Exchange server
+	ExchangeAlias *string `json:"exchangeAlias,omitempty"`
+	// ExchangeConnectorType The type of Exchange Connector Configured.
+	ExchangeConnectorType *DeviceManagementExchangeConnectorType `json:"exchangeConnectorType,omitempty"`
+	// ExchangeOrganization Exchange Organization to the Exchange server
+	ExchangeOrganization *string `json:"exchangeOrganization,omitempty"`
 	// LastSyncDateTime Last sync time for the Exchange Connector
 	LastSyncDateTime *time.Time `json:"lastSyncDateTime,omitempty"`
-	// Status Exchange Connector Status
-	Status *DeviceManagementExchangeConnectorStatus `json:"status,omitempty"`
 	// PrimarySMTPAddress Email address used to configure the Service To Service Exchange Connector.
 	PrimarySMTPAddress *string `json:"primarySmtpAddress,omitempty"`
 	// ServerName The name of the Exchange server.
 	ServerName *string `json:"serverName,omitempty"`
-	// ConnectorServerName The name of the server hosting the Exchange Connector.
-	ConnectorServerName *string `json:"connectorServerName,omitempty"`
-	// ExchangeConnectorType The type of Exchange Connector Configured.
-	ExchangeConnectorType *DeviceManagementExchangeConnectorType `json:"exchangeConnectorType,omitempty"`
+	// Status Exchange Connector Status
+	Status *DeviceManagementExchangeConnectorStatus `json:"status,omitempty"`
 	// Version The version of the ExchangeConnectorAgent
 	Version *string `json:"version,omitempty"`
-	// ExchangeAlias An alias assigned to the Exchange server
-	ExchangeAlias *string `json:"exchangeAlias,omitempty"`
-	// ExchangeOrganization Exchange Organization to the Exchange server
-	ExchangeOrganization *string `json:"exchangeOrganization,omitempty"`
 }
 
-// DeviceManagementExchangeDeviceClass undocumented
+// DeviceManagementExchangeDeviceClass Device Class in Exchange.
 type DeviceManagementExchangeDeviceClass struct {
 	// Object is the base model of DeviceManagementExchangeDeviceClass
 	Object
@@ -1636,14 +2912,14 @@ type DeviceManagementExchangeDeviceClass struct {
 type DeviceManagementExchangeOnPremisesPolicy struct {
 	// Entity is the base model of DeviceManagementExchangeOnPremisesPolicy
 	Entity
-	// NotificationContent Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
-	NotificationContent *Binary `json:"notificationContent,omitempty"`
-	// DefaultAccessLevel Default access state in Exchange. This rule applies globally to the entire Exchange organization
-	DefaultAccessLevel *DeviceManagementExchangeAccessLevel `json:"defaultAccessLevel,omitempty"`
 	// AccessRules The list of device access rules in Exchange. The access rules apply globally to the entire Exchange organization
 	AccessRules []DeviceManagementExchangeAccessRule `json:"accessRules,omitempty"`
+	// DefaultAccessLevel Default access state in Exchange. This rule applies globally to the entire Exchange organization
+	DefaultAccessLevel *DeviceManagementExchangeAccessLevel `json:"defaultAccessLevel,omitempty"`
 	// KnownDeviceClasses The list of device classes known to Exchange
 	KnownDeviceClasses []DeviceManagementExchangeDeviceClass `json:"knownDeviceClasses,omitempty"`
+	// NotificationContent Notification text that will be sent to users quarantined by this policy. This is UTF8 encoded byte array HTML.
+	NotificationContent *Binary `json:"notificationContent,omitempty"`
 	// ConditionalAccessSettings undocumented
 	ConditionalAccessSettings *OnPremisesConditionalAccessSettings `json:"conditionalAccessSettings,omitempty"`
 }
@@ -1652,24 +2928,26 @@ type DeviceManagementExchangeOnPremisesPolicy struct {
 type DeviceManagementExportJob struct {
 	// Entity is the base model of DeviceManagementExportJob
 	Entity
-	// ReportName Name of the report
-	ReportName *string `json:"reportName,omitempty"`
+	// ExpirationDateTime Time that the exported report expires
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// Filter Filters applied on the report
 	Filter *string `json:"filter,omitempty"`
-	// Select Columns selected from the report
-	Select []string `json:"select,omitempty"`
 	// Format Format of the exported report
 	Format *DeviceManagementReportFileFormat `json:"format,omitempty"`
+	// LocalizationType Configures how the requested export job is localized
+	LocalizationType *DeviceManagementExportJobLocalizationType `json:"localizationType,omitempty"`
+	// ReportName Name of the report
+	ReportName *string `json:"reportName,omitempty"`
+	// RequestDateTime Time that the exported report was requested
+	RequestDateTime *time.Time `json:"requestDateTime,omitempty"`
+	// Select Columns selected from the report
+	Select []string `json:"select,omitempty"`
 	// SnapshotID A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id.
 	SnapshotID *string `json:"snapshotId,omitempty"`
 	// Status Status of the export job
 	Status *DeviceManagementReportStatus `json:"status,omitempty"`
 	// URL Temporary location of the exported report
 	URL *string `json:"url,omitempty"`
-	// RequestDateTime Time that the exported report was requested
-	RequestDateTime *time.Time `json:"requestDateTime,omitempty"`
-	// ExpirationDateTime Time that the exported report expires
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 }
 
 // DeviceManagementIntegerSettingInstance A setting instance representing an integer value
@@ -1684,32 +2962,32 @@ type DeviceManagementIntegerSettingInstance struct {
 type DeviceManagementIntent struct {
 	// Entity is the base model of DeviceManagementIntent
 	Entity
-	// DisplayName The user given display name
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description The user given description
 	Description *string `json:"description,omitempty"`
+	// DisplayName The user given display name
+	DisplayName *string `json:"displayName,omitempty"`
 	// IsAssigned Signifies whether or not the intent is assigned to users
 	IsAssigned *bool `json:"isAssigned,omitempty"`
 	// LastModifiedDateTime When the intent was last modified
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// TemplateID The ID of the template this intent was created from (if any)
-	TemplateID *string `json:"templateId,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
-	// Settings undocumented
-	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
-	// Categories undocumented
-	Categories []DeviceManagementIntentSettingCategory `json:"categories,omitempty"`
+	// TemplateID The ID of the template this intent was created from (if any)
+	TemplateID *string `json:"templateId,omitempty"`
 	// Assignments undocumented
 	Assignments []DeviceManagementIntentAssignment `json:"assignments,omitempty"`
+	// Categories undocumented
+	Categories []DeviceManagementIntentSettingCategory `json:"categories,omitempty"`
 	// DeviceSettingStateSummaries undocumented
 	DeviceSettingStateSummaries []DeviceManagementIntentDeviceSettingStateSummary `json:"deviceSettingStateSummaries,omitempty"`
 	// DeviceStates undocumented
 	DeviceStates []DeviceManagementIntentDeviceState `json:"deviceStates,omitempty"`
-	// UserStates undocumented
-	UserStates []DeviceManagementIntentUserState `json:"userStates,omitempty"`
 	// DeviceStateSummary undocumented
 	DeviceStateSummary *DeviceManagementIntentDeviceStateSummary `json:"deviceStateSummary,omitempty"`
+	// Settings undocumented
+	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
+	// UserStates undocumented
+	UserStates []DeviceManagementIntentUserState `json:"userStates,omitempty"`
 	// UserStateSummary undocumented
 	UserStateSummary *DeviceManagementIntentUserStateSummary `json:"userStateSummary,omitempty"`
 }
@@ -1726,8 +3004,6 @@ type DeviceManagementIntentAssignment struct {
 type DeviceManagementIntentDeviceSettingStateSummary struct {
 	// Entity is the base model of DeviceManagementIntentDeviceSettingStateSummary
 	Entity
-	// SettingName Name of a setting
-	SettingName *string `json:"settingName,omitempty"`
 	// CompliantCount Number of compliant devices
 	CompliantCount *int `json:"compliantCount,omitempty"`
 	// ConflictCount Number of devices in conflict
@@ -1740,24 +3016,26 @@ type DeviceManagementIntentDeviceSettingStateSummary struct {
 	NotApplicableCount *int `json:"notApplicableCount,omitempty"`
 	// RemediatedCount Number of remediated devices
 	RemediatedCount *int `json:"remediatedCount,omitempty"`
+	// SettingName Name of a setting
+	SettingName *string `json:"settingName,omitempty"`
 }
 
 // DeviceManagementIntentDeviceState Entity that represents device state for an intent
 type DeviceManagementIntentDeviceState struct {
 	// Entity is the base model of DeviceManagementIntentDeviceState
 	Entity
-	// UserPrincipalName The user principal name that is being reported on a device
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// UserName The user name that is being reported on a device
-	UserName *string `json:"userName,omitempty"`
 	// DeviceDisplayName Device name that is being reported
 	DeviceDisplayName *string `json:"deviceDisplayName,omitempty"`
+	// DeviceID Device id that is being reported
+	DeviceID *string `json:"deviceId,omitempty"`
 	// LastReportedDateTime Last modified date time of an intent report
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
 	// State Device state for an intent
 	State *ComplianceStatus `json:"state,omitempty"`
-	// DeviceID Device id that is being reported
-	DeviceID *string `json:"deviceId,omitempty"`
+	// UserName The user name that is being reported on a device
+	UserName *string `json:"userName,omitempty"`
+	// UserPrincipalName The user principal name that is being reported on a device
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // DeviceManagementIntentDeviceStateSummary Entity that represents device state summary for an intent
@@ -1786,20 +3064,26 @@ type DeviceManagementIntentSettingCategory struct {
 	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
 }
 
+// DeviceManagementIntentSettingSecretConstraint Constraint indicating that this value is a secret and will be encrypted.
+type DeviceManagementIntentSettingSecretConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementIntentSettingSecretConstraint
+	DeviceManagementConstraint
+}
+
 // DeviceManagementIntentUserState Entity that represents user state for an intent
 type DeviceManagementIntentUserState struct {
 	// Entity is the base model of DeviceManagementIntentUserState
 	Entity
-	// UserPrincipalName The user principal name that is being reported on a device
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// UserName The user name that is being reported on a device
-	UserName *string `json:"userName,omitempty"`
 	// DeviceCount Count of Devices that belongs to a user for an intent
 	DeviceCount *int `json:"deviceCount,omitempty"`
 	// LastReportedDateTime Last modified date time of an intent report
 	LastReportedDateTime *time.Time `json:"lastReportedDateTime,omitempty"`
 	// State User state for an intent
 	State *ComplianceStatus `json:"state,omitempty"`
+	// UserName The user name that is being reported on a device
+	UserName *string `json:"userName,omitempty"`
+	// UserPrincipalName The user principal name that is being reported on a device
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // DeviceManagementIntentUserStateSummary Entity that represents user state summary for an intent
@@ -1822,31 +3106,31 @@ type DeviceManagementIntentUserStateSummary struct {
 type DeviceManagementPartner struct {
 	// Entity is the base model of DeviceManagementPartner
 	Entity
-	// LastHeartbeatDateTime Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
-	LastHeartbeatDateTime *time.Time `json:"lastHeartbeatDateTime,omitempty"`
-	// PartnerState Partner state of this tenant
-	PartnerState *DeviceManagementPartnerTenantState `json:"partnerState,omitempty"`
-	// PartnerAppType Partner App type
-	PartnerAppType *DeviceManagementPartnerAppType `json:"partnerAppType,omitempty"`
-	// SingleTenantAppID Partner Single tenant App id
-	SingleTenantAppID *string `json:"singleTenantAppId,omitempty"`
 	// DisplayName Partner display name
 	DisplayName *string `json:"displayName,omitempty"`
-	// IsConfigured Whether device management partner is configured or not
-	IsConfigured *bool `json:"isConfigured,omitempty"`
-	// WhenPartnerDevicesWillBeRemoved DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
-	WhenPartnerDevicesWillBeRemoved *time.Time `json:"whenPartnerDevicesWillBeRemoved,omitempty"`
-	// WhenPartnerDevicesWillBeMarkedAsNonCompliant DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
-	WhenPartnerDevicesWillBeMarkedAsNonCompliant *time.Time `json:"whenPartnerDevicesWillBeMarkedAsNonCompliant,omitempty"`
-	// WhenPartnerDevicesWillBeRemovedDateTime DateTime in UTC when PartnerDevices will be removed
-	WhenPartnerDevicesWillBeRemovedDateTime *time.Time `json:"whenPartnerDevicesWillBeRemovedDateTime,omitempty"`
-	// WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime DateTime in UTC when PartnerDevices will be marked as NonCompliant
-	WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime *time.Time `json:"whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime,omitempty"`
 	// GroupsRequiringPartnerEnrollment User groups that specifies whether enrollment is through partner.
 	GroupsRequiringPartnerEnrollment []DeviceManagementPartnerAssignment `json:"groupsRequiringPartnerEnrollment,omitempty"`
+	// IsConfigured Whether device management partner is configured or not
+	IsConfigured *bool `json:"isConfigured,omitempty"`
+	// LastHeartbeatDateTime Timestamp of last heartbeat after admin enabled option Connect to Device management Partner
+	LastHeartbeatDateTime *time.Time `json:"lastHeartbeatDateTime,omitempty"`
+	// PartnerAppType Partner App type
+	PartnerAppType *DeviceManagementPartnerAppType `json:"partnerAppType,omitempty"`
+	// PartnerState Partner state of this tenant
+	PartnerState *DeviceManagementPartnerTenantState `json:"partnerState,omitempty"`
+	// SingleTenantAppID Partner Single tenant App id
+	SingleTenantAppID *string `json:"singleTenantAppId,omitempty"`
+	// WhenPartnerDevicesWillBeMarkedAsNonCompliant DateTime in UTC when PartnerDevices will be marked as NonCompliant. This will become obselete soon.
+	WhenPartnerDevicesWillBeMarkedAsNonCompliant *time.Time `json:"whenPartnerDevicesWillBeMarkedAsNonCompliant,omitempty"`
+	// WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime DateTime in UTC when PartnerDevices will be marked as NonCompliant
+	WhenPartnerDevicesWillBeMarkedAsNonCompliantDateTime *time.Time `json:"whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime,omitempty"`
+	// WhenPartnerDevicesWillBeRemoved DateTime in UTC when PartnerDevices will be removed. This will become obselete soon.
+	WhenPartnerDevicesWillBeRemoved *time.Time `json:"whenPartnerDevicesWillBeRemoved,omitempty"`
+	// WhenPartnerDevicesWillBeRemovedDateTime DateTime in UTC when PartnerDevices will be removed
+	WhenPartnerDevicesWillBeRemovedDateTime *time.Time `json:"whenPartnerDevicesWillBeRemovedDateTime,omitempty"`
 }
 
-// DeviceManagementPartnerAssignment undocumented
+// DeviceManagementPartnerAssignment User group targeting for Device Management Partner
 type DeviceManagementPartnerAssignment struct {
 	// Object is the base model of DeviceManagementPartnerAssignment
 	Object
@@ -1858,30 +3142,30 @@ type DeviceManagementPartnerAssignment struct {
 type DeviceManagementReportSchedule struct {
 	// Entity is the base model of DeviceManagementReportSchedule
 	Entity
-	// ReportScheduleName Name of the schedule
-	ReportScheduleName *string `json:"reportScheduleName,omitempty"`
-	// Subject Subject of the scheduled reports that are delivered
-	Subject *string `json:"subject,omitempty"`
 	// Emails Emails to which the scheduled reports are delivered
 	Emails []string `json:"emails,omitempty"`
-	// Recurrence Frequency of scheduled report delivery
-	Recurrence *DeviceManagementScheduledReportRecurrence `json:"recurrence,omitempty"`
-	// StartDateTime Time that the delivery of the scheduled reports starts
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime Time that the delivery of the scheduled reports ends
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// UserID The Id of the User who created the report
-	UserID *string `json:"userId,omitempty"`
-	// ReportName Name of the report
-	ReportName *string `json:"reportName,omitempty"`
 	// Filter Filters applied on the report
 	Filter *string `json:"filter,omitempty"`
-	// Select Columns selected from the report
-	Select []string `json:"select,omitempty"`
-	// OrderBy Ordering of columns in the report
-	OrderBy []string `json:"orderBy,omitempty"`
 	// Format Format of the scheduled report
 	Format *DeviceManagementReportFileFormat `json:"format,omitempty"`
+	// OrderBy Ordering of columns in the report
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Recurrence Frequency of scheduled report delivery
+	Recurrence *DeviceManagementScheduledReportRecurrence `json:"recurrence,omitempty"`
+	// ReportName Name of the report
+	ReportName *string `json:"reportName,omitempty"`
+	// ReportScheduleName Name of the schedule
+	ReportScheduleName *string `json:"reportScheduleName,omitempty"`
+	// Select Columns selected from the report
+	Select []string `json:"select,omitempty"`
+	// StartDateTime Time that the delivery of the scheduled reports starts
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// Subject Subject of the scheduled reports that are delivered
+	Subject *string `json:"subject,omitempty"`
+	// UserID The Id of the User who created the report
+	UserID *string `json:"userId,omitempty"`
 }
 
 // DeviceManagementReports Singleton entity that acts as a container for all reports functionality.
@@ -1896,38 +3180,94 @@ type DeviceManagementReports struct {
 	ReportSchedules []DeviceManagementReportSchedule `json:"reportSchedules,omitempty"`
 }
 
+// DeviceManagementResourceAccessProfileAssignment Entity that describes tenant level settings for derived credentials
+type DeviceManagementResourceAccessProfileAssignment struct {
+	// Entity is the base model of DeviceManagementResourceAccessProfileAssignment
+	Entity
+	// Intent The assignment intent for the resource access profile.
+	Intent *DeviceManagementResourceAccessProfileIntent `json:"intent,omitempty"`
+	// SourceID The identifier of the source of the assignment.
+	SourceID *string `json:"sourceId,omitempty"`
+	// Target The assignment target for the resource access profile.
+	Target *DeviceAndAppManagementAssignmentTarget `json:"target,omitempty"`
+}
+
+// DeviceManagementResourceAccessProfileBase Base Profile Type for Resource Access
+type DeviceManagementResourceAccessProfileBase struct {
+	// Entity is the base model of DeviceManagementResourceAccessProfileBase
+	Entity
+	// CreationDateTime DateTime profile was created
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// Description Profile description
+	Description *string `json:"description,omitempty"`
+	// DisplayName Profile display name
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime DateTime profile was last modified
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// RoleScopeTagIDs Scope Tags
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// Version Version of the profile
+	Version *int `json:"version,omitempty"`
+	// Assignments undocumented
+	Assignments []DeviceManagementResourceAccessProfileAssignment `json:"assignments,omitempty"`
+}
+
+// DeviceManagementReusablePolicySetting Graph model for a reusable setting
+type DeviceManagementReusablePolicySetting struct {
+	// Entity is the base model of DeviceManagementReusablePolicySetting
+	Entity
+	// CreatedDateTime reusable setting creation date and time. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description reusable setting description supplied by user.
+	Description *string `json:"description,omitempty"`
+	// DisplayName reusable setting display name supplied by user.
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime date and time when reusable setting was last modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// ReferencingConfigurationPolicyCount count of configuration policies referencing the current reusable setting. Valid values 0 to 2147483647. This property is read-only.
+	ReferencingConfigurationPolicyCount *int `json:"referencingConfigurationPolicyCount,omitempty"`
+	// SettingDefinitionID setting definition id associated with this reusable setting.
+	SettingDefinitionID *string `json:"settingDefinitionId,omitempty"`
+	// SettingInstance reusable setting configuration instance
+	SettingInstance *DeviceManagementConfigurationSettingInstance `json:"settingInstance,omitempty"`
+	// Version version number for reusable setting. Valid values 0 to 2147483647. This property is read-only.
+	Version *int `json:"version,omitempty"`
+	// ReferencingConfigurationPolicies undocumented
+	ReferencingConfigurationPolicies []DeviceManagementConfigurationPolicy `json:"referencingConfigurationPolicies,omitempty"`
+}
+
 // DeviceManagementScript Intune will provide customer the ability to run their Powershell scripts on the enrolled windows 10 Azure Active Directory joined devices. The script can be run once or periodically.
 type DeviceManagementScript struct {
 	// Entity is the base model of DeviceManagementScript
 	Entity
-	// DisplayName Name of the device management script.
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description Optional description for the device management script.
-	Description *string `json:"description,omitempty"`
-	// ScriptContent The script content.
-	ScriptContent *Binary `json:"scriptContent,omitempty"`
 	// CreatedDateTime The date and time the device management script was created. This property is read-only.
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// RunAsAccount Indicates the type of execution context.
-	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// Description Optional description for the device management script.
+	Description *string `json:"description,omitempty"`
+	// DisplayName Name of the device management script.
+	DisplayName *string `json:"displayName,omitempty"`
 	// EnforceSignatureCheck Indicate whether the script signature needs be checked.
 	EnforceSignatureCheck *bool `json:"enforceSignatureCheck,omitempty"`
 	// FileName Script file name.
 	FileName *string `json:"fileName,omitempty"`
+	// LastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// RoleScopeTagIDs List of Scope Tag IDs for this PowerShellScript instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// RunAs32Bit A value indicating whether the PowerShell script should run as 32-bit
 	RunAs32Bit *bool `json:"runAs32Bit,omitempty"`
-	// GroupAssignments undocumented
-	GroupAssignments []DeviceManagementScriptGroupAssignment `json:"groupAssignments,omitempty"`
+	// RunAsAccount Indicates the type of execution context.
+	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// ScriptContent The script content.
+	ScriptContent *Binary `json:"scriptContent,omitempty"`
 	// Assignments undocumented
 	Assignments []DeviceManagementScriptAssignment `json:"assignments,omitempty"`
-	// RunSummary undocumented
-	RunSummary *DeviceManagementScriptRunSummary `json:"runSummary,omitempty"`
 	// DeviceRunStates undocumented
 	DeviceRunStates []DeviceManagementScriptDeviceState `json:"deviceRunStates,omitempty"`
+	// GroupAssignments undocumented
+	GroupAssignments []DeviceManagementScriptGroupAssignment `json:"groupAssignments,omitempty"`
+	// RunSummary undocumented
+	RunSummary *DeviceManagementScriptRunSummary `json:"runSummary,omitempty"`
 	// UserRunStates undocumented
 	UserRunStates []DeviceManagementScriptUserState `json:"userRunStates,omitempty"`
 }
@@ -1944,16 +3284,16 @@ type DeviceManagementScriptAssignment struct {
 type DeviceManagementScriptDeviceState struct {
 	// Entity is the base model of DeviceManagementScriptDeviceState
 	Entity
-	// RunState State of latest run of the device management script.
-	RunState *RunState `json:"runState,omitempty"`
-	// ResultMessage Details of execution output.
-	ResultMessage *string `json:"resultMessage,omitempty"`
-	// LastStateUpdateDateTime Latest time the device management script executes.
-	LastStateUpdateDateTime *time.Time `json:"lastStateUpdateDateTime,omitempty"`
 	// ErrorCode Error code corresponding to erroneous execution of the device management script.
 	ErrorCode *int `json:"errorCode,omitempty"`
 	// ErrorDescription Error description corresponding to erroneous execution of the device management script.
 	ErrorDescription *string `json:"errorDescription,omitempty"`
+	// LastStateUpdateDateTime Latest time the device management script executes.
+	LastStateUpdateDateTime *time.Time `json:"lastStateUpdateDateTime,omitempty"`
+	// ResultMessage Details of execution output.
+	ResultMessage *string `json:"resultMessage,omitempty"`
+	// RunState State of latest run of the device management script.
+	RunState *RunState `json:"runState,omitempty"`
 	// ManagedDevice undocumented
 	ManagedDevice *ManagedDevice `json:"managedDevice,omitempty"`
 }
@@ -1976,31 +3316,47 @@ type DeviceManagementScriptPolicySetItem struct {
 type DeviceManagementScriptRunSummary struct {
 	// Entity is the base model of DeviceManagementScriptRunSummary
 	Entity
-	// SuccessDeviceCount Success device count.
-	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`
 	// ErrorDeviceCount Error device count.
 	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
-	// SuccessUserCount Success user count.
-	SuccessUserCount *int `json:"successUserCount,omitempty"`
 	// ErrorUserCount Error user count.
 	ErrorUserCount *int `json:"errorUserCount,omitempty"`
+	// SuccessDeviceCount Success device count.
+	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`
+	// SuccessUserCount Success user count.
+	SuccessUserCount *int `json:"successUserCount,omitempty"`
 }
 
 // DeviceManagementScriptUserState Contains properties for user run state of the device management script.
 type DeviceManagementScriptUserState struct {
 	// Entity is the base model of DeviceManagementScriptUserState
 	Entity
-	// SuccessDeviceCount Success device count for specific user.
-	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`
 	// ErrorDeviceCount Error device count for specific user.
 	ErrorDeviceCount *int `json:"errorDeviceCount,omitempty"`
+	// SuccessDeviceCount Success device count for specific user.
+	SuccessDeviceCount *int `json:"successDeviceCount,omitempty"`
 	// UserPrincipalName User principle name of specific user.
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// DeviceRunStates undocumented
 	DeviceRunStates []DeviceManagementScriptDeviceState `json:"deviceRunStates,omitempty"`
 }
 
-// DeviceManagementSettingBooleanConstraint undocumented
+// DeviceManagementSettingAbstractImplementationConstraint Constraint that enforces an AbstractComplex type has or is set to a particular value
+type DeviceManagementSettingAbstractImplementationConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingAbstractImplementationConstraint
+	DeviceManagementConstraint
+	// AllowedAbstractImplementationDefinitionIDs List of value which means not configured for the setting
+	AllowedAbstractImplementationDefinitionIDs []string `json:"allowedAbstractImplementationDefinitionIds,omitempty"`
+}
+
+// DeviceManagementSettingAppConstraint Constraint enforcing the setting contains only vaild app types.
+type DeviceManagementSettingAppConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingAppConstraint
+	DeviceManagementConstraint
+	// SupportedTypes Acceptable app types to allow for this setting
+	SupportedTypes []string `json:"supportedTypes,omitempty"`
+}
+
+// DeviceManagementSettingBooleanConstraint Constraint the enforces a particular boolean value
 type DeviceManagementSettingBooleanConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementSettingBooleanConstraint
 	DeviceManagementConstraint
@@ -2014,58 +3370,92 @@ type DeviceManagementSettingCategory struct {
 	Entity
 	// DisplayName The category name
 	DisplayName *string `json:"displayName,omitempty"`
+	// HasRequiredSetting The category contains top level required setting
+	HasRequiredSetting *bool `json:"hasRequiredSetting,omitempty"`
 	// SettingDefinitions undocumented
 	SettingDefinitions []DeviceManagementSettingDefinition `json:"settingDefinitions,omitempty"`
 }
 
-// DeviceManagementSettingComparison undocumented
+// DeviceManagementSettingCollectionConstraint Constraint that enforces the maximum number of elements a collection
+type DeviceManagementSettingCollectionConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingCollectionConstraint
+	DeviceManagementConstraint
+	// MaximumLength The maximum number of elements in the collection
+	MaximumLength *int `json:"maximumLength,omitempty"`
+	// MinimumLength The minimum number of elements in the collection
+	MinimumLength *int `json:"minimumLength,omitempty"`
+}
+
+// DeviceManagementSettingComparison Entity representing setting comparison result
 type DeviceManagementSettingComparison struct {
 	// Object is the base model of DeviceManagementSettingComparison
 	Object
-	// ID The setting ID
-	ID *string `json:"id,omitempty"`
-	// DisplayName The setting's display name
-	DisplayName *string `json:"displayName,omitempty"`
-	// DefinitionID The ID of the setting definition for this instance
-	DefinitionID *string `json:"definitionId,omitempty"`
-	// CurrentValueJSON JSON representation of current intent (or) template setting's value
-	CurrentValueJSON *string `json:"currentValueJson,omitempty"`
-	// NewValueJSON JSON representation of new template setting's value
-	NewValueJSON *string `json:"newValueJson,omitempty"`
 	// ComparisonResult Setting comparison result
 	ComparisonResult *DeviceManagementComparisonResult `json:"comparisonResult,omitempty"`
+	// CurrentValueJSON JSON representation of current intent (or) template setting's value
+	CurrentValueJSON *string `json:"currentValueJson,omitempty"`
+	// DefinitionID The ID of the setting definition for this instance
+	DefinitionID *string `json:"definitionId,omitempty"`
+	// DisplayName The setting's display name
+	DisplayName *string `json:"displayName,omitempty"`
+	// ID The setting ID
+	ID *string `json:"id,omitempty"`
+	// NewValueJSON JSON representation of new template setting's value
+	NewValueJSON *string `json:"newValueJson,omitempty"`
 }
 
 // DeviceManagementSettingDefinition Entity representing the defintion for a given setting
 type DeviceManagementSettingDefinition struct {
 	// Entity is the base model of DeviceManagementSettingDefinition
 	Entity
-	// ValueType The data type of the value
-	ValueType *DeviceManangementIntentValueType `json:"valueType,omitempty"`
-	// DisplayName The setting's display name
-	DisplayName *string `json:"displayName,omitempty"`
-	// IsTopLevel If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
-	IsTopLevel *bool `json:"isTopLevel,omitempty"`
-	// Description The setting's description
-	Description *string `json:"description,omitempty"`
-	// DocumentationURL Url to setting documentation
-	DocumentationURL *string `json:"documentationUrl,omitempty"`
-	// Keywords Keywords associated with the setting
-	Keywords []string `json:"keywords,omitempty"`
 	// Constraints Collection of constraints for the setting value
 	Constraints []DeviceManagementConstraint `json:"constraints,omitempty"`
 	// Dependencies Collection of dependencies on other settings
 	Dependencies []DeviceManagementSettingDependency `json:"dependencies,omitempty"`
+	// Description The setting's description
+	Description *string `json:"description,omitempty"`
+	// DisplayName The setting's display name
+	DisplayName *string `json:"displayName,omitempty"`
+	// DocumentationURL Url to setting documentation
+	DocumentationURL *string `json:"documentationUrl,omitempty"`
+	// HeaderSubtitle subtitle of the setting header for more details about the category/section
+	HeaderSubtitle *string `json:"headerSubtitle,omitempty"`
+	// HeaderTitle title of the setting header represents a category/section of a setting/settings
+	HeaderTitle *string `json:"headerTitle,omitempty"`
+	// IsTopLevel If the setting is top level, it can be configured without the need to be wrapped in a collection or complex setting
+	IsTopLevel *bool `json:"isTopLevel,omitempty"`
+	// Keywords Keywords associated with the setting
+	Keywords []string `json:"keywords,omitempty"`
+	// PlaceholderText Placeholder text as an example of valid input
+	PlaceholderText *string `json:"placeholderText,omitempty"`
+	// ValueType The data type of the value
+	ValueType *DeviceManangementIntentValueType `json:"valueType,omitempty"`
 }
 
-// DeviceManagementSettingDependency undocumented
+// DeviceManagementSettingDependency Dependency information for a setting
 type DeviceManagementSettingDependency struct {
 	// Object is the base model of DeviceManagementSettingDependency
 	Object
-	// DefinitionID The setting definition ID of the setting depended on
-	DefinitionID *string `json:"definitionId,omitempty"`
 	// Constraints Collection of constraints for the dependency setting value
 	Constraints []DeviceManagementConstraint `json:"constraints,omitempty"`
+	// DefinitionID The setting definition ID of the setting depended on
+	DefinitionID *string `json:"definitionId,omitempty"`
+}
+
+// DeviceManagementSettingEnrollmentTypeConstraint Constraint that enforces the enrollment types applied to a setting
+type DeviceManagementSettingEnrollmentTypeConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingEnrollmentTypeConstraint
+	DeviceManagementConstraint
+	// EnrollmentTypes List of enrollment types
+	EnrollmentTypes []string `json:"enrollmentTypes,omitempty"`
+}
+
+// DeviceManagementSettingFileConstraint Constraint enforcing the file extension is acceptable for a given setting
+type DeviceManagementSettingFileConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingFileConstraint
+	DeviceManagementConstraint
+	// SupportedExtensions Acceptable file extensions to upload for this setting
+	SupportedExtensions []string `json:"supportedExtensions,omitempty"`
 }
 
 // DeviceManagementSettingInstance Base type for a setting instance
@@ -2078,17 +3468,27 @@ type DeviceManagementSettingInstance struct {
 	ValueJSON *string `json:"valueJson,omitempty"`
 }
 
-// DeviceManagementSettingIntegerConstraint undocumented
+// DeviceManagementSettingIntegerConstraint Constraint enforcing the permitted value range for an integer setting
 type DeviceManagementSettingIntegerConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementSettingIntegerConstraint
 	DeviceManagementConstraint
-	// MinimumValue The minimum permitted value
-	MinimumValue *int `json:"minimumValue,omitempty"`
 	// MaximumValue The maximum permitted value
 	MaximumValue *int `json:"maximumValue,omitempty"`
+	// MinimumValue The minimum permitted value
+	MinimumValue *int `json:"minimumValue,omitempty"`
 }
 
-// DeviceManagementSettingRegexConstraint undocumented
+// DeviceManagementSettingProfileConstraint Constraint enforcing a given profile metadata
+type DeviceManagementSettingProfileConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingProfileConstraint
+	DeviceManagementConstraint
+	// Source The source of the entity
+	Source *string `json:"source,omitempty"`
+	// Types A collection of types this entity carries
+	Types []string `json:"types,omitempty"`
+}
+
+// DeviceManagementSettingRegexConstraint Constraint enforcing the setting matches against a given RegEx pattern
 type DeviceManagementSettingRegexConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementSettingRegexConstraint
 	DeviceManagementConstraint
@@ -2096,17 +3496,31 @@ type DeviceManagementSettingRegexConstraint struct {
 	Regex *string `json:"regex,omitempty"`
 }
 
-// DeviceManagementSettingStringLengthConstraint undocumented
+// DeviceManagementSettingRequiredConstraint Constraint that enforces a particular required setting that is not null/undefined/empty string/not configured
+type DeviceManagementSettingRequiredConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingRequiredConstraint
+	DeviceManagementConstraint
+	// NotConfiguredValue List of value which means not configured for the setting
+	NotConfiguredValue *string `json:"notConfiguredValue,omitempty"`
+}
+
+// DeviceManagementSettingSddlConstraint Constraint enforcing the setting is well formed SDDL
+type DeviceManagementSettingSddlConstraint struct {
+	// DeviceManagementConstraint is the base model of DeviceManagementSettingSddlConstraint
+	DeviceManagementConstraint
+}
+
+// DeviceManagementSettingStringLengthConstraint Constraint enforcing a given string length range
 type DeviceManagementSettingStringLengthConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementSettingStringLengthConstraint
 	DeviceManagementConstraint
-	// MinimumLength The minimum permitted string length
-	MinimumLength *int `json:"minimumLength,omitempty"`
 	// MaximumLength The maximum permitted string length
 	MaximumLength *int `json:"maximumLength,omitempty"`
+	// MinimumLength The minimum permitted string length
+	MinimumLength *int `json:"minimumLength,omitempty"`
 }
 
-// DeviceManagementSettingXMLConstraint undocumented
+// DeviceManagementSettingXMLConstraint Constraint enforcing the setting is well formed XML
 type DeviceManagementSettingXMLConstraint struct {
 	// DeviceManagementConstraint is the base model of DeviceManagementSettingXMLConstraint
 	DeviceManagementConstraint
@@ -2116,22 +3530,26 @@ type DeviceManagementSettingXMLConstraint struct {
 type DeviceManagementSettings struct {
 	// Object is the base model of DeviceManagementSettings
 	Object
-	// DeviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant.
-	DeviceComplianceCheckinThresholdDays *int `json:"deviceComplianceCheckinThresholdDays,omitempty"`
-	// IsScheduledActionEnabled Is feature enabled or not for scheduled action for rule.
-	IsScheduledActionEnabled *bool `json:"isScheduledActionEnabled,omitempty"`
-	// SecureByDefault Device should be noncompliant when there is no compliance policy targeted when this is true
-	SecureByDefault *bool `json:"secureByDefault,omitempty"`
-	// EnhancedJailBreak Is feature enabled or not for enhanced jailbreak detection.
-	EnhancedJailBreak *bool `json:"enhancedJailBreak,omitempty"`
-	// DeviceInactivityBeforeRetirementInDay When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270
-	DeviceInactivityBeforeRetirementInDay *int `json:"deviceInactivityBeforeRetirementInDay,omitempty"`
+	// AndroidDeviceAdministratorEnrollmentEnabled The property to determine if Android device administrator enrollment is enabled for this account.
+	AndroidDeviceAdministratorEnrollmentEnabled *bool `json:"androidDeviceAdministratorEnrollmentEnabled,omitempty"`
 	// DerivedCredentialProvider The Derived Credential Provider to use for this account.
 	DerivedCredentialProvider *DerivedCredentialProviderType `json:"derivedCredentialProvider,omitempty"`
 	// DerivedCredentialURL The Derived Credential Provider self-service URI.
 	DerivedCredentialURL *string `json:"derivedCredentialUrl,omitempty"`
-	// AndroidDeviceAdministratorEnrollmentEnabled The property to determine if Android device administrator enrollment is enabled for this account.
-	AndroidDeviceAdministratorEnrollmentEnabled *bool `json:"androidDeviceAdministratorEnrollmentEnabled,omitempty"`
+	// DeviceComplianceCheckinThresholdDays The number of days a device is allowed to go without checking in to remain compliant.
+	DeviceComplianceCheckinThresholdDays *int `json:"deviceComplianceCheckinThresholdDays,omitempty"`
+	// DeviceInactivityBeforeRetirementInDay When the device does not check in for specified number of days, the company data might be removed and the device will not be under management. Valid values 30 to 270
+	DeviceInactivityBeforeRetirementInDay *int `json:"deviceInactivityBeforeRetirementInDay,omitempty"`
+	// EnableLogCollection Determines whether the log collection feature should be available for use.
+	EnableLogCollection *bool `json:"enableLogCollection,omitempty"`
+	// EnhancedJailBreak Is feature enabled or not for enhanced jailbreak detection.
+	EnhancedJailBreak *bool `json:"enhancedJailBreak,omitempty"`
+	// IgnoreDevicesForUnsupportedSettingsEnabled The property to determine whether to ignore unsupported compliance settings on certian models of devices.
+	IgnoreDevicesForUnsupportedSettingsEnabled *bool `json:"ignoreDevicesForUnsupportedSettingsEnabled,omitempty"`
+	// IsScheduledActionEnabled Is feature enabled or not for scheduled action for rule.
+	IsScheduledActionEnabled *bool `json:"isScheduledActionEnabled,omitempty"`
+	// SecureByDefault Device should be noncompliant when there is no compliance policy targeted when this is true
+	SecureByDefault *bool `json:"secureByDefault,omitempty"`
 }
 
 // DeviceManagementStringSettingInstance A setting instance representing a string value
@@ -2146,28 +3564,30 @@ type DeviceManagementStringSettingInstance struct {
 type DeviceManagementTemplate struct {
 	// Entity is the base model of DeviceManagementTemplate
 	Entity
-	// DisplayName The template's display name
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description The template's description
 	Description *string `json:"description,omitempty"`
-	// VersionInfo The template's version information
-	VersionInfo *string `json:"versionInfo,omitempty"`
-	// IsDeprecated The template is deprecated or not. Intents cannot be created from a deprecated template.
-	IsDeprecated *bool `json:"isDeprecated,omitempty"`
+	// DisplayName The template's display name
+	DisplayName *string `json:"displayName,omitempty"`
 	// IntentCount Number of Intents created from this template.
 	IntentCount *int `json:"intentCount,omitempty"`
-	// TemplateType The template's type.
-	TemplateType *DeviceManagementTemplateType `json:"templateType,omitempty"`
+	// IsDeprecated The template is deprecated or not. Intents cannot be created from a deprecated template.
+	IsDeprecated *bool `json:"isDeprecated,omitempty"`
 	// PlatformType The template's platform.
 	PlatformType *PolicyPlatformType `json:"platformType,omitempty"`
 	// PublishedDateTime When the template was published
 	PublishedDateTime *time.Time `json:"publishedDateTime,omitempty"`
-	// Settings undocumented
-	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
+	// TemplateSubtype The template's subtype.
+	TemplateSubtype *DeviceManagementTemplateSubtype `json:"templateSubtype,omitempty"`
+	// TemplateType The template's type.
+	TemplateType *DeviceManagementTemplateType `json:"templateType,omitempty"`
+	// VersionInfo The template's version information
+	VersionInfo *string `json:"versionInfo,omitempty"`
 	// Categories undocumented
 	Categories []DeviceManagementTemplateSettingCategory `json:"categories,omitempty"`
 	// MigratableTo undocumented
 	MigratableTo []DeviceManagementTemplate `json:"migratableTo,omitempty"`
+	// Settings undocumented
+	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
 }
 
 // DeviceManagementTemplateSettingCategory Entity representing a template setting category
@@ -2178,7 +3598,7 @@ type DeviceManagementTemplateSettingCategory struct {
 	RecommendedSettings []DeviceManagementSettingInstance `json:"recommendedSettings,omitempty"`
 }
 
-// DeviceManagementTroubleshootingErrorDetails undocumented
+// DeviceManagementTroubleshootingErrorDetails Object containing detailed information about the error and its remediation.
 type DeviceManagementTroubleshootingErrorDetails struct {
 	// Object is the base model of DeviceManagementTroubleshootingErrorDetails
 	Object
@@ -2194,70 +3614,62 @@ type DeviceManagementTroubleshootingErrorDetails struct {
 	Resources []DeviceManagementTroubleshootingErrorResource `json:"resources,omitempty"`
 }
 
-// DeviceManagementTroubleshootingErrorResource undocumented
+// DeviceManagementTroubleshootingErrorResource Object representing a link to troubleshooting information, the link could be to the Azure Portal or a Microsoft doc.
 type DeviceManagementTroubleshootingErrorResource struct {
 	// Object is the base model of DeviceManagementTroubleshootingErrorResource
 	Object
-	// Text undocumented
-	Text *string `json:"text,omitempty"`
 	// Link The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
 	Link *string `json:"link,omitempty"`
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
 }
 
 // DeviceManagementTroubleshootingEvent Event representing an general failure.
 type DeviceManagementTroubleshootingEvent struct {
 	// Entity is the base model of DeviceManagementTroubleshootingEvent
 	Entity
-	// EventDateTime Time when the event occurred .
-	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
-	// CorrelationID Id used for tracing the failure in the service.
-	CorrelationID *string `json:"correlationId,omitempty"`
-	// TroubleshootingErrorDetails Object containing detailed information about the error and its remediation.
-	TroubleshootingErrorDetails *DeviceManagementTroubleshootingErrorDetails `json:"troubleshootingErrorDetails,omitempty"`
-	// EventName Event Name corresponding to the Troubleshooting Event. It is an Optional field
-	EventName *string `json:"eventName,omitempty"`
 	// AdditionalInformation A set of string key and string value pairs which provides additional information on the Troubleshooting event
 	AdditionalInformation []KeyValuePair `json:"additionalInformation,omitempty"`
+	// CorrelationID Id used for tracing the failure in the service.
+	CorrelationID *string `json:"correlationId,omitempty"`
+	// EventDateTime Time when the event occurred .
+	EventDateTime *time.Time `json:"eventDateTime,omitempty"`
+	// EventName Event Name corresponding to the Troubleshooting Event. It is an Optional field
+	EventName *string `json:"eventName,omitempty"`
+	// TroubleshootingErrorDetails Object containing detailed information about the error and its remediation.
+	TroubleshootingErrorDetails *DeviceManagementTroubleshootingErrorDetails `json:"troubleshootingErrorDetails,omitempty"`
 }
 
-// DeviceManagementUserRightsLocalUserOrGroup undocumented
+// DeviceManagementUserRightsLocalUserOrGroup Represents information for a local user or group used for user rights setting.
 type DeviceManagementUserRightsLocalUserOrGroup struct {
 	// Object is the base model of DeviceManagementUserRightsLocalUserOrGroup
 	Object
-	// Name The name of this local user or group.
-	Name *string `json:"name,omitempty"`
 	// Description Admin’s description of this local user or group.
 	Description *string `json:"description,omitempty"`
+	// Name The name of this local user or group.
+	Name *string `json:"name,omitempty"`
 	// SecurityIdentifier The security identifier of this local user or group (e.g. *S-1-5-32-544).
 	SecurityIdentifier *string `json:"securityIdentifier,omitempty"`
 }
 
-// DeviceManagementUserRightsSetting undocumented
+// DeviceManagementUserRightsSetting Represents a user rights setting.
 type DeviceManagementUserRightsSetting struct {
 	// Object is the base model of DeviceManagementUserRightsSetting
 	Object
-	// State Representing the current state of this user rights setting
-	State *StateManagementSetting `json:"state,omitempty"`
 	// LocalUsersOrGroups Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
 	LocalUsersOrGroups []DeviceManagementUserRightsLocalUserOrGroup `json:"localUsersOrGroups,omitempty"`
+	// State Representing the current state of this user rights setting
+	State *StateManagementSetting `json:"state,omitempty"`
 }
 
-// DeviceOperatingSystemSummary undocumented
+// DeviceOperatingSystemSummary Device operating system summary.
 type DeviceOperatingSystemSummary struct {
 	// Object is the base model of DeviceOperatingSystemSummary
 	Object
+	// AndroidCorporateWorkProfileCount The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+	AndroidCorporateWorkProfileCount *int `json:"androidCorporateWorkProfileCount,omitempty"`
 	// AndroidCount Number of android device count.
 	AndroidCount *int `json:"androidCount,omitempty"`
-	// IOSCount Number of iOS device count.
-	IOSCount *int `json:"iosCount,omitempty"`
-	// MacOSCount Number of Mac OS X device count.
-	MacOSCount *int `json:"macOSCount,omitempty"`
-	// WindowsMobileCount Number of Windows mobile device count.
-	WindowsMobileCount *int `json:"windowsMobileCount,omitempty"`
-	// WindowsCount Number of Windows device count.
-	WindowsCount *int `json:"windowsCount,omitempty"`
-	// UnknownCount Number of unknown device count.
-	UnknownCount *int `json:"unknownCount,omitempty"`
 	// AndroidDedicatedCount Number of dedicated Android devices.
 	AndroidDedicatedCount *int `json:"androidDedicatedCount,omitempty"`
 	// AndroidDeviceAdminCount Number of device admin Android devices.
@@ -2266,44 +3678,66 @@ type DeviceOperatingSystemSummary struct {
 	AndroidFullyManagedCount *int `json:"androidFullyManagedCount,omitempty"`
 	// AndroidWorkProfileCount Number of work profile Android devices.
 	AndroidWorkProfileCount *int `json:"androidWorkProfileCount,omitempty"`
+	// AospUserAssociatedCount Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
+	AospUserAssociatedCount *int `json:"aospUserAssociatedCount,omitempty"`
+	// AospUserlessCount Number of AOSP userless Android devices. Valid values 0 to 2147483647
+	AospUserlessCount *int `json:"aospUserlessCount,omitempty"`
+	// ChromeOSCount Number of Chrome OS devices. Valid values 0 to 2147483647
+	ChromeOSCount *int `json:"chromeOSCount,omitempty"`
+	// ConfigMgrDeviceCount Number of ConfigMgr managed devices.
+	ConfigMgrDeviceCount *int `json:"configMgrDeviceCount,omitempty"`
+	// IOSCount Number of iOS device count.
+	IOSCount *int `json:"iosCount,omitempty"`
+	// LinuxCount Number of Linux OS devices. Valid values 0 to 2147483647
+	LinuxCount *int `json:"linuxCount,omitempty"`
+	// MacOSCount Number of Mac OS X device count.
+	MacOSCount *int `json:"macOSCount,omitempty"`
+	// UnknownCount Number of unknown device count.
+	UnknownCount *int `json:"unknownCount,omitempty"`
+	// WindowsCount Number of Windows device count.
+	WindowsCount *int `json:"windowsCount,omitempty"`
+	// WindowsMobileCount Number of Windows mobile device count.
+	WindowsMobileCount *int `json:"windowsMobileCount,omitempty"`
 }
 
-// DeviceProtectionOverview undocumented
+// DeviceProtectionOverview Hardware information of a given device.
 type DeviceProtectionOverview struct {
 	// Object is the base model of DeviceProtectionOverview
 	Object
-	// TotalReportedDeviceCount Total device count.
-	TotalReportedDeviceCount *int `json:"totalReportedDeviceCount,omitempty"`
-	// InactiveThreatAgentDeviceCount Device with inactive threat agent count
-	InactiveThreatAgentDeviceCount *int `json:"inactiveThreatAgentDeviceCount,omitempty"`
-	// UnknownStateThreatAgentDeviceCount Device with threat agent state as unknown count.
-	UnknownStateThreatAgentDeviceCount *int `json:"unknownStateThreatAgentDeviceCount,omitempty"`
-	// PendingSignatureUpdateDeviceCount Device with old signature count.
-	PendingSignatureUpdateDeviceCount *int `json:"pendingSignatureUpdateDeviceCount,omitempty"`
 	// CleanDeviceCount Clean device count.
 	CleanDeviceCount *int `json:"cleanDeviceCount,omitempty"`
+	// CriticalFailuresDeviceCount Critical failures device count.
+	CriticalFailuresDeviceCount *int `json:"criticalFailuresDeviceCount,omitempty"`
+	// InactiveThreatAgentDeviceCount Device with inactive threat agent count
+	InactiveThreatAgentDeviceCount *int `json:"inactiveThreatAgentDeviceCount,omitempty"`
 	// PendingFullScanDeviceCount Pending full scan device count.
 	PendingFullScanDeviceCount *int `json:"pendingFullScanDeviceCount,omitempty"`
-	// PendingRestartDeviceCount Pending restart device count.
-	PendingRestartDeviceCount *int `json:"pendingRestartDeviceCount,omitempty"`
 	// PendingManualStepsDeviceCount Pending manual steps device count.
 	PendingManualStepsDeviceCount *int `json:"pendingManualStepsDeviceCount,omitempty"`
 	// PendingOfflineScanDeviceCount Pending offline scan device count.
 	PendingOfflineScanDeviceCount *int `json:"pendingOfflineScanDeviceCount,omitempty"`
-	// CriticalFailuresDeviceCount Critical failures device count.
-	CriticalFailuresDeviceCount *int `json:"criticalFailuresDeviceCount,omitempty"`
+	// PendingQuickScanDeviceCount Pending quick scan device count. Valid values -2147483648 to 2147483647
+	PendingQuickScanDeviceCount *int `json:"pendingQuickScanDeviceCount,omitempty"`
+	// PendingRestartDeviceCount Pending restart device count.
+	PendingRestartDeviceCount *int `json:"pendingRestartDeviceCount,omitempty"`
+	// PendingSignatureUpdateDeviceCount Device with old signature count.
+	PendingSignatureUpdateDeviceCount *int `json:"pendingSignatureUpdateDeviceCount,omitempty"`
+	// TotalReportedDeviceCount Total device count.
+	TotalReportedDeviceCount *int `json:"totalReportedDeviceCount,omitempty"`
+	// UnknownStateThreatAgentDeviceCount Device with threat agent state as unknown count.
+	UnknownStateThreatAgentDeviceCount *int `json:"unknownStateThreatAgentDeviceCount,omitempty"`
 }
 
 // DeviceRestrictionAction undocumented
 type DeviceRestrictionAction struct {
 	// DlpActionInfo is the base model of DeviceRestrictionAction
 	DlpActionInfo
+	// Message undocumented
+	Message *string `json:"message,omitempty"`
 	// RestrictionAction undocumented
 	RestrictionAction *RestrictionAction `json:"restrictionAction,omitempty"`
 	// Triggers undocumented
 	Triggers []RestrictionTrigger `json:"triggers,omitempty"`
-	// Message undocumented
-	Message *string `json:"message,omitempty"`
 }
 
 // DeviceSetupConfiguration This is the base class for Setup Configuration. Setup configurations are platform specific and individual per-platform setup configurations inherit from here.
@@ -2314,10 +3748,48 @@ type DeviceSetupConfiguration struct {
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// Description Admin provided description of the Device Configuration.
 	Description *string `json:"description,omitempty"`
-	// LastModifiedDateTime DateTime the object was last modified.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// DisplayName Admin provided name of the device configuration.
 	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime DateTime the object was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// Version Version of the device configuration.
 	Version *int `json:"version,omitempty"`
+}
+
+// DeviceShellScript Intune will provide customer the ability to run their Shell scripts on the enrolled Mac OS devices. The script can be run once or periodically.
+type DeviceShellScript struct {
+	// Entity is the base model of DeviceShellScript
+	Entity
+	// BlockExecutionNotifications Does not notify the user a script is being executed
+	BlockExecutionNotifications *bool `json:"blockExecutionNotifications,omitempty"`
+	// CreatedDateTime The date and time the device management script was created. This property is read-only.
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description Optional description for the device management script.
+	Description *string `json:"description,omitempty"`
+	// DisplayName Name of the device management script.
+	DisplayName *string `json:"displayName,omitempty"`
+	// ExecutionFrequency The interval for script to run. If not defined the script will run once
+	ExecutionFrequency *Duration `json:"executionFrequency,omitempty"`
+	// FileName Script file name.
+	FileName *string `json:"fileName,omitempty"`
+	// LastModifiedDateTime The date and time the device management script was last modified. This property is read-only.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// RetryCount Number of times for the script to be retried if it fails
+	RetryCount *int `json:"retryCount,omitempty"`
+	// RoleScopeTagIDs List of Scope Tag IDs for this PowerShellScript instance.
+	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+	// RunAsAccount Indicates the type of execution context.
+	RunAsAccount *RunAsAccountType `json:"runAsAccount,omitempty"`
+	// ScriptContent The script content.
+	ScriptContent *Binary `json:"scriptContent,omitempty"`
+	// Assignments undocumented
+	Assignments []DeviceManagementScriptAssignment `json:"assignments,omitempty"`
+	// DeviceRunStates undocumented
+	DeviceRunStates []DeviceManagementScriptDeviceState `json:"deviceRunStates,omitempty"`
+	// GroupAssignments undocumented
+	GroupAssignments []DeviceManagementScriptGroupAssignment `json:"groupAssignments,omitempty"`
+	// RunSummary undocumented
+	RunSummary *DeviceManagementScriptRunSummary `json:"runSummary,omitempty"`
+	// UserRunStates undocumented
+	UserRunStates []DeviceManagementScriptUserState `json:"userRunStates,omitempty"`
 }

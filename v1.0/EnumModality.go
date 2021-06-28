@@ -14,6 +14,8 @@ const (
 	ModalityVVideoBasedScreenSharing Modality = "videoBasedScreenSharing"
 	// ModalityVData undocumented
 	ModalityVData Modality = "data"
+	// ModalityVScreenSharing undocumented
+	ModalityVScreenSharing Modality = "screenSharing"
 	// ModalityVUnknownFutureValue undocumented
 	ModalityVUnknownFutureValue Modality = "unknownFutureValue"
 )
@@ -27,6 +29,8 @@ var (
 	ModalityPVideoBasedScreenSharing = &_ModalityPVideoBasedScreenSharing
 	// ModalityPData is a pointer to ModalityVData
 	ModalityPData = &_ModalityPData
+	// ModalityPScreenSharing is a pointer to ModalityVScreenSharing
+	ModalityPScreenSharing = &_ModalityPScreenSharing
 	// ModalityPUnknownFutureValue is a pointer to ModalityVUnknownFutureValue
 	ModalityPUnknownFutureValue = &_ModalityPUnknownFutureValue
 )
@@ -36,5 +40,6 @@ var (
 	_ModalityPVideo                   = ModalityVVideo
 	_ModalityPVideoBasedScreenSharing = ModalityVVideoBasedScreenSharing
 	_ModalityPData                    = ModalityVData
+	_ModalityPScreenSharing           = ModalityVScreenSharing
 	_ModalityPUnknownFutureValue      = ModalityVUnknownFutureValue
 )

@@ -31,20 +31,6 @@ type GroupPolicyMigrationReportCollectionCreateMigrationReportRequestParameter s
 	GroupPolicyObjectFile *GroupPolicyObjectFile `json:"groupPolicyObjectFile,omitempty"`
 }
 
-// GroupValidatePropertiesRequestParameter undocumented
-type GroupValidatePropertiesRequestParameter struct {
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// MailNickname undocumented
-	MailNickname *string `json:"mailNickname,omitempty"`
-	// OnBehalfOfUserID undocumented
-	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
-}
-
-// GroupCheckGrantedPermissionsForAppRequestParameter undocumented
-type GroupCheckGrantedPermissionsForAppRequestParameter struct {
-}
-
 // GroupAssignLicenseRequestParameter undocumented
 type GroupAssignLicenseRequestParameter struct {
 	// AddLicenses undocumented
@@ -53,12 +39,18 @@ type GroupAssignLicenseRequestParameter struct {
 	RemoveLicenses []UUID `json:"removeLicenses,omitempty"`
 }
 
-// GroupSubscribeByMailRequestParameter undocumented
-type GroupSubscribeByMailRequestParameter struct {
+// GroupCheckGrantedPermissionsForAppRequestParameter undocumented
+type GroupCheckGrantedPermissionsForAppRequestParameter struct {
 }
 
-// GroupUnsubscribeByMailRequestParameter undocumented
-type GroupUnsubscribeByMailRequestParameter struct {
+// GroupValidatePropertiesRequestParameter undocumented
+type GroupValidatePropertiesRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// MailNickname undocumented
+	MailNickname *string `json:"mailNickname,omitempty"`
+	// OnBehalfOfUserID undocumented
+	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
 }
 
 // GroupAddFavoriteRequestParameter undocumented
@@ -73,14 +65,22 @@ type GroupRemoveFavoriteRequestParameter struct {
 type GroupResetUnseenCountRequestParameter struct {
 }
 
-// GroupRenewRequestParameter undocumented
-type GroupRenewRequestParameter struct {
+// GroupSubscribeByMailRequestParameter undocumented
+type GroupSubscribeByMailRequestParameter struct {
+}
+
+// GroupUnsubscribeByMailRequestParameter undocumented
+type GroupUnsubscribeByMailRequestParameter struct {
 }
 
 // GroupEvaluateDynamicMembershipRequestParameter undocumented
 type GroupEvaluateDynamicMembershipRequestParameter struct {
 	// MemberID undocumented
 	MemberID *string `json:"memberId,omitempty"`
+}
+
+// GroupRenewRequestParameter undocumented
+type GroupRenewRequestParameter struct {
 }
 
 // GroupLifecyclePolicyAddGroupRequestParameter undocumented
@@ -111,35 +111,65 @@ type GroupPolicyConfigurationUpdateDefinitionValuesRequestParameter struct {
 	DeletedIDs []string `json:"deletedIds,omitempty"`
 }
 
-// AcceptedSenders returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) AcceptedSenders() *GroupAcceptedSendersCollectionRequestBuilder {
-	bb := &GroupAcceptedSendersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/acceptedSenders"
+// GroupPolicyUploadedDefinitionFileRemoveRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileRemoveRequestParameter struct {
+}
+
+// GroupPolicyUploadedDefinitionFileAddLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileAddLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileRemoveLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileRemoveLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileUpdateLanguageFilesRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileUpdateLanguageFilesRequestParameter struct {
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// GroupPolicyUploadedDefinitionFileUploadNewVersionRequestParameter undocumented
+type GroupPolicyUploadedDefinitionFileUploadNewVersionRequestParameter struct {
+	// Content undocumented
+	Content *Binary `json:"content,omitempty"`
+	// GroupPolicyUploadedLanguageFiles undocumented
+	GroupPolicyUploadedLanguageFiles []GroupPolicyUploadedLanguageFile `json:"groupPolicyUploadedLanguageFiles,omitempty"`
+}
+
+// Sets returns request builder for Set collection
+func (b *GroupRequestBuilder) Sets() *GroupSetsCollectionRequestBuilder {
+	bb := &GroupSetsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/sets"
 	return bb
 }
 
-// GroupAcceptedSendersCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupAcceptedSendersCollectionRequestBuilder struct{ BaseRequestBuilder }
+// GroupSetsCollectionRequestBuilder is request builder for Set collection
+type GroupSetsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for DirectoryObject collection
-func (b *GroupAcceptedSendersCollectionRequestBuilder) Request() *GroupAcceptedSendersCollectionRequest {
-	return &GroupAcceptedSendersCollectionRequest{
+// Request returns request for Set collection
+func (b *GroupSetsCollectionRequestBuilder) Request() *GroupSetsCollectionRequest {
+	return &GroupSetsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for DirectoryObject item
-func (b *GroupAcceptedSendersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for Set item
+func (b *GroupSetsCollectionRequestBuilder) ID(id string) *SetRequestBuilder {
+	bb := &SetRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// GroupAcceptedSendersCollectionRequest is request for DirectoryObject collection
-type GroupAcceptedSendersCollectionRequest struct{ BaseRequest }
+// GroupSetsCollectionRequest is request for Set collection
+type GroupSetsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
+// Paging perfoms paging operation for Set collection
+func (r *GroupSetsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Set, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -151,7 +181,7 @@ func (r *GroupAcceptedSendersCollectionRequest) Paging(ctx context.Context, meth
 	if err != nil {
 		return nil, err
 	}
-	var values []DirectoryObject
+	var values []Set
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -165,7 +195,7 @@ func (r *GroupAcceptedSendersCollectionRequest) Paging(ctx context.Context, meth
 		}
 		var (
 			paging Paging
-			value  []DirectoryObject
+			value  []Set
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -194,8 +224,8 @@ func (r *GroupAcceptedSendersCollectionRequest) Paging(ctx context.Context, meth
 	}
 }
 
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupAcceptedSendersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
+// GetN performs GET request for Set collection, max N pages
+func (r *GroupSetsCollectionRequest) GetN(ctx context.Context, n int) ([]Set, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -203,46 +233,46 @@ func (r *GroupAcceptedSendersCollectionRequest) GetN(ctx context.Context, n int)
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
+// Get performs GET request for Set collection
+func (r *GroupSetsCollectionRequest) Get(ctx context.Context) ([]Set, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for DirectoryObject collection
-func (r *GroupAcceptedSendersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+// Add performs POST request for Set collection
+func (r *GroupSetsCollectionRequest) Add(ctx context.Context, reqObj *Set) (resObj *Set, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
-// AppRoleAssignments returns request builder for AppRoleAssignment collection
-func (b *GroupRequestBuilder) AppRoleAssignments() *GroupAppRoleAssignmentsCollectionRequestBuilder {
-	bb := &GroupAppRoleAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/appRoleAssignments"
+// Children returns request builder for GroupPolicyCategory collection
+func (b *GroupPolicyCategoryRequestBuilder) Children() *GroupPolicyCategoryChildrenCollectionRequestBuilder {
+	bb := &GroupPolicyCategoryChildrenCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/children"
 	return bb
 }
 
-// GroupAppRoleAssignmentsCollectionRequestBuilder is request builder for AppRoleAssignment collection
-type GroupAppRoleAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+// GroupPolicyCategoryChildrenCollectionRequestBuilder is request builder for GroupPolicyCategory collection
+type GroupPolicyCategoryChildrenCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for AppRoleAssignment collection
-func (b *GroupAppRoleAssignmentsCollectionRequestBuilder) Request() *GroupAppRoleAssignmentsCollectionRequest {
-	return &GroupAppRoleAssignmentsCollectionRequest{
+// Request returns request for GroupPolicyCategory collection
+func (b *GroupPolicyCategoryChildrenCollectionRequestBuilder) Request() *GroupPolicyCategoryChildrenCollectionRequest {
+	return &GroupPolicyCategoryChildrenCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for AppRoleAssignment item
-func (b *GroupAppRoleAssignmentsCollectionRequestBuilder) ID(id string) *AppRoleAssignmentRequestBuilder {
-	bb := &AppRoleAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for GroupPolicyCategory item
+func (b *GroupPolicyCategoryChildrenCollectionRequestBuilder) ID(id string) *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// GroupAppRoleAssignmentsCollectionRequest is request for AppRoleAssignment collection
-type GroupAppRoleAssignmentsCollectionRequest struct{ BaseRequest }
+// GroupPolicyCategoryChildrenCollectionRequest is request for GroupPolicyCategory collection
+type GroupPolicyCategoryChildrenCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AppRoleAssignment, error) {
+// Paging perfoms paging operation for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyCategory, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -254,7 +284,7 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, m
 	if err != nil {
 		return nil, err
 	}
-	var values []AppRoleAssignment
+	var values []GroupPolicyCategory
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -268,7 +298,7 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, m
 		}
 		var (
 			paging Paging
-			value  []AppRoleAssignment
+			value  []GroupPolicyCategory
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -297,8 +327,8 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) Paging(ctx context.Context, m
 	}
 }
 
-// GetN performs GET request for AppRoleAssignment collection, max N pages
-func (r *GroupAppRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]AppRoleAssignment, error) {
+// GetN performs GET request for GroupPolicyCategory collection, max N pages
+func (r *GroupPolicyCategoryChildrenCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyCategory, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -306,53 +336,53 @@ func (r *GroupAppRoleAssignmentsCollectionRequest) GetN(ctx context.Context, n i
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Get(ctx context.Context) ([]AppRoleAssignment, error) {
+// Get performs GET request for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Get(ctx context.Context) ([]GroupPolicyCategory, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for AppRoleAssignment collection
-func (r *GroupAppRoleAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AppRoleAssignment) (resObj *AppRoleAssignment, err error) {
+// Add performs POST request for GroupPolicyCategory collection
+func (r *GroupPolicyCategoryChildrenCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyCategory) (resObj *GroupPolicyCategory, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
-// Calendar is navigation property
-func (b *GroupRequestBuilder) Calendar() *CalendarRequestBuilder {
-	bb := &CalendarRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/calendar"
+// DefinitionFile is navigation property
+func (b *GroupPolicyCategoryRequestBuilder) DefinitionFile() *GroupPolicyDefinitionFileRequestBuilder {
+	bb := &GroupPolicyDefinitionFileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definitionFile"
 	return bb
 }
 
-// CalendarView returns request builder for Event collection
-func (b *GroupRequestBuilder) CalendarView() *GroupCalendarViewCollectionRequestBuilder {
-	bb := &GroupCalendarViewCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/calendarView"
+// Definitions returns request builder for GroupPolicyDefinition collection
+func (b *GroupPolicyCategoryRequestBuilder) Definitions() *GroupPolicyCategoryDefinitionsCollectionRequestBuilder {
+	bb := &GroupPolicyCategoryDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/definitions"
 	return bb
 }
 
-// GroupCalendarViewCollectionRequestBuilder is request builder for Event collection
-type GroupCalendarViewCollectionRequestBuilder struct{ BaseRequestBuilder }
+// GroupPolicyCategoryDefinitionsCollectionRequestBuilder is request builder for GroupPolicyDefinition collection
+type GroupPolicyCategoryDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns request for Event collection
-func (b *GroupCalendarViewCollectionRequestBuilder) Request() *GroupCalendarViewCollectionRequest {
-	return &GroupCalendarViewCollectionRequest{
+// Request returns request for GroupPolicyDefinition collection
+func (b *GroupPolicyCategoryDefinitionsCollectionRequestBuilder) Request() *GroupPolicyCategoryDefinitionsCollectionRequest {
+	return &GroupPolicyCategoryDefinitionsCollectionRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// ID returns request builder for Event item
-func (b *GroupCalendarViewCollectionRequestBuilder) ID(id string) *EventRequestBuilder {
-	bb := &EventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+// ID returns request builder for GroupPolicyDefinition item
+func (b *GroupPolicyCategoryDefinitionsCollectionRequestBuilder) ID(id string) *GroupPolicyDefinitionRequestBuilder {
+	bb := &GroupPolicyDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/" + id
 	return bb
 }
 
-// GroupCalendarViewCollectionRequest is request for Event collection
-type GroupCalendarViewCollectionRequest struct{ BaseRequest }
+// GroupPolicyCategoryDefinitionsCollectionRequest is request for GroupPolicyDefinition collection
+type GroupPolicyCategoryDefinitionsCollectionRequest struct{ BaseRequest }
 
-// Paging perfoms paging operation for Event collection
-func (r *GroupCalendarViewCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
+// Paging perfoms paging operation for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyDefinition, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -364,7 +394,7 @@ func (r *GroupCalendarViewCollectionRequest) Paging(ctx context.Context, method,
 	if err != nil {
 		return nil, err
 	}
-	var values []Event
+	var values []GroupPolicyDefinition
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -378,7 +408,7 @@ func (r *GroupCalendarViewCollectionRequest) Paging(ctx context.Context, method,
 		}
 		var (
 			paging Paging
-			value  []Event
+			value  []GroupPolicyDefinition
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -407,8 +437,8 @@ func (r *GroupCalendarViewCollectionRequest) Paging(ctx context.Context, method,
 	}
 }
 
-// GetN performs GET request for Event collection, max N pages
-func (r *GroupCalendarViewCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
+// GetN performs GET request for GroupPolicyDefinition collection, max N pages
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyDefinition, error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -416,1911 +446,22 @@ func (r *GroupCalendarViewCollectionRequest) GetN(ctx context.Context, n int) ([
 	return r.Paging(ctx, "GET", query, nil, n)
 }
 
-// Get performs GET request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Get(ctx context.Context) ([]Event, error) {
+// Get performs GET request for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Get(ctx context.Context) ([]GroupPolicyDefinition, error) {
 	return r.GetN(ctx, 0)
 }
 
-// Add performs POST request for Event collection
-func (r *GroupCalendarViewCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
+// Add performs POST request for GroupPolicyDefinition collection
+func (r *GroupPolicyCategoryDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinition) (resObj *GroupPolicyDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
 
-// Conversations returns request builder for Conversation collection
-func (b *GroupRequestBuilder) Conversations() *GroupConversationsCollectionRequestBuilder {
-	bb := &GroupConversationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/conversations"
+// Parent is navigation property
+func (b *GroupPolicyCategoryRequestBuilder) Parent() *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/parent"
 	return bb
-}
-
-// GroupConversationsCollectionRequestBuilder is request builder for Conversation collection
-type GroupConversationsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Conversation collection
-func (b *GroupConversationsCollectionRequestBuilder) Request() *GroupConversationsCollectionRequest {
-	return &GroupConversationsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Conversation item
-func (b *GroupConversationsCollectionRequestBuilder) ID(id string) *ConversationRequestBuilder {
-	bb := &ConversationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupConversationsCollectionRequest is request for Conversation collection
-type GroupConversationsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Conversation collection
-func (r *GroupConversationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Conversation, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Conversation
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Conversation
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Conversation collection, max N pages
-func (r *GroupConversationsCollectionRequest) GetN(ctx context.Context, n int) ([]Conversation, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Get(ctx context.Context) ([]Conversation, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Conversation collection
-func (r *GroupConversationsCollectionRequest) Add(ctx context.Context, reqObj *Conversation) (resObj *Conversation, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// CreatedOnBehalfOf is navigation property
-func (b *GroupRequestBuilder) CreatedOnBehalfOf() *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/createdOnBehalfOf"
-	return bb
-}
-
-// Drive is navigation property
-func (b *GroupRequestBuilder) Drive() *DriveRequestBuilder {
-	bb := &DriveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/drive"
-	return bb
-}
-
-// Drives returns request builder for Drive collection
-func (b *GroupRequestBuilder) Drives() *GroupDrivesCollectionRequestBuilder {
-	bb := &GroupDrivesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/drives"
-	return bb
-}
-
-// GroupDrivesCollectionRequestBuilder is request builder for Drive collection
-type GroupDrivesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Drive collection
-func (b *GroupDrivesCollectionRequestBuilder) Request() *GroupDrivesCollectionRequest {
-	return &GroupDrivesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Drive item
-func (b *GroupDrivesCollectionRequestBuilder) ID(id string) *DriveRequestBuilder {
-	bb := &DriveRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupDrivesCollectionRequest is request for Drive collection
-type GroupDrivesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Drive collection
-func (r *GroupDrivesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Drive, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Drive
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Drive
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Drive collection, max N pages
-func (r *GroupDrivesCollectionRequest) GetN(ctx context.Context, n int) ([]Drive, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Drive collection
-func (r *GroupDrivesCollectionRequest) Get(ctx context.Context) ([]Drive, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Drive collection
-func (r *GroupDrivesCollectionRequest) Add(ctx context.Context, reqObj *Drive) (resObj *Drive, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Endpoints returns request builder for Endpoint collection
-func (b *GroupRequestBuilder) Endpoints() *GroupEndpointsCollectionRequestBuilder {
-	bb := &GroupEndpointsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/endpoints"
-	return bb
-}
-
-// GroupEndpointsCollectionRequestBuilder is request builder for Endpoint collection
-type GroupEndpointsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Endpoint collection
-func (b *GroupEndpointsCollectionRequestBuilder) Request() *GroupEndpointsCollectionRequest {
-	return &GroupEndpointsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Endpoint item
-func (b *GroupEndpointsCollectionRequestBuilder) ID(id string) *EndpointRequestBuilder {
-	bb := &EndpointRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupEndpointsCollectionRequest is request for Endpoint collection
-type GroupEndpointsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Endpoint, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Endpoint
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Endpoint
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Endpoint collection, max N pages
-func (r *GroupEndpointsCollectionRequest) GetN(ctx context.Context, n int) ([]Endpoint, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Get(ctx context.Context) ([]Endpoint, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Endpoint collection
-func (r *GroupEndpointsCollectionRequest) Add(ctx context.Context, reqObj *Endpoint) (resObj *Endpoint, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Events returns request builder for Event collection
-func (b *GroupRequestBuilder) Events() *GroupEventsCollectionRequestBuilder {
-	bb := &GroupEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/events"
-	return bb
-}
-
-// GroupEventsCollectionRequestBuilder is request builder for Event collection
-type GroupEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Event collection
-func (b *GroupEventsCollectionRequestBuilder) Request() *GroupEventsCollectionRequest {
-	return &GroupEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Event item
-func (b *GroupEventsCollectionRequestBuilder) ID(id string) *EventRequestBuilder {
-	bb := &EventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupEventsCollectionRequest is request for Event collection
-type GroupEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Event collection
-func (r *GroupEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Event, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Event
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Event
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Event collection, max N pages
-func (r *GroupEventsCollectionRequest) GetN(ctx context.Context, n int) ([]Event, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Event collection
-func (r *GroupEventsCollectionRequest) Get(ctx context.Context) ([]Event, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Event collection
-func (r *GroupEventsCollectionRequest) Add(ctx context.Context, reqObj *Event) (resObj *Event, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Extensions returns request builder for Extension collection
-func (b *GroupRequestBuilder) Extensions() *GroupExtensionsCollectionRequestBuilder {
-	bb := &GroupExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/extensions"
-	return bb
-}
-
-// GroupExtensionsCollectionRequestBuilder is request builder for Extension collection
-type GroupExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Extension collection
-func (b *GroupExtensionsCollectionRequestBuilder) Request() *GroupExtensionsCollectionRequest {
-	return &GroupExtensionsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Extension item
-func (b *GroupExtensionsCollectionRequestBuilder) ID(id string) *ExtensionRequestBuilder {
-	bb := &ExtensionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupExtensionsCollectionRequest is request for Extension collection
-type GroupExtensionsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Extension collection
-func (r *GroupExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Extension, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Extension
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Extension
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Extension collection, max N pages
-func (r *GroupExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]Extension, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Get(ctx context.Context) ([]Extension, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Extension collection
-func (r *GroupExtensionsCollectionRequest) Add(ctx context.Context, reqObj *Extension) (resObj *Extension, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// GroupLifecyclePolicies returns request builder for GroupLifecyclePolicy collection
-func (b *GroupRequestBuilder) GroupLifecyclePolicies() *GroupGroupLifecyclePoliciesCollectionRequestBuilder {
-	bb := &GroupGroupLifecyclePoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/groupLifecyclePolicies"
-	return bb
-}
-
-// GroupGroupLifecyclePoliciesCollectionRequestBuilder is request builder for GroupLifecyclePolicy collection
-type GroupGroupLifecyclePoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for GroupLifecyclePolicy collection
-func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) Request() *GroupGroupLifecyclePoliciesCollectionRequest {
-	return &GroupGroupLifecyclePoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for GroupLifecyclePolicy item
-func (b *GroupGroupLifecyclePoliciesCollectionRequestBuilder) ID(id string) *GroupLifecyclePolicyRequestBuilder {
-	bb := &GroupLifecyclePolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupGroupLifecyclePoliciesCollectionRequest is request for GroupLifecyclePolicy collection
-type GroupGroupLifecyclePoliciesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupLifecyclePolicy, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []GroupLifecyclePolicy
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []GroupLifecyclePolicy
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for GroupLifecyclePolicy collection, max N pages
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]GroupLifecyclePolicy, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Get(ctx context.Context) ([]GroupLifecyclePolicy, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for GroupLifecyclePolicy collection
-func (r *GroupGroupLifecyclePoliciesCollectionRequest) Add(ctx context.Context, reqObj *GroupLifecyclePolicy) (resObj *GroupLifecyclePolicy, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// MemberOf returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) MemberOf() *GroupMemberOfCollectionRequestBuilder {
-	bb := &GroupMemberOfCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/memberOf"
-	return bb
-}
-
-// GroupMemberOfCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupMemberOfCollectionRequestBuilder) Request() *GroupMemberOfCollectionRequest {
-	return &GroupMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupMemberOfCollectionRequest is request for DirectoryObject collection
-type GroupMemberOfCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupMemberOfCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Members returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) Members() *GroupMembersCollectionRequestBuilder {
-	bb := &GroupMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/members"
-	return bb
-}
-
-// GroupMembersCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupMembersCollectionRequestBuilder) Request() *GroupMembersCollectionRequest {
-	return &GroupMembersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupMembersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupMembersCollectionRequest is request for DirectoryObject collection
-type GroupMembersCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupMembersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// MembersWithLicenseErrors returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) MembersWithLicenseErrors() *GroupMembersWithLicenseErrorsCollectionRequestBuilder {
-	bb := &GroupMembersWithLicenseErrorsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/membersWithLicenseErrors"
-	return bb
-}
-
-// GroupMembersWithLicenseErrorsCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupMembersWithLicenseErrorsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupMembersWithLicenseErrorsCollectionRequestBuilder) Request() *GroupMembersWithLicenseErrorsCollectionRequest {
-	return &GroupMembersWithLicenseErrorsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupMembersWithLicenseErrorsCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupMembersWithLicenseErrorsCollectionRequest is request for DirectoryObject collection
-type GroupMembersWithLicenseErrorsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupMembersWithLicenseErrorsCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Onenote is navigation property
-func (b *GroupRequestBuilder) Onenote() *OnenoteRequestBuilder {
-	bb := &OnenoteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/onenote"
-	return bb
-}
-
-// Owners returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) Owners() *GroupOwnersCollectionRequestBuilder {
-	bb := &GroupOwnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/owners"
-	return bb
-}
-
-// GroupOwnersCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupOwnersCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupOwnersCollectionRequestBuilder) Request() *GroupOwnersCollectionRequest {
-	return &GroupOwnersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupOwnersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupOwnersCollectionRequest is request for DirectoryObject collection
-type GroupOwnersCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupOwnersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupOwnersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// PermissionGrants returns request builder for ResourceSpecificPermissionGrant collection
-func (b *GroupRequestBuilder) PermissionGrants() *GroupPermissionGrantsCollectionRequestBuilder {
-	bb := &GroupPermissionGrantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/permissionGrants"
-	return bb
-}
-
-// GroupPermissionGrantsCollectionRequestBuilder is request builder for ResourceSpecificPermissionGrant collection
-type GroupPermissionGrantsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for ResourceSpecificPermissionGrant collection
-func (b *GroupPermissionGrantsCollectionRequestBuilder) Request() *GroupPermissionGrantsCollectionRequest {
-	return &GroupPermissionGrantsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for ResourceSpecificPermissionGrant item
-func (b *GroupPermissionGrantsCollectionRequestBuilder) ID(id string) *ResourceSpecificPermissionGrantRequestBuilder {
-	bb := &ResourceSpecificPermissionGrantRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupPermissionGrantsCollectionRequest is request for ResourceSpecificPermissionGrant collection
-type GroupPermissionGrantsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ResourceSpecificPermissionGrant, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ResourceSpecificPermissionGrant
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ResourceSpecificPermissionGrant
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for ResourceSpecificPermissionGrant collection, max N pages
-func (r *GroupPermissionGrantsCollectionRequest) GetN(ctx context.Context, n int) ([]ResourceSpecificPermissionGrant, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Get(ctx context.Context) ([]ResourceSpecificPermissionGrant, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for ResourceSpecificPermissionGrant collection
-func (r *GroupPermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *ResourceSpecificPermissionGrant) (resObj *ResourceSpecificPermissionGrant, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Photo is navigation property
-func (b *GroupRequestBuilder) Photo() *ProfilePhotoRequestBuilder {
-	bb := &ProfilePhotoRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/photo"
-	return bb
-}
-
-// Photos returns request builder for ProfilePhoto collection
-func (b *GroupRequestBuilder) Photos() *GroupPhotosCollectionRequestBuilder {
-	bb := &GroupPhotosCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/photos"
-	return bb
-}
-
-// GroupPhotosCollectionRequestBuilder is request builder for ProfilePhoto collection
-type GroupPhotosCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for ProfilePhoto collection
-func (b *GroupPhotosCollectionRequestBuilder) Request() *GroupPhotosCollectionRequest {
-	return &GroupPhotosCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for ProfilePhoto item
-func (b *GroupPhotosCollectionRequestBuilder) ID(id string) *ProfilePhotoRequestBuilder {
-	bb := &ProfilePhotoRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupPhotosCollectionRequest is request for ProfilePhoto collection
-type GroupPhotosCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ProfilePhoto, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ProfilePhoto
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ProfilePhoto
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for ProfilePhoto collection, max N pages
-func (r *GroupPhotosCollectionRequest) GetN(ctx context.Context, n int) ([]ProfilePhoto, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Get(ctx context.Context) ([]ProfilePhoto, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for ProfilePhoto collection
-func (r *GroupPhotosCollectionRequest) Add(ctx context.Context, reqObj *ProfilePhoto) (resObj *ProfilePhoto, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Planner is navigation property
-func (b *GroupRequestBuilder) Planner() *PlannerGroupRequestBuilder {
-	bb := &PlannerGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/planner"
-	return bb
-}
-
-// RejectedSenders returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) RejectedSenders() *GroupRejectedSendersCollectionRequestBuilder {
-	bb := &GroupRejectedSendersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/rejectedSenders"
-	return bb
-}
-
-// GroupRejectedSendersCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupRejectedSendersCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupRejectedSendersCollectionRequestBuilder) Request() *GroupRejectedSendersCollectionRequest {
-	return &GroupRejectedSendersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupRejectedSendersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupRejectedSendersCollectionRequest is request for DirectoryObject collection
-type GroupRejectedSendersCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupRejectedSendersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupRejectedSendersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Settings returns request builder for DirectorySetting collection
-func (b *GroupRequestBuilder) Settings() *GroupSettingsCollectionRequestBuilder {
-	bb := &GroupSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/settings"
-	return bb
-}
-
-// GroupSettingsCollectionRequestBuilder is request builder for DirectorySetting collection
-type GroupSettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectorySetting collection
-func (b *GroupSettingsCollectionRequestBuilder) Request() *GroupSettingsCollectionRequest {
-	return &GroupSettingsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectorySetting item
-func (b *GroupSettingsCollectionRequestBuilder) ID(id string) *DirectorySettingRequestBuilder {
-	bb := &DirectorySettingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupSettingsCollectionRequest is request for DirectorySetting collection
-type GroupSettingsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectorySetting, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectorySetting
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectorySetting
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectorySetting collection, max N pages
-func (r *GroupSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DirectorySetting, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Get(ctx context.Context) ([]DirectorySetting, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectorySetting collection
-func (r *GroupSettingsCollectionRequest) Add(ctx context.Context, reqObj *DirectorySetting) (resObj *DirectorySetting, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Sites returns request builder for Site collection
-func (b *GroupRequestBuilder) Sites() *GroupSitesCollectionRequestBuilder {
-	bb := &GroupSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/sites"
-	return bb
-}
-
-// GroupSitesCollectionRequestBuilder is request builder for Site collection
-type GroupSitesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Site collection
-func (b *GroupSitesCollectionRequestBuilder) Request() *GroupSitesCollectionRequest {
-	return &GroupSitesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Site item
-func (b *GroupSitesCollectionRequestBuilder) ID(id string) *SiteRequestBuilder {
-	bb := &SiteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupSitesCollectionRequest is request for Site collection
-type GroupSitesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Site collection
-func (r *GroupSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Site, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Site
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Site
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Site collection, max N pages
-func (r *GroupSitesCollectionRequest) GetN(ctx context.Context, n int) ([]Site, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Site collection
-func (r *GroupSitesCollectionRequest) Get(ctx context.Context) ([]Site, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Site collection
-func (r *GroupSitesCollectionRequest) Add(ctx context.Context, reqObj *Site) (resObj *Site, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Team is navigation property
-func (b *GroupRequestBuilder) Team() *TeamRequestBuilder {
-	bb := &TeamRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/team"
-	return bb
-}
-
-// Threads returns request builder for ConversationThread collection
-func (b *GroupRequestBuilder) Threads() *GroupThreadsCollectionRequestBuilder {
-	bb := &GroupThreadsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/threads"
-	return bb
-}
-
-// GroupThreadsCollectionRequestBuilder is request builder for ConversationThread collection
-type GroupThreadsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for ConversationThread collection
-func (b *GroupThreadsCollectionRequestBuilder) Request() *GroupThreadsCollectionRequest {
-	return &GroupThreadsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for ConversationThread item
-func (b *GroupThreadsCollectionRequestBuilder) ID(id string) *ConversationThreadRequestBuilder {
-	bb := &ConversationThreadRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupThreadsCollectionRequest is request for ConversationThread collection
-type GroupThreadsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConversationThread, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ConversationThread
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ConversationThread
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for ConversationThread collection, max N pages
-func (r *GroupThreadsCollectionRequest) GetN(ctx context.Context, n int) ([]ConversationThread, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Get(ctx context.Context) ([]ConversationThread, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for ConversationThread collection
-func (r *GroupThreadsCollectionRequest) Add(ctx context.Context, reqObj *ConversationThread) (resObj *ConversationThread, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// TransitiveMemberOf returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) TransitiveMemberOf() *GroupTransitiveMemberOfCollectionRequestBuilder {
-	bb := &GroupTransitiveMemberOfCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/transitiveMemberOf"
-	return bb
-}
-
-// GroupTransitiveMemberOfCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupTransitiveMemberOfCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupTransitiveMemberOfCollectionRequestBuilder) Request() *GroupTransitiveMemberOfCollectionRequest {
-	return &GroupTransitiveMemberOfCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupTransitiveMemberOfCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupTransitiveMemberOfCollectionRequest is request for DirectoryObject collection
-type GroupTransitiveMemberOfCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupTransitiveMemberOfCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// TransitiveMembers returns request builder for DirectoryObject collection
-func (b *GroupRequestBuilder) TransitiveMembers() *GroupTransitiveMembersCollectionRequestBuilder {
-	bb := &GroupTransitiveMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/transitiveMembers"
-	return bb
-}
-
-// GroupTransitiveMembersCollectionRequestBuilder is request builder for DirectoryObject collection
-type GroupTransitiveMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryObject collection
-func (b *GroupTransitiveMembersCollectionRequestBuilder) Request() *GroupTransitiveMembersCollectionRequest {
-	return &GroupTransitiveMembersCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryObject item
-func (b *GroupTransitiveMembersCollectionRequestBuilder) ID(id string) *DirectoryObjectRequestBuilder {
-	bb := &DirectoryObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GroupTransitiveMembersCollectionRequest is request for DirectoryObject collection
-type GroupTransitiveMembersCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryObject collection, max N pages
-func (r *GroupTransitiveMembersCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Get(ctx context.Context) ([]DirectoryObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryObject collection
-func (r *GroupTransitiveMembersCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
 }
 
 // Assignments returns request builder for GroupPolicyConfigurationAssignment collection
@@ -2527,6 +668,13 @@ func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Get(ctx cont
 func (r *GroupPolicyConfigurationDefinitionValuesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyDefinitionValue) (resObj *GroupPolicyDefinitionValue, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// Category is navigation property
+func (b *GroupPolicyDefinitionRequestBuilder) Category() *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/category"
+	return bb
 }
 
 // DefinitionFile is navigation property
@@ -2955,6 +1103,109 @@ func (r *GroupPolicyMigrationReportGroupPolicySettingMappingsCollectionRequest) 
 	return
 }
 
+// UnsupportedGroupPolicyExtensions returns request builder for UnsupportedGroupPolicyExtension collection
+func (b *GroupPolicyMigrationReportRequestBuilder) UnsupportedGroupPolicyExtensions() *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder {
+	bb := &GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/unsupportedGroupPolicyExtensions"
+	return bb
+}
+
+// GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder is request builder for UnsupportedGroupPolicyExtension collection
+type GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UnsupportedGroupPolicyExtension collection
+func (b *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder) Request() *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest {
+	return &GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UnsupportedGroupPolicyExtension item
+func (b *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequestBuilder) ID(id string) *UnsupportedGroupPolicyExtensionRequestBuilder {
+	bb := &UnsupportedGroupPolicyExtensionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest is request for UnsupportedGroupPolicyExtension collection
+type GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UnsupportedGroupPolicyExtension, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UnsupportedGroupPolicyExtension
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UnsupportedGroupPolicyExtension
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UnsupportedGroupPolicyExtension collection, max N pages
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) GetN(ctx context.Context, n int) ([]UnsupportedGroupPolicyExtension, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Get(ctx context.Context) ([]UnsupportedGroupPolicyExtension, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UnsupportedGroupPolicyExtension collection
+func (r *GroupPolicyMigrationReportUnsupportedGroupPolicyExtensionsCollectionRequest) Add(ctx context.Context, reqObj *UnsupportedGroupPolicyExtension) (resObj *UnsupportedGroupPolicyExtension, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Definition is navigation property
 func (b *GroupPolicyPresentationRequestBuilder) Definition() *GroupPolicyDefinitionRequestBuilder {
 	bb := &GroupPolicyDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2974,4 +1225,107 @@ func (b *GroupPolicyPresentationValueRequestBuilder) Presentation() *GroupPolicy
 	bb := &GroupPolicyPresentationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/presentation"
 	return bb
+}
+
+// GroupPolicyOperations returns request builder for GroupPolicyOperation collection
+func (b *GroupPolicyUploadedDefinitionFileRequestBuilder) GroupPolicyOperations() *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder {
+	bb := &GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupPolicyOperations"
+	return bb
+}
+
+// GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder is request builder for GroupPolicyOperation collection
+type GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyOperation collection
+func (b *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder) Request() *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest {
+	return &GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyOperation item
+func (b *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequestBuilder) ID(id string) *GroupPolicyOperationRequestBuilder {
+	bb := &GroupPolicyOperationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest is request for GroupPolicyOperation collection
+type GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyOperation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyOperation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyOperation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyOperation collection, max N pages
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyOperation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Get(ctx context.Context) ([]GroupPolicyOperation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyOperation collection
+func (r *GroupPolicyUploadedDefinitionFileGroupPolicyOperationsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyOperation) (resObj *GroupPolicyOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }

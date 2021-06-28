@@ -38,54 +38,27 @@ func (r *VPPTokenRequest) Delete(ctx context.Context) error {
 }
 
 //
-type VPPTokenSyncLicensesRequestBuilder struct{ BaseRequestBuilder }
+type VPPTokenCollectionSyncLicenseCountsRequestBuilder struct{ BaseRequestBuilder }
 
-// SyncLicenses action undocumented
-func (b *VPPTokenRequestBuilder) SyncLicenses(reqObj *VPPTokenSyncLicensesRequestParameter) *VPPTokenSyncLicensesRequestBuilder {
-	bb := &VPPTokenSyncLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncLicenses"
+// SyncLicenseCounts action undocumented
+func (b *DeviceAppManagementVPPTokensCollectionRequestBuilder) SyncLicenseCounts(reqObj *VPPTokenCollectionSyncLicenseCountsRequestParameter) *VPPTokenCollectionSyncLicenseCountsRequestBuilder {
+	bb := &VPPTokenCollectionSyncLicenseCountsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/syncLicenseCounts"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type VPPTokenSyncLicensesRequest struct{ BaseRequest }
+type VPPTokenCollectionSyncLicenseCountsRequest struct{ BaseRequest }
 
 //
-func (b *VPPTokenSyncLicensesRequestBuilder) Request() *VPPTokenSyncLicensesRequest {
-	return &VPPTokenSyncLicensesRequest{
+func (b *VPPTokenCollectionSyncLicenseCountsRequestBuilder) Request() *VPPTokenCollectionSyncLicenseCountsRequest {
+	return &VPPTokenCollectionSyncLicenseCountsRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *VPPTokenSyncLicensesRequest) Post(ctx context.Context) (resObj *VPPToken, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type VPPTokenRevokeLicensesRequestBuilder struct{ BaseRequestBuilder }
-
-// RevokeLicenses action undocumented
-func (b *VPPTokenRequestBuilder) RevokeLicenses(reqObj *VPPTokenRevokeLicensesRequestParameter) *VPPTokenRevokeLicensesRequestBuilder {
-	bb := &VPPTokenRevokeLicensesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/revokeLicenses"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type VPPTokenRevokeLicensesRequest struct{ BaseRequest }
-
-//
-func (b *VPPTokenRevokeLicensesRequestBuilder) Request() *VPPTokenRevokeLicensesRequest {
-	return &VPPTokenRevokeLicensesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *VPPTokenRevokeLicensesRequest) Post(ctx context.Context) error {
+func (r *VPPTokenCollectionSyncLicenseCountsRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -11,6 +11,28 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// CallCollectionLogTeleconferenceDeviceQualityRequestParameter undocumented
+type CallCollectionLogTeleconferenceDeviceQualityRequestParameter struct {
+	// Quality undocumented
+	Quality *TeleconferenceDeviceQuality `json:"quality,omitempty"`
+}
+
+// CallRedirectRequestParameter undocumented
+type CallRedirectRequestParameter struct {
+	// Targets undocumented
+	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
+	// TargetDisposition undocumented
+	TargetDisposition *CallDisposition `json:"targetDisposition,omitempty"`
+	// Timeout undocumented
+	Timeout *int `json:"timeout,omitempty"`
+	// MaskCallee undocumented
+	MaskCallee *bool `json:"maskCallee,omitempty"`
+	// MaskCaller undocumented
+	MaskCaller *bool `json:"maskCaller,omitempty"`
+	// CallbackURI undocumented
+	CallbackURI *string `json:"callbackUri,omitempty"`
+}
+
 // CallAnswerRequestParameter undocumented
 type CallAnswerRequestParameter struct {
 	// CallbackURI undocumented
@@ -19,6 +41,8 @@ type CallAnswerRequestParameter struct {
 	MediaConfig *MediaConfig `json:"mediaConfig,omitempty"`
 	// AcceptedModalities undocumented
 	AcceptedModalities []Modality `json:"acceptedModalities,omitempty"`
+	// ParticipantCapacity undocumented
+	ParticipantCapacity *int `json:"participantCapacity,omitempty"`
 }
 
 // CallCancelMediaProcessingRequestParameter undocumented
@@ -95,22 +119,6 @@ type CallRecordResponseRequestParameter struct {
 	StopTones []string `json:"stopTones,omitempty"`
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
-}
-
-// CallRedirectRequestParameter undocumented
-type CallRedirectRequestParameter struct {
-	// Targets undocumented
-	Targets []InvitationParticipantInfo `json:"targets,omitempty"`
-	// TargetDisposition undocumented
-	TargetDisposition *CallDisposition `json:"targetDisposition,omitempty"`
-	// Timeout undocumented
-	Timeout *int `json:"timeout,omitempty"`
-	// MaskCallee undocumented
-	MaskCallee *bool `json:"maskCallee,omitempty"`
-	// MaskCaller undocumented
-	MaskCaller *bool `json:"maskCaller,omitempty"`
-	// CallbackURI undocumented
-	CallbackURI *string `json:"callbackUri,omitempty"`
 }
 
 // CallRejectRequestParameter undocumented
@@ -452,6 +460,109 @@ func (r *CallParticipantsCollectionRequest) Get(ctx context.Context) ([]Particip
 
 // Add performs POST request for Participant collection
 func (r *CallParticipantsCollectionRequest) Add(ctx context.Context, reqObj *Participant) (resObj *Participant, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Sessions returns request builder for Session collection
+func (b *CallRecordRequestBuilder) Sessions() *CallRecordSessionsCollectionRequestBuilder {
+	bb := &CallRecordSessionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/sessions"
+	return bb
+}
+
+// CallRecordSessionsCollectionRequestBuilder is request builder for Session collection
+type CallRecordSessionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for Session collection
+func (b *CallRecordSessionsCollectionRequestBuilder) Request() *CallRecordSessionsCollectionRequest {
+	return &CallRecordSessionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for Session item
+func (b *CallRecordSessionsCollectionRequestBuilder) ID(id string) *SessionRequestBuilder {
+	bb := &SessionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// CallRecordSessionsCollectionRequest is request for Session collection
+type CallRecordSessionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for Session collection
+func (r *CallRecordSessionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Session, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []Session
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []Session
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for Session collection, max N pages
+func (r *CallRecordSessionsCollectionRequest) GetN(ctx context.Context, n int) ([]Session, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for Session collection
+func (r *CallRecordSessionsCollectionRequest) Get(ctx context.Context) ([]Session, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for Session collection
+func (r *CallRecordSessionsCollectionRequest) Add(ctx context.Context, reqObj *Session) (resObj *Session, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

@@ -22,24 +22,24 @@ type DlpEvaluatePoliciesJobResponse struct {
 type DlpEvaluatePoliciesRequestObject struct {
 	// Object is the base model of DlpEvaluatePoliciesRequestObject
 	Object
-	// Target undocumented
-	Target *string `json:"target,omitempty"`
 	// EvaluationInput undocumented
 	EvaluationInput *DlpEvaluationInput `json:"evaluationInput,omitempty"`
 	// NotificationInfo undocumented
 	NotificationInfo *DlpNotification `json:"notificationInfo,omitempty"`
+	// Target undocumented
+	Target *string `json:"target,omitempty"`
 }
 
 // DlpEvaluationInput undocumented
 type DlpEvaluationInput struct {
 	// Object is the base model of DlpEvaluationInput
 	Object
-	// DiscoveredSensitiveTypes undocumented
-	DiscoveredSensitiveTypes []DiscoveredSensitiveType `json:"discoveredSensitiveTypes,omitempty"`
-	// CurrentLabel undocumented
-	CurrentLabel *CurrentLabel `json:"currentLabel,omitempty"`
 	// AccessScope undocumented
 	AccessScope *AccessScope `json:"accessScope,omitempty"`
+	// CurrentLabel undocumented
+	CurrentLabel *CurrentLabel `json:"currentLabel,omitempty"`
+	// DiscoveredSensitiveTypes undocumented
+	DiscoveredSensitiveTypes []DiscoveredSensitiveType `json:"discoveredSensitiveTypes,omitempty"`
 }
 
 // DlpEvaluationWindowsDevicesInput undocumented
@@ -72,8 +72,8 @@ type DlpPoliciesJobResult struct {
 type DlpWindowsDevicesNotification struct {
 	// DlpNotification is the base model of DlpWindowsDevicesNotification
 	DlpNotification
-	// LastModfiedBy undocumented
-	LastModfiedBy *string `json:"lastModfiedBy,omitempty"`
 	// ContentName undocumented
 	ContentName *string `json:"contentName,omitempty"`
+	// LastModfiedBy undocumented
+	LastModfiedBy *string `json:"lastModfiedBy,omitempty"`
 }

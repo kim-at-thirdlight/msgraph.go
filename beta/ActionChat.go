@@ -11,6 +11,22 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ChatSendActivityNotificationRequestParameter undocumented
+type ChatSendActivityNotificationRequestParameter struct {
+	// Topic undocumented
+	Topic *TeamworkActivityTopic `json:"topic,omitempty"`
+	// ActivityType undocumented
+	ActivityType *string `json:"activityType,omitempty"`
+	// ChainID undocumented
+	ChainID *int `json:"chainId,omitempty"`
+	// PreviewText undocumented
+	PreviewText *ItemBody `json:"previewText,omitempty"`
+	// TemplateParameters undocumented
+	TemplateParameters []KeyValuePair `json:"templateParameters,omitempty"`
+	// Recipient undocumented
+	Recipient *TeamworkNotificationRecipient `json:"recipient,omitempty"`
+}
+
 // InstalledApps returns request builder for TeamsAppInstallation collection
 func (b *ChatRequestBuilder) InstalledApps() *ChatInstalledAppsCollectionRequestBuilder {
 	bb := &ChatInstalledAppsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -112,6 +128,13 @@ func (r *ChatInstalledAppsCollectionRequest) Get(ctx context.Context) ([]TeamsAp
 func (r *ChatInstalledAppsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAppInstallation) (resObj *TeamsAppInstallation, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// LastMessagePreview is navigation property
+func (b *ChatRequestBuilder) LastMessagePreview() *ChatMessageInfoRequestBuilder {
+	bb := &ChatMessageInfoRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/lastMessagePreview"
+	return bb
 }
 
 // Members returns request builder for ConversationMember collection
@@ -316,6 +339,315 @@ func (r *ChatMessagesCollectionRequest) Get(ctx context.Context) ([]ChatMessage,
 
 // Add performs POST request for ChatMessage collection
 func (r *ChatMessagesCollectionRequest) Add(ctx context.Context, reqObj *ChatMessage) (resObj *ChatMessage, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Operations returns request builder for TeamsAsyncOperation collection
+func (b *ChatRequestBuilder) Operations() *ChatOperationsCollectionRequestBuilder {
+	bb := &ChatOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/operations"
+	return bb
+}
+
+// ChatOperationsCollectionRequestBuilder is request builder for TeamsAsyncOperation collection
+type ChatOperationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TeamsAsyncOperation collection
+func (b *ChatOperationsCollectionRequestBuilder) Request() *ChatOperationsCollectionRequest {
+	return &ChatOperationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TeamsAsyncOperation item
+func (b *ChatOperationsCollectionRequestBuilder) ID(id string) *TeamsAsyncOperationRequestBuilder {
+	bb := &TeamsAsyncOperationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ChatOperationsCollectionRequest is request for TeamsAsyncOperation collection
+type ChatOperationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TeamsAsyncOperation collection
+func (r *ChatOperationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsAsyncOperation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TeamsAsyncOperation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TeamsAsyncOperation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TeamsAsyncOperation collection, max N pages
+func (r *ChatOperationsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsAsyncOperation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsAsyncOperation collection
+func (r *ChatOperationsCollectionRequest) Get(ctx context.Context) ([]TeamsAsyncOperation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TeamsAsyncOperation collection
+func (r *ChatOperationsCollectionRequest) Add(ctx context.Context, reqObj *TeamsAsyncOperation) (resObj *TeamsAsyncOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// PermissionGrants returns request builder for ResourceSpecificPermissionGrant collection
+func (b *ChatRequestBuilder) PermissionGrants() *ChatPermissionGrantsCollectionRequestBuilder {
+	bb := &ChatPermissionGrantsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/permissionGrants"
+	return bb
+}
+
+// ChatPermissionGrantsCollectionRequestBuilder is request builder for ResourceSpecificPermissionGrant collection
+type ChatPermissionGrantsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ResourceSpecificPermissionGrant collection
+func (b *ChatPermissionGrantsCollectionRequestBuilder) Request() *ChatPermissionGrantsCollectionRequest {
+	return &ChatPermissionGrantsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ResourceSpecificPermissionGrant item
+func (b *ChatPermissionGrantsCollectionRequestBuilder) ID(id string) *ResourceSpecificPermissionGrantRequestBuilder {
+	bb := &ResourceSpecificPermissionGrantRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ChatPermissionGrantsCollectionRequest is request for ResourceSpecificPermissionGrant collection
+type ChatPermissionGrantsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ResourceSpecificPermissionGrant collection
+func (r *ChatPermissionGrantsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ResourceSpecificPermissionGrant, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ResourceSpecificPermissionGrant
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ResourceSpecificPermissionGrant
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ResourceSpecificPermissionGrant collection, max N pages
+func (r *ChatPermissionGrantsCollectionRequest) GetN(ctx context.Context, n int) ([]ResourceSpecificPermissionGrant, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ResourceSpecificPermissionGrant collection
+func (r *ChatPermissionGrantsCollectionRequest) Get(ctx context.Context) ([]ResourceSpecificPermissionGrant, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ResourceSpecificPermissionGrant collection
+func (r *ChatPermissionGrantsCollectionRequest) Add(ctx context.Context, reqObj *ResourceSpecificPermissionGrant) (resObj *ResourceSpecificPermissionGrant, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Tabs returns request builder for TeamsTab collection
+func (b *ChatRequestBuilder) Tabs() *ChatTabsCollectionRequestBuilder {
+	bb := &ChatTabsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tabs"
+	return bb
+}
+
+// ChatTabsCollectionRequestBuilder is request builder for TeamsTab collection
+type ChatTabsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for TeamsTab collection
+func (b *ChatTabsCollectionRequestBuilder) Request() *ChatTabsCollectionRequest {
+	return &ChatTabsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for TeamsTab item
+func (b *ChatTabsCollectionRequestBuilder) ID(id string) *TeamsTabRequestBuilder {
+	bb := &TeamsTabRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ChatTabsCollectionRequest is request for TeamsTab collection
+type ChatTabsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for TeamsTab collection
+func (r *ChatTabsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TeamsTab, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TeamsTab
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TeamsTab
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for TeamsTab collection, max N pages
+func (r *ChatTabsCollectionRequest) GetN(ctx context.Context, n int) ([]TeamsTab, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for TeamsTab collection
+func (r *ChatTabsCollectionRequest) Get(ctx context.Context) ([]TeamsTab, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for TeamsTab collection
+func (r *ChatTabsCollectionRequest) Add(ctx context.Context, reqObj *TeamsTab) (resObj *TeamsTab, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

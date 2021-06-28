@@ -14,6 +14,8 @@ type NetworkConnection struct {
 	DestinationAddress *string `json:"destinationAddress,omitempty"`
 	// DestinationDomain undocumented
 	DestinationDomain *string `json:"destinationDomain,omitempty"`
+	// DestinationLocation undocumented
+	DestinationLocation *string `json:"destinationLocation,omitempty"`
 	// DestinationPort undocumented
 	DestinationPort *string `json:"destinationPort,omitempty"`
 	// DestinationURL undocumented
@@ -38,6 +40,8 @@ type NetworkConnection struct {
 	RiskScore *string `json:"riskScore,omitempty"`
 	// SourceAddress undocumented
 	SourceAddress *string `json:"sourceAddress,omitempty"`
+	// SourceLocation undocumented
+	SourceLocation *string `json:"sourceLocation,omitempty"`
 	// SourcePort undocumented
 	SourcePort *string `json:"sourcePort,omitempty"`
 	// Status undocumented
@@ -50,30 +54,84 @@ type NetworkConnection struct {
 type NetworkIPv4ConfigurationManagementCondition struct {
 	// NetworkManagementCondition is the base model of NetworkIPv4ConfigurationManagementCondition
 	NetworkManagementCondition
-	// IPV4Prefix The IPv4 subnet to be connected to. e.g. 10.0.0.0/8
-	IPV4Prefix *string `json:"ipV4Prefix,omitempty"`
-	// IPV4Gateway The IPv4 gateway address. e.g. 10.0.0.0
-	IPV4Gateway *string `json:"ipV4Gateway,omitempty"`
+	// DNSSuffixList Valid DNS suffixes for the current network. e.g. seattle.contoso.com
+	DNSSuffixList []string `json:"dnsSuffixList,omitempty"`
 	// IPV4DHCPServer The IPv4 address of the DHCP server for the adapter.
 	IPV4DHCPServer *string `json:"ipV4DHCPServer,omitempty"`
 	// IPV4DNSServerList The IPv4 DNS servers configured for the adapter.
 	IPV4DNSServerList []string `json:"ipV4DNSServerList,omitempty"`
-	// DNSSuffixList Valid DNS suffixes for the current network. e.g. seattle.contoso.com
-	DNSSuffixList []string `json:"dnsSuffixList,omitempty"`
+	// IPV4Gateway The IPv4 gateway address. e.g. 10.0.0.0
+	IPV4Gateway *string `json:"ipV4Gateway,omitempty"`
+	// IPV4Prefix The IPv4 subnet to be connected to. e.g. 10.0.0.0/8
+	IPV4Prefix *string `json:"ipV4Prefix,omitempty"`
 }
 
 // NetworkIPv6ConfigurationManagementCondition IPv6 configuration-based management conditions may be defined that will trigger when a device detects certain IP network settings. An IP config management condition will only be considered TRUE when the network connection is active.
 type NetworkIPv6ConfigurationManagementCondition struct {
 	// NetworkManagementCondition is the base model of NetworkIPv6ConfigurationManagementCondition
 	NetworkManagementCondition
-	// IPV6Prefix The IPv6 subnet to be connected to. e.g. 2001:db8::/32
-	IPV6Prefix *string `json:"ipV6Prefix,omitempty"`
-	// IPV6Gateway The IPv6 gateway address to. e.g 2001:db8::1
-	IPV6Gateway *string `json:"ipV6Gateway,omitempty"`
-	// IPV6DNSServerList An IPv6 DNS servers configured for the adapter.
-	IPV6DNSServerList []string `json:"ipV6DNSServerList,omitempty"`
 	// DNSSuffixList Valid DNS suffixes for the current network. e.g. seattle.contoso.com
 	DNSSuffixList []string `json:"dnsSuffixList,omitempty"`
+	// IPV6DNSServerList An IPv6 DNS servers configured for the adapter.
+	IPV6DNSServerList []string `json:"ipV6DNSServerList,omitempty"`
+	// IPV6Gateway The IPv6 gateway address to. e.g 2001:db8::1
+	IPV6Gateway *string `json:"ipV6Gateway,omitempty"`
+	// IPV6Prefix The IPv6 subnet to be connected to. e.g. 2001:db8::/32
+	IPV6Prefix *string `json:"ipV6Prefix,omitempty"`
+}
+
+// NetworkInfo undocumented
+type NetworkInfo struct {
+	// Object is the base model of NetworkInfo
+	Object
+	// BandwidthLowEventRatio undocumented
+	BandwidthLowEventRatio *float64 `json:"bandwidthLowEventRatio,omitempty"`
+	// BasicServiceSetIdentifier undocumented
+	BasicServiceSetIdentifier *string `json:"basicServiceSetIdentifier,omitempty"`
+	// ConnectionType undocumented
+	ConnectionType *NetworkConnectionType `json:"connectionType,omitempty"`
+	// DelayEventRatio undocumented
+	DelayEventRatio *float64 `json:"delayEventRatio,omitempty"`
+	// DNSSuffix undocumented
+	DNSSuffix *string `json:"dnsSuffix,omitempty"`
+	// IPAddress undocumented
+	IPAddress *string `json:"ipAddress,omitempty"`
+	// LinkSpeed undocumented
+	LinkSpeed *int `json:"linkSpeed,omitempty"`
+	// MacAddress undocumented
+	MacAddress *string `json:"macAddress,omitempty"`
+	// Port undocumented
+	Port *int `json:"port,omitempty"`
+	// ReceivedQualityEventRatio undocumented
+	ReceivedQualityEventRatio *float64 `json:"receivedQualityEventRatio,omitempty"`
+	// ReflexiveIPAddress undocumented
+	ReflexiveIPAddress *string `json:"reflexiveIPAddress,omitempty"`
+	// RelayIPAddress undocumented
+	RelayIPAddress *string `json:"relayIPAddress,omitempty"`
+	// RelayPort undocumented
+	RelayPort *int `json:"relayPort,omitempty"`
+	// SentQualityEventRatio undocumented
+	SentQualityEventRatio *float64 `json:"sentQualityEventRatio,omitempty"`
+	// Subnet undocumented
+	Subnet *string `json:"subnet,omitempty"`
+	// WiFiBand undocumented
+	WiFiBand *WiFiBand `json:"wifiBand,omitempty"`
+	// WiFiBatteryCharge undocumented
+	WiFiBatteryCharge *int `json:"wifiBatteryCharge,omitempty"`
+	// WiFiChannel undocumented
+	WiFiChannel *int `json:"wifiChannel,omitempty"`
+	// WiFiMicrosoftDriver undocumented
+	WiFiMicrosoftDriver *string `json:"wifiMicrosoftDriver,omitempty"`
+	// WiFiMicrosoftDriverVersion undocumented
+	WiFiMicrosoftDriverVersion *string `json:"wifiMicrosoftDriverVersion,omitempty"`
+	// WiFiRadioType undocumented
+	WiFiRadioType *WiFiRadioType `json:"wifiRadioType,omitempty"`
+	// WiFiSignalStrength undocumented
+	WiFiSignalStrength *int `json:"wifiSignalStrength,omitempty"`
+	// WiFiVendorDriver undocumented
+	WiFiVendorDriver *string `json:"wifiVendorDriver,omitempty"`
+	// WiFiVendorDriverVersion undocumented
+	WiFiVendorDriverVersion *string `json:"wifiVendorDriverVersion,omitempty"`
 }
 
 // NetworkInterface undocumented
@@ -96,10 +154,10 @@ type NetworkInterface struct {
 type NetworkLocationDetail struct {
 	// Object is the base model of NetworkLocationDetail
 	Object
-	// NetworkType undocumented
-	NetworkType *NetworkType `json:"networkType,omitempty"`
 	// NetworkNames undocumented
 	NetworkNames []string `json:"networkNames,omitempty"`
+	// NetworkType undocumented
+	NetworkType *NetworkType `json:"networkType,omitempty"`
 }
 
 // NetworkManagementCondition Contains the information to define a network management condition.

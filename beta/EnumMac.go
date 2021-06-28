@@ -2,6 +2,144 @@
 
 package msgraph
 
+// MacOSContentCachingClientPolicy undocumented
+type MacOSContentCachingClientPolicy string
+
+const (
+	// MacOSContentCachingClientPolicyVNotConfigured undocumented
+	MacOSContentCachingClientPolicyVNotConfigured MacOSContentCachingClientPolicy = "notConfigured"
+	// MacOSContentCachingClientPolicyVClientsInLocalNetwork undocumented
+	MacOSContentCachingClientPolicyVClientsInLocalNetwork MacOSContentCachingClientPolicy = "clientsInLocalNetwork"
+	// MacOSContentCachingClientPolicyVClientsWithSamePublicIPAddress undocumented
+	MacOSContentCachingClientPolicyVClientsWithSamePublicIPAddress MacOSContentCachingClientPolicy = "clientsWithSamePublicIpAddress"
+	// MacOSContentCachingClientPolicyVClientsInCustomLocalNetworks undocumented
+	MacOSContentCachingClientPolicyVClientsInCustomLocalNetworks MacOSContentCachingClientPolicy = "clientsInCustomLocalNetworks"
+	// MacOSContentCachingClientPolicyVClientsInCustomLocalNetworksWithFallback undocumented
+	MacOSContentCachingClientPolicyVClientsInCustomLocalNetworksWithFallback MacOSContentCachingClientPolicy = "clientsInCustomLocalNetworksWithFallback"
+)
+
+var (
+	// MacOSContentCachingClientPolicyPNotConfigured is a pointer to MacOSContentCachingClientPolicyVNotConfigured
+	MacOSContentCachingClientPolicyPNotConfigured = &_MacOSContentCachingClientPolicyPNotConfigured
+	// MacOSContentCachingClientPolicyPClientsInLocalNetwork is a pointer to MacOSContentCachingClientPolicyVClientsInLocalNetwork
+	MacOSContentCachingClientPolicyPClientsInLocalNetwork = &_MacOSContentCachingClientPolicyPClientsInLocalNetwork
+	// MacOSContentCachingClientPolicyPClientsWithSamePublicIPAddress is a pointer to MacOSContentCachingClientPolicyVClientsWithSamePublicIPAddress
+	MacOSContentCachingClientPolicyPClientsWithSamePublicIPAddress = &_MacOSContentCachingClientPolicyPClientsWithSamePublicIPAddress
+	// MacOSContentCachingClientPolicyPClientsInCustomLocalNetworks is a pointer to MacOSContentCachingClientPolicyVClientsInCustomLocalNetworks
+	MacOSContentCachingClientPolicyPClientsInCustomLocalNetworks = &_MacOSContentCachingClientPolicyPClientsInCustomLocalNetworks
+	// MacOSContentCachingClientPolicyPClientsInCustomLocalNetworksWithFallback is a pointer to MacOSContentCachingClientPolicyVClientsInCustomLocalNetworksWithFallback
+	MacOSContentCachingClientPolicyPClientsInCustomLocalNetworksWithFallback = &_MacOSContentCachingClientPolicyPClientsInCustomLocalNetworksWithFallback
+)
+
+var (
+	_MacOSContentCachingClientPolicyPNotConfigured                            = MacOSContentCachingClientPolicyVNotConfigured
+	_MacOSContentCachingClientPolicyPClientsInLocalNetwork                    = MacOSContentCachingClientPolicyVClientsInLocalNetwork
+	_MacOSContentCachingClientPolicyPClientsWithSamePublicIPAddress           = MacOSContentCachingClientPolicyVClientsWithSamePublicIPAddress
+	_MacOSContentCachingClientPolicyPClientsInCustomLocalNetworks             = MacOSContentCachingClientPolicyVClientsInCustomLocalNetworks
+	_MacOSContentCachingClientPolicyPClientsInCustomLocalNetworksWithFallback = MacOSContentCachingClientPolicyVClientsInCustomLocalNetworksWithFallback
+)
+
+// MacOSContentCachingParentSelectionPolicy undocumented
+type MacOSContentCachingParentSelectionPolicy string
+
+const (
+	// MacOSContentCachingParentSelectionPolicyVNotConfigured undocumented
+	MacOSContentCachingParentSelectionPolicyVNotConfigured MacOSContentCachingParentSelectionPolicy = "notConfigured"
+	// MacOSContentCachingParentSelectionPolicyVRoundRobin undocumented
+	MacOSContentCachingParentSelectionPolicyVRoundRobin MacOSContentCachingParentSelectionPolicy = "roundRobin"
+	// MacOSContentCachingParentSelectionPolicyVFirstAvailable undocumented
+	MacOSContentCachingParentSelectionPolicyVFirstAvailable MacOSContentCachingParentSelectionPolicy = "firstAvailable"
+	// MacOSContentCachingParentSelectionPolicyVURLPathHash undocumented
+	MacOSContentCachingParentSelectionPolicyVURLPathHash MacOSContentCachingParentSelectionPolicy = "urlPathHash"
+	// MacOSContentCachingParentSelectionPolicyVRandom undocumented
+	MacOSContentCachingParentSelectionPolicyVRandom MacOSContentCachingParentSelectionPolicy = "random"
+	// MacOSContentCachingParentSelectionPolicyVStickyAvailable undocumented
+	MacOSContentCachingParentSelectionPolicyVStickyAvailable MacOSContentCachingParentSelectionPolicy = "stickyAvailable"
+)
+
+var (
+	// MacOSContentCachingParentSelectionPolicyPNotConfigured is a pointer to MacOSContentCachingParentSelectionPolicyVNotConfigured
+	MacOSContentCachingParentSelectionPolicyPNotConfigured = &_MacOSContentCachingParentSelectionPolicyPNotConfigured
+	// MacOSContentCachingParentSelectionPolicyPRoundRobin is a pointer to MacOSContentCachingParentSelectionPolicyVRoundRobin
+	MacOSContentCachingParentSelectionPolicyPRoundRobin = &_MacOSContentCachingParentSelectionPolicyPRoundRobin
+	// MacOSContentCachingParentSelectionPolicyPFirstAvailable is a pointer to MacOSContentCachingParentSelectionPolicyVFirstAvailable
+	MacOSContentCachingParentSelectionPolicyPFirstAvailable = &_MacOSContentCachingParentSelectionPolicyPFirstAvailable
+	// MacOSContentCachingParentSelectionPolicyPURLPathHash is a pointer to MacOSContentCachingParentSelectionPolicyVURLPathHash
+	MacOSContentCachingParentSelectionPolicyPURLPathHash = &_MacOSContentCachingParentSelectionPolicyPURLPathHash
+	// MacOSContentCachingParentSelectionPolicyPRandom is a pointer to MacOSContentCachingParentSelectionPolicyVRandom
+	MacOSContentCachingParentSelectionPolicyPRandom = &_MacOSContentCachingParentSelectionPolicyPRandom
+	// MacOSContentCachingParentSelectionPolicyPStickyAvailable is a pointer to MacOSContentCachingParentSelectionPolicyVStickyAvailable
+	MacOSContentCachingParentSelectionPolicyPStickyAvailable = &_MacOSContentCachingParentSelectionPolicyPStickyAvailable
+)
+
+var (
+	_MacOSContentCachingParentSelectionPolicyPNotConfigured   = MacOSContentCachingParentSelectionPolicyVNotConfigured
+	_MacOSContentCachingParentSelectionPolicyPRoundRobin      = MacOSContentCachingParentSelectionPolicyVRoundRobin
+	_MacOSContentCachingParentSelectionPolicyPFirstAvailable  = MacOSContentCachingParentSelectionPolicyVFirstAvailable
+	_MacOSContentCachingParentSelectionPolicyPURLPathHash     = MacOSContentCachingParentSelectionPolicyVURLPathHash
+	_MacOSContentCachingParentSelectionPolicyPRandom          = MacOSContentCachingParentSelectionPolicyVRandom
+	_MacOSContentCachingParentSelectionPolicyPStickyAvailable = MacOSContentCachingParentSelectionPolicyVStickyAvailable
+)
+
+// MacOSContentCachingPeerPolicy undocumented
+type MacOSContentCachingPeerPolicy string
+
+const (
+	// MacOSContentCachingPeerPolicyVNotConfigured undocumented
+	MacOSContentCachingPeerPolicyVNotConfigured MacOSContentCachingPeerPolicy = "notConfigured"
+	// MacOSContentCachingPeerPolicyVPeersInLocalNetwork undocumented
+	MacOSContentCachingPeerPolicyVPeersInLocalNetwork MacOSContentCachingPeerPolicy = "peersInLocalNetwork"
+	// MacOSContentCachingPeerPolicyVPeersWithSamePublicIPAddress undocumented
+	MacOSContentCachingPeerPolicyVPeersWithSamePublicIPAddress MacOSContentCachingPeerPolicy = "peersWithSamePublicIpAddress"
+	// MacOSContentCachingPeerPolicyVPeersInCustomLocalNetworks undocumented
+	MacOSContentCachingPeerPolicyVPeersInCustomLocalNetworks MacOSContentCachingPeerPolicy = "peersInCustomLocalNetworks"
+)
+
+var (
+	// MacOSContentCachingPeerPolicyPNotConfigured is a pointer to MacOSContentCachingPeerPolicyVNotConfigured
+	MacOSContentCachingPeerPolicyPNotConfigured = &_MacOSContentCachingPeerPolicyPNotConfigured
+	// MacOSContentCachingPeerPolicyPPeersInLocalNetwork is a pointer to MacOSContentCachingPeerPolicyVPeersInLocalNetwork
+	MacOSContentCachingPeerPolicyPPeersInLocalNetwork = &_MacOSContentCachingPeerPolicyPPeersInLocalNetwork
+	// MacOSContentCachingPeerPolicyPPeersWithSamePublicIPAddress is a pointer to MacOSContentCachingPeerPolicyVPeersWithSamePublicIPAddress
+	MacOSContentCachingPeerPolicyPPeersWithSamePublicIPAddress = &_MacOSContentCachingPeerPolicyPPeersWithSamePublicIPAddress
+	// MacOSContentCachingPeerPolicyPPeersInCustomLocalNetworks is a pointer to MacOSContentCachingPeerPolicyVPeersInCustomLocalNetworks
+	MacOSContentCachingPeerPolicyPPeersInCustomLocalNetworks = &_MacOSContentCachingPeerPolicyPPeersInCustomLocalNetworks
+)
+
+var (
+	_MacOSContentCachingPeerPolicyPNotConfigured                = MacOSContentCachingPeerPolicyVNotConfigured
+	_MacOSContentCachingPeerPolicyPPeersInLocalNetwork          = MacOSContentCachingPeerPolicyVPeersInLocalNetwork
+	_MacOSContentCachingPeerPolicyPPeersWithSamePublicIPAddress = MacOSContentCachingPeerPolicyVPeersWithSamePublicIPAddress
+	_MacOSContentCachingPeerPolicyPPeersInCustomLocalNetworks   = MacOSContentCachingPeerPolicyVPeersInCustomLocalNetworks
+)
+
+// MacOSContentCachingType undocumented
+type MacOSContentCachingType string
+
+const (
+	// MacOSContentCachingTypeVNotConfigured undocumented
+	MacOSContentCachingTypeVNotConfigured MacOSContentCachingType = "notConfigured"
+	// MacOSContentCachingTypeVUserContentOnly undocumented
+	MacOSContentCachingTypeVUserContentOnly MacOSContentCachingType = "userContentOnly"
+	// MacOSContentCachingTypeVSharedContentOnly undocumented
+	MacOSContentCachingTypeVSharedContentOnly MacOSContentCachingType = "sharedContentOnly"
+)
+
+var (
+	// MacOSContentCachingTypePNotConfigured is a pointer to MacOSContentCachingTypeVNotConfigured
+	MacOSContentCachingTypePNotConfigured = &_MacOSContentCachingTypePNotConfigured
+	// MacOSContentCachingTypePUserContentOnly is a pointer to MacOSContentCachingTypeVUserContentOnly
+	MacOSContentCachingTypePUserContentOnly = &_MacOSContentCachingTypePUserContentOnly
+	// MacOSContentCachingTypePSharedContentOnly is a pointer to MacOSContentCachingTypeVSharedContentOnly
+	MacOSContentCachingTypePSharedContentOnly = &_MacOSContentCachingTypePSharedContentOnly
+)
+
+var (
+	_MacOSContentCachingTypePNotConfigured     = MacOSContentCachingTypeVNotConfigured
+	_MacOSContentCachingTypePUserContentOnly   = MacOSContentCachingTypeVUserContentOnly
+	_MacOSContentCachingTypePSharedContentOnly = MacOSContentCachingTypeVSharedContentOnly
+)
+
 // MacOSFileVaultRecoveryKeyTypes undocumented
 type MacOSFileVaultRecoveryKeyTypes string
 
@@ -59,4 +197,248 @@ var (
 	_MacOSGatekeeperAppSourcesPMacAppStore                        = MacOSGatekeeperAppSourcesVMacAppStore
 	_MacOSGatekeeperAppSourcesPMacAppStoreAndIdentifiedDevelopers = MacOSGatekeeperAppSourcesVMacAppStoreAndIdentifiedDevelopers
 	_MacOSGatekeeperAppSourcesPAnywhere                           = MacOSGatekeeperAppSourcesVAnywhere
+)
+
+// MacOSProcessIdentifierType undocumented
+type MacOSProcessIdentifierType string
+
+const (
+	// MacOSProcessIdentifierTypeVBundleID undocumented
+	MacOSProcessIdentifierTypeVBundleID MacOSProcessIdentifierType = "bundleID"
+	// MacOSProcessIdentifierTypeVPath undocumented
+	MacOSProcessIdentifierTypeVPath MacOSProcessIdentifierType = "path"
+)
+
+var (
+	// MacOSProcessIdentifierTypePBundleID is a pointer to MacOSProcessIdentifierTypeVBundleID
+	MacOSProcessIdentifierTypePBundleID = &_MacOSProcessIdentifierTypePBundleID
+	// MacOSProcessIdentifierTypePPath is a pointer to MacOSProcessIdentifierTypeVPath
+	MacOSProcessIdentifierTypePPath = &_MacOSProcessIdentifierTypePPath
+)
+
+var (
+	_MacOSProcessIdentifierTypePBundleID = MacOSProcessIdentifierTypeVBundleID
+	_MacOSProcessIdentifierTypePPath     = MacOSProcessIdentifierTypeVPath
+)
+
+// MacOSSoftwareUpdateBehavior undocumented
+type MacOSSoftwareUpdateBehavior string
+
+const (
+	// MacOSSoftwareUpdateBehaviorVNotConfigured undocumented
+	MacOSSoftwareUpdateBehaviorVNotConfigured MacOSSoftwareUpdateBehavior = "notConfigured"
+	// MacOSSoftwareUpdateBehaviorVDefault undocumented
+	MacOSSoftwareUpdateBehaviorVDefault MacOSSoftwareUpdateBehavior = "default"
+)
+
+var (
+	// MacOSSoftwareUpdateBehaviorPNotConfigured is a pointer to MacOSSoftwareUpdateBehaviorVNotConfigured
+	MacOSSoftwareUpdateBehaviorPNotConfigured = &_MacOSSoftwareUpdateBehaviorPNotConfigured
+	// MacOSSoftwareUpdateBehaviorPDefault is a pointer to MacOSSoftwareUpdateBehaviorVDefault
+	MacOSSoftwareUpdateBehaviorPDefault = &_MacOSSoftwareUpdateBehaviorPDefault
+)
+
+var (
+	_MacOSSoftwareUpdateBehaviorPNotConfigured = MacOSSoftwareUpdateBehaviorVNotConfigured
+	_MacOSSoftwareUpdateBehaviorPDefault       = MacOSSoftwareUpdateBehaviorVDefault
+)
+
+// MacOSSoftwareUpdateCategory undocumented
+type MacOSSoftwareUpdateCategory string
+
+const (
+	// MacOSSoftwareUpdateCategoryVCritical undocumented
+	MacOSSoftwareUpdateCategoryVCritical MacOSSoftwareUpdateCategory = "critical"
+	// MacOSSoftwareUpdateCategoryVConfigurationDataFile undocumented
+	MacOSSoftwareUpdateCategoryVConfigurationDataFile MacOSSoftwareUpdateCategory = "configurationDataFile"
+	// MacOSSoftwareUpdateCategoryVFirmware undocumented
+	MacOSSoftwareUpdateCategoryVFirmware MacOSSoftwareUpdateCategory = "firmware"
+	// MacOSSoftwareUpdateCategoryVOther undocumented
+	MacOSSoftwareUpdateCategoryVOther MacOSSoftwareUpdateCategory = "other"
+)
+
+var (
+	// MacOSSoftwareUpdateCategoryPCritical is a pointer to MacOSSoftwareUpdateCategoryVCritical
+	MacOSSoftwareUpdateCategoryPCritical = &_MacOSSoftwareUpdateCategoryPCritical
+	// MacOSSoftwareUpdateCategoryPConfigurationDataFile is a pointer to MacOSSoftwareUpdateCategoryVConfigurationDataFile
+	MacOSSoftwareUpdateCategoryPConfigurationDataFile = &_MacOSSoftwareUpdateCategoryPConfigurationDataFile
+	// MacOSSoftwareUpdateCategoryPFirmware is a pointer to MacOSSoftwareUpdateCategoryVFirmware
+	MacOSSoftwareUpdateCategoryPFirmware = &_MacOSSoftwareUpdateCategoryPFirmware
+	// MacOSSoftwareUpdateCategoryPOther is a pointer to MacOSSoftwareUpdateCategoryVOther
+	MacOSSoftwareUpdateCategoryPOther = &_MacOSSoftwareUpdateCategoryPOther
+)
+
+var (
+	_MacOSSoftwareUpdateCategoryPCritical              = MacOSSoftwareUpdateCategoryVCritical
+	_MacOSSoftwareUpdateCategoryPConfigurationDataFile = MacOSSoftwareUpdateCategoryVConfigurationDataFile
+	_MacOSSoftwareUpdateCategoryPFirmware              = MacOSSoftwareUpdateCategoryVFirmware
+	_MacOSSoftwareUpdateCategoryPOther                 = MacOSSoftwareUpdateCategoryVOther
+)
+
+// MacOSSoftwareUpdateDelayPolicy undocumented
+type MacOSSoftwareUpdateDelayPolicy string
+
+const (
+	// MacOSSoftwareUpdateDelayPolicyVNone undocumented
+	MacOSSoftwareUpdateDelayPolicyVNone MacOSSoftwareUpdateDelayPolicy = "none"
+	// MacOSSoftwareUpdateDelayPolicyVDelayOSUpdateVisibility undocumented
+	MacOSSoftwareUpdateDelayPolicyVDelayOSUpdateVisibility MacOSSoftwareUpdateDelayPolicy = "delayOSUpdateVisibility"
+	// MacOSSoftwareUpdateDelayPolicyVDelayAppUpdateVisibility undocumented
+	MacOSSoftwareUpdateDelayPolicyVDelayAppUpdateVisibility MacOSSoftwareUpdateDelayPolicy = "delayAppUpdateVisibility"
+)
+
+var (
+	// MacOSSoftwareUpdateDelayPolicyPNone is a pointer to MacOSSoftwareUpdateDelayPolicyVNone
+	MacOSSoftwareUpdateDelayPolicyPNone = &_MacOSSoftwareUpdateDelayPolicyPNone
+	// MacOSSoftwareUpdateDelayPolicyPDelayOSUpdateVisibility is a pointer to MacOSSoftwareUpdateDelayPolicyVDelayOSUpdateVisibility
+	MacOSSoftwareUpdateDelayPolicyPDelayOSUpdateVisibility = &_MacOSSoftwareUpdateDelayPolicyPDelayOSUpdateVisibility
+	// MacOSSoftwareUpdateDelayPolicyPDelayAppUpdateVisibility is a pointer to MacOSSoftwareUpdateDelayPolicyVDelayAppUpdateVisibility
+	MacOSSoftwareUpdateDelayPolicyPDelayAppUpdateVisibility = &_MacOSSoftwareUpdateDelayPolicyPDelayAppUpdateVisibility
+)
+
+var (
+	_MacOSSoftwareUpdateDelayPolicyPNone                     = MacOSSoftwareUpdateDelayPolicyVNone
+	_MacOSSoftwareUpdateDelayPolicyPDelayOSUpdateVisibility  = MacOSSoftwareUpdateDelayPolicyVDelayOSUpdateVisibility
+	_MacOSSoftwareUpdateDelayPolicyPDelayAppUpdateVisibility = MacOSSoftwareUpdateDelayPolicyVDelayAppUpdateVisibility
+)
+
+// MacOSSoftwareUpdateScheduleType undocumented
+type MacOSSoftwareUpdateScheduleType string
+
+const (
+	// MacOSSoftwareUpdateScheduleTypeVAlwaysUpdate undocumented
+	MacOSSoftwareUpdateScheduleTypeVAlwaysUpdate MacOSSoftwareUpdateScheduleType = "alwaysUpdate"
+	// MacOSSoftwareUpdateScheduleTypeVUpdateDuringTimeWindows undocumented
+	MacOSSoftwareUpdateScheduleTypeVUpdateDuringTimeWindows MacOSSoftwareUpdateScheduleType = "updateDuringTimeWindows"
+	// MacOSSoftwareUpdateScheduleTypeVUpdateOutsideOfTimeWindows undocumented
+	MacOSSoftwareUpdateScheduleTypeVUpdateOutsideOfTimeWindows MacOSSoftwareUpdateScheduleType = "updateOutsideOfTimeWindows"
+)
+
+var (
+	// MacOSSoftwareUpdateScheduleTypePAlwaysUpdate is a pointer to MacOSSoftwareUpdateScheduleTypeVAlwaysUpdate
+	MacOSSoftwareUpdateScheduleTypePAlwaysUpdate = &_MacOSSoftwareUpdateScheduleTypePAlwaysUpdate
+	// MacOSSoftwareUpdateScheduleTypePUpdateDuringTimeWindows is a pointer to MacOSSoftwareUpdateScheduleTypeVUpdateDuringTimeWindows
+	MacOSSoftwareUpdateScheduleTypePUpdateDuringTimeWindows = &_MacOSSoftwareUpdateScheduleTypePUpdateDuringTimeWindows
+	// MacOSSoftwareUpdateScheduleTypePUpdateOutsideOfTimeWindows is a pointer to MacOSSoftwareUpdateScheduleTypeVUpdateOutsideOfTimeWindows
+	MacOSSoftwareUpdateScheduleTypePUpdateOutsideOfTimeWindows = &_MacOSSoftwareUpdateScheduleTypePUpdateOutsideOfTimeWindows
+)
+
+var (
+	_MacOSSoftwareUpdateScheduleTypePAlwaysUpdate               = MacOSSoftwareUpdateScheduleTypeVAlwaysUpdate
+	_MacOSSoftwareUpdateScheduleTypePUpdateDuringTimeWindows    = MacOSSoftwareUpdateScheduleTypeVUpdateDuringTimeWindows
+	_MacOSSoftwareUpdateScheduleTypePUpdateOutsideOfTimeWindows = MacOSSoftwareUpdateScheduleTypeVUpdateOutsideOfTimeWindows
+)
+
+// MacOSSoftwareUpdateState undocumented
+type MacOSSoftwareUpdateState string
+
+const (
+	// MacOSSoftwareUpdateStateVSuccess undocumented
+	MacOSSoftwareUpdateStateVSuccess MacOSSoftwareUpdateState = "success"
+	// MacOSSoftwareUpdateStateVDownloading undocumented
+	MacOSSoftwareUpdateStateVDownloading MacOSSoftwareUpdateState = "downloading"
+	// MacOSSoftwareUpdateStateVDownloaded undocumented
+	MacOSSoftwareUpdateStateVDownloaded MacOSSoftwareUpdateState = "downloaded"
+	// MacOSSoftwareUpdateStateVInstalling undocumented
+	MacOSSoftwareUpdateStateVInstalling MacOSSoftwareUpdateState = "installing"
+	// MacOSSoftwareUpdateStateVIdle undocumented
+	MacOSSoftwareUpdateStateVIdle MacOSSoftwareUpdateState = "idle"
+	// MacOSSoftwareUpdateStateVAvailable undocumented
+	MacOSSoftwareUpdateStateVAvailable MacOSSoftwareUpdateState = "available"
+	// MacOSSoftwareUpdateStateVScheduled undocumented
+	MacOSSoftwareUpdateStateVScheduled MacOSSoftwareUpdateState = "scheduled"
+	// MacOSSoftwareUpdateStateVDownloadFailed undocumented
+	MacOSSoftwareUpdateStateVDownloadFailed MacOSSoftwareUpdateState = "downloadFailed"
+	// MacOSSoftwareUpdateStateVDownloadInsufficientSpace undocumented
+	MacOSSoftwareUpdateStateVDownloadInsufficientSpace MacOSSoftwareUpdateState = "downloadInsufficientSpace"
+	// MacOSSoftwareUpdateStateVDownloadInsufficientPower undocumented
+	MacOSSoftwareUpdateStateVDownloadInsufficientPower MacOSSoftwareUpdateState = "downloadInsufficientPower"
+	// MacOSSoftwareUpdateStateVDownloadInsufficientNetwork undocumented
+	MacOSSoftwareUpdateStateVDownloadInsufficientNetwork MacOSSoftwareUpdateState = "downloadInsufficientNetwork"
+	// MacOSSoftwareUpdateStateVInstallInsufficientSpace undocumented
+	MacOSSoftwareUpdateStateVInstallInsufficientSpace MacOSSoftwareUpdateState = "installInsufficientSpace"
+	// MacOSSoftwareUpdateStateVInstallInsufficientPower undocumented
+	MacOSSoftwareUpdateStateVInstallInsufficientPower MacOSSoftwareUpdateState = "installInsufficientPower"
+	// MacOSSoftwareUpdateStateVInstallFailed undocumented
+	MacOSSoftwareUpdateStateVInstallFailed MacOSSoftwareUpdateState = "installFailed"
+	// MacOSSoftwareUpdateStateVCommandFailed undocumented
+	MacOSSoftwareUpdateStateVCommandFailed MacOSSoftwareUpdateState = "commandFailed"
+)
+
+var (
+	// MacOSSoftwareUpdateStatePSuccess is a pointer to MacOSSoftwareUpdateStateVSuccess
+	MacOSSoftwareUpdateStatePSuccess = &_MacOSSoftwareUpdateStatePSuccess
+	// MacOSSoftwareUpdateStatePDownloading is a pointer to MacOSSoftwareUpdateStateVDownloading
+	MacOSSoftwareUpdateStatePDownloading = &_MacOSSoftwareUpdateStatePDownloading
+	// MacOSSoftwareUpdateStatePDownloaded is a pointer to MacOSSoftwareUpdateStateVDownloaded
+	MacOSSoftwareUpdateStatePDownloaded = &_MacOSSoftwareUpdateStatePDownloaded
+	// MacOSSoftwareUpdateStatePInstalling is a pointer to MacOSSoftwareUpdateStateVInstalling
+	MacOSSoftwareUpdateStatePInstalling = &_MacOSSoftwareUpdateStatePInstalling
+	// MacOSSoftwareUpdateStatePIdle is a pointer to MacOSSoftwareUpdateStateVIdle
+	MacOSSoftwareUpdateStatePIdle = &_MacOSSoftwareUpdateStatePIdle
+	// MacOSSoftwareUpdateStatePAvailable is a pointer to MacOSSoftwareUpdateStateVAvailable
+	MacOSSoftwareUpdateStatePAvailable = &_MacOSSoftwareUpdateStatePAvailable
+	// MacOSSoftwareUpdateStatePScheduled is a pointer to MacOSSoftwareUpdateStateVScheduled
+	MacOSSoftwareUpdateStatePScheduled = &_MacOSSoftwareUpdateStatePScheduled
+	// MacOSSoftwareUpdateStatePDownloadFailed is a pointer to MacOSSoftwareUpdateStateVDownloadFailed
+	MacOSSoftwareUpdateStatePDownloadFailed = &_MacOSSoftwareUpdateStatePDownloadFailed
+	// MacOSSoftwareUpdateStatePDownloadInsufficientSpace is a pointer to MacOSSoftwareUpdateStateVDownloadInsufficientSpace
+	MacOSSoftwareUpdateStatePDownloadInsufficientSpace = &_MacOSSoftwareUpdateStatePDownloadInsufficientSpace
+	// MacOSSoftwareUpdateStatePDownloadInsufficientPower is a pointer to MacOSSoftwareUpdateStateVDownloadInsufficientPower
+	MacOSSoftwareUpdateStatePDownloadInsufficientPower = &_MacOSSoftwareUpdateStatePDownloadInsufficientPower
+	// MacOSSoftwareUpdateStatePDownloadInsufficientNetwork is a pointer to MacOSSoftwareUpdateStateVDownloadInsufficientNetwork
+	MacOSSoftwareUpdateStatePDownloadInsufficientNetwork = &_MacOSSoftwareUpdateStatePDownloadInsufficientNetwork
+	// MacOSSoftwareUpdateStatePInstallInsufficientSpace is a pointer to MacOSSoftwareUpdateStateVInstallInsufficientSpace
+	MacOSSoftwareUpdateStatePInstallInsufficientSpace = &_MacOSSoftwareUpdateStatePInstallInsufficientSpace
+	// MacOSSoftwareUpdateStatePInstallInsufficientPower is a pointer to MacOSSoftwareUpdateStateVInstallInsufficientPower
+	MacOSSoftwareUpdateStatePInstallInsufficientPower = &_MacOSSoftwareUpdateStatePInstallInsufficientPower
+	// MacOSSoftwareUpdateStatePInstallFailed is a pointer to MacOSSoftwareUpdateStateVInstallFailed
+	MacOSSoftwareUpdateStatePInstallFailed = &_MacOSSoftwareUpdateStatePInstallFailed
+	// MacOSSoftwareUpdateStatePCommandFailed is a pointer to MacOSSoftwareUpdateStateVCommandFailed
+	MacOSSoftwareUpdateStatePCommandFailed = &_MacOSSoftwareUpdateStatePCommandFailed
+)
+
+var (
+	_MacOSSoftwareUpdateStatePSuccess                     = MacOSSoftwareUpdateStateVSuccess
+	_MacOSSoftwareUpdateStatePDownloading                 = MacOSSoftwareUpdateStateVDownloading
+	_MacOSSoftwareUpdateStatePDownloaded                  = MacOSSoftwareUpdateStateVDownloaded
+	_MacOSSoftwareUpdateStatePInstalling                  = MacOSSoftwareUpdateStateVInstalling
+	_MacOSSoftwareUpdateStatePIdle                        = MacOSSoftwareUpdateStateVIdle
+	_MacOSSoftwareUpdateStatePAvailable                   = MacOSSoftwareUpdateStateVAvailable
+	_MacOSSoftwareUpdateStatePScheduled                   = MacOSSoftwareUpdateStateVScheduled
+	_MacOSSoftwareUpdateStatePDownloadFailed              = MacOSSoftwareUpdateStateVDownloadFailed
+	_MacOSSoftwareUpdateStatePDownloadInsufficientSpace   = MacOSSoftwareUpdateStateVDownloadInsufficientSpace
+	_MacOSSoftwareUpdateStatePDownloadInsufficientPower   = MacOSSoftwareUpdateStateVDownloadInsufficientPower
+	_MacOSSoftwareUpdateStatePDownloadInsufficientNetwork = MacOSSoftwareUpdateStateVDownloadInsufficientNetwork
+	_MacOSSoftwareUpdateStatePInstallInsufficientSpace    = MacOSSoftwareUpdateStateVInstallInsufficientSpace
+	_MacOSSoftwareUpdateStatePInstallInsufficientPower    = MacOSSoftwareUpdateStateVInstallInsufficientPower
+	_MacOSSoftwareUpdateStatePInstallFailed               = MacOSSoftwareUpdateStateVInstallFailed
+	_MacOSSoftwareUpdateStatePCommandFailed               = MacOSSoftwareUpdateStateVCommandFailed
+)
+
+// MacOSSystemExtensionType undocumented
+type MacOSSystemExtensionType string
+
+const (
+	// MacOSSystemExtensionTypeVDriverExtensionsAllowed undocumented
+	MacOSSystemExtensionTypeVDriverExtensionsAllowed MacOSSystemExtensionType = "driverExtensionsAllowed"
+	// MacOSSystemExtensionTypeVNetworkExtensionsAllowed undocumented
+	MacOSSystemExtensionTypeVNetworkExtensionsAllowed MacOSSystemExtensionType = "networkExtensionsAllowed"
+	// MacOSSystemExtensionTypeVEndpointSecurityExtensionsAllowed undocumented
+	MacOSSystemExtensionTypeVEndpointSecurityExtensionsAllowed MacOSSystemExtensionType = "endpointSecurityExtensionsAllowed"
+)
+
+var (
+	// MacOSSystemExtensionTypePDriverExtensionsAllowed is a pointer to MacOSSystemExtensionTypeVDriverExtensionsAllowed
+	MacOSSystemExtensionTypePDriverExtensionsAllowed = &_MacOSSystemExtensionTypePDriverExtensionsAllowed
+	// MacOSSystemExtensionTypePNetworkExtensionsAllowed is a pointer to MacOSSystemExtensionTypeVNetworkExtensionsAllowed
+	MacOSSystemExtensionTypePNetworkExtensionsAllowed = &_MacOSSystemExtensionTypePNetworkExtensionsAllowed
+	// MacOSSystemExtensionTypePEndpointSecurityExtensionsAllowed is a pointer to MacOSSystemExtensionTypeVEndpointSecurityExtensionsAllowed
+	MacOSSystemExtensionTypePEndpointSecurityExtensionsAllowed = &_MacOSSystemExtensionTypePEndpointSecurityExtensionsAllowed
+)
+
+var (
+	_MacOSSystemExtensionTypePDriverExtensionsAllowed           = MacOSSystemExtensionTypeVDriverExtensionsAllowed
+	_MacOSSystemExtensionTypePNetworkExtensionsAllowed          = MacOSSystemExtensionTypeVNetworkExtensionsAllowed
+	_MacOSSystemExtensionTypePEndpointSecurityExtensionsAllowed = MacOSSystemExtensionTypeVEndpointSecurityExtensionsAllowed
 )

@@ -4,8 +4,8 @@ package msgraph
 
 // CommsApplication undocumented
 type CommsApplication struct {
-	// Entity is the base model of CommsApplication
-	Entity
+	// Object is the base model of CommsApplication
+	Object
 	// Calls undocumented
 	Calls []Call `json:"calls,omitempty"`
 	// OnlineMeetings undocumented
@@ -34,10 +34,10 @@ type CommsNotifications struct {
 type CommsOperation struct {
 	// Entity is the base model of CommsOperation
 	Entity
-	// Status undocumented
-	Status *OperationStatus `json:"status,omitempty"`
 	// ClientContext undocumented
 	ClientContext *string `json:"clientContext,omitempty"`
 	// ResultInfo undocumented
 	ResultInfo *ResultInfo `json:"resultInfo,omitempty"`
+	// Status undocumented
+	Status *OperationStatus `json:"status,omitempty"`
 }

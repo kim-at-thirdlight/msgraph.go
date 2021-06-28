@@ -12,6 +12,10 @@ const (
 	DefenderAttackSurfaceTypeVBlock DefenderAttackSurfaceType = "block"
 	// DefenderAttackSurfaceTypeVAuditMode undocumented
 	DefenderAttackSurfaceTypeVAuditMode DefenderAttackSurfaceType = "auditMode"
+	// DefenderAttackSurfaceTypeVWarn undocumented
+	DefenderAttackSurfaceTypeVWarn DefenderAttackSurfaceType = "warn"
+	// DefenderAttackSurfaceTypeVDisable undocumented
+	DefenderAttackSurfaceTypeVDisable DefenderAttackSurfaceType = "disable"
 )
 
 var (
@@ -21,12 +25,18 @@ var (
 	DefenderAttackSurfaceTypePBlock = &_DefenderAttackSurfaceTypePBlock
 	// DefenderAttackSurfaceTypePAuditMode is a pointer to DefenderAttackSurfaceTypeVAuditMode
 	DefenderAttackSurfaceTypePAuditMode = &_DefenderAttackSurfaceTypePAuditMode
+	// DefenderAttackSurfaceTypePWarn is a pointer to DefenderAttackSurfaceTypeVWarn
+	DefenderAttackSurfaceTypePWarn = &_DefenderAttackSurfaceTypePWarn
+	// DefenderAttackSurfaceTypePDisable is a pointer to DefenderAttackSurfaceTypeVDisable
+	DefenderAttackSurfaceTypePDisable = &_DefenderAttackSurfaceTypePDisable
 )
 
 var (
 	_DefenderAttackSurfaceTypePUserDefined = DefenderAttackSurfaceTypeVUserDefined
 	_DefenderAttackSurfaceTypePBlock       = DefenderAttackSurfaceTypeVBlock
 	_DefenderAttackSurfaceTypePAuditMode   = DefenderAttackSurfaceTypeVAuditMode
+	_DefenderAttackSurfaceTypePWarn        = DefenderAttackSurfaceTypeVWarn
+	_DefenderAttackSurfaceTypePDisable     = DefenderAttackSurfaceTypeVDisable
 )
 
 // DefenderCloudBlockLevelType undocumented
@@ -172,6 +182,10 @@ const (
 	DefenderProtectionTypeVEnable DefenderProtectionType = "enable"
 	// DefenderProtectionTypeVAuditMode undocumented
 	DefenderProtectionTypeVAuditMode DefenderProtectionType = "auditMode"
+	// DefenderProtectionTypeVWarn undocumented
+	DefenderProtectionTypeVWarn DefenderProtectionType = "warn"
+	// DefenderProtectionTypeVNotConfigured undocumented
+	DefenderProtectionTypeVNotConfigured DefenderProtectionType = "notConfigured"
 )
 
 var (
@@ -181,12 +195,45 @@ var (
 	DefenderProtectionTypePEnable = &_DefenderProtectionTypePEnable
 	// DefenderProtectionTypePAuditMode is a pointer to DefenderProtectionTypeVAuditMode
 	DefenderProtectionTypePAuditMode = &_DefenderProtectionTypePAuditMode
+	// DefenderProtectionTypePWarn is a pointer to DefenderProtectionTypeVWarn
+	DefenderProtectionTypePWarn = &_DefenderProtectionTypePWarn
+	// DefenderProtectionTypePNotConfigured is a pointer to DefenderProtectionTypeVNotConfigured
+	DefenderProtectionTypePNotConfigured = &_DefenderProtectionTypePNotConfigured
 )
 
 var (
-	_DefenderProtectionTypePUserDefined = DefenderProtectionTypeVUserDefined
-	_DefenderProtectionTypePEnable      = DefenderProtectionTypeVEnable
-	_DefenderProtectionTypePAuditMode   = DefenderProtectionTypeVAuditMode
+	_DefenderProtectionTypePUserDefined   = DefenderProtectionTypeVUserDefined
+	_DefenderProtectionTypePEnable        = DefenderProtectionTypeVEnable
+	_DefenderProtectionTypePAuditMode     = DefenderProtectionTypeVAuditMode
+	_DefenderProtectionTypePWarn          = DefenderProtectionTypeVWarn
+	_DefenderProtectionTypePNotConfigured = DefenderProtectionTypeVNotConfigured
+)
+
+// DefenderRealtimeScanDirection undocumented
+type DefenderRealtimeScanDirection string
+
+const (
+	// DefenderRealtimeScanDirectionVMonitorAllFiles undocumented
+	DefenderRealtimeScanDirectionVMonitorAllFiles DefenderRealtimeScanDirection = "monitorAllFiles"
+	// DefenderRealtimeScanDirectionVMonitorIncomingFilesOnly undocumented
+	DefenderRealtimeScanDirectionVMonitorIncomingFilesOnly DefenderRealtimeScanDirection = "monitorIncomingFilesOnly"
+	// DefenderRealtimeScanDirectionVMonitorOutgoingFilesOnly undocumented
+	DefenderRealtimeScanDirectionVMonitorOutgoingFilesOnly DefenderRealtimeScanDirection = "monitorOutgoingFilesOnly"
+)
+
+var (
+	// DefenderRealtimeScanDirectionPMonitorAllFiles is a pointer to DefenderRealtimeScanDirectionVMonitorAllFiles
+	DefenderRealtimeScanDirectionPMonitorAllFiles = &_DefenderRealtimeScanDirectionPMonitorAllFiles
+	// DefenderRealtimeScanDirectionPMonitorIncomingFilesOnly is a pointer to DefenderRealtimeScanDirectionVMonitorIncomingFilesOnly
+	DefenderRealtimeScanDirectionPMonitorIncomingFilesOnly = &_DefenderRealtimeScanDirectionPMonitorIncomingFilesOnly
+	// DefenderRealtimeScanDirectionPMonitorOutgoingFilesOnly is a pointer to DefenderRealtimeScanDirectionVMonitorOutgoingFilesOnly
+	DefenderRealtimeScanDirectionPMonitorOutgoingFilesOnly = &_DefenderRealtimeScanDirectionPMonitorOutgoingFilesOnly
+)
+
+var (
+	_DefenderRealtimeScanDirectionPMonitorAllFiles          = DefenderRealtimeScanDirectionVMonitorAllFiles
+	_DefenderRealtimeScanDirectionPMonitorIncomingFilesOnly = DefenderRealtimeScanDirectionVMonitorIncomingFilesOnly
+	_DefenderRealtimeScanDirectionPMonitorOutgoingFilesOnly = DefenderRealtimeScanDirectionVMonitorOutgoingFilesOnly
 )
 
 // DefenderScanType undocumented

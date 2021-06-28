@@ -11,6 +11,116 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// RequestObject is navigation property
+func (b *ApprovalRequestBuilder) RequestObject() *RequestObjectRequestBuilder {
+	bb := &RequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/request"
+	return bb
+}
+
+// Steps returns request builder for ApprovalStep collection
+func (b *ApprovalRequestBuilder) Steps() *ApprovalStepsCollectionRequestBuilder {
+	bb := &ApprovalStepsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/steps"
+	return bb
+}
+
+// ApprovalStepsCollectionRequestBuilder is request builder for ApprovalStep collection
+type ApprovalStepsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ApprovalStep collection
+func (b *ApprovalStepsCollectionRequestBuilder) Request() *ApprovalStepsCollectionRequest {
+	return &ApprovalStepsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ApprovalStep item
+func (b *ApprovalStepsCollectionRequestBuilder) ID(id string) *ApprovalStepRequestBuilder {
+	bb := &ApprovalStepRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ApprovalStepsCollectionRequest is request for ApprovalStep collection
+type ApprovalStepsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ApprovalStep collection
+func (r *ApprovalStepsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ApprovalStep, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ApprovalStep
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ApprovalStep
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ApprovalStep collection, max N pages
+func (r *ApprovalStepsCollectionRequest) GetN(ctx context.Context, n int) ([]ApprovalStep, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ApprovalStep collection
+func (r *ApprovalStepsCollectionRequest) Get(ctx context.Context) ([]ApprovalStep, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ApprovalStep collection
+func (r *ApprovalStepsCollectionRequest) Add(ctx context.Context, reqObj *ApprovalStep) (resObj *ApprovalStep, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // BusinessFlows returns request builder for BusinessFlow collection
 func (b *ApprovalWorkflowProviderRequestBuilder) BusinessFlows() *ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder {
 	bb := &ApprovalWorkflowProviderBusinessFlowsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -316,212 +426,6 @@ func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Get(ctx conte
 
 // Add performs POST request for GovernancePolicyTemplate collection
 func (r *ApprovalWorkflowProviderPolicyTemplatesCollectionRequest) Add(ctx context.Context, reqObj *GovernancePolicyTemplate) (resObj *GovernancePolicyTemplate, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Requests returns request builder for RequestObject collection
-func (b *ApprovalWorkflowProviderRequestBuilder) Requests() *ApprovalWorkflowProviderRequestsCollectionRequestBuilder {
-	bb := &ApprovalWorkflowProviderRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/requests"
-	return bb
-}
-
-// ApprovalWorkflowProviderRequestsCollectionRequestBuilder is request builder for RequestObject collection
-type ApprovalWorkflowProviderRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for RequestObject collection
-func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) Request() *ApprovalWorkflowProviderRequestsCollectionRequest {
-	return &ApprovalWorkflowProviderRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for RequestObject item
-func (b *ApprovalWorkflowProviderRequestsCollectionRequestBuilder) ID(id string) *RequestObjectRequestBuilder {
-	bb := &RequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// ApprovalWorkflowProviderRequestsCollectionRequest is request for RequestObject collection
-type ApprovalWorkflowProviderRequestsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RequestObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []RequestObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []RequestObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for RequestObject collection, max N pages
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]RequestObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsCollectionRequest) Add(ctx context.Context, reqObj *RequestObject) (resObj *RequestObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// RequestsAwaitingMyDecision returns request builder for RequestObject collection
-func (b *ApprovalWorkflowProviderRequestBuilder) RequestsAwaitingMyDecision() *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder {
-	bb := &ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/requestsAwaitingMyDecision"
-	return bb
-}
-
-// ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder is request builder for RequestObject collection
-type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for RequestObject collection
-func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder) Request() *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest {
-	return &ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for RequestObject item
-func (b *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequestBuilder) ID(id string) *RequestObjectRequestBuilder {
-	bb := &RequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest is request for RequestObject collection
-type ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RequestObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []RequestObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []RequestObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for RequestObject collection, max N pages
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) GetN(ctx context.Context, n int) ([]RequestObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Get(ctx context.Context) ([]RequestObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for RequestObject collection
-func (r *ApprovalWorkflowProviderRequestsAwaitingMyDecisionCollectionRequest) Add(ctx context.Context, reqObj *RequestObject) (resObj *RequestObject, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

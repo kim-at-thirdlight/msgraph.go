@@ -6,22 +6,22 @@ package msgraph
 type Command struct {
 	// Entity is the base model of Command
 	Entity
-	// Status undocumented
-	Status *string `json:"Status,omitempty"`
-	// Type undocumented
-	Type *string `json:"Type,omitempty"`
 	// AppServiceName undocumented
-	AppServiceName *string `json:"AppServiceName,omitempty"`
-	// PackageFamilyName undocumented
-	PackageFamilyName *string `json:"PackageFamilyName,omitempty"`
+	AppServiceName *string `json:"appServiceName,omitempty"`
 	// Error undocumented
-	Error *string `json:"Error,omitempty"`
+	Error *string `json:"error,omitempty"`
+	// PackageFamilyName undocumented
+	PackageFamilyName *string `json:"packageFamilyName,omitempty"`
 	// Payload undocumented
-	Payload *PayloadRequestObject `json:"Payload,omitempty"`
+	Payload *PayloadRequestObject `json:"payload,omitempty"`
 	// PermissionTicket undocumented
-	PermissionTicket *string `json:"PermissionTicket,omitempty"`
+	PermissionTicket *string `json:"permissionTicket,omitempty"`
 	// PostBackURI undocumented
-	PostBackURI *string `json:"PostBackUri,omitempty"`
+	PostBackURI *string `json:"postBackUri,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 	// Responsepayload undocumented
 	Responsepayload *PayloadResponse `json:"responsepayload,omitempty"`
 }

@@ -8,28 +8,28 @@ import "time"
 type ImportedAppleDeviceIdentity struct {
 	// Entity is the base model of ImportedAppleDeviceIdentity
 	Entity
-	// SerialNumber Device serial number
-	SerialNumber *string `json:"serialNumber,omitempty"`
-	// RequestedEnrollmentProfileID Enrollment profile Id admin intends to apply to the device during next enrollment
-	RequestedEnrollmentProfileID *string `json:"requestedEnrollmentProfileId,omitempty"`
-	// RequestedEnrollmentProfileAssignmentDateTime The time enrollment profile was assigned to the device
-	RequestedEnrollmentProfileAssignmentDateTime *time.Time `json:"requestedEnrollmentProfileAssignmentDateTime,omitempty"`
-	// IsSupervised Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
-	IsSupervised *bool `json:"isSupervised,omitempty"`
-	// DiscoverySource Apple device discovery source.
-	DiscoverySource *DiscoverySource `json:"discoverySource,omitempty"`
-	// IsDeleted Indicates if the device is deleted from Apple Business Manager
-	IsDeleted *bool `json:"isDeleted,omitempty"`
 	// CreatedDateTime Created Date Time of the device
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastContactedDateTime Last Contacted Date Time of the device
-	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
 	// Description The description of the device
 	Description *string `json:"description,omitempty"`
+	// DiscoverySource Apple device discovery source.
+	DiscoverySource *DiscoverySource `json:"discoverySource,omitempty"`
 	// EnrollmentState The state of the device in Intune
 	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
+	// IsDeleted Indicates if the device is deleted from Apple Business Manager
+	IsDeleted *bool `json:"isDeleted,omitempty"`
+	// IsSupervised Indicates if the Apple device is supervised. More information is at: https://support.apple.com/en-us/HT202837
+	IsSupervised *bool `json:"isSupervised,omitempty"`
+	// LastContactedDateTime Last Contacted Date Time of the device
+	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
 	// Platform The platform of the Device.
 	Platform *Platform `json:"platform,omitempty"`
+	// RequestedEnrollmentProfileAssignmentDateTime The time enrollment profile was assigned to the device
+	RequestedEnrollmentProfileAssignmentDateTime *time.Time `json:"requestedEnrollmentProfileAssignmentDateTime,omitempty"`
+	// RequestedEnrollmentProfileID Enrollment profile Id admin intends to apply to the device during next enrollment
+	RequestedEnrollmentProfileID *string `json:"requestedEnrollmentProfileId,omitempty"`
+	// SerialNumber Device serial number
+	SerialNumber *string `json:"serialNumber,omitempty"`
 }
 
 // ImportedAppleDeviceIdentityResult The importedAppleDeviceIdentityResult resource represents the result of attempting to import Apple devices identities.
@@ -44,20 +44,20 @@ type ImportedAppleDeviceIdentityResult struct {
 type ImportedDeviceIdentity struct {
 	// Entity is the base model of ImportedDeviceIdentity
 	Entity
-	// ImportedDeviceIdentifier Imported Device Identifier
-	ImportedDeviceIdentifier *string `json:"importedDeviceIdentifier,omitempty"`
-	// ImportedDeviceIdentityType Type of Imported Device Identity
-	ImportedDeviceIdentityType *ImportedDeviceIdentityType `json:"importedDeviceIdentityType,omitempty"`
-	// LastModifiedDateTime Last Modified DateTime of the description
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// CreatedDateTime Created Date Time of the device
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastContactedDateTime Last Contacted Date Time of the device
-	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
 	// Description The description of the device
 	Description *string `json:"description,omitempty"`
 	// EnrollmentState The state of the device in Intune
 	EnrollmentState *EnrollmentState `json:"enrollmentState,omitempty"`
+	// ImportedDeviceIdentifier Imported Device Identifier
+	ImportedDeviceIdentifier *string `json:"importedDeviceIdentifier,omitempty"`
+	// ImportedDeviceIdentityType Type of Imported Device Identity
+	ImportedDeviceIdentityType *ImportedDeviceIdentityType `json:"importedDeviceIdentityType,omitempty"`
+	// LastContactedDateTime Last Contacted Date Time of the device
+	LastContactedDateTime *time.Time `json:"lastContactedDateTime,omitempty"`
+	// LastModifiedDateTime Last Modified DateTime of the description
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// Platform The platform of the Device.
 	Platform *Platform `json:"platform,omitempty"`
 }
@@ -74,36 +74,34 @@ type ImportedDeviceIdentityResult struct {
 type ImportedWindowsAutopilotDeviceIdentity struct {
 	// Entity is the base model of ImportedWindowsAutopilotDeviceIdentity
 	Entity
-	// OrderIdentifier Order Id of the Windows autopilot device. - Deprecate
-	OrderIdentifier *string `json:"orderIdentifier,omitempty"`
-	// GroupTag Group Tag of the Windows autopilot device.
-	GroupTag *string `json:"groupTag,omitempty"`
-	// SerialNumber Serial number of the Windows autopilot device.
-	SerialNumber *string `json:"serialNumber,omitempty"`
-	// ProductKey Product Key of the Windows autopilot device.
-	ProductKey *string `json:"productKey,omitempty"`
-	// ImportID The Import Id of the Windows autopilot device.
-	ImportID *string `json:"importId,omitempty"`
-	// HardwareIdentifier Hardware Blob of the Windows autopilot device.
-	HardwareIdentifier *Binary `json:"hardwareIdentifier,omitempty"`
-	// State Current state of the imported device.
-	State *ImportedWindowsAutopilotDeviceIdentityState `json:"state,omitempty"`
 	// AssignedUserPrincipalName UPN of the user the device will be assigned
 	AssignedUserPrincipalName *string `json:"assignedUserPrincipalName,omitempty"`
+	// GroupTag Group Tag of the Windows autopilot device.
+	GroupTag *string `json:"groupTag,omitempty"`
+	// HardwareIdentifier Hardware Blob of the Windows autopilot device.
+	HardwareIdentifier *Binary `json:"hardwareIdentifier,omitempty"`
+	// ImportID The Import Id of the Windows autopilot device.
+	ImportID *string `json:"importId,omitempty"`
+	// ProductKey Product Key of the Windows autopilot device.
+	ProductKey *string `json:"productKey,omitempty"`
+	// SerialNumber Serial number of the Windows autopilot device.
+	SerialNumber *string `json:"serialNumber,omitempty"`
+	// State Current state of the imported device.
+	State *ImportedWindowsAutopilotDeviceIdentityState `json:"state,omitempty"`
 }
 
 // ImportedWindowsAutopilotDeviceIdentityState undocumented
 type ImportedWindowsAutopilotDeviceIdentityState struct {
 	// Object is the base model of ImportedWindowsAutopilotDeviceIdentityState
 	Object
-	// DeviceImportStatus Device status reported by Device Directory Service(DDS).
-	DeviceImportStatus *ImportedWindowsAutopilotDeviceIdentityImportStatus `json:"deviceImportStatus,omitempty"`
-	// DeviceRegistrationID Device Registration ID for successfully added device reported by Device Directory Service(DDS).
-	DeviceRegistrationID *string `json:"deviceRegistrationId,omitempty"`
 	// DeviceErrorCode Device error code reported by Device Directory Service(DDS).
 	DeviceErrorCode *int `json:"deviceErrorCode,omitempty"`
 	// DeviceErrorName Device error name reported by Device Directory Service(DDS).
 	DeviceErrorName *string `json:"deviceErrorName,omitempty"`
+	// DeviceImportStatus Device status reported by Device Directory Service(DDS).
+	DeviceImportStatus *ImportedWindowsAutopilotDeviceIdentityImportStatus `json:"deviceImportStatus,omitempty"`
+	// DeviceRegistrationID Device Registration ID for successfully added device reported by Device Directory Service(DDS).
+	DeviceRegistrationID *string `json:"deviceRegistrationId,omitempty"`
 }
 
 // ImportedWindowsAutopilotDeviceIdentityUpload Import windows autopilot devices using upload.

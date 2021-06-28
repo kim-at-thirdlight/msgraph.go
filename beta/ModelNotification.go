@@ -8,18 +8,18 @@ import "time"
 type Notification struct {
 	// Entity is the base model of Notification
 	Entity
-	// TargetHostName undocumented
-	TargetHostName *string `json:"targetHostName,omitempty"`
-	// ExpirationDateTime undocumented
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// Payload undocumented
-	Payload *PayloadTypes `json:"payload,omitempty"`
 	// DisplayTimeToLive undocumented
 	DisplayTimeToLive *int `json:"displayTimeToLive,omitempty"`
-	// Priority undocumented
-	Priority *Priority `json:"priority,omitempty"`
+	// ExpirationDateTime undocumented
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// GroupName undocumented
 	GroupName *string `json:"groupName,omitempty"`
+	// Payload undocumented
+	Payload *PayloadTypes `json:"payload,omitempty"`
+	// Priority undocumented
+	Priority *Priority `json:"priority,omitempty"`
+	// TargetHostName undocumented
+	TargetHostName *string `json:"targetHostName,omitempty"`
 	// TargetPolicy undocumented
 	TargetPolicy *TargetPolicyEndpoints `json:"targetPolicy,omitempty"`
 }
@@ -28,14 +28,14 @@ type Notification struct {
 type NotificationMessageTemplate struct {
 	// Entity is the base model of NotificationMessageTemplate
 	Entity
-	// LastModifiedDateTime DateTime the object was last modified.
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// DisplayName Display name for the Notification Message Template.
-	DisplayName *string `json:"displayName,omitempty"`
-	// DefaultLocale The default locale to fallback onto when the requested locale is not available.
-	DefaultLocale *string `json:"defaultLocale,omitempty"`
 	// BrandingOptions The Message Template Branding Options. Branding is defined in the Intune Admin Console.
 	BrandingOptions *NotificationTemplateBrandingOptions `json:"brandingOptions,omitempty"`
+	// DefaultLocale The default locale to fallback onto when the requested locale is not available.
+	DefaultLocale *string `json:"defaultLocale,omitempty"`
+	// DisplayName Display name for the Notification Message Template.
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime DateTime the object was last modified.
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// RoleScopeTagIDs List of Scope Tags for this Entity instance.
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
 	// LocalizedNotificationMessages undocumented

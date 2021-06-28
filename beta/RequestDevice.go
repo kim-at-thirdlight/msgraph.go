@@ -44,6 +44,39 @@ func (r *DeviceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceAndAppManagementAssignmentFilterRequestBuilder is request builder for DeviceAndAppManagementAssignmentFilter
+type DeviceAndAppManagementAssignmentFilterRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceAndAppManagementAssignmentFilterRequest
+func (b *DeviceAndAppManagementAssignmentFilterRequestBuilder) Request() *DeviceAndAppManagementAssignmentFilterRequest {
+	return &DeviceAndAppManagementAssignmentFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceAndAppManagementAssignmentFilterRequest is request for DeviceAndAppManagementAssignmentFilter
+type DeviceAndAppManagementAssignmentFilterRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceAndAppManagementAssignmentFilter
+func (r *DeviceAndAppManagementAssignmentFilterRequest) Get(ctx context.Context) (resObj *DeviceAndAppManagementAssignmentFilter, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceAndAppManagementAssignmentFilter
+func (r *DeviceAndAppManagementAssignmentFilterRequest) Update(ctx context.Context, reqObj *DeviceAndAppManagementAssignmentFilter) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceAndAppManagementAssignmentFilter
+func (r *DeviceAndAppManagementAssignmentFilterRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // DeviceAndAppManagementRoleAssignmentRequestBuilder is request builder for DeviceAndAppManagementRoleAssignment
 type DeviceAndAppManagementRoleAssignmentRequestBuilder struct{ BaseRequestBuilder }
 
@@ -506,21 +539,21 @@ func (r *DeviceComplianceScheduledActionForRuleRequest) Delete(ctx context.Conte
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// DeviceComplianceSettingStateRequestBuilder is request builder for DeviceComplianceSettingState
-type DeviceComplianceSettingStateRequestBuilder struct{ BaseRequestBuilder }
+// DeviceComplianceScriptRequestBuilder is request builder for DeviceComplianceScript
+type DeviceComplianceScriptRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns DeviceComplianceSettingStateRequest
-func (b *DeviceComplianceSettingStateRequestBuilder) Request() *DeviceComplianceSettingStateRequest {
-	return &DeviceComplianceSettingStateRequest{
+// Request returns DeviceComplianceScriptRequest
+func (b *DeviceComplianceScriptRequestBuilder) Request() *DeviceComplianceScriptRequest {
+	return &DeviceComplianceScriptRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-// DeviceComplianceSettingStateRequest is request for DeviceComplianceSettingState
-type DeviceComplianceSettingStateRequest struct{ BaseRequest }
+// DeviceComplianceScriptRequest is request for DeviceComplianceScript
+type DeviceComplianceScriptRequest struct{ BaseRequest }
 
-// Get performs GET request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Get(ctx context.Context) (resObj *DeviceComplianceSettingState, err error) {
+// Get performs GET request for DeviceComplianceScript
+func (r *DeviceComplianceScriptRequest) Get(ctx context.Context) (resObj *DeviceComplianceScript, err error) {
 	var query string
 	if r.query != nil {
 		query = "?" + r.query.Encode()
@@ -529,13 +562,79 @@ func (r *DeviceComplianceSettingStateRequest) Get(ctx context.Context) (resObj *
 	return
 }
 
-// Update performs PATCH request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Update(ctx context.Context, reqObj *DeviceComplianceSettingState) error {
+// Update performs PATCH request for DeviceComplianceScript
+func (r *DeviceComplianceScriptRequest) Update(ctx context.Context, reqObj *DeviceComplianceScript) error {
 	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
 }
 
-// Delete performs DELETE request for DeviceComplianceSettingState
-func (r *DeviceComplianceSettingStateRequest) Delete(ctx context.Context) error {
+// Delete performs DELETE request for DeviceComplianceScript
+func (r *DeviceComplianceScriptRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceComplianceScriptDeviceStateRequestBuilder is request builder for DeviceComplianceScriptDeviceState
+type DeviceComplianceScriptDeviceStateRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceComplianceScriptDeviceStateRequest
+func (b *DeviceComplianceScriptDeviceStateRequestBuilder) Request() *DeviceComplianceScriptDeviceStateRequest {
+	return &DeviceComplianceScriptDeviceStateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceComplianceScriptDeviceStateRequest is request for DeviceComplianceScriptDeviceState
+type DeviceComplianceScriptDeviceStateRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceComplianceScriptDeviceState
+func (r *DeviceComplianceScriptDeviceStateRequest) Get(ctx context.Context) (resObj *DeviceComplianceScriptDeviceState, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceComplianceScriptDeviceState
+func (r *DeviceComplianceScriptDeviceStateRequest) Update(ctx context.Context, reqObj *DeviceComplianceScriptDeviceState) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceComplianceScriptDeviceState
+func (r *DeviceComplianceScriptDeviceStateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceComplianceScriptRunSummaryRequestBuilder is request builder for DeviceComplianceScriptRunSummary
+type DeviceComplianceScriptRunSummaryRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceComplianceScriptRunSummaryRequest
+func (b *DeviceComplianceScriptRunSummaryRequestBuilder) Request() *DeviceComplianceScriptRunSummaryRequest {
+	return &DeviceComplianceScriptRunSummaryRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceComplianceScriptRunSummaryRequest is request for DeviceComplianceScriptRunSummary
+type DeviceComplianceScriptRunSummaryRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceComplianceScriptRunSummary
+func (r *DeviceComplianceScriptRunSummaryRequest) Get(ctx context.Context) (resObj *DeviceComplianceScriptRunSummary, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceComplianceScriptRunSummary
+func (r *DeviceComplianceScriptRunSummaryRequest) Update(ctx context.Context, reqObj *DeviceComplianceScriptRunSummary) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceComplianceScriptRunSummary
+func (r *DeviceComplianceScriptRunSummaryRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -968,6 +1067,39 @@ func (r *DeviceConfigurationUserStatusRequest) Delete(ctx context.Context) error
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceCustomAttributeShellScriptRequestBuilder is request builder for DeviceCustomAttributeShellScript
+type DeviceCustomAttributeShellScriptRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceCustomAttributeShellScriptRequest
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) Request() *DeviceCustomAttributeShellScriptRequest {
+	return &DeviceCustomAttributeShellScriptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceCustomAttributeShellScriptRequest is request for DeviceCustomAttributeShellScript
+type DeviceCustomAttributeShellScriptRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceCustomAttributeShellScript
+func (r *DeviceCustomAttributeShellScriptRequest) Get(ctx context.Context) (resObj *DeviceCustomAttributeShellScript, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceCustomAttributeShellScript
+func (r *DeviceCustomAttributeShellScriptRequest) Update(ctx context.Context, reqObj *DeviceCustomAttributeShellScript) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceCustomAttributeShellScript
+func (r *DeviceCustomAttributeShellScriptRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // DeviceEnrollmentConfigurationRequestBuilder is request builder for DeviceEnrollmentConfiguration
 type DeviceEnrollmentConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1166,6 +1298,39 @@ func (r *DeviceInstallStateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceLogCollectionResponseRequestBuilder is request builder for DeviceLogCollectionResponse
+type DeviceLogCollectionResponseRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceLogCollectionResponseRequest
+func (b *DeviceLogCollectionResponseRequestBuilder) Request() *DeviceLogCollectionResponseRequest {
+	return &DeviceLogCollectionResponseRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceLogCollectionResponseRequest is request for DeviceLogCollectionResponse
+type DeviceLogCollectionResponseRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceLogCollectionResponse
+func (r *DeviceLogCollectionResponseRequest) Get(ctx context.Context) (resObj *DeviceLogCollectionResponse, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceLogCollectionResponse
+func (r *DeviceLogCollectionResponseRequest) Update(ctx context.Context, reqObj *DeviceLogCollectionResponse) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceLogCollectionResponse
+func (r *DeviceLogCollectionResponseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // DeviceManagementRequestBuilder is request builder for DeviceManagement
 type DeviceManagementRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1265,6 +1430,39 @@ func (r *DeviceManagementAutopilotEventRequest) Delete(ctx context.Context) erro
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceManagementAutopilotPolicyStatusDetailRequestBuilder is request builder for DeviceManagementAutopilotPolicyStatusDetail
+type DeviceManagementAutopilotPolicyStatusDetailRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementAutopilotPolicyStatusDetailRequest
+func (b *DeviceManagementAutopilotPolicyStatusDetailRequestBuilder) Request() *DeviceManagementAutopilotPolicyStatusDetailRequest {
+	return &DeviceManagementAutopilotPolicyStatusDetailRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementAutopilotPolicyStatusDetailRequest is request for DeviceManagementAutopilotPolicyStatusDetail
+type DeviceManagementAutopilotPolicyStatusDetailRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementAutopilotPolicyStatusDetail
+func (r *DeviceManagementAutopilotPolicyStatusDetailRequest) Get(ctx context.Context) (resObj *DeviceManagementAutopilotPolicyStatusDetail, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementAutopilotPolicyStatusDetail
+func (r *DeviceManagementAutopilotPolicyStatusDetailRequest) Update(ctx context.Context, reqObj *DeviceManagementAutopilotPolicyStatusDetail) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementAutopilotPolicyStatusDetail
+func (r *DeviceManagementAutopilotPolicyStatusDetailRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // DeviceManagementCachedReportConfigurationRequestBuilder is request builder for DeviceManagementCachedReportConfiguration
 type DeviceManagementCachedReportConfigurationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -1361,6 +1559,237 @@ func (r *DeviceManagementComplexSettingInstanceRequest) Update(ctx context.Conte
 
 // Delete performs DELETE request for DeviceManagementComplexSettingInstance
 func (r *DeviceManagementComplexSettingInstanceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationCategoryRequestBuilder is request builder for DeviceManagementConfigurationCategory
+type DeviceManagementConfigurationCategoryRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationCategoryRequest
+func (b *DeviceManagementConfigurationCategoryRequestBuilder) Request() *DeviceManagementConfigurationCategoryRequest {
+	return &DeviceManagementConfigurationCategoryRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationCategoryRequest is request for DeviceManagementConfigurationCategory
+type DeviceManagementConfigurationCategoryRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationCategory
+func (r *DeviceManagementConfigurationCategoryRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationCategory, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationCategory
+func (r *DeviceManagementConfigurationCategoryRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationCategory
+func (r *DeviceManagementConfigurationCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationPolicyRequestBuilder is request builder for DeviceManagementConfigurationPolicy
+type DeviceManagementConfigurationPolicyRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationPolicyRequest
+func (b *DeviceManagementConfigurationPolicyRequestBuilder) Request() *DeviceManagementConfigurationPolicyRequest {
+	return &DeviceManagementConfigurationPolicyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationPolicyRequest is request for DeviceManagementConfigurationPolicy
+type DeviceManagementConfigurationPolicyRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationPolicy
+func (r *DeviceManagementConfigurationPolicyRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationPolicy, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationPolicy
+func (r *DeviceManagementConfigurationPolicyRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationPolicy
+func (r *DeviceManagementConfigurationPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationPolicyAssignmentRequestBuilder is request builder for DeviceManagementConfigurationPolicyAssignment
+type DeviceManagementConfigurationPolicyAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationPolicyAssignmentRequest
+func (b *DeviceManagementConfigurationPolicyAssignmentRequestBuilder) Request() *DeviceManagementConfigurationPolicyAssignmentRequest {
+	return &DeviceManagementConfigurationPolicyAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationPolicyAssignmentRequest is request for DeviceManagementConfigurationPolicyAssignment
+type DeviceManagementConfigurationPolicyAssignmentRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationPolicyAssignment
+func (r *DeviceManagementConfigurationPolicyAssignmentRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationPolicyAssignment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationPolicyAssignment
+func (r *DeviceManagementConfigurationPolicyAssignmentRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationPolicyAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationPolicyAssignment
+func (r *DeviceManagementConfigurationPolicyAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationPolicyTemplateRequestBuilder is request builder for DeviceManagementConfigurationPolicyTemplate
+type DeviceManagementConfigurationPolicyTemplateRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationPolicyTemplateRequest
+func (b *DeviceManagementConfigurationPolicyTemplateRequestBuilder) Request() *DeviceManagementConfigurationPolicyTemplateRequest {
+	return &DeviceManagementConfigurationPolicyTemplateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationPolicyTemplateRequest is request for DeviceManagementConfigurationPolicyTemplate
+type DeviceManagementConfigurationPolicyTemplateRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationPolicyTemplate
+func (r *DeviceManagementConfigurationPolicyTemplateRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationPolicyTemplate, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationPolicyTemplate
+func (r *DeviceManagementConfigurationPolicyTemplateRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationPolicyTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationPolicyTemplate
+func (r *DeviceManagementConfigurationPolicyTemplateRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationSettingRequestBuilder is request builder for DeviceManagementConfigurationSetting
+type DeviceManagementConfigurationSettingRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationSettingRequest
+func (b *DeviceManagementConfigurationSettingRequestBuilder) Request() *DeviceManagementConfigurationSettingRequest {
+	return &DeviceManagementConfigurationSettingRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationSettingRequest is request for DeviceManagementConfigurationSetting
+type DeviceManagementConfigurationSettingRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationSetting
+func (r *DeviceManagementConfigurationSettingRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationSetting, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationSetting
+func (r *DeviceManagementConfigurationSettingRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationSetting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationSetting
+func (r *DeviceManagementConfigurationSettingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationSettingDefinitionRequestBuilder is request builder for DeviceManagementConfigurationSettingDefinition
+type DeviceManagementConfigurationSettingDefinitionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationSettingDefinitionRequest
+func (b *DeviceManagementConfigurationSettingDefinitionRequestBuilder) Request() *DeviceManagementConfigurationSettingDefinitionRequest {
+	return &DeviceManagementConfigurationSettingDefinitionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationSettingDefinitionRequest is request for DeviceManagementConfigurationSettingDefinition
+type DeviceManagementConfigurationSettingDefinitionRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationSettingDefinition
+func (r *DeviceManagementConfigurationSettingDefinitionRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationSettingDefinition, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationSettingDefinition
+func (r *DeviceManagementConfigurationSettingDefinitionRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationSettingDefinition) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationSettingDefinition
+func (r *DeviceManagementConfigurationSettingDefinitionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementConfigurationSettingTemplateRequestBuilder is request builder for DeviceManagementConfigurationSettingTemplate
+type DeviceManagementConfigurationSettingTemplateRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementConfigurationSettingTemplateRequest
+func (b *DeviceManagementConfigurationSettingTemplateRequestBuilder) Request() *DeviceManagementConfigurationSettingTemplateRequest {
+	return &DeviceManagementConfigurationSettingTemplateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementConfigurationSettingTemplateRequest is request for DeviceManagementConfigurationSettingTemplate
+type DeviceManagementConfigurationSettingTemplateRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementConfigurationSettingTemplate
+func (r *DeviceManagementConfigurationSettingTemplateRequest) Get(ctx context.Context) (resObj *DeviceManagementConfigurationSettingTemplate, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementConfigurationSettingTemplate
+func (r *DeviceManagementConfigurationSettingTemplateRequest) Update(ctx context.Context, reqObj *DeviceManagementConfigurationSettingTemplate) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementConfigurationSettingTemplate
+func (r *DeviceManagementConfigurationSettingTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -1892,6 +2321,105 @@ func (r *DeviceManagementReportsRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceManagementResourceAccessProfileAssignmentRequestBuilder is request builder for DeviceManagementResourceAccessProfileAssignment
+type DeviceManagementResourceAccessProfileAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementResourceAccessProfileAssignmentRequest
+func (b *DeviceManagementResourceAccessProfileAssignmentRequestBuilder) Request() *DeviceManagementResourceAccessProfileAssignmentRequest {
+	return &DeviceManagementResourceAccessProfileAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementResourceAccessProfileAssignmentRequest is request for DeviceManagementResourceAccessProfileAssignment
+type DeviceManagementResourceAccessProfileAssignmentRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementResourceAccessProfileAssignment
+func (r *DeviceManagementResourceAccessProfileAssignmentRequest) Get(ctx context.Context) (resObj *DeviceManagementResourceAccessProfileAssignment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementResourceAccessProfileAssignment
+func (r *DeviceManagementResourceAccessProfileAssignmentRequest) Update(ctx context.Context, reqObj *DeviceManagementResourceAccessProfileAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementResourceAccessProfileAssignment
+func (r *DeviceManagementResourceAccessProfileAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementResourceAccessProfileBaseRequestBuilder is request builder for DeviceManagementResourceAccessProfileBase
+type DeviceManagementResourceAccessProfileBaseRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementResourceAccessProfileBaseRequest
+func (b *DeviceManagementResourceAccessProfileBaseRequestBuilder) Request() *DeviceManagementResourceAccessProfileBaseRequest {
+	return &DeviceManagementResourceAccessProfileBaseRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementResourceAccessProfileBaseRequest is request for DeviceManagementResourceAccessProfileBase
+type DeviceManagementResourceAccessProfileBaseRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementResourceAccessProfileBase
+func (r *DeviceManagementResourceAccessProfileBaseRequest) Get(ctx context.Context) (resObj *DeviceManagementResourceAccessProfileBase, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementResourceAccessProfileBase
+func (r *DeviceManagementResourceAccessProfileBaseRequest) Update(ctx context.Context, reqObj *DeviceManagementResourceAccessProfileBase) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementResourceAccessProfileBase
+func (r *DeviceManagementResourceAccessProfileBaseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// DeviceManagementReusablePolicySettingRequestBuilder is request builder for DeviceManagementReusablePolicySetting
+type DeviceManagementReusablePolicySettingRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceManagementReusablePolicySettingRequest
+func (b *DeviceManagementReusablePolicySettingRequestBuilder) Request() *DeviceManagementReusablePolicySettingRequest {
+	return &DeviceManagementReusablePolicySettingRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceManagementReusablePolicySettingRequest is request for DeviceManagementReusablePolicySetting
+type DeviceManagementReusablePolicySettingRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceManagementReusablePolicySetting
+func (r *DeviceManagementReusablePolicySettingRequest) Get(ctx context.Context) (resObj *DeviceManagementReusablePolicySetting, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceManagementReusablePolicySetting
+func (r *DeviceManagementReusablePolicySettingRequest) Update(ctx context.Context, reqObj *DeviceManagementReusablePolicySetting) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceManagementReusablePolicySetting
+func (r *DeviceManagementReusablePolicySettingRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // DeviceManagementScriptRequestBuilder is request builder for DeviceManagementScript
 type DeviceManagementScriptRequestBuilder struct{ BaseRequestBuilder }
 
@@ -2288,6 +2816,92 @@ func (r *DeviceManagementTroubleshootingEventRequest) Delete(ctx context.Context
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// DeviceShellScriptRequestBuilder is request builder for DeviceShellScript
+type DeviceShellScriptRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns DeviceShellScriptRequest
+func (b *DeviceShellScriptRequestBuilder) Request() *DeviceShellScriptRequest {
+	return &DeviceShellScriptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// DeviceShellScriptRequest is request for DeviceShellScript
+type DeviceShellScriptRequest struct{ BaseRequest }
+
+// Get performs GET request for DeviceShellScript
+func (r *DeviceShellScriptRequest) Get(ctx context.Context) (resObj *DeviceShellScript, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for DeviceShellScript
+func (r *DeviceShellScriptRequest) Update(ctx context.Context, reqObj *DeviceShellScript) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for DeviceShellScript
+func (r *DeviceShellScriptRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+//
+type DeviceAndAppManagementAssignmentFilterCollectionEnableRequestBuilder struct{ BaseRequestBuilder }
+
+// Enable action undocumented
+func (b *DeviceManagementAssignmentFiltersCollectionRequestBuilder) Enable(reqObj *DeviceAndAppManagementAssignmentFilterCollectionEnableRequestParameter) *DeviceAndAppManagementAssignmentFilterCollectionEnableRequestBuilder {
+	bb := &DeviceAndAppManagementAssignmentFilterCollectionEnableRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/enable"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceAndAppManagementAssignmentFilterCollectionEnableRequest struct{ BaseRequest }
+
+//
+func (b *DeviceAndAppManagementAssignmentFilterCollectionEnableRequestBuilder) Request() *DeviceAndAppManagementAssignmentFilterCollectionEnableRequest {
+	return &DeviceAndAppManagementAssignmentFilterCollectionEnableRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceAndAppManagementAssignmentFilterCollectionEnableRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestBuilder struct{ BaseRequestBuilder }
+
+// ValidateFilter action undocumented
+func (b *DeviceManagementAssignmentFiltersCollectionRequestBuilder) ValidateFilter(reqObj *DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestParameter) *DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestBuilder {
+	bb := &DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateFilter"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequest struct{ BaseRequest }
+
+//
+func (b *DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestBuilder) Request() *DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequest {
+	return &DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequest) Post(ctx context.Context) (resObj *AssignmentFilterValidationResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
+}
+
 //
 type DeviceCompliancePolicyCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
@@ -2376,6 +2990,93 @@ func (r *DeviceCompliancePolicyCollectionHasPayloadLinksRequest) Post(ctx contex
 }
 
 //
+type DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestBuilder struct{ BaseRequestBuilder }
+
+// GetDevicesScheduledToRetire action undocumented
+func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) GetDevicesScheduledToRetire(reqObj *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestParameter) *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestBuilder {
+	bb := &DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/getDevicesScheduledToRetire"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestBuilder) Request() *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest {
+	return &DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]RetireScheduledManagedDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []RetireScheduledManagedDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []RetireScheduledManagedDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest) PostN(ctx context.Context, n int) ([]RetireScheduledManagedDevice, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequest) Post(ctx context.Context) ([]RetireScheduledManagedDevice, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
 type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestBuilder struct{ BaseRequestBuilder }
 
 // RefreshDeviceComplianceReportSummarization action undocumented
@@ -2399,6 +3100,59 @@ func (b *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizat
 //
 func (r *DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequest) Post(ctx context.Context) error {
 	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestBuilder struct{ BaseRequestBuilder }
+
+// SetScheduledRetireState action undocumented
+func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) SetScheduledRetireState(reqObj *DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestParameter) *DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestBuilder {
+	bb := &DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/setScheduledRetireState"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyCollectionSetScheduledRetireStateRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestBuilder) Request() *DeviceCompliancePolicyCollectionSetScheduledRetireStateRequest {
+	return &DeviceCompliancePolicyCollectionSetScheduledRetireStateRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionSetScheduledRetireStateRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
+type DeviceCompliancePolicyCollectionValidateComplianceScriptRequestBuilder struct{ BaseRequestBuilder }
+
+// ValidateComplianceScript action undocumented
+func (b *DeviceManagementDeviceCompliancePoliciesCollectionRequestBuilder) ValidateComplianceScript(reqObj *DeviceCompliancePolicyCollectionValidateComplianceScriptRequestParameter) *DeviceCompliancePolicyCollectionValidateComplianceScriptRequestBuilder {
+	bb := &DeviceCompliancePolicyCollectionValidateComplianceScriptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/validateComplianceScript"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceCompliancePolicyCollectionValidateComplianceScriptRequest struct{ BaseRequest }
+
+//
+func (b *DeviceCompliancePolicyCollectionValidateComplianceScriptRequestBuilder) Request() *DeviceCompliancePolicyCollectionValidateComplianceScriptRequest {
+	return &DeviceCompliancePolicyCollectionValidateComplianceScriptRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceCompliancePolicyCollectionValidateComplianceScriptRequest) Post(ctx context.Context) (resObj *DeviceComplianceScriptValidationResult, err error) {
+	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
+	return
 }
 
 //
@@ -2687,6 +3441,32 @@ func (r *DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequest) Post(ctx
 }
 
 //
+type DeviceHealthScriptCollectionEnableGlobalScriptsRequestBuilder struct{ BaseRequestBuilder }
+
+// EnableGlobalScripts action undocumented
+func (b *DeviceManagementDeviceHealthScriptsCollectionRequestBuilder) EnableGlobalScripts(reqObj *DeviceHealthScriptCollectionEnableGlobalScriptsRequestParameter) *DeviceHealthScriptCollectionEnableGlobalScriptsRequestBuilder {
+	bb := &DeviceHealthScriptCollectionEnableGlobalScriptsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/enableGlobalScripts"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type DeviceHealthScriptCollectionEnableGlobalScriptsRequest struct{ BaseRequest }
+
+//
+func (b *DeviceHealthScriptCollectionEnableGlobalScriptsRequestBuilder) Request() *DeviceHealthScriptCollectionEnableGlobalScriptsRequest {
+	return &DeviceHealthScriptCollectionEnableGlobalScriptsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *DeviceHealthScriptCollectionEnableGlobalScriptsRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
+
+//
 type DeviceManagementScriptCollectionHasPayloadLinksRequestBuilder struct{ BaseRequestBuilder }
 
 // HasPayloadLinks action undocumented
@@ -2774,80 +3554,36 @@ func (r *DeviceManagementScriptCollectionHasPayloadLinksRequest) Post(ctx contex
 }
 
 //
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder struct{ BaseRequestBuilder }
+type DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder struct{ BaseRequestBuilder }
 
-// SyncMicrosoftStoreForBusinessApps action undocumented
-func (b *DeviceAppManagementRequestBuilder) SyncMicrosoftStoreForBusinessApps(reqObj *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter) *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder {
-	bb := &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/syncMicrosoftStoreForBusinessApps"
+// ImportOffice365DeviceConfigurationPolicies action undocumented
+func (b *DeviceManagementTemplatesCollectionRequestBuilder) ImportOffice365DeviceConfigurationPolicies(reqObj *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestParameter) *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder {
+	bb := &DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/importOffice365DeviceConfigurationPolicies"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+// ImportOffice365DeviceConfigurationPolicies action undocumented
+func (b *DeviceManagementTemplateMigratableToCollectionRequestBuilder) ImportOffice365DeviceConfigurationPolicies(reqObj *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestParameter) *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder {
+	bb := &DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/importOffice365DeviceConfigurationPolicies"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest struct{ BaseRequest }
+type DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest struct{ BaseRequest }
 
 //
-func (b *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestBuilder) Request() *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest {
-	return &DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest{
+func (b *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestBuilder) Request() *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest {
+	return &DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceAppManagementTaskUpdateStatusRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateStatus action undocumented
-func (b *DeviceAppManagementTaskRequestBuilder) UpdateStatus(reqObj *DeviceAppManagementTaskUpdateStatusRequestParameter) *DeviceAppManagementTaskUpdateStatusRequestBuilder {
-	bb := &DeviceAppManagementTaskUpdateStatusRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateStatus"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceAppManagementTaskUpdateStatusRequest struct{ BaseRequest }
-
-//
-func (b *DeviceAppManagementTaskUpdateStatusRequestBuilder) Request() *DeviceAppManagementTaskUpdateStatusRequest {
-	return &DeviceAppManagementTaskUpdateStatusRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceAppManagementTaskUpdateStatusRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceCompliancePolicyAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) Assign(reqObj *DeviceCompliancePolicyAssignRequestParameter) *DeviceCompliancePolicyAssignRequestBuilder {
-	bb := &DeviceCompliancePolicyAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyAssignRequestBuilder) Request() *DeviceCompliancePolicyAssignRequest {
-	return &DeviceCompliancePolicyAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementIntent, error) {
 	req, err := r.NewJSONRequest(method, path, obj)
 	if err != nil {
 		return nil, err
@@ -2859,7 +3595,7 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 	if err != nil {
 		return nil, err
 	}
-	var values []DeviceCompliancePolicyAssignment
+	var values []DeviceManagementIntent
 	for {
 		if res.StatusCode != http.StatusOK {
 			b, _ := ioutil.ReadAll(res.Body)
@@ -2873,7 +3609,7 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 		}
 		var (
 			paging Paging
-			value  []DeviceCompliancePolicyAssignment
+			value  []DeviceManagementIntent
 		)
 		err := jsonx.NewDecoder(res.Body).Decode(&paging)
 		res.Body.Close()
@@ -2903,624 +3639,11 @@ func (r *DeviceCompliancePolicyAssignRequest) Paging(ctx context.Context, method
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) PostN(ctx context.Context, n int) ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest) PostN(ctx context.Context, n int) ([]DeviceManagementIntent, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, n)
 }
 
 //
-func (r *DeviceCompliancePolicyAssignRequest) Post(ctx context.Context) ([]DeviceCompliancePolicyAssignment, error) {
+func (r *DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequest) Post(ctx context.Context) ([]DeviceManagementIntent, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder struct{ BaseRequestBuilder }
-
-// ScheduleActionsForRules action undocumented
-func (b *DeviceCompliancePolicyRequestBuilder) ScheduleActionsForRules(reqObj *DeviceCompliancePolicyScheduleActionsForRulesRequestParameter) *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder {
-	bb := &DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/scheduleActionsForRules"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceCompliancePolicyScheduleActionsForRulesRequest struct{ BaseRequest }
-
-//
-func (b *DeviceCompliancePolicyScheduleActionsForRulesRequestBuilder) Request() *DeviceCompliancePolicyScheduleActionsForRulesRequest {
-	return &DeviceCompliancePolicyScheduleActionsForRulesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceCompliancePolicyScheduleActionsForRulesRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceConfigurationRequestBuilder) Assign(reqObj *DeviceConfigurationAssignRequestParameter) *DeviceConfigurationAssignRequestBuilder {
-	bb := &DeviceConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationAssignRequestBuilder) Request() *DeviceConfigurationAssignRequest {
-	return &DeviceConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceConfigurationAssignment, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DeviceConfigurationAssignment
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DeviceConfigurationAssignment
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) PostN(ctx context.Context, n int) ([]DeviceConfigurationAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *DeviceConfigurationAssignRequest) Post(ctx context.Context) ([]DeviceConfigurationAssignment, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder struct{ BaseRequestBuilder }
-
-// WindowsPrivacyAccessControls action undocumented
-func (b *DeviceConfigurationRequestBuilder) WindowsPrivacyAccessControls(reqObj *DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter) *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder {
-	bb := &DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/windowsPrivacyAccessControls"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationWindowsPrivacyAccessControlsRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationWindowsPrivacyAccessControlsRequestBuilder) Request() *DeviceConfigurationWindowsPrivacyAccessControlsRequest {
-	return &DeviceConfigurationWindowsPrivacyAccessControlsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationWindowsPrivacyAccessControlsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder struct{ BaseRequestBuilder }
-
-// AssignedAccessMultiModeProfiles action undocumented
-func (b *DeviceConfigurationRequestBuilder) AssignedAccessMultiModeProfiles(reqObj *DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter) *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder {
-	bb := &DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assignedAccessMultiModeProfiles"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceConfigurationAssignedAccessMultiModeProfilesRequest struct{ BaseRequest }
-
-//
-func (b *DeviceConfigurationAssignedAccessMultiModeProfilesRequestBuilder) Request() *DeviceConfigurationAssignedAccessMultiModeProfilesRequest {
-	return &DeviceConfigurationAssignedAccessMultiModeProfilesRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceConfigurationAssignedAccessMultiModeProfilesRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceEnrollmentConfigurationSetPriorityRequestBuilder struct{ BaseRequestBuilder }
-
-// SetPriority action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) SetPriority(reqObj *DeviceEnrollmentConfigurationSetPriorityRequestParameter) *DeviceEnrollmentConfigurationSetPriorityRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPriority"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationSetPriorityRequest struct{ BaseRequest }
-
-//
-func (b *DeviceEnrollmentConfigurationSetPriorityRequestBuilder) Request() *DeviceEnrollmentConfigurationSetPriorityRequest {
-	return &DeviceEnrollmentConfigurationSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceEnrollmentConfigurationSetPriorityRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceEnrollmentConfigurationRequestBuilder) Assign(reqObj *DeviceEnrollmentConfigurationAssignRequestParameter) *DeviceEnrollmentConfigurationAssignRequestBuilder {
-	bb := &DeviceEnrollmentConfigurationAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceEnrollmentConfigurationAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceEnrollmentConfigurationAssignRequestBuilder) Request() *DeviceEnrollmentConfigurationAssignRequest {
-	return &DeviceEnrollmentConfigurationAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceEnrollmentConfigurationAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceHealthScriptAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceHealthScriptRequestBuilder) Assign(reqObj *DeviceHealthScriptAssignRequestParameter) *DeviceHealthScriptAssignRequestBuilder {
-	bb := &DeviceHealthScriptAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceHealthScriptAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceHealthScriptAssignRequestBuilder) Request() *DeviceHealthScriptAssignRequest {
-	return &DeviceHealthScriptAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceHealthScriptAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementEnableLegacyPcManagementRequestBuilder struct{ BaseRequestBuilder }
-
-// EnableLegacyPcManagement action undocumented
-func (b *DeviceManagementRequestBuilder) EnableLegacyPcManagement(reqObj *DeviceManagementEnableLegacyPcManagementRequestParameter) *DeviceManagementEnableLegacyPcManagementRequestBuilder {
-	bb := &DeviceManagementEnableLegacyPcManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/enableLegacyPcManagement"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementEnableLegacyPcManagementRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementEnableLegacyPcManagementRequestBuilder) Request() *DeviceManagementEnableLegacyPcManagementRequest {
-	return &DeviceManagementEnableLegacyPcManagementRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementEnableLegacyPcManagementRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilder struct{ BaseRequestBuilder }
-
-// EnableAndroidDeviceAdministratorEnrollment action undocumented
-func (b *DeviceManagementRequestBuilder) EnableAndroidDeviceAdministratorEnrollment(reqObj *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestParameter) *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilder {
-	bb := &DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/enableAndroidDeviceAdministratorEnrollment"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestBuilder) Request() *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest {
-	return &DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder struct{ BaseRequestBuilder }
-
-// SendCustomNotificationToCompanyPortal action undocumented
-func (b *DeviceManagementRequestBuilder) SendCustomNotificationToCompanyPortal(reqObj *DeviceManagementSendCustomNotificationToCompanyPortalRequestParameter) *DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder {
-	bb := &DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sendCustomNotificationToCompanyPortal"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementSendCustomNotificationToCompanyPortalRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementSendCustomNotificationToCompanyPortalRequestBuilder) Request() *DeviceManagementSendCustomNotificationToCompanyPortalRequest {
-	return &DeviceManagementSendCustomNotificationToCompanyPortalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementSendCustomNotificationToCompanyPortalRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequestBuilder struct{ BaseRequestBuilder }
-
-// Sync action undocumented
-func (b *DeviceManagementExchangeConnectorRequestBuilder) Sync(reqObj *DeviceManagementExchangeConnectorSyncRequestParameter) *DeviceManagementExchangeConnectorSyncRequestBuilder {
-	bb := &DeviceManagementExchangeConnectorSyncRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/sync"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementExchangeConnectorSyncRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementExchangeConnectorSyncRequestBuilder) Request() *DeviceManagementExchangeConnectorSyncRequest {
-	return &DeviceManagementExchangeConnectorSyncRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementExchangeConnectorSyncRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementIntentUpdateSettingsRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateSettings action undocumented
-func (b *DeviceManagementIntentRequestBuilder) UpdateSettings(reqObj *DeviceManagementIntentUpdateSettingsRequestParameter) *DeviceManagementIntentUpdateSettingsRequestBuilder {
-	bb := &DeviceManagementIntentUpdateSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateSettings"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementIntentUpdateSettingsRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementIntentUpdateSettingsRequestBuilder) Request() *DeviceManagementIntentUpdateSettingsRequest {
-	return &DeviceManagementIntentUpdateSettingsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementIntentUpdateSettingsRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementIntentMigrateToTemplateRequestBuilder struct{ BaseRequestBuilder }
-
-// MigrateToTemplate action undocumented
-func (b *DeviceManagementIntentRequestBuilder) MigrateToTemplate(reqObj *DeviceManagementIntentMigrateToTemplateRequestParameter) *DeviceManagementIntentMigrateToTemplateRequestBuilder {
-	bb := &DeviceManagementIntentMigrateToTemplateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/migrateToTemplate"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementIntentMigrateToTemplateRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementIntentMigrateToTemplateRequestBuilder) Request() *DeviceManagementIntentMigrateToTemplateRequest {
-	return &DeviceManagementIntentMigrateToTemplateRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementIntentMigrateToTemplateRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementIntentAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceManagementIntentRequestBuilder) Assign(reqObj *DeviceManagementIntentAssignRequestParameter) *DeviceManagementIntentAssignRequestBuilder {
-	bb := &DeviceManagementIntentAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementIntentAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementIntentAssignRequestBuilder) Request() *DeviceManagementIntentAssignRequest {
-	return &DeviceManagementIntentAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementIntentAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementReportsGetDeviceNonComplianceReportRequestBuilder struct{ BaseRequestBuilder }
-
-// GetDeviceNonComplianceReport action undocumented
-func (b *DeviceManagementReportsRequestBuilder) GetDeviceNonComplianceReport(reqObj *DeviceManagementReportsGetDeviceNonComplianceReportRequestParameter) *DeviceManagementReportsGetDeviceNonComplianceReportRequestBuilder {
-	bb := &DeviceManagementReportsGetDeviceNonComplianceReportRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getDeviceNonComplianceReport"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementReportsGetDeviceNonComplianceReportRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementReportsGetDeviceNonComplianceReportRequestBuilder) Request() *DeviceManagementReportsGetDeviceNonComplianceReportRequest {
-	return &DeviceManagementReportsGetDeviceNonComplianceReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementReportsGetDeviceNonComplianceReportRequest) Post(ctx context.Context) (resObj *Stream, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type DeviceManagementReportsGetPolicyNonComplianceReportRequestBuilder struct{ BaseRequestBuilder }
-
-// GetPolicyNonComplianceReport action undocumented
-func (b *DeviceManagementReportsRequestBuilder) GetPolicyNonComplianceReport(reqObj *DeviceManagementReportsGetPolicyNonComplianceReportRequestParameter) *DeviceManagementReportsGetPolicyNonComplianceReportRequestBuilder {
-	bb := &DeviceManagementReportsGetPolicyNonComplianceReportRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getPolicyNonComplianceReport"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementReportsGetPolicyNonComplianceReportRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementReportsGetPolicyNonComplianceReportRequestBuilder) Request() *DeviceManagementReportsGetPolicyNonComplianceReportRequest {
-	return &DeviceManagementReportsGetPolicyNonComplianceReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementReportsGetPolicyNonComplianceReportRequest) Post(ctx context.Context) (resObj *Stream, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type DeviceManagementReportsGetPolicyNonComplianceMetadataRequestBuilder struct{ BaseRequestBuilder }
-
-// GetPolicyNonComplianceMetadata action undocumented
-func (b *DeviceManagementReportsRequestBuilder) GetPolicyNonComplianceMetadata(reqObj *DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter) *DeviceManagementReportsGetPolicyNonComplianceMetadataRequestBuilder {
-	bb := &DeviceManagementReportsGetPolicyNonComplianceMetadataRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getPolicyNonComplianceMetadata"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementReportsGetPolicyNonComplianceMetadataRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementReportsGetPolicyNonComplianceMetadataRequestBuilder) Request() *DeviceManagementReportsGetPolicyNonComplianceMetadataRequest {
-	return &DeviceManagementReportsGetPolicyNonComplianceMetadataRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementReportsGetPolicyNonComplianceMetadataRequest) Post(ctx context.Context) (resObj *Stream, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type DeviceManagementReportsGetHistoricalReportRequestBuilder struct{ BaseRequestBuilder }
-
-// GetHistoricalReport action undocumented
-func (b *DeviceManagementReportsRequestBuilder) GetHistoricalReport(reqObj *DeviceManagementReportsGetHistoricalReportRequestParameter) *DeviceManagementReportsGetHistoricalReportRequestBuilder {
-	bb := &DeviceManagementReportsGetHistoricalReportRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getHistoricalReport"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementReportsGetHistoricalReportRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementReportsGetHistoricalReportRequestBuilder) Request() *DeviceManagementReportsGetHistoricalReportRequest {
-	return &DeviceManagementReportsGetHistoricalReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementReportsGetHistoricalReportRequest) Post(ctx context.Context) (resObj *Stream, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type DeviceManagementReportsGetCachedReportRequestBuilder struct{ BaseRequestBuilder }
-
-// GetCachedReport action undocumented
-func (b *DeviceManagementReportsRequestBuilder) GetCachedReport(reqObj *DeviceManagementReportsGetCachedReportRequestParameter) *DeviceManagementReportsGetCachedReportRequestBuilder {
-	bb := &DeviceManagementReportsGetCachedReportRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/getCachedReport"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementReportsGetCachedReportRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementReportsGetCachedReportRequestBuilder) Request() *DeviceManagementReportsGetCachedReportRequest {
-	return &DeviceManagementReportsGetCachedReportRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementReportsGetCachedReportRequest) Post(ctx context.Context) (resObj *Stream, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
-type DeviceManagementScriptAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *DeviceManagementScriptRequestBuilder) Assign(reqObj *DeviceManagementScriptAssignRequestParameter) *DeviceManagementScriptAssignRequestBuilder {
-	bb := &DeviceManagementScriptAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementScriptAssignRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementScriptAssignRequestBuilder) Request() *DeviceManagementScriptAssignRequest {
-	return &DeviceManagementScriptAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementScriptAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}
-
-//
-type DeviceManagementTemplateCreateInstanceRequestBuilder struct{ BaseRequestBuilder }
-
-// CreateInstance action undocumented
-func (b *DeviceManagementTemplateRequestBuilder) CreateInstance(reqObj *DeviceManagementTemplateCreateInstanceRequestParameter) *DeviceManagementTemplateCreateInstanceRequestBuilder {
-	bb := &DeviceManagementTemplateCreateInstanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/createInstance"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type DeviceManagementTemplateCreateInstanceRequest struct{ BaseRequest }
-
-//
-func (b *DeviceManagementTemplateCreateInstanceRequestBuilder) Request() *DeviceManagementTemplateCreateInstanceRequest {
-	return &DeviceManagementTemplateCreateInstanceRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *DeviceManagementTemplateCreateInstanceRequest) Post(ctx context.Context) (resObj *DeviceManagementIntent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
 }

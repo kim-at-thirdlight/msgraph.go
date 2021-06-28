@@ -11,14 +11,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
-type DirectoryObjectCollectionGetByIDsRequestParameter struct {
-	// IDs undocumented
-	IDs []string `json:"ids,omitempty"`
-	// Types undocumented
-	Types []string `json:"types,omitempty"`
-}
-
 // DirectoryObjectCollectionValidatePropertiesRequestParameter undocumented
 type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
 	// EntityType undocumented
@@ -29,6 +21,14 @@ type DirectoryObjectCollectionValidatePropertiesRequestParameter struct {
 	MailNickname *string `json:"mailNickname,omitempty"`
 	// OnBehalfOfUserID undocumented
 	OnBehalfOfUserID *UUID `json:"onBehalfOfUserId,omitempty"`
+}
+
+// DirectoryObjectCollectionGetByIDsRequestParameter undocumented
+type DirectoryObjectCollectionGetByIDsRequestParameter struct {
+	// IDs undocumented
+	IDs []string `json:"ids,omitempty"`
+	// Types undocumented
+	Types []string `json:"types,omitempty"`
 }
 
 // DirectoryObjectCollectionGetUserOwnedObjectsRequestParameter undocumented
@@ -69,6 +69,109 @@ type DirectoryObjectGetMemberObjectsRequestParameter struct {
 
 // DirectoryObjectRestoreRequestParameter undocumented
 type DirectoryObjectRestoreRequestParameter struct {
+}
+
+// AdministrativeUnits returns request builder for AdministrativeUnit collection
+func (b *DirectoryRequestBuilder) AdministrativeUnits() *DirectoryAdministrativeUnitsCollectionRequestBuilder {
+	bb := &DirectoryAdministrativeUnitsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/administrativeUnits"
+	return bb
+}
+
+// DirectoryAdministrativeUnitsCollectionRequestBuilder is request builder for AdministrativeUnit collection
+type DirectoryAdministrativeUnitsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AdministrativeUnit collection
+func (b *DirectoryAdministrativeUnitsCollectionRequestBuilder) Request() *DirectoryAdministrativeUnitsCollectionRequest {
+	return &DirectoryAdministrativeUnitsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AdministrativeUnit item
+func (b *DirectoryAdministrativeUnitsCollectionRequestBuilder) ID(id string) *AdministrativeUnitRequestBuilder {
+	bb := &AdministrativeUnitRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DirectoryAdministrativeUnitsCollectionRequest is request for AdministrativeUnit collection
+type DirectoryAdministrativeUnitsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AdministrativeUnit, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AdministrativeUnit
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AdministrativeUnit
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AdministrativeUnit collection, max N pages
+func (r *DirectoryAdministrativeUnitsCollectionRequest) GetN(ctx context.Context, n int) ([]AdministrativeUnit, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Get(ctx context.Context) ([]AdministrativeUnit, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AdministrativeUnit collection
+func (r *DirectoryAdministrativeUnitsCollectionRequest) Add(ctx context.Context, reqObj *AdministrativeUnit) (resObj *AdministrativeUnit, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // DeletedItems returns request builder for DirectoryObject collection
@@ -273,6 +376,109 @@ func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) Get(ctx context.Conte
 
 // Add performs POST request for FeatureRolloutPolicy collection
 func (r *DirectoryFeatureRolloutPoliciesCollectionRequest) Add(ctx context.Context, reqObj *FeatureRolloutPolicy) (resObj *FeatureRolloutPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// SharedEmailDomains returns request builder for SharedEmailDomain collection
+func (b *DirectoryRequestBuilder) SharedEmailDomains() *DirectorySharedEmailDomainsCollectionRequestBuilder {
+	bb := &DirectorySharedEmailDomainsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/sharedEmailDomains"
+	return bb
+}
+
+// DirectorySharedEmailDomainsCollectionRequestBuilder is request builder for SharedEmailDomain collection
+type DirectorySharedEmailDomainsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for SharedEmailDomain collection
+func (b *DirectorySharedEmailDomainsCollectionRequestBuilder) Request() *DirectorySharedEmailDomainsCollectionRequest {
+	return &DirectorySharedEmailDomainsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for SharedEmailDomain item
+func (b *DirectorySharedEmailDomainsCollectionRequestBuilder) ID(id string) *SharedEmailDomainRequestBuilder {
+	bb := &SharedEmailDomainRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DirectorySharedEmailDomainsCollectionRequest is request for SharedEmailDomain collection
+type DirectorySharedEmailDomainsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for SharedEmailDomain collection
+func (r *DirectorySharedEmailDomainsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SharedEmailDomain, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []SharedEmailDomain
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []SharedEmailDomain
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for SharedEmailDomain collection, max N pages
+func (r *DirectorySharedEmailDomainsCollectionRequest) GetN(ctx context.Context, n int) ([]SharedEmailDomain, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SharedEmailDomain collection
+func (r *DirectorySharedEmailDomainsCollectionRequest) Get(ctx context.Context) ([]SharedEmailDomain, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for SharedEmailDomain collection
+func (r *DirectorySharedEmailDomainsCollectionRequest) Add(ctx context.Context, reqObj *SharedEmailDomain) (resObj *SharedEmailDomain, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

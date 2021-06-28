@@ -6,22 +6,40 @@ package msgraph
 type EntitlementManagement struct {
 	// Entity is the base model of EntitlementManagement
 	Entity
-	// AccessPackageCatalogs undocumented
-	AccessPackageCatalogs []AccessPackageCatalog `json:"accessPackageCatalogs,omitempty"`
-	// AccessPackageResources undocumented
-	AccessPackageResources []AccessPackageResource `json:"accessPackageResources,omitempty"`
-	// AccessPackageResourceRequests undocumented
-	AccessPackageResourceRequests []AccessPackageResourceRequestObject `json:"accessPackageResourceRequests,omitempty"`
-	// AccessPackageResourceRoleScopes undocumented
-	AccessPackageResourceRoleScopes []AccessPackageResourceRoleScope `json:"accessPackageResourceRoleScopes,omitempty"`
-	// AccessPackages undocumented
-	AccessPackages []AccessPackage `json:"accessPackages,omitempty"`
+	// AccessPackageAssignmentApprovals undocumented
+	AccessPackageAssignmentApprovals []Approval `json:"accessPackageAssignmentApprovals,omitempty"`
 	// AccessPackageAssignmentPolicies undocumented
 	AccessPackageAssignmentPolicies []AccessPackageAssignmentPolicy `json:"accessPackageAssignmentPolicies,omitempty"`
-	// AccessPackageAssignments undocumented
-	AccessPackageAssignments []AccessPackageAssignment `json:"accessPackageAssignments,omitempty"`
 	// AccessPackageAssignmentRequests undocumented
 	AccessPackageAssignmentRequests []AccessPackageAssignmentRequestObject `json:"accessPackageAssignmentRequests,omitempty"`
 	// AccessPackageAssignmentResourceRoles undocumented
 	AccessPackageAssignmentResourceRoles []AccessPackageAssignmentResourceRole `json:"accessPackageAssignmentResourceRoles,omitempty"`
+	// AccessPackageAssignments undocumented
+	AccessPackageAssignments []AccessPackageAssignment `json:"accessPackageAssignments,omitempty"`
+	// AccessPackageCatalogs undocumented
+	AccessPackageCatalogs []AccessPackageCatalog `json:"accessPackageCatalogs,omitempty"`
+	// AccessPackageResourceEnvironments undocumented
+	AccessPackageResourceEnvironments []AccessPackageResourceEnvironment `json:"accessPackageResourceEnvironments,omitempty"`
+	// AccessPackageResourceRequests undocumented
+	AccessPackageResourceRequests []AccessPackageResourceRequestObject `json:"accessPackageResourceRequests,omitempty"`
+	// AccessPackageResourceRoleScopes undocumented
+	AccessPackageResourceRoleScopes []AccessPackageResourceRoleScope `json:"accessPackageResourceRoleScopes,omitempty"`
+	// AccessPackageResources undocumented
+	AccessPackageResources []AccessPackageResource `json:"accessPackageResources,omitempty"`
+	// AccessPackages undocumented
+	AccessPackages []AccessPackage `json:"accessPackages,omitempty"`
+	// ConnectedOrganizations undocumented
+	ConnectedOrganizations []ConnectedOrganization `json:"connectedOrganizations,omitempty"`
+	// Settings undocumented
+	Settings *EntitlementManagementSettings `json:"settings,omitempty"`
+}
+
+// EntitlementManagementSettings undocumented
+type EntitlementManagementSettings struct {
+	// Entity is the base model of EntitlementManagementSettings
+	Entity
+	// DaysUntilExternalUserDeletedAfterBlocked undocumented
+	DaysUntilExternalUserDeletedAfterBlocked *int `json:"daysUntilExternalUserDeletedAfterBlocked,omitempty"`
+	// ExternalUserLifecycleAction undocumented
+	ExternalUserLifecycleAction *string `json:"externalUserLifecycleAction,omitempty"`
 }

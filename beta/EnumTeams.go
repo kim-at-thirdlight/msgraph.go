@@ -34,6 +34,70 @@ var (
 	_TeamsAppDistributionMethodPUnknownFutureValue = TeamsAppDistributionMethodVUnknownFutureValue
 )
 
+// TeamsAppInstallationScopes undocumented
+type TeamsAppInstallationScopes string
+
+const (
+	// TeamsAppInstallationScopesVTeam undocumented
+	TeamsAppInstallationScopesVTeam TeamsAppInstallationScopes = "team"
+	// TeamsAppInstallationScopesVGroupChat undocumented
+	TeamsAppInstallationScopesVGroupChat TeamsAppInstallationScopes = "groupChat"
+	// TeamsAppInstallationScopesVPersonal undocumented
+	TeamsAppInstallationScopesVPersonal TeamsAppInstallationScopes = "personal"
+	// TeamsAppInstallationScopesVUnknownFutureValue undocumented
+	TeamsAppInstallationScopesVUnknownFutureValue TeamsAppInstallationScopes = "unknownFutureValue"
+)
+
+var (
+	// TeamsAppInstallationScopesPTeam is a pointer to TeamsAppInstallationScopesVTeam
+	TeamsAppInstallationScopesPTeam = &_TeamsAppInstallationScopesPTeam
+	// TeamsAppInstallationScopesPGroupChat is a pointer to TeamsAppInstallationScopesVGroupChat
+	TeamsAppInstallationScopesPGroupChat = &_TeamsAppInstallationScopesPGroupChat
+	// TeamsAppInstallationScopesPPersonal is a pointer to TeamsAppInstallationScopesVPersonal
+	TeamsAppInstallationScopesPPersonal = &_TeamsAppInstallationScopesPPersonal
+	// TeamsAppInstallationScopesPUnknownFutureValue is a pointer to TeamsAppInstallationScopesVUnknownFutureValue
+	TeamsAppInstallationScopesPUnknownFutureValue = &_TeamsAppInstallationScopesPUnknownFutureValue
+)
+
+var (
+	_TeamsAppInstallationScopesPTeam               = TeamsAppInstallationScopesVTeam
+	_TeamsAppInstallationScopesPGroupChat          = TeamsAppInstallationScopesVGroupChat
+	_TeamsAppInstallationScopesPPersonal           = TeamsAppInstallationScopesVPersonal
+	_TeamsAppInstallationScopesPUnknownFutureValue = TeamsAppInstallationScopesVUnknownFutureValue
+)
+
+// TeamsAppPublishingState undocumented
+type TeamsAppPublishingState string
+
+const (
+	// TeamsAppPublishingStateVSubmitted undocumented
+	TeamsAppPublishingStateVSubmitted TeamsAppPublishingState = "submitted"
+	// TeamsAppPublishingStateVRejected undocumented
+	TeamsAppPublishingStateVRejected TeamsAppPublishingState = "rejected"
+	// TeamsAppPublishingStateVPublished undocumented
+	TeamsAppPublishingStateVPublished TeamsAppPublishingState = "published"
+	// TeamsAppPublishingStateVUnknownFutureValue undocumented
+	TeamsAppPublishingStateVUnknownFutureValue TeamsAppPublishingState = "unknownFutureValue"
+)
+
+var (
+	// TeamsAppPublishingStatePSubmitted is a pointer to TeamsAppPublishingStateVSubmitted
+	TeamsAppPublishingStatePSubmitted = &_TeamsAppPublishingStatePSubmitted
+	// TeamsAppPublishingStatePRejected is a pointer to TeamsAppPublishingStateVRejected
+	TeamsAppPublishingStatePRejected = &_TeamsAppPublishingStatePRejected
+	// TeamsAppPublishingStatePPublished is a pointer to TeamsAppPublishingStateVPublished
+	TeamsAppPublishingStatePPublished = &_TeamsAppPublishingStatePPublished
+	// TeamsAppPublishingStatePUnknownFutureValue is a pointer to TeamsAppPublishingStateVUnknownFutureValue
+	TeamsAppPublishingStatePUnknownFutureValue = &_TeamsAppPublishingStatePUnknownFutureValue
+)
+
+var (
+	_TeamsAppPublishingStatePSubmitted          = TeamsAppPublishingStateVSubmitted
+	_TeamsAppPublishingStatePRejected           = TeamsAppPublishingStateVRejected
+	_TeamsAppPublishingStatePPublished          = TeamsAppPublishingStateVPublished
+	_TeamsAppPublishingStatePUnknownFutureValue = TeamsAppPublishingStateVUnknownFutureValue
+)
+
 // TeamsAsyncOperationStatus undocumented
 type TeamsAsyncOperationStatus string
 
@@ -92,6 +156,12 @@ const (
 	TeamsAsyncOperationTypeVCreateTeam TeamsAsyncOperationType = "createTeam"
 	// TeamsAsyncOperationTypeVUnknownFutureValue undocumented
 	TeamsAsyncOperationTypeVUnknownFutureValue TeamsAsyncOperationType = "unknownFutureValue"
+	// TeamsAsyncOperationTypeVTeamifyGroup undocumented
+	TeamsAsyncOperationTypeVTeamifyGroup TeamsAsyncOperationType = "teamifyGroup"
+	// TeamsAsyncOperationTypeVCreateChannel undocumented
+	TeamsAsyncOperationTypeVCreateChannel TeamsAsyncOperationType = "createChannel"
+	// TeamsAsyncOperationTypeVCreateChat undocumented
+	TeamsAsyncOperationTypeVCreateChat TeamsAsyncOperationType = "createChat"
 )
 
 var (
@@ -107,6 +177,12 @@ var (
 	TeamsAsyncOperationTypePCreateTeam = &_TeamsAsyncOperationTypePCreateTeam
 	// TeamsAsyncOperationTypePUnknownFutureValue is a pointer to TeamsAsyncOperationTypeVUnknownFutureValue
 	TeamsAsyncOperationTypePUnknownFutureValue = &_TeamsAsyncOperationTypePUnknownFutureValue
+	// TeamsAsyncOperationTypePTeamifyGroup is a pointer to TeamsAsyncOperationTypeVTeamifyGroup
+	TeamsAsyncOperationTypePTeamifyGroup = &_TeamsAsyncOperationTypePTeamifyGroup
+	// TeamsAsyncOperationTypePCreateChannel is a pointer to TeamsAsyncOperationTypeVCreateChannel
+	TeamsAsyncOperationTypePCreateChannel = &_TeamsAsyncOperationTypePCreateChannel
+	// TeamsAsyncOperationTypePCreateChat is a pointer to TeamsAsyncOperationTypeVCreateChat
+	TeamsAsyncOperationTypePCreateChat = &_TeamsAsyncOperationTypePCreateChat
 )
 
 var (
@@ -116,4 +192,7 @@ var (
 	_TeamsAsyncOperationTypePUnarchiveTeam      = TeamsAsyncOperationTypeVUnarchiveTeam
 	_TeamsAsyncOperationTypePCreateTeam         = TeamsAsyncOperationTypeVCreateTeam
 	_TeamsAsyncOperationTypePUnknownFutureValue = TeamsAsyncOperationTypeVUnknownFutureValue
+	_TeamsAsyncOperationTypePTeamifyGroup       = TeamsAsyncOperationTypeVTeamifyGroup
+	_TeamsAsyncOperationTypePCreateChannel      = TeamsAsyncOperationTypeVCreateChannel
+	_TeamsAsyncOperationTypePCreateChat         = TeamsAsyncOperationTypeVCreateChat
 )

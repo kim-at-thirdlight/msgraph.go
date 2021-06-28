@@ -6,12 +6,12 @@ package msgraph
 type Picture struct {
 	// Entity is the base model of Picture
 	Entity
-	// Width undocumented
-	Width *int `json:"width,omitempty"`
-	// Height undocumented
-	Height *int `json:"height,omitempty"`
-	// ContentType undocumented
-	ContentType *string `json:"contentType,omitempty"`
 	// Content undocumented
 	Content *Stream `json:"content,omitempty"`
+	// ContentType undocumented
+	ContentType *string `json:"contentType,omitempty"`
+	// Height undocumented
+	Height *int `json:"height,omitempty"`
+	// Width undocumented
+	Width *int `json:"width,omitempty"`
 }

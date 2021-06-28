@@ -114,6 +114,109 @@ func (r *ExternalConnectionsCollectionRequest) Add(ctx context.Context, reqObj *
 	return
 }
 
+// Groups returns request builder for ExternalGroup collection
+func (b *ExternalConnectionRequestBuilder) Groups() *ExternalConnectionGroupsCollectionRequestBuilder {
+	bb := &ExternalConnectionGroupsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groups"
+	return bb
+}
+
+// ExternalConnectionGroupsCollectionRequestBuilder is request builder for ExternalGroup collection
+type ExternalConnectionGroupsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ExternalGroup collection
+func (b *ExternalConnectionGroupsCollectionRequestBuilder) Request() *ExternalConnectionGroupsCollectionRequest {
+	return &ExternalConnectionGroupsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ExternalGroup item
+func (b *ExternalConnectionGroupsCollectionRequestBuilder) ID(id string) *ExternalGroupRequestBuilder {
+	bb := &ExternalGroupRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ExternalConnectionGroupsCollectionRequest is request for ExternalGroup collection
+type ExternalConnectionGroupsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ExternalGroup collection
+func (r *ExternalConnectionGroupsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExternalGroup, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ExternalGroup
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ExternalGroup
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ExternalGroup collection, max N pages
+func (r *ExternalConnectionGroupsCollectionRequest) GetN(ctx context.Context, n int) ([]ExternalGroup, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExternalGroup collection
+func (r *ExternalConnectionGroupsCollectionRequest) Get(ctx context.Context) ([]ExternalGroup, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ExternalGroup collection
+func (r *ExternalConnectionGroupsCollectionRequest) Add(ctx context.Context, reqObj *ExternalGroup) (resObj *ExternalGroup, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Items returns request builder for ExternalItem collection
 func (b *ExternalConnectionRequestBuilder) Items() *ExternalConnectionItemsCollectionRequestBuilder {
 	bb := &ExternalConnectionItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -325,4 +428,107 @@ func (b *ExternalConnectionRequestBuilder) Schema() *SchemaRequestBuilder {
 	bb := &SchemaRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/schema"
 	return bb
+}
+
+// Members returns request builder for ExternalGroupMember collection
+func (b *ExternalGroupRequestBuilder) Members() *ExternalGroupMembersCollectionRequestBuilder {
+	bb := &ExternalGroupMembersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/members"
+	return bb
+}
+
+// ExternalGroupMembersCollectionRequestBuilder is request builder for ExternalGroupMember collection
+type ExternalGroupMembersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ExternalGroupMember collection
+func (b *ExternalGroupMembersCollectionRequestBuilder) Request() *ExternalGroupMembersCollectionRequest {
+	return &ExternalGroupMembersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ExternalGroupMember item
+func (b *ExternalGroupMembersCollectionRequestBuilder) ID(id string) *ExternalGroupMemberRequestBuilder {
+	bb := &ExternalGroupMemberRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// ExternalGroupMembersCollectionRequest is request for ExternalGroupMember collection
+type ExternalGroupMembersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ExternalGroupMember collection
+func (r *ExternalGroupMembersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ExternalGroupMember, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ExternalGroupMember
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ExternalGroupMember
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ExternalGroupMember collection, max N pages
+func (r *ExternalGroupMembersCollectionRequest) GetN(ctx context.Context, n int) ([]ExternalGroupMember, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ExternalGroupMember collection
+func (r *ExternalGroupMembersCollectionRequest) Get(ctx context.Context) ([]ExternalGroupMember, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ExternalGroupMember collection
+func (r *ExternalGroupMembersCollectionRequest) Add(ctx context.Context, reqObj *ExternalGroupMember) (resObj *ExternalGroupMember, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }

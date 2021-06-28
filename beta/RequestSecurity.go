@@ -268,28 +268,35 @@ func (r *SecurityBaselineTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-//
-type SecurityActionCancelSecurityActionRequestBuilder struct{ BaseRequestBuilder }
+// SecurityConfigurationTaskRequestBuilder is request builder for SecurityConfigurationTask
+type SecurityConfigurationTaskRequestBuilder struct{ BaseRequestBuilder }
 
-// CancelSecurityAction action undocumented
-func (b *SecurityActionRequestBuilder) CancelSecurityAction(reqObj *SecurityActionCancelSecurityActionRequestParameter) *SecurityActionCancelSecurityActionRequestBuilder {
-	bb := &SecurityActionCancelSecurityActionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/cancelSecurityAction"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type SecurityActionCancelSecurityActionRequest struct{ BaseRequest }
-
-//
-func (b *SecurityActionCancelSecurityActionRequestBuilder) Request() *SecurityActionCancelSecurityActionRequest {
-	return &SecurityActionCancelSecurityActionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+// Request returns SecurityConfigurationTaskRequest
+func (b *SecurityConfigurationTaskRequestBuilder) Request() *SecurityConfigurationTaskRequest {
+	return &SecurityConfigurationTaskRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
 	}
 }
 
-//
-func (r *SecurityActionCancelSecurityActionRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+// SecurityConfigurationTaskRequest is request for SecurityConfigurationTask
+type SecurityConfigurationTaskRequest struct{ BaseRequest }
+
+// Get performs GET request for SecurityConfigurationTask
+func (r *SecurityConfigurationTaskRequest) Get(ctx context.Context) (resObj *SecurityConfigurationTask, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for SecurityConfigurationTask
+func (r *SecurityConfigurationTaskRequest) Update(ctx context.Context, reqObj *SecurityConfigurationTask) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for SecurityConfigurationTask
+func (r *SecurityConfigurationTaskRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

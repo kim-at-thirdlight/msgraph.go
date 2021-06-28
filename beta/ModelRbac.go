@@ -6,8 +6,36 @@ package msgraph
 type RbacApplication struct {
 	// Entity is the base model of RbacApplication
 	Entity
-	// RoleDefinitions undocumented
-	RoleDefinitions []UnifiedRoleDefinition `json:"roleDefinitions,omitempty"`
+	// ResourceNamespaces undocumented
+	ResourceNamespaces []UnifiedRbacResourceNamespace `json:"resourceNamespaces,omitempty"`
 	// RoleAssignments undocumented
 	RoleAssignments []UnifiedRoleAssignment `json:"roleAssignments,omitempty"`
+	// RoleDefinitions undocumented
+	RoleDefinitions []UnifiedRoleDefinition `json:"roleDefinitions,omitempty"`
+	// RoleAssignmentApprovals undocumented
+	RoleAssignmentApprovals []Approval `json:"roleAssignmentApprovals,omitempty"`
+	// RoleAssignmentScheduleInstances undocumented
+	RoleAssignmentScheduleInstances []UnifiedRoleAssignmentScheduleInstance `json:"roleAssignmentScheduleInstances,omitempty"`
+	// RoleAssignmentScheduleRequests undocumented
+	RoleAssignmentScheduleRequests []UnifiedRoleAssignmentScheduleRequestObject `json:"roleAssignmentScheduleRequests,omitempty"`
+	// RoleAssignmentSchedules undocumented
+	RoleAssignmentSchedules []UnifiedRoleAssignmentSchedule `json:"roleAssignmentSchedules,omitempty"`
+	// RoleEligibilityScheduleInstances undocumented
+	RoleEligibilityScheduleInstances []UnifiedRoleEligibilityScheduleInstance `json:"roleEligibilityScheduleInstances,omitempty"`
+	// RoleEligibilityScheduleRequests undocumented
+	RoleEligibilityScheduleRequests []UnifiedRoleEligibilityScheduleRequestObject `json:"roleEligibilityScheduleRequests,omitempty"`
+	// RoleEligibilitySchedules undocumented
+	RoleEligibilitySchedules []UnifiedRoleEligibilitySchedule `json:"roleEligibilitySchedules,omitempty"`
+}
+
+// RbacApplicationMultiple undocumented
+type RbacApplicationMultiple struct {
+	// Entity is the base model of RbacApplicationMultiple
+	Entity
+	// ResourceNamespaces undocumented
+	ResourceNamespaces []UnifiedRbacResourceNamespace `json:"resourceNamespaces,omitempty"`
+	// RoleAssignments undocumented
+	RoleAssignments []UnifiedRoleAssignmentMultiple `json:"roleAssignments,omitempty"`
+	// RoleDefinitions undocumented
+	RoleDefinitions []UnifiedRoleDefinition `json:"roleDefinitions,omitempty"`
 }

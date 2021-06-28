@@ -44,10 +44,34 @@ var (
 	_SecurityBaselineComplianceStatePConflict      = SecurityBaselineComplianceStateVConflict
 )
 
+// SecurityBaselinePolicySourceType undocumented
+type SecurityBaselinePolicySourceType string
+
+const (
+	// SecurityBaselinePolicySourceTypeVDeviceConfiguration undocumented
+	SecurityBaselinePolicySourceTypeVDeviceConfiguration SecurityBaselinePolicySourceType = "deviceConfiguration"
+	// SecurityBaselinePolicySourceTypeVDeviceIntent undocumented
+	SecurityBaselinePolicySourceTypeVDeviceIntent SecurityBaselinePolicySourceType = "deviceIntent"
+)
+
+var (
+	// SecurityBaselinePolicySourceTypePDeviceConfiguration is a pointer to SecurityBaselinePolicySourceTypeVDeviceConfiguration
+	SecurityBaselinePolicySourceTypePDeviceConfiguration = &_SecurityBaselinePolicySourceTypePDeviceConfiguration
+	// SecurityBaselinePolicySourceTypePDeviceIntent is a pointer to SecurityBaselinePolicySourceTypeVDeviceIntent
+	SecurityBaselinePolicySourceTypePDeviceIntent = &_SecurityBaselinePolicySourceTypePDeviceIntent
+)
+
+var (
+	_SecurityBaselinePolicySourceTypePDeviceConfiguration = SecurityBaselinePolicySourceTypeVDeviceConfiguration
+	_SecurityBaselinePolicySourceTypePDeviceIntent        = SecurityBaselinePolicySourceTypeVDeviceIntent
+)
+
 // SecurityNetworkProtocol undocumented
 type SecurityNetworkProtocol string
 
 const (
+	// SecurityNetworkProtocolVUnknown undocumented
+	SecurityNetworkProtocolVUnknown SecurityNetworkProtocol = "unknown"
 	// SecurityNetworkProtocolVIP undocumented
 	SecurityNetworkProtocolVIP SecurityNetworkProtocol = "ip"
 	// SecurityNetworkProtocolVICMP undocumented
@@ -94,11 +118,11 @@ const (
 	SecurityNetworkProtocolVSpxII SecurityNetworkProtocol = "spxII"
 	// SecurityNetworkProtocolVUnknownFutureValue undocumented
 	SecurityNetworkProtocolVUnknownFutureValue SecurityNetworkProtocol = "unknownFutureValue"
-	// SecurityNetworkProtocolVUnknown undocumented
-	SecurityNetworkProtocolVUnknown SecurityNetworkProtocol = "unknown"
 )
 
 var (
+	// SecurityNetworkProtocolPUnknown is a pointer to SecurityNetworkProtocolVUnknown
+	SecurityNetworkProtocolPUnknown = &_SecurityNetworkProtocolPUnknown
 	// SecurityNetworkProtocolPIP is a pointer to SecurityNetworkProtocolVIP
 	SecurityNetworkProtocolPIP = &_SecurityNetworkProtocolPIP
 	// SecurityNetworkProtocolPICMP is a pointer to SecurityNetworkProtocolVICMP
@@ -145,11 +169,10 @@ var (
 	SecurityNetworkProtocolPSpxII = &_SecurityNetworkProtocolPSpxII
 	// SecurityNetworkProtocolPUnknownFutureValue is a pointer to SecurityNetworkProtocolVUnknownFutureValue
 	SecurityNetworkProtocolPUnknownFutureValue = &_SecurityNetworkProtocolPUnknownFutureValue
-	// SecurityNetworkProtocolPUnknown is a pointer to SecurityNetworkProtocolVUnknown
-	SecurityNetworkProtocolPUnknown = &_SecurityNetworkProtocolPUnknown
 )
 
 var (
+	_SecurityNetworkProtocolPUnknown                           = SecurityNetworkProtocolVUnknown
 	_SecurityNetworkProtocolPIP                                = SecurityNetworkProtocolVIP
 	_SecurityNetworkProtocolPICMP                              = SecurityNetworkProtocolVICMP
 	_SecurityNetworkProtocolPIGMP                              = SecurityNetworkProtocolVIGMP
@@ -173,5 +196,58 @@ var (
 	_SecurityNetworkProtocolPSpx                               = SecurityNetworkProtocolVSpx
 	_SecurityNetworkProtocolPSpxII                             = SecurityNetworkProtocolVSpxII
 	_SecurityNetworkProtocolPUnknownFutureValue                = SecurityNetworkProtocolVUnknownFutureValue
-	_SecurityNetworkProtocolPUnknown                           = SecurityNetworkProtocolVUnknown
+)
+
+// SecurityQuestionType undocumented
+type SecurityQuestionType string
+
+const (
+	// SecurityQuestionTypeVPredefined undocumented
+	SecurityQuestionTypeVPredefined SecurityQuestionType = "predefined"
+	// SecurityQuestionTypeVCustom undocumented
+	SecurityQuestionTypeVCustom SecurityQuestionType = "custom"
+)
+
+var (
+	// SecurityQuestionTypePPredefined is a pointer to SecurityQuestionTypeVPredefined
+	SecurityQuestionTypePPredefined = &_SecurityQuestionTypePPredefined
+	// SecurityQuestionTypePCustom is a pointer to SecurityQuestionTypeVCustom
+	SecurityQuestionTypePCustom = &_SecurityQuestionTypePCustom
+)
+
+var (
+	_SecurityQuestionTypePPredefined = SecurityQuestionTypeVPredefined
+	_SecurityQuestionTypePCustom     = SecurityQuestionTypeVCustom
+)
+
+// SecurityResourceType undocumented
+type SecurityResourceType string
+
+const (
+	// SecurityResourceTypeVUnknown undocumented
+	SecurityResourceTypeVUnknown SecurityResourceType = "unknown"
+	// SecurityResourceTypeVAttacked undocumented
+	SecurityResourceTypeVAttacked SecurityResourceType = "attacked"
+	// SecurityResourceTypeVRelated undocumented
+	SecurityResourceTypeVRelated SecurityResourceType = "related"
+	// SecurityResourceTypeVUnknownFutureValue undocumented
+	SecurityResourceTypeVUnknownFutureValue SecurityResourceType = "unknownFutureValue"
+)
+
+var (
+	// SecurityResourceTypePUnknown is a pointer to SecurityResourceTypeVUnknown
+	SecurityResourceTypePUnknown = &_SecurityResourceTypePUnknown
+	// SecurityResourceTypePAttacked is a pointer to SecurityResourceTypeVAttacked
+	SecurityResourceTypePAttacked = &_SecurityResourceTypePAttacked
+	// SecurityResourceTypePRelated is a pointer to SecurityResourceTypeVRelated
+	SecurityResourceTypePRelated = &_SecurityResourceTypePRelated
+	// SecurityResourceTypePUnknownFutureValue is a pointer to SecurityResourceTypeVUnknownFutureValue
+	SecurityResourceTypePUnknownFutureValue = &_SecurityResourceTypePUnknownFutureValue
+)
+
+var (
+	_SecurityResourceTypePUnknown            = SecurityResourceTypeVUnknown
+	_SecurityResourceTypePAttacked           = SecurityResourceTypeVAttacked
+	_SecurityResourceTypePRelated            = SecurityResourceTypeVRelated
+	_SecurityResourceTypePUnknownFutureValue = SecurityResourceTypeVUnknownFutureValue
 )

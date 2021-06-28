@@ -2,7 +2,7 @@
 
 package msgraph
 
-// EncryptionReportPolicyDetails undocumented
+// EncryptionReportPolicyDetails Policy Details for Encryption Report
 type EncryptionReportPolicyDetails struct {
 	// Object is the base model of EncryptionReportPolicyDetails
 	Object

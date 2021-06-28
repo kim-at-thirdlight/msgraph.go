@@ -2,6 +2,48 @@
 
 package msgraph
 
+// NetworkConnectionType undocumented
+type NetworkConnectionType string
+
+const (
+	// NetworkConnectionTypeVUnknown undocumented
+	NetworkConnectionTypeVUnknown NetworkConnectionType = "unknown"
+	// NetworkConnectionTypeVWired undocumented
+	NetworkConnectionTypeVWired NetworkConnectionType = "wired"
+	// NetworkConnectionTypeVWiFi undocumented
+	NetworkConnectionTypeVWiFi NetworkConnectionType = "wifi"
+	// NetworkConnectionTypeVMobile undocumented
+	NetworkConnectionTypeVMobile NetworkConnectionType = "mobile"
+	// NetworkConnectionTypeVTunnel undocumented
+	NetworkConnectionTypeVTunnel NetworkConnectionType = "tunnel"
+	// NetworkConnectionTypeVUnknownFutureValue undocumented
+	NetworkConnectionTypeVUnknownFutureValue NetworkConnectionType = "unknownFutureValue"
+)
+
+var (
+	// NetworkConnectionTypePUnknown is a pointer to NetworkConnectionTypeVUnknown
+	NetworkConnectionTypePUnknown = &_NetworkConnectionTypePUnknown
+	// NetworkConnectionTypePWired is a pointer to NetworkConnectionTypeVWired
+	NetworkConnectionTypePWired = &_NetworkConnectionTypePWired
+	// NetworkConnectionTypePWiFi is a pointer to NetworkConnectionTypeVWiFi
+	NetworkConnectionTypePWiFi = &_NetworkConnectionTypePWiFi
+	// NetworkConnectionTypePMobile is a pointer to NetworkConnectionTypeVMobile
+	NetworkConnectionTypePMobile = &_NetworkConnectionTypePMobile
+	// NetworkConnectionTypePTunnel is a pointer to NetworkConnectionTypeVTunnel
+	NetworkConnectionTypePTunnel = &_NetworkConnectionTypePTunnel
+	// NetworkConnectionTypePUnknownFutureValue is a pointer to NetworkConnectionTypeVUnknownFutureValue
+	NetworkConnectionTypePUnknownFutureValue = &_NetworkConnectionTypePUnknownFutureValue
+)
+
+var (
+	_NetworkConnectionTypePUnknown            = NetworkConnectionTypeVUnknown
+	_NetworkConnectionTypePWired              = NetworkConnectionTypeVWired
+	_NetworkConnectionTypePWiFi               = NetworkConnectionTypeVWiFi
+	_NetworkConnectionTypePMobile             = NetworkConnectionTypeVMobile
+	_NetworkConnectionTypePTunnel             = NetworkConnectionTypeVTunnel
+	_NetworkConnectionTypePUnknownFutureValue = NetworkConnectionTypeVUnknownFutureValue
+)
+
 // NetworkSingleSignOnType undocumented
 type NetworkSingleSignOnType string
 
@@ -43,6 +85,8 @@ const (
 	NetworkTypeVTrusted NetworkType = "trusted"
 	// NetworkTypeVUnknownFutureValue undocumented
 	NetworkTypeVUnknownFutureValue NetworkType = "unknownFutureValue"
+	// NetworkTypeVTrustedNamedLocation undocumented
+	NetworkTypeVTrustedNamedLocation NetworkType = "trustedNamedLocation"
 )
 
 var (
@@ -56,12 +100,15 @@ var (
 	NetworkTypePTrusted = &_NetworkTypePTrusted
 	// NetworkTypePUnknownFutureValue is a pointer to NetworkTypeVUnknownFutureValue
 	NetworkTypePUnknownFutureValue = &_NetworkTypePUnknownFutureValue
+	// NetworkTypePTrustedNamedLocation is a pointer to NetworkTypeVTrustedNamedLocation
+	NetworkTypePTrustedNamedLocation = &_NetworkTypePTrustedNamedLocation
 )
 
 var (
-	_NetworkTypePIntranet           = NetworkTypeVIntranet
-	_NetworkTypePExtranet           = NetworkTypeVExtranet
-	_NetworkTypePNamedNetwork       = NetworkTypeVNamedNetwork
-	_NetworkTypePTrusted            = NetworkTypeVTrusted
-	_NetworkTypePUnknownFutureValue = NetworkTypeVUnknownFutureValue
+	_NetworkTypePIntranet             = NetworkTypeVIntranet
+	_NetworkTypePExtranet             = NetworkTypeVExtranet
+	_NetworkTypePNamedNetwork         = NetworkTypeVNamedNetwork
+	_NetworkTypePTrusted              = NetworkTypeVTrusted
+	_NetworkTypePUnknownFutureValue   = NetworkTypeVUnknownFutureValue
+	_NetworkTypePTrustedNamedLocation = NetworkTypeVTrustedNamedLocation
 )

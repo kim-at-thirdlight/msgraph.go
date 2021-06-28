@@ -70,6 +70,72 @@ func (r *ExternalConnectionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ExternalGroupRequestBuilder is request builder for ExternalGroup
+type ExternalGroupRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ExternalGroupRequest
+func (b *ExternalGroupRequestBuilder) Request() *ExternalGroupRequest {
+	return &ExternalGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ExternalGroupRequest is request for ExternalGroup
+type ExternalGroupRequest struct{ BaseRequest }
+
+// Get performs GET request for ExternalGroup
+func (r *ExternalGroupRequest) Get(ctx context.Context) (resObj *ExternalGroup, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ExternalGroup
+func (r *ExternalGroupRequest) Update(ctx context.Context, reqObj *ExternalGroup) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ExternalGroup
+func (r *ExternalGroupRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// ExternalGroupMemberRequestBuilder is request builder for ExternalGroupMember
+type ExternalGroupMemberRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ExternalGroupMemberRequest
+func (b *ExternalGroupMemberRequestBuilder) Request() *ExternalGroupMemberRequest {
+	return &ExternalGroupMemberRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ExternalGroupMemberRequest is request for ExternalGroupMember
+type ExternalGroupMemberRequest struct{ BaseRequest }
+
+// Get performs GET request for ExternalGroupMember
+func (r *ExternalGroupMemberRequest) Get(ctx context.Context) (resObj *ExternalGroupMember, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ExternalGroupMember
+func (r *ExternalGroupMemberRequest) Update(ctx context.Context, reqObj *ExternalGroupMember) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ExternalGroupMember
+func (r *ExternalGroupMemberRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ExternalItemRequestBuilder is request builder for ExternalItem
 type ExternalItemRequestBuilder struct{ BaseRequestBuilder }
 

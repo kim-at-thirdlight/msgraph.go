@@ -8,54 +8,82 @@ import "time"
 type OnlineMeeting struct {
 	// Entity is the base model of OnlineMeeting
 	Entity
-	// CreationDateTime undocumented
-	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// CanceledDateTime undocumented
-	CanceledDateTime *time.Time `json:"canceledDateTime,omitempty"`
-	// ExpirationDateTime undocumented
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// EntryExitAnnouncement undocumented
-	EntryExitAnnouncement *bool `json:"entryExitAnnouncement,omitempty"`
-	// JoinURL undocumented
-	JoinURL *string `json:"joinUrl,omitempty"`
-	// Subject undocumented
-	Subject *string `json:"subject,omitempty"`
-	// IsCancelled undocumented
-	IsCancelled *bool `json:"isCancelled,omitempty"`
-	// Participants undocumented
-	Participants *MeetingParticipants `json:"participants,omitempty"`
-	// IsBroadcast undocumented
-	IsBroadcast *bool `json:"isBroadcast,omitempty"`
 	// AccessLevel undocumented
 	AccessLevel *AccessLevel `json:"accessLevel,omitempty"`
-	// Capabilities undocumented
-	Capabilities []MeetingCapabilities `json:"capabilities,omitempty"`
+	// AllowAttendeeToEnableCamera undocumented
+	AllowAttendeeToEnableCamera *bool `json:"allowAttendeeToEnableCamera,omitempty"`
+	// AllowAttendeeToEnableMic undocumented
+	AllowAttendeeToEnableMic *bool `json:"allowAttendeeToEnableMic,omitempty"`
+	// AllowedPresenters undocumented
+	AllowedPresenters *OnlineMeetingPresenters `json:"allowedPresenters,omitempty"`
+	// AllowMeetingChat undocumented
+	AllowMeetingChat *MeetingChatMode `json:"allowMeetingChat,omitempty"`
+	// AllowTeamworkReactions undocumented
+	AllowTeamworkReactions *bool `json:"allowTeamworkReactions,omitempty"`
+	// AlternativeRecording undocumented
+	AlternativeRecording *Stream `json:"alternativeRecording,omitempty"`
+	// AttendeeReport undocumented
+	AttendeeReport *Stream `json:"attendeeReport,omitempty"`
 	// AudioConferencing undocumented
 	AudioConferencing *AudioConferencing `json:"audioConferencing,omitempty"`
+	// BroadcastSettings undocumented
+	BroadcastSettings *BroadcastMeetingSettings `json:"broadcastSettings,omitempty"`
+	// CanceledDateTime undocumented
+	CanceledDateTime *time.Time `json:"canceledDateTime,omitempty"`
+	// Capabilities undocumented
+	Capabilities []MeetingCapabilities `json:"capabilities,omitempty"`
 	// ChatInfo undocumented
 	ChatInfo *ChatInfo `json:"chatInfo,omitempty"`
+	// CreationDateTime undocumented
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// EntryExitAnnouncement undocumented
+	EntryExitAnnouncement *bool `json:"entryExitAnnouncement,omitempty"`
+	// ExpirationDateTime undocumented
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// IsBroadcast undocumented
+	IsBroadcast *bool `json:"isBroadcast,omitempty"`
+	// IsCancelled undocumented
+	IsCancelled *bool `json:"isCancelled,omitempty"`
+	// IsEntryExitAnnounced undocumented
+	IsEntryExitAnnounced *bool `json:"isEntryExitAnnounced,omitempty"`
+	// JoinInformation undocumented
+	JoinInformation *ItemBody `json:"joinInformation,omitempty"`
+	// JoinURL undocumented
+	JoinURL *string `json:"joinUrl,omitempty"`
+	// LobbyBypassSettings undocumented
+	LobbyBypassSettings *LobbyBypassSettings `json:"lobbyBypassSettings,omitempty"`
+	// Participants undocumented
+	Participants *MeetingParticipants `json:"participants,omitempty"`
+	// Recording undocumented
+	Recording *Stream `json:"recording,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
 	// VideoTeleconferenceID undocumented
 	VideoTeleconferenceID *string `json:"videoTeleconferenceId,omitempty"`
+	// MeetingAttendanceReport undocumented
+	MeetingAttendanceReport *MeetingAttendanceReport `json:"meetingAttendanceReport,omitempty"`
 }
 
 // OnlineMeetingInfo undocumented
 type OnlineMeetingInfo struct {
 	// Object is the base model of OnlineMeetingInfo
 	Object
-	// JoinURL undocumented
-	JoinURL *string `json:"joinUrl,omitempty"`
 	// ConferenceID undocumented
 	ConferenceID *string `json:"conferenceId,omitempty"`
-	// TollNumber undocumented
-	TollNumber *string `json:"tollNumber,omitempty"`
-	// TollFreeNumbers undocumented
-	TollFreeNumbers []string `json:"tollFreeNumbers,omitempty"`
-	// QuickDial undocumented
-	QuickDial *string `json:"quickDial,omitempty"`
+	// JoinURL undocumented
+	JoinURL *string `json:"joinUrl,omitempty"`
 	// Phones undocumented
 	Phones []Phone `json:"phones,omitempty"`
+	// QuickDial undocumented
+	QuickDial *string `json:"quickDial,omitempty"`
+	// TollFreeNumbers undocumented
+	TollFreeNumbers []string `json:"tollFreeNumbers,omitempty"`
+	// TollNumber undocumented
+	TollNumber *string `json:"tollNumber,omitempty"`
 }

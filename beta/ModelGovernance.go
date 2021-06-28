@@ -14,26 +14,26 @@ type GovernanceCriteria struct {
 type GovernanceNotificationPolicy struct {
 	// Object is the base model of GovernanceNotificationPolicy
 	Object
-	// NotificationTemplates undocumented
-	NotificationTemplates []GovernanceNotificationTemplate `json:"notificationTemplates,omitempty"`
 	// EnabledTemplateTypes undocumented
 	EnabledTemplateTypes []string `json:"enabledTemplateTypes,omitempty"`
+	// NotificationTemplates undocumented
+	NotificationTemplates []GovernanceNotificationTemplate `json:"notificationTemplates,omitempty"`
 }
 
 // GovernanceNotificationTemplate undocumented
 type GovernanceNotificationTemplate struct {
 	// Object is the base model of GovernanceNotificationTemplate
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// Source undocumented
-	Source *string `json:"source,omitempty"`
-	// Version undocumented
-	Version *string `json:"version,omitempty"`
 	// Culture undocumented
 	Culture *string `json:"culture,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// Source undocumented
+	Source *string `json:"source,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// Version undocumented
+	Version *string `json:"version,omitempty"`
 }
 
 // GovernancePermission undocumented
@@ -74,26 +74,26 @@ type GovernancePolicyTemplate struct {
 type GovernanceResource struct {
 	// Entity is the base model of GovernanceResource
 	Entity
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
 	// RegisteredDateTime undocumented
 	RegisteredDateTime *time.Time `json:"registeredDateTime,omitempty"`
 	// RegisteredRoot undocumented
 	RegisteredRoot *string `json:"registeredRoot,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 	// Parent undocumented
 	Parent *GovernanceResource `json:"parent,omitempty"`
-	// RoleDefinitions undocumented
-	RoleDefinitions []GovernanceRoleDefinition `json:"roleDefinitions,omitempty"`
-	// RoleAssignments undocumented
-	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
 	// RoleAssignmentRequests undocumented
 	RoleAssignmentRequests []GovernanceRoleAssignmentRequestObject `json:"roleAssignmentRequests,omitempty"`
+	// RoleAssignments undocumented
+	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
+	// RoleDefinitions undocumented
+	RoleDefinitions []GovernanceRoleDefinition `json:"roleDefinitions,omitempty"`
 	// RoleSettings undocumented
 	RoleSettings []GovernanceRoleSetting `json:"roleSettings,omitempty"`
 }
@@ -102,60 +102,60 @@ type GovernanceResource struct {
 type GovernanceRoleAssignment struct {
 	// Entity is the base model of GovernanceRoleAssignment
 	Entity
+	// AssignmentState undocumented
+	AssignmentState *string `json:"assignmentState,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// LinkedEligibleRoleAssignmentID undocumented
+	LinkedEligibleRoleAssignmentID *string `json:"linkedEligibleRoleAssignmentId,omitempty"`
+	// MemberType undocumented
+	MemberType *string `json:"memberType,omitempty"`
 	// ResourceID undocumented
 	ResourceID *string `json:"resourceId,omitempty"`
 	// RoleDefinitionID undocumented
 	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
-	// SubjectID undocumented
-	SubjectID *string `json:"subjectId,omitempty"`
-	// LinkedEligibleRoleAssignmentID undocumented
-	LinkedEligibleRoleAssignmentID *string `json:"linkedEligibleRoleAssignmentId,omitempty"`
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
 	// StartDateTime undocumented
 	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// MemberType undocumented
-	MemberType *string `json:"memberType,omitempty"`
-	// AssignmentState undocumented
-	AssignmentState *string `json:"assignmentState,omitempty"`
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
+	// SubjectID undocumented
+	SubjectID *string `json:"subjectId,omitempty"`
+	// LinkedEligibleRoleAssignment undocumented
+	LinkedEligibleRoleAssignment *GovernanceRoleAssignment `json:"linkedEligibleRoleAssignment,omitempty"`
 	// Resource undocumented
 	Resource *GovernanceResource `json:"resource,omitempty"`
 	// RoleDefinition undocumented
 	RoleDefinition *GovernanceRoleDefinition `json:"roleDefinition,omitempty"`
 	// Subject undocumented
 	Subject *GovernanceSubject `json:"subject,omitempty"`
-	// LinkedEligibleRoleAssignment undocumented
-	LinkedEligibleRoleAssignment *GovernanceRoleAssignment `json:"linkedEligibleRoleAssignment,omitempty"`
 }
 
 // GovernanceRoleAssignmentRequestObject undocumented
 type GovernanceRoleAssignmentRequestObject struct {
 	// Entity is the base model of GovernanceRoleAssignmentRequestObject
 	Entity
+	// AssignmentState undocumented
+	AssignmentState *string `json:"assignmentState,omitempty"`
+	// LinkedEligibleRoleAssignmentID undocumented
+	LinkedEligibleRoleAssignmentID *string `json:"linkedEligibleRoleAssignmentId,omitempty"`
+	// Reason undocumented
+	Reason *string `json:"reason,omitempty"`
+	// RequestedDateTime undocumented
+	RequestedDateTime *time.Time `json:"requestedDateTime,omitempty"`
 	// ResourceID undocumented
 	ResourceID *string `json:"resourceId,omitempty"`
 	// RoleDefinitionID undocumented
 	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
-	// SubjectID undocumented
-	SubjectID *string `json:"subjectId,omitempty"`
-	// LinkedEligibleRoleAssignmentID undocumented
-	LinkedEligibleRoleAssignmentID *string `json:"linkedEligibleRoleAssignmentId,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// AssignmentState undocumented
-	AssignmentState *string `json:"assignmentState,omitempty"`
-	// RequestedDateTime undocumented
-	RequestedDateTime *time.Time `json:"requestedDateTime,omitempty"`
-	// Reason undocumented
-	Reason *string `json:"reason,omitempty"`
-	// Status undocumented
-	Status *GovernanceRoleAssignmentRequestStatus `json:"status,omitempty"`
 	// Schedule undocumented
 	Schedule *GovernanceSchedule `json:"schedule,omitempty"`
+	// Status undocumented
+	Status *GovernanceRoleAssignmentRequestStatus `json:"status,omitempty"`
+	// SubjectID undocumented
+	SubjectID *string `json:"subjectId,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 	// Resource undocumented
 	Resource *GovernanceResource `json:"resource,omitempty"`
 	// RoleDefinition undocumented
@@ -170,24 +170,24 @@ type GovernanceRoleAssignmentRequestStatus struct {
 	Object
 	// Status undocumented
 	Status *string `json:"status,omitempty"`
-	// SubStatus undocumented
-	SubStatus *string `json:"subStatus,omitempty"`
 	// StatusDetails undocumented
 	StatusDetails []KeyValue `json:"statusDetails,omitempty"`
+	// SubStatus undocumented
+	SubStatus *string `json:"subStatus,omitempty"`
 }
 
 // GovernanceRoleDefinition undocumented
 type GovernanceRoleDefinition struct {
 	// Entity is the base model of GovernanceRoleDefinition
 	Entity
-	// ResourceID undocumented
-	ResourceID *string `json:"resourceId,omitempty"`
-	// ExternalID undocumented
-	ExternalID *string `json:"externalId,omitempty"`
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
+	// ExternalID undocumented
+	ExternalID *string `json:"externalId,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
 	// Resource undocumented
 	Resource *GovernanceResource `json:"resource,omitempty"`
 	// RoleSetting undocumented
@@ -198,28 +198,28 @@ type GovernanceRoleDefinition struct {
 type GovernanceRoleSetting struct {
 	// Entity is the base model of GovernanceRoleSetting
 	Entity
-	// ResourceID undocumented
-	ResourceID *string `json:"resourceId,omitempty"`
-	// RoleDefinitionID undocumented
-	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
-	// IsDefault undocumented
-	IsDefault *bool `json:"isDefault,omitempty"`
-	// LastUpdatedDateTime undocumented
-	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
-	// LastUpdatedBy undocumented
-	LastUpdatedBy *string `json:"lastUpdatedBy,omitempty"`
 	// AdminEligibleSettings undocumented
 	AdminEligibleSettings []GovernanceRuleSetting `json:"adminEligibleSettings,omitempty"`
 	// AdminMemberSettings undocumented
 	AdminMemberSettings []GovernanceRuleSetting `json:"adminMemberSettings,omitempty"`
+	// IsDefault undocumented
+	IsDefault *bool `json:"isDefault,omitempty"`
+	// LastUpdatedBy undocumented
+	LastUpdatedBy *string `json:"lastUpdatedBy,omitempty"`
+	// LastUpdatedDateTime undocumented
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// ResourceID undocumented
+	ResourceID *string `json:"resourceId,omitempty"`
+	// RoleDefinitionID undocumented
+	RoleDefinitionID *string `json:"roleDefinitionId,omitempty"`
 	// UserEligibleSettings undocumented
 	UserEligibleSettings []GovernanceRuleSetting `json:"userEligibleSettings,omitempty"`
 	// UserMemberSettings undocumented
 	UserMemberSettings []GovernanceRuleSetting `json:"userMemberSettings,omitempty"`
-	// RoleDefinition undocumented
-	RoleDefinition *GovernanceRoleDefinition `json:"roleDefinition,omitempty"`
 	// Resource undocumented
 	Resource *GovernanceResource `json:"resource,omitempty"`
+	// RoleDefinition undocumented
+	RoleDefinition *GovernanceRoleDefinition `json:"roleDefinition,omitempty"`
 }
 
 // GovernanceRuleSetting undocumented
@@ -236,26 +236,26 @@ type GovernanceRuleSetting struct {
 type GovernanceSchedule struct {
 	// Object is the base model of GovernanceSchedule
 	Object
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
 	// Duration undocumented
 	Duration *Duration `json:"duration,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }
 
 // GovernanceSubject undocumented
 type GovernanceSubject struct {
 	// Entity is the base model of GovernanceSubject
 	Entity
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// PrincipalName undocumented
-	PrincipalName *string `json:"principalName,omitempty"`
 	// Email undocumented
 	Email *string `json:"email,omitempty"`
+	// PrincipalName undocumented
+	PrincipalName *string `json:"principalName,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
 }

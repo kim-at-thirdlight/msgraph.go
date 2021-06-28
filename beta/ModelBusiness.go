@@ -6,22 +6,22 @@ package msgraph
 type BusinessFlow struct {
 	// Entity is the base model of BusinessFlow
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// DeDuplicationID undocumented
-	DeDuplicationID *string `json:"deDuplicationId,omitempty"`
-	// SchemaID undocumented
-	SchemaID *string `json:"schemaId,omitempty"`
 	// CustomData undocumented
 	CustomData *string `json:"customData,omitempty"`
-	// RecordVersion undocumented
-	RecordVersion *string `json:"recordVersion,omitempty"`
+	// DeDuplicationID undocumented
+	DeDuplicationID *string `json:"deDuplicationId,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Policy undocumented
 	Policy *GovernancePolicy `json:"policy,omitempty"`
 	// PolicyTemplateID undocumented
 	PolicyTemplateID *string `json:"policyTemplateId,omitempty"`
+	// RecordVersion undocumented
+	RecordVersion *string `json:"recordVersion,omitempty"`
+	// SchemaID undocumented
+	SchemaID *string `json:"schemaId,omitempty"`
 	// Settings undocumented
 	Settings *BusinessFlowSettings `json:"settings,omitempty"`
 }

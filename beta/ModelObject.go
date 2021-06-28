@@ -20,12 +20,12 @@ type ObjectDefinition struct {
 type ObjectIdentity struct {
 	// Object is the base model of ObjectIdentity
 	Object
-	// SignInType undocumented
-	SignInType *string `json:"signInType,omitempty"`
 	// Issuer undocumented
 	Issuer *string `json:"issuer,omitempty"`
 	// IssuerAssignedID undocumented
 	IssuerAssignedID *string `json:"issuerAssignedId,omitempty"`
+	// SignInType undocumented
+	SignInType *string `json:"signInType,omitempty"`
 }
 
 // ObjectMapping undocumented

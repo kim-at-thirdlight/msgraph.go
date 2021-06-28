@@ -11,6 +11,30 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestParameter undocumented
+type ManagementActionTenantDeploymentStatusCollectionChangeDeploymentStatusRequestParameter struct {
+	// TenantGroupID undocumented
+	TenantGroupID *string `json:"tenantGroupId,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// ManagementActionID undocumented
+	ManagementActionID *string `json:"managementActionId,omitempty"`
+	// ManagementTemplateID undocumented
+	ManagementTemplateID *string `json:"managementTemplateId,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+}
+
+// ManagementActionApplyRequestParameter undocumented
+type ManagementActionApplyRequestParameter struct {
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// TenantGroupID undocumented
+	TenantGroupID *string `json:"tenantGroupId,omitempty"`
+	// ManagementTemplateID undocumented
+	ManagementTemplateID *string `json:"managementTemplateId,omitempty"`
+}
+
 // ManagementConditionStatements returns request builder for ManagementConditionStatement collection
 func (b *ManagementConditionRequestBuilder) ManagementConditionStatements() *ManagementConditionManagementConditionStatementsCollectionRequestBuilder {
 	bb := &ManagementConditionManagementConditionStatementsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

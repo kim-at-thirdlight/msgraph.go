@@ -8,18 +8,34 @@ import "time"
 type FeatureRolloutPolicy struct {
 	// Entity is the base model of FeatureRolloutPolicy
 	Entity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Feature undocumented
 	Feature *StagedFeatureName `json:"feature,omitempty"`
-	// IsEnabled undocumented
-	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// IsAppliedToOrganization undocumented
 	IsAppliedToOrganization *bool `json:"isAppliedToOrganization,omitempty"`
+	// IsEnabled undocumented
+	IsEnabled *bool `json:"isEnabled,omitempty"`
 	// AppliesTo undocumented
 	AppliesTo []DirectoryObject `json:"appliesTo,omitempty"`
+}
+
+// FeatureUpdateCatalogEntry undocumented
+type FeatureUpdateCatalogEntry struct {
+	// SoftwareUpdateCatalogEntry is the base model of FeatureUpdateCatalogEntry
+	SoftwareUpdateCatalogEntry
+	// Version undocumented
+	Version *string `json:"version,omitempty"`
+}
+
+// FeatureUpdateReference undocumented
+type FeatureUpdateReference struct {
+	// WindowsUpdateReference is the base model of FeatureUpdateReference
+	WindowsUpdateReference
+	// Version undocumented
+	Version *string `json:"version,omitempty"`
 }
 
 // FeatureUsageDetail undocumented
@@ -28,12 +44,12 @@ type FeatureUsageDetail struct {
 	Object
 	// FeatureName undocumented
 	FeatureName *string `json:"featureName,omitempty"`
-	// LicenseRequired undocumented
-	LicenseRequired *AzureADLicenseType `json:"licenseRequired,omitempty"`
-	// LicenseAssigned undocumented
-	LicenseAssigned *AzureADLicenseType `json:"licenseAssigned,omitempty"`
-	// LastUsedDateTime undocumented
-	LastUsedDateTime *time.Time `json:"lastUsedDateTime,omitempty"`
 	// LastConfiguredDateTime undocumented
 	LastConfiguredDateTime *time.Time `json:"lastConfiguredDateTime,omitempty"`
+	// LastUsedDateTime undocumented
+	LastUsedDateTime *time.Time `json:"lastUsedDateTime,omitempty"`
+	// LicenseAssigned undocumented
+	LicenseAssigned *AzureADLicenseType `json:"licenseAssigned,omitempty"`
+	// LicenseRequired undocumented
+	LicenseRequired *AzureADLicenseType `json:"licenseRequired,omitempty"`
 }

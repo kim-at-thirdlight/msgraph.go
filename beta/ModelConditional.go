@@ -8,12 +8,24 @@ import "time"
 type ConditionalAccessApplications struct {
 	// Object is the base model of ConditionalAccessApplications
 	Object
-	// IncludeApplications undocumented
-	IncludeApplications []string `json:"includeApplications,omitempty"`
 	// ExcludeApplications undocumented
 	ExcludeApplications []string `json:"excludeApplications,omitempty"`
+	// IncludeApplications undocumented
+	IncludeApplications []string `json:"includeApplications,omitempty"`
+	// IncludeAuthenticationContextClassReferences undocumented
+	IncludeAuthenticationContextClassReferences []string `json:"includeAuthenticationContextClassReferences,omitempty"`
 	// IncludeUserActions undocumented
 	IncludeUserActions []string `json:"includeUserActions,omitempty"`
+}
+
+// ConditionalAccessClientApplications undocumented
+type ConditionalAccessClientApplications struct {
+	// Object is the base model of ConditionalAccessClientApplications
+	Object
+	// ExcludeServicePrincipals undocumented
+	ExcludeServicePrincipals []string `json:"excludeServicePrincipals,omitempty"`
+	// IncludeServicePrincipals undocumented
+	IncludeServicePrincipals []string `json:"includeServicePrincipals,omitempty"`
 }
 
 // ConditionalAccessConditionSet undocumented
@@ -22,40 +34,72 @@ type ConditionalAccessConditionSet struct {
 	Object
 	// Applications undocumented
 	Applications *ConditionalAccessApplications `json:"applications,omitempty"`
-	// Users undocumented
-	Users *ConditionalAccessUsers `json:"users,omitempty"`
-	// SignInRiskLevels undocumented
-	SignInRiskLevels []RiskLevel `json:"signInRiskLevels,omitempty"`
-	// Platforms undocumented
-	Platforms *ConditionalAccessPlatforms `json:"platforms,omitempty"`
-	// Locations undocumented
-	Locations *ConditionalAccessLocations `json:"locations,omitempty"`
+	// ClientApplications undocumented
+	ClientApplications *ConditionalAccessClientApplications `json:"clientApplications,omitempty"`
 	// ClientAppTypes undocumented
 	ClientAppTypes []ConditionalAccessClientApp `json:"clientAppTypes,omitempty"`
+	// Devices undocumented
+	Devices *ConditionalAccessDevices `json:"devices,omitempty"`
 	// DeviceStates undocumented
 	DeviceStates *ConditionalAccessDeviceStates `json:"deviceStates,omitempty"`
+	// Locations undocumented
+	Locations *ConditionalAccessLocations `json:"locations,omitempty"`
+	// Platforms undocumented
+	Platforms *ConditionalAccessPlatforms `json:"platforms,omitempty"`
+	// SignInRiskLevels undocumented
+	SignInRiskLevels []RiskLevel `json:"signInRiskLevels,omitempty"`
+	// UserRiskLevels undocumented
+	UserRiskLevels []RiskLevel `json:"userRiskLevels,omitempty"`
+	// Users undocumented
+	Users *ConditionalAccessUsers `json:"users,omitempty"`
 }
 
 // ConditionalAccessDeviceStates undocumented
 type ConditionalAccessDeviceStates struct {
 	// Object is the base model of ConditionalAccessDeviceStates
 	Object
-	// IncludeStates undocumented
-	IncludeStates []string `json:"includeStates,omitempty"`
 	// ExcludeStates undocumented
 	ExcludeStates []string `json:"excludeStates,omitempty"`
+	// IncludeStates undocumented
+	IncludeStates []string `json:"includeStates,omitempty"`
+}
+
+// ConditionalAccessDevices undocumented
+type ConditionalAccessDevices struct {
+	// Object is the base model of ConditionalAccessDevices
+	Object
+	// DeviceFilter undocumented
+	DeviceFilter *ConditionalAccessFilter `json:"deviceFilter,omitempty"`
+	// ExcludeDevices undocumented
+	ExcludeDevices []string `json:"excludeDevices,omitempty"`
+	// ExcludeDeviceStates undocumented
+	ExcludeDeviceStates []string `json:"excludeDeviceStates,omitempty"`
+	// IncludeDevices undocumented
+	IncludeDevices []string `json:"includeDevices,omitempty"`
+	// IncludeDeviceStates undocumented
+	IncludeDeviceStates []string `json:"includeDeviceStates,omitempty"`
+}
+
+// ConditionalAccessFilter undocumented
+type ConditionalAccessFilter struct {
+	// Object is the base model of ConditionalAccessFilter
+	Object
+	// Mode undocumented
+	Mode *FilterMode `json:"mode,omitempty"`
+	// Rule undocumented
+	Rule *string `json:"rule,omitempty"`
 }
 
 // ConditionalAccessGrantControls undocumented
 type ConditionalAccessGrantControls struct {
 	// Object is the base model of ConditionalAccessGrantControls
 	Object
-	// Operator undocumented
-	Operator *string `json:"operator,omitempty"`
 	// BuiltInControls undocumented
 	BuiltInControls []ConditionalAccessGrantControl `json:"builtInControls,omitempty"`
 	// CustomAuthenticationFactors undocumented
 	CustomAuthenticationFactors []string `json:"customAuthenticationFactors,omitempty"`
+	// Operator undocumented
+	Operator *string `json:"operator,omitempty"`
 	// TermsOfUse undocumented
 	TermsOfUse []string `json:"termsOfUse,omitempty"`
 }
@@ -64,52 +108,78 @@ type ConditionalAccessGrantControls struct {
 type ConditionalAccessLocations struct {
 	// Object is the base model of ConditionalAccessLocations
 	Object
-	// IncludeLocations undocumented
-	IncludeLocations []string `json:"includeLocations,omitempty"`
 	// ExcludeLocations undocumented
 	ExcludeLocations []string `json:"excludeLocations,omitempty"`
+	// IncludeLocations undocumented
+	IncludeLocations []string `json:"includeLocations,omitempty"`
 }
 
 // ConditionalAccessPlatforms undocumented
 type ConditionalAccessPlatforms struct {
 	// Object is the base model of ConditionalAccessPlatforms
 	Object
-	// IncludePlatforms undocumented
-	IncludePlatforms []ConditionalAccessDevicePlatform `json:"includePlatforms,omitempty"`
 	// ExcludePlatforms undocumented
 	ExcludePlatforms []ConditionalAccessDevicePlatform `json:"excludePlatforms,omitempty"`
+	// IncludePlatforms undocumented
+	IncludePlatforms []ConditionalAccessDevicePlatform `json:"includePlatforms,omitempty"`
 }
 
 // ConditionalAccessPolicy undocumented
 type ConditionalAccessPolicy struct {
 	// Entity is the base model of ConditionalAccessPolicy
 	Entity
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ModifiedDateTime undocumented
-	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// State undocumented
-	State *ConditionalAccessPolicyState `json:"state,omitempty"`
 	// Conditions undocumented
 	Conditions *ConditionalAccessConditionSet `json:"conditions,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// GrantControls undocumented
 	GrantControls *ConditionalAccessGrantControls `json:"grantControls,omitempty"`
+	// ModifiedDateTime undocumented
+	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
 	// SessionControls undocumented
 	SessionControls *ConditionalAccessSessionControls `json:"sessionControls,omitempty"`
+	// State undocumented
+	State *ConditionalAccessPolicyState `json:"state,omitempty"`
+}
+
+// ConditionalAccessPolicyCoverage undocumented
+type ConditionalAccessPolicyCoverage struct {
+	// Entity is the base model of ConditionalAccessPolicyCoverage
+	Entity
+	// ConditionalAccessPolicyState undocumented
+	ConditionalAccessPolicyState *string `json:"conditionalAccessPolicyState,omitempty"`
+	// LatestPolicyModifiedDateTime undocumented
+	LatestPolicyModifiedDateTime *time.Time `json:"latestPolicyModifiedDateTime,omitempty"`
+	// RequiresDeviceCompliance undocumented
+	RequiresDeviceCompliance *bool `json:"requiresDeviceCompliance,omitempty"`
+	// TenantDisplayName undocumented
+	TenantDisplayName *string `json:"tenantDisplayName,omitempty"`
 }
 
 // ConditionalAccessRoot undocumented
 type ConditionalAccessRoot struct {
 	// Entity is the base model of ConditionalAccessRoot
 	Entity
-	// Policies undocumented
-	Policies []ConditionalAccessPolicy `json:"policies,omitempty"`
+	// AuthenticationContextClassReferences undocumented
+	AuthenticationContextClassReferences []AuthenticationContextClassReference `json:"authenticationContextClassReferences,omitempty"`
 	// NamedLocations undocumented
 	NamedLocations []NamedLocation `json:"namedLocations,omitempty"`
+	// Policies undocumented
+	Policies []ConditionalAccessPolicy `json:"policies,omitempty"`
+}
+
+// ConditionalAccessRuleSatisfied undocumented
+type ConditionalAccessRuleSatisfied struct {
+	// Object is the base model of ConditionalAccessRuleSatisfied
+	Object
+	// ConditionalAccessCondition undocumented
+	ConditionalAccessCondition *ConditionalAccessConditions `json:"conditionalAccessCondition,omitempty"`
+	// RuleSatisfied undocumented
+	RuleSatisfied *ConditionalAccessRule `json:"ruleSatisfied,omitempty"`
 }
 
 // ConditionalAccessSessionControl undocumented
@@ -128,26 +198,26 @@ type ConditionalAccessSessionControls struct {
 	ApplicationEnforcedRestrictions *ApplicationEnforcedRestrictionsSessionControl `json:"applicationEnforcedRestrictions,omitempty"`
 	// CloudAppSecurity undocumented
 	CloudAppSecurity *CloudAppSecuritySessionControl `json:"cloudAppSecurity,omitempty"`
-	// SignInFrequency undocumented
-	SignInFrequency *SignInFrequencySessionControl `json:"signInFrequency,omitempty"`
 	// PersistentBrowser undocumented
 	PersistentBrowser *PersistentBrowserSessionControl `json:"persistentBrowser,omitempty"`
+	// SignInFrequency undocumented
+	SignInFrequency *SignInFrequencySessionControl `json:"signInFrequency,omitempty"`
 }
 
 // ConditionalAccessUsers undocumented
 type ConditionalAccessUsers struct {
 	// Object is the base model of ConditionalAccessUsers
 	Object
-	// IncludeUsers undocumented
-	IncludeUsers []string `json:"includeUsers,omitempty"`
+	// ExcludeGroups undocumented
+	ExcludeGroups []string `json:"excludeGroups,omitempty"`
+	// ExcludeRoles undocumented
+	ExcludeRoles []string `json:"excludeRoles,omitempty"`
 	// ExcludeUsers undocumented
 	ExcludeUsers []string `json:"excludeUsers,omitempty"`
 	// IncludeGroups undocumented
 	IncludeGroups []string `json:"includeGroups,omitempty"`
-	// ExcludeGroups undocumented
-	ExcludeGroups []string `json:"excludeGroups,omitempty"`
 	// IncludeRoles undocumented
 	IncludeRoles []string `json:"includeRoles,omitempty"`
-	// ExcludeRoles undocumented
-	ExcludeRoles []string `json:"excludeRoles,omitempty"`
+	// IncludeUsers undocumented
+	IncludeUsers []string `json:"includeUsers,omitempty"`
 }

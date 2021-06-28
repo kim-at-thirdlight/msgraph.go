@@ -34,10 +34,28 @@ type ProtectGroup struct {
 	Privacy *GroupPrivacy `json:"privacy,omitempty"`
 }
 
+// ProtectOnlineMeetingAction undocumented
+type ProtectOnlineMeetingAction struct {
+	// LabelActionBase is the base model of ProtectOnlineMeetingAction
+	LabelActionBase
+	// AllowedForwarders undocumented
+	AllowedForwarders *OnlineMeetingForwarders `json:"allowedForwarders,omitempty"`
+	// AllowedPresenters undocumented
+	AllowedPresenters *OnlineMeetingPresenters `json:"allowedPresenters,omitempty"`
+	// IsCopyToClipboardEnabled undocumented
+	IsCopyToClipboardEnabled *bool `json:"isCopyToClipboardEnabled,omitempty"`
+	// IsLobbyEnabled undocumented
+	IsLobbyEnabled *bool `json:"isLobbyEnabled,omitempty"`
+	// LobbyBypassSettings undocumented
+	LobbyBypassSettings *LobbyBypassSettings `json:"lobbyBypassSettings,omitempty"`
+}
+
 // ProtectSite undocumented
 type ProtectSite struct {
 	// LabelActionBase is the base model of ProtectSite
 	LabelActionBase
 	// AccessType undocumented
 	AccessType *SiteAccessType `json:"accessType,omitempty"`
+	// ConditionalAccessProtectionLevelID undocumented
+	ConditionalAccessProtectionLevelID *string `json:"conditionalAccessProtectionLevelId,omitempty"`
 }

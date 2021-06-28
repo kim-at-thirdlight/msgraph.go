@@ -111,33 +111,6 @@ func (r *InformationProtectionPolicyRequest) Delete(ctx context.Context) error {
 }
 
 //
-type InformationProtectionLabelCollectionExtractLabelRequestBuilder struct{ BaseRequestBuilder }
-
-// ExtractLabel action undocumented
-func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) ExtractLabel(reqObj *InformationProtectionLabelCollectionExtractLabelRequestParameter) *InformationProtectionLabelCollectionExtractLabelRequestBuilder {
-	bb := &InformationProtectionLabelCollectionExtractLabelRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/extractLabel"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type InformationProtectionLabelCollectionExtractLabelRequest struct{ BaseRequest }
-
-//
-func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request() *InformationProtectionLabelCollectionExtractLabelRequest {
-	return &InformationProtectionLabelCollectionExtractLabelRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post(ctx context.Context) (resObj *InformationProtectionContentLabel, err error) {
-	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
-	return
-}
-
-//
 type InformationProtectionLabelCollectionEvaluateApplicationRequestBuilder struct{ BaseRequestBuilder }
 
 // EvaluateApplication action undocumented
@@ -221,93 +194,6 @@ func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) PostN(c
 
 //
 func (r *InformationProtectionLabelCollectionEvaluateApplicationRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder struct{ BaseRequestBuilder }
-
-// EvaluateRemoval action undocumented
-func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) EvaluateRemoval(reqObj *InformationProtectionLabelCollectionEvaluateRemovalRequestParameter) *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder {
-	bb := &InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/evaluateRemoval"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type InformationProtectionLabelCollectionEvaluateRemovalRequest struct{ BaseRequest }
-
-//
-func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Request() *InformationProtectionLabelCollectionEvaluateRemovalRequest {
-	return &InformationProtectionLabelCollectionEvaluateRemovalRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]InformationProtectionAction, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []InformationProtectionAction
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []InformationProtectionAction
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) PostN(ctx context.Context, n int) ([]InformationProtectionAction, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }
 
@@ -399,28 +285,115 @@ func (r *InformationProtectionLabelCollectionEvaluateClassificationResultsReques
 }
 
 //
-type InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder struct{ BaseRequestBuilder }
+type InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder struct{ BaseRequestBuilder }
 
-// EvaluateLabelsAndPolicies action undocumented
-func (b *InformationProtectionRequestBuilder) EvaluateLabelsAndPolicies(reqObj *InformationProtectionEvaluateLabelsAndPoliciesRequestParameter) *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder {
-	bb := &InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/evaluateLabelsAndPolicies"
+// EvaluateRemoval action undocumented
+func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) EvaluateRemoval(reqObj *InformationProtectionLabelCollectionEvaluateRemovalRequestParameter) *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder {
+	bb := &InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/evaluateRemoval"
 	bb.BaseRequestBuilder.requestObject = reqObj
 	return bb
 }
 
 //
-type InformationProtectionEvaluateLabelsAndPoliciesRequest struct{ BaseRequest }
+type InformationProtectionLabelCollectionEvaluateRemovalRequest struct{ BaseRequest }
 
 //
-func (b *InformationProtectionEvaluateLabelsAndPoliciesRequestBuilder) Request() *InformationProtectionEvaluateLabelsAndPoliciesRequest {
-	return &InformationProtectionEvaluateLabelsAndPoliciesRequest{
+func (b *InformationProtectionLabelCollectionEvaluateRemovalRequestBuilder) Request() *InformationProtectionLabelCollectionEvaluateRemovalRequest {
+	return &InformationProtectionLabelCollectionEvaluateRemovalRequest{
 		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
 //
-func (r *InformationProtectionEvaluateLabelsAndPoliciesRequest) Post(ctx context.Context) (resObj *EvaluateLabelsAndPoliciesJobResponse, err error) {
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]InformationProtectionAction, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []InformationProtectionAction
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []InformationProtectionAction
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) PostN(ctx context.Context, n int) ([]InformationProtectionAction, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
+func (r *InformationProtectionLabelCollectionEvaluateRemovalRequest) Post(ctx context.Context) ([]InformationProtectionAction, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+type InformationProtectionLabelCollectionExtractLabelRequestBuilder struct{ BaseRequestBuilder }
+
+// ExtractLabel action undocumented
+func (b *InformationProtectionPolicyLabelsCollectionRequestBuilder) ExtractLabel(reqObj *InformationProtectionLabelCollectionExtractLabelRequestParameter) *InformationProtectionLabelCollectionExtractLabelRequestBuilder {
+	bb := &InformationProtectionLabelCollectionExtractLabelRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/extractLabel"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type InformationProtectionLabelCollectionExtractLabelRequest struct{ BaseRequest }
+
+//
+func (b *InformationProtectionLabelCollectionExtractLabelRequestBuilder) Request() *InformationProtectionLabelCollectionExtractLabelRequest {
+	return &InformationProtectionLabelCollectionExtractLabelRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *InformationProtectionLabelCollectionExtractLabelRequest) Post(ctx context.Context) (resObj *InformationProtectionContentLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", r.requestObject, &resObj)
 	return
 }

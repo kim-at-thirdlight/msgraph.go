@@ -6,10 +6,16 @@ package msgraph
 type TextClassificationRequestObject struct {
 	// Entity is the base model of TextClassificationRequestObject
 	Entity
-	// Text undocumented
-	Text *string `json:"text,omitempty"`
+	// FileExtension undocumented
+	FileExtension *string `json:"fileExtension,omitempty"`
+	// MatchTolerancesToInclude undocumented
+	MatchTolerancesToInclude *MlClassificationMatchTolerance `json:"matchTolerancesToInclude,omitempty"`
+	// ScopesToRun undocumented
+	ScopesToRun *SensitiveTypeScope `json:"scopesToRun,omitempty"`
 	// SensitiveTypeIDs undocumented
 	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
 }
 
 // TextColumn undocumented

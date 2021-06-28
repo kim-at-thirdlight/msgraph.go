@@ -2,6 +2,12 @@
 
 package msgraph
 
+// RemoveAccessApplyAction undocumented
+type RemoveAccessApplyAction struct {
+	// AccessReviewApplyAction is the base model of RemoveAccessApplyAction
+	AccessReviewApplyAction
+}
+
 // RemoveContentFooterAction undocumented
 type RemoveContentFooterAction struct {
 	// InformationProtectionAction is the base model of RemoveContentFooterAction

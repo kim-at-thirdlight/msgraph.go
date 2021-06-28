@@ -14,6 +14,8 @@ const (
 	NotificationTemplateBrandingOptionsVIncludeCompanyName NotificationTemplateBrandingOptions = "includeCompanyName"
 	// NotificationTemplateBrandingOptionsVIncludeContactInformation undocumented
 	NotificationTemplateBrandingOptionsVIncludeContactInformation NotificationTemplateBrandingOptions = "includeContactInformation"
+	// NotificationTemplateBrandingOptionsVIncludeCompanyPortalLink undocumented
+	NotificationTemplateBrandingOptionsVIncludeCompanyPortalLink NotificationTemplateBrandingOptions = "includeCompanyPortalLink"
 )
 
 var (
@@ -25,6 +27,8 @@ var (
 	NotificationTemplateBrandingOptionsPIncludeCompanyName = &_NotificationTemplateBrandingOptionsPIncludeCompanyName
 	// NotificationTemplateBrandingOptionsPIncludeContactInformation is a pointer to NotificationTemplateBrandingOptionsVIncludeContactInformation
 	NotificationTemplateBrandingOptionsPIncludeContactInformation = &_NotificationTemplateBrandingOptionsPIncludeContactInformation
+	// NotificationTemplateBrandingOptionsPIncludeCompanyPortalLink is a pointer to NotificationTemplateBrandingOptionsVIncludeCompanyPortalLink
+	NotificationTemplateBrandingOptionsPIncludeCompanyPortalLink = &_NotificationTemplateBrandingOptionsPIncludeCompanyPortalLink
 )
 
 var (
@@ -32,4 +36,5 @@ var (
 	_NotificationTemplateBrandingOptionsPIncludeCompanyLogo        = NotificationTemplateBrandingOptionsVIncludeCompanyLogo
 	_NotificationTemplateBrandingOptionsPIncludeCompanyName        = NotificationTemplateBrandingOptionsVIncludeCompanyName
 	_NotificationTemplateBrandingOptionsPIncludeContactInformation = NotificationTemplateBrandingOptionsVIncludeContactInformation
+	_NotificationTemplateBrandingOptionsPIncludeCompanyPortalLink  = NotificationTemplateBrandingOptionsVIncludeCompanyPortalLink
 )

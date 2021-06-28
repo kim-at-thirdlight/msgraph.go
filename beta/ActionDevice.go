@@ -11,14 +11,44 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// DeviceAndAppManagementAssignmentFilterCollectionEnableRequestParameter undocumented
+type DeviceAndAppManagementAssignmentFilterCollectionEnableRequestParameter struct {
+	// Enable undocumented
+	Enable *bool `json:"enable,omitempty"`
+}
+
+// DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestParameter undocumented
+type DeviceAndAppManagementAssignmentFilterCollectionValidateFilterRequestParameter struct {
+	// DeviceAndAppManagementAssignmentFilter undocumented
+	DeviceAndAppManagementAssignmentFilter *DeviceAndAppManagementAssignmentFilter `json:"deviceAndAppManagementAssignmentFilter,omitempty"`
+}
+
 // DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter undocumented
 type DeviceCompliancePolicyCollectionHasPayloadLinksRequestParameter struct {
 	// PayloadIDs undocumented
 	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
+// DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestParameter undocumented
+type DeviceCompliancePolicyCollectionGetDevicesScheduledToRetireRequestParameter struct {
+}
+
 // DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter undocumented
 type DeviceCompliancePolicyCollectionRefreshDeviceComplianceReportSummarizationRequestParameter struct {
+}
+
+// DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestParameter undocumented
+type DeviceCompliancePolicyCollectionSetScheduledRetireStateRequestParameter struct {
+	// State undocumented
+	State *ScheduledRetireState `json:"state,omitempty"`
+	// ManagedDeviceIDs undocumented
+	ManagedDeviceIDs []string `json:"managedDeviceIds,omitempty"`
+}
+
+// DeviceCompliancePolicyCollectionValidateComplianceScriptRequestParameter undocumented
+type DeviceCompliancePolicyCollectionValidateComplianceScriptRequestParameter struct {
+	// DeviceCompliancePolicyScript undocumented
+	DeviceCompliancePolicyScript *DeviceCompliancePolicyScript `json:"deviceCompliancePolicyScript,omitempty"`
 }
 
 // DeviceConfigurationCollectionHasPayloadLinksRequestParameter undocumented
@@ -39,10 +69,18 @@ type DeviceEnrollmentConfigurationCollectionHasPayloadLinksRequestParameter stru
 	PayloadIDs []string `json:"payloadIds,omitempty"`
 }
 
+// DeviceHealthScriptCollectionEnableGlobalScriptsRequestParameter undocumented
+type DeviceHealthScriptCollectionEnableGlobalScriptsRequestParameter struct {
+}
+
 // DeviceManagementScriptCollectionHasPayloadLinksRequestParameter undocumented
 type DeviceManagementScriptCollectionHasPayloadLinksRequestParameter struct {
 	// PayloadIDs undocumented
 	PayloadIDs []string `json:"payloadIds,omitempty"`
+}
+
+// DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestParameter undocumented
+type DeviceManagementTemplateCollectionImportOffice365DeviceConfigurationPoliciesRequestParameter struct {
 }
 
 // DeviceAppManagementSyncMicrosoftStoreForBusinessAppsRequestParameter undocumented
@@ -69,6 +107,12 @@ type DeviceCompliancePolicyScheduleActionsForRulesRequestParameter struct {
 	DeviceComplianceScheduledActionForRules []DeviceComplianceScheduledActionForRule `json:"deviceComplianceScheduledActionForRules,omitempty"`
 }
 
+// DeviceComplianceScriptAssignRequestParameter undocumented
+type DeviceComplianceScriptAssignRequestParameter struct {
+	// DeviceHealthScriptAssignments undocumented
+	DeviceHealthScriptAssignments []DeviceHealthScriptAssignment `json:"deviceHealthScriptAssignments,omitempty"`
+}
+
 // DeviceConfigurationAssignRequestParameter undocumented
 type DeviceConfigurationAssignRequestParameter struct {
 	// DeviceConfigurationGroupAssignments undocumented
@@ -77,22 +121,24 @@ type DeviceConfigurationAssignRequestParameter struct {
 	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
 }
 
-// DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter undocumented
-type DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter struct {
-	// WindowsPrivacyAccessControls undocumented
-	WindowsPrivacyAccessControls []WindowsPrivacyDataAccessControlItem `json:"windowsPrivacyAccessControls,omitempty"`
-}
-
 // DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter undocumented
 type DeviceConfigurationAssignedAccessMultiModeProfilesRequestParameter struct {
 	// AssignedAccessMultiModeProfiles undocumented
 	AssignedAccessMultiModeProfiles []WindowsAssignedAccessProfile `json:"assignedAccessMultiModeProfiles,omitempty"`
 }
 
-// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
-type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
-	// Priority undocumented
-	Priority *int `json:"priority,omitempty"`
+// DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter undocumented
+type DeviceConfigurationWindowsPrivacyAccessControlsRequestParameter struct {
+	// WindowsPrivacyAccessControls undocumented
+	WindowsPrivacyAccessControls []WindowsPrivacyDataAccessControlItem `json:"windowsPrivacyAccessControls,omitempty"`
+}
+
+// DeviceCustomAttributeShellScriptAssignRequestParameter undocumented
+type DeviceCustomAttributeShellScriptAssignRequestParameter struct {
+	// DeviceManagementScriptGroupAssignments undocumented
+	DeviceManagementScriptGroupAssignments []DeviceManagementScriptGroupAssignment `json:"deviceManagementScriptGroupAssignments,omitempty"`
+	// DeviceManagementScriptAssignments undocumented
+	DeviceManagementScriptAssignments []DeviceManagementScriptAssignment `json:"deviceManagementScriptAssignments,omitempty"`
 }
 
 // DeviceEnrollmentConfigurationAssignRequestParameter undocumented
@@ -101,18 +147,30 @@ type DeviceEnrollmentConfigurationAssignRequestParameter struct {
 	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
 }
 
+// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
+type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
+	// Priority undocumented
+	Priority *int `json:"priority,omitempty"`
+}
+
 // DeviceHealthScriptAssignRequestParameter undocumented
 type DeviceHealthScriptAssignRequestParameter struct {
 	// DeviceHealthScriptAssignments undocumented
 	DeviceHealthScriptAssignments []DeviceHealthScriptAssignment `json:"deviceHealthScriptAssignments,omitempty"`
 }
 
-// DeviceManagementEnableLegacyPcManagementRequestParameter undocumented
-type DeviceManagementEnableLegacyPcManagementRequestParameter struct {
+// DeviceHealthScriptGetGlobalScriptHighestAvailableVersionRequestParameter undocumented
+type DeviceHealthScriptGetGlobalScriptHighestAvailableVersionRequestParameter struct {
 }
 
-// DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestParameter undocumented
-type DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestParameter struct {
+// DeviceHealthScriptUpdateGlobalScriptRequestParameter undocumented
+type DeviceHealthScriptUpdateGlobalScriptRequestParameter struct {
+	// Version undocumented
+	Version *string `json:"version,omitempty"`
+}
+
+// DeviceLogCollectionResponseCreateDownloadURLRequestParameter undocumented
+type DeviceLogCollectionResponseCreateDownloadURLRequestParameter struct {
 }
 
 // DeviceManagementSendCustomNotificationToCompanyPortalRequestParameter undocumented
@@ -125,16 +183,64 @@ type DeviceManagementSendCustomNotificationToCompanyPortalRequestParameter struc
 	GroupsToNotify []string `json:"groupsToNotify,omitempty"`
 }
 
+// DeviceManagementGetAssignmentFiltersStatusDetailsRequestParameter undocumented
+type DeviceManagementGetAssignmentFiltersStatusDetailsRequestParameter struct {
+	// ManagedDeviceID undocumented
+	ManagedDeviceID *string `json:"managedDeviceId,omitempty"`
+	// PayloadID undocumented
+	PayloadID *string `json:"payloadId,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// AssignmentFilterIDs undocumented
+	AssignmentFilterIDs []string `json:"assignmentFilterIds,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+}
+
+// DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestParameter undocumented
+type DeviceManagementEnableAndroidDeviceAdministratorEnrollmentRequestParameter struct {
+}
+
+// DeviceManagementEnableLegacyPcManagementRequestParameter undocumented
+type DeviceManagementEnableLegacyPcManagementRequestParameter struct {
+}
+
+// DeviceManagementEnableUnlicensedAdminstratorsRequestParameter undocumented
+type DeviceManagementEnableUnlicensedAdminstratorsRequestParameter struct {
+}
+
+// DeviceManagementConfigurationPolicyAssignRequestParameter undocumented
+type DeviceManagementConfigurationPolicyAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceManagementConfigurationPolicyAssignment `json:"assignments,omitempty"`
+}
+
+// DeviceManagementConfigurationPolicyCreateCopyRequestParameter undocumented
+type DeviceManagementConfigurationPolicyCreateCopyRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+}
+
 // DeviceManagementExchangeConnectorSyncRequestParameter undocumented
 type DeviceManagementExchangeConnectorSyncRequestParameter struct {
 	// SyncType undocumented
 	SyncType *DeviceManagementExchangeConnectorSyncType `json:"syncType,omitempty"`
 }
 
-// DeviceManagementIntentUpdateSettingsRequestParameter undocumented
-type DeviceManagementIntentUpdateSettingsRequestParameter struct {
-	// Settings undocumented
-	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
+// DeviceManagementIntentAssignRequestParameter undocumented
+type DeviceManagementIntentAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceManagementIntentAssignment `json:"assignments,omitempty"`
+}
+
+// DeviceManagementIntentCreateCopyRequestParameter undocumented
+type DeviceManagementIntentCreateCopyRequestParameter struct {
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 }
 
 // DeviceManagementIntentMigrateToTemplateRequestParameter undocumented
@@ -145,14 +251,712 @@ type DeviceManagementIntentMigrateToTemplateRequestParameter struct {
 	PreserveCustomValues *bool `json:"preserveCustomValues,omitempty"`
 }
 
-// DeviceManagementIntentAssignRequestParameter undocumented
-type DeviceManagementIntentAssignRequestParameter struct {
-	// Assignments undocumented
-	Assignments []DeviceManagementIntentAssignment `json:"assignments,omitempty"`
+// DeviceManagementIntentUpdateSettingsRequestParameter undocumented
+type DeviceManagementIntentUpdateSettingsRequestParameter struct {
+	// Settings undocumented
+	Settings []DeviceManagementSettingInstance `json:"settings,omitempty"`
+}
+
+// DeviceManagementReportsGetAppsInstallSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetAppsInstallSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetAppStatusOverviewReportRequestParameter undocumented
+type DeviceManagementReportsGetAppStatusOverviewReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetDeviceInstallStatusReportRequestParameter undocumented
+type DeviceManagementReportsGetDeviceInstallStatusReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetFailedMobileAppsReportRequestParameter undocumented
+type DeviceManagementReportsGetFailedMobileAppsReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetFailedMobileAppsSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetFailedMobileAppsSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetRelatedAppsStatusReportRequestParameter undocumented
+type DeviceManagementReportsGetRelatedAppsStatusReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetUserInstallStatusReportRequestParameter undocumented
+type DeviceManagementReportsGetUserInstallStatusReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPoliciesReportForDeviceRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPoliciesReportForDeviceRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPolicyDevicesReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPolicyDevicesReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPolicyDeviceSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPolicyDeviceSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPolicySettingsDeviceSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPolicySettingsDeviceSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationSettingDetailsReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationSettingDetailsReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationSettingsReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationSettingsReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetActiveMalwareReportRequestParameter undocumented
+type DeviceManagementReportsGetActiveMalwareReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetActiveMalwareSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetActiveMalwareSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetMalwareSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetMalwareSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetUnhealthyDefenderAgentsReportRequestParameter undocumented
+type DeviceManagementReportsGetUnhealthyDefenderAgentsReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetUnhealthyFirewallReportRequestParameter undocumented
+type DeviceManagementReportsGetUnhealthyFirewallReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetUnhealthyFirewallSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetUnhealthyFirewallSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetAllCertificatesReportRequestParameter undocumented
+type DeviceManagementReportsGetAllCertificatesReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetCertificatesReportRequestParameter undocumented
+type DeviceManagementReportsGetCertificatesReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigManagerDevicePolicyStatusReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigManagerDevicePolicyStatusReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetCachedReportRequestParameter undocumented
+type DeviceManagementReportsGetCachedReportRequestParameter struct {
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+}
+
+// DeviceManagementReportsGetCompliancePolicyNonComplianceReportRequestParameter undocumented
+type DeviceManagementReportsGetCompliancePolicyNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetCompliancePolicyNonComplianceSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetCompliancePolicyNonComplianceSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetComplianceSettingNonComplianceReportRequestParameter undocumented
+type DeviceManagementReportsGetComplianceSettingNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPolicyNonComplianceReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPolicyNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationPolicyNonComplianceSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationPolicyNonComplianceSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetConfigurationSettingNonComplianceReportRequestParameter undocumented
+type DeviceManagementReportsGetConfigurationSettingNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetDeviceManagementIntentSettingsReportRequestParameter undocumented
+type DeviceManagementReportsGetDeviceManagementIntentSettingsReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
 }
 
 // DeviceManagementReportsGetDeviceNonComplianceReportRequestParameter undocumented
 type DeviceManagementReportsGetDeviceNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetHistoricalReportRequestParameter undocumented
+type DeviceManagementReportsGetHistoricalReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter undocumented
+type DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter struct {
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Select undocumented
@@ -195,8 +999,8 @@ type DeviceManagementReportsGetPolicyNonComplianceReportRequestParameter struct 
 	Filter *string `json:"filter,omitempty"`
 }
 
-// DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter undocumented
-type DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter struct {
+// DeviceManagementReportsGetPolicyNonComplianceSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetPolicyNonComplianceSummaryReportRequestParameter struct {
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Select undocumented
@@ -217,8 +1021,8 @@ type DeviceManagementReportsGetPolicyNonComplianceMetadataRequestParameter struc
 	Filter *string `json:"filter,omitempty"`
 }
 
-// DeviceManagementReportsGetHistoricalReportRequestParameter undocumented
-type DeviceManagementReportsGetHistoricalReportRequestParameter struct {
+// DeviceManagementReportsGetReportFiltersRequestParameter undocumented
+type DeviceManagementReportsGetReportFiltersRequestParameter struct {
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Select undocumented
@@ -233,14 +1037,16 @@ type DeviceManagementReportsGetHistoricalReportRequestParameter struct {
 	Skip *int `json:"skip,omitempty"`
 	// Top undocumented
 	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
 	// Filter undocumented
 	Filter *string `json:"filter,omitempty"`
 }
 
-// DeviceManagementReportsGetCachedReportRequestParameter undocumented
-type DeviceManagementReportsGetCachedReportRequestParameter struct {
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
+// DeviceManagementReportsGetSettingNonComplianceReportRequestParameter undocumented
+type DeviceManagementReportsGetSettingNonComplianceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
 	// Select undocumented
 	Select []string `json:"select,omitempty"`
 	// Search undocumented
@@ -253,6 +1059,108 @@ type DeviceManagementReportsGetCachedReportRequestParameter struct {
 	Skip *int `json:"skip,omitempty"`
 	// Top undocumented
 	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestParameter undocumented
+type DeviceManagementReportsGetWindowsQualityUpdateAlertsPerPolicyPerDeviceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetWindowsQualityUpdateAlertSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetWindowsQualityUpdateAlertSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestParameter undocumented
+type DeviceManagementReportsGetWindowsUpdateAlertsPerPolicyPerDeviceReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementReportsGetWindowsUpdateAlertSummaryReportRequestParameter undocumented
+type DeviceManagementReportsGetWindowsUpdateAlertSummaryReportRequestParameter struct {
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// Select undocumented
+	Select []string `json:"select,omitempty"`
+	// Search undocumented
+	Search *string `json:"search,omitempty"`
+	// GroupBy undocumented
+	GroupBy []string `json:"groupBy,omitempty"`
+	// OrderBy undocumented
+	OrderBy []string `json:"orderBy,omitempty"`
+	// Skip undocumented
+	Skip *int `json:"skip,omitempty"`
+	// Top undocumented
+	Top *int `json:"top,omitempty"`
+	// SessionID undocumented
+	SessionID *string `json:"sessionId,omitempty"`
+	// Filter undocumented
+	Filter *string `json:"filter,omitempty"`
+}
+
+// DeviceManagementResourceAccessProfileBaseAssignRequestParameter undocumented
+type DeviceManagementResourceAccessProfileBaseAssignRequestParameter struct {
+	// Assignments undocumented
+	Assignments []DeviceManagementResourceAccessProfileAssignment `json:"assignments,omitempty"`
+}
+
+// DeviceManagementReusablePolicySettingCloneRequestParameter undocumented
+type DeviceManagementReusablePolicySettingCloneRequestParameter struct {
 }
 
 // DeviceManagementScriptAssignRequestParameter undocumented
@@ -273,6 +1181,14 @@ type DeviceManagementTemplateCreateInstanceRequestParameter struct {
 	SettingsDelta []DeviceManagementSettingInstance `json:"settingsDelta,omitempty"`
 	// RoleScopeTagIDs undocumented
 	RoleScopeTagIDs []string `json:"roleScopeTagIds,omitempty"`
+}
+
+// DeviceShellScriptAssignRequestParameter undocumented
+type DeviceShellScriptAssignRequestParameter struct {
+	// DeviceManagementScriptGroupAssignments undocumented
+	DeviceManagementScriptGroupAssignments []DeviceManagementScriptGroupAssignment `json:"deviceManagementScriptGroupAssignments,omitempty"`
+	// DeviceManagementScriptAssignments undocumented
+	DeviceManagementScriptAssignments []DeviceManagementScriptAssignment `json:"deviceManagementScriptAssignments,omitempty"`
 }
 
 // Commands returns request builder for Command collection
@@ -889,6 +1805,109 @@ func (r *DeviceTransitiveMemberOfCollectionRequest) Get(ctx context.Context) ([]
 
 // Add performs POST request for DirectoryObject collection
 func (r *DeviceTransitiveMemberOfCollectionRequest) Add(ctx context.Context, reqObj *DirectoryObject) (resObj *DirectoryObject, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UsageRights returns request builder for UsageRight collection
+func (b *DeviceRequestBuilder) UsageRights() *DeviceUsageRightsCollectionRequestBuilder {
+	bb := &DeviceUsageRightsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/usageRights"
+	return bb
+}
+
+// DeviceUsageRightsCollectionRequestBuilder is request builder for UsageRight collection
+type DeviceUsageRightsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UsageRight collection
+func (b *DeviceUsageRightsCollectionRequestBuilder) Request() *DeviceUsageRightsCollectionRequest {
+	return &DeviceUsageRightsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UsageRight item
+func (b *DeviceUsageRightsCollectionRequestBuilder) ID(id string) *UsageRightRequestBuilder {
+	bb := &UsageRightRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceUsageRightsCollectionRequest is request for UsageRight collection
+type DeviceUsageRightsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UsageRight collection
+func (r *DeviceUsageRightsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UsageRight, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UsageRight
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UsageRight
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UsageRight collection, max N pages
+func (r *DeviceUsageRightsCollectionRequest) GetN(ctx context.Context, n int) ([]UsageRight, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UsageRight collection
+func (r *DeviceUsageRightsCollectionRequest) Get(ctx context.Context) ([]UsageRight, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UsageRight collection
+func (r *DeviceUsageRightsCollectionRequest) Add(ctx context.Context, reqObj *UsageRight) (resObj *UsageRight, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -3915,109 +4934,6 @@ func (b *DeviceCompliancePolicyGroupAssignmentRequestBuilder) DeviceCompliancePo
 	return bb
 }
 
-// DeviceComplianceSettingStates returns request builder for DeviceComplianceSettingState collection
-func (b *DeviceCompliancePolicySettingStateSummaryRequestBuilder) DeviceComplianceSettingStates() *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder {
-	bb := &DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/deviceComplianceSettingStates"
-	return bb
-}
-
-// DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder is request builder for DeviceComplianceSettingState collection
-type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DeviceComplianceSettingState collection
-func (b *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder) Request() *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest {
-	return &DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DeviceComplianceSettingState item
-func (b *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequestBuilder) ID(id string) *DeviceComplianceSettingStateRequestBuilder {
-	bb := &DeviceComplianceSettingStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest is request for DeviceComplianceSettingState collection
-type DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceComplianceSettingState, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DeviceComplianceSettingState
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DeviceComplianceSettingState
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DeviceComplianceSettingState collection, max N pages
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceComplianceSettingState, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceSettingState, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DeviceComplianceSettingState collection
-func (r *DeviceCompliancePolicySettingStateSummaryDeviceComplianceSettingStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceSettingState) (resObj *DeviceComplianceSettingState, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // ScheduledActionConfigurations returns request builder for DeviceComplianceActionItem collection
 func (b *DeviceComplianceScheduledActionForRuleRequestBuilder) ScheduledActionConfigurations() *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequestBuilder {
 	bb := &DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4119,6 +5035,226 @@ func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsColl
 func (r *DeviceComplianceScheduledActionForRuleScheduledActionConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceActionItem) (resObj *DeviceComplianceActionItem, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// Assignments returns request builder for DeviceHealthScriptAssignment collection
+func (b *DeviceComplianceScriptRequestBuilder) Assignments() *DeviceComplianceScriptAssignmentsCollectionRequestBuilder {
+	bb := &DeviceComplianceScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
+	return bb
+}
+
+// DeviceComplianceScriptAssignmentsCollectionRequestBuilder is request builder for DeviceHealthScriptAssignment collection
+type DeviceComplianceScriptAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceHealthScriptAssignment collection
+func (b *DeviceComplianceScriptAssignmentsCollectionRequestBuilder) Request() *DeviceComplianceScriptAssignmentsCollectionRequest {
+	return &DeviceComplianceScriptAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceHealthScriptAssignment item
+func (b *DeviceComplianceScriptAssignmentsCollectionRequestBuilder) ID(id string) *DeviceHealthScriptAssignmentRequestBuilder {
+	bb := &DeviceHealthScriptAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceComplianceScriptAssignmentsCollectionRequest is request for DeviceHealthScriptAssignment collection
+type DeviceComplianceScriptAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceHealthScriptAssignment collection
+func (r *DeviceComplianceScriptAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceHealthScriptAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceHealthScriptAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceHealthScriptAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceHealthScriptAssignment collection, max N pages
+func (r *DeviceComplianceScriptAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceHealthScriptAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceHealthScriptAssignment collection
+func (r *DeviceComplianceScriptAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceHealthScriptAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceHealthScriptAssignment collection
+func (r *DeviceComplianceScriptAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceHealthScriptAssignment) (resObj *DeviceHealthScriptAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DeviceRunStates returns request builder for DeviceComplianceScriptDeviceState collection
+func (b *DeviceComplianceScriptRequestBuilder) DeviceRunStates() *DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder {
+	bb := &DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceRunStates"
+	return bb
+}
+
+// DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder is request builder for DeviceComplianceScriptDeviceState collection
+type DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceComplianceScriptDeviceState collection
+func (b *DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder) Request() *DeviceComplianceScriptDeviceRunStatesCollectionRequest {
+	return &DeviceComplianceScriptDeviceRunStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceComplianceScriptDeviceState item
+func (b *DeviceComplianceScriptDeviceRunStatesCollectionRequestBuilder) ID(id string) *DeviceComplianceScriptDeviceStateRequestBuilder {
+	bb := &DeviceComplianceScriptDeviceStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceComplianceScriptDeviceRunStatesCollectionRequest is request for DeviceComplianceScriptDeviceState collection
+type DeviceComplianceScriptDeviceRunStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceComplianceScriptDeviceState collection
+func (r *DeviceComplianceScriptDeviceRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceComplianceScriptDeviceState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceComplianceScriptDeviceState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceComplianceScriptDeviceState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceComplianceScriptDeviceState collection, max N pages
+func (r *DeviceComplianceScriptDeviceRunStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceComplianceScriptDeviceState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceComplianceScriptDeviceState collection
+func (r *DeviceComplianceScriptDeviceRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceScriptDeviceState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceComplianceScriptDeviceState collection
+func (r *DeviceComplianceScriptDeviceRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceScriptDeviceState) (resObj *DeviceComplianceScriptDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RunSummary is navigation property
+func (b *DeviceComplianceScriptRequestBuilder) RunSummary() *DeviceComplianceScriptRunSummaryRequestBuilder {
+	bb := &DeviceComplianceScriptRunSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/runSummary"
+	return bb
+}
+
+// ManagedDevice is navigation property
+func (b *DeviceComplianceScriptDeviceStateRequestBuilder) ManagedDevice() *ManagedDeviceRequestBuilder {
+	bb := &ManagedDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/managedDevice"
+	return bb
 }
 
 // Assignments returns request builder for DeviceConfigurationAssignment collection
@@ -4655,6 +5791,425 @@ func (b *DeviceConfigurationGroupAssignmentRequestBuilder) DeviceConfiguration()
 	bb := &DeviceConfigurationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/deviceConfiguration"
 	return bb
+}
+
+// Assignments returns request builder for DeviceManagementScriptAssignment collection
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) Assignments() *DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder {
+	bb := &DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder is request builder for DeviceManagementScriptAssignment collection
+type DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptAssignment collection
+func (b *DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder) Request() *DeviceCustomAttributeShellScriptAssignmentsCollectionRequest {
+	return &DeviceCustomAttributeShellScriptAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptAssignment item
+func (b *DeviceCustomAttributeShellScriptAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementScriptAssignmentRequestBuilder {
+	bb := &DeviceManagementScriptAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptAssignmentsCollectionRequest is request for DeviceManagementScriptAssignment collection
+type DeviceCustomAttributeShellScriptAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptAssignment collection
+func (r *DeviceCustomAttributeShellScriptAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptAssignment collection, max N pages
+func (r *DeviceCustomAttributeShellScriptAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptAssignment collection
+func (r *DeviceCustomAttributeShellScriptAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptAssignment collection
+func (r *DeviceCustomAttributeShellScriptAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptAssignment) (resObj *DeviceManagementScriptAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) DeviceRunStates() *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder {
+	bb := &DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceRunStates"
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder is request builder for DeviceManagementScriptDeviceState collection
+type DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptDeviceState collection
+func (b *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder) Request() *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest {
+	return &DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptDeviceState item
+func (b *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequestBuilder) ID(id string) *DeviceManagementScriptDeviceStateRequestBuilder {
+	bb := &DeviceManagementScriptDeviceStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest is request for DeviceManagementScriptDeviceState collection
+type DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
+func (r *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptDeviceState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptDeviceState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptDeviceState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptDeviceState collection, max N pages
+func (r *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptDeviceState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptDeviceState collection
+func (r *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptDeviceState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptDeviceState collection
+func (r *DeviceCustomAttributeShellScriptDeviceRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// GroupAssignments returns request builder for DeviceManagementScriptGroupAssignment collection
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) GroupAssignments() *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder {
+	bb := &DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupAssignments"
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder is request builder for DeviceManagementScriptGroupAssignment collection
+type DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptGroupAssignment collection
+func (b *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder) Request() *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest {
+	return &DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptGroupAssignment item
+func (b *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementScriptGroupAssignmentRequestBuilder {
+	bb := &DeviceManagementScriptGroupAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest is request for DeviceManagementScriptGroupAssignment collection
+type DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptGroupAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptGroupAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptGroupAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptGroupAssignment collection, max N pages
+func (r *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptGroupAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptGroupAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceCustomAttributeShellScriptGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptGroupAssignment) (resObj *DeviceManagementScriptGroupAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RunSummary is navigation property
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) RunSummary() *DeviceManagementScriptRunSummaryRequestBuilder {
+	bb := &DeviceManagementScriptRunSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/runSummary"
+	return bb
+}
+
+// UserRunStates returns request builder for DeviceManagementScriptUserState collection
+func (b *DeviceCustomAttributeShellScriptRequestBuilder) UserRunStates() *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder {
+	bb := &DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userRunStates"
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder is request builder for DeviceManagementScriptUserState collection
+type DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptUserState collection
+func (b *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder) Request() *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest {
+	return &DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptUserState item
+func (b *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequestBuilder) ID(id string) *DeviceManagementScriptUserStateRequestBuilder {
+	bb := &DeviceManagementScriptUserStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest is request for DeviceManagementScriptUserState collection
+type DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptUserState collection
+func (r *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptUserState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptUserState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptUserState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptUserState collection, max N pages
+func (r *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptUserState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptUserState collection
+func (r *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptUserState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptUserState collection
+func (r *DeviceCustomAttributeShellScriptUserRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptUserState) (resObj *DeviceManagementScriptUserState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // Assignments returns request builder for EnrollmentConfigurationAssignment collection
@@ -5523,6 +7078,109 @@ func (r *DeviceManagementAppleUserInitiatedEnrollmentProfilesCollectionRequest) 
 	return
 }
 
+// AssignmentFilters returns request builder for DeviceAndAppManagementAssignmentFilter collection
+func (b *DeviceManagementRequestBuilder) AssignmentFilters() *DeviceManagementAssignmentFiltersCollectionRequestBuilder {
+	bb := &DeviceManagementAssignmentFiltersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignmentFilters"
+	return bb
+}
+
+// DeviceManagementAssignmentFiltersCollectionRequestBuilder is request builder for DeviceAndAppManagementAssignmentFilter collection
+type DeviceManagementAssignmentFiltersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceAndAppManagementAssignmentFilter collection
+func (b *DeviceManagementAssignmentFiltersCollectionRequestBuilder) Request() *DeviceManagementAssignmentFiltersCollectionRequest {
+	return &DeviceManagementAssignmentFiltersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceAndAppManagementAssignmentFilter item
+func (b *DeviceManagementAssignmentFiltersCollectionRequestBuilder) ID(id string) *DeviceAndAppManagementAssignmentFilterRequestBuilder {
+	bb := &DeviceAndAppManagementAssignmentFilterRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementAssignmentFiltersCollectionRequest is request for DeviceAndAppManagementAssignmentFilter collection
+type DeviceManagementAssignmentFiltersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceAndAppManagementAssignmentFilter collection
+func (r *DeviceManagementAssignmentFiltersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceAndAppManagementAssignmentFilter, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceAndAppManagementAssignmentFilter
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceAndAppManagementAssignmentFilter
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceAndAppManagementAssignmentFilter collection, max N pages
+func (r *DeviceManagementAssignmentFiltersCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceAndAppManagementAssignmentFilter, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceAndAppManagementAssignmentFilter collection
+func (r *DeviceManagementAssignmentFiltersCollectionRequest) Get(ctx context.Context) ([]DeviceAndAppManagementAssignmentFilter, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceAndAppManagementAssignmentFilter collection
+func (r *DeviceManagementAssignmentFiltersCollectionRequest) Add(ctx context.Context, reqObj *DeviceAndAppManagementAssignmentFilter) (resObj *DeviceAndAppManagementAssignmentFilter, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // AuditEvents returns request builder for AuditEvent collection
 func (b *DeviceManagementRequestBuilder) AuditEvents() *DeviceManagementAuditEventsCollectionRequestBuilder {
 	bb := &DeviceManagementAuditEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5935,6 +7593,418 @@ func (r *DeviceManagementCategoriesCollectionRequest) Add(ctx context.Context, r
 	return
 }
 
+// ChromeOSOnboardingSettings returns request builder for ChromeOSOnboardingSettings collection
+func (b *DeviceManagementRequestBuilder) ChromeOSOnboardingSettings() *DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder {
+	bb := &DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/chromeOSOnboardingSettings"
+	return bb
+}
+
+// DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder is request builder for ChromeOSOnboardingSettings collection
+type DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ChromeOSOnboardingSettings collection
+func (b *DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder) Request() *DeviceManagementChromeOSOnboardingSettingsCollectionRequest {
+	return &DeviceManagementChromeOSOnboardingSettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ChromeOSOnboardingSettings item
+func (b *DeviceManagementChromeOSOnboardingSettingsCollectionRequestBuilder) ID(id string) *ChromeOSOnboardingSettingsRequestBuilder {
+	bb := &ChromeOSOnboardingSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementChromeOSOnboardingSettingsCollectionRequest is request for ChromeOSOnboardingSettings collection
+type DeviceManagementChromeOSOnboardingSettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ChromeOSOnboardingSettings collection
+func (r *DeviceManagementChromeOSOnboardingSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ChromeOSOnboardingSettings, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ChromeOSOnboardingSettings
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ChromeOSOnboardingSettings
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ChromeOSOnboardingSettings collection, max N pages
+func (r *DeviceManagementChromeOSOnboardingSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]ChromeOSOnboardingSettings, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ChromeOSOnboardingSettings collection
+func (r *DeviceManagementChromeOSOnboardingSettingsCollectionRequest) Get(ctx context.Context) ([]ChromeOSOnboardingSettings, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ChromeOSOnboardingSettings collection
+func (r *DeviceManagementChromeOSOnboardingSettingsCollectionRequest) Add(ctx context.Context, reqObj *ChromeOSOnboardingSettings) (resObj *ChromeOSOnboardingSettings, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// CloudPCConnectivityIssues returns request builder for CloudPCConnectivityIssue collection
+func (b *DeviceManagementRequestBuilder) CloudPCConnectivityIssues() *DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder {
+	bb := &DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/cloudPCConnectivityIssues"
+	return bb
+}
+
+// DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder is request builder for CloudPCConnectivityIssue collection
+type DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for CloudPCConnectivityIssue collection
+func (b *DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder) Request() *DeviceManagementCloudPCConnectivityIssuesCollectionRequest {
+	return &DeviceManagementCloudPCConnectivityIssuesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for CloudPCConnectivityIssue item
+func (b *DeviceManagementCloudPCConnectivityIssuesCollectionRequestBuilder) ID(id string) *CloudPCConnectivityIssueRequestBuilder {
+	bb := &CloudPCConnectivityIssueRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementCloudPCConnectivityIssuesCollectionRequest is request for CloudPCConnectivityIssue collection
+type DeviceManagementCloudPCConnectivityIssuesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for CloudPCConnectivityIssue collection
+func (r *DeviceManagementCloudPCConnectivityIssuesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]CloudPCConnectivityIssue, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []CloudPCConnectivityIssue
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []CloudPCConnectivityIssue
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for CloudPCConnectivityIssue collection, max N pages
+func (r *DeviceManagementCloudPCConnectivityIssuesCollectionRequest) GetN(ctx context.Context, n int) ([]CloudPCConnectivityIssue, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for CloudPCConnectivityIssue collection
+func (r *DeviceManagementCloudPCConnectivityIssuesCollectionRequest) Get(ctx context.Context) ([]CloudPCConnectivityIssue, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for CloudPCConnectivityIssue collection
+func (r *DeviceManagementCloudPCConnectivityIssuesCollectionRequest) Add(ctx context.Context, reqObj *CloudPCConnectivityIssue) (resObj *CloudPCConnectivityIssue, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ComanagedDevices returns request builder for ManagedDevice collection
+func (b *DeviceManagementRequestBuilder) ComanagedDevices() *DeviceManagementComanagedDevicesCollectionRequestBuilder {
+	bb := &DeviceManagementComanagedDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/comanagedDevices"
+	return bb
+}
+
+// DeviceManagementComanagedDevicesCollectionRequestBuilder is request builder for ManagedDevice collection
+type DeviceManagementComanagedDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ManagedDevice collection
+func (b *DeviceManagementComanagedDevicesCollectionRequestBuilder) Request() *DeviceManagementComanagedDevicesCollectionRequest {
+	return &DeviceManagementComanagedDevicesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ManagedDevice item
+func (b *DeviceManagementComanagedDevicesCollectionRequestBuilder) ID(id string) *ManagedDeviceRequestBuilder {
+	bb := &ManagedDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementComanagedDevicesCollectionRequest is request for ManagedDevice collection
+type DeviceManagementComanagedDevicesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ManagedDevice collection
+func (r *DeviceManagementComanagedDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ManagedDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ManagedDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ManagedDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ManagedDevice collection, max N pages
+func (r *DeviceManagementComanagedDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]ManagedDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ManagedDevice collection
+func (r *DeviceManagementComanagedDevicesCollectionRequest) Get(ctx context.Context) ([]ManagedDevice, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ManagedDevice collection
+func (r *DeviceManagementComanagedDevicesCollectionRequest) Add(ctx context.Context, reqObj *ManagedDevice) (resObj *ManagedDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ComanagementEligibleDevices returns request builder for ComanagementEligibleDevice collection
+func (b *DeviceManagementRequestBuilder) ComanagementEligibleDevices() *DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder {
+	bb := &DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/comanagementEligibleDevices"
+	return bb
+}
+
+// DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder is request builder for ComanagementEligibleDevice collection
+type DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ComanagementEligibleDevice collection
+func (b *DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder) Request() *DeviceManagementComanagementEligibleDevicesCollectionRequest {
+	return &DeviceManagementComanagementEligibleDevicesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ComanagementEligibleDevice item
+func (b *DeviceManagementComanagementEligibleDevicesCollectionRequestBuilder) ID(id string) *ComanagementEligibleDeviceRequestBuilder {
+	bb := &ComanagementEligibleDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementComanagementEligibleDevicesCollectionRequest is request for ComanagementEligibleDevice collection
+type DeviceManagementComanagementEligibleDevicesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ComanagementEligibleDevice collection
+func (r *DeviceManagementComanagementEligibleDevicesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ComanagementEligibleDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ComanagementEligibleDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ComanagementEligibleDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ComanagementEligibleDevice collection, max N pages
+func (r *DeviceManagementComanagementEligibleDevicesCollectionRequest) GetN(ctx context.Context, n int) ([]ComanagementEligibleDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ComanagementEligibleDevice collection
+func (r *DeviceManagementComanagementEligibleDevicesCollectionRequest) Get(ctx context.Context) ([]ComanagementEligibleDevice, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ComanagementEligibleDevice collection
+func (r *DeviceManagementComanagementEligibleDevicesCollectionRequest) Add(ctx context.Context, reqObj *ComanagementEligibleDevice) (resObj *ComanagementEligibleDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // ComplianceManagementPartners returns request builder for ComplianceManagementPartner collection
 func (b *DeviceManagementRequestBuilder) ComplianceManagementPartners() *DeviceManagementComplianceManagementPartnersCollectionRequestBuilder {
 	bb := &DeviceManagementComplianceManagementPartnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -6043,6 +8113,521 @@ func (b *DeviceManagementRequestBuilder) ConditionalAccessSettings() *OnPremises
 	bb := &OnPremisesConditionalAccessSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/conditionalAccessSettings"
 	return bb
+}
+
+// ConfigManagerCollections returns request builder for ConfigManagerCollection collection
+func (b *DeviceManagementRequestBuilder) ConfigManagerCollections() *DeviceManagementConfigManagerCollectionsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigManagerCollectionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/configManagerCollections"
+	return bb
+}
+
+// DeviceManagementConfigManagerCollectionsCollectionRequestBuilder is request builder for ConfigManagerCollection collection
+type DeviceManagementConfigManagerCollectionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ConfigManagerCollection collection
+func (b *DeviceManagementConfigManagerCollectionsCollectionRequestBuilder) Request() *DeviceManagementConfigManagerCollectionsCollectionRequest {
+	return &DeviceManagementConfigManagerCollectionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ConfigManagerCollection item
+func (b *DeviceManagementConfigManagerCollectionsCollectionRequestBuilder) ID(id string) *ConfigManagerCollectionRequestBuilder {
+	bb := &ConfigManagerCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigManagerCollectionsCollectionRequest is request for ConfigManagerCollection collection
+type DeviceManagementConfigManagerCollectionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ConfigManagerCollection collection
+func (r *DeviceManagementConfigManagerCollectionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ConfigManagerCollection, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ConfigManagerCollection
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ConfigManagerCollection
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ConfigManagerCollection collection, max N pages
+func (r *DeviceManagementConfigManagerCollectionsCollectionRequest) GetN(ctx context.Context, n int) ([]ConfigManagerCollection, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ConfigManagerCollection collection
+func (r *DeviceManagementConfigManagerCollectionsCollectionRequest) Get(ctx context.Context) ([]ConfigManagerCollection, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ConfigManagerCollection collection
+func (r *DeviceManagementConfigManagerCollectionsCollectionRequest) Add(ctx context.Context, reqObj *ConfigManagerCollection) (resObj *ConfigManagerCollection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConfigurationCategories returns request builder for DeviceManagementConfigurationCategory collection
+func (b *DeviceManagementRequestBuilder) ConfigurationCategories() *DeviceManagementConfigurationCategoriesCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/configurationCategories"
+	return bb
+}
+
+// DeviceManagementConfigurationCategoriesCollectionRequestBuilder is request builder for DeviceManagementConfigurationCategory collection
+type DeviceManagementConfigurationCategoriesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationCategory collection
+func (b *DeviceManagementConfigurationCategoriesCollectionRequestBuilder) Request() *DeviceManagementConfigurationCategoriesCollectionRequest {
+	return &DeviceManagementConfigurationCategoriesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationCategory item
+func (b *DeviceManagementConfigurationCategoriesCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationCategoryRequestBuilder {
+	bb := &DeviceManagementConfigurationCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationCategoriesCollectionRequest is request for DeviceManagementConfigurationCategory collection
+type DeviceManagementConfigurationCategoriesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationCategory collection
+func (r *DeviceManagementConfigurationCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationCategory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationCategory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationCategory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationCategory collection, max N pages
+func (r *DeviceManagementConfigurationCategoriesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationCategory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationCategory collection
+func (r *DeviceManagementConfigurationCategoriesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationCategory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationCategory collection
+func (r *DeviceManagementConfigurationCategoriesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationCategory) (resObj *DeviceManagementConfigurationCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConfigurationPolicies returns request builder for DeviceManagementConfigurationPolicy collection
+func (b *DeviceManagementRequestBuilder) ConfigurationPolicies() *DeviceManagementConfigurationPoliciesCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/configurationPolicies"
+	return bb
+}
+
+// DeviceManagementConfigurationPoliciesCollectionRequestBuilder is request builder for DeviceManagementConfigurationPolicy collection
+type DeviceManagementConfigurationPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationPolicy collection
+func (b *DeviceManagementConfigurationPoliciesCollectionRequestBuilder) Request() *DeviceManagementConfigurationPoliciesCollectionRequest {
+	return &DeviceManagementConfigurationPoliciesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationPolicy item
+func (b *DeviceManagementConfigurationPoliciesCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationPolicyRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationPoliciesCollectionRequest is request for DeviceManagementConfigurationPolicy collection
+type DeviceManagementConfigurationPoliciesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementConfigurationPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationPolicy, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationPolicy
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationPolicy
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationPolicy collection, max N pages
+func (r *DeviceManagementConfigurationPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationPolicy, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementConfigurationPoliciesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationPolicy, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementConfigurationPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationPolicy) (resObj *DeviceManagementConfigurationPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConfigurationPolicyTemplates returns request builder for DeviceManagementConfigurationPolicyTemplate collection
+func (b *DeviceManagementRequestBuilder) ConfigurationPolicyTemplates() *DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/configurationPolicyTemplates"
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder is request builder for DeviceManagementConfigurationPolicyTemplate collection
+type DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationPolicyTemplate collection
+func (b *DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder) Request() *DeviceManagementConfigurationPolicyTemplatesCollectionRequest {
+	return &DeviceManagementConfigurationPolicyTemplatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationPolicyTemplate item
+func (b *DeviceManagementConfigurationPolicyTemplatesCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationPolicyTemplateRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyTemplateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyTemplatesCollectionRequest is request for DeviceManagementConfigurationPolicyTemplate collection
+type DeviceManagementConfigurationPolicyTemplatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationPolicyTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationPolicyTemplate, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationPolicyTemplate
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationPolicyTemplate
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationPolicyTemplate collection, max N pages
+func (r *DeviceManagementConfigurationPolicyTemplatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationPolicyTemplate, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationPolicyTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationPolicyTemplate, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationPolicyTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationPolicyTemplate) (resObj *DeviceManagementConfigurationPolicyTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ConfigurationSettings returns request builder for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementRequestBuilder) ConfigurationSettings() *DeviceManagementConfigurationSettingsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/configurationSettings"
+	return bb
+}
+
+// DeviceManagementConfigurationSettingsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementConfigurationSettingsCollectionRequestBuilder) Request() *DeviceManagementConfigurationSettingsCollectionRequest {
+	return &DeviceManagementConfigurationSettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingDefinition item
+func (b *DeviceManagementConfigurationSettingsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingDefinitionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationSettingsCollectionRequest is request for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingDefinition collection, max N pages
+func (r *DeviceManagementConfigurationSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingDefinition) (resObj *DeviceManagementConfigurationSettingDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // DataSharingConsents returns request builder for DataSharingConsent collection
@@ -6773,6 +9358,109 @@ func (r *DeviceManagementDeviceCompliancePolicySettingStateSummariesCollectionRe
 	return
 }
 
+// DeviceComplianceScripts returns request builder for DeviceComplianceScript collection
+func (b *DeviceManagementRequestBuilder) DeviceComplianceScripts() *DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder {
+	bb := &DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceComplianceScripts"
+	return bb
+}
+
+// DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder is request builder for DeviceComplianceScript collection
+type DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceComplianceScript collection
+func (b *DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder) Request() *DeviceManagementDeviceComplianceScriptsCollectionRequest {
+	return &DeviceManagementDeviceComplianceScriptsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceComplianceScript item
+func (b *DeviceManagementDeviceComplianceScriptsCollectionRequestBuilder) ID(id string) *DeviceComplianceScriptRequestBuilder {
+	bb := &DeviceComplianceScriptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementDeviceComplianceScriptsCollectionRequest is request for DeviceComplianceScript collection
+type DeviceManagementDeviceComplianceScriptsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceComplianceScript collection
+func (r *DeviceManagementDeviceComplianceScriptsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceComplianceScript, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceComplianceScript
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceComplianceScript
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceComplianceScript collection, max N pages
+func (r *DeviceManagementDeviceComplianceScriptsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceComplianceScript, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceComplianceScript collection
+func (r *DeviceManagementDeviceComplianceScriptsCollectionRequest) Get(ctx context.Context) ([]DeviceComplianceScript, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceComplianceScript collection
+func (r *DeviceManagementDeviceComplianceScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceComplianceScript) (resObj *DeviceComplianceScript, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // DeviceConfigurationConflictSummary returns request builder for DeviceConfigurationConflictSummary collection
 func (b *DeviceManagementRequestBuilder) DeviceConfigurationConflictSummary() *DeviceManagementDeviceConfigurationConflictSummaryCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceConfigurationConflictSummaryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7199,6 +9887,109 @@ func (r *DeviceManagementDeviceConfigurationsAllManagedDeviceCertificateStatesCo
 	return
 }
 
+// DeviceCustomAttributeShellScripts returns request builder for DeviceCustomAttributeShellScript collection
+func (b *DeviceManagementRequestBuilder) DeviceCustomAttributeShellScripts() *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder {
+	bb := &DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceCustomAttributeShellScripts"
+	return bb
+}
+
+// DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder is request builder for DeviceCustomAttributeShellScript collection
+type DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceCustomAttributeShellScript collection
+func (b *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder) Request() *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest {
+	return &DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceCustomAttributeShellScript item
+func (b *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequestBuilder) ID(id string) *DeviceCustomAttributeShellScriptRequestBuilder {
+	bb := &DeviceCustomAttributeShellScriptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest is request for DeviceCustomAttributeShellScript collection
+type DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceCustomAttributeShellScript collection
+func (r *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceCustomAttributeShellScript, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceCustomAttributeShellScript
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceCustomAttributeShellScript
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceCustomAttributeShellScript collection, max N pages
+func (r *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceCustomAttributeShellScript, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceCustomAttributeShellScript collection
+func (r *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest) Get(ctx context.Context) ([]DeviceCustomAttributeShellScript, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceCustomAttributeShellScript collection
+func (r *DeviceManagementDeviceCustomAttributeShellScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceCustomAttributeShellScript) (resObj *DeviceCustomAttributeShellScript, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // DeviceEnrollmentConfigurations returns request builder for DeviceEnrollmentConfiguration collection
 func (b *DeviceManagementRequestBuilder) DeviceEnrollmentConfigurations() *DeviceManagementDeviceEnrollmentConfigurationsCollectionRequestBuilder {
 	bb := &DeviceManagementDeviceEnrollmentConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -7607,6 +10398,109 @@ func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Get(ctx conte
 
 // Add performs POST request for DeviceManagementScript collection
 func (r *DeviceManagementDeviceManagementScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScript) (resObj *DeviceManagementScript, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DeviceShellScripts returns request builder for DeviceShellScript collection
+func (b *DeviceManagementRequestBuilder) DeviceShellScripts() *DeviceManagementDeviceShellScriptsCollectionRequestBuilder {
+	bb := &DeviceManagementDeviceShellScriptsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceShellScripts"
+	return bb
+}
+
+// DeviceManagementDeviceShellScriptsCollectionRequestBuilder is request builder for DeviceShellScript collection
+type DeviceManagementDeviceShellScriptsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceShellScript collection
+func (b *DeviceManagementDeviceShellScriptsCollectionRequestBuilder) Request() *DeviceManagementDeviceShellScriptsCollectionRequest {
+	return &DeviceManagementDeviceShellScriptsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceShellScript item
+func (b *DeviceManagementDeviceShellScriptsCollectionRequestBuilder) ID(id string) *DeviceShellScriptRequestBuilder {
+	bb := &DeviceShellScriptRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementDeviceShellScriptsCollectionRequest is request for DeviceShellScript collection
+type DeviceManagementDeviceShellScriptsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceShellScript collection
+func (r *DeviceManagementDeviceShellScriptsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceShellScript, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceShellScript
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceShellScript
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceShellScript collection, max N pages
+func (r *DeviceManagementDeviceShellScriptsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceShellScript, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceShellScript collection
+func (r *DeviceManagementDeviceShellScriptsCollectionRequest) Get(ctx context.Context) ([]DeviceShellScript, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceShellScript collection
+func (r *DeviceManagementDeviceShellScriptsCollectionRequest) Add(ctx context.Context, reqObj *DeviceShellScript) (resObj *DeviceShellScript, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -8030,6 +10924,109 @@ func (b *DeviceManagementRequestBuilder) ExchangeOnPremisesPolicy() *DeviceManag
 	return bb
 }
 
+// GroupPolicyCategories returns request builder for GroupPolicyCategory collection
+func (b *DeviceManagementRequestBuilder) GroupPolicyCategories() *DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder {
+	bb := &DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupPolicyCategories"
+	return bb
+}
+
+// DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder is request builder for GroupPolicyCategory collection
+type DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyCategory collection
+func (b *DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder) Request() *DeviceManagementGroupPolicyCategoriesCollectionRequest {
+	return &DeviceManagementGroupPolicyCategoriesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyCategory item
+func (b *DeviceManagementGroupPolicyCategoriesCollectionRequestBuilder) ID(id string) *GroupPolicyCategoryRequestBuilder {
+	bb := &GroupPolicyCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementGroupPolicyCategoriesCollectionRequest is request for GroupPolicyCategory collection
+type DeviceManagementGroupPolicyCategoriesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyCategory collection
+func (r *DeviceManagementGroupPolicyCategoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyCategory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyCategory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyCategory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyCategory collection, max N pages
+func (r *DeviceManagementGroupPolicyCategoriesCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyCategory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyCategory collection
+func (r *DeviceManagementGroupPolicyCategoriesCollectionRequest) Get(ctx context.Context) ([]GroupPolicyCategory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyCategory collection
+func (r *DeviceManagementGroupPolicyCategoriesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyCategory) (resObj *GroupPolicyCategory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // GroupPolicyConfigurations returns request builder for GroupPolicyConfiguration collection
 func (b *DeviceManagementRequestBuilder) GroupPolicyConfigurations() *DeviceManagementGroupPolicyConfigurationsCollectionRequestBuilder {
 	bb := &DeviceManagementGroupPolicyConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8438,6 +11435,212 @@ func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) Get(ctx c
 
 // Add performs POST request for GroupPolicyMigrationReport collection
 func (r *DeviceManagementGroupPolicyMigrationReportsCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyMigrationReport) (resObj *GroupPolicyMigrationReport, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// GroupPolicyObjectFiles returns request builder for GroupPolicyObjectFile collection
+func (b *DeviceManagementRequestBuilder) GroupPolicyObjectFiles() *DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder {
+	bb := &DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupPolicyObjectFiles"
+	return bb
+}
+
+// DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder is request builder for GroupPolicyObjectFile collection
+type DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyObjectFile collection
+func (b *DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder) Request() *DeviceManagementGroupPolicyObjectFilesCollectionRequest {
+	return &DeviceManagementGroupPolicyObjectFilesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyObjectFile item
+func (b *DeviceManagementGroupPolicyObjectFilesCollectionRequestBuilder) ID(id string) *GroupPolicyObjectFileRequestBuilder {
+	bb := &GroupPolicyObjectFileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementGroupPolicyObjectFilesCollectionRequest is request for GroupPolicyObjectFile collection
+type DeviceManagementGroupPolicyObjectFilesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyObjectFile collection
+func (r *DeviceManagementGroupPolicyObjectFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyObjectFile, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyObjectFile
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyObjectFile
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyObjectFile collection, max N pages
+func (r *DeviceManagementGroupPolicyObjectFilesCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyObjectFile, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyObjectFile collection
+func (r *DeviceManagementGroupPolicyObjectFilesCollectionRequest) Get(ctx context.Context) ([]GroupPolicyObjectFile, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyObjectFile collection
+func (r *DeviceManagementGroupPolicyObjectFilesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyObjectFile) (resObj *GroupPolicyObjectFile, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// GroupPolicyUploadedDefinitionFiles returns request builder for GroupPolicyUploadedDefinitionFile collection
+func (b *DeviceManagementRequestBuilder) GroupPolicyUploadedDefinitionFiles() *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder {
+	bb := &DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupPolicyUploadedDefinitionFiles"
+	return bb
+}
+
+// DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder is request builder for GroupPolicyUploadedDefinitionFile collection
+type DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for GroupPolicyUploadedDefinitionFile collection
+func (b *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder) Request() *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest {
+	return &DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for GroupPolicyUploadedDefinitionFile item
+func (b *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequestBuilder) ID(id string) *GroupPolicyUploadedDefinitionFileRequestBuilder {
+	bb := &GroupPolicyUploadedDefinitionFileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest is request for GroupPolicyUploadedDefinitionFile collection
+type DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for GroupPolicyUploadedDefinitionFile collection
+func (r *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]GroupPolicyUploadedDefinitionFile, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []GroupPolicyUploadedDefinitionFile
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []GroupPolicyUploadedDefinitionFile
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for GroupPolicyUploadedDefinitionFile collection, max N pages
+func (r *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest) GetN(ctx context.Context, n int) ([]GroupPolicyUploadedDefinitionFile, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for GroupPolicyUploadedDefinitionFile collection
+func (r *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest) Get(ctx context.Context) ([]GroupPolicyUploadedDefinitionFile, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for GroupPolicyUploadedDefinitionFile collection
+func (r *DeviceManagementGroupPolicyUploadedDefinitionFilesCollectionRequest) Add(ctx context.Context, reqObj *GroupPolicyUploadedDefinitionFile) (resObj *GroupPolicyUploadedDefinitionFile, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -8957,6 +12160,109 @@ func (r *DeviceManagementIOSUpdateStatusesCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// MacOSSoftwareUpdateAccountSummaries returns request builder for MacOSSoftwareUpdateAccountSummary collection
+func (b *DeviceManagementRequestBuilder) MacOSSoftwareUpdateAccountSummaries() *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder {
+	bb := &DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/macOSSoftwareUpdateAccountSummaries"
+	return bb
+}
+
+// DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder is request builder for MacOSSoftwareUpdateAccountSummary collection
+type DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MacOSSoftwareUpdateAccountSummary collection
+func (b *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder) Request() *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest {
+	return &DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MacOSSoftwareUpdateAccountSummary item
+func (b *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequestBuilder) ID(id string) *MacOSSoftwareUpdateAccountSummaryRequestBuilder {
+	bb := &MacOSSoftwareUpdateAccountSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest is request for MacOSSoftwareUpdateAccountSummary collection
+type DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MacOSSoftwareUpdateAccountSummary collection
+func (r *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MacOSSoftwareUpdateAccountSummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MacOSSoftwareUpdateAccountSummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MacOSSoftwareUpdateAccountSummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MacOSSoftwareUpdateAccountSummary collection, max N pages
+func (r *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest) GetN(ctx context.Context, n int) ([]MacOSSoftwareUpdateAccountSummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MacOSSoftwareUpdateAccountSummary collection
+func (r *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest) Get(ctx context.Context) ([]MacOSSoftwareUpdateAccountSummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MacOSSoftwareUpdateAccountSummary collection
+func (r *DeviceManagementMacOSSoftwareUpdateAccountSummariesCollectionRequest) Add(ctx context.Context, reqObj *MacOSSoftwareUpdateAccountSummary) (resObj *MacOSSoftwareUpdateAccountSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // ManagedDeviceEncryptionStates returns request builder for ManagedDeviceEncryptionState collection
 func (b *DeviceManagementRequestBuilder) ManagedDeviceEncryptionStates() *DeviceManagementManagedDeviceEncryptionStatesCollectionRequestBuilder {
 	bb := &DeviceManagementManagedDeviceEncryptionStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9372,6 +12678,418 @@ func (r *DeviceManagementManagementConditionsCollectionRequest) Get(ctx context.
 
 // Add performs POST request for ManagementCondition collection
 func (r *DeviceManagementManagementConditionsCollectionRequest) Add(ctx context.Context, reqObj *ManagementCondition) (resObj *ManagementCondition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MicrosoftTunnelConfigurations returns request builder for MicrosoftTunnelConfiguration collection
+func (b *DeviceManagementRequestBuilder) MicrosoftTunnelConfigurations() *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder {
+	bb := &DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/microsoftTunnelConfigurations"
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder is request builder for MicrosoftTunnelConfiguration collection
+type DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MicrosoftTunnelConfiguration collection
+func (b *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder) Request() *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest {
+	return &DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MicrosoftTunnelConfiguration item
+func (b *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequestBuilder) ID(id string) *MicrosoftTunnelConfigurationRequestBuilder {
+	bb := &MicrosoftTunnelConfigurationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest is request for MicrosoftTunnelConfiguration collection
+type DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MicrosoftTunnelConfiguration collection
+func (r *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MicrosoftTunnelConfiguration, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MicrosoftTunnelConfiguration
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MicrosoftTunnelConfiguration
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MicrosoftTunnelConfiguration collection, max N pages
+func (r *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest) GetN(ctx context.Context, n int) ([]MicrosoftTunnelConfiguration, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MicrosoftTunnelConfiguration collection
+func (r *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest) Get(ctx context.Context) ([]MicrosoftTunnelConfiguration, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MicrosoftTunnelConfiguration collection
+func (r *DeviceManagementMicrosoftTunnelConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *MicrosoftTunnelConfiguration) (resObj *MicrosoftTunnelConfiguration, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MicrosoftTunnelHealthThresholds returns request builder for MicrosoftTunnelHealthThreshold collection
+func (b *DeviceManagementRequestBuilder) MicrosoftTunnelHealthThresholds() *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder {
+	bb := &DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/microsoftTunnelHealthThresholds"
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder is request builder for MicrosoftTunnelHealthThreshold collection
+type DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MicrosoftTunnelHealthThreshold collection
+func (b *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder) Request() *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest {
+	return &DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MicrosoftTunnelHealthThreshold item
+func (b *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequestBuilder) ID(id string) *MicrosoftTunnelHealthThresholdRequestBuilder {
+	bb := &MicrosoftTunnelHealthThresholdRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest is request for MicrosoftTunnelHealthThreshold collection
+type DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MicrosoftTunnelHealthThreshold collection
+func (r *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MicrosoftTunnelHealthThreshold, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MicrosoftTunnelHealthThreshold
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MicrosoftTunnelHealthThreshold
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MicrosoftTunnelHealthThreshold collection, max N pages
+func (r *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest) GetN(ctx context.Context, n int) ([]MicrosoftTunnelHealthThreshold, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MicrosoftTunnelHealthThreshold collection
+func (r *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest) Get(ctx context.Context) ([]MicrosoftTunnelHealthThreshold, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MicrosoftTunnelHealthThreshold collection
+func (r *DeviceManagementMicrosoftTunnelHealthThresholdsCollectionRequest) Add(ctx context.Context, reqObj *MicrosoftTunnelHealthThreshold) (resObj *MicrosoftTunnelHealthThreshold, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MicrosoftTunnelServerLogCollectionResponses returns request builder for MicrosoftTunnelServerLogCollectionResponse collection
+func (b *DeviceManagementRequestBuilder) MicrosoftTunnelServerLogCollectionResponses() *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder {
+	bb := &DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/microsoftTunnelServerLogCollectionResponses"
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder is request builder for MicrosoftTunnelServerLogCollectionResponse collection
+type DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MicrosoftTunnelServerLogCollectionResponse collection
+func (b *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder) Request() *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest {
+	return &DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MicrosoftTunnelServerLogCollectionResponse item
+func (b *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequestBuilder) ID(id string) *MicrosoftTunnelServerLogCollectionResponseRequestBuilder {
+	bb := &MicrosoftTunnelServerLogCollectionResponseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest is request for MicrosoftTunnelServerLogCollectionResponse collection
+type DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MicrosoftTunnelServerLogCollectionResponse collection
+func (r *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MicrosoftTunnelServerLogCollectionResponse, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MicrosoftTunnelServerLogCollectionResponse
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MicrosoftTunnelServerLogCollectionResponse
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MicrosoftTunnelServerLogCollectionResponse collection, max N pages
+func (r *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest) GetN(ctx context.Context, n int) ([]MicrosoftTunnelServerLogCollectionResponse, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MicrosoftTunnelServerLogCollectionResponse collection
+func (r *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest) Get(ctx context.Context) ([]MicrosoftTunnelServerLogCollectionResponse, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MicrosoftTunnelServerLogCollectionResponse collection
+func (r *DeviceManagementMicrosoftTunnelServerLogCollectionResponsesCollectionRequest) Add(ctx context.Context, reqObj *MicrosoftTunnelServerLogCollectionResponse) (resObj *MicrosoftTunnelServerLogCollectionResponse, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// MicrosoftTunnelSites returns request builder for MicrosoftTunnelSite collection
+func (b *DeviceManagementRequestBuilder) MicrosoftTunnelSites() *DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder {
+	bb := &DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/microsoftTunnelSites"
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder is request builder for MicrosoftTunnelSite collection
+type DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MicrosoftTunnelSite collection
+func (b *DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder) Request() *DeviceManagementMicrosoftTunnelSitesCollectionRequest {
+	return &DeviceManagementMicrosoftTunnelSitesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MicrosoftTunnelSite item
+func (b *DeviceManagementMicrosoftTunnelSitesCollectionRequestBuilder) ID(id string) *MicrosoftTunnelSiteRequestBuilder {
+	bb := &MicrosoftTunnelSiteRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementMicrosoftTunnelSitesCollectionRequest is request for MicrosoftTunnelSite collection
+type DeviceManagementMicrosoftTunnelSitesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MicrosoftTunnelSite collection
+func (r *DeviceManagementMicrosoftTunnelSitesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MicrosoftTunnelSite, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MicrosoftTunnelSite
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MicrosoftTunnelSite
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MicrosoftTunnelSite collection, max N pages
+func (r *DeviceManagementMicrosoftTunnelSitesCollectionRequest) GetN(ctx context.Context, n int) ([]MicrosoftTunnelSite, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MicrosoftTunnelSite collection
+func (r *DeviceManagementMicrosoftTunnelSitesCollectionRequest) Get(ctx context.Context) ([]MicrosoftTunnelSite, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MicrosoftTunnelSite collection
+func (r *DeviceManagementMicrosoftTunnelSitesCollectionRequest) Add(ctx context.Context, reqObj *MicrosoftTunnelSite) (resObj *MicrosoftTunnelSite, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -10001,6 +13719,109 @@ func (b *DeviceManagementRequestBuilder) Reports() *DeviceManagementReportsReque
 	return bb
 }
 
+// ResourceAccessProfiles returns request builder for DeviceManagementResourceAccessProfileBase collection
+func (b *DeviceManagementRequestBuilder) ResourceAccessProfiles() *DeviceManagementResourceAccessProfilesCollectionRequestBuilder {
+	bb := &DeviceManagementResourceAccessProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/resourceAccessProfiles"
+	return bb
+}
+
+// DeviceManagementResourceAccessProfilesCollectionRequestBuilder is request builder for DeviceManagementResourceAccessProfileBase collection
+type DeviceManagementResourceAccessProfilesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementResourceAccessProfileBase collection
+func (b *DeviceManagementResourceAccessProfilesCollectionRequestBuilder) Request() *DeviceManagementResourceAccessProfilesCollectionRequest {
+	return &DeviceManagementResourceAccessProfilesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementResourceAccessProfileBase item
+func (b *DeviceManagementResourceAccessProfilesCollectionRequestBuilder) ID(id string) *DeviceManagementResourceAccessProfileBaseRequestBuilder {
+	bb := &DeviceManagementResourceAccessProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementResourceAccessProfilesCollectionRequest is request for DeviceManagementResourceAccessProfileBase collection
+type DeviceManagementResourceAccessProfilesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementResourceAccessProfileBase collection
+func (r *DeviceManagementResourceAccessProfilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementResourceAccessProfileBase, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementResourceAccessProfileBase
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementResourceAccessProfileBase
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementResourceAccessProfileBase collection, max N pages
+func (r *DeviceManagementResourceAccessProfilesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementResourceAccessProfileBase, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementResourceAccessProfileBase collection
+func (r *DeviceManagementResourceAccessProfilesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementResourceAccessProfileBase, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementResourceAccessProfileBase collection
+func (r *DeviceManagementResourceAccessProfilesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementResourceAccessProfileBase) (resObj *DeviceManagementResourceAccessProfileBase, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // ResourceOperations returns request builder for ResourceOperation collection
 func (b *DeviceManagementRequestBuilder) ResourceOperations() *DeviceManagementResourceOperationsCollectionRequestBuilder {
 	bb := &DeviceManagementResourceOperationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10100,6 +13921,212 @@ func (r *DeviceManagementResourceOperationsCollectionRequest) Get(ctx context.Co
 
 // Add performs POST request for ResourceOperation collection
 func (r *DeviceManagementResourceOperationsCollectionRequest) Add(ctx context.Context, reqObj *ResourceOperation) (resObj *ResourceOperation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ReusablePolicySettings returns request builder for DeviceManagementReusablePolicySetting collection
+func (b *DeviceManagementRequestBuilder) ReusablePolicySettings() *DeviceManagementReusablePolicySettingsCollectionRequestBuilder {
+	bb := &DeviceManagementReusablePolicySettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/reusablePolicySettings"
+	return bb
+}
+
+// DeviceManagementReusablePolicySettingsCollectionRequestBuilder is request builder for DeviceManagementReusablePolicySetting collection
+type DeviceManagementReusablePolicySettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementReusablePolicySetting collection
+func (b *DeviceManagementReusablePolicySettingsCollectionRequestBuilder) Request() *DeviceManagementReusablePolicySettingsCollectionRequest {
+	return &DeviceManagementReusablePolicySettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementReusablePolicySetting item
+func (b *DeviceManagementReusablePolicySettingsCollectionRequestBuilder) ID(id string) *DeviceManagementReusablePolicySettingRequestBuilder {
+	bb := &DeviceManagementReusablePolicySettingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementReusablePolicySettingsCollectionRequest is request for DeviceManagementReusablePolicySetting collection
+type DeviceManagementReusablePolicySettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementReusablePolicySetting collection
+func (r *DeviceManagementReusablePolicySettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementReusablePolicySetting, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementReusablePolicySetting
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementReusablePolicySetting
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementReusablePolicySetting collection, max N pages
+func (r *DeviceManagementReusablePolicySettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementReusablePolicySetting, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementReusablePolicySetting collection
+func (r *DeviceManagementReusablePolicySettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementReusablePolicySetting, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementReusablePolicySetting collection
+func (r *DeviceManagementReusablePolicySettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementReusablePolicySetting) (resObj *DeviceManagementReusablePolicySetting, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ReusableSettings returns request builder for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementRequestBuilder) ReusableSettings() *DeviceManagementReusableSettingsCollectionRequestBuilder {
+	bb := &DeviceManagementReusableSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/reusableSettings"
+	return bb
+}
+
+// DeviceManagementReusableSettingsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementReusableSettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementReusableSettingsCollectionRequestBuilder) Request() *DeviceManagementReusableSettingsCollectionRequest {
+	return &DeviceManagementReusableSettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingDefinition item
+func (b *DeviceManagementReusableSettingsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingDefinitionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementReusableSettingsCollectionRequest is request for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementReusableSettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementReusableSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingDefinition collection, max N pages
+func (r *DeviceManagementReusableSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementReusableSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementReusableSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingDefinition) (resObj *DeviceManagementConfigurationSettingDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -10626,6 +14653,109 @@ func (r *DeviceManagementTelecomExpenseManagementPartnersCollectionRequest) Add(
 	return
 }
 
+// TemplateSettings returns request builder for DeviceManagementConfigurationSettingTemplate collection
+func (b *DeviceManagementRequestBuilder) TemplateSettings() *DeviceManagementTemplateSettingsCollectionRequestBuilder {
+	bb := &DeviceManagementTemplateSettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/templateSettings"
+	return bb
+}
+
+// DeviceManagementTemplateSettingsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingTemplate collection
+type DeviceManagementTemplateSettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingTemplate collection
+func (b *DeviceManagementTemplateSettingsCollectionRequestBuilder) Request() *DeviceManagementTemplateSettingsCollectionRequest {
+	return &DeviceManagementTemplateSettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingTemplate item
+func (b *DeviceManagementTemplateSettingsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingTemplateRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingTemplateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementTemplateSettingsCollectionRequest is request for DeviceManagementConfigurationSettingTemplate collection
+type DeviceManagementTemplateSettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingTemplate
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingTemplate
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingTemplate collection, max N pages
+func (r *DeviceManagementTemplateSettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementTemplateSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingTemplate) (resObj *DeviceManagementConfigurationSettingTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Templates returns request builder for DeviceManagementTemplate collection
 func (b *DeviceManagementRequestBuilder) Templates() *DeviceManagementTemplatesCollectionRequestBuilder {
 	bb := &DeviceManagementTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -10935,6 +15065,734 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Add(ctx context
 	return
 }
 
+// UserExperienceAnalyticsAppHealthApplicationPerformance returns request builder for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthApplicationPerformance() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthApplicationPerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthApplicationPerformance item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthApplicationPerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest is request for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthApplicationPerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthApplicationPerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthApplicationPerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthApplicationPerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthApplicationPerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthApplicationPerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthApplicationPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthApplicationPerformance) (resObj *UserExperienceAnalyticsAppHealthApplicationPerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion returns request builder for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersion"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest is request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion) (resObj *UserExperienceAnalyticsAppHealthAppPerformanceByAppVersion, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion returns request builder for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest is request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+type DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersionCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion) (resObj *UserExperienceAnalyticsAppHealthAppPerformanceByOSVersion, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthDeviceModelPerformance returns request builder for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthDeviceModelPerformance() *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthDeviceModelPerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthDeviceModelPerformance item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthDeviceModelPerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest is request for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthDeviceModelPerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthDeviceModelPerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthDeviceModelPerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthDeviceModelPerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthDeviceModelPerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthDeviceModelPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDeviceModelPerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDeviceModelPerformance) (resObj *UserExperienceAnalyticsAppHealthDeviceModelPerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformance returns request builder for UserExperienceAnalyticsAppHealthDevicePerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthDevicePerformance() *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthDevicePerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDevicePerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthDevicePerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthDevicePerformance item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthDevicePerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest is request for UserExperienceAnalyticsAppHealthDevicePerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthDevicePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthDevicePerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthDevicePerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthDevicePerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthDevicePerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthDevicePerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDevicePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthDevicePerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthDevicePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDevicePerformance) (resObj *UserExperienceAnalyticsAppHealthDevicePerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthDevicePerformanceDetails returns request builder for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthDevicePerformanceDetails() *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthDevicePerformanceDetails"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthDevicePerformanceDetails item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthDevicePerformanceDetailsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest is request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+type DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthDevicePerformanceDetails, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthDevicePerformanceDetails
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthDevicePerformanceDetails, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthDevicePerformanceDetails, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthDevicePerformanceDetails collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthDevicePerformanceDetailsCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthDevicePerformanceDetails) (resObj *UserExperienceAnalyticsAppHealthDevicePerformanceDetails, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthOSVersionPerformance returns request builder for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthOSVersionPerformance() *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthOSVersionPerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsAppHealthOSVersionPerformance item
+func (b *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsAppHealthOSVersionPerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest is request for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+type DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsAppHealthOSVersionPerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsAppHealthOSVersionPerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsAppHealthOSVersionPerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsAppHealthOSVersionPerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsAppHealthOSVersionPerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsAppHealthOSVersionPerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsAppHealthOSVersionPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsAppHealthOSVersionPerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsAppHealthOSVersionPerformance) (resObj *UserExperienceAnalyticsAppHealthOSVersionPerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsAppHealthOverview is navigation property
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsAppHealthOverview() *UserExperienceAnalyticsCategoryRequestBuilder {
+	bb := &UserExperienceAnalyticsCategoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsAppHealthOverview"
+	return bb
+}
+
 // UserExperienceAnalyticsBaselines returns request builder for UserExperienceAnalyticsBaseline collection
 func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsBaselines() *DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequestBuilder {
 	bb := &DeviceManagementUserExperienceAnalyticsBaselinesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11141,6 +15999,109 @@ func (r *DeviceManagementUserExperienceAnalyticsCategoriesCollectionRequest) Add
 	return
 }
 
+// UserExperienceAnalyticsDeviceMetricHistory returns request builder for UserExperienceAnalyticsMetricHistory collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDeviceMetricHistory() *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsDeviceMetricHistory"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder is request builder for UserExperienceAnalyticsMetricHistory collection
+type DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsMetricHistory collection
+func (b *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsMetricHistory item
+func (b *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsMetricHistoryRequestBuilder {
+	bb := &UserExperienceAnalyticsMetricHistoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest is request for UserExperienceAnalyticsMetricHistory collection
+type DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsMetricHistory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsMetricHistory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsMetricHistory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsMetricHistory collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsMetricHistory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsMetricHistory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceMetricHistoryCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsMetricHistory) (resObj *UserExperienceAnalyticsMetricHistory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // UserExperienceAnalyticsDevicePerformance returns request builder for UserExperienceAnalyticsDevicePerformance collection
 func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDevicePerformance() *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionRequestBuilder {
 	bb := &DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11240,6 +16201,109 @@ func (r *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionReque
 
 // Add performs POST request for UserExperienceAnalyticsDevicePerformance collection
 func (r *DeviceManagementUserExperienceAnalyticsDevicePerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDevicePerformance) (resObj *UserExperienceAnalyticsDevicePerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsDeviceScores returns request builder for UserExperienceAnalyticsDeviceScores collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDeviceScores() *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsDeviceScores"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder is request builder for UserExperienceAnalyticsDeviceScores collection
+type DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsDeviceScores collection
+func (b *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsDeviceScores item
+func (b *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsDeviceScoresRequestBuilder {
+	bb := &UserExperienceAnalyticsDeviceScoresRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest is request for UserExperienceAnalyticsDeviceScores collection
+type DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsDeviceScores collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsDeviceScores, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsDeviceScores
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsDeviceScores
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsDeviceScores collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsDeviceScores, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsDeviceScores collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsDeviceScores, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsDeviceScores collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceScoresCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceScores) (resObj *UserExperienceAnalyticsDeviceScores, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -11347,6 +16411,624 @@ func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupHistoryCollectionRe
 	return
 }
 
+// UserExperienceAnalyticsDeviceStartupProcessPerformance returns request builder for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDeviceStartupProcessPerformance() *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsDeviceStartupProcessPerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+type DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsDeviceStartupProcessPerformance item
+func (b *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsDeviceStartupProcessPerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest is request for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+type DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsDeviceStartupProcessPerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsDeviceStartupProcessPerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsDeviceStartupProcessPerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsDeviceStartupProcessPerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsDeviceStartupProcessPerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsDeviceStartupProcessPerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsDeviceStartupProcessPerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessPerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceStartupProcessPerformance) (resObj *UserExperienceAnalyticsDeviceStartupProcessPerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsDeviceStartupProcesses returns request builder for UserExperienceAnalyticsDeviceStartupProcess collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDeviceStartupProcesses() *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsDeviceStartupProcesses"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder is request builder for UserExperienceAnalyticsDeviceStartupProcess collection
+type DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsDeviceStartupProcess collection
+func (b *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsDeviceStartupProcess item
+func (b *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsDeviceStartupProcessRequestBuilder {
+	bb := &UserExperienceAnalyticsDeviceStartupProcessRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest is request for UserExperienceAnalyticsDeviceStartupProcess collection
+type DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsDeviceStartupProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsDeviceStartupProcess, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsDeviceStartupProcess
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsDeviceStartupProcess
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsDeviceStartupProcess collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsDeviceStartupProcess, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsDeviceStartupProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsDeviceStartupProcess, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsDeviceStartupProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsDeviceStartupProcessesCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceStartupProcess) (resObj *UserExperienceAnalyticsDeviceStartupProcess, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsDevicesWithoutCloudIdentity returns request builder for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsDevicesWithoutCloudIdentity() *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsDevicesWithoutCloudIdentity"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder is request builder for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+type DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+func (b *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsDeviceWithoutCloudIdentity item
+func (b *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsDeviceWithoutCloudIdentityRequestBuilder {
+	bb := &UserExperienceAnalyticsDeviceWithoutCloudIdentityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest is request for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+type DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+func (r *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsDeviceWithoutCloudIdentity, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsDeviceWithoutCloudIdentity
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsDeviceWithoutCloudIdentity
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsDeviceWithoutCloudIdentity, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+func (r *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsDeviceWithoutCloudIdentity, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsDeviceWithoutCloudIdentity collection
+func (r *DeviceManagementUserExperienceAnalyticsDevicesWithoutCloudIdentityCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsDeviceWithoutCloudIdentity) (resObj *UserExperienceAnalyticsDeviceWithoutCloudIdentity, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsImpactingProcess returns request builder for UserExperienceAnalyticsImpactingProcess collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsImpactingProcess() *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsImpactingProcess"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder is request builder for UserExperienceAnalyticsImpactingProcess collection
+type DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsImpactingProcess collection
+func (b *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsImpactingProcess item
+func (b *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsImpactingProcessRequestBuilder {
+	bb := &UserExperienceAnalyticsImpactingProcessRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest is request for UserExperienceAnalyticsImpactingProcess collection
+type DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsImpactingProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsImpactingProcess, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsImpactingProcess
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsImpactingProcess
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsImpactingProcess collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsImpactingProcess, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsImpactingProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsImpactingProcess, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsImpactingProcess collection
+func (r *DeviceManagementUserExperienceAnalyticsImpactingProcessCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsImpactingProcess) (resObj *UserExperienceAnalyticsImpactingProcess, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsMetricHistory returns request builder for UserExperienceAnalyticsMetricHistory collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsMetricHistory() *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsMetricHistory"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder is request builder for UserExperienceAnalyticsMetricHistory collection
+type DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsMetricHistory collection
+func (b *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsMetricHistory item
+func (b *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsMetricHistoryRequestBuilder {
+	bb := &UserExperienceAnalyticsMetricHistoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest is request for UserExperienceAnalyticsMetricHistory collection
+type DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsMetricHistory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsMetricHistory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsMetricHistory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsMetricHistory collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsMetricHistory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsMetricHistory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsMetricHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsMetricHistoryCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsMetricHistory) (resObj *UserExperienceAnalyticsMetricHistory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsNotAutopilotReadyDevice returns request builder for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsNotAutopilotReadyDevice() *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsNotAutopilotReadyDevice"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder is request builder for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+type DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+func (b *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsNotAutopilotReadyDevice item
+func (b *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder {
+	bb := &UserExperienceAnalyticsNotAutopilotReadyDeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest is request for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+type DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+func (r *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsNotAutopilotReadyDevice, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsNotAutopilotReadyDevice
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsNotAutopilotReadyDevice
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsNotAutopilotReadyDevice collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsNotAutopilotReadyDevice, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+func (r *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsNotAutopilotReadyDevice, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsNotAutopilotReadyDevice collection
+func (r *DeviceManagementUserExperienceAnalyticsNotAutopilotReadyDeviceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsNotAutopilotReadyDevice) (resObj *UserExperienceAnalyticsNotAutopilotReadyDevice, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // UserExperienceAnalyticsOverview is navigation property
 func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsOverview() *UserExperienceAnalyticsOverviewRequestBuilder {
 	bb := &UserExperienceAnalyticsOverviewRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -11359,6 +17041,418 @@ func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsRegressionSummar
 	bb := &UserExperienceAnalyticsRegressionSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/userExperienceAnalyticsRegressionSummary"
 	return bb
+}
+
+// UserExperienceAnalyticsRemoteConnection returns request builder for UserExperienceAnalyticsRemoteConnection collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsRemoteConnection() *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsRemoteConnection"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder is request builder for UserExperienceAnalyticsRemoteConnection collection
+type DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsRemoteConnection collection
+func (b *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsRemoteConnection item
+func (b *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsRemoteConnectionRequestBuilder {
+	bb := &UserExperienceAnalyticsRemoteConnectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest is request for UserExperienceAnalyticsRemoteConnection collection
+type DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsRemoteConnection collection
+func (r *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsRemoteConnection, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsRemoteConnection
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsRemoteConnection
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsRemoteConnection collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsRemoteConnection, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsRemoteConnection collection
+func (r *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsRemoteConnection, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsRemoteConnection collection
+func (r *DeviceManagementUserExperienceAnalyticsRemoteConnectionCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsRemoteConnection) (resObj *UserExperienceAnalyticsRemoteConnection, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsResourcePerformance returns request builder for UserExperienceAnalyticsResourcePerformance collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsResourcePerformance() *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsResourcePerformance"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder is request builder for UserExperienceAnalyticsResourcePerformance collection
+type DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsResourcePerformance collection
+func (b *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsResourcePerformance item
+func (b *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsResourcePerformanceRequestBuilder {
+	bb := &UserExperienceAnalyticsResourcePerformanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest is request for UserExperienceAnalyticsResourcePerformance collection
+type DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsResourcePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsResourcePerformance, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsResourcePerformance
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsResourcePerformance
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsResourcePerformance collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsResourcePerformance, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsResourcePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsResourcePerformance, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsResourcePerformance collection
+func (r *DeviceManagementUserExperienceAnalyticsResourcePerformanceCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsResourcePerformance) (resObj *UserExperienceAnalyticsResourcePerformance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsScoreHistory returns request builder for UserExperienceAnalyticsScoreHistory collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsScoreHistory() *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsScoreHistory"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder is request builder for UserExperienceAnalyticsScoreHistory collection
+type DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsScoreHistory collection
+func (b *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsScoreHistory item
+func (b *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsScoreHistoryRequestBuilder {
+	bb := &UserExperienceAnalyticsScoreHistoryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest is request for UserExperienceAnalyticsScoreHistory collection
+type DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsScoreHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsScoreHistory, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsScoreHistory
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsScoreHistory
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsScoreHistory collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsScoreHistory, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsScoreHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsScoreHistory, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsScoreHistory collection
+func (r *DeviceManagementUserExperienceAnalyticsScoreHistoryCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsScoreHistory) (resObj *UserExperienceAnalyticsScoreHistory, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UserExperienceAnalyticsWorkFromAnywhereMetrics returns request builder for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+func (b *DeviceManagementRequestBuilder) UserExperienceAnalyticsWorkFromAnywhereMetrics() *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder {
+	bb := &DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userExperienceAnalyticsWorkFromAnywhereMetrics"
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder is request builder for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+type DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+func (b *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder) Request() *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest {
+	return &DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for UserExperienceAnalyticsWorkFromAnywhereMetric item
+func (b *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequestBuilder) ID(id string) *UserExperienceAnalyticsWorkFromAnywhereMetricRequestBuilder {
+	bb := &UserExperienceAnalyticsWorkFromAnywhereMetricRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest is request for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+type DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+func (r *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UserExperienceAnalyticsWorkFromAnywhereMetric, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []UserExperienceAnalyticsWorkFromAnywhereMetric
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []UserExperienceAnalyticsWorkFromAnywhereMetric
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for UserExperienceAnalyticsWorkFromAnywhereMetric collection, max N pages
+func (r *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest) GetN(ctx context.Context, n int) ([]UserExperienceAnalyticsWorkFromAnywhereMetric, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+func (r *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest) Get(ctx context.Context) ([]UserExperienceAnalyticsWorkFromAnywhereMetric, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for UserExperienceAnalyticsWorkFromAnywhereMetric collection
+func (r *DeviceManagementUserExperienceAnalyticsWorkFromAnywhereMetricsCollectionRequest) Add(ctx context.Context, reqObj *UserExperienceAnalyticsWorkFromAnywhereMetric) (resObj *UserExperienceAnalyticsWorkFromAnywhereMetric, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // UserPfxCertificates returns request builder for UserPFXCertificate collection
@@ -11462,6 +17556,13 @@ func (r *DeviceManagementUserPfxCertificatesCollectionRequest) Get(ctx context.C
 func (r *DeviceManagementUserPfxCertificatesCollectionRequest) Add(ctx context.Context, reqObj *UserPFXCertificate) (resObj *UserPFXCertificate, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// VirtualEndpoint is navigation property
+func (b *DeviceManagementRequestBuilder) VirtualEndpoint() *VirtualEndpointRequestBuilder {
+	bb := &VirtualEndpointRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/virtualEndpoint"
+	return bb
 }
 
 // WindowsAutopilotDeploymentProfiles returns request builder for WindowsAutopilotDeploymentProfile collection
@@ -12089,6 +18190,212 @@ func (r *DeviceManagementWindowsMalwareInformationCollectionRequest) Add(ctx con
 	return
 }
 
+// WindowsQualityUpdateProfiles returns request builder for WindowsQualityUpdateProfile collection
+func (b *DeviceManagementRequestBuilder) WindowsQualityUpdateProfiles() *DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder {
+	bb := &DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/windowsQualityUpdateProfiles"
+	return bb
+}
+
+// DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder is request builder for WindowsQualityUpdateProfile collection
+type DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsQualityUpdateProfile collection
+func (b *DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder) Request() *DeviceManagementWindowsQualityUpdateProfilesCollectionRequest {
+	return &DeviceManagementWindowsQualityUpdateProfilesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsQualityUpdateProfile item
+func (b *DeviceManagementWindowsQualityUpdateProfilesCollectionRequestBuilder) ID(id string) *WindowsQualityUpdateProfileRequestBuilder {
+	bb := &WindowsQualityUpdateProfileRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementWindowsQualityUpdateProfilesCollectionRequest is request for WindowsQualityUpdateProfile collection
+type DeviceManagementWindowsQualityUpdateProfilesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsQualityUpdateProfile collection
+func (r *DeviceManagementWindowsQualityUpdateProfilesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsQualityUpdateProfile, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsQualityUpdateProfile
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsQualityUpdateProfile
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for WindowsQualityUpdateProfile collection, max N pages
+func (r *DeviceManagementWindowsQualityUpdateProfilesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsQualityUpdateProfile, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsQualityUpdateProfile collection
+func (r *DeviceManagementWindowsQualityUpdateProfilesCollectionRequest) Get(ctx context.Context) ([]WindowsQualityUpdateProfile, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for WindowsQualityUpdateProfile collection
+func (r *DeviceManagementWindowsQualityUpdateProfilesCollectionRequest) Add(ctx context.Context, reqObj *WindowsQualityUpdateProfile) (resObj *WindowsQualityUpdateProfile, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// WindowsUpdateCatalogItems returns request builder for WindowsUpdateCatalogItem collection
+func (b *DeviceManagementRequestBuilder) WindowsUpdateCatalogItems() *DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder {
+	bb := &DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/windowsUpdateCatalogItems"
+	return bb
+}
+
+// DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder is request builder for WindowsUpdateCatalogItem collection
+type DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsUpdateCatalogItem collection
+func (b *DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder) Request() *DeviceManagementWindowsUpdateCatalogItemsCollectionRequest {
+	return &DeviceManagementWindowsUpdateCatalogItemsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsUpdateCatalogItem item
+func (b *DeviceManagementWindowsUpdateCatalogItemsCollectionRequestBuilder) ID(id string) *WindowsUpdateCatalogItemRequestBuilder {
+	bb := &WindowsUpdateCatalogItemRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementWindowsUpdateCatalogItemsCollectionRequest is request for WindowsUpdateCatalogItem collection
+type DeviceManagementWindowsUpdateCatalogItemsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsUpdateCatalogItem collection
+func (r *DeviceManagementWindowsUpdateCatalogItemsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsUpdateCatalogItem, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsUpdateCatalogItem
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsUpdateCatalogItem
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for WindowsUpdateCatalogItem collection, max N pages
+func (r *DeviceManagementWindowsUpdateCatalogItemsCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsUpdateCatalogItem, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsUpdateCatalogItem collection
+func (r *DeviceManagementWindowsUpdateCatalogItemsCollectionRequest) Get(ctx context.Context) ([]WindowsUpdateCatalogItem, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for WindowsUpdateCatalogItem collection
+func (r *DeviceManagementWindowsUpdateCatalogItemsCollectionRequest) Add(ctx context.Context, reqObj *WindowsUpdateCatalogItem) (resObj *WindowsUpdateCatalogItem, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Value returns request builder for DeviceManagementSettingInstance collection
 func (b *DeviceManagementAbstractComplexSettingInstanceRequestBuilder) Value() *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequestBuilder {
 	bb := &DeviceManagementAbstractComplexSettingInstanceValueCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -12188,6 +18495,109 @@ func (r *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequest) G
 
 // Add performs POST request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementAbstractComplexSettingInstanceValueCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// PolicyStatusDetails returns request builder for DeviceManagementAutopilotPolicyStatusDetail collection
+func (b *DeviceManagementAutopilotEventRequestBuilder) PolicyStatusDetails() *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder {
+	bb := &DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/policyStatusDetails"
+	return bb
+}
+
+// DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder is request builder for DeviceManagementAutopilotPolicyStatusDetail collection
+type DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementAutopilotPolicyStatusDetail collection
+func (b *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder) Request() *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest {
+	return &DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementAutopilotPolicyStatusDetail item
+func (b *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequestBuilder) ID(id string) *DeviceManagementAutopilotPolicyStatusDetailRequestBuilder {
+	bb := &DeviceManagementAutopilotPolicyStatusDetailRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest is request for DeviceManagementAutopilotPolicyStatusDetail collection
+type DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementAutopilotPolicyStatusDetail collection
+func (r *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementAutopilotPolicyStatusDetail, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementAutopilotPolicyStatusDetail
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementAutopilotPolicyStatusDetail
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementAutopilotPolicyStatusDetail collection, max N pages
+func (r *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementAutopilotPolicyStatusDetail, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementAutopilotPolicyStatusDetail collection
+func (r *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementAutopilotPolicyStatusDetail, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementAutopilotPolicyStatusDetail collection
+func (r *DeviceManagementAutopilotEventPolicyStatusDetailsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementAutopilotPolicyStatusDetail) (resObj *DeviceManagementAutopilotPolicyStatusDetail, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -12394,6 +18804,521 @@ func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Get(ctx c
 
 // Add performs POST request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementComplexSettingInstanceValueCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Assignments returns request builder for DeviceManagementConfigurationPolicyAssignment collection
+func (b *DeviceManagementConfigurationPolicyRequestBuilder) Assignments() *DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder is request builder for DeviceManagementConfigurationPolicyAssignment collection
+type DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationPolicyAssignment collection
+func (b *DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder) Request() *DeviceManagementConfigurationPolicyAssignmentsCollectionRequest {
+	return &DeviceManagementConfigurationPolicyAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationPolicyAssignment item
+func (b *DeviceManagementConfigurationPolicyAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationPolicyAssignmentRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyAssignmentsCollectionRequest is request for DeviceManagementConfigurationPolicyAssignment collection
+type DeviceManagementConfigurationPolicyAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationPolicyAssignment collection
+func (r *DeviceManagementConfigurationPolicyAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationPolicyAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationPolicyAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationPolicyAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationPolicyAssignment collection, max N pages
+func (r *DeviceManagementConfigurationPolicyAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationPolicyAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationPolicyAssignment collection
+func (r *DeviceManagementConfigurationPolicyAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationPolicyAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationPolicyAssignment collection
+func (r *DeviceManagementConfigurationPolicyAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationPolicyAssignment) (resObj *DeviceManagementConfigurationPolicyAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Settings returns request builder for DeviceManagementConfigurationSetting collection
+func (b *DeviceManagementConfigurationPolicyRequestBuilder) Settings() *DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/settings"
+	return bb
+}
+
+// DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSetting collection
+type DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSetting collection
+func (b *DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder) Request() *DeviceManagementConfigurationPolicySettingsCollectionRequest {
+	return &DeviceManagementConfigurationPolicySettingsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSetting item
+func (b *DeviceManagementConfigurationPolicySettingsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationPolicySettingsCollectionRequest is request for DeviceManagementConfigurationSetting collection
+type DeviceManagementConfigurationPolicySettingsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSetting collection
+func (r *DeviceManagementConfigurationPolicySettingsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSetting, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSetting
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSetting
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSetting collection, max N pages
+func (r *DeviceManagementConfigurationPolicySettingsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSetting, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSetting collection
+func (r *DeviceManagementConfigurationPolicySettingsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSetting, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSetting collection
+func (r *DeviceManagementConfigurationPolicySettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSetting) (resObj *DeviceManagementConfigurationSetting, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// SettingTemplates returns request builder for DeviceManagementConfigurationSettingTemplate collection
+func (b *DeviceManagementConfigurationPolicyTemplateRequestBuilder) SettingTemplates() *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/settingTemplates"
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingTemplate collection
+type DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingTemplate collection
+func (b *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder) Request() *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest {
+	return &DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingTemplate item
+func (b *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingTemplateRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingTemplateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest is request for DeviceManagementConfigurationSettingTemplate collection
+type DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingTemplate
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingTemplate
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingTemplate collection, max N pages
+func (r *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingTemplate, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingTemplate collection
+func (r *DeviceManagementConfigurationPolicyTemplateSettingTemplatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingTemplate) (resObj *DeviceManagementConfigurationSettingTemplate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// SettingDefinitions returns request builder for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementConfigurationSettingRequestBuilder) SettingDefinitions() *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/settingDefinitions"
+	return bb
+}
+
+// DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder) Request() *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest {
+	return &DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingDefinition item
+func (b *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingDefinitionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest is request for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingDefinition collection, max N pages
+func (r *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingSettingDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingDefinition) (resObj *DeviceManagementConfigurationSettingDefinition, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// SettingDefinitions returns request builder for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementConfigurationSettingTemplateRequestBuilder) SettingDefinitions() *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/settingDefinitions"
+	return bb
+}
+
+// DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder is request builder for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationSettingDefinition collection
+func (b *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder) Request() *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest {
+	return &DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationSettingDefinition item
+func (b *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationSettingDefinitionRequestBuilder {
+	bb := &DeviceManagementConfigurationSettingDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest is request for DeviceManagementConfigurationSettingDefinition collection
+type DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationSettingDefinition
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationSettingDefinition
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationSettingDefinition collection, max N pages
+func (r *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationSettingDefinition, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationSettingDefinition collection
+func (r *DeviceManagementConfigurationSettingTemplateSettingDefinitionsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationSettingDefinition) (resObj *DeviceManagementConfigurationSettingDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -13449,6 +20374,212 @@ func (r *DeviceManagementReportsReportSchedulesCollectionRequest) Add(ctx contex
 	return
 }
 
+// Assignments returns request builder for DeviceManagementResourceAccessProfileAssignment collection
+func (b *DeviceManagementResourceAccessProfileBaseRequestBuilder) Assignments() *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder {
+	bb := &DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
+	return bb
+}
+
+// DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder is request builder for DeviceManagementResourceAccessProfileAssignment collection
+type DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementResourceAccessProfileAssignment collection
+func (b *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder) Request() *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest {
+	return &DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementResourceAccessProfileAssignment item
+func (b *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementResourceAccessProfileAssignmentRequestBuilder {
+	bb := &DeviceManagementResourceAccessProfileAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest is request for DeviceManagementResourceAccessProfileAssignment collection
+type DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementResourceAccessProfileAssignment collection
+func (r *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementResourceAccessProfileAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementResourceAccessProfileAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementResourceAccessProfileAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementResourceAccessProfileAssignment collection, max N pages
+func (r *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementResourceAccessProfileAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementResourceAccessProfileAssignment collection
+func (r *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementResourceAccessProfileAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementResourceAccessProfileAssignment collection
+func (r *DeviceManagementResourceAccessProfileBaseAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementResourceAccessProfileAssignment) (resObj *DeviceManagementResourceAccessProfileAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ReferencingConfigurationPolicies returns request builder for DeviceManagementConfigurationPolicy collection
+func (b *DeviceManagementReusablePolicySettingRequestBuilder) ReferencingConfigurationPolicies() *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder {
+	bb := &DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/referencingConfigurationPolicies"
+	return bb
+}
+
+// DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder is request builder for DeviceManagementConfigurationPolicy collection
+type DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementConfigurationPolicy collection
+func (b *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder) Request() *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest {
+	return &DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementConfigurationPolicy item
+func (b *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequestBuilder) ID(id string) *DeviceManagementConfigurationPolicyRequestBuilder {
+	bb := &DeviceManagementConfigurationPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest is request for DeviceManagementConfigurationPolicy collection
+type DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementConfigurationPolicy, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementConfigurationPolicy
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementConfigurationPolicy
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementConfigurationPolicy collection, max N pages
+func (r *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementConfigurationPolicy, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementConfigurationPolicy, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementConfigurationPolicy collection
+func (r *DeviceManagementReusablePolicySettingReferencingConfigurationPoliciesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementConfigurationPolicy) (resObj *DeviceManagementConfigurationPolicy, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // Assignments returns request builder for DeviceManagementScriptAssignment collection
 func (b *DeviceManagementScriptRequestBuilder) Assignments() *DeviceManagementScriptAssignmentsCollectionRequestBuilder {
 	bb := &DeviceManagementScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -14489,6 +21620,425 @@ func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionReq
 
 // Add performs POST request for DeviceManagementSettingInstance collection
 func (r *DeviceManagementTemplateSettingCategoryRecommendedSettingsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementSettingInstance) (resObj *DeviceManagementSettingInstance, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// Assignments returns request builder for DeviceManagementScriptAssignment collection
+func (b *DeviceShellScriptRequestBuilder) Assignments() *DeviceShellScriptAssignmentsCollectionRequestBuilder {
+	bb := &DeviceShellScriptAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/assignments"
+	return bb
+}
+
+// DeviceShellScriptAssignmentsCollectionRequestBuilder is request builder for DeviceManagementScriptAssignment collection
+type DeviceShellScriptAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptAssignment collection
+func (b *DeviceShellScriptAssignmentsCollectionRequestBuilder) Request() *DeviceShellScriptAssignmentsCollectionRequest {
+	return &DeviceShellScriptAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptAssignment item
+func (b *DeviceShellScriptAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementScriptAssignmentRequestBuilder {
+	bb := &DeviceManagementScriptAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceShellScriptAssignmentsCollectionRequest is request for DeviceManagementScriptAssignment collection
+type DeviceShellScriptAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptAssignment collection
+func (r *DeviceShellScriptAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptAssignment collection, max N pages
+func (r *DeviceShellScriptAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptAssignment collection
+func (r *DeviceShellScriptAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptAssignment collection
+func (r *DeviceShellScriptAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptAssignment) (resObj *DeviceManagementScriptAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// DeviceRunStates returns request builder for DeviceManagementScriptDeviceState collection
+func (b *DeviceShellScriptRequestBuilder) DeviceRunStates() *DeviceShellScriptDeviceRunStatesCollectionRequestBuilder {
+	bb := &DeviceShellScriptDeviceRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/deviceRunStates"
+	return bb
+}
+
+// DeviceShellScriptDeviceRunStatesCollectionRequestBuilder is request builder for DeviceManagementScriptDeviceState collection
+type DeviceShellScriptDeviceRunStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptDeviceState collection
+func (b *DeviceShellScriptDeviceRunStatesCollectionRequestBuilder) Request() *DeviceShellScriptDeviceRunStatesCollectionRequest {
+	return &DeviceShellScriptDeviceRunStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptDeviceState item
+func (b *DeviceShellScriptDeviceRunStatesCollectionRequestBuilder) ID(id string) *DeviceManagementScriptDeviceStateRequestBuilder {
+	bb := &DeviceManagementScriptDeviceStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceShellScriptDeviceRunStatesCollectionRequest is request for DeviceManagementScriptDeviceState collection
+type DeviceShellScriptDeviceRunStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptDeviceState collection
+func (r *DeviceShellScriptDeviceRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptDeviceState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptDeviceState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptDeviceState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptDeviceState collection, max N pages
+func (r *DeviceShellScriptDeviceRunStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptDeviceState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptDeviceState collection
+func (r *DeviceShellScriptDeviceRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptDeviceState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptDeviceState collection
+func (r *DeviceShellScriptDeviceRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptDeviceState) (resObj *DeviceManagementScriptDeviceState, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// GroupAssignments returns request builder for DeviceManagementScriptGroupAssignment collection
+func (b *DeviceShellScriptRequestBuilder) GroupAssignments() *DeviceShellScriptGroupAssignmentsCollectionRequestBuilder {
+	bb := &DeviceShellScriptGroupAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/groupAssignments"
+	return bb
+}
+
+// DeviceShellScriptGroupAssignmentsCollectionRequestBuilder is request builder for DeviceManagementScriptGroupAssignment collection
+type DeviceShellScriptGroupAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptGroupAssignment collection
+func (b *DeviceShellScriptGroupAssignmentsCollectionRequestBuilder) Request() *DeviceShellScriptGroupAssignmentsCollectionRequest {
+	return &DeviceShellScriptGroupAssignmentsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptGroupAssignment item
+func (b *DeviceShellScriptGroupAssignmentsCollectionRequestBuilder) ID(id string) *DeviceManagementScriptGroupAssignmentRequestBuilder {
+	bb := &DeviceManagementScriptGroupAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceShellScriptGroupAssignmentsCollectionRequest is request for DeviceManagementScriptGroupAssignment collection
+type DeviceShellScriptGroupAssignmentsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceShellScriptGroupAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptGroupAssignment, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptGroupAssignment
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptGroupAssignment
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptGroupAssignment collection, max N pages
+func (r *DeviceShellScriptGroupAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptGroupAssignment, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceShellScriptGroupAssignmentsCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptGroupAssignment, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptGroupAssignment collection
+func (r *DeviceShellScriptGroupAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptGroupAssignment) (resObj *DeviceManagementScriptGroupAssignment, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// RunSummary is navigation property
+func (b *DeviceShellScriptRequestBuilder) RunSummary() *DeviceManagementScriptRunSummaryRequestBuilder {
+	bb := &DeviceManagementScriptRunSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/runSummary"
+	return bb
+}
+
+// UserRunStates returns request builder for DeviceManagementScriptUserState collection
+func (b *DeviceShellScriptRequestBuilder) UserRunStates() *DeviceShellScriptUserRunStatesCollectionRequestBuilder {
+	bb := &DeviceShellScriptUserRunStatesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/userRunStates"
+	return bb
+}
+
+// DeviceShellScriptUserRunStatesCollectionRequestBuilder is request builder for DeviceManagementScriptUserState collection
+type DeviceShellScriptUserRunStatesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for DeviceManagementScriptUserState collection
+func (b *DeviceShellScriptUserRunStatesCollectionRequestBuilder) Request() *DeviceShellScriptUserRunStatesCollectionRequest {
+	return &DeviceShellScriptUserRunStatesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for DeviceManagementScriptUserState item
+func (b *DeviceShellScriptUserRunStatesCollectionRequestBuilder) ID(id string) *DeviceManagementScriptUserStateRequestBuilder {
+	bb := &DeviceManagementScriptUserStateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceShellScriptUserRunStatesCollectionRequest is request for DeviceManagementScriptUserState collection
+type DeviceShellScriptUserRunStatesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for DeviceManagementScriptUserState collection
+func (r *DeviceShellScriptUserRunStatesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DeviceManagementScriptUserState, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []DeviceManagementScriptUserState
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []DeviceManagementScriptUserState
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for DeviceManagementScriptUserState collection, max N pages
+func (r *DeviceShellScriptUserRunStatesCollectionRequest) GetN(ctx context.Context, n int) ([]DeviceManagementScriptUserState, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for DeviceManagementScriptUserState collection
+func (r *DeviceShellScriptUserRunStatesCollectionRequest) Get(ctx context.Context) ([]DeviceManagementScriptUserState, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for DeviceManagementScriptUserState collection
+func (r *DeviceShellScriptUserRunStatesCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementScriptUserState) (resObj *DeviceManagementScriptUserState, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

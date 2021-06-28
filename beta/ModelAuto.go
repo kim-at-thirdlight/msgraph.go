@@ -6,10 +6,10 @@ package msgraph
 type AutoLabeling struct {
 	// Object is the base model of AutoLabeling
 	Object
-	// SensitiveTypeIDs undocumented
-	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
 	// Message undocumented
 	Message *string `json:"message,omitempty"`
+	// SensitiveTypeIDs undocumented
+	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
 }
 
 // AutoReviewSettings undocumented

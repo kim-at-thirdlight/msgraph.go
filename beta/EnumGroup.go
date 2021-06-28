@@ -115,6 +115,85 @@ var (
 	_GroupPolicyMigrationReadinessPNotApplicable = GroupPolicyMigrationReadinessVNotApplicable
 )
 
+// GroupPolicyOperationStatus undocumented
+type GroupPolicyOperationStatus string
+
+const (
+	// GroupPolicyOperationStatusVUnknown undocumented
+	GroupPolicyOperationStatusVUnknown GroupPolicyOperationStatus = "unknown"
+	// GroupPolicyOperationStatusVInProgress undocumented
+	GroupPolicyOperationStatusVInProgress GroupPolicyOperationStatus = "inProgress"
+	// GroupPolicyOperationStatusVSuccess undocumented
+	GroupPolicyOperationStatusVSuccess GroupPolicyOperationStatus = "success"
+	// GroupPolicyOperationStatusVFailed undocumented
+	GroupPolicyOperationStatusVFailed GroupPolicyOperationStatus = "failed"
+)
+
+var (
+	// GroupPolicyOperationStatusPUnknown is a pointer to GroupPolicyOperationStatusVUnknown
+	GroupPolicyOperationStatusPUnknown = &_GroupPolicyOperationStatusPUnknown
+	// GroupPolicyOperationStatusPInProgress is a pointer to GroupPolicyOperationStatusVInProgress
+	GroupPolicyOperationStatusPInProgress = &_GroupPolicyOperationStatusPInProgress
+	// GroupPolicyOperationStatusPSuccess is a pointer to GroupPolicyOperationStatusVSuccess
+	GroupPolicyOperationStatusPSuccess = &_GroupPolicyOperationStatusPSuccess
+	// GroupPolicyOperationStatusPFailed is a pointer to GroupPolicyOperationStatusVFailed
+	GroupPolicyOperationStatusPFailed = &_GroupPolicyOperationStatusPFailed
+)
+
+var (
+	_GroupPolicyOperationStatusPUnknown    = GroupPolicyOperationStatusVUnknown
+	_GroupPolicyOperationStatusPInProgress = GroupPolicyOperationStatusVInProgress
+	_GroupPolicyOperationStatusPSuccess    = GroupPolicyOperationStatusVSuccess
+	_GroupPolicyOperationStatusPFailed     = GroupPolicyOperationStatusVFailed
+)
+
+// GroupPolicyOperationType undocumented
+type GroupPolicyOperationType string
+
+const (
+	// GroupPolicyOperationTypeVNone undocumented
+	GroupPolicyOperationTypeVNone GroupPolicyOperationType = "none"
+	// GroupPolicyOperationTypeVUpload undocumented
+	GroupPolicyOperationTypeVUpload GroupPolicyOperationType = "upload"
+	// GroupPolicyOperationTypeVUploadNewVersion undocumented
+	GroupPolicyOperationTypeVUploadNewVersion GroupPolicyOperationType = "uploadNewVersion"
+	// GroupPolicyOperationTypeVAddLanguageFiles undocumented
+	GroupPolicyOperationTypeVAddLanguageFiles GroupPolicyOperationType = "addLanguageFiles"
+	// GroupPolicyOperationTypeVRemoveLanguageFiles undocumented
+	GroupPolicyOperationTypeVRemoveLanguageFiles GroupPolicyOperationType = "removeLanguageFiles"
+	// GroupPolicyOperationTypeVUpdateLanguageFiles undocumented
+	GroupPolicyOperationTypeVUpdateLanguageFiles GroupPolicyOperationType = "updateLanguageFiles"
+	// GroupPolicyOperationTypeVRemove undocumented
+	GroupPolicyOperationTypeVRemove GroupPolicyOperationType = "remove"
+)
+
+var (
+	// GroupPolicyOperationTypePNone is a pointer to GroupPolicyOperationTypeVNone
+	GroupPolicyOperationTypePNone = &_GroupPolicyOperationTypePNone
+	// GroupPolicyOperationTypePUpload is a pointer to GroupPolicyOperationTypeVUpload
+	GroupPolicyOperationTypePUpload = &_GroupPolicyOperationTypePUpload
+	// GroupPolicyOperationTypePUploadNewVersion is a pointer to GroupPolicyOperationTypeVUploadNewVersion
+	GroupPolicyOperationTypePUploadNewVersion = &_GroupPolicyOperationTypePUploadNewVersion
+	// GroupPolicyOperationTypePAddLanguageFiles is a pointer to GroupPolicyOperationTypeVAddLanguageFiles
+	GroupPolicyOperationTypePAddLanguageFiles = &_GroupPolicyOperationTypePAddLanguageFiles
+	// GroupPolicyOperationTypePRemoveLanguageFiles is a pointer to GroupPolicyOperationTypeVRemoveLanguageFiles
+	GroupPolicyOperationTypePRemoveLanguageFiles = &_GroupPolicyOperationTypePRemoveLanguageFiles
+	// GroupPolicyOperationTypePUpdateLanguageFiles is a pointer to GroupPolicyOperationTypeVUpdateLanguageFiles
+	GroupPolicyOperationTypePUpdateLanguageFiles = &_GroupPolicyOperationTypePUpdateLanguageFiles
+	// GroupPolicyOperationTypePRemove is a pointer to GroupPolicyOperationTypeVRemove
+	GroupPolicyOperationTypePRemove = &_GroupPolicyOperationTypePRemove
+)
+
+var (
+	_GroupPolicyOperationTypePNone                = GroupPolicyOperationTypeVNone
+	_GroupPolicyOperationTypePUpload              = GroupPolicyOperationTypeVUpload
+	_GroupPolicyOperationTypePUploadNewVersion    = GroupPolicyOperationTypeVUploadNewVersion
+	_GroupPolicyOperationTypePAddLanguageFiles    = GroupPolicyOperationTypeVAddLanguageFiles
+	_GroupPolicyOperationTypePRemoveLanguageFiles = GroupPolicyOperationTypeVRemoveLanguageFiles
+	_GroupPolicyOperationTypePUpdateLanguageFiles = GroupPolicyOperationTypeVUpdateLanguageFiles
+	_GroupPolicyOperationTypePRemove              = GroupPolicyOperationTypeVRemove
+)
+
 // GroupPolicySettingScope undocumented
 type GroupPolicySettingScope string
 
@@ -152,6 +231,14 @@ const (
 	GroupPolicySettingTypeVPolicy GroupPolicySettingType = "policy"
 	// GroupPolicySettingTypeVAccount undocumented
 	GroupPolicySettingTypeVAccount GroupPolicySettingType = "account"
+	// GroupPolicySettingTypeVSecurityOptions undocumented
+	GroupPolicySettingTypeVSecurityOptions GroupPolicySettingType = "securityOptions"
+	// GroupPolicySettingTypeVUserRightsAssignment undocumented
+	GroupPolicySettingTypeVUserRightsAssignment GroupPolicySettingType = "userRightsAssignment"
+	// GroupPolicySettingTypeVAuditSetting undocumented
+	GroupPolicySettingTypeVAuditSetting GroupPolicySettingType = "auditSetting"
+	// GroupPolicySettingTypeVWindowsFirewallSettings undocumented
+	GroupPolicySettingTypeVWindowsFirewallSettings GroupPolicySettingType = "windowsFirewallSettings"
 )
 
 var (
@@ -161,12 +248,24 @@ var (
 	GroupPolicySettingTypePPolicy = &_GroupPolicySettingTypePPolicy
 	// GroupPolicySettingTypePAccount is a pointer to GroupPolicySettingTypeVAccount
 	GroupPolicySettingTypePAccount = &_GroupPolicySettingTypePAccount
+	// GroupPolicySettingTypePSecurityOptions is a pointer to GroupPolicySettingTypeVSecurityOptions
+	GroupPolicySettingTypePSecurityOptions = &_GroupPolicySettingTypePSecurityOptions
+	// GroupPolicySettingTypePUserRightsAssignment is a pointer to GroupPolicySettingTypeVUserRightsAssignment
+	GroupPolicySettingTypePUserRightsAssignment = &_GroupPolicySettingTypePUserRightsAssignment
+	// GroupPolicySettingTypePAuditSetting is a pointer to GroupPolicySettingTypeVAuditSetting
+	GroupPolicySettingTypePAuditSetting = &_GroupPolicySettingTypePAuditSetting
+	// GroupPolicySettingTypePWindowsFirewallSettings is a pointer to GroupPolicySettingTypeVWindowsFirewallSettings
+	GroupPolicySettingTypePWindowsFirewallSettings = &_GroupPolicySettingTypePWindowsFirewallSettings
 )
 
 var (
-	_GroupPolicySettingTypePUnknown = GroupPolicySettingTypeVUnknown
-	_GroupPolicySettingTypePPolicy  = GroupPolicySettingTypeVPolicy
-	_GroupPolicySettingTypePAccount = GroupPolicySettingTypeVAccount
+	_GroupPolicySettingTypePUnknown                 = GroupPolicySettingTypeVUnknown
+	_GroupPolicySettingTypePPolicy                  = GroupPolicySettingTypeVPolicy
+	_GroupPolicySettingTypePAccount                 = GroupPolicySettingTypeVAccount
+	_GroupPolicySettingTypePSecurityOptions         = GroupPolicySettingTypeVSecurityOptions
+	_GroupPolicySettingTypePUserRightsAssignment    = GroupPolicySettingTypeVUserRightsAssignment
+	_GroupPolicySettingTypePAuditSetting            = GroupPolicySettingTypeVAuditSetting
+	_GroupPolicySettingTypePWindowsFirewallSettings = GroupPolicySettingTypeVWindowsFirewallSettings
 )
 
 // GroupPolicyType undocumented
@@ -191,26 +290,83 @@ var (
 	_GroupPolicyTypePAdmxIngested = GroupPolicyTypeVAdmxIngested
 )
 
+// GroupPolicyUploadedDefinitionFileStatus undocumented
+type GroupPolicyUploadedDefinitionFileStatus string
+
+const (
+	// GroupPolicyUploadedDefinitionFileStatusVNone undocumented
+	GroupPolicyUploadedDefinitionFileStatusVNone GroupPolicyUploadedDefinitionFileStatus = "none"
+	// GroupPolicyUploadedDefinitionFileStatusVUploadInProgress undocumented
+	GroupPolicyUploadedDefinitionFileStatusVUploadInProgress GroupPolicyUploadedDefinitionFileStatus = "uploadInProgress"
+	// GroupPolicyUploadedDefinitionFileStatusVAvailable undocumented
+	GroupPolicyUploadedDefinitionFileStatusVAvailable GroupPolicyUploadedDefinitionFileStatus = "available"
+	// GroupPolicyUploadedDefinitionFileStatusVAssigned undocumented
+	GroupPolicyUploadedDefinitionFileStatusVAssigned GroupPolicyUploadedDefinitionFileStatus = "assigned"
+	// GroupPolicyUploadedDefinitionFileStatusVRemovalInProgress undocumented
+	GroupPolicyUploadedDefinitionFileStatusVRemovalInProgress GroupPolicyUploadedDefinitionFileStatus = "removalInProgress"
+	// GroupPolicyUploadedDefinitionFileStatusVUploadFailed undocumented
+	GroupPolicyUploadedDefinitionFileStatusVUploadFailed GroupPolicyUploadedDefinitionFileStatus = "uploadFailed"
+	// GroupPolicyUploadedDefinitionFileStatusVRemovalFailed undocumented
+	GroupPolicyUploadedDefinitionFileStatusVRemovalFailed GroupPolicyUploadedDefinitionFileStatus = "removalFailed"
+)
+
+var (
+	// GroupPolicyUploadedDefinitionFileStatusPNone is a pointer to GroupPolicyUploadedDefinitionFileStatusVNone
+	GroupPolicyUploadedDefinitionFileStatusPNone = &_GroupPolicyUploadedDefinitionFileStatusPNone
+	// GroupPolicyUploadedDefinitionFileStatusPUploadInProgress is a pointer to GroupPolicyUploadedDefinitionFileStatusVUploadInProgress
+	GroupPolicyUploadedDefinitionFileStatusPUploadInProgress = &_GroupPolicyUploadedDefinitionFileStatusPUploadInProgress
+	// GroupPolicyUploadedDefinitionFileStatusPAvailable is a pointer to GroupPolicyUploadedDefinitionFileStatusVAvailable
+	GroupPolicyUploadedDefinitionFileStatusPAvailable = &_GroupPolicyUploadedDefinitionFileStatusPAvailable
+	// GroupPolicyUploadedDefinitionFileStatusPAssigned is a pointer to GroupPolicyUploadedDefinitionFileStatusVAssigned
+	GroupPolicyUploadedDefinitionFileStatusPAssigned = &_GroupPolicyUploadedDefinitionFileStatusPAssigned
+	// GroupPolicyUploadedDefinitionFileStatusPRemovalInProgress is a pointer to GroupPolicyUploadedDefinitionFileStatusVRemovalInProgress
+	GroupPolicyUploadedDefinitionFileStatusPRemovalInProgress = &_GroupPolicyUploadedDefinitionFileStatusPRemovalInProgress
+	// GroupPolicyUploadedDefinitionFileStatusPUploadFailed is a pointer to GroupPolicyUploadedDefinitionFileStatusVUploadFailed
+	GroupPolicyUploadedDefinitionFileStatusPUploadFailed = &_GroupPolicyUploadedDefinitionFileStatusPUploadFailed
+	// GroupPolicyUploadedDefinitionFileStatusPRemovalFailed is a pointer to GroupPolicyUploadedDefinitionFileStatusVRemovalFailed
+	GroupPolicyUploadedDefinitionFileStatusPRemovalFailed = &_GroupPolicyUploadedDefinitionFileStatusPRemovalFailed
+)
+
+var (
+	_GroupPolicyUploadedDefinitionFileStatusPNone              = GroupPolicyUploadedDefinitionFileStatusVNone
+	_GroupPolicyUploadedDefinitionFileStatusPUploadInProgress  = GroupPolicyUploadedDefinitionFileStatusVUploadInProgress
+	_GroupPolicyUploadedDefinitionFileStatusPAvailable         = GroupPolicyUploadedDefinitionFileStatusVAvailable
+	_GroupPolicyUploadedDefinitionFileStatusPAssigned          = GroupPolicyUploadedDefinitionFileStatusVAssigned
+	_GroupPolicyUploadedDefinitionFileStatusPRemovalInProgress = GroupPolicyUploadedDefinitionFileStatusVRemovalInProgress
+	_GroupPolicyUploadedDefinitionFileStatusPUploadFailed      = GroupPolicyUploadedDefinitionFileStatusVUploadFailed
+	_GroupPolicyUploadedDefinitionFileStatusPRemovalFailed     = GroupPolicyUploadedDefinitionFileStatusVRemovalFailed
+)
+
 // GroupPrivacy undocumented
 type GroupPrivacy string
 
 const (
+	// GroupPrivacyVUnspecified undocumented
+	GroupPrivacyVUnspecified GroupPrivacy = "unspecified"
 	// GroupPrivacyVPublic undocumented
 	GroupPrivacyVPublic GroupPrivacy = "public"
 	// GroupPrivacyVPrivate undocumented
 	GroupPrivacyVPrivate GroupPrivacy = "private"
+	// GroupPrivacyVUnknownFutureValue undocumented
+	GroupPrivacyVUnknownFutureValue GroupPrivacy = "unknownFutureValue"
 )
 
 var (
+	// GroupPrivacyPUnspecified is a pointer to GroupPrivacyVUnspecified
+	GroupPrivacyPUnspecified = &_GroupPrivacyPUnspecified
 	// GroupPrivacyPPublic is a pointer to GroupPrivacyVPublic
 	GroupPrivacyPPublic = &_GroupPrivacyPPublic
 	// GroupPrivacyPPrivate is a pointer to GroupPrivacyVPrivate
 	GroupPrivacyPPrivate = &_GroupPrivacyPPrivate
+	// GroupPrivacyPUnknownFutureValue is a pointer to GroupPrivacyVUnknownFutureValue
+	GroupPrivacyPUnknownFutureValue = &_GroupPrivacyPUnknownFutureValue
 )
 
 var (
-	_GroupPrivacyPPublic  = GroupPrivacyVPublic
-	_GroupPrivacyPPrivate = GroupPrivacyVPrivate
+	_GroupPrivacyPUnspecified        = GroupPrivacyVUnspecified
+	_GroupPrivacyPPublic             = GroupPrivacyVPublic
+	_GroupPrivacyPPrivate            = GroupPrivacyVPrivate
+	_GroupPrivacyPUnknownFutureValue = GroupPrivacyVUnknownFutureValue
 )
 
 // GroupType undocumented

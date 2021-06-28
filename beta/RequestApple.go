@@ -102,29 +102,3 @@ func (r *AppleUserInitiatedEnrollmentProfileRequest) Update(ctx context.Context,
 func (r *AppleUserInitiatedEnrollmentProfileRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
-
-//
-type AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder struct{ BaseRequestBuilder }
-
-// SetPriority action undocumented
-func (b *AppleUserInitiatedEnrollmentProfileRequestBuilder) SetPriority(reqObj *AppleUserInitiatedEnrollmentProfileSetPriorityRequestParameter) *AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder {
-	bb := &AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/setPriority"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type AppleUserInitiatedEnrollmentProfileSetPriorityRequest struct{ BaseRequest }
-
-//
-func (b *AppleUserInitiatedEnrollmentProfileSetPriorityRequestBuilder) Request() *AppleUserInitiatedEnrollmentProfileSetPriorityRequest {
-	return &AppleUserInitiatedEnrollmentProfileSetPriorityRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *AppleUserInitiatedEnrollmentProfileSetPriorityRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}

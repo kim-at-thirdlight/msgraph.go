@@ -4,6 +4,105 @@ package msgraph
 
 import "context"
 
+// MicrosoftAuthenticatorAuthenticationMethodRequestBuilder is request builder for MicrosoftAuthenticatorAuthenticationMethod
+type MicrosoftAuthenticatorAuthenticationMethodRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftAuthenticatorAuthenticationMethodRequest
+func (b *MicrosoftAuthenticatorAuthenticationMethodRequestBuilder) Request() *MicrosoftAuthenticatorAuthenticationMethodRequest {
+	return &MicrosoftAuthenticatorAuthenticationMethodRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftAuthenticatorAuthenticationMethodRequest is request for MicrosoftAuthenticatorAuthenticationMethod
+type MicrosoftAuthenticatorAuthenticationMethodRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftAuthenticatorAuthenticationMethod
+func (r *MicrosoftAuthenticatorAuthenticationMethodRequest) Get(ctx context.Context) (resObj *MicrosoftAuthenticatorAuthenticationMethod, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftAuthenticatorAuthenticationMethod
+func (r *MicrosoftAuthenticatorAuthenticationMethodRequest) Update(ctx context.Context, reqObj *MicrosoftAuthenticatorAuthenticationMethod) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftAuthenticatorAuthenticationMethod
+func (r *MicrosoftAuthenticatorAuthenticationMethodRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftAuthenticatorAuthenticationMethodConfigurationRequestBuilder is request builder for MicrosoftAuthenticatorAuthenticationMethodConfiguration
+type MicrosoftAuthenticatorAuthenticationMethodConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest
+func (b *MicrosoftAuthenticatorAuthenticationMethodConfigurationRequestBuilder) Request() *MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest {
+	return &MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest is request for MicrosoftAuthenticatorAuthenticationMethodConfiguration
+type MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftAuthenticatorAuthenticationMethodConfiguration
+func (r *MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest) Get(ctx context.Context) (resObj *MicrosoftAuthenticatorAuthenticationMethodConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftAuthenticatorAuthenticationMethodConfiguration
+func (r *MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest) Update(ctx context.Context, reqObj *MicrosoftAuthenticatorAuthenticationMethodConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftAuthenticatorAuthenticationMethodConfiguration
+func (r *MicrosoftAuthenticatorAuthenticationMethodConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftAuthenticatorAuthenticationMethodTargetRequestBuilder is request builder for MicrosoftAuthenticatorAuthenticationMethodTarget
+type MicrosoftAuthenticatorAuthenticationMethodTargetRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftAuthenticatorAuthenticationMethodTargetRequest
+func (b *MicrosoftAuthenticatorAuthenticationMethodTargetRequestBuilder) Request() *MicrosoftAuthenticatorAuthenticationMethodTargetRequest {
+	return &MicrosoftAuthenticatorAuthenticationMethodTargetRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftAuthenticatorAuthenticationMethodTargetRequest is request for MicrosoftAuthenticatorAuthenticationMethodTarget
+type MicrosoftAuthenticatorAuthenticationMethodTargetRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftAuthenticatorAuthenticationMethodTarget
+func (r *MicrosoftAuthenticatorAuthenticationMethodTargetRequest) Get(ctx context.Context) (resObj *MicrosoftAuthenticatorAuthenticationMethodTarget, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftAuthenticatorAuthenticationMethodTarget
+func (r *MicrosoftAuthenticatorAuthenticationMethodTargetRequest) Update(ctx context.Context, reqObj *MicrosoftAuthenticatorAuthenticationMethodTarget) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftAuthenticatorAuthenticationMethodTarget
+func (r *MicrosoftAuthenticatorAuthenticationMethodTargetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // MicrosoftStoreForBusinessAppRequestBuilder is request builder for MicrosoftStoreForBusinessApp
 type MicrosoftStoreForBusinessAppRequestBuilder struct{ BaseRequestBuilder }
 
@@ -34,5 +133,170 @@ func (r *MicrosoftStoreForBusinessAppRequest) Update(ctx context.Context, reqObj
 
 // Delete performs DELETE request for MicrosoftStoreForBusinessApp
 func (r *MicrosoftStoreForBusinessAppRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftTunnelConfigurationRequestBuilder is request builder for MicrosoftTunnelConfiguration
+type MicrosoftTunnelConfigurationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftTunnelConfigurationRequest
+func (b *MicrosoftTunnelConfigurationRequestBuilder) Request() *MicrosoftTunnelConfigurationRequest {
+	return &MicrosoftTunnelConfigurationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftTunnelConfigurationRequest is request for MicrosoftTunnelConfiguration
+type MicrosoftTunnelConfigurationRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftTunnelConfiguration
+func (r *MicrosoftTunnelConfigurationRequest) Get(ctx context.Context) (resObj *MicrosoftTunnelConfiguration, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftTunnelConfiguration
+func (r *MicrosoftTunnelConfigurationRequest) Update(ctx context.Context, reqObj *MicrosoftTunnelConfiguration) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftTunnelConfiguration
+func (r *MicrosoftTunnelConfigurationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftTunnelHealthThresholdRequestBuilder is request builder for MicrosoftTunnelHealthThreshold
+type MicrosoftTunnelHealthThresholdRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftTunnelHealthThresholdRequest
+func (b *MicrosoftTunnelHealthThresholdRequestBuilder) Request() *MicrosoftTunnelHealthThresholdRequest {
+	return &MicrosoftTunnelHealthThresholdRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftTunnelHealthThresholdRequest is request for MicrosoftTunnelHealthThreshold
+type MicrosoftTunnelHealthThresholdRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftTunnelHealthThreshold
+func (r *MicrosoftTunnelHealthThresholdRequest) Get(ctx context.Context) (resObj *MicrosoftTunnelHealthThreshold, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftTunnelHealthThreshold
+func (r *MicrosoftTunnelHealthThresholdRequest) Update(ctx context.Context, reqObj *MicrosoftTunnelHealthThreshold) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftTunnelHealthThreshold
+func (r *MicrosoftTunnelHealthThresholdRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftTunnelServerRequestBuilder is request builder for MicrosoftTunnelServer
+type MicrosoftTunnelServerRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftTunnelServerRequest
+func (b *MicrosoftTunnelServerRequestBuilder) Request() *MicrosoftTunnelServerRequest {
+	return &MicrosoftTunnelServerRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftTunnelServerRequest is request for MicrosoftTunnelServer
+type MicrosoftTunnelServerRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftTunnelServer
+func (r *MicrosoftTunnelServerRequest) Get(ctx context.Context) (resObj *MicrosoftTunnelServer, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftTunnelServer
+func (r *MicrosoftTunnelServerRequest) Update(ctx context.Context, reqObj *MicrosoftTunnelServer) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftTunnelServer
+func (r *MicrosoftTunnelServerRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftTunnelServerLogCollectionResponseRequestBuilder is request builder for MicrosoftTunnelServerLogCollectionResponse
+type MicrosoftTunnelServerLogCollectionResponseRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftTunnelServerLogCollectionResponseRequest
+func (b *MicrosoftTunnelServerLogCollectionResponseRequestBuilder) Request() *MicrosoftTunnelServerLogCollectionResponseRequest {
+	return &MicrosoftTunnelServerLogCollectionResponseRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftTunnelServerLogCollectionResponseRequest is request for MicrosoftTunnelServerLogCollectionResponse
+type MicrosoftTunnelServerLogCollectionResponseRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftTunnelServerLogCollectionResponse
+func (r *MicrosoftTunnelServerLogCollectionResponseRequest) Get(ctx context.Context) (resObj *MicrosoftTunnelServerLogCollectionResponse, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftTunnelServerLogCollectionResponse
+func (r *MicrosoftTunnelServerLogCollectionResponseRequest) Update(ctx context.Context, reqObj *MicrosoftTunnelServerLogCollectionResponse) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftTunnelServerLogCollectionResponse
+func (r *MicrosoftTunnelServerLogCollectionResponseRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// MicrosoftTunnelSiteRequestBuilder is request builder for MicrosoftTunnelSite
+type MicrosoftTunnelSiteRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns MicrosoftTunnelSiteRequest
+func (b *MicrosoftTunnelSiteRequestBuilder) Request() *MicrosoftTunnelSiteRequest {
+	return &MicrosoftTunnelSiteRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// MicrosoftTunnelSiteRequest is request for MicrosoftTunnelSite
+type MicrosoftTunnelSiteRequest struct{ BaseRequest }
+
+// Get performs GET request for MicrosoftTunnelSite
+func (r *MicrosoftTunnelSiteRequest) Get(ctx context.Context) (resObj *MicrosoftTunnelSite, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for MicrosoftTunnelSite
+func (r *MicrosoftTunnelSiteRequest) Update(ctx context.Context, reqObj *MicrosoftTunnelSite) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for MicrosoftTunnelSite
+func (r *MicrosoftTunnelSiteRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }

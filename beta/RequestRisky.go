@@ -37,35 +37,54 @@ func (r *RiskyUserRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
-// RiskyUserHistoryItemRequestBuilder is request builder for RiskyUserHistoryItem
-type RiskyUserHistoryItemRequestBuilder struct{ BaseRequestBuilder }
+//
+type RiskyUserCollectionConfirmCompromisedRequestBuilder struct{ BaseRequestBuilder }
 
-// Request returns RiskyUserHistoryItemRequest
-func (b *RiskyUserHistoryItemRequestBuilder) Request() *RiskyUserHistoryItemRequest {
-	return &RiskyUserHistoryItemRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+// ConfirmCompromised action undocumented
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) ConfirmCompromised(reqObj *RiskyUserCollectionConfirmCompromisedRequestParameter) *RiskyUserCollectionConfirmCompromisedRequestBuilder {
+	bb := &RiskyUserCollectionConfirmCompromisedRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/confirmCompromised"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RiskyUserCollectionConfirmCompromisedRequest struct{ BaseRequest }
+
+//
+func (b *RiskyUserCollectionConfirmCompromisedRequestBuilder) Request() *RiskyUserCollectionConfirmCompromisedRequest {
+	return &RiskyUserCollectionConfirmCompromisedRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
 }
 
-// RiskyUserHistoryItemRequest is request for RiskyUserHistoryItem
-type RiskyUserHistoryItemRequest struct{ BaseRequest }
+//
+func (r *RiskyUserCollectionConfirmCompromisedRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
+}
 
-// Get performs GET request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Get(ctx context.Context) (resObj *RiskyUserHistoryItem, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
+//
+type RiskyUserCollectionDismissRequestBuilder struct{ BaseRequestBuilder }
+
+// Dismiss action undocumented
+func (b *IdentityProtectionRootRiskyUsersCollectionRequestBuilder) Dismiss(reqObj *RiskyUserCollectionDismissRequestParameter) *RiskyUserCollectionDismissRequestBuilder {
+	bb := &RiskyUserCollectionDismissRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/dismiss"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type RiskyUserCollectionDismissRequest struct{ BaseRequest }
+
+//
+func (b *RiskyUserCollectionDismissRequestBuilder) Request() *RiskyUserCollectionDismissRequest {
+	return &RiskyUserCollectionDismissRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
 	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
 }
 
-// Update performs PATCH request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Update(ctx context.Context, reqObj *RiskyUserHistoryItem) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for RiskyUserHistoryItem
-func (r *RiskyUserHistoryItemRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+//
+func (r *RiskyUserCollectionDismissRequest) Post(ctx context.Context) error {
+	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

@@ -70,6 +70,39 @@ func (r *TeamsAppDefinitionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// TeamsAppIconRequestBuilder is request builder for TeamsAppIcon
+type TeamsAppIconRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TeamsAppIconRequest
+func (b *TeamsAppIconRequestBuilder) Request() *TeamsAppIconRequest {
+	return &TeamsAppIconRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TeamsAppIconRequest is request for TeamsAppIcon
+type TeamsAppIconRequest struct{ BaseRequest }
+
+// Get performs GET request for TeamsAppIcon
+func (r *TeamsAppIconRequest) Get(ctx context.Context) (resObj *TeamsAppIcon, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TeamsAppIcon
+func (r *TeamsAppIconRequest) Update(ctx context.Context, reqObj *TeamsAppIcon) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TeamsAppIcon
+func (r *TeamsAppIconRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // TeamsAppInstallationRequestBuilder is request builder for TeamsAppInstallation
 type TeamsAppInstallationRequestBuilder struct{ BaseRequestBuilder }
 
@@ -133,39 +166,6 @@ func (r *TeamsAsyncOperationRequest) Update(ctx context.Context, reqObj *TeamsAs
 
 // Delete performs DELETE request for TeamsAsyncOperation
 func (r *TeamsAsyncOperationRequest) Delete(ctx context.Context) error {
-	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-// TeamsCatalogAppRequestBuilder is request builder for TeamsCatalogApp
-type TeamsCatalogAppRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns TeamsCatalogAppRequest
-func (b *TeamsCatalogAppRequestBuilder) Request() *TeamsCatalogAppRequest {
-	return &TeamsCatalogAppRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// TeamsCatalogAppRequest is request for TeamsCatalogApp
-type TeamsCatalogAppRequest struct{ BaseRequest }
-
-// Get performs GET request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Get(ctx context.Context) (resObj *TeamsCatalogApp, err error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
-	return
-}
-
-// Update performs PATCH request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Update(ctx context.Context, reqObj *TeamsCatalogApp) error {
-	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
-}
-
-// Delete performs DELETE request for TeamsCatalogApp
-func (r *TeamsCatalogAppRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -233,30 +233,4 @@ func (r *TeamsTemplateRequest) Update(ctx context.Context, reqObj *TeamsTemplate
 // Delete performs DELETE request for TeamsTemplate
 func (r *TeamsTemplateRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-//
-type TeamsAppInstallationUpgradeRequestBuilder struct{ BaseRequestBuilder }
-
-// Upgrade action undocumented
-func (b *TeamsAppInstallationRequestBuilder) Upgrade(reqObj *TeamsAppInstallationUpgradeRequestParameter) *TeamsAppInstallationUpgradeRequestBuilder {
-	bb := &TeamsAppInstallationUpgradeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/upgrade"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TeamsAppInstallationUpgradeRequest struct{ BaseRequest }
-
-//
-func (b *TeamsAppInstallationUpgradeRequestBuilder) Request() *TeamsAppInstallationUpgradeRequest {
-	return &TeamsAppInstallationUpgradeRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *TeamsAppInstallationUpgradeRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

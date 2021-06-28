@@ -227,6 +227,109 @@ func (r *DomainServiceConfigurationRecordsCollectionRequest) Add(ctx context.Con
 	return
 }
 
+// SharedEmailDomainInvitations returns request builder for SharedEmailDomainInvitation collection
+func (b *DomainRequestBuilder) SharedEmailDomainInvitations() *DomainSharedEmailDomainInvitationsCollectionRequestBuilder {
+	bb := &DomainSharedEmailDomainInvitationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/sharedEmailDomainInvitations"
+	return bb
+}
+
+// DomainSharedEmailDomainInvitationsCollectionRequestBuilder is request builder for SharedEmailDomainInvitation collection
+type DomainSharedEmailDomainInvitationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for SharedEmailDomainInvitation collection
+func (b *DomainSharedEmailDomainInvitationsCollectionRequestBuilder) Request() *DomainSharedEmailDomainInvitationsCollectionRequest {
+	return &DomainSharedEmailDomainInvitationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for SharedEmailDomainInvitation item
+func (b *DomainSharedEmailDomainInvitationsCollectionRequestBuilder) ID(id string) *SharedEmailDomainInvitationRequestBuilder {
+	bb := &SharedEmailDomainInvitationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DomainSharedEmailDomainInvitationsCollectionRequest is request for SharedEmailDomainInvitation collection
+type DomainSharedEmailDomainInvitationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for SharedEmailDomainInvitation collection
+func (r *DomainSharedEmailDomainInvitationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SharedEmailDomainInvitation, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []SharedEmailDomainInvitation
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []SharedEmailDomainInvitation
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for SharedEmailDomainInvitation collection, max N pages
+func (r *DomainSharedEmailDomainInvitationsCollectionRequest) GetN(ctx context.Context, n int) ([]SharedEmailDomainInvitation, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for SharedEmailDomainInvitation collection
+func (r *DomainSharedEmailDomainInvitationsCollectionRequest) Get(ctx context.Context) ([]SharedEmailDomainInvitation, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for SharedEmailDomainInvitation collection
+func (r *DomainSharedEmailDomainInvitationsCollectionRequest) Add(ctx context.Context, reqObj *SharedEmailDomainInvitation) (resObj *SharedEmailDomainInvitation, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // VerificationDNSRecords returns request builder for DomainDNSRecord collection
 func (b *DomainRequestBuilder) VerificationDNSRecords() *DomainVerificationDNSRecordsCollectionRequestBuilder {
 	bb := &DomainVerificationDNSRecordsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}

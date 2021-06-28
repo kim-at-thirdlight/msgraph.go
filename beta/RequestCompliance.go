@@ -4,6 +4,39 @@ package msgraph
 
 import "context"
 
+// ComplianceRequestBuilder is request builder for Compliance
+type ComplianceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ComplianceRequest
+func (b *ComplianceRequestBuilder) Request() *ComplianceRequest {
+	return &ComplianceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ComplianceRequest is request for Compliance
+type ComplianceRequest struct{ BaseRequest }
+
+// Get performs GET request for Compliance
+func (r *ComplianceRequest) Get(ctx context.Context) (resObj *Compliance, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for Compliance
+func (r *ComplianceRequest) Update(ctx context.Context, reqObj *Compliance) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for Compliance
+func (r *ComplianceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ComplianceManagementPartnerRequestBuilder is request builder for ComplianceManagementPartner
 type ComplianceManagementPartnerRequestBuilder struct{ BaseRequestBuilder }
 

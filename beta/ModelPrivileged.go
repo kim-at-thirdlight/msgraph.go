@@ -12,12 +12,12 @@ type PrivilegedAccess struct {
 	DisplayName *string `json:"displayName,omitempty"`
 	// Resources undocumented
 	Resources []GovernanceResource `json:"resources,omitempty"`
-	// RoleDefinitions undocumented
-	RoleDefinitions []GovernanceRoleDefinition `json:"roleDefinitions,omitempty"`
-	// RoleAssignments undocumented
-	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
 	// RoleAssignmentRequests undocumented
 	RoleAssignmentRequests []GovernanceRoleAssignmentRequestObject `json:"roleAssignmentRequests,omitempty"`
+	// RoleAssignments undocumented
+	RoleAssignments []GovernanceRoleAssignment `json:"roleAssignments,omitempty"`
+	// RoleDefinitions undocumented
+	RoleDefinitions []GovernanceRoleDefinition `json:"roleDefinitions,omitempty"`
 	// RoleSettings undocumented
 	RoleSettings []GovernanceRoleSetting `json:"roleSettings,omitempty"`
 }
@@ -26,26 +26,26 @@ type PrivilegedAccess struct {
 type PrivilegedApproval struct {
 	// Entity is the base model of PrivilegedApproval
 	Entity
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// RoleID undocumented
-	RoleID *string `json:"roleId,omitempty"`
-	// ApprovalType undocumented
-	ApprovalType *string `json:"approvalType,omitempty"`
-	// ApprovalState undocumented
-	ApprovalState *ApprovalState `json:"approvalState,omitempty"`
 	// ApprovalDuration undocumented
 	ApprovalDuration *Duration `json:"approvalDuration,omitempty"`
-	// RequestorReason undocumented
-	RequestorReason *string `json:"requestorReason,omitempty"`
+	// ApprovalState undocumented
+	ApprovalState *ApprovalState `json:"approvalState,omitempty"`
+	// ApprovalType undocumented
+	ApprovalType *string `json:"approvalType,omitempty"`
 	// ApproverReason undocumented
 	ApproverReason *string `json:"approverReason,omitempty"`
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// EndDateTime undocumented
 	EndDateTime *time.Time `json:"endDateTime,omitempty"`
-	// RequestNavigation undocumented
-	RequestNavigation *PrivilegedRoleAssignmentRequestObject `json:"request,omitempty"`
+	// RequestorReason undocumented
+	RequestorReason *string `json:"requestorReason,omitempty"`
+	// RoleID undocumented
+	RoleID *string `json:"roleId,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// RequestObject undocumented
+	RequestObject *PrivilegedRoleAssignmentRequestObject `json:"request,omitempty"`
 	// RoleInfo undocumented
 	RoleInfo *PrivilegedRole `json:"roleInfo,omitempty"`
 }
@@ -54,34 +54,34 @@ type PrivilegedApproval struct {
 type PrivilegedOperationEvent struct {
 	// Entity is the base model of PrivilegedOperationEvent
 	Entity
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// UserName undocumented
-	UserName *string `json:"userName,omitempty"`
-	// UserMail undocumented
-	UserMail *string `json:"userMail,omitempty"`
-	// RoleID undocumented
-	RoleID *string `json:"roleId,omitempty"`
-	// RoleName undocumented
-	RoleName *string `json:"roleName,omitempty"`
-	// ExpirationDateTime undocumented
-	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
-	// CreationDateTime undocumented
-	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
-	// RequestorID undocumented
-	RequestorID *string `json:"requestorId,omitempty"`
-	// RequestorName undocumented
-	RequestorName *string `json:"requestorName,omitempty"`
-	// TenantID undocumented
-	TenantID *string `json:"tenantId,omitempty"`
-	// RequestType undocumented
-	RequestType *string `json:"requestType,omitempty"`
 	// AdditionalInformation undocumented
 	AdditionalInformation *string `json:"additionalInformation,omitempty"`
+	// CreationDateTime undocumented
+	CreationDateTime *time.Time `json:"creationDateTime,omitempty"`
+	// ExpirationDateTime undocumented
+	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
 	// ReferenceKey undocumented
 	ReferenceKey *string `json:"referenceKey,omitempty"`
 	// ReferenceSystem undocumented
 	ReferenceSystem *string `json:"referenceSystem,omitempty"`
+	// RequestorID undocumented
+	RequestorID *string `json:"requestorId,omitempty"`
+	// RequestorName undocumented
+	RequestorName *string `json:"requestorName,omitempty"`
+	// RequestType undocumented
+	RequestType *string `json:"requestType,omitempty"`
+	// RoleID undocumented
+	RoleID *string `json:"roleId,omitempty"`
+	// RoleName undocumented
+	RoleName *string `json:"roleName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// UserMail undocumented
+	UserMail *string `json:"userMail,omitempty"`
+	// UserName undocumented
+	UserName *string `json:"userName,omitempty"`
 }
 
 // PrivilegedRole undocumented
@@ -90,10 +90,10 @@ type PrivilegedRole struct {
 	Entity
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
-	// Settings undocumented
-	Settings *PrivilegedRoleSettings `json:"settings,omitempty"`
 	// Assignments undocumented
 	Assignments []PrivilegedRoleAssignment `json:"assignments,omitempty"`
+	// Settings undocumented
+	Settings *PrivilegedRoleSettings `json:"settings,omitempty"`
 	// Summary undocumented
 	Summary *PrivilegedRoleSummary `json:"summary,omitempty"`
 }
@@ -102,16 +102,16 @@ type PrivilegedRole struct {
 type PrivilegedRoleAssignment struct {
 	// Entity is the base model of PrivilegedRoleAssignment
 	Entity
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// RoleID undocumented
-	RoleID *string `json:"roleId,omitempty"`
-	// IsElevated undocumented
-	IsElevated *bool `json:"isElevated,omitempty"`
 	// ExpirationDateTime undocumented
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// IsElevated undocumented
+	IsElevated *bool `json:"isElevated,omitempty"`
 	// ResultMessage undocumented
 	ResultMessage *string `json:"resultMessage,omitempty"`
+	// RoleID undocumented
+	RoleID *string `json:"roleId,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// RoleInfo undocumented
 	RoleInfo *PrivilegedRole `json:"roleInfo,omitempty"`
 }
@@ -120,28 +120,28 @@ type PrivilegedRoleAssignment struct {
 type PrivilegedRoleAssignmentRequestObject struct {
 	// Entity is the base model of PrivilegedRoleAssignmentRequestObject
 	Entity
-	// Schedule undocumented
-	Schedule *GovernanceSchedule `json:"schedule,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// RoleID undocumented
-	RoleID *string `json:"roleId,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
 	// AssignmentState undocumented
 	AssignmentState *string `json:"assignmentState,omitempty"`
-	// RequestedDateTime undocumented
-	RequestedDateTime *time.Time `json:"requestedDateTime,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
 	// Duration undocumented
 	Duration *string `json:"duration,omitempty"`
 	// Reason undocumented
 	Reason *string `json:"reason,omitempty"`
+	// RequestedDateTime undocumented
+	RequestedDateTime *time.Time `json:"requestedDateTime,omitempty"`
+	// RoleID undocumented
+	RoleID *string `json:"roleId,omitempty"`
+	// Schedule undocumented
+	Schedule *GovernanceSchedule `json:"schedule,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
 	// TicketNumber undocumented
 	TicketNumber *string `json:"ticketNumber,omitempty"`
 	// TicketSystem undocumented
 	TicketSystem *string `json:"ticketSystem,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// RoleInfo undocumented
 	RoleInfo *PrivilegedRole `json:"roleInfo,omitempty"`
 }
@@ -150,42 +150,42 @@ type PrivilegedRoleAssignmentRequestObject struct {
 type PrivilegedRoleSettings struct {
 	// Entity is the base model of PrivilegedRoleSettings
 	Entity
+	// ApprovalOnElevation undocumented
+	ApprovalOnElevation *bool `json:"approvalOnElevation,omitempty"`
 	// ApproverIDs undocumented
 	ApproverIDs []string `json:"approverIds,omitempty"`
-	// MinElevationDuration undocumented
-	MinElevationDuration *Duration `json:"minElevationDuration,omitempty"`
-	// MaxElavationDuration undocumented
-	MaxElavationDuration *Duration `json:"maxElavationDuration,omitempty"`
 	// ElevationDuration undocumented
 	ElevationDuration *Duration `json:"elevationDuration,omitempty"`
+	// IsMFAOnElevationConfigurable undocumented
+	IsMFAOnElevationConfigurable *bool `json:"isMfaOnElevationConfigurable,omitempty"`
+	// LastGlobalAdmin undocumented
+	LastGlobalAdmin *bool `json:"lastGlobalAdmin,omitempty"`
+	// MaxElavationDuration undocumented
+	MaxElavationDuration *Duration `json:"maxElavationDuration,omitempty"`
+	// MFAOnElevation undocumented
+	MFAOnElevation *bool `json:"mfaOnElevation,omitempty"`
+	// MinElevationDuration undocumented
+	MinElevationDuration *Duration `json:"minElevationDuration,omitempty"`
 	// NotificationToUserOnElevation undocumented
 	NotificationToUserOnElevation *bool `json:"notificationToUserOnElevation,omitempty"`
 	// TicketingInfoOnElevation undocumented
 	TicketingInfoOnElevation *bool `json:"ticketingInfoOnElevation,omitempty"`
-	// MFAOnElevation undocumented
-	MFAOnElevation *bool `json:"mfaOnElevation,omitempty"`
-	// LastGlobalAdmin undocumented
-	LastGlobalAdmin *bool `json:"lastGlobalAdmin,omitempty"`
-	// IsMFAOnElevationConfigurable undocumented
-	IsMFAOnElevationConfigurable *bool `json:"isMfaOnElevationConfigurable,omitempty"`
-	// ApprovalOnElevation undocumented
-	ApprovalOnElevation *bool `json:"approvalOnElevation,omitempty"`
 }
 
 // PrivilegedRoleSummary undocumented
 type PrivilegedRoleSummary struct {
 	// Entity is the base model of PrivilegedRoleSummary
 	Entity
+	// ElevatedCount undocumented
+	ElevatedCount *int `json:"elevatedCount,omitempty"`
+	// ManagedCount undocumented
+	ManagedCount *int `json:"managedCount,omitempty"`
+	// MFAEnabled undocumented
+	MFAEnabled *bool `json:"mfaEnabled,omitempty"`
 	// Status undocumented
 	Status *RoleSummaryStatus `json:"status,omitempty"`
 	// UsersCount undocumented
 	UsersCount *int `json:"usersCount,omitempty"`
-	// ManagedCount undocumented
-	ManagedCount *int `json:"managedCount,omitempty"`
-	// ElevatedCount undocumented
-	ElevatedCount *int `json:"elevatedCount,omitempty"`
-	// MFAEnabled undocumented
-	MFAEnabled *bool `json:"mfaEnabled,omitempty"`
 }
 
 // PrivilegedSignupStatus undocumented

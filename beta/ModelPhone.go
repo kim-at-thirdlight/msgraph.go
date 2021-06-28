@@ -6,8 +6,20 @@ package msgraph
 type Phone struct {
 	// Object is the base model of Phone
 	Object
-	// Type undocumented
-	Type *PhoneType `json:"type,omitempty"`
 	// Number undocumented
 	Number *string `json:"number,omitempty"`
+	// Type undocumented
+	Type *PhoneType `json:"type,omitempty"`
+}
+
+// PhoneAuthenticationMethod undocumented
+type PhoneAuthenticationMethod struct {
+	// AuthenticationMethod is the base model of PhoneAuthenticationMethod
+	AuthenticationMethod
+	// PhoneNumber undocumented
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// PhoneType undocumented
+	PhoneType *AuthenticationPhoneType `json:"phoneType,omitempty"`
+	// SmsSignInState undocumented
+	SmsSignInState *AuthenticationMethodSignInState `json:"smsSignInState,omitempty"`
 }

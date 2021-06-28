@@ -6,14 +6,14 @@ package msgraph
 type SideLoadingKey struct {
 	// Entity is the base model of SideLoadingKey
 	Entity
-	// Value Side Loading Key Value, it is 5x5 value, seperated by hiphens.
-	Value *string `json:"value,omitempty"`
-	// DisplayName Side Loading Key Name displayed to the ITPro Admins.
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description Side Loading Key description displayed to the ITPro Admins..
 	Description *string `json:"description,omitempty"`
-	// TotalActivation Side Loading Key Total Activation displayed to the ITPro Admins.
-	TotalActivation *int `json:"totalActivation,omitempty"`
+	// DisplayName Side Loading Key Name displayed to the ITPro Admins.
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastUpdatedDateTime Side Loading Key Last Updated Date displayed to the ITPro Admins.
 	LastUpdatedDateTime *string `json:"lastUpdatedDateTime,omitempty"`
+	// TotalActivation Side Loading Key Total Activation displayed to the ITPro Admins.
+	TotalActivation *int `json:"totalActivation,omitempty"`
+	// Value Side Loading Key Value, it is 5x5 value, seperated by hiphens.
+	Value *string `json:"value,omitempty"`
 }

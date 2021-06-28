@@ -36,3 +36,69 @@ func (r *PermissionRequest) Update(ctx context.Context, reqObj *Permission) erro
 func (r *PermissionRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
+
+// PermissionGrantConditionSetRequestBuilder is request builder for PermissionGrantConditionSet
+type PermissionGrantConditionSetRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns PermissionGrantConditionSetRequest
+func (b *PermissionGrantConditionSetRequestBuilder) Request() *PermissionGrantConditionSetRequest {
+	return &PermissionGrantConditionSetRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// PermissionGrantConditionSetRequest is request for PermissionGrantConditionSet
+type PermissionGrantConditionSetRequest struct{ BaseRequest }
+
+// Get performs GET request for PermissionGrantConditionSet
+func (r *PermissionGrantConditionSetRequest) Get(ctx context.Context) (resObj *PermissionGrantConditionSet, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for PermissionGrantConditionSet
+func (r *PermissionGrantConditionSetRequest) Update(ctx context.Context, reqObj *PermissionGrantConditionSet) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for PermissionGrantConditionSet
+func (r *PermissionGrantConditionSetRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// PermissionGrantPolicyRequestBuilder is request builder for PermissionGrantPolicy
+type PermissionGrantPolicyRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns PermissionGrantPolicyRequest
+func (b *PermissionGrantPolicyRequestBuilder) Request() *PermissionGrantPolicyRequest {
+	return &PermissionGrantPolicyRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// PermissionGrantPolicyRequest is request for PermissionGrantPolicy
+type PermissionGrantPolicyRequest struct{ BaseRequest }
+
+// Get performs GET request for PermissionGrantPolicy
+func (r *PermissionGrantPolicyRequest) Get(ctx context.Context) (resObj *PermissionGrantPolicy, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for PermissionGrantPolicy
+func (r *PermissionGrantPolicyRequest) Update(ctx context.Context, reqObj *PermissionGrantPolicy) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for PermissionGrantPolicy
+func (r *PermissionGrantPolicyRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}

@@ -23,18 +23,6 @@ type TrustFrameworkKeySetGenerateKeyRequestParameter struct {
 	Exp *int `json:"exp,omitempty"`
 }
 
-// TrustFrameworkKeySetUploadSecretRequestParameter undocumented
-type TrustFrameworkKeySetUploadSecretRequestParameter struct {
-	// Use undocumented
-	Use *string `json:"use,omitempty"`
-	// K undocumented
-	K *string `json:"k,omitempty"`
-	// Nbf undocumented
-	Nbf *int `json:"nbf,omitempty"`
-	// Exp undocumented
-	Exp *int `json:"exp,omitempty"`
-}
-
 // TrustFrameworkKeySetUploadCertificateRequestParameter undocumented
 type TrustFrameworkKeySetUploadCertificateRequestParameter struct {
 	// Key undocumented
@@ -47,6 +35,18 @@ type TrustFrameworkKeySetUploadPkcs12RequestParameter struct {
 	Key *string `json:"key,omitempty"`
 	// Password undocumented
 	Password *string `json:"password,omitempty"`
+}
+
+// TrustFrameworkKeySetUploadSecretRequestParameter undocumented
+type TrustFrameworkKeySetUploadSecretRequestParameter struct {
+	// Use undocumented
+	Use *string `json:"use,omitempty"`
+	// K undocumented
+	K *string `json:"k,omitempty"`
+	// Nbf undocumented
+	Nbf *int `json:"nbf,omitempty"`
+	// Exp undocumented
+	Exp *int `json:"exp,omitempty"`
 }
 
 // KeySets returns request builder for TrustFrameworkKeySet collection

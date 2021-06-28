@@ -2,18 +2,6 @@
 
 package msgraph
 
-// TiIndicatorCollectionSubmitTiIndicatorsRequestParameter undocumented
-type TiIndicatorCollectionSubmitTiIndicatorsRequestParameter struct {
-	// Value undocumented
-	Value []TiIndicator `json:"value,omitempty"`
-}
-
-// TiIndicatorCollectionUpdateTiIndicatorsRequestParameter undocumented
-type TiIndicatorCollectionUpdateTiIndicatorsRequestParameter struct {
-	// Value undocumented
-	Value []TiIndicator `json:"value,omitempty"`
-}
-
 // TiIndicatorCollectionDeleteTiIndicatorsRequestParameter undocumented
 type TiIndicatorCollectionDeleteTiIndicatorsRequestParameter struct {
 	// Value undocumented
@@ -24,4 +12,16 @@ type TiIndicatorCollectionDeleteTiIndicatorsRequestParameter struct {
 type TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequestParameter struct {
 	// Value undocumented
 	Value []string `json:"value,omitempty"`
+}
+
+// TiIndicatorCollectionSubmitTiIndicatorsRequestParameter undocumented
+type TiIndicatorCollectionSubmitTiIndicatorsRequestParameter struct {
+	// Value undocumented
+	Value []TiIndicator `json:"value,omitempty"`
+}
+
+// TiIndicatorCollectionUpdateTiIndicatorsRequestParameter undocumented
+type TiIndicatorCollectionUpdateTiIndicatorsRequestParameter struct {
+	// Value undocumented
+	Value []TiIndicator `json:"value,omitempty"`
 }

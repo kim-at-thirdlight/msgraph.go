@@ -8,114 +8,114 @@ import "time"
 type PurchaseInvoice struct {
 	// Entity is the base model of PurchaseInvoice
 	Entity
-	// Number undocumented
-	Number *string `json:"number,omitempty"`
-	// InvoiceDate undocumented
-	InvoiceDate *Date `json:"invoiceDate,omitempty"`
-	// DueDate undocumented
-	DueDate *Date `json:"dueDate,omitempty"`
-	// VendorInvoiceNumber undocumented
-	VendorInvoiceNumber *string `json:"vendorInvoiceNumber,omitempty"`
-	// VendorID undocumented
-	VendorID *UUID `json:"vendorId,omitempty"`
-	// VendorNumber undocumented
-	VendorNumber *string `json:"vendorNumber,omitempty"`
-	// VendorName undocumented
-	VendorName *string `json:"vendorName,omitempty"`
-	// PayToName undocumented
-	PayToName *string `json:"payToName,omitempty"`
-	// PayToContact undocumented
-	PayToContact *string `json:"payToContact,omitempty"`
-	// PayToVendorID undocumented
-	PayToVendorID *UUID `json:"payToVendorId,omitempty"`
-	// PayToVendorNumber undocumented
-	PayToVendorNumber *string `json:"payToVendorNumber,omitempty"`
-	// ShipToName undocumented
-	ShipToName *string `json:"shipToName,omitempty"`
-	// ShipToContact undocumented
-	ShipToContact *string `json:"shipToContact,omitempty"`
 	// BuyFromAddress undocumented
 	BuyFromAddress *PostalAddressType `json:"buyFromAddress,omitempty"`
-	// PayToAddress undocumented
-	PayToAddress *PostalAddressType `json:"payToAddress,omitempty"`
-	// ShipToAddress undocumented
-	ShipToAddress *PostalAddressType `json:"shipToAddress,omitempty"`
-	// CurrencyID undocumented
-	CurrencyID *UUID `json:"currencyId,omitempty"`
 	// CurrencyCode undocumented
 	CurrencyCode *string `json:"currencyCode,omitempty"`
-	// PricesIncludeTax undocumented
-	PricesIncludeTax *bool `json:"pricesIncludeTax,omitempty"`
+	// CurrencyID undocumented
+	CurrencyID *UUID `json:"currencyId,omitempty"`
 	// DiscountAmount undocumented
 	DiscountAmount *int `json:"discountAmount,omitempty"`
 	// DiscountAppliedBeforeTax undocumented
 	DiscountAppliedBeforeTax *bool `json:"discountAppliedBeforeTax,omitempty"`
-	// TotalAmountExcludingTax undocumented
-	TotalAmountExcludingTax *int `json:"totalAmountExcludingTax,omitempty"`
-	// TotalTaxAmount undocumented
-	TotalTaxAmount *int `json:"totalTaxAmount,omitempty"`
-	// TotalAmountIncludingTax undocumented
-	TotalAmountIncludingTax *int `json:"totalAmountIncludingTax,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
+	// DueDate undocumented
+	DueDate *Date `json:"dueDate,omitempty"`
+	// InvoiceDate undocumented
+	InvoiceDate *Date `json:"invoiceDate,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Number undocumented
+	Number *string `json:"number,omitempty"`
+	// PayToAddress undocumented
+	PayToAddress *PostalAddressType `json:"payToAddress,omitempty"`
+	// PayToContact undocumented
+	PayToContact *string `json:"payToContact,omitempty"`
+	// PayToName undocumented
+	PayToName *string `json:"payToName,omitempty"`
+	// PayToVendorID undocumented
+	PayToVendorID *UUID `json:"payToVendorId,omitempty"`
+	// PayToVendorNumber undocumented
+	PayToVendorNumber *string `json:"payToVendorNumber,omitempty"`
+	// PricesIncludeTax undocumented
+	PricesIncludeTax *bool `json:"pricesIncludeTax,omitempty"`
+	// ShipToAddress undocumented
+	ShipToAddress *PostalAddressType `json:"shipToAddress,omitempty"`
+	// ShipToContact undocumented
+	ShipToContact *string `json:"shipToContact,omitempty"`
+	// ShipToName undocumented
+	ShipToName *string `json:"shipToName,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
+	// TotalAmountExcludingTax undocumented
+	TotalAmountExcludingTax *int `json:"totalAmountExcludingTax,omitempty"`
+	// TotalAmountIncludingTax undocumented
+	TotalAmountIncludingTax *int `json:"totalAmountIncludingTax,omitempty"`
+	// TotalTaxAmount undocumented
+	TotalTaxAmount *int `json:"totalTaxAmount,omitempty"`
+	// VendorID undocumented
+	VendorID *UUID `json:"vendorId,omitempty"`
+	// VendorInvoiceNumber undocumented
+	VendorInvoiceNumber *string `json:"vendorInvoiceNumber,omitempty"`
+	// VendorName undocumented
+	VendorName *string `json:"vendorName,omitempty"`
+	// VendorNumber undocumented
+	VendorNumber *string `json:"vendorNumber,omitempty"`
+	// Currency undocumented
+	Currency *Currency `json:"currency,omitempty"`
 	// PurchaseInvoiceLines undocumented
 	PurchaseInvoiceLines []PurchaseInvoiceLine `json:"purchaseInvoiceLines,omitempty"`
 	// Vendor undocumented
 	Vendor *Vendor `json:"vendor,omitempty"`
-	// Currency undocumented
-	Currency *Currency `json:"currency,omitempty"`
 }
 
 // PurchaseInvoiceLine undocumented
 type PurchaseInvoiceLine struct {
 	// Entity is the base model of PurchaseInvoiceLine
 	Entity
-	// DocumentID undocumented
-	DocumentID *UUID `json:"documentId,omitempty"`
-	// Sequence undocumented
-	Sequence *int `json:"sequence,omitempty"`
-	// ItemID undocumented
-	ItemID *UUID `json:"itemId,omitempty"`
 	// AccountID undocumented
 	AccountID *UUID `json:"accountId,omitempty"`
-	// LineType undocumented
-	LineType *string `json:"lineType,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
-	// UnitCost undocumented
-	UnitCost *int `json:"unitCost,omitempty"`
-	// Quantity undocumented
-	Quantity *int `json:"quantity,omitempty"`
-	// DiscountAmount undocumented
-	DiscountAmount *int `json:"discountAmount,omitempty"`
-	// DiscountPercent undocumented
-	DiscountPercent *int `json:"discountPercent,omitempty"`
-	// DiscountAppliedBeforeTax undocumented
-	DiscountAppliedBeforeTax *bool `json:"discountAppliedBeforeTax,omitempty"`
 	// AmountExcludingTax undocumented
 	AmountExcludingTax *int `json:"amountExcludingTax,omitempty"`
+	// AmountIncludingTax undocumented
+	AmountIncludingTax *int `json:"amountIncludingTax,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DiscountAmount undocumented
+	DiscountAmount *int `json:"discountAmount,omitempty"`
+	// DiscountAppliedBeforeTax undocumented
+	DiscountAppliedBeforeTax *bool `json:"discountAppliedBeforeTax,omitempty"`
+	// DiscountPercent undocumented
+	DiscountPercent *int `json:"discountPercent,omitempty"`
+	// DocumentID undocumented
+	DocumentID *UUID `json:"documentId,omitempty"`
+	// ExpectedReceiptDate undocumented
+	ExpectedReceiptDate *Date `json:"expectedReceiptDate,omitempty"`
+	// InvoiceDiscountAllocation undocumented
+	InvoiceDiscountAllocation *int `json:"invoiceDiscountAllocation,omitempty"`
+	// ItemID undocumented
+	ItemID *UUID `json:"itemId,omitempty"`
+	// LineType undocumented
+	LineType *string `json:"lineType,omitempty"`
+	// NetAmount undocumented
+	NetAmount *int `json:"netAmount,omitempty"`
+	// NetAmountIncludingTax undocumented
+	NetAmountIncludingTax *int `json:"netAmountIncludingTax,omitempty"`
+	// NetTaxAmount undocumented
+	NetTaxAmount *int `json:"netTaxAmount,omitempty"`
+	// Quantity undocumented
+	Quantity *int `json:"quantity,omitempty"`
+	// Sequence undocumented
+	Sequence *int `json:"sequence,omitempty"`
 	// TaxCode undocumented
 	TaxCode *string `json:"taxCode,omitempty"`
 	// TaxPercent undocumented
 	TaxPercent *int `json:"taxPercent,omitempty"`
 	// TotalTaxAmount undocumented
 	TotalTaxAmount *int `json:"totalTaxAmount,omitempty"`
-	// AmountIncludingTax undocumented
-	AmountIncludingTax *int `json:"amountIncludingTax,omitempty"`
-	// InvoiceDiscountAllocation undocumented
-	InvoiceDiscountAllocation *int `json:"invoiceDiscountAllocation,omitempty"`
-	// NetAmount undocumented
-	NetAmount *int `json:"netAmount,omitempty"`
-	// NetTaxAmount undocumented
-	NetTaxAmount *int `json:"netTaxAmount,omitempty"`
-	// NetAmountIncludingTax undocumented
-	NetAmountIncludingTax *int `json:"netAmountIncludingTax,omitempty"`
-	// ExpectedReceiptDate undocumented
-	ExpectedReceiptDate *Date `json:"expectedReceiptDate,omitempty"`
-	// Item undocumented
-	Item *Item `json:"item,omitempty"`
+	// UnitCost undocumented
+	UnitCost *int `json:"unitCost,omitempty"`
 	// Account undocumented
 	Account *Account `json:"account,omitempty"`
+	// Item undocumented
+	Item *Item `json:"item,omitempty"`
 }

@@ -2,7 +2,179 @@
 
 package msgraph
 
-import "context"
+import (
+	"context"
+	"fmt"
+	"io/ioutil"
+	"net/http"
+
+	"github.com/yaegashi/msgraph.go/jsonx"
+)
+
+// TenantRequestBuilder is request builder for Tenant
+type TenantRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantRequest
+func (b *TenantRequestBuilder) Request() *TenantRequest {
+	return &TenantRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantRequest is request for Tenant
+type TenantRequest struct{ BaseRequest }
+
+// Get performs GET request for Tenant
+func (r *TenantRequest) Get(ctx context.Context) (resObj *Tenant, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for Tenant
+func (r *TenantRequest) Update(ctx context.Context, reqObj *Tenant) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for Tenant
+func (r *TenantRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// TenantCustomizedInformationRequestBuilder is request builder for TenantCustomizedInformation
+type TenantCustomizedInformationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantCustomizedInformationRequest
+func (b *TenantCustomizedInformationRequestBuilder) Request() *TenantCustomizedInformationRequest {
+	return &TenantCustomizedInformationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantCustomizedInformationRequest is request for TenantCustomizedInformation
+type TenantCustomizedInformationRequest struct{ BaseRequest }
+
+// Get performs GET request for TenantCustomizedInformation
+func (r *TenantCustomizedInformationRequest) Get(ctx context.Context) (resObj *TenantCustomizedInformation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TenantCustomizedInformation
+func (r *TenantCustomizedInformationRequest) Update(ctx context.Context, reqObj *TenantCustomizedInformation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TenantCustomizedInformation
+func (r *TenantCustomizedInformationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// TenantDetailedInformationRequestBuilder is request builder for TenantDetailedInformation
+type TenantDetailedInformationRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantDetailedInformationRequest
+func (b *TenantDetailedInformationRequestBuilder) Request() *TenantDetailedInformationRequest {
+	return &TenantDetailedInformationRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantDetailedInformationRequest is request for TenantDetailedInformation
+type TenantDetailedInformationRequest struct{ BaseRequest }
+
+// Get performs GET request for TenantDetailedInformation
+func (r *TenantDetailedInformationRequest) Get(ctx context.Context) (resObj *TenantDetailedInformation, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TenantDetailedInformation
+func (r *TenantDetailedInformationRequest) Update(ctx context.Context, reqObj *TenantDetailedInformation) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TenantDetailedInformation
+func (r *TenantDetailedInformationRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// TenantGroupRequestBuilder is request builder for TenantGroup
+type TenantGroupRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantGroupRequest
+func (b *TenantGroupRequestBuilder) Request() *TenantGroupRequest {
+	return &TenantGroupRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantGroupRequest is request for TenantGroup
+type TenantGroupRequest struct{ BaseRequest }
+
+// Get performs GET request for TenantGroup
+func (r *TenantGroupRequest) Get(ctx context.Context) (resObj *TenantGroup, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TenantGroup
+func (r *TenantGroupRequest) Update(ctx context.Context, reqObj *TenantGroup) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TenantGroup
+func (r *TenantGroupRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// TenantRelationshipRequestBuilder is request builder for TenantRelationship
+type TenantRelationshipRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantRelationshipRequest
+func (b *TenantRelationshipRequestBuilder) Request() *TenantRelationshipRequest {
+	return &TenantRelationshipRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantRelationshipRequest is request for TenantRelationship
+type TenantRelationshipRequest struct{ BaseRequest }
+
+// Get performs GET request for TenantRelationship
+func (r *TenantRelationshipRequest) Get(ctx context.Context) (resObj *TenantRelationship, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TenantRelationship
+func (r *TenantRelationshipRequest) Update(ctx context.Context, reqObj *TenantRelationship) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TenantRelationship
+func (r *TenantRelationshipRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
 
 // TenantSetupInfoRequestBuilder is request builder for TenantSetupInfo
 type TenantSetupInfoRequestBuilder struct{ BaseRequestBuilder }
@@ -35,4 +207,124 @@ func (r *TenantSetupInfoRequest) Update(ctx context.Context, reqObj *TenantSetup
 // Delete performs DELETE request for TenantSetupInfo
 func (r *TenantSetupInfoRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// TenantTagRequestBuilder is request builder for TenantTag
+type TenantTagRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns TenantTagRequest
+func (b *TenantTagRequestBuilder) Request() *TenantTagRequest {
+	return &TenantTagRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// TenantTagRequest is request for TenantTag
+type TenantTagRequest struct{ BaseRequest }
+
+// Get performs GET request for TenantTag
+func (r *TenantTagRequest) Get(ctx context.Context) (resObj *TenantTag, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for TenantTag
+func (r *TenantTagRequest) Update(ctx context.Context, reqObj *TenantTag) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for TenantTag
+func (r *TenantTagRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+//
+type TenantGroupCollectionTenantSearchRequestBuilder struct{ BaseRequestBuilder }
+
+// TenantSearch action undocumented
+func (b *ManagedTenantTenantGroupsCollectionRequestBuilder) TenantSearch(reqObj *TenantGroupCollectionTenantSearchRequestParameter) *TenantGroupCollectionTenantSearchRequestBuilder {
+	bb := &TenantGroupCollectionTenantSearchRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/tenantSearch"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TenantGroupCollectionTenantSearchRequest struct{ BaseRequest }
+
+//
+func (b *TenantGroupCollectionTenantSearchRequestBuilder) Request() *TenantGroupCollectionTenantSearchRequest {
+	return &TenantGroupCollectionTenantSearchRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TenantGroupCollectionTenantSearchRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TenantGroup, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TenantGroup
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TenantGroup
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *TenantGroupCollectionTenantSearchRequest) PostN(ctx context.Context, n int) ([]TenantGroup, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
+func (r *TenantGroupCollectionTenantSearchRequest) Post(ctx context.Context) ([]TenantGroup, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

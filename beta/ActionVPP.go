@@ -2,12 +2,18 @@
 
 package msgraph
 
-// VPPTokenSyncLicensesRequestParameter undocumented
-type VPPTokenSyncLicensesRequestParameter struct {
+// VPPTokenCollectionSyncLicenseCountsRequestParameter undocumented
+type VPPTokenCollectionSyncLicenseCountsRequestParameter struct {
 }
 
 // VPPTokenRevokeLicensesRequestParameter undocumented
 type VPPTokenRevokeLicensesRequestParameter struct {
 	// NotifyManagedDevices undocumented
 	NotifyManagedDevices *bool `json:"notifyManagedDevices,omitempty"`
+	// RevokeUntrackedLicenses undocumented
+	RevokeUntrackedLicenses *bool `json:"revokeUntrackedLicenses,omitempty"`
+}
+
+// VPPTokenSyncLicensesRequestParameter undocumented
+type VPPTokenSyncLicensesRequestParameter struct {
 }

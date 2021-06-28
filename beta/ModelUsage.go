@@ -13,3 +13,15 @@ type UsageDetails struct {
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 }
+
+// UsageRight undocumented
+type UsageRight struct {
+	// Entity is the base model of UsageRight
+	Entity
+	// CatalogID undocumented
+	CatalogID *string `json:"catalogId,omitempty"`
+	// ServiceIdentifier undocumented
+	ServiceIdentifier *string `json:"serviceIdentifier,omitempty"`
+	// State undocumented
+	State *UsageRightState `json:"state,omitempty"`
+}

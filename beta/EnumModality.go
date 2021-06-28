@@ -6,8 +6,6 @@ package msgraph
 type Modality string
 
 const (
-	// ModalityVUnknown undocumented
-	ModalityVUnknown Modality = "unknown"
 	// ModalityVAudio undocumented
 	ModalityVAudio Modality = "audio"
 	// ModalityVVideo undocumented
@@ -16,13 +14,13 @@ const (
 	ModalityVVideoBasedScreenSharing Modality = "videoBasedScreenSharing"
 	// ModalityVData undocumented
 	ModalityVData Modality = "data"
+	// ModalityVScreenSharing undocumented
+	ModalityVScreenSharing Modality = "screenSharing"
 	// ModalityVUnknownFutureValue undocumented
 	ModalityVUnknownFutureValue Modality = "unknownFutureValue"
 )
 
 var (
-	// ModalityPUnknown is a pointer to ModalityVUnknown
-	ModalityPUnknown = &_ModalityPUnknown
 	// ModalityPAudio is a pointer to ModalityVAudio
 	ModalityPAudio = &_ModalityPAudio
 	// ModalityPVideo is a pointer to ModalityVVideo
@@ -31,15 +29,17 @@ var (
 	ModalityPVideoBasedScreenSharing = &_ModalityPVideoBasedScreenSharing
 	// ModalityPData is a pointer to ModalityVData
 	ModalityPData = &_ModalityPData
+	// ModalityPScreenSharing is a pointer to ModalityVScreenSharing
+	ModalityPScreenSharing = &_ModalityPScreenSharing
 	// ModalityPUnknownFutureValue is a pointer to ModalityVUnknownFutureValue
 	ModalityPUnknownFutureValue = &_ModalityPUnknownFutureValue
 )
 
 var (
-	_ModalityPUnknown                 = ModalityVUnknown
 	_ModalityPAudio                   = ModalityVAudio
 	_ModalityPVideo                   = ModalityVVideo
 	_ModalityPVideoBasedScreenSharing = ModalityVVideoBasedScreenSharing
 	_ModalityPData                    = ModalityVData
+	_ModalityPScreenSharing           = ModalityVScreenSharing
 	_ModalityPUnknownFutureValue      = ModalityVUnknownFutureValue
 )

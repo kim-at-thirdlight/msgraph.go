@@ -8,18 +8,32 @@ import "time"
 type Chat struct {
 	// Entity is the base model of Chat
 	Entity
-	// Topic undocumented
-	Topic *string `json:"topic,omitempty"`
+	// ChatType undocumented
+	ChatType *ChatType `json:"chatType,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// LastUpdatedDateTime undocumented
 	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// Topic undocumented
+	Topic *string `json:"topic,omitempty"`
+	// Viewpoint undocumented
+	Viewpoint *ChatViewpoint `json:"viewpoint,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
+	// InstalledApps undocumented
+	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
+	// LastMessagePreview undocumented
+	LastMessagePreview *ChatMessageInfo `json:"lastMessagePreview,omitempty"`
 	// Members undocumented
 	Members []ConversationMember `json:"members,omitempty"`
 	// Messages undocumented
 	Messages []ChatMessage `json:"messages,omitempty"`
-	// InstalledApps undocumented
-	InstalledApps []TeamsAppInstallation `json:"installedApps,omitempty"`
+	// Operations undocumented
+	Operations []TeamsAsyncOperation `json:"operations,omitempty"`
+	// PermissionGrants undocumented
+	PermissionGrants []ResourceSpecificPermissionGrant `json:"permissionGrants,omitempty"`
+	// Tabs undocumented
+	Tabs []TeamsTab `json:"tabs,omitempty"`
 }
 
 // ChatActivityStatistics undocumented
@@ -34,86 +48,116 @@ type ChatActivityStatistics struct {
 type ChatInfo struct {
 	// Object is the base model of ChatInfo
 	Object
-	// ThreadID undocumented
-	ThreadID *string `json:"threadId,omitempty"`
 	// MessageID undocumented
 	MessageID *string `json:"messageId,omitempty"`
 	// ReplyChainMessageID undocumented
 	ReplyChainMessageID *string `json:"replyChainMessageId,omitempty"`
+	// ThreadID undocumented
+	ThreadID *string `json:"threadId,omitempty"`
 }
 
-// ChatMembersNotificationAudience undocumented
-type ChatMembersNotificationAudience struct {
-	// Object is the base model of ChatMembersNotificationAudience
-	Object
+// ChatMembersNotificationRecipient undocumented
+type ChatMembersNotificationRecipient struct {
+	// TeamworkNotificationRecipient is the base model of ChatMembersNotificationRecipient
+	TeamworkNotificationRecipient
+	// ChatID undocumented
+	ChatID *string `json:"chatId,omitempty"`
 }
 
 // ChatMessage undocumented
 type ChatMessage struct {
 	// Entity is the base model of ChatMessage
 	Entity
-	// ReplyToID undocumented
-	ReplyToID *string `json:"replyToId,omitempty"`
-	// From undocumented
-	From *IdentitySet `json:"from,omitempty"`
-	// Etag undocumented
-	Etag *string `json:"etag,omitempty"`
-	// MessageType undocumented
-	MessageType *ChatMessageType `json:"messageType,omitempty"`
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// LastModifiedDateTime undocumented
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// DeletedDateTime undocumented
-	DeletedDateTime *time.Time `json:"deletedDateTime,omitempty"`
-	// Subject undocumented
-	Subject *string `json:"subject,omitempty"`
-	// Body undocumented
-	Body *ItemBody `json:"body,omitempty"`
-	// Summary undocumented
-	Summary *string `json:"summary,omitempty"`
 	// Attachments undocumented
 	Attachments []ChatMessageAttachment `json:"attachments,omitempty"`
-	// Mentions undocumented
-	Mentions []ChatMessageMention `json:"mentions,omitempty"`
+	// Body undocumented
+	Body *ItemBody `json:"body,omitempty"`
+	// ChannelIdentity undocumented
+	ChannelIdentity *ChannelIdentity `json:"channelIdentity,omitempty"`
+	// ChatID undocumented
+	ChatID *string `json:"chatId,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// DeletedDateTime undocumented
+	DeletedDateTime *time.Time `json:"deletedDateTime,omitempty"`
+	// Etag undocumented
+	Etag *string `json:"etag,omitempty"`
+	// EventDetail undocumented
+	EventDetail *EventMessageDetail `json:"eventDetail,omitempty"`
+	// From undocumented
+	From *ChatMessageFromIdentitySet `json:"from,omitempty"`
 	// Importance undocumented
 	Importance *ChatMessageImportance `json:"importance,omitempty"`
+	// LastEditedDateTime undocumented
+	LastEditedDateTime *time.Time `json:"lastEditedDateTime,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Locale undocumented
+	Locale *string `json:"locale,omitempty"`
+	// Mentions undocumented
+	Mentions []ChatMessageMention `json:"mentions,omitempty"`
+	// MessageType undocumented
+	MessageType *ChatMessageType `json:"messageType,omitempty"`
 	// PolicyViolation undocumented
 	PolicyViolation *ChatMessagePolicyViolation `json:"policyViolation,omitempty"`
 	// Reactions undocumented
 	Reactions []ChatMessageReaction `json:"reactions,omitempty"`
-	// Locale undocumented
-	Locale *string `json:"locale,omitempty"`
+	// ReplyToID undocumented
+	ReplyToID *string `json:"replyToId,omitempty"`
+	// Subject undocumented
+	Subject *string `json:"subject,omitempty"`
+	// Summary undocumented
+	Summary *string `json:"summary,omitempty"`
 	// WebURL undocumented
 	WebURL *string `json:"webUrl,omitempty"`
-	// Replies undocumented
-	Replies []ChatMessage `json:"replies,omitempty"`
 	// HostedContents undocumented
 	HostedContents []ChatMessageHostedContent `json:"hostedContents,omitempty"`
+	// Replies undocumented
+	Replies []ChatMessage `json:"replies,omitempty"`
 }
 
 // ChatMessageAttachment undocumented
 type ChatMessageAttachment struct {
 	// Object is the base model of ChatMessageAttachment
 	Object
-	// ID undocumented
-	ID *string `json:"id,omitempty"`
+	// Content undocumented
+	Content *string `json:"content,omitempty"`
 	// ContentType undocumented
 	ContentType *string `json:"contentType,omitempty"`
 	// ContentURL undocumented
 	ContentURL *string `json:"contentUrl,omitempty"`
-	// Content undocumented
-	Content *string `json:"content,omitempty"`
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// ThumbnailURL undocumented
 	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
 }
 
+// ChatMessageFromIdentitySet undocumented
+type ChatMessageFromIdentitySet struct {
+	// IdentitySet is the base model of ChatMessageFromIdentitySet
+	IdentitySet
+}
+
 // ChatMessageHostedContent undocumented
 type ChatMessageHostedContent struct {
-	// Entity is the base model of ChatMessageHostedContent
+	// TeamworkHostedContent is the base model of ChatMessageHostedContent
+	TeamworkHostedContent
+}
+
+// ChatMessageInfo undocumented
+type ChatMessageInfo struct {
+	// Entity is the base model of ChatMessageInfo
 	Entity
+	// Body undocumented
+	Body *ItemBody `json:"body,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// From undocumented
+	From *ChatMessageFromIdentitySet `json:"from,omitempty"`
+	// IsDeleted undocumented
+	IsDeleted *bool `json:"isDeleted,omitempty"`
 }
 
 // ChatMessageMention undocumented
@@ -122,10 +166,20 @@ type ChatMessageMention struct {
 	Object
 	// ID undocumented
 	ID *int `json:"id,omitempty"`
+	// Mentioned undocumented
+	Mentioned *ChatMessageMentionedIdentitySet `json:"mentioned,omitempty"`
 	// MentionText undocumented
 	MentionText *string `json:"mentionText,omitempty"`
-	// Mentioned undocumented
-	Mentioned *IdentitySet `json:"mentioned,omitempty"`
+}
+
+// ChatMessageMentionedIdentitySet undocumented
+type ChatMessageMentionedIdentitySet struct {
+	// IdentitySet is the base model of ChatMessageMentionedIdentitySet
+	IdentitySet
+	// Conversation undocumented
+	Conversation *TeamworkConversationIdentity `json:"conversation,omitempty"`
+	// Tag undocumented
+	Tag *TeamworkTagIdentity `json:"tag,omitempty"`
 }
 
 // ChatMessagePolicyViolation undocumented
@@ -148,10 +202,10 @@ type ChatMessagePolicyViolation struct {
 type ChatMessagePolicyViolationPolicyTip struct {
 	// Object is the base model of ChatMessagePolicyViolationPolicyTip
 	Object
-	// GeneralText undocumented
-	GeneralText *string `json:"generalText,omitempty"`
 	// ComplianceURL undocumented
 	ComplianceURL *string `json:"complianceUrl,omitempty"`
+	// GeneralText undocumented
+	GeneralText *string `json:"generalText,omitempty"`
 	// MatchedConditionDescriptions undocumented
 	MatchedConditionDescriptions []string `json:"matchedConditionDescriptions,omitempty"`
 }
@@ -160,10 +214,36 @@ type ChatMessagePolicyViolationPolicyTip struct {
 type ChatMessageReaction struct {
 	// Object is the base model of ChatMessageReaction
 	Object
-	// ReactionType undocumented
-	ReactionType *string `json:"reactionType,omitempty"`
 	// CreatedDateTime undocumented
 	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// ReactionType undocumented
+	ReactionType *string `json:"reactionType,omitempty"`
 	// User undocumented
-	User *IdentitySet `json:"user,omitempty"`
+	User *ChatMessageReactionIdentitySet `json:"user,omitempty"`
+}
+
+// ChatMessageReactionIdentitySet undocumented
+type ChatMessageReactionIdentitySet struct {
+	// IdentitySet is the base model of ChatMessageReactionIdentitySet
+	IdentitySet
+}
+
+// ChatRenamedEventMessageDetail undocumented
+type ChatRenamedEventMessageDetail struct {
+	// EventMessageDetail is the base model of ChatRenamedEventMessageDetail
+	EventMessageDetail
+	// ChatDisplayName undocumented
+	ChatDisplayName *string `json:"chatDisplayName,omitempty"`
+	// ChatID undocumented
+	ChatID *string `json:"chatId,omitempty"`
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+}
+
+// ChatViewpoint undocumented
+type ChatViewpoint struct {
+	// Object is the base model of ChatViewpoint
+	Object
+	// LastMessageReadDateTime undocumented
+	LastMessageReadDateTime *time.Time `json:"lastMessageReadDateTime,omitempty"`
 }

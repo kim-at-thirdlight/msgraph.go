@@ -4,6 +4,171 @@ package msgraph
 
 import "context"
 
+// EducationAssignmentRequestBuilder is request builder for EducationAssignment
+type EducationAssignmentRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationAssignmentRequest
+func (b *EducationAssignmentRequestBuilder) Request() *EducationAssignmentRequest {
+	return &EducationAssignmentRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationAssignmentRequest is request for EducationAssignment
+type EducationAssignmentRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationAssignment
+func (r *EducationAssignmentRequest) Get(ctx context.Context) (resObj *EducationAssignment, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationAssignment
+func (r *EducationAssignmentRequest) Update(ctx context.Context, reqObj *EducationAssignment) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationAssignment
+func (r *EducationAssignmentRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationAssignmentDefaultsRequestBuilder is request builder for EducationAssignmentDefaults
+type EducationAssignmentDefaultsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationAssignmentDefaultsRequest
+func (b *EducationAssignmentDefaultsRequestBuilder) Request() *EducationAssignmentDefaultsRequest {
+	return &EducationAssignmentDefaultsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationAssignmentDefaultsRequest is request for EducationAssignmentDefaults
+type EducationAssignmentDefaultsRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationAssignmentDefaults
+func (r *EducationAssignmentDefaultsRequest) Get(ctx context.Context) (resObj *EducationAssignmentDefaults, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationAssignmentDefaults
+func (r *EducationAssignmentDefaultsRequest) Update(ctx context.Context, reqObj *EducationAssignmentDefaults) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationAssignmentDefaults
+func (r *EducationAssignmentDefaultsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationAssignmentResourceRequestBuilder is request builder for EducationAssignmentResource
+type EducationAssignmentResourceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationAssignmentResourceRequest
+func (b *EducationAssignmentResourceRequestBuilder) Request() *EducationAssignmentResourceRequest {
+	return &EducationAssignmentResourceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationAssignmentResourceRequest is request for EducationAssignmentResource
+type EducationAssignmentResourceRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) Get(ctx context.Context) (resObj *EducationAssignmentResource, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) Update(ctx context.Context, reqObj *EducationAssignmentResource) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationAssignmentResource
+func (r *EducationAssignmentResourceRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationAssignmentSettingsRequestBuilder is request builder for EducationAssignmentSettings
+type EducationAssignmentSettingsRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationAssignmentSettingsRequest
+func (b *EducationAssignmentSettingsRequestBuilder) Request() *EducationAssignmentSettingsRequest {
+	return &EducationAssignmentSettingsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationAssignmentSettingsRequest is request for EducationAssignmentSettings
+type EducationAssignmentSettingsRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationAssignmentSettings
+func (r *EducationAssignmentSettingsRequest) Get(ctx context.Context) (resObj *EducationAssignmentSettings, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationAssignmentSettings
+func (r *EducationAssignmentSettingsRequest) Update(ctx context.Context, reqObj *EducationAssignmentSettings) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationAssignmentSettings
+func (r *EducationAssignmentSettingsRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationCategoryRequestBuilder is request builder for EducationCategory
+type EducationCategoryRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationCategoryRequest
+func (b *EducationCategoryRequestBuilder) Request() *EducationCategoryRequest {
+	return &EducationCategoryRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationCategoryRequest is request for EducationCategory
+type EducationCategoryRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationCategory
+func (r *EducationCategoryRequest) Get(ctx context.Context) (resObj *EducationCategory, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationCategory
+func (r *EducationCategoryRequest) Update(ctx context.Context, reqObj *EducationCategory) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationCategory
+func (r *EducationCategoryRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // EducationClassRequestBuilder is request builder for EducationClass
 type EducationClassRequestBuilder struct{ BaseRequestBuilder }
 
@@ -34,6 +199,39 @@ func (r *EducationClassRequest) Update(ctx context.Context, reqObj *EducationCla
 
 // Delete performs DELETE request for EducationClass
 func (r *EducationClassRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationOutcomeRequestBuilder is request builder for EducationOutcome
+type EducationOutcomeRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationOutcomeRequest
+func (b *EducationOutcomeRequestBuilder) Request() *EducationOutcomeRequest {
+	return &EducationOutcomeRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationOutcomeRequest is request for EducationOutcome
+type EducationOutcomeRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationOutcome
+func (r *EducationOutcomeRequest) Get(ctx context.Context) (resObj *EducationOutcome, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationOutcome
+func (r *EducationOutcomeRequest) Update(ctx context.Context, reqObj *EducationOutcome) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationOutcome
+func (r *EducationOutcomeRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
@@ -70,6 +268,39 @@ func (r *EducationRootRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// EducationRubricRequestBuilder is request builder for EducationRubric
+type EducationRubricRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationRubricRequest
+func (b *EducationRubricRequestBuilder) Request() *EducationRubricRequest {
+	return &EducationRubricRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationRubricRequest is request for EducationRubric
+type EducationRubricRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationRubric
+func (r *EducationRubricRequest) Get(ctx context.Context) (resObj *EducationRubric, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationRubric
+func (r *EducationRubricRequest) Update(ctx context.Context, reqObj *EducationRubric) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationRubric
+func (r *EducationRubricRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // EducationSchoolRequestBuilder is request builder for EducationSchool
 type EducationSchoolRequestBuilder struct{ BaseRequestBuilder }
 
@@ -100,6 +331,72 @@ func (r *EducationSchoolRequest) Update(ctx context.Context, reqObj *EducationSc
 
 // Delete performs DELETE request for EducationSchool
 func (r *EducationSchoolRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationSubmissionRequestBuilder is request builder for EducationSubmission
+type EducationSubmissionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationSubmissionRequest
+func (b *EducationSubmissionRequestBuilder) Request() *EducationSubmissionRequest {
+	return &EducationSubmissionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationSubmissionRequest is request for EducationSubmission
+type EducationSubmissionRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationSubmission
+func (r *EducationSubmissionRequest) Get(ctx context.Context) (resObj *EducationSubmission, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationSubmission
+func (r *EducationSubmissionRequest) Update(ctx context.Context, reqObj *EducationSubmission) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationSubmission
+func (r *EducationSubmissionRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// EducationSubmissionResourceRequestBuilder is request builder for EducationSubmissionResource
+type EducationSubmissionResourceRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns EducationSubmissionResourceRequest
+func (b *EducationSubmissionResourceRequestBuilder) Request() *EducationSubmissionResourceRequest {
+	return &EducationSubmissionResourceRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// EducationSubmissionResourceRequest is request for EducationSubmissionResource
+type EducationSubmissionResourceRequest struct{ BaseRequest }
+
+// Get performs GET request for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) Get(ctx context.Context) (resObj *EducationSubmissionResource, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) Update(ctx context.Context, reqObj *EducationSubmissionResource) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for EducationSubmissionResource
+func (r *EducationSubmissionResourceRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 

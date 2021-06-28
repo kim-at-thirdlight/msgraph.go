@@ -2,12 +2,10 @@
 
 package msgraph
 
-import "time"
-
 // External undocumented
 type External struct {
-	// Entity is the base model of External
-	Entity
+	// Object is the base model of External
+	Object
 	// Connections undocumented
 	Connections []ExternalConnection `json:"connections,omitempty"`
 }
@@ -16,54 +14,78 @@ type External struct {
 type ExternalConnection struct {
 	// Entity is the base model of ExternalConnection
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Description undocumented
-	Description *string `json:"description,omitempty"`
 	// Configuration undocumented
 	Configuration *Configuration `json:"configuration,omitempty"`
-	// Schema undocumented
-	Schema *Schema `json:"schema,omitempty"`
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// State undocumented
+	State *ConnectionState `json:"state,omitempty"`
+	// Groups undocumented
+	Groups []ExternalGroup `json:"groups,omitempty"`
 	// Items undocumented
 	Items []ExternalItem `json:"items,omitempty"`
 	// Operations undocumented
 	Operations []ConnectionOperation `json:"operations,omitempty"`
+	// Schema undocumented
+	Schema *Schema `json:"schema,omitempty"`
 }
 
-// ExternalFile undocumented
-type ExternalFile struct {
-	// ExternalItem is the base model of ExternalFile
-	ExternalItem
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
-	// ModifiedDateTime undocumented
-	ModifiedDateTime *time.Time `json:"modifiedDateTime,omitempty"`
-	// CreatedBy undocumented
-	CreatedBy *string `json:"createdBy,omitempty"`
-	// LastModifiedBy undocumented
-	LastModifiedBy *string `json:"lastModifiedBy,omitempty"`
-	// Title undocumented
-	Title *string `json:"title,omitempty"`
-	// URL undocumented
-	URL *string `json:"url,omitempty"`
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
-	// Extension undocumented
-	Extension *string `json:"extension,omitempty"`
-	// Size undocumented
-	Size *int `json:"size,omitempty"`
+// ExternalDomainFederation undocumented
+type ExternalDomainFederation struct {
+	// IdentitySource is the base model of ExternalDomainFederation
+	IdentitySource
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// DomainName undocumented
+	DomainName *string `json:"domainName,omitempty"`
+	// IssuerURI undocumented
+	IssuerURI *string `json:"issuerUri,omitempty"`
+}
+
+// ExternalGroup undocumented
+type ExternalGroup struct {
+	// Entity is the base model of ExternalGroup
+	Entity
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// Members undocumented
+	Members []ExternalGroupMember `json:"members,omitempty"`
+}
+
+// ExternalGroupMember undocumented
+type ExternalGroupMember struct {
+	// Entity is the base model of ExternalGroupMember
+	Entity
+	// IdentitySource undocumented
+	IdentitySource *IdentitySourceType `json:"identitySource,omitempty"`
+	// Type undocumented
+	Type *ExternalGroupMemberType `json:"type,omitempty"`
 }
 
 // ExternalItem undocumented
 type ExternalItem struct {
 	// Entity is the base model of ExternalItem
 	Entity
-	// Properties undocumented
-	Properties *Properties `json:"properties,omitempty"`
-	// Content undocumented
-	Content *string `json:"content,omitempty"`
 	// ACL undocumented
 	ACL []ACL `json:"acl,omitempty"`
+	// Content undocumented
+	Content *ExternalItemContent `json:"content,omitempty"`
+	// Properties undocumented
+	Properties *Properties `json:"properties,omitempty"`
+}
+
+// ExternalItemContent undocumented
+type ExternalItemContent struct {
+	// Object is the base model of ExternalItemContent
+	Object
+	// Type undocumented
+	Type *ExternalItemContentType `json:"type,omitempty"`
+	// Value undocumented
+	Value *string `json:"value,omitempty"`
 }
 
 // ExternalLink undocumented
@@ -72,4 +94,10 @@ type ExternalLink struct {
 	Object
 	// Href undocumented
 	Href *string `json:"href,omitempty"`
+}
+
+// ExternalSponsors undocumented
+type ExternalSponsors struct {
+	// UserSet is the base model of ExternalSponsors
+	UserSet
 }

@@ -10,34 +10,36 @@ type RiskyUser struct {
 	Entity
 	// IsDeleted undocumented
 	IsDeleted *bool `json:"isDeleted,omitempty"`
-	// IsGuest undocumented
-	IsGuest *bool `json:"isGuest,omitempty"`
-	// IsProcessing undocumented
-	IsProcessing *bool `json:"isProcessing,omitempty"`
+	// LastRefreshedDateTime undocumented
+	LastRefreshedDateTime *time.Time `json:"lastRefreshedDateTime,omitempty"`
+	// RiskDetail undocumented
+	RiskDetail *string `json:"riskDetail,omitempty"`
 	// RiskLastUpdatedDateTime undocumented
 	RiskLastUpdatedDateTime *time.Time `json:"riskLastUpdatedDateTime,omitempty"`
 	// RiskLevel undocumented
-	RiskLevel *RiskLevel `json:"riskLevel,omitempty"`
+	RiskLevel *string `json:"riskLevel,omitempty"`
 	// RiskState undocumented
-	RiskState *RiskState `json:"riskState,omitempty"`
-	// RiskDetail undocumented
-	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
+	RiskState *string `json:"riskState,omitempty"`
+	// TenantDisplayName undocumented
+	TenantDisplayName *string `json:"tenantDisplayName,omitempty"`
+	// TenantID undocumented
+	TenantID *string `json:"tenantId,omitempty"`
 	// UserDisplayName undocumented
 	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 	// UserPrincipalName undocumented
 	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
-	// History undocumented
-	History []RiskyUserHistoryItem `json:"history,omitempty"`
 }
 
 // RiskyUserHistoryItem undocumented
 type RiskyUserHistoryItem struct {
 	// RiskyUser is the base model of RiskyUserHistoryItem
 	RiskyUser
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// InitiatedBy undocumented
-	InitiatedBy *string `json:"initiatedBy,omitempty"`
 	// Activity undocumented
 	Activity *RiskUserActivity `json:"activity,omitempty"`
+	// InitiatedBy undocumented
+	InitiatedBy *string `json:"initiatedBy,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
 }

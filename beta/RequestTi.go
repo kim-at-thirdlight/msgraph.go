@@ -45,180 +45,6 @@ func (r *TiIndicatorRequest) Delete(ctx context.Context) error {
 }
 
 //
-type TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
-
-// SubmitTiIndicators action undocumented
-func (b *SecurityTiIndicatorsCollectionRequestBuilder) SubmitTiIndicators(reqObj *TiIndicatorCollectionSubmitTiIndicatorsRequestParameter) *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder {
-	bb := &TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/submitTiIndicators"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TiIndicatorCollectionSubmitTiIndicatorsRequest struct{ BaseRequest }
-
-//
-func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionSubmitTiIndicatorsRequest {
-	return &TiIndicatorCollectionSubmitTiIndicatorsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TiIndicator, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []TiIndicator
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []TiIndicator
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) PostN(ctx context.Context, n int) ([]TiIndicator, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
-type TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
-
-// UpdateTiIndicators action undocumented
-func (b *SecurityTiIndicatorsCollectionRequestBuilder) UpdateTiIndicators(reqObj *TiIndicatorCollectionUpdateTiIndicatorsRequestParameter) *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder {
-	bb := &TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/updateTiIndicators"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type TiIndicatorCollectionUpdateTiIndicatorsRequest struct{ BaseRequest }
-
-//
-func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionUpdateTiIndicatorsRequest {
-	return &TiIndicatorCollectionUpdateTiIndicatorsRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TiIndicator, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []TiIndicator
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []TiIndicator
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-//
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) PostN(ctx context.Context, n int) ([]TiIndicator, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, n)
-}
-
-//
-func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
-	return r.Paging(ctx, "POST", "", r.requestObject, 0)
-}
-
-//
 type TiIndicatorCollectionDeleteTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
 
 // DeleteTiIndicators action undocumented
@@ -389,5 +215,179 @@ func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) PostN(ctx c
 
 //
 func (r *TiIndicatorCollectionDeleteTiIndicatorsByExternalIDRequest) Post(ctx context.Context) ([]ResultInfo, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+type TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
+
+// SubmitTiIndicators action undocumented
+func (b *SecurityTiIndicatorsCollectionRequestBuilder) SubmitTiIndicators(reqObj *TiIndicatorCollectionSubmitTiIndicatorsRequestParameter) *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder {
+	bb := &TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/submitTiIndicators"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TiIndicatorCollectionSubmitTiIndicatorsRequest struct{ BaseRequest }
+
+//
+func (b *TiIndicatorCollectionSubmitTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionSubmitTiIndicatorsRequest {
+	return &TiIndicatorCollectionSubmitTiIndicatorsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TiIndicator, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TiIndicator
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TiIndicator
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) PostN(ctx context.Context, n int) ([]TiIndicator, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
+func (r *TiIndicatorCollectionSubmitTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, 0)
+}
+
+//
+type TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder struct{ BaseRequestBuilder }
+
+// UpdateTiIndicators action undocumented
+func (b *SecurityTiIndicatorsCollectionRequestBuilder) UpdateTiIndicators(reqObj *TiIndicatorCollectionUpdateTiIndicatorsRequestParameter) *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder {
+	bb := &TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.BaseRequestBuilder.baseURL += "/updateTiIndicators"
+	bb.BaseRequestBuilder.requestObject = reqObj
+	return bb
+}
+
+//
+type TiIndicatorCollectionUpdateTiIndicatorsRequest struct{ BaseRequest }
+
+//
+func (b *TiIndicatorCollectionUpdateTiIndicatorsRequestBuilder) Request() *TiIndicatorCollectionUpdateTiIndicatorsRequest {
+	return &TiIndicatorCollectionUpdateTiIndicatorsRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
+	}
+}
+
+//
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]TiIndicator, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []TiIndicator
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []TiIndicator
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+//
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) PostN(ctx context.Context, n int) ([]TiIndicator, error) {
+	return r.Paging(ctx, "POST", "", r.requestObject, n)
+}
+
+//
+func (r *TiIndicatorCollectionUpdateTiIndicatorsRequest) Post(ctx context.Context) ([]TiIndicator, error) {
 	return r.Paging(ctx, "POST", "", r.requestObject, 0)
 }

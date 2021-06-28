@@ -4,18 +4,50 @@ package msgraph
 
 import "time"
 
+// LocalizedDescription undocumented
+type LocalizedDescription struct {
+	// Object is the base model of LocalizedDescription
+	Object
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// LanguageTag undocumented
+	LanguageTag *string `json:"languageTag,omitempty"`
+}
+
+// LocalizedLabel undocumented
+type LocalizedLabel struct {
+	// Object is the base model of LocalizedLabel
+	Object
+	// IsDefault undocumented
+	IsDefault *bool `json:"isDefault,omitempty"`
+	// LanguageTag undocumented
+	LanguageTag *string `json:"languageTag,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
+// LocalizedName undocumented
+type LocalizedName struct {
+	// Object is the base model of LocalizedName
+	Object
+	// LanguageTag undocumented
+	LanguageTag *string `json:"languageTag,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+}
+
 // LocalizedNotificationMessage The text content of a Notification Message Template for the specified locale.
 type LocalizedNotificationMessage struct {
 	// Entity is the base model of LocalizedNotificationMessage
 	Entity
+	// IsDefault Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message.
+	IsDefault *bool `json:"isDefault,omitempty"`
 	// LastModifiedDateTime DateTime the object was last modified.
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
 	// Locale The Locale for which this message is destined.
 	Locale *string `json:"locale,omitempty"`
-	// Subject The Message Template Subject.
-	Subject *string `json:"subject,omitempty"`
 	// MessageTemplate The Message Template content.
 	MessageTemplate *string `json:"messageTemplate,omitempty"`
-	// IsDefault Flag to indicate whether or not this is the default locale for language fallback. This flag can only be set. To unset, set this property to true on another Localized Notification Message.
-	IsDefault *bool `json:"isDefault,omitempty"`
+	// Subject The Message Template Subject.
+	Subject *string `json:"subject,omitempty"`
 }

@@ -2,6 +2,33 @@
 
 package msgraph
 
+// UpdateCategory undocumented
+type UpdateCategory string
+
+const (
+	// UpdateCategoryVFeature undocumented
+	UpdateCategoryVFeature UpdateCategory = "feature"
+	// UpdateCategoryVQuality undocumented
+	UpdateCategoryVQuality UpdateCategory = "quality"
+	// UpdateCategoryVUnknownFutureValue undocumented
+	UpdateCategoryVUnknownFutureValue UpdateCategory = "unknownFutureValue"
+)
+
+var (
+	// UpdateCategoryPFeature is a pointer to UpdateCategoryVFeature
+	UpdateCategoryPFeature = &_UpdateCategoryPFeature
+	// UpdateCategoryPQuality is a pointer to UpdateCategoryVQuality
+	UpdateCategoryPQuality = &_UpdateCategoryPQuality
+	// UpdateCategoryPUnknownFutureValue is a pointer to UpdateCategoryVUnknownFutureValue
+	UpdateCategoryPUnknownFutureValue = &_UpdateCategoryPUnknownFutureValue
+)
+
+var (
+	_UpdateCategoryPFeature            = UpdateCategoryVFeature
+	_UpdateCategoryPQuality            = UpdateCategoryVQuality
+	_UpdateCategoryPUnknownFutureValue = UpdateCategoryVUnknownFutureValue
+)
+
 // UpdateClassification undocumented
 type UpdateClassification string
 

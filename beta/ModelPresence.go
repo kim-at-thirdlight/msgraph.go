@@ -6,8 +6,10 @@ package msgraph
 type Presence struct {
 	// Entity is the base model of Presence
 	Entity
-	// Availability undocumented
-	Availability *string `json:"availability,omitempty"`
 	// Activity undocumented
 	Activity *string `json:"activity,omitempty"`
+	// Availability undocumented
+	Availability *string `json:"availability,omitempty"`
+	// OutOfOfficeSettings undocumented
+	OutOfOfficeSettings *OutOfOfficeSettings `json:"outOfOfficeSettings,omitempty"`
 }

@@ -34,6 +34,43 @@ var (
 	_MediaDirectionPSendReceive = MediaDirectionVSendReceive
 )
 
+// MediaSourceContentCategory undocumented
+type MediaSourceContentCategory string
+
+const (
+	// MediaSourceContentCategoryVMeeting undocumented
+	MediaSourceContentCategoryVMeeting MediaSourceContentCategory = "meeting"
+	// MediaSourceContentCategoryVLiveStream undocumented
+	MediaSourceContentCategoryVLiveStream MediaSourceContentCategory = "liveStream"
+	// MediaSourceContentCategoryVPresentation undocumented
+	MediaSourceContentCategoryVPresentation MediaSourceContentCategory = "presentation"
+	// MediaSourceContentCategoryVScreenRecording undocumented
+	MediaSourceContentCategoryVScreenRecording MediaSourceContentCategory = "screenRecording"
+	// MediaSourceContentCategoryVUnknownFutureValue undocumented
+	MediaSourceContentCategoryVUnknownFutureValue MediaSourceContentCategory = "unknownFutureValue"
+)
+
+var (
+	// MediaSourceContentCategoryPMeeting is a pointer to MediaSourceContentCategoryVMeeting
+	MediaSourceContentCategoryPMeeting = &_MediaSourceContentCategoryPMeeting
+	// MediaSourceContentCategoryPLiveStream is a pointer to MediaSourceContentCategoryVLiveStream
+	MediaSourceContentCategoryPLiveStream = &_MediaSourceContentCategoryPLiveStream
+	// MediaSourceContentCategoryPPresentation is a pointer to MediaSourceContentCategoryVPresentation
+	MediaSourceContentCategoryPPresentation = &_MediaSourceContentCategoryPPresentation
+	// MediaSourceContentCategoryPScreenRecording is a pointer to MediaSourceContentCategoryVScreenRecording
+	MediaSourceContentCategoryPScreenRecording = &_MediaSourceContentCategoryPScreenRecording
+	// MediaSourceContentCategoryPUnknownFutureValue is a pointer to MediaSourceContentCategoryVUnknownFutureValue
+	MediaSourceContentCategoryPUnknownFutureValue = &_MediaSourceContentCategoryPUnknownFutureValue
+)
+
+var (
+	_MediaSourceContentCategoryPMeeting            = MediaSourceContentCategoryVMeeting
+	_MediaSourceContentCategoryPLiveStream         = MediaSourceContentCategoryVLiveStream
+	_MediaSourceContentCategoryPPresentation       = MediaSourceContentCategoryVPresentation
+	_MediaSourceContentCategoryPScreenRecording    = MediaSourceContentCategoryVScreenRecording
+	_MediaSourceContentCategoryPUnknownFutureValue = MediaSourceContentCategoryVUnknownFutureValue
+)
+
 // MediaState undocumented
 type MediaState string
 
@@ -59,4 +96,26 @@ var (
 	_MediaStatePActive             = MediaStateVActive
 	_MediaStatePInactive           = MediaStateVInactive
 	_MediaStatePUnknownFutureValue = MediaStateVUnknownFutureValue
+)
+
+// MediaStreamDirection undocumented
+type MediaStreamDirection string
+
+const (
+	// MediaStreamDirectionVCallerToCallee undocumented
+	MediaStreamDirectionVCallerToCallee MediaStreamDirection = "callerToCallee"
+	// MediaStreamDirectionVCalleeToCaller undocumented
+	MediaStreamDirectionVCalleeToCaller MediaStreamDirection = "calleeToCaller"
+)
+
+var (
+	// MediaStreamDirectionPCallerToCallee is a pointer to MediaStreamDirectionVCallerToCallee
+	MediaStreamDirectionPCallerToCallee = &_MediaStreamDirectionPCallerToCallee
+	// MediaStreamDirectionPCalleeToCaller is a pointer to MediaStreamDirectionVCalleeToCaller
+	MediaStreamDirectionPCalleeToCaller = &_MediaStreamDirectionPCalleeToCaller
+)
+
+var (
+	_MediaStreamDirectionPCallerToCallee = MediaStreamDirectionVCallerToCallee
+	_MediaStreamDirectionPCalleeToCaller = MediaStreamDirectionVCalleeToCaller
 )

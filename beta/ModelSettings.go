@@ -4,12 +4,12 @@ package msgraph
 
 // Settings undocumented
 type Settings struct {
-	// Object is the base model of Settings
-	Object
-	// HasLicense undocumented
-	HasLicense *bool `json:"hasLicense,omitempty"`
-	// HasOptedOut undocumented
-	HasOptedOut *bool `json:"hasOptedOut,omitempty"`
-	// HasGraphMailbox undocumented
-	HasGraphMailbox *bool `json:"hasGraphMailbox,omitempty"`
+	// Entity is the base model of Settings
+	Entity
+	// Ocr undocumented
+	Ocr *OcrSettings `json:"ocr,omitempty"`
+	// RedundancyDetection undocumented
+	RedundancyDetection *RedundancyDetectionSettings `json:"redundancyDetection,omitempty"`
+	// TopicModeling undocumented
+	TopicModeling *TopicModelingSettings `json:"topicModeling,omitempty"`
 }

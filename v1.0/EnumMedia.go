@@ -60,3 +60,25 @@ var (
 	_MediaStatePInactive           = MediaStateVInactive
 	_MediaStatePUnknownFutureValue = MediaStateVUnknownFutureValue
 )
+
+// MediaStreamDirection undocumented
+type MediaStreamDirection string
+
+const (
+	// MediaStreamDirectionVCallerToCallee undocumented
+	MediaStreamDirectionVCallerToCallee MediaStreamDirection = "callerToCallee"
+	// MediaStreamDirectionVCalleeToCaller undocumented
+	MediaStreamDirectionVCalleeToCaller MediaStreamDirection = "calleeToCaller"
+)
+
+var (
+	// MediaStreamDirectionPCallerToCallee is a pointer to MediaStreamDirectionVCallerToCallee
+	MediaStreamDirectionPCallerToCallee = &_MediaStreamDirectionPCallerToCallee
+	// MediaStreamDirectionPCalleeToCaller is a pointer to MediaStreamDirectionVCalleeToCaller
+	MediaStreamDirectionPCalleeToCaller = &_MediaStreamDirectionPCalleeToCaller
+)
+
+var (
+	_MediaStreamDirectionPCallerToCallee = MediaStreamDirectionVCallerToCallee
+	_MediaStreamDirectionPCalleeToCaller = MediaStreamDirectionVCalleeToCaller
+)

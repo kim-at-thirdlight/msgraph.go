@@ -33,16 +33,16 @@ type DeviceConfigurationAssignRequestParameter struct {
 	Assignments []DeviceConfigurationAssignment `json:"assignments,omitempty"`
 }
 
-// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
-type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
-	// Priority undocumented
-	Priority *int `json:"priority,omitempty"`
-}
-
 // DeviceEnrollmentConfigurationAssignRequestParameter undocumented
 type DeviceEnrollmentConfigurationAssignRequestParameter struct {
 	// EnrollmentConfigurationAssignments undocumented
 	EnrollmentConfigurationAssignments []EnrollmentConfigurationAssignment `json:"enrollmentConfigurationAssignments,omitempty"`
+}
+
+// DeviceEnrollmentConfigurationSetPriorityRequestParameter undocumented
+type DeviceEnrollmentConfigurationSetPriorityRequestParameter struct {
+	// Priority undocumented
+	Priority *int `json:"priority,omitempty"`
 }
 
 // DeviceManagementExchangeConnectorSyncRequestParameter undocumented
@@ -3279,6 +3279,109 @@ func (b *DeviceManagementRequestBuilder) ApplePushNotificationCertificate() *App
 	return bb
 }
 
+// ComplianceManagementPartners returns request builder for ComplianceManagementPartner collection
+func (b *DeviceManagementRequestBuilder) ComplianceManagementPartners() *DeviceManagementComplianceManagementPartnersCollectionRequestBuilder {
+	bb := &DeviceManagementComplianceManagementPartnersCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/complianceManagementPartners"
+	return bb
+}
+
+// DeviceManagementComplianceManagementPartnersCollectionRequestBuilder is request builder for ComplianceManagementPartner collection
+type DeviceManagementComplianceManagementPartnersCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ComplianceManagementPartner collection
+func (b *DeviceManagementComplianceManagementPartnersCollectionRequestBuilder) Request() *DeviceManagementComplianceManagementPartnersCollectionRequest {
+	return &DeviceManagementComplianceManagementPartnersCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ComplianceManagementPartner item
+func (b *DeviceManagementComplianceManagementPartnersCollectionRequestBuilder) ID(id string) *ComplianceManagementPartnerRequestBuilder {
+	bb := &ComplianceManagementPartnerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementComplianceManagementPartnersCollectionRequest is request for ComplianceManagementPartner collection
+type DeviceManagementComplianceManagementPartnersCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ComplianceManagementPartner collection
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ComplianceManagementPartner, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ComplianceManagementPartner
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ComplianceManagementPartner
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ComplianceManagementPartner collection, max N pages
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) GetN(ctx context.Context, n int) ([]ComplianceManagementPartner, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ComplianceManagementPartner collection
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) Get(ctx context.Context) ([]ComplianceManagementPartner, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ComplianceManagementPartner collection
+func (r *DeviceManagementComplianceManagementPartnersCollectionRequest) Add(ctx context.Context, reqObj *ComplianceManagementPartner) (resObj *ComplianceManagementPartner, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
 // ConditionalAccessSettings is navigation property
 func (b *DeviceManagementRequestBuilder) ConditionalAccessSettings() *OnPremisesConditionalAccessSettingsRequestBuilder {
 	bb := &OnPremisesConditionalAccessSettingsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -4120,6 +4223,109 @@ func (r *DeviceManagementExchangeConnectorsCollectionRequest) Get(ctx context.Co
 
 // Add performs POST request for DeviceManagementExchangeConnector collection
 func (r *DeviceManagementExchangeConnectorsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementExchangeConnector) (resObj *DeviceManagementExchangeConnector, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// ImportedWindowsAutopilotDeviceIdentities returns request builder for ImportedWindowsAutopilotDeviceIdentity collection
+func (b *DeviceManagementRequestBuilder) ImportedWindowsAutopilotDeviceIdentities() *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder {
+	bb := &DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/importedWindowsAutopilotDeviceIdentities"
+	return bb
+}
+
+// DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder is request builder for ImportedWindowsAutopilotDeviceIdentity collection
+type DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for ImportedWindowsAutopilotDeviceIdentity collection
+func (b *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder) Request() *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest {
+	return &DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for ImportedWindowsAutopilotDeviceIdentity item
+func (b *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder) ID(id string) *ImportedWindowsAutopilotDeviceIdentityRequestBuilder {
+	bb := &ImportedWindowsAutopilotDeviceIdentityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest is request for ImportedWindowsAutopilotDeviceIdentity collection
+type DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []ImportedWindowsAutopilotDeviceIdentity
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []ImportedWindowsAutopilotDeviceIdentity
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for ImportedWindowsAutopilotDeviceIdentity collection, max N pages
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) GetN(ctx context.Context, n int) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Get(ctx context.Context) ([]ImportedWindowsAutopilotDeviceIdentity, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for ImportedWindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementImportedWindowsAutopilotDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *ImportedWindowsAutopilotDeviceIdentity) (resObj *ImportedWindowsAutopilotDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -5267,6 +5473,109 @@ func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Get(ctx context
 
 // Add performs POST request for DeviceManagementTroubleshootingEvent collection
 func (r *DeviceManagementTroubleshootingEventsCollectionRequest) Add(ctx context.Context, reqObj *DeviceManagementTroubleshootingEvent) (resObj *DeviceManagementTroubleshootingEvent, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// WindowsAutopilotDeviceIdentities returns request builder for WindowsAutopilotDeviceIdentity collection
+func (b *DeviceManagementRequestBuilder) WindowsAutopilotDeviceIdentities() *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder {
+	bb := &DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/windowsAutopilotDeviceIdentities"
+	return bb
+}
+
+// DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder is request builder for WindowsAutopilotDeviceIdentity collection
+type DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for WindowsAutopilotDeviceIdentity collection
+func (b *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder) Request() *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest {
+	return &DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for WindowsAutopilotDeviceIdentity item
+func (b *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequestBuilder) ID(id string) *WindowsAutopilotDeviceIdentityRequestBuilder {
+	bb := &WindowsAutopilotDeviceIdentityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest is request for WindowsAutopilotDeviceIdentity collection
+type DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for WindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]WindowsAutopilotDeviceIdentity, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []WindowsAutopilotDeviceIdentity
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []WindowsAutopilotDeviceIdentity
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for WindowsAutopilotDeviceIdentity collection, max N pages
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) GetN(ctx context.Context, n int) ([]WindowsAutopilotDeviceIdentity, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for WindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Get(ctx context.Context) ([]WindowsAutopilotDeviceIdentity, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for WindowsAutopilotDeviceIdentity collection
+func (r *DeviceManagementWindowsAutopilotDeviceIdentitiesCollectionRequest) Add(ctx context.Context, reqObj *WindowsAutopilotDeviceIdentity) (resObj *WindowsAutopilotDeviceIdentity, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }

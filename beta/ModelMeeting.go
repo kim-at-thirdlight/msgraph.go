@@ -8,16 +8,24 @@ type MeetingActivityStatistics struct {
 	ActivityStatistics
 	// AfterHours undocumented
 	AfterHours *Duration `json:"afterHours,omitempty"`
+	// Conflicting undocumented
+	Conflicting *Duration `json:"conflicting,omitempty"`
+	// Long undocumented
+	Long *Duration `json:"long,omitempty"`
+	// Multitasking undocumented
+	Multitasking *Duration `json:"multitasking,omitempty"`
 	// Organized undocumented
 	Organized *Duration `json:"organized,omitempty"`
 	// Recurring undocumented
 	Recurring *Duration `json:"recurring,omitempty"`
-	// Long undocumented
-	Long *Duration `json:"long,omitempty"`
-	// Conflicting undocumented
-	Conflicting *Duration `json:"conflicting,omitempty"`
-	// Multitasking undocumented
-	Multitasking *Duration `json:"multitasking,omitempty"`
+}
+
+// MeetingAttendanceReport undocumented
+type MeetingAttendanceReport struct {
+	// Entity is the base model of MeetingAttendanceReport
+	Entity
+	// AttendanceRecords undocumented
+	AttendanceRecords []AttendanceRecord `json:"attendanceRecords,omitempty"`
 }
 
 // MeetingCapability undocumented
@@ -26,10 +34,10 @@ type MeetingCapability struct {
 	Object
 	// AllowAnonymousUsersToDialOut undocumented
 	AllowAnonymousUsersToDialOut *bool `json:"allowAnonymousUsersToDialOut,omitempty"`
-	// AutoAdmittedUsers undocumented
-	AutoAdmittedUsers *AutoAdmittedUsersType `json:"autoAdmittedUsers,omitempty"`
 	// AllowAnonymousUsersToStartMeeting undocumented
 	AllowAnonymousUsersToStartMeeting *bool `json:"allowAnonymousUsersToStartMeeting,omitempty"`
+	// AutoAdmittedUsers undocumented
+	AutoAdmittedUsers *AutoAdmittedUsersType `json:"autoAdmittedUsers,omitempty"`
 }
 
 // MeetingInfo undocumented
@@ -46,6 +54,8 @@ type MeetingParticipantInfo struct {
 	Object
 	// Identity undocumented
 	Identity *IdentitySet `json:"identity,omitempty"`
+	// Role undocumented
+	Role *OnlineMeetingRole `json:"role,omitempty"`
 	// Upn undocumented
 	Upn *string `json:"upn,omitempty"`
 }
@@ -54,42 +64,54 @@ type MeetingParticipantInfo struct {
 type MeetingParticipants struct {
 	// Object is the base model of MeetingParticipants
 	Object
-	// Organizer undocumented
-	Organizer *MeetingParticipantInfo `json:"organizer,omitempty"`
 	// Attendees undocumented
 	Attendees []MeetingParticipantInfo `json:"attendees,omitempty"`
-	// Producers undocumented
-	Producers []MeetingParticipantInfo `json:"producers,omitempty"`
 	// Contributors undocumented
 	Contributors []MeetingParticipantInfo `json:"contributors,omitempty"`
+	// Organizer undocumented
+	Organizer *MeetingParticipantInfo `json:"organizer,omitempty"`
+	// Producers undocumented
+	Producers []MeetingParticipantInfo `json:"producers,omitempty"`
+}
+
+// MeetingPolicyUpdatedEventMessageDetail undocumented
+type MeetingPolicyUpdatedEventMessageDetail struct {
+	// EventMessageDetail is the base model of MeetingPolicyUpdatedEventMessageDetail
+	EventMessageDetail
+	// Initiator undocumented
+	Initiator *IdentitySet `json:"initiator,omitempty"`
+	// MeetingChatEnabled undocumented
+	MeetingChatEnabled *bool `json:"meetingChatEnabled,omitempty"`
+	// MeetingChatID undocumented
+	MeetingChatID *string `json:"meetingChatId,omitempty"`
 }
 
 // MeetingTimeSuggestion undocumented
 type MeetingTimeSuggestion struct {
 	// Object is the base model of MeetingTimeSuggestion
 	Object
+	// AttendeeAvailability undocumented
+	AttendeeAvailability []AttendeeAvailability `json:"attendeeAvailability,omitempty"`
 	// Confidence undocumented
 	Confidence *float64 `json:"confidence,omitempty"`
+	// Locations undocumented
+	Locations []Location `json:"locations,omitempty"`
+	// MeetingTimeSlot undocumented
+	MeetingTimeSlot *TimeSlot `json:"meetingTimeSlot,omitempty"`
 	// Order undocumented
 	Order *int `json:"order,omitempty"`
 	// OrganizerAvailability undocumented
 	OrganizerAvailability *FreeBusyStatus `json:"organizerAvailability,omitempty"`
-	// AttendeeAvailability undocumented
-	AttendeeAvailability []AttendeeAvailability `json:"attendeeAvailability,omitempty"`
-	// Locations undocumented
-	Locations []Location `json:"locations,omitempty"`
 	// SuggestionReason undocumented
 	SuggestionReason *string `json:"suggestionReason,omitempty"`
-	// MeetingTimeSlot undocumented
-	MeetingTimeSlot *TimeSlot `json:"meetingTimeSlot,omitempty"`
 }
 
 // MeetingTimeSuggestionsResult undocumented
 type MeetingTimeSuggestionsResult struct {
 	// Object is the base model of MeetingTimeSuggestionsResult
 	Object
-	// MeetingTimeSuggestions undocumented
-	MeetingTimeSuggestions []MeetingTimeSuggestion `json:"meetingTimeSuggestions,omitempty"`
 	// EmptySuggestionsReason undocumented
 	EmptySuggestionsReason *string `json:"emptySuggestionsReason,omitempty"`
+	// MeetingTimeSuggestions undocumented
+	MeetingTimeSuggestions []MeetingTimeSuggestion `json:"meetingTimeSuggestions,omitempty"`
 }

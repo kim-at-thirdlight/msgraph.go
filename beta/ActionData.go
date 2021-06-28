@@ -21,6 +21,18 @@ type DataLossPreventionPolicyCollectionEvaluateRequestParameter struct {
 	NotificationInfo *DlpNotification `json:"notificationInfo,omitempty"`
 }
 
+// DataClassificationServiceClassifyExactMatchesRequestParameter undocumented
+type DataClassificationServiceClassifyExactMatchesRequestParameter struct {
+	// Text undocumented
+	Text *string `json:"text,omitempty"`
+	// TimeoutInMs undocumented
+	TimeoutInMs *string `json:"timeoutInMs,omitempty"`
+	// SensitiveTypeIDs undocumented
+	SensitiveTypeIDs []string `json:"sensitiveTypeIds,omitempty"`
+	// ContentClassifications undocumented
+	ContentClassifications []ContentClassification `json:"contentClassifications,omitempty"`
+}
+
 // DataSharingConsentConsentToDataSharingRequestParameter undocumented
 type DataSharingConsentConsentToDataSharingRequestParameter struct {
 }
@@ -952,109 +964,6 @@ func (r *DataClassificationServiceJobsCollectionRequest) Add(ctx context.Context
 	return
 }
 
-// LabelsAndPoliciesEvaluationJobs returns request builder for JobResponseBase collection
-func (b *DataClassificationServiceRequestBuilder) LabelsAndPoliciesEvaluationJobs() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder {
-	bb := &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/labelsAndPoliciesEvaluationJobs"
-	return bb
-}
-
-// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder is request builder for JobResponseBase collection
-type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for JobResponseBase collection
-func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) Request() *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest {
-	return &DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for JobResponseBase item
-func (b *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequestBuilder) ID(id string) *JobResponseBaseRequestBuilder {
-	bb := &JobResponseBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest is request for JobResponseBase collection
-type DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]JobResponseBase, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []JobResponseBase
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []JobResponseBase
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for JobResponseBase collection, max N pages
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) GetN(ctx context.Context, n int) ([]JobResponseBase, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Get(ctx context.Context) ([]JobResponseBase, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for JobResponseBase collection
-func (r *DataClassificationServiceLabelsAndPoliciesEvaluationJobsCollectionRequest) Add(ctx context.Context, reqObj *JobResponseBase) (resObj *JobResponseBase, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // SensitiveTypes returns request builder for SensitiveType collection
 func (b *DataClassificationServiceRequestBuilder) SensitiveTypes() *DataClassificationServiceSensitiveTypesCollectionRequestBuilder {
 	bb := &DataClassificationServiceSensitiveTypesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1259,4 +1168,11 @@ func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Get(ctx co
 func (r *DataClassificationServiceSensitivityLabelsCollectionRequest) Add(ctx context.Context, reqObj *SensitivityLabel) (resObj *SensitivityLabel, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
+}
+
+// LastIndexOperation is navigation property
+func (b *DataSourceContainerRequestBuilder) LastIndexOperation() *CaseIndexOperationRequestBuilder {
+	bb := &CaseIndexOperationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/lastIndexOperation"
+	return bb
 }

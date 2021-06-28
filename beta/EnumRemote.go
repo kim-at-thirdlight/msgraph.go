@@ -52,6 +52,8 @@ const (
 	RemoteActionVGetFileVaultKey RemoteAction = "getFileVaultKey"
 	// RemoteActionVSetDeviceName undocumented
 	RemoteActionVSetDeviceName RemoteAction = "setDeviceName"
+	// RemoteActionVActivateDeviceEsim undocumented
+	RemoteActionVActivateDeviceEsim RemoteAction = "activateDeviceEsim"
 )
 
 var (
@@ -101,6 +103,8 @@ var (
 	RemoteActionPGetFileVaultKey = &_RemoteActionPGetFileVaultKey
 	// RemoteActionPSetDeviceName is a pointer to RemoteActionVSetDeviceName
 	RemoteActionPSetDeviceName = &_RemoteActionPSetDeviceName
+	// RemoteActionPActivateDeviceEsim is a pointer to RemoteActionVActivateDeviceEsim
+	RemoteActionPActivateDeviceEsim = &_RemoteActionPActivateDeviceEsim
 )
 
 var (
@@ -127,6 +131,7 @@ var (
 	_RemoteActionPRotateFileVaultKey                = RemoteActionVRotateFileVaultKey
 	_RemoteActionPGetFileVaultKey                   = RemoteActionVGetFileVaultKey
 	_RemoteActionPSetDeviceName                     = RemoteActionVSetDeviceName
+	_RemoteActionPActivateDeviceEsim                = RemoteActionVActivateDeviceEsim
 )
 
 // RemoteAssistanceOnboardingStatus undocumented

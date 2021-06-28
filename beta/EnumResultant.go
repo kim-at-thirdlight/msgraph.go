@@ -6,6 +6,8 @@ package msgraph
 type ResultantAppState string
 
 const (
+	// ResultantAppStateVNotApplicable undocumented
+	ResultantAppStateVNotApplicable ResultantAppState = "notApplicable"
 	// ResultantAppStateVInstalled undocumented
 	ResultantAppStateVInstalled ResultantAppState = "installed"
 	// ResultantAppStateVFailed undocumented
@@ -18,11 +20,11 @@ const (
 	ResultantAppStateVPendingInstall ResultantAppState = "pendingInstall"
 	// ResultantAppStateVUnknown undocumented
 	ResultantAppStateVUnknown ResultantAppState = "unknown"
-	// ResultantAppStateVNotApplicable undocumented
-	ResultantAppStateVNotApplicable ResultantAppState = "notApplicable"
 )
 
 var (
+	// ResultantAppStatePNotApplicable is a pointer to ResultantAppStateVNotApplicable
+	ResultantAppStatePNotApplicable = &_ResultantAppStatePNotApplicable
 	// ResultantAppStatePInstalled is a pointer to ResultantAppStateVInstalled
 	ResultantAppStatePInstalled = &_ResultantAppStatePInstalled
 	// ResultantAppStatePFailed is a pointer to ResultantAppStateVFailed
@@ -35,24 +37,42 @@ var (
 	ResultantAppStatePPendingInstall = &_ResultantAppStatePPendingInstall
 	// ResultantAppStatePUnknown is a pointer to ResultantAppStateVUnknown
 	ResultantAppStatePUnknown = &_ResultantAppStatePUnknown
-	// ResultantAppStatePNotApplicable is a pointer to ResultantAppStateVNotApplicable
-	ResultantAppStatePNotApplicable = &_ResultantAppStatePNotApplicable
 )
 
 var (
+	_ResultantAppStatePNotApplicable   = ResultantAppStateVNotApplicable
 	_ResultantAppStatePInstalled       = ResultantAppStateVInstalled
 	_ResultantAppStatePFailed          = ResultantAppStateVFailed
 	_ResultantAppStatePNotInstalled    = ResultantAppStateVNotInstalled
 	_ResultantAppStatePUninstallFailed = ResultantAppStateVUninstallFailed
 	_ResultantAppStatePPendingInstall  = ResultantAppStateVPendingInstall
 	_ResultantAppStatePUnknown         = ResultantAppStateVUnknown
-	_ResultantAppStatePNotApplicable   = ResultantAppStateVNotApplicable
 )
 
 // ResultantAppStateDetail undocumented
 type ResultantAppStateDetail string
 
 const (
+	// ResultantAppStateDetailVProcessorArchitectureNotApplicable undocumented
+	ResultantAppStateDetailVProcessorArchitectureNotApplicable ResultantAppStateDetail = "processorArchitectureNotApplicable"
+	// ResultantAppStateDetailVMinimumDiskSpaceNotMet undocumented
+	ResultantAppStateDetailVMinimumDiskSpaceNotMet ResultantAppStateDetail = "minimumDiskSpaceNotMet"
+	// ResultantAppStateDetailVMinimumOsVersionNotMet undocumented
+	ResultantAppStateDetailVMinimumOsVersionNotMet ResultantAppStateDetail = "minimumOsVersionNotMet"
+	// ResultantAppStateDetailVMinimumPhysicalMemoryNotMet undocumented
+	ResultantAppStateDetailVMinimumPhysicalMemoryNotMet ResultantAppStateDetail = "minimumPhysicalMemoryNotMet"
+	// ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet undocumented
+	ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet ResultantAppStateDetail = "minimumLogicalProcessorCountNotMet"
+	// ResultantAppStateDetailVMinimumCPUSpeedNotMet undocumented
+	ResultantAppStateDetailVMinimumCPUSpeedNotMet ResultantAppStateDetail = "minimumCpuSpeedNotMet"
+	// ResultantAppStateDetailVPlatformNotApplicable undocumented
+	ResultantAppStateDetailVPlatformNotApplicable ResultantAppStateDetail = "platformNotApplicable"
+	// ResultantAppStateDetailVFileSystemRequirementNotMet undocumented
+	ResultantAppStateDetailVFileSystemRequirementNotMet ResultantAppStateDetail = "fileSystemRequirementNotMet"
+	// ResultantAppStateDetailVRegistryRequirementNotMet undocumented
+	ResultantAppStateDetailVRegistryRequirementNotMet ResultantAppStateDetail = "registryRequirementNotMet"
+	// ResultantAppStateDetailVPowerShellScriptRequirementNotMet undocumented
+	ResultantAppStateDetailVPowerShellScriptRequirementNotMet ResultantAppStateDetail = "powerShellScriptRequirementNotMet"
 	// ResultantAppStateDetailVNoAdditionalDetails undocumented
 	ResultantAppStateDetailVNoAdditionalDetails ResultantAppStateDetail = "noAdditionalDetails"
 	// ResultantAppStateDetailVDependencyFailedToInstall undocumented
@@ -63,39 +83,53 @@ const (
 	ResultantAppStateDetailVDependencyPendingReboot ResultantAppStateDetail = "dependencyPendingReboot"
 	// ResultantAppStateDetailVDependencyWithAutoInstallDisabled undocumented
 	ResultantAppStateDetailVDependencyWithAutoInstallDisabled ResultantAppStateDetail = "dependencyWithAutoInstallDisabled"
+	// ResultantAppStateDetailVIOSAppStoreUpdateFailedToInstall undocumented
+	ResultantAppStateDetailVIOSAppStoreUpdateFailedToInstall ResultantAppStateDetail = "iosAppStoreUpdateFailedToInstall"
+	// ResultantAppStateDetailVVPPAppHasUpdateAvailable undocumented
+	ResultantAppStateDetailVVPPAppHasUpdateAvailable ResultantAppStateDetail = "vppAppHasUpdateAvailable"
+	// ResultantAppStateDetailVUserRejectedUpdate undocumented
+	ResultantAppStateDetailVUserRejectedUpdate ResultantAppStateDetail = "userRejectedUpdate"
 	// ResultantAppStateDetailVSeeInstallErrorCode undocumented
 	ResultantAppStateDetailVSeeInstallErrorCode ResultantAppStateDetail = "seeInstallErrorCode"
 	// ResultantAppStateDetailVAutoInstallDisabled undocumented
 	ResultantAppStateDetailVAutoInstallDisabled ResultantAppStateDetail = "autoInstallDisabled"
+	// ResultantAppStateDetailVManagedAppNoLongerPresent undocumented
+	ResultantAppStateDetailVManagedAppNoLongerPresent ResultantAppStateDetail = "managedAppNoLongerPresent"
+	// ResultantAppStateDetailVUserRejectedInstall undocumented
+	ResultantAppStateDetailVUserRejectedInstall ResultantAppStateDetail = "userRejectedInstall"
+	// ResultantAppStateDetailVUserIsNotLoggedIntoAppStore undocumented
+	ResultantAppStateDetailVUserIsNotLoggedIntoAppStore ResultantAppStateDetail = "userIsNotLoggedIntoAppStore"
 	// ResultantAppStateDetailVSeeUninstallErrorCode undocumented
 	ResultantAppStateDetailVSeeUninstallErrorCode ResultantAppStateDetail = "seeUninstallErrorCode"
 	// ResultantAppStateDetailVPendingReboot undocumented
 	ResultantAppStateDetailVPendingReboot ResultantAppStateDetail = "pendingReboot"
 	// ResultantAppStateDetailVInstallingDependencies undocumented
 	ResultantAppStateDetailVInstallingDependencies ResultantAppStateDetail = "installingDependencies"
-	// ResultantAppStateDetailVPowerShellScriptRequirementNotMet undocumented
-	ResultantAppStateDetailVPowerShellScriptRequirementNotMet ResultantAppStateDetail = "powerShellScriptRequirementNotMet"
-	// ResultantAppStateDetailVRegistryRequirementNotMet undocumented
-	ResultantAppStateDetailVRegistryRequirementNotMet ResultantAppStateDetail = "registryRequirementNotMet"
-	// ResultantAppStateDetailVFileSystemRequirementNotMet undocumented
-	ResultantAppStateDetailVFileSystemRequirementNotMet ResultantAppStateDetail = "fileSystemRequirementNotMet"
-	// ResultantAppStateDetailVPlatformNotApplicable undocumented
-	ResultantAppStateDetailVPlatformNotApplicable ResultantAppStateDetail = "platformNotApplicable"
-	// ResultantAppStateDetailVMinimumCPUSpeedNotMet undocumented
-	ResultantAppStateDetailVMinimumCPUSpeedNotMet ResultantAppStateDetail = "minimumCpuSpeedNotMet"
-	// ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet undocumented
-	ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet ResultantAppStateDetail = "minimumLogicalProcessorCountNotMet"
-	// ResultantAppStateDetailVMinimumPhysicalMemoryNotMet undocumented
-	ResultantAppStateDetailVMinimumPhysicalMemoryNotMet ResultantAppStateDetail = "minimumPhysicalMemoryNotMet"
-	// ResultantAppStateDetailVMinimumOsVersionNotMet undocumented
-	ResultantAppStateDetailVMinimumOsVersionNotMet ResultantAppStateDetail = "minimumOsVersionNotMet"
-	// ResultantAppStateDetailVMinimumDiskSpaceNotMet undocumented
-	ResultantAppStateDetailVMinimumDiskSpaceNotMet ResultantAppStateDetail = "minimumDiskSpaceNotMet"
-	// ResultantAppStateDetailVProcessorArchitectureNotApplicable undocumented
-	ResultantAppStateDetailVProcessorArchitectureNotApplicable ResultantAppStateDetail = "processorArchitectureNotApplicable"
+	// ResultantAppStateDetailVContentDownloaded undocumented
+	ResultantAppStateDetailVContentDownloaded ResultantAppStateDetail = "contentDownloaded"
 )
 
 var (
+	// ResultantAppStateDetailPProcessorArchitectureNotApplicable is a pointer to ResultantAppStateDetailVProcessorArchitectureNotApplicable
+	ResultantAppStateDetailPProcessorArchitectureNotApplicable = &_ResultantAppStateDetailPProcessorArchitectureNotApplicable
+	// ResultantAppStateDetailPMinimumDiskSpaceNotMet is a pointer to ResultantAppStateDetailVMinimumDiskSpaceNotMet
+	ResultantAppStateDetailPMinimumDiskSpaceNotMet = &_ResultantAppStateDetailPMinimumDiskSpaceNotMet
+	// ResultantAppStateDetailPMinimumOsVersionNotMet is a pointer to ResultantAppStateDetailVMinimumOsVersionNotMet
+	ResultantAppStateDetailPMinimumOsVersionNotMet = &_ResultantAppStateDetailPMinimumOsVersionNotMet
+	// ResultantAppStateDetailPMinimumPhysicalMemoryNotMet is a pointer to ResultantAppStateDetailVMinimumPhysicalMemoryNotMet
+	ResultantAppStateDetailPMinimumPhysicalMemoryNotMet = &_ResultantAppStateDetailPMinimumPhysicalMemoryNotMet
+	// ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet is a pointer to ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet
+	ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet = &_ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet
+	// ResultantAppStateDetailPMinimumCPUSpeedNotMet is a pointer to ResultantAppStateDetailVMinimumCPUSpeedNotMet
+	ResultantAppStateDetailPMinimumCPUSpeedNotMet = &_ResultantAppStateDetailPMinimumCPUSpeedNotMet
+	// ResultantAppStateDetailPPlatformNotApplicable is a pointer to ResultantAppStateDetailVPlatformNotApplicable
+	ResultantAppStateDetailPPlatformNotApplicable = &_ResultantAppStateDetailPPlatformNotApplicable
+	// ResultantAppStateDetailPFileSystemRequirementNotMet is a pointer to ResultantAppStateDetailVFileSystemRequirementNotMet
+	ResultantAppStateDetailPFileSystemRequirementNotMet = &_ResultantAppStateDetailPFileSystemRequirementNotMet
+	// ResultantAppStateDetailPRegistryRequirementNotMet is a pointer to ResultantAppStateDetailVRegistryRequirementNotMet
+	ResultantAppStateDetailPRegistryRequirementNotMet = &_ResultantAppStateDetailPRegistryRequirementNotMet
+	// ResultantAppStateDetailPPowerShellScriptRequirementNotMet is a pointer to ResultantAppStateDetailVPowerShellScriptRequirementNotMet
+	ResultantAppStateDetailPPowerShellScriptRequirementNotMet = &_ResultantAppStateDetailPPowerShellScriptRequirementNotMet
 	// ResultantAppStateDetailPNoAdditionalDetails is a pointer to ResultantAppStateDetailVNoAdditionalDetails
 	ResultantAppStateDetailPNoAdditionalDetails = &_ResultantAppStateDetailPNoAdditionalDetails
 	// ResultantAppStateDetailPDependencyFailedToInstall is a pointer to ResultantAppStateDetailVDependencyFailedToInstall
@@ -106,57 +140,58 @@ var (
 	ResultantAppStateDetailPDependencyPendingReboot = &_ResultantAppStateDetailPDependencyPendingReboot
 	// ResultantAppStateDetailPDependencyWithAutoInstallDisabled is a pointer to ResultantAppStateDetailVDependencyWithAutoInstallDisabled
 	ResultantAppStateDetailPDependencyWithAutoInstallDisabled = &_ResultantAppStateDetailPDependencyWithAutoInstallDisabled
+	// ResultantAppStateDetailPIOSAppStoreUpdateFailedToInstall is a pointer to ResultantAppStateDetailVIOSAppStoreUpdateFailedToInstall
+	ResultantAppStateDetailPIOSAppStoreUpdateFailedToInstall = &_ResultantAppStateDetailPIOSAppStoreUpdateFailedToInstall
+	// ResultantAppStateDetailPVPPAppHasUpdateAvailable is a pointer to ResultantAppStateDetailVVPPAppHasUpdateAvailable
+	ResultantAppStateDetailPVPPAppHasUpdateAvailable = &_ResultantAppStateDetailPVPPAppHasUpdateAvailable
+	// ResultantAppStateDetailPUserRejectedUpdate is a pointer to ResultantAppStateDetailVUserRejectedUpdate
+	ResultantAppStateDetailPUserRejectedUpdate = &_ResultantAppStateDetailPUserRejectedUpdate
 	// ResultantAppStateDetailPSeeInstallErrorCode is a pointer to ResultantAppStateDetailVSeeInstallErrorCode
 	ResultantAppStateDetailPSeeInstallErrorCode = &_ResultantAppStateDetailPSeeInstallErrorCode
 	// ResultantAppStateDetailPAutoInstallDisabled is a pointer to ResultantAppStateDetailVAutoInstallDisabled
 	ResultantAppStateDetailPAutoInstallDisabled = &_ResultantAppStateDetailPAutoInstallDisabled
+	// ResultantAppStateDetailPManagedAppNoLongerPresent is a pointer to ResultantAppStateDetailVManagedAppNoLongerPresent
+	ResultantAppStateDetailPManagedAppNoLongerPresent = &_ResultantAppStateDetailPManagedAppNoLongerPresent
+	// ResultantAppStateDetailPUserRejectedInstall is a pointer to ResultantAppStateDetailVUserRejectedInstall
+	ResultantAppStateDetailPUserRejectedInstall = &_ResultantAppStateDetailPUserRejectedInstall
+	// ResultantAppStateDetailPUserIsNotLoggedIntoAppStore is a pointer to ResultantAppStateDetailVUserIsNotLoggedIntoAppStore
+	ResultantAppStateDetailPUserIsNotLoggedIntoAppStore = &_ResultantAppStateDetailPUserIsNotLoggedIntoAppStore
 	// ResultantAppStateDetailPSeeUninstallErrorCode is a pointer to ResultantAppStateDetailVSeeUninstallErrorCode
 	ResultantAppStateDetailPSeeUninstallErrorCode = &_ResultantAppStateDetailPSeeUninstallErrorCode
 	// ResultantAppStateDetailPPendingReboot is a pointer to ResultantAppStateDetailVPendingReboot
 	ResultantAppStateDetailPPendingReboot = &_ResultantAppStateDetailPPendingReboot
 	// ResultantAppStateDetailPInstallingDependencies is a pointer to ResultantAppStateDetailVInstallingDependencies
 	ResultantAppStateDetailPInstallingDependencies = &_ResultantAppStateDetailPInstallingDependencies
-	// ResultantAppStateDetailPPowerShellScriptRequirementNotMet is a pointer to ResultantAppStateDetailVPowerShellScriptRequirementNotMet
-	ResultantAppStateDetailPPowerShellScriptRequirementNotMet = &_ResultantAppStateDetailPPowerShellScriptRequirementNotMet
-	// ResultantAppStateDetailPRegistryRequirementNotMet is a pointer to ResultantAppStateDetailVRegistryRequirementNotMet
-	ResultantAppStateDetailPRegistryRequirementNotMet = &_ResultantAppStateDetailPRegistryRequirementNotMet
-	// ResultantAppStateDetailPFileSystemRequirementNotMet is a pointer to ResultantAppStateDetailVFileSystemRequirementNotMet
-	ResultantAppStateDetailPFileSystemRequirementNotMet = &_ResultantAppStateDetailPFileSystemRequirementNotMet
-	// ResultantAppStateDetailPPlatformNotApplicable is a pointer to ResultantAppStateDetailVPlatformNotApplicable
-	ResultantAppStateDetailPPlatformNotApplicable = &_ResultantAppStateDetailPPlatformNotApplicable
-	// ResultantAppStateDetailPMinimumCPUSpeedNotMet is a pointer to ResultantAppStateDetailVMinimumCPUSpeedNotMet
-	ResultantAppStateDetailPMinimumCPUSpeedNotMet = &_ResultantAppStateDetailPMinimumCPUSpeedNotMet
-	// ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet is a pointer to ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet
-	ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet = &_ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet
-	// ResultantAppStateDetailPMinimumPhysicalMemoryNotMet is a pointer to ResultantAppStateDetailVMinimumPhysicalMemoryNotMet
-	ResultantAppStateDetailPMinimumPhysicalMemoryNotMet = &_ResultantAppStateDetailPMinimumPhysicalMemoryNotMet
-	// ResultantAppStateDetailPMinimumOsVersionNotMet is a pointer to ResultantAppStateDetailVMinimumOsVersionNotMet
-	ResultantAppStateDetailPMinimumOsVersionNotMet = &_ResultantAppStateDetailPMinimumOsVersionNotMet
-	// ResultantAppStateDetailPMinimumDiskSpaceNotMet is a pointer to ResultantAppStateDetailVMinimumDiskSpaceNotMet
-	ResultantAppStateDetailPMinimumDiskSpaceNotMet = &_ResultantAppStateDetailPMinimumDiskSpaceNotMet
-	// ResultantAppStateDetailPProcessorArchitectureNotApplicable is a pointer to ResultantAppStateDetailVProcessorArchitectureNotApplicable
-	ResultantAppStateDetailPProcessorArchitectureNotApplicable = &_ResultantAppStateDetailPProcessorArchitectureNotApplicable
+	// ResultantAppStateDetailPContentDownloaded is a pointer to ResultantAppStateDetailVContentDownloaded
+	ResultantAppStateDetailPContentDownloaded = &_ResultantAppStateDetailPContentDownloaded
 )
 
 var (
+	_ResultantAppStateDetailPProcessorArchitectureNotApplicable = ResultantAppStateDetailVProcessorArchitectureNotApplicable
+	_ResultantAppStateDetailPMinimumDiskSpaceNotMet             = ResultantAppStateDetailVMinimumDiskSpaceNotMet
+	_ResultantAppStateDetailPMinimumOsVersionNotMet             = ResultantAppStateDetailVMinimumOsVersionNotMet
+	_ResultantAppStateDetailPMinimumPhysicalMemoryNotMet        = ResultantAppStateDetailVMinimumPhysicalMemoryNotMet
+	_ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet = ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet
+	_ResultantAppStateDetailPMinimumCPUSpeedNotMet              = ResultantAppStateDetailVMinimumCPUSpeedNotMet
+	_ResultantAppStateDetailPPlatformNotApplicable              = ResultantAppStateDetailVPlatformNotApplicable
+	_ResultantAppStateDetailPFileSystemRequirementNotMet        = ResultantAppStateDetailVFileSystemRequirementNotMet
+	_ResultantAppStateDetailPRegistryRequirementNotMet          = ResultantAppStateDetailVRegistryRequirementNotMet
+	_ResultantAppStateDetailPPowerShellScriptRequirementNotMet  = ResultantAppStateDetailVPowerShellScriptRequirementNotMet
 	_ResultantAppStateDetailPNoAdditionalDetails                = ResultantAppStateDetailVNoAdditionalDetails
 	_ResultantAppStateDetailPDependencyFailedToInstall          = ResultantAppStateDetailVDependencyFailedToInstall
 	_ResultantAppStateDetailPDependencyWithRequirementsNotMet   = ResultantAppStateDetailVDependencyWithRequirementsNotMet
 	_ResultantAppStateDetailPDependencyPendingReboot            = ResultantAppStateDetailVDependencyPendingReboot
 	_ResultantAppStateDetailPDependencyWithAutoInstallDisabled  = ResultantAppStateDetailVDependencyWithAutoInstallDisabled
+	_ResultantAppStateDetailPIOSAppStoreUpdateFailedToInstall   = ResultantAppStateDetailVIOSAppStoreUpdateFailedToInstall
+	_ResultantAppStateDetailPVPPAppHasUpdateAvailable           = ResultantAppStateDetailVVPPAppHasUpdateAvailable
+	_ResultantAppStateDetailPUserRejectedUpdate                 = ResultantAppStateDetailVUserRejectedUpdate
 	_ResultantAppStateDetailPSeeInstallErrorCode                = ResultantAppStateDetailVSeeInstallErrorCode
 	_ResultantAppStateDetailPAutoInstallDisabled                = ResultantAppStateDetailVAutoInstallDisabled
+	_ResultantAppStateDetailPManagedAppNoLongerPresent          = ResultantAppStateDetailVManagedAppNoLongerPresent
+	_ResultantAppStateDetailPUserRejectedInstall                = ResultantAppStateDetailVUserRejectedInstall
+	_ResultantAppStateDetailPUserIsNotLoggedIntoAppStore        = ResultantAppStateDetailVUserIsNotLoggedIntoAppStore
 	_ResultantAppStateDetailPSeeUninstallErrorCode              = ResultantAppStateDetailVSeeUninstallErrorCode
 	_ResultantAppStateDetailPPendingReboot                      = ResultantAppStateDetailVPendingReboot
 	_ResultantAppStateDetailPInstallingDependencies             = ResultantAppStateDetailVInstallingDependencies
-	_ResultantAppStateDetailPPowerShellScriptRequirementNotMet  = ResultantAppStateDetailVPowerShellScriptRequirementNotMet
-	_ResultantAppStateDetailPRegistryRequirementNotMet          = ResultantAppStateDetailVRegistryRequirementNotMet
-	_ResultantAppStateDetailPFileSystemRequirementNotMet        = ResultantAppStateDetailVFileSystemRequirementNotMet
-	_ResultantAppStateDetailPPlatformNotApplicable              = ResultantAppStateDetailVPlatformNotApplicable
-	_ResultantAppStateDetailPMinimumCPUSpeedNotMet              = ResultantAppStateDetailVMinimumCPUSpeedNotMet
-	_ResultantAppStateDetailPMinimumLogicalProcessorCountNotMet = ResultantAppStateDetailVMinimumLogicalProcessorCountNotMet
-	_ResultantAppStateDetailPMinimumPhysicalMemoryNotMet        = ResultantAppStateDetailVMinimumPhysicalMemoryNotMet
-	_ResultantAppStateDetailPMinimumOsVersionNotMet             = ResultantAppStateDetailVMinimumOsVersionNotMet
-	_ResultantAppStateDetailPMinimumDiskSpaceNotMet             = ResultantAppStateDetailVMinimumDiskSpaceNotMet
-	_ResultantAppStateDetailPProcessorArchitectureNotApplicable = ResultantAppStateDetailVProcessorArchitectureNotApplicable
+	_ResultantAppStateDetailPContentDownloaded                  = ResultantAppStateDetailVContentDownloaded
 )

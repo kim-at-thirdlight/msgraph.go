@@ -37,6 +37,39 @@ func (r *ConversationRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// ConversationMemberRequestBuilder is request builder for ConversationMember
+type ConversationMemberRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns ConversationMemberRequest
+func (b *ConversationMemberRequestBuilder) Request() *ConversationMemberRequest {
+	return &ConversationMemberRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ConversationMemberRequest is request for ConversationMember
+type ConversationMemberRequest struct{ BaseRequest }
+
+// Get performs GET request for ConversationMember
+func (r *ConversationMemberRequest) Get(ctx context.Context) (resObj *ConversationMember, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for ConversationMember
+func (r *ConversationMemberRequest) Update(ctx context.Context, reqObj *ConversationMember) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for ConversationMember
+func (r *ConversationMemberRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // ConversationThreadRequestBuilder is request builder for ConversationThread
 type ConversationThreadRequestBuilder struct{ BaseRequestBuilder }
 
@@ -68,30 +101,4 @@ func (r *ConversationThreadRequest) Update(ctx context.Context, reqObj *Conversa
 // Delete performs DELETE request for ConversationThread
 func (r *ConversationThreadRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
-}
-
-//
-type ConversationThreadReplyRequestBuilder struct{ BaseRequestBuilder }
-
-// Reply action undocumented
-func (b *ConversationThreadRequestBuilder) Reply(reqObj *ConversationThreadReplyRequestParameter) *ConversationThreadReplyRequestBuilder {
-	bb := &ConversationThreadReplyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/reply"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type ConversationThreadReplyRequest struct{ BaseRequest }
-
-//
-func (b *ConversationThreadReplyRequestBuilder) Request() *ConversationThreadReplyRequest {
-	return &ConversationThreadReplyRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *ConversationThreadReplyRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
 }

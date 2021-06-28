@@ -69,29 +69,3 @@ func (r *IntuneBrandingProfileAssignmentRequest) Update(ctx context.Context, req
 func (r *IntuneBrandingProfileAssignmentRequest) Delete(ctx context.Context) error {
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
-
-//
-type IntuneBrandingProfileAssignRequestBuilder struct{ BaseRequestBuilder }
-
-// Assign action undocumented
-func (b *IntuneBrandingProfileRequestBuilder) Assign(reqObj *IntuneBrandingProfileAssignRequestParameter) *IntuneBrandingProfileAssignRequestBuilder {
-	bb := &IntuneBrandingProfileAssignRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.BaseRequestBuilder.baseURL += "/assign"
-	bb.BaseRequestBuilder.requestObject = reqObj
-	return bb
-}
-
-//
-type IntuneBrandingProfileAssignRequest struct{ BaseRequest }
-
-//
-func (b *IntuneBrandingProfileAssignRequestBuilder) Request() *IntuneBrandingProfileAssignRequest {
-	return &IntuneBrandingProfileAssignRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client, requestObject: b.requestObject},
-	}
-}
-
-//
-func (r *IntuneBrandingProfileAssignRequest) Post(ctx context.Context) error {
-	return r.JSONRequest(ctx, "POST", "", r.requestObject, nil)
-}

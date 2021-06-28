@@ -8,8 +8,12 @@ import "time"
 type Directory struct {
 	// Entity is the base model of Directory
 	Entity
+	// AdministrativeUnits undocumented
+	AdministrativeUnits []AdministrativeUnit `json:"administrativeUnits,omitempty"`
 	// DeletedItems undocumented
 	DeletedItems []DirectoryObject `json:"deletedItems,omitempty"`
+	// SharedEmailDomains undocumented
+	SharedEmailDomains []SharedEmailDomain `json:"sharedEmailDomains,omitempty"`
 	// FeatureRolloutPolicies undocumented
 	FeatureRolloutPolicies []FeatureRolloutPolicy `json:"featureRolloutPolicies,omitempty"`
 }
@@ -18,38 +22,38 @@ type Directory struct {
 type DirectoryAudit struct {
 	// Entity is the base model of DirectoryAudit
 	Entity
+	// ActivityDateTime undocumented
+	ActivityDateTime *time.Time `json:"activityDateTime,omitempty"`
+	// ActivityDisplayName undocumented
+	ActivityDisplayName *string `json:"activityDisplayName,omitempty"`
+	// AdditionalDetails undocumented
+	AdditionalDetails []KeyValue `json:"additionalDetails,omitempty"`
 	// Category undocumented
 	Category *string `json:"category,omitempty"`
 	// CorrelationID undocumented
 	CorrelationID *string `json:"correlationId,omitempty"`
-	// Result undocumented
-	Result *OperationResult `json:"result,omitempty"`
-	// ResultReason undocumented
-	ResultReason *string `json:"resultReason,omitempty"`
-	// ActivityDisplayName undocumented
-	ActivityDisplayName *string `json:"activityDisplayName,omitempty"`
-	// ActivityDateTime undocumented
-	ActivityDateTime *time.Time `json:"activityDateTime,omitempty"`
+	// InitiatedBy undocumented
+	InitiatedBy *AuditActivityInitiator `json:"initiatedBy,omitempty"`
 	// LoggedByService undocumented
 	LoggedByService *string `json:"loggedByService,omitempty"`
 	// OperationType undocumented
 	OperationType *string `json:"operationType,omitempty"`
-	// InitiatedBy undocumented
-	InitiatedBy *AuditActivityInitiator `json:"initiatedBy,omitempty"`
+	// Result undocumented
+	Result *OperationResult `json:"result,omitempty"`
+	// ResultReason undocumented
+	ResultReason *string `json:"resultReason,omitempty"`
 	// TargetResources undocumented
 	TargetResources []TargetResource `json:"targetResources,omitempty"`
-	// AdditionalDetails undocumented
-	AdditionalDetails []KeyValue `json:"additionalDetails,omitempty"`
 }
 
 // DirectoryDefinition undocumented
 type DirectoryDefinition struct {
 	// Entity is the base model of DirectoryDefinition
 	Entity
-	// DiscoveryDateTime undocumented
-	DiscoveryDateTime *time.Time `json:"discoveryDateTime,omitempty"`
 	// Discoverabilities undocumented
 	Discoverabilities *DirectoryDefinitionDiscoverabilities `json:"discoverabilities,omitempty"`
+	// DiscoveryDateTime undocumented
+	DiscoveryDateTime *time.Time `json:"discoveryDateTime,omitempty"`
 	// Name undocumented
 	Name *string `json:"name,omitempty"`
 	// Objects undocumented
@@ -98,6 +102,14 @@ type DirectoryRole struct {
 	ScopedMembers []ScopedRoleMembership `json:"scopedMembers,omitempty"`
 }
 
+// DirectoryRoleAccessReviewPolicy undocumented
+type DirectoryRoleAccessReviewPolicy struct {
+	// Entity is the base model of DirectoryRoleAccessReviewPolicy
+	Entity
+	// Settings undocumented
+	Settings *AccessReviewScheduleSettings `json:"settings,omitempty"`
+}
+
 // DirectoryRoleTemplate undocumented
 type DirectoryRoleTemplate struct {
 	// DirectoryObject is the base model of DirectoryRoleTemplate
@@ -124,10 +136,20 @@ type DirectorySetting struct {
 type DirectorySettingTemplate struct {
 	// DirectoryObject is the base model of DirectorySettingTemplate
 	DirectoryObject
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Values undocumented
 	Values []SettingTemplateValue `json:"values,omitempty"`
+}
+
+// DirectorySizeQuota undocumented
+type DirectorySizeQuota struct {
+	// Object is the base model of DirectorySizeQuota
+	Object
+	// Total undocumented
+	Total *int `json:"total,omitempty"`
+	// Used undocumented
+	Used *int `json:"used,omitempty"`
 }

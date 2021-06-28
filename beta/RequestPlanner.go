@@ -301,6 +301,72 @@ func (r *PlannerProgressTaskBoardTaskFormatRequest) Delete(ctx context.Context) 
 	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
 }
 
+// PlannerRosterRequestBuilder is request builder for PlannerRoster
+type PlannerRosterRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns PlannerRosterRequest
+func (b *PlannerRosterRequestBuilder) Request() *PlannerRosterRequest {
+	return &PlannerRosterRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// PlannerRosterRequest is request for PlannerRoster
+type PlannerRosterRequest struct{ BaseRequest }
+
+// Get performs GET request for PlannerRoster
+func (r *PlannerRosterRequest) Get(ctx context.Context) (resObj *PlannerRoster, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for PlannerRoster
+func (r *PlannerRosterRequest) Update(ctx context.Context, reqObj *PlannerRoster) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for PlannerRoster
+func (r *PlannerRosterRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
+// PlannerRosterMemberRequestBuilder is request builder for PlannerRosterMember
+type PlannerRosterMemberRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns PlannerRosterMemberRequest
+func (b *PlannerRosterMemberRequestBuilder) Request() *PlannerRosterMemberRequest {
+	return &PlannerRosterMemberRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// PlannerRosterMemberRequest is request for PlannerRosterMember
+type PlannerRosterMemberRequest struct{ BaseRequest }
+
+// Get performs GET request for PlannerRosterMember
+func (r *PlannerRosterMemberRequest) Get(ctx context.Context) (resObj *PlannerRosterMember, err error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	err = r.JSONRequest(ctx, "GET", query, nil, &resObj)
+	return
+}
+
+// Update performs PATCH request for PlannerRosterMember
+func (r *PlannerRosterMemberRequest) Update(ctx context.Context, reqObj *PlannerRosterMember) error {
+	return r.JSONRequest(ctx, "PATCH", "", reqObj, nil)
+}
+
+// Delete performs DELETE request for PlannerRosterMember
+func (r *PlannerRosterMemberRequest) Delete(ctx context.Context) error {
+	return r.JSONRequest(ctx, "DELETE", "", nil, nil)
+}
+
 // PlannerTaskRequestBuilder is request builder for PlannerTask
 type PlannerTaskRequestBuilder struct{ BaseRequestBuilder }
 

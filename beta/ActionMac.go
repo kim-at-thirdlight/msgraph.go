@@ -11,12 +11,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// MacManagedAppProtectionCollectionHasPayloadLinksRequestParameter undocumented
-type MacManagedAppProtectionCollectionHasPayloadLinksRequestParameter struct {
-	// PayloadIDs undocumented
-	PayloadIDs []string `json:"payloadIds,omitempty"`
-}
-
 // SingleSignOnExtensionPkinitCertificate is navigation property
 func (b *MacOSDeviceFeaturesConfigurationRequestBuilder) SingleSignOnExtensionPkinitCertificate() *MacOSCertificateProfileBaseRequestBuilder {
 	bb := &MacOSCertificateProfileBaseRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -36,6 +30,109 @@ func (b *MacOSEnterpriseWiFiConfigurationRequestBuilder) RootCertificateForServe
 	bb := &MacOSTrustedRootCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/rootCertificateForServerValidation"
 	return bb
+}
+
+// RootCertificatesForServerValidation returns request builder for MacOSTrustedRootCertificate collection
+func (b *MacOSEnterpriseWiFiConfigurationRequestBuilder) RootCertificatesForServerValidation() *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder {
+	bb := &MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/rootCertificatesForServerValidation"
+	return bb
+}
+
+// MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder is request builder for MacOSTrustedRootCertificate collection
+type MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MacOSTrustedRootCertificate collection
+func (b *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder) Request() *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest {
+	return &MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MacOSTrustedRootCertificate item
+func (b *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequestBuilder) ID(id string) *MacOSTrustedRootCertificateRequestBuilder {
+	bb := &MacOSTrustedRootCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest is request for MacOSTrustedRootCertificate collection
+type MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MacOSTrustedRootCertificate collection
+func (r *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MacOSTrustedRootCertificate, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MacOSTrustedRootCertificate
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MacOSTrustedRootCertificate
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MacOSTrustedRootCertificate collection, max N pages
+func (r *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) GetN(ctx context.Context, n int) ([]MacOSTrustedRootCertificate, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MacOSTrustedRootCertificate collection
+func (r *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Get(ctx context.Context) ([]MacOSTrustedRootCertificate, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MacOSTrustedRootCertificate collection
+func (r *MacOSEnterpriseWiFiConfigurationRootCertificatesForServerValidationCollectionRequest) Add(ctx context.Context, reqObj *MacOSTrustedRootCertificate) (resObj *MacOSTrustedRootCertificate, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // ManagedDeviceCertificateStates returns request builder for ManagedDeviceCertificateState collection
@@ -352,6 +449,212 @@ func (b *MacOSScepCertificateProfileRequestBuilder) RootCertificate() *MacOSTrus
 	bb := &MacOSTrustedRootCertificateRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/rootCertificate"
 	return bb
+}
+
+// CategorySummaries returns request builder for MacOSSoftwareUpdateCategorySummary collection
+func (b *MacOSSoftwareUpdateAccountSummaryRequestBuilder) CategorySummaries() *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder {
+	bb := &MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/categorySummaries"
+	return bb
+}
+
+// MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder is request builder for MacOSSoftwareUpdateCategorySummary collection
+type MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MacOSSoftwareUpdateCategorySummary collection
+func (b *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder) Request() *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest {
+	return &MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MacOSSoftwareUpdateCategorySummary item
+func (b *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequestBuilder) ID(id string) *MacOSSoftwareUpdateCategorySummaryRequestBuilder {
+	bb := &MacOSSoftwareUpdateCategorySummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest is request for MacOSSoftwareUpdateCategorySummary collection
+type MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MacOSSoftwareUpdateCategorySummary collection
+func (r *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MacOSSoftwareUpdateCategorySummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MacOSSoftwareUpdateCategorySummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MacOSSoftwareUpdateCategorySummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MacOSSoftwareUpdateCategorySummary collection, max N pages
+func (r *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest) GetN(ctx context.Context, n int) ([]MacOSSoftwareUpdateCategorySummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MacOSSoftwareUpdateCategorySummary collection
+func (r *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest) Get(ctx context.Context) ([]MacOSSoftwareUpdateCategorySummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MacOSSoftwareUpdateCategorySummary collection
+func (r *MacOSSoftwareUpdateAccountSummaryCategorySummariesCollectionRequest) Add(ctx context.Context, reqObj *MacOSSoftwareUpdateCategorySummary) (resObj *MacOSSoftwareUpdateCategorySummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// UpdateStateSummaries returns request builder for MacOSSoftwareUpdateStateSummary collection
+func (b *MacOSSoftwareUpdateCategorySummaryRequestBuilder) UpdateStateSummaries() *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder {
+	bb := &MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/updateStateSummaries"
+	return bb
+}
+
+// MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder is request builder for MacOSSoftwareUpdateStateSummary collection
+type MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for MacOSSoftwareUpdateStateSummary collection
+func (b *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder) Request() *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest {
+	return &MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for MacOSSoftwareUpdateStateSummary item
+func (b *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequestBuilder) ID(id string) *MacOSSoftwareUpdateStateSummaryRequestBuilder {
+	bb := &MacOSSoftwareUpdateStateSummaryRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest is request for MacOSSoftwareUpdateStateSummary collection
+type MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for MacOSSoftwareUpdateStateSummary collection
+func (r *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MacOSSoftwareUpdateStateSummary, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []MacOSSoftwareUpdateStateSummary
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []MacOSSoftwareUpdateStateSummary
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for MacOSSoftwareUpdateStateSummary collection, max N pages
+func (r *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest) GetN(ctx context.Context, n int) ([]MacOSSoftwareUpdateStateSummary, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for MacOSSoftwareUpdateStateSummary collection
+func (r *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest) Get(ctx context.Context) ([]MacOSSoftwareUpdateStateSummary, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for MacOSSoftwareUpdateStateSummary collection
+func (r *MacOSSoftwareUpdateCategorySummaryUpdateStateSummariesCollectionRequest) Add(ctx context.Context, reqObj *MacOSSoftwareUpdateStateSummary) (resObj *MacOSSoftwareUpdateStateSummary, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
 }
 
 // IdentityCertificate is navigation property

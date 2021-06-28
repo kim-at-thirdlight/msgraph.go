@@ -6,42 +6,50 @@ package msgraph
 type SensitiveContentEvidence struct {
 	// Object is the base model of SensitiveContentEvidence
 	Object
+	// Length undocumented
+	Length *int `json:"length,omitempty"`
 	// Match undocumented
 	Match *string `json:"match,omitempty"`
 	// Offset undocumented
 	Offset *int `json:"offset,omitempty"`
-	// Length undocumented
-	Length *int `json:"length,omitempty"`
 }
 
 // SensitiveContentLocation undocumented
 type SensitiveContentLocation struct {
 	// Object is the base model of SensitiveContentLocation
 	Object
-	// IDMatch undocumented
-	IDMatch *string `json:"idMatch,omitempty"`
-	// Offset undocumented
-	Offset *int `json:"offset,omitempty"`
-	// Length undocumented
-	Length *int `json:"length,omitempty"`
+	// Confidence undocumented
+	Confidence *int `json:"confidence,omitempty"`
 	// Evidences undocumented
 	Evidences []SensitiveContentEvidence `json:"evidences,omitempty"`
+	// IDMatch undocumented
+	IDMatch *string `json:"idMatch,omitempty"`
+	// Length undocumented
+	Length *int `json:"length,omitempty"`
+	// Offset undocumented
+	Offset *int `json:"offset,omitempty"`
 }
 
 // SensitiveType undocumented
 type SensitiveType struct {
 	// Entity is the base model of SensitiveType
 	Entity
-	// Name undocumented
-	Name *string `json:"name,omitempty"`
+	// ClassificationMethod undocumented
+	ClassificationMethod *ClassificationMethod `json:"classificationMethod,omitempty"`
 	// Description undocumented
 	Description *string `json:"description,omitempty"`
+	// Name undocumented
+	Name *string `json:"name,omitempty"`
+	// PublisherName undocumented
+	PublisherName *string `json:"publisherName,omitempty"`
 	// RulePackageID undocumented
 	RulePackageID *string `json:"rulePackageId,omitempty"`
 	// RulePackageType undocumented
 	RulePackageType *string `json:"rulePackageType,omitempty"`
-	// PublisherName undocumented
-	PublisherName *string `json:"publisherName,omitempty"`
+	// Scope undocumented
+	Scope *SensitiveTypeScope `json:"scope,omitempty"`
+	// SensitiveTypeSource undocumented
+	SensitiveTypeSource *SensitiveTypeSource `json:"sensitiveTypeSource,omitempty"`
 	// State undocumented
 	State *string `json:"state,omitempty"`
 }

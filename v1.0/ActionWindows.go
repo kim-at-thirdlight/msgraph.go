@@ -11,10 +11,41 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
+// WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityAssignUserToDeviceRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AddressableUserName undocumented
+	AddressableUserName *string `json:"addressableUserName,omitempty"`
+}
+
+// WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityUnassignUserFromDeviceRequestParameter struct {
+}
+
+// WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter undocumented
+type WindowsAutopilotDeviceIdentityUpdateDevicePropertiesRequestParameter struct {
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
+	// AddressableUserName undocumented
+	AddressableUserName *string `json:"addressableUserName,omitempty"`
+	// GroupTag undocumented
+	GroupTag *string `json:"groupTag,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+}
+
 // WindowsInformationProtectionAssignRequestParameter undocumented
 type WindowsInformationProtectionAssignRequestParameter struct {
 	// Assignments undocumented
 	Assignments []TargetedManagedAppPolicyAssignment `json:"assignments,omitempty"`
+}
+
+// Device is navigation property
+func (b *WindowsHelloForBusinessAuthenticationMethodRequestBuilder) Device() *DeviceRequestBuilder {
+	bb := &DeviceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/device"
+	return bb
 }
 
 // Assignments returns request builder for TargetedManagedAppPolicyAssignment collection

@@ -8,40 +8,40 @@ import "time"
 type Item struct {
 	// Entity is the base model of Item
 	Entity
-	// Number undocumented
-	Number *string `json:"number,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Type undocumented
-	Type *string `json:"type,omitempty"`
-	// ItemCategoryID undocumented
-	ItemCategoryID *UUID `json:"itemCategoryId,omitempty"`
-	// ItemCategoryCode undocumented
-	ItemCategoryCode *string `json:"itemCategoryCode,omitempty"`
-	// Blocked undocumented
-	Blocked *bool `json:"blocked,omitempty"`
 	// BaseUnitOfMeasureID undocumented
 	BaseUnitOfMeasureID *UUID `json:"baseUnitOfMeasureId,omitempty"`
+	// Blocked undocumented
+	Blocked *bool `json:"blocked,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// Gtin undocumented
 	Gtin *string `json:"gtin,omitempty"`
 	// Inventory undocumented
 	Inventory *int `json:"inventory,omitempty"`
-	// UnitPrice undocumented
-	UnitPrice *int `json:"unitPrice,omitempty"`
-	// PriceIncludesTax undocumented
-	PriceIncludesTax *bool `json:"priceIncludesTax,omitempty"`
-	// UnitCost undocumented
-	UnitCost *int `json:"unitCost,omitempty"`
-	// TaxGroupID undocumented
-	TaxGroupID *UUID `json:"taxGroupId,omitempty"`
-	// TaxGroupCode undocumented
-	TaxGroupCode *string `json:"taxGroupCode,omitempty"`
+	// ItemCategoryCode undocumented
+	ItemCategoryCode *string `json:"itemCategoryCode,omitempty"`
+	// ItemCategoryID undocumented
+	ItemCategoryID *UUID `json:"itemCategoryId,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
-	// Picture undocumented
-	Picture []Picture `json:"picture,omitempty"`
+	// Number undocumented
+	Number *string `json:"number,omitempty"`
+	// PriceIncludesTax undocumented
+	PriceIncludesTax *bool `json:"priceIncludesTax,omitempty"`
+	// TaxGroupCode undocumented
+	TaxGroupCode *string `json:"taxGroupCode,omitempty"`
+	// TaxGroupID undocumented
+	TaxGroupID *UUID `json:"taxGroupId,omitempty"`
+	// Type undocumented
+	Type *string `json:"type,omitempty"`
+	// UnitCost undocumented
+	UnitCost *int `json:"unitCost,omitempty"`
+	// UnitPrice undocumented
+	UnitPrice *int `json:"unitPrice,omitempty"`
 	// ItemCategory undocumented
 	ItemCategory *ItemCategory `json:"itemCategory,omitempty"`
+	// Picture undocumented
+	Picture []Picture `json:"picture,omitempty"`
 }
 
 // ItemActionSet undocumented
@@ -114,10 +114,6 @@ type ItemActivityOLD struct {
 type ItemActivityStat struct {
 	// Entity is the base model of ItemActivityStat
 	Entity
-	// StartDateTime undocumented
-	StartDateTime *time.Time `json:"startDateTime,omitempty"`
-	// EndDateTime undocumented
-	EndDateTime *time.Time `json:"endDateTime,omitempty"`
 	// Access undocumented
 	Access *ItemActionStat `json:"access,omitempty"`
 	// Create undocumented
@@ -126,12 +122,16 @@ type ItemActivityStat struct {
 	Delete *ItemActionStat `json:"delete,omitempty"`
 	// Edit undocumented
 	Edit *ItemActionStat `json:"edit,omitempty"`
-	// Move undocumented
-	Move *ItemActionStat `json:"move,omitempty"`
-	// IsTrending undocumented
-	IsTrending *bool `json:"isTrending,omitempty"`
+	// EndDateTime undocumented
+	EndDateTime *time.Time `json:"endDateTime,omitempty"`
 	// IncompleteData undocumented
 	IncompleteData *IncompleteData `json:"incompleteData,omitempty"`
+	// IsTrending undocumented
+	IsTrending *bool `json:"isTrending,omitempty"`
+	// Move undocumented
+	Move *ItemActionStat `json:"move,omitempty"`
+	// StartDateTime undocumented
+	StartDateTime *time.Time `json:"startDateTime,omitempty"`
 	// Activities undocumented
 	Activities []ItemActivity `json:"activities,omitempty"`
 }
@@ -148,14 +148,26 @@ type ItemActivityTimeSet struct {
 	RecordedDateTime *time.Time `json:"recordedDateTime,omitempty"`
 }
 
+// ItemAddress undocumented
+type ItemAddress struct {
+	// ItemFacet is the base model of ItemAddress
+	ItemFacet
+	// Detail undocumented
+	Detail *PhysicalAddress `json:"detail,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// GeoCoordinates undocumented
+	GeoCoordinates *GeoCoordinates `json:"geoCoordinates,omitempty"`
+}
+
 // ItemAnalytics undocumented
 type ItemAnalytics struct {
 	// Entity is the base model of ItemAnalytics
 	Entity
-	// ItemActivityStats undocumented
-	ItemActivityStats []ItemActivityStat `json:"itemActivityStats,omitempty"`
 	// AllTime undocumented
 	AllTime *ItemActivityStat `json:"allTime,omitempty"`
+	// ItemActivityStats undocumented
+	ItemActivityStats []ItemActivityStat `json:"itemActivityStats,omitempty"`
 	// LastSevenDays undocumented
 	LastSevenDays *ItemActivityStat `json:"lastSevenDays,omitempty"`
 }
@@ -172,10 +184,10 @@ type ItemAttachment struct {
 type ItemBody struct {
 	// Object is the base model of ItemBody
 	Object
-	// ContentType undocumented
-	ContentType *BodyType `json:"contentType,omitempty"`
 	// Content undocumented
 	Content *string `json:"content,omitempty"`
+	// ContentType undocumented
+	ContentType *BodyType `json:"contentType,omitempty"`
 }
 
 // ItemCategory undocumented
@@ -208,16 +220,56 @@ type ItemFacet struct {
 	Entity
 	// AllowedAudiences undocumented
 	AllowedAudiences *AllowedAudiences `json:"allowedAudiences,omitempty"`
-	// Inference undocumented
-	Inference *InferenceData `json:"inference,omitempty"`
-	// CreatedDateTime undocumented
-	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
 	// CreatedBy undocumented
 	CreatedBy *IdentitySet `json:"createdBy,omitempty"`
-	// LastModifiedDateTime undocumented
-	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// CreatedDateTime undocumented
+	CreatedDateTime *time.Time `json:"createdDateTime,omitempty"`
+	// Inference undocumented
+	Inference *InferenceData `json:"inference,omitempty"`
+	// IsSearchable undocumented
+	IsSearchable *bool `json:"isSearchable,omitempty"`
 	// LastModifiedBy undocumented
 	LastModifiedBy *IdentitySet `json:"lastModifiedBy,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Source undocumented
+	Source *PersonDataSources `json:"source,omitempty"`
+}
+
+// ItemInsights undocumented
+type ItemInsights struct {
+	// OfficeGraphInsights is the base model of ItemInsights
+	OfficeGraphInsights
+}
+
+// ItemInsightsSettings undocumented
+type ItemInsightsSettings struct {
+	// Entity is the base model of ItemInsightsSettings
+	Entity
+	// DisabledForGroup undocumented
+	DisabledForGroup *string `json:"disabledForGroup,omitempty"`
+	// IsEnabledInOrganization undocumented
+	IsEnabledInOrganization *bool `json:"isEnabledInOrganization,omitempty"`
+}
+
+// ItemPatent undocumented
+type ItemPatent struct {
+	// ItemFacet is the base model of ItemPatent
+	ItemFacet
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsPending undocumented
+	IsPending *bool `json:"isPending,omitempty"`
+	// IssuedDate undocumented
+	IssuedDate *Date `json:"issuedDate,omitempty"`
+	// IssuingAuthority undocumented
+	IssuingAuthority *string `json:"issuingAuthority,omitempty"`
+	// Number undocumented
+	Number *string `json:"number,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // ItemPhone undocumented
@@ -226,10 +278,10 @@ type ItemPhone struct {
 	ItemFacet
 	// DisplayName undocumented
 	DisplayName *string `json:"displayName,omitempty"`
-	// Type undocumented
-	Type *PhoneType `json:"type,omitempty"`
 	// Number undocumented
 	Number *string `json:"number,omitempty"`
+	// Type undocumented
+	Type *PhoneType `json:"type,omitempty"`
 }
 
 // ItemPreviewInfo undocumented
@@ -242,6 +294,24 @@ type ItemPreviewInfo struct {
 	PostParameters *string `json:"postParameters,omitempty"`
 	// PostURL undocumented
 	PostURL *string `json:"postUrl,omitempty"`
+}
+
+// ItemPublication undocumented
+type ItemPublication struct {
+	// ItemFacet is the base model of ItemPublication
+	ItemFacet
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// PublishedDate undocumented
+	PublishedDate *Date `json:"publishedDate,omitempty"`
+	// Publisher undocumented
+	Publisher *string `json:"publisher,omitempty"`
+	// ThumbnailURL undocumented
+	ThumbnailURL *string `json:"thumbnailUrl,omitempty"`
+	// WebURL undocumented
+	WebURL *string `json:"webUrl,omitempty"`
 }
 
 // ItemReference undocumented

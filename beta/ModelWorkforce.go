@@ -6,18 +6,22 @@ package msgraph
 type WorkforceIntegration struct {
 	// ChangeTrackedEntity is the base model of WorkforceIntegration
 	ChangeTrackedEntity
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
 	// APIVersion undocumented
 	APIVersion *int `json:"apiVersion,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// EligibilityFilteringEnabledEntities undocumented
+	EligibilityFilteringEnabledEntities *EligibilityFilteringEnabledEntities `json:"eligibilityFilteringEnabledEntities,omitempty"`
 	// Encryption undocumented
 	Encryption *WorkforceIntegrationEncryption `json:"encryption,omitempty"`
 	// IsActive undocumented
 	IsActive *bool `json:"isActive,omitempty"`
-	// URL undocumented
-	URL *string `json:"url,omitempty"`
+	// SupportedEntities undocumented
+	SupportedEntities *WorkforceIntegrationSupportedEntities `json:"supportedEntities,omitempty"`
 	// Supports undocumented
 	Supports *WorkforceIntegrationSupportedEntities `json:"supports,omitempty"`
+	// URL undocumented
+	URL *string `json:"url,omitempty"`
 }
 
 // WorkforceIntegrationEncryption undocumented

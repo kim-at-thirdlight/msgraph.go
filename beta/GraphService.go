@@ -11,933 +11,6 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// AccessPackageAssignmentPolicies returns request builder for AccessPackageAssignmentPolicy collection
-func (b *GraphServiceRequestBuilder) AccessPackageAssignmentPolicies() *GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageAssignmentPolicies"
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder is request builder for AccessPackageAssignmentPolicy collection
-type GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageAssignmentPolicy collection
-func (b *GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder) Request() *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest {
-	return &GraphServiceAccessPackageAssignmentPoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageAssignmentPolicy item
-func (b *GraphServiceAccessPackageAssignmentPoliciesCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentPolicyRequestBuilder {
-	bb := &AccessPackageAssignmentPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentPoliciesCollectionRequest is request for AccessPackageAssignmentPolicy collection
-type GraphServiceAccessPackageAssignmentPoliciesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageAssignmentPolicy collection
-func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentPolicy, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageAssignmentPolicy
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageAssignmentPolicy
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageAssignmentPolicy collection, max N pages
-func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentPolicy, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageAssignmentPolicy collection
-func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentPolicy, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageAssignmentPolicy collection
-func (r *GraphServiceAccessPackageAssignmentPoliciesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentPolicy) (resObj *AccessPackageAssignmentPolicy, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageAssignmentRequests returns request builder for AccessPackageAssignmentRequestObject collection
-func (b *GraphServiceRequestBuilder) AccessPackageAssignmentRequests() *GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageAssignmentRequests"
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder is request builder for AccessPackageAssignmentRequestObject collection
-type GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageAssignmentRequestObject collection
-func (b *GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder) Request() *GraphServiceAccessPackageAssignmentRequestsCollectionRequest {
-	return &GraphServiceAccessPackageAssignmentRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageAssignmentRequestObject item
-func (b *GraphServiceAccessPackageAssignmentRequestsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestObjectRequestBuilder {
-	bb := &AccessPackageAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentRequestsCollectionRequest is request for AccessPackageAssignmentRequestObject collection
-type GraphServiceAccessPackageAssignmentRequestsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageAssignmentRequestObject collection
-func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentRequestObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageAssignmentRequestObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageAssignmentRequestObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageAssignmentRequestObject collection, max N pages
-func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentRequestObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageAssignmentRequestObject collection
-func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentRequestObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageAssignmentRequestObject collection
-func (r *GraphServiceAccessPackageAssignmentRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentRequestObject) (resObj *AccessPackageAssignmentRequestObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageAssignmentResourceRoles returns request builder for AccessPackageAssignmentResourceRole collection
-func (b *GraphServiceRequestBuilder) AccessPackageAssignmentResourceRoles() *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageAssignmentResourceRoles"
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder is request builder for AccessPackageAssignmentResourceRole collection
-type GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageAssignmentResourceRole collection
-func (b *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder) Request() *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest {
-	return &GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageAssignmentResourceRole item
-func (b *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentResourceRoleRequestBuilder {
-	bb := &AccessPackageAssignmentResourceRoleRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest is request for AccessPackageAssignmentResourceRole collection
-type GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageAssignmentResourceRole collection
-func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignmentResourceRole, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageAssignmentResourceRole
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageAssignmentResourceRole
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageAssignmentResourceRole collection, max N pages
-func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignmentResourceRole, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageAssignmentResourceRole collection
-func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignmentResourceRole, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageAssignmentResourceRole collection
-func (r *GraphServiceAccessPackageAssignmentResourceRolesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignmentResourceRole) (resObj *AccessPackageAssignmentResourceRole, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageAssignments returns request builder for AccessPackageAssignment collection
-func (b *GraphServiceRequestBuilder) AccessPackageAssignments() *GraphServiceAccessPackageAssignmentsCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageAssignments"
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentsCollectionRequestBuilder is request builder for AccessPackageAssignment collection
-type GraphServiceAccessPackageAssignmentsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageAssignment collection
-func (b *GraphServiceAccessPackageAssignmentsCollectionRequestBuilder) Request() *GraphServiceAccessPackageAssignmentsCollectionRequest {
-	return &GraphServiceAccessPackageAssignmentsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageAssignment item
-func (b *GraphServiceAccessPackageAssignmentsCollectionRequestBuilder) ID(id string) *AccessPackageAssignmentRequestBuilder {
-	bb := &AccessPackageAssignmentRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageAssignmentsCollectionRequest is request for AccessPackageAssignment collection
-type GraphServiceAccessPackageAssignmentsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageAssignment collection
-func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageAssignment, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageAssignment
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageAssignment
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageAssignment collection, max N pages
-func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageAssignment, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageAssignment collection
-func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) Get(ctx context.Context) ([]AccessPackageAssignment, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageAssignment collection
-func (r *GraphServiceAccessPackageAssignmentsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageAssignment) (resObj *AccessPackageAssignment, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageCatalogs returns request builder for AccessPackageCatalog collection
-func (b *GraphServiceRequestBuilder) AccessPackageCatalogs() *GraphServiceAccessPackageCatalogsCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageCatalogsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageCatalogs"
-	return bb
-}
-
-// GraphServiceAccessPackageCatalogsCollectionRequestBuilder is request builder for AccessPackageCatalog collection
-type GraphServiceAccessPackageCatalogsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageCatalog collection
-func (b *GraphServiceAccessPackageCatalogsCollectionRequestBuilder) Request() *GraphServiceAccessPackageCatalogsCollectionRequest {
-	return &GraphServiceAccessPackageCatalogsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageCatalog item
-func (b *GraphServiceAccessPackageCatalogsCollectionRequestBuilder) ID(id string) *AccessPackageCatalogRequestBuilder {
-	bb := &AccessPackageCatalogRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageCatalogsCollectionRequest is request for AccessPackageCatalog collection
-type GraphServiceAccessPackageCatalogsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageCatalog collection
-func (r *GraphServiceAccessPackageCatalogsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageCatalog, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageCatalog
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageCatalog
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageCatalog collection, max N pages
-func (r *GraphServiceAccessPackageCatalogsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageCatalog, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageCatalog collection
-func (r *GraphServiceAccessPackageCatalogsCollectionRequest) Get(ctx context.Context) ([]AccessPackageCatalog, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageCatalog collection
-func (r *GraphServiceAccessPackageCatalogsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageCatalog) (resObj *AccessPackageCatalog, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageResourceRequests returns request builder for AccessPackageResourceRequestObject collection
-func (b *GraphServiceRequestBuilder) AccessPackageResourceRequests() *GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageResourceRequests"
-	return bb
-}
-
-// GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder is request builder for AccessPackageResourceRequestObject collection
-type GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageResourceRequestObject collection
-func (b *GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder) Request() *GraphServiceAccessPackageResourceRequestsCollectionRequest {
-	return &GraphServiceAccessPackageResourceRequestsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageResourceRequestObject item
-func (b *GraphServiceAccessPackageResourceRequestsCollectionRequestBuilder) ID(id string) *AccessPackageResourceRequestObjectRequestBuilder {
-	bb := &AccessPackageResourceRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageResourceRequestsCollectionRequest is request for AccessPackageResourceRequestObject collection
-type GraphServiceAccessPackageResourceRequestsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageResourceRequestObject collection
-func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRequestObject, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageResourceRequestObject
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageResourceRequestObject
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageResourceRequestObject collection, max N pages
-func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRequestObject, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageResourceRequestObject collection
-func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRequestObject, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageResourceRequestObject collection
-func (r *GraphServiceAccessPackageResourceRequestsCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRequestObject) (resObj *AccessPackageResourceRequestObject, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageResourceRoleScopes returns request builder for AccessPackageResourceRoleScope collection
-func (b *GraphServiceRequestBuilder) AccessPackageResourceRoleScopes() *GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageResourceRoleScopes"
-	return bb
-}
-
-// GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder is request builder for AccessPackageResourceRoleScope collection
-type GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageResourceRoleScope collection
-func (b *GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder) Request() *GraphServiceAccessPackageResourceRoleScopesCollectionRequest {
-	return &GraphServiceAccessPackageResourceRoleScopesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageResourceRoleScope item
-func (b *GraphServiceAccessPackageResourceRoleScopesCollectionRequestBuilder) ID(id string) *AccessPackageResourceRoleScopeRequestBuilder {
-	bb := &AccessPackageResourceRoleScopeRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageResourceRoleScopesCollectionRequest is request for AccessPackageResourceRoleScope collection
-type GraphServiceAccessPackageResourceRoleScopesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageResourceRoleScope collection
-func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResourceRoleScope, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageResourceRoleScope
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageResourceRoleScope
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageResourceRoleScope collection, max N pages
-func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResourceRoleScope, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageResourceRoleScope collection
-func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResourceRoleScope, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageResourceRoleScope collection
-func (r *GraphServiceAccessPackageResourceRoleScopesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResourceRoleScope) (resObj *AccessPackageResourceRoleScope, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackageResources returns request builder for AccessPackageResource collection
-func (b *GraphServiceRequestBuilder) AccessPackageResources() *GraphServiceAccessPackageResourcesCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackageResourcesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackageResources"
-	return bb
-}
-
-// GraphServiceAccessPackageResourcesCollectionRequestBuilder is request builder for AccessPackageResource collection
-type GraphServiceAccessPackageResourcesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackageResource collection
-func (b *GraphServiceAccessPackageResourcesCollectionRequestBuilder) Request() *GraphServiceAccessPackageResourcesCollectionRequest {
-	return &GraphServiceAccessPackageResourcesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackageResource item
-func (b *GraphServiceAccessPackageResourcesCollectionRequestBuilder) ID(id string) *AccessPackageResourceRequestBuilder {
-	bb := &AccessPackageResourceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackageResourcesCollectionRequest is request for AccessPackageResource collection
-type GraphServiceAccessPackageResourcesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackageResource collection
-func (r *GraphServiceAccessPackageResourcesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackageResource, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackageResource
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackageResource
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackageResource collection, max N pages
-func (r *GraphServiceAccessPackageResourcesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackageResource, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackageResource collection
-func (r *GraphServiceAccessPackageResourcesCollectionRequest) Get(ctx context.Context) ([]AccessPackageResource, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackageResource collection
-func (r *GraphServiceAccessPackageResourcesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackageResource) (resObj *AccessPackageResource, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// AccessPackages returns request builder for AccessPackage collection
-func (b *GraphServiceRequestBuilder) AccessPackages() *GraphServiceAccessPackagesCollectionRequestBuilder {
-	bb := &GraphServiceAccessPackagesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/accessPackages"
-	return bb
-}
-
-// GraphServiceAccessPackagesCollectionRequestBuilder is request builder for AccessPackage collection
-type GraphServiceAccessPackagesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AccessPackage collection
-func (b *GraphServiceAccessPackagesCollectionRequestBuilder) Request() *GraphServiceAccessPackagesCollectionRequest {
-	return &GraphServiceAccessPackagesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AccessPackage item
-func (b *GraphServiceAccessPackagesCollectionRequestBuilder) ID(id string) *AccessPackageRequestBuilder {
-	bb := &AccessPackageRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAccessPackagesCollectionRequest is request for AccessPackage collection
-type GraphServiceAccessPackagesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AccessPackage collection
-func (r *GraphServiceAccessPackagesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AccessPackage, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AccessPackage
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AccessPackage
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AccessPackage collection, max N pages
-func (r *GraphServiceAccessPackagesCollectionRequest) GetN(ctx context.Context, n int) ([]AccessPackage, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AccessPackage collection
-func (r *GraphServiceAccessPackagesCollectionRequest) Get(ctx context.Context) ([]AccessPackage, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AccessPackage collection
-func (r *GraphServiceAccessPackagesCollectionRequest) Add(ctx context.Context, reqObj *AccessPackage) (resObj *AccessPackage, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // AccessReviewDecisions returns request builder for AccessReviewDecision collection
 func (b *GraphServiceRequestBuilder) AccessReviewDecisions() *GraphServiceAccessReviewDecisionsCollectionRequestBuilder {
 	bb := &GraphServiceAccessReviewDecisionsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -1659,109 +732,6 @@ func (r *GraphServiceAllowedDataLocationsCollectionRequest) Add(ctx context.Cont
 	return
 }
 
-// AnonymousIPRiskEvents returns request builder for AnonymousIPRiskEvent collection
-func (b *GraphServiceRequestBuilder) AnonymousIPRiskEvents() *GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/anonymousIpRiskEvents"
-	return bb
-}
-
-// GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder is request builder for AnonymousIPRiskEvent collection
-type GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for AnonymousIPRiskEvent collection
-func (b *GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder) Request() *GraphServiceAnonymousIPRiskEventsCollectionRequest {
-	return &GraphServiceAnonymousIPRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for AnonymousIPRiskEvent item
-func (b *GraphServiceAnonymousIPRiskEventsCollectionRequestBuilder) ID(id string) *AnonymousIPRiskEventRequestBuilder {
-	bb := &AnonymousIPRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceAnonymousIPRiskEventsCollectionRequest is request for AnonymousIPRiskEvent collection
-type GraphServiceAnonymousIPRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for AnonymousIPRiskEvent collection
-func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AnonymousIPRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []AnonymousIPRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []AnonymousIPRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for AnonymousIPRiskEvent collection, max N pages
-func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]AnonymousIPRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for AnonymousIPRiskEvent collection
-func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) Get(ctx context.Context) ([]AnonymousIPRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for AnonymousIPRiskEvent collection
-func (r *GraphServiceAnonymousIPRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *AnonymousIPRiskEvent) (resObj *AnonymousIPRiskEvent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // AppRoleAssignments returns request builder for AppRoleAssignment collection
 func (b *GraphServiceRequestBuilder) AppRoleAssignments() *GraphServiceAppRoleAssignmentsCollectionRequestBuilder {
 	bb := &GraphServiceAppRoleAssignmentsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -2170,6 +1140,109 @@ func (r *GraphServiceApprovalWorkflowProvidersCollectionRequest) Get(ctx context
 
 // Add performs POST request for ApprovalWorkflowProvider collection
 func (r *GraphServiceApprovalWorkflowProvidersCollectionRequest) Add(ctx context.Context, reqObj *ApprovalWorkflowProvider) (resObj *ApprovalWorkflowProvider, err error) {
+	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
+	return
+}
+
+// AuthenticationMethodConfigurations returns request builder for AuthenticationMethodConfiguration collection
+func (b *GraphServiceRequestBuilder) AuthenticationMethodConfigurations() *GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder {
+	bb := &GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/authenticationMethodConfigurations"
+	return bb
+}
+
+// GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder is request builder for AuthenticationMethodConfiguration collection
+type GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder struct{ BaseRequestBuilder }
+
+// Request returns request for AuthenticationMethodConfiguration collection
+func (b *GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder) Request() *GraphServiceAuthenticationMethodConfigurationsCollectionRequest {
+	return &GraphServiceAuthenticationMethodConfigurationsCollectionRequest{
+		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
+	}
+}
+
+// ID returns request builder for AuthenticationMethodConfiguration item
+func (b *GraphServiceAuthenticationMethodConfigurationsCollectionRequestBuilder) ID(id string) *AuthenticationMethodConfigurationRequestBuilder {
+	bb := &AuthenticationMethodConfigurationRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/" + id
+	return bb
+}
+
+// GraphServiceAuthenticationMethodConfigurationsCollectionRequest is request for AuthenticationMethodConfiguration collection
+type GraphServiceAuthenticationMethodConfigurationsCollectionRequest struct{ BaseRequest }
+
+// Paging perfoms paging operation for AuthenticationMethodConfiguration collection
+func (r *GraphServiceAuthenticationMethodConfigurationsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]AuthenticationMethodConfiguration, error) {
+	req, err := r.NewJSONRequest(method, path, obj)
+	if err != nil {
+		return nil, err
+	}
+	if ctx != nil {
+		req = req.WithContext(ctx)
+	}
+	res, err := r.client.Do(req)
+	if err != nil {
+		return nil, err
+	}
+	var values []AuthenticationMethodConfiguration
+	for {
+		if res.StatusCode != http.StatusOK {
+			b, _ := ioutil.ReadAll(res.Body)
+			res.Body.Close()
+			errRes := &ErrorResponse{Response: res}
+			err := jsonx.Unmarshal(b, errRes)
+			if err != nil {
+				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
+			}
+			return nil, errRes
+		}
+		var (
+			paging Paging
+			value  []AuthenticationMethodConfiguration
+		)
+		err := jsonx.NewDecoder(res.Body).Decode(&paging)
+		res.Body.Close()
+		if err != nil {
+			return nil, err
+		}
+		err = jsonx.Unmarshal(paging.Value, &value)
+		if err != nil {
+			return nil, err
+		}
+		values = append(values, value...)
+		if n >= 0 {
+			n--
+		}
+		if n == 0 || len(paging.NextLink) == 0 {
+			return values, nil
+		}
+		req, err = http.NewRequest("GET", paging.NextLink, nil)
+		if ctx != nil {
+			req = req.WithContext(ctx)
+		}
+		res, err = r.client.Do(req)
+		if err != nil {
+			return nil, err
+		}
+	}
+}
+
+// GetN performs GET request for AuthenticationMethodConfiguration collection, max N pages
+func (r *GraphServiceAuthenticationMethodConfigurationsCollectionRequest) GetN(ctx context.Context, n int) ([]AuthenticationMethodConfiguration, error) {
+	var query string
+	if r.query != nil {
+		query = "?" + r.query.Encode()
+	}
+	return r.Paging(ctx, "GET", query, nil, n)
+}
+
+// Get performs GET request for AuthenticationMethodConfiguration collection
+func (r *GraphServiceAuthenticationMethodConfigurationsCollectionRequest) Get(ctx context.Context) ([]AuthenticationMethodConfiguration, error) {
+	return r.GetN(ctx, 0)
+}
+
+// Add performs POST request for AuthenticationMethodConfiguration collection
+func (r *GraphServiceAuthenticationMethodConfigurationsCollectionRequest) Add(ctx context.Context, reqObj *AuthenticationMethodConfiguration) (resObj *AuthenticationMethodConfiguration, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -3303,109 +2376,6 @@ func (r *GraphServiceDevicesCollectionRequest) Get(ctx context.Context) ([]Devic
 
 // Add performs POST request for Device collection
 func (r *GraphServiceDevicesCollectionRequest) Add(ctx context.Context, reqObj *Device) (resObj *Device, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Directories returns request builder for DirectoryDefinition collection
-func (b *GraphServiceRequestBuilder) Directories() *GraphServiceDirectoriesCollectionRequestBuilder {
-	bb := &GraphServiceDirectoriesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/directories"
-	return bb
-}
-
-// GraphServiceDirectoriesCollectionRequestBuilder is request builder for DirectoryDefinition collection
-type GraphServiceDirectoriesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for DirectoryDefinition collection
-func (b *GraphServiceDirectoriesCollectionRequestBuilder) Request() *GraphServiceDirectoriesCollectionRequest {
-	return &GraphServiceDirectoriesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for DirectoryDefinition item
-func (b *GraphServiceDirectoriesCollectionRequestBuilder) ID(id string) *DirectoryDefinitionRequestBuilder {
-	bb := &DirectoryDefinitionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceDirectoriesCollectionRequest is request for DirectoryDefinition collection
-type GraphServiceDirectoriesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for DirectoryDefinition collection
-func (r *GraphServiceDirectoriesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]DirectoryDefinition, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []DirectoryDefinition
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []DirectoryDefinition
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for DirectoryDefinition collection, max N pages
-func (r *GraphServiceDirectoriesCollectionRequest) GetN(ctx context.Context, n int) ([]DirectoryDefinition, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for DirectoryDefinition collection
-func (r *GraphServiceDirectoriesCollectionRequest) Get(ctx context.Context) ([]DirectoryDefinition, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for DirectoryDefinition collection
-func (r *GraphServiceDirectoriesCollectionRequest) Add(ctx context.Context, reqObj *DirectoryDefinition) (resObj *DirectoryDefinition, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -5264,212 +4234,6 @@ func (r *GraphServiceIdentityProvidersCollectionRequest) Add(ctx context.Context
 	return
 }
 
-// IdentityRiskEvents returns request builder for IdentityRiskEvent collection
-func (b *GraphServiceRequestBuilder) IdentityRiskEvents() *GraphServiceIdentityRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceIdentityRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/identityRiskEvents"
-	return bb
-}
-
-// GraphServiceIdentityRiskEventsCollectionRequestBuilder is request builder for IdentityRiskEvent collection
-type GraphServiceIdentityRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for IdentityRiskEvent collection
-func (b *GraphServiceIdentityRiskEventsCollectionRequestBuilder) Request() *GraphServiceIdentityRiskEventsCollectionRequest {
-	return &GraphServiceIdentityRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for IdentityRiskEvent item
-func (b *GraphServiceIdentityRiskEventsCollectionRequestBuilder) ID(id string) *IdentityRiskEventRequestBuilder {
-	bb := &IdentityRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceIdentityRiskEventsCollectionRequest is request for IdentityRiskEvent collection
-type GraphServiceIdentityRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for IdentityRiskEvent collection
-func (r *GraphServiceIdentityRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]IdentityRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []IdentityRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []IdentityRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for IdentityRiskEvent collection, max N pages
-func (r *GraphServiceIdentityRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]IdentityRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for IdentityRiskEvent collection
-func (r *GraphServiceIdentityRiskEventsCollectionRequest) Get(ctx context.Context) ([]IdentityRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for IdentityRiskEvent collection
-func (r *GraphServiceIdentityRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *IdentityRiskEvent) (resObj *IdentityRiskEvent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// ImpossibleTravelRiskEvents returns request builder for ImpossibleTravelRiskEvent collection
-func (b *GraphServiceRequestBuilder) ImpossibleTravelRiskEvents() *GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/impossibleTravelRiskEvents"
-	return bb
-}
-
-// GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder is request builder for ImpossibleTravelRiskEvent collection
-type GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for ImpossibleTravelRiskEvent collection
-func (b *GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder) Request() *GraphServiceImpossibleTravelRiskEventsCollectionRequest {
-	return &GraphServiceImpossibleTravelRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for ImpossibleTravelRiskEvent item
-func (b *GraphServiceImpossibleTravelRiskEventsCollectionRequestBuilder) ID(id string) *ImpossibleTravelRiskEventRequestBuilder {
-	bb := &ImpossibleTravelRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceImpossibleTravelRiskEventsCollectionRequest is request for ImpossibleTravelRiskEvent collection
-type GraphServiceImpossibleTravelRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for ImpossibleTravelRiskEvent collection
-func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]ImpossibleTravelRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []ImpossibleTravelRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []ImpossibleTravelRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for ImpossibleTravelRiskEvent collection, max N pages
-func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]ImpossibleTravelRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for ImpossibleTravelRiskEvent collection
-func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) Get(ctx context.Context) ([]ImpossibleTravelRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for ImpossibleTravelRiskEvent collection
-func (r *GraphServiceImpossibleTravelRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *ImpossibleTravelRiskEvent) (resObj *ImpossibleTravelRiskEvent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // Invitations returns request builder for Invitation collection
 func (b *GraphServiceRequestBuilder) Invitations() *GraphServiceInvitationsCollectionRequestBuilder {
 	bb := &GraphServiceInvitationsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -5569,212 +4333,6 @@ func (r *GraphServiceInvitationsCollectionRequest) Get(ctx context.Context) ([]I
 
 // Add performs POST request for Invitation collection
 func (r *GraphServiceInvitationsCollectionRequest) Add(ctx context.Context, reqObj *Invitation) (resObj *Invitation, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// LeakedCredentialsRiskEvents returns request builder for LeakedCredentialsRiskEvent collection
-func (b *GraphServiceRequestBuilder) LeakedCredentialsRiskEvents() *GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/leakedCredentialsRiskEvents"
-	return bb
-}
-
-// GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder is request builder for LeakedCredentialsRiskEvent collection
-type GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for LeakedCredentialsRiskEvent collection
-func (b *GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder) Request() *GraphServiceLeakedCredentialsRiskEventsCollectionRequest {
-	return &GraphServiceLeakedCredentialsRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for LeakedCredentialsRiskEvent item
-func (b *GraphServiceLeakedCredentialsRiskEventsCollectionRequestBuilder) ID(id string) *LeakedCredentialsRiskEventRequestBuilder {
-	bb := &LeakedCredentialsRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceLeakedCredentialsRiskEventsCollectionRequest is request for LeakedCredentialsRiskEvent collection
-type GraphServiceLeakedCredentialsRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for LeakedCredentialsRiskEvent collection
-func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]LeakedCredentialsRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []LeakedCredentialsRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []LeakedCredentialsRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for LeakedCredentialsRiskEvent collection, max N pages
-func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]LeakedCredentialsRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for LeakedCredentialsRiskEvent collection
-func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) Get(ctx context.Context) ([]LeakedCredentialsRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for LeakedCredentialsRiskEvent collection
-func (r *GraphServiceLeakedCredentialsRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *LeakedCredentialsRiskEvent) (resObj *LeakedCredentialsRiskEvent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// MalwareRiskEvents returns request builder for MalwareRiskEvent collection
-func (b *GraphServiceRequestBuilder) MalwareRiskEvents() *GraphServiceMalwareRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceMalwareRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/malwareRiskEvents"
-	return bb
-}
-
-// GraphServiceMalwareRiskEventsCollectionRequestBuilder is request builder for MalwareRiskEvent collection
-type GraphServiceMalwareRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for MalwareRiskEvent collection
-func (b *GraphServiceMalwareRiskEventsCollectionRequestBuilder) Request() *GraphServiceMalwareRiskEventsCollectionRequest {
-	return &GraphServiceMalwareRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for MalwareRiskEvent item
-func (b *GraphServiceMalwareRiskEventsCollectionRequestBuilder) ID(id string) *MalwareRiskEventRequestBuilder {
-	bb := &MalwareRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceMalwareRiskEventsCollectionRequest is request for MalwareRiskEvent collection
-type GraphServiceMalwareRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for MalwareRiskEvent collection
-func (r *GraphServiceMalwareRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]MalwareRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []MalwareRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []MalwareRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for MalwareRiskEvent collection, max N pages
-func (r *GraphServiceMalwareRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]MalwareRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for MalwareRiskEvent collection
-func (r *GraphServiceMalwareRiskEventsCollectionRequest) Get(ctx context.Context) ([]MalwareRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for MalwareRiskEvent collection
-func (r *GraphServiceMalwareRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *MalwareRiskEvent) (resObj *MalwareRiskEvent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -6393,109 +4951,6 @@ func (r *GraphServicePlacesCollectionRequest) Get(ctx context.Context) ([]Place,
 
 // Add performs POST request for Place collection
 func (r *GraphServicePlacesCollectionRequest) Add(ctx context.Context, reqObj *Place) (resObj *Place, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// Policies returns request builder for Policy collection
-func (b *GraphServiceRequestBuilder) Policies() *GraphServicePoliciesCollectionRequestBuilder {
-	bb := &GraphServicePoliciesCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/policies"
-	return bb
-}
-
-// GraphServicePoliciesCollectionRequestBuilder is request builder for Policy collection
-type GraphServicePoliciesCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for Policy collection
-func (b *GraphServicePoliciesCollectionRequestBuilder) Request() *GraphServicePoliciesCollectionRequest {
-	return &GraphServicePoliciesCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for Policy item
-func (b *GraphServicePoliciesCollectionRequestBuilder) ID(id string) *PolicyRequestBuilder {
-	bb := &PolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServicePoliciesCollectionRequest is request for Policy collection
-type GraphServicePoliciesCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for Policy collection
-func (r *GraphServicePoliciesCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]Policy, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []Policy
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []Policy
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for Policy collection, max N pages
-func (r *GraphServicePoliciesCollectionRequest) GetN(ctx context.Context, n int) ([]Policy, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for Policy collection
-func (r *GraphServicePoliciesCollectionRequest) Get(ctx context.Context) ([]Policy, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for Policy collection
-func (r *GraphServicePoliciesCollectionRequest) Add(ctx context.Context, reqObj *Policy) (resObj *Policy, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -8560,109 +7015,6 @@ func (r *GraphServiceSubscriptionsCollectionRequest) Add(ctx context.Context, re
 	return
 }
 
-// SuspiciousIPRiskEvents returns request builder for SuspiciousIPRiskEvent collection
-func (b *GraphServiceRequestBuilder) SuspiciousIPRiskEvents() *GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/suspiciousIpRiskEvents"
-	return bb
-}
-
-// GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder is request builder for SuspiciousIPRiskEvent collection
-type GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for SuspiciousIPRiskEvent collection
-func (b *GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder) Request() *GraphServiceSuspiciousIPRiskEventsCollectionRequest {
-	return &GraphServiceSuspiciousIPRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for SuspiciousIPRiskEvent item
-func (b *GraphServiceSuspiciousIPRiskEventsCollectionRequestBuilder) ID(id string) *SuspiciousIPRiskEventRequestBuilder {
-	bb := &SuspiciousIPRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceSuspiciousIPRiskEventsCollectionRequest is request for SuspiciousIPRiskEvent collection
-type GraphServiceSuspiciousIPRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for SuspiciousIPRiskEvent collection
-func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]SuspiciousIPRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []SuspiciousIPRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []SuspiciousIPRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for SuspiciousIPRiskEvent collection, max N pages
-func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]SuspiciousIPRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for SuspiciousIPRiskEvent collection
-func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) Get(ctx context.Context) ([]SuspiciousIPRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for SuspiciousIPRiskEvent collection
-func (r *GraphServiceSuspiciousIPRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *SuspiciousIPRiskEvent) (resObj *SuspiciousIPRiskEvent, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
 // Teams returns request builder for Team collection
 func (b *GraphServiceRequestBuilder) Teams() *GraphServiceTeamsCollectionRequestBuilder {
 	bb := &GraphServiceTeamsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -8865,109 +7217,6 @@ func (r *GraphServiceTeamsTemplatesCollectionRequest) Get(ctx context.Context) (
 
 // Add performs POST request for TeamsTemplate collection
 func (r *GraphServiceTeamsTemplatesCollectionRequest) Add(ctx context.Context, reqObj *TeamsTemplate) (resObj *TeamsTemplate, err error) {
-	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
-	return
-}
-
-// UnfamiliarLocationRiskEvents returns request builder for UnfamiliarLocationRiskEvent collection
-func (b *GraphServiceRequestBuilder) UnfamiliarLocationRiskEvents() *GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder {
-	bb := &GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/unfamiliarLocationRiskEvents"
-	return bb
-}
-
-// GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder is request builder for UnfamiliarLocationRiskEvent collection
-type GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder struct{ BaseRequestBuilder }
-
-// Request returns request for UnfamiliarLocationRiskEvent collection
-func (b *GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder) Request() *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest {
-	return &GraphServiceUnfamiliarLocationRiskEventsCollectionRequest{
-		BaseRequest: BaseRequest{baseURL: b.baseURL, client: b.client},
-	}
-}
-
-// ID returns request builder for UnfamiliarLocationRiskEvent item
-func (b *GraphServiceUnfamiliarLocationRiskEventsCollectionRequestBuilder) ID(id string) *UnfamiliarLocationRiskEventRequestBuilder {
-	bb := &UnfamiliarLocationRiskEventRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/" + id
-	return bb
-}
-
-// GraphServiceUnfamiliarLocationRiskEventsCollectionRequest is request for UnfamiliarLocationRiskEvent collection
-type GraphServiceUnfamiliarLocationRiskEventsCollectionRequest struct{ BaseRequest }
-
-// Paging perfoms paging operation for UnfamiliarLocationRiskEvent collection
-func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) Paging(ctx context.Context, method, path string, obj interface{}, n int) ([]UnfamiliarLocationRiskEvent, error) {
-	req, err := r.NewJSONRequest(method, path, obj)
-	if err != nil {
-		return nil, err
-	}
-	if ctx != nil {
-		req = req.WithContext(ctx)
-	}
-	res, err := r.client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	var values []UnfamiliarLocationRiskEvent
-	for {
-		if res.StatusCode != http.StatusOK {
-			b, _ := ioutil.ReadAll(res.Body)
-			res.Body.Close()
-			errRes := &ErrorResponse{Response: res}
-			err := jsonx.Unmarshal(b, errRes)
-			if err != nil {
-				return nil, fmt.Errorf("%s: %s", res.Status, string(b))
-			}
-			return nil, errRes
-		}
-		var (
-			paging Paging
-			value  []UnfamiliarLocationRiskEvent
-		)
-		err := jsonx.NewDecoder(res.Body).Decode(&paging)
-		res.Body.Close()
-		if err != nil {
-			return nil, err
-		}
-		err = jsonx.Unmarshal(paging.Value, &value)
-		if err != nil {
-			return nil, err
-		}
-		values = append(values, value...)
-		if n >= 0 {
-			n--
-		}
-		if n == 0 || len(paging.NextLink) == 0 {
-			return values, nil
-		}
-		req, err = http.NewRequest("GET", paging.NextLink, nil)
-		if ctx != nil {
-			req = req.WithContext(ctx)
-		}
-		res, err = r.client.Do(req)
-		if err != nil {
-			return nil, err
-		}
-	}
-}
-
-// GetN performs GET request for UnfamiliarLocationRiskEvent collection, max N pages
-func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) GetN(ctx context.Context, n int) ([]UnfamiliarLocationRiskEvent, error) {
-	var query string
-	if r.query != nil {
-		query = "?" + r.query.Encode()
-	}
-	return r.Paging(ctx, "GET", query, nil, n)
-}
-
-// Get performs GET request for UnfamiliarLocationRiskEvent collection
-func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) Get(ctx context.Context) ([]UnfamiliarLocationRiskEvent, error) {
-	return r.GetN(ctx, 0)
-}
-
-// Add performs POST request for UnfamiliarLocationRiskEvent collection
-func (r *GraphServiceUnfamiliarLocationRiskEventsCollectionRequest) Add(ctx context.Context, reqObj *UnfamiliarLocationRiskEvent) (resObj *UnfamiliarLocationRiskEvent, err error) {
 	err = r.JSONRequest(ctx, "POST", "", reqObj, &resObj)
 	return
 }
@@ -9178,10 +7427,10 @@ func (r *GraphServiceWorkbooksCollectionRequest) Add(ctx context.Context, reqObj
 	return
 }
 
-// Security is navigation property
-func (b *GraphServiceRequestBuilder) Security() *SecurityRequestBuilder {
-	bb := &SecurityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/Security"
+// Admin is navigation property
+func (b *GraphServiceRequestBuilder) Admin() *AdminRequestBuilder {
+	bb := &AdminRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/admin"
 	return bb
 }
 
@@ -9206,10 +7455,38 @@ func (b *GraphServiceRequestBuilder) AuditLogs() *AuditLogRootRequestBuilder {
 	return bb
 }
 
+// AuthenticationMethodsPolicy is navigation property
+func (b *GraphServiceRequestBuilder) AuthenticationMethodsPolicy() *AuthenticationMethodsPolicyRequestBuilder {
+	bb := &AuthenticationMethodsPolicyRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/authenticationMethodsPolicy"
+	return bb
+}
+
+// Bitlocker is navigation property
+func (b *GraphServiceRequestBuilder) Bitlocker() *BitlockerRequestBuilder {
+	bb := &BitlockerRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/bitlocker"
+	return bb
+}
+
+// Branding is navigation property
+func (b *GraphServiceRequestBuilder) Branding() *OrganizationalBrandingRequestBuilder {
+	bb := &OrganizationalBrandingRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/branding"
+	return bb
+}
+
 // Communications is navigation property
 func (b *GraphServiceRequestBuilder) Communications() *CloudCommunicationsRequestBuilder {
 	bb := &CloudCommunicationsRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/communications"
+	return bb
+}
+
+// Compliance is navigation property
+func (b *GraphServiceRequestBuilder) Compliance() *ComplianceRequestBuilder {
+	bb := &ComplianceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/compliance"
 	return bb
 }
 
@@ -9262,13 +7539,6 @@ func (b *GraphServiceRequestBuilder) Education() *EducationRootRequestBuilder {
 	return bb
 }
 
-// EntitlementManagement is navigation property
-func (b *GraphServiceRequestBuilder) EntitlementManagement() *EntitlementManagementRequestBuilder {
-	bb := &EntitlementManagementRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
-	bb.baseURL += "/entitlementManagement"
-	return bb
-}
-
 // External is navigation property
 func (b *GraphServiceRequestBuilder) External() *ExternalRequestBuilder {
 	bb := &ExternalRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9294,6 +7564,13 @@ func (b *GraphServiceRequestBuilder) Identity() *IdentityContainerRequestBuilder
 func (b *GraphServiceRequestBuilder) IdentityGovernance() *IdentityGovernanceRequestBuilder {
 	bb := &IdentityGovernanceRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/identityGovernance"
+	return bb
+}
+
+// IdentityProtection is navigation property
+func (b *GraphServiceRequestBuilder) IdentityProtection() *IdentityProtectionRootRequestBuilder {
+	bb := &IdentityProtectionRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/identityProtection"
 	return bb
 }
 
@@ -9325,6 +7602,20 @@ func (b *GraphServiceRequestBuilder) Planner() *PlannerRequestBuilder {
 	return bb
 }
 
+// Policies is navigation property
+func (b *GraphServiceRequestBuilder) Policies() *PolicyRootRequestBuilder {
+	bb := &PolicyRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/policies"
+	return bb
+}
+
+// Print is navigation property
+func (b *GraphServiceRequestBuilder) Print() *PrintRequestBuilder {
+	bb := &PrintRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/print"
+	return bb
+}
+
 // Reports is navigation property
 func (b *GraphServiceRequestBuilder) Reports() *ReportRootRequestBuilder {
 	bb := &ReportRootRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
@@ -9340,9 +7631,16 @@ func (b *GraphServiceRequestBuilder) RoleManagement() *RoleManagementRequestBuil
 }
 
 // Search is navigation property
-func (b *GraphServiceRequestBuilder) Search() *SearchRequestBuilder {
-	bb := &SearchRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+func (b *GraphServiceRequestBuilder) Search() *SearchEntityRequestBuilder {
+	bb := &SearchEntityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/search"
+	return bb
+}
+
+// Security is navigation property
+func (b *GraphServiceRequestBuilder) Security() *SecurityRequestBuilder {
+	bb := &SecurityRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/security"
 	return bb
 }
 
@@ -9350,6 +7648,20 @@ func (b *GraphServiceRequestBuilder) Search() *SearchRequestBuilder {
 func (b *GraphServiceRequestBuilder) Teamwork() *TeamworkRequestBuilder {
 	bb := &TeamworkRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/teamwork"
+	return bb
+}
+
+// TenantRelationships is navigation property
+func (b *GraphServiceRequestBuilder) TenantRelationships() *TenantRelationshipRequestBuilder {
+	bb := &TenantRelationshipRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/tenantRelationships"
+	return bb
+}
+
+// TermStore is navigation property
+func (b *GraphServiceRequestBuilder) TermStore() *StoreRequestBuilder {
+	bb := &StoreRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
+	bb.baseURL += "/termStore"
 	return bb
 }
 

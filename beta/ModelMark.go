@@ -6,10 +6,10 @@ package msgraph
 type MarkContent struct {
 	// LabelActionBase is the base model of MarkContent
 	LabelActionBase
+	// FontColor undocumented
+	FontColor *string `json:"fontColor,omitempty"`
 	// FontSize undocumented
 	FontSize *int `json:"fontSize,omitempty"`
 	// Text undocumented
 	Text *string `json:"text,omitempty"`
-	// FontColor undocumented
-	FontColor *string `json:"fontColor,omitempty"`
 }

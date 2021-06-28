@@ -2,54 +2,68 @@
 
 package msgraph
 
-// HardwareInformation undocumented
+// HardwareInformation Hardware information of a given device.
 type HardwareInformation struct {
 	// Object is the base model of HardwareInformation
 	Object
-	// SerialNumber Serial number.
-	SerialNumber *string `json:"serialNumber,omitempty"`
-	// TotalStorageSpace Total storage space of the device.
-	TotalStorageSpace *int `json:"totalStorageSpace,omitempty"`
-	// FreeStorageSpace Free storage space of the device.
-	FreeStorageSpace *int `json:"freeStorageSpace,omitempty"`
-	// Imei IMEI
-	Imei *string `json:"imei,omitempty"`
-	// Meid MEID
-	Meid *string `json:"meid,omitempty"`
-	// Manufacturer Manufacturer of the device
-	Manufacturer *string `json:"manufacturer,omitempty"`
-	// Model Model of the device
-	Model *string `json:"model,omitempty"`
-	// PhoneNumber Phone number of the device
-	PhoneNumber *string `json:"phoneNumber,omitempty"`
-	// SubscriberCarrier Subscriber carrier of the device
-	SubscriberCarrier *string `json:"subscriberCarrier,omitempty"`
+	// BatteryChargeCycles The number of charge cycles the device’s current battery has gone through. Valid values 0 to 2147483647
+	BatteryChargeCycles *int `json:"batteryChargeCycles,omitempty"`
+	// BatteryHealthPercentage The device’s current battery’s health percentage. Valid values 0 to 100
+	BatteryHealthPercentage *int `json:"batteryHealthPercentage,omitempty"`
+	// BatterySerialNumber The serial number of the device’s current battery
+	BatterySerialNumber *string `json:"batterySerialNumber,omitempty"`
 	// CellularTechnology Cellular technology of the device
 	CellularTechnology *string `json:"cellularTechnology,omitempty"`
-	// WiFiMac WiFi MAC address of the device
-	WiFiMac *string `json:"wifiMac,omitempty"`
-	// OperatingSystemLanguage Operating system language of the device
-	OperatingSystemLanguage *string `json:"operatingSystemLanguage,omitempty"`
-	// IsSupervised Supervised mode of the device
-	IsSupervised *bool `json:"isSupervised,omitempty"`
-	// IsEncrypted Encryption status of the device
-	IsEncrypted *bool `json:"isEncrypted,omitempty"`
-	// IsSharedDevice Shared iPad
-	IsSharedDevice *bool `json:"isSharedDevice,omitempty"`
-	// SharedDeviceCachedUsers All users on the shared Apple device
-	SharedDeviceCachedUsers []SharedAppleDeviceUser `json:"sharedDeviceCachedUsers,omitempty"`
-	// TpmSpecificationVersion String that specifies the specification version.
-	TpmSpecificationVersion *string `json:"tpmSpecificationVersion,omitempty"`
-	// OperatingSystemEdition String that specifies the OS edition.
-	OperatingSystemEdition *string `json:"operatingSystemEdition,omitempty"`
 	// DeviceFullQualifiedDomainName Returns the fully qualified domain name of the device (if any). If the device is not domain-joined, it returns an empty string.
 	DeviceFullQualifiedDomainName *string `json:"deviceFullQualifiedDomainName,omitempty"`
+	// DeviceGuardLocalSystemAuthorityCredentialGuardState Local System Authority (LSA) credential guard status.
+	DeviceGuardLocalSystemAuthorityCredentialGuardState *DeviceGuardLocalSystemAuthorityCredentialGuardState `json:"deviceGuardLocalSystemAuthorityCredentialGuardState,omitempty"`
 	// DeviceGuardVirtualizationBasedSecurityHardwareRequirementState Virtualization-based security hardware requirement status.
 	DeviceGuardVirtualizationBasedSecurityHardwareRequirementState *DeviceGuardVirtualizationBasedSecurityHardwareRequirementState `json:"deviceGuardVirtualizationBasedSecurityHardwareRequirementState,omitempty"`
 	// DeviceGuardVirtualizationBasedSecurityState Virtualization-based security status.
 	DeviceGuardVirtualizationBasedSecurityState *DeviceGuardVirtualizationBasedSecurityState `json:"deviceGuardVirtualizationBasedSecurityState,omitempty"`
-	// DeviceGuardLocalSystemAuthorityCredentialGuardState Local System Authority (LSA) credential guard status.
-	DeviceGuardLocalSystemAuthorityCredentialGuardState *DeviceGuardLocalSystemAuthorityCredentialGuardState `json:"deviceGuardLocalSystemAuthorityCredentialGuardState,omitempty"`
+	// EsimIdentifier eSIM identifier
+	EsimIdentifier *string `json:"esimIdentifier,omitempty"`
+	// FreeStorageSpace Free storage space of the device.
+	FreeStorageSpace *int `json:"freeStorageSpace,omitempty"`
+	// Imei IMEI
+	Imei *string `json:"imei,omitempty"`
+	// IPAddressV4 IPAddressV4
+	IPAddressV4 *string `json:"ipAddressV4,omitempty"`
+	// IsEncrypted Encryption status of the device
+	IsEncrypted *bool `json:"isEncrypted,omitempty"`
+	// IsSharedDevice Shared iPad
+	IsSharedDevice *bool `json:"isSharedDevice,omitempty"`
+	// IsSupervised Supervised mode of the device
+	IsSupervised *bool `json:"isSupervised,omitempty"`
+	// Manufacturer Manufacturer of the device
+	Manufacturer *string `json:"manufacturer,omitempty"`
+	// Meid MEID
+	Meid *string `json:"meid,omitempty"`
+	// Model Model of the device
+	Model *string `json:"model,omitempty"`
+	// OperatingSystemEdition String that specifies the OS edition.
+	OperatingSystemEdition *string `json:"operatingSystemEdition,omitempty"`
+	// OperatingSystemLanguage Operating system language of the device
+	OperatingSystemLanguage *string `json:"operatingSystemLanguage,omitempty"`
+	// OperatingSystemProductType Int that specifies the Windows Operating System ProductType. More details here https://go.microsoft.com/fwlink/?linkid=2126950. Valid values 0 to 2147483647
+	OperatingSystemProductType *int `json:"operatingSystemProductType,omitempty"`
 	// OsBuildNumber Operating System Build Number on Android device
 	OsBuildNumber *string `json:"osBuildNumber,omitempty"`
+	// PhoneNumber Phone number of the device
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// SerialNumber Serial number.
+	SerialNumber *string `json:"serialNumber,omitempty"`
+	// SharedDeviceCachedUsers All users on the shared Apple device
+	SharedDeviceCachedUsers []SharedAppleDeviceUser `json:"sharedDeviceCachedUsers,omitempty"`
+	// SubnetAddress SubnetAddress
+	SubnetAddress *string `json:"subnetAddress,omitempty"`
+	// SubscriberCarrier Subscriber carrier of the device
+	SubscriberCarrier *string `json:"subscriberCarrier,omitempty"`
+	// TotalStorageSpace Total storage space of the device.
+	TotalStorageSpace *int `json:"totalStorageSpace,omitempty"`
+	// TpmSpecificationVersion String that specifies the specification version.
+	TpmSpecificationVersion *string `json:"tpmSpecificationVersion,omitempty"`
+	// WiFiMac WiFi MAC address of the device
+	WiFiMac *string `json:"wifiMac,omitempty"`
 }

@@ -4,30 +4,156 @@ package msgraph
 
 import "time"
 
+// Authentication undocumented
+type Authentication struct {
+	// Entity is the base model of Authentication
+	Entity
+	// EmailMethods undocumented
+	EmailMethods []EmailAuthenticationMethod `json:"emailMethods,omitempty"`
+	// Fido2Methods undocumented
+	Fido2Methods []Fido2AuthenticationMethod `json:"fido2Methods,omitempty"`
+	// Methods undocumented
+	Methods []AuthenticationMethod `json:"methods,omitempty"`
+	// MicrosoftAuthenticatorMethods undocumented
+	MicrosoftAuthenticatorMethods []MicrosoftAuthenticatorAuthenticationMethod `json:"microsoftAuthenticatorMethods,omitempty"`
+	// Operations undocumented
+	Operations []LongRunningOperation `json:"operations,omitempty"`
+	// PasswordlessMicrosoftAuthenticatorMethods undocumented
+	PasswordlessMicrosoftAuthenticatorMethods []PasswordlessMicrosoftAuthenticatorAuthenticationMethod `json:"passwordlessMicrosoftAuthenticatorMethods,omitempty"`
+	// PasswordMethods undocumented
+	PasswordMethods []PasswordAuthenticationMethod `json:"passwordMethods,omitempty"`
+	// PhoneMethods undocumented
+	PhoneMethods []PhoneAuthenticationMethod `json:"phoneMethods,omitempty"`
+	// TemporaryAccessPassMethods undocumented
+	TemporaryAccessPassMethods []TemporaryAccessPassAuthenticationMethod `json:"temporaryAccessPassMethods,omitempty"`
+	// WindowsHelloForBusinessMethods undocumented
+	WindowsHelloForBusinessMethods []WindowsHelloForBusinessAuthenticationMethod `json:"windowsHelloForBusinessMethods,omitempty"`
+}
+
+// AuthenticationContextClassReference undocumented
+type AuthenticationContextClassReference struct {
+	// Entity is the base model of AuthenticationContextClassReference
+	Entity
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// IsAvailable undocumented
+	IsAvailable *bool `json:"isAvailable,omitempty"`
+}
+
 // AuthenticationDetail undocumented
 type AuthenticationDetail struct {
 	// Object is the base model of AuthenticationDetail
 	Object
-	// AuthenticationStepDateTime undocumented
-	AuthenticationStepDateTime *time.Time `json:"authenticationStepDateTime,omitempty"`
 	// AuthenticationMethod undocumented
 	AuthenticationMethod *string `json:"authenticationMethod,omitempty"`
 	// AuthenticationMethodDetail undocumented
 	AuthenticationMethodDetail *string `json:"authenticationMethodDetail,omitempty"`
-	// Succeeded undocumented
-	Succeeded *bool `json:"succeeded,omitempty"`
-	// AuthenticationStepResultDetail undocumented
-	AuthenticationStepResultDetail *string `json:"authenticationStepResultDetail,omitempty"`
+	// AuthenticationStepDateTime undocumented
+	AuthenticationStepDateTime *time.Time `json:"authenticationStepDateTime,omitempty"`
 	// AuthenticationStepRequirement undocumented
 	AuthenticationStepRequirement *string `json:"authenticationStepRequirement,omitempty"`
+	// AuthenticationStepResultDetail undocumented
+	AuthenticationStepResultDetail *string `json:"authenticationStepResultDetail,omitempty"`
+	// Succeeded undocumented
+	Succeeded *bool `json:"succeeded,omitempty"`
+}
+
+// AuthenticationFlowsPolicy undocumented
+type AuthenticationFlowsPolicy struct {
+	// Entity is the base model of AuthenticationFlowsPolicy
+	Entity
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// SelfServiceSignUp undocumented
+	SelfServiceSignUp *SelfServiceSignUpAuthenticationFlowConfiguration `json:"selfServiceSignUp,omitempty"`
+}
+
+// AuthenticationMethod undocumented
+type AuthenticationMethod struct {
+	// Entity is the base model of AuthenticationMethod
+	Entity
+}
+
+// AuthenticationMethodConfiguration undocumented
+type AuthenticationMethodConfiguration struct {
+	// Entity is the base model of AuthenticationMethodConfiguration
+	Entity
+	// State undocumented
+	State *AuthenticationMethodState `json:"state,omitempty"`
+}
+
+// AuthenticationMethodTarget undocumented
+type AuthenticationMethodTarget struct {
+	// Entity is the base model of AuthenticationMethodTarget
+	Entity
+	// IsRegistrationRequired undocumented
+	IsRegistrationRequired *bool `json:"isRegistrationRequired,omitempty"`
+	// TargetType undocumented
+	TargetType *AuthenticationMethodTargetType `json:"targetType,omitempty"`
+}
+
+// AuthenticationMethodsPolicy undocumented
+type AuthenticationMethodsPolicy struct {
+	// Entity is the base model of AuthenticationMethodsPolicy
+	Entity
+	// Description undocumented
+	Description *string `json:"description,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
+	// LastModifiedDateTime undocumented
+	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// PolicyVersion undocumented
+	PolicyVersion *string `json:"policyVersion,omitempty"`
+	// ReconfirmationInDays undocumented
+	ReconfirmationInDays *int `json:"reconfirmationInDays,omitempty"`
+	// RegistrationEnforcement undocumented
+	RegistrationEnforcement *RegistrationEnforcement `json:"registrationEnforcement,omitempty"`
+	// AuthenticationMethodConfigurations undocumented
+	AuthenticationMethodConfigurations []AuthenticationMethodConfiguration `json:"authenticationMethodConfigurations,omitempty"`
+}
+
+// AuthenticationMethodsRegistrationCampaign undocumented
+type AuthenticationMethodsRegistrationCampaign struct {
+	// Object is the base model of AuthenticationMethodsRegistrationCampaign
+	Object
+	// ExcludeTargets undocumented
+	ExcludeTargets []ExcludeTarget `json:"excludeTargets,omitempty"`
+	// IncludeTargets undocumented
+	IncludeTargets []AuthenticationMethodsRegistrationCampaignIncludeTarget `json:"includeTargets,omitempty"`
+	// SnoozeDurationInDays undocumented
+	SnoozeDurationInDays *int `json:"snoozeDurationInDays,omitempty"`
+	// State undocumented
+	State *AdvancedConfigState `json:"state,omitempty"`
+}
+
+// AuthenticationMethodsRegistrationCampaignIncludeTarget undocumented
+type AuthenticationMethodsRegistrationCampaignIncludeTarget struct {
+	// Object is the base model of AuthenticationMethodsRegistrationCampaignIncludeTarget
+	Object
+	// ID undocumented
+	ID *string `json:"id,omitempty"`
+	// TargetedAuthenticationMethod undocumented
+	TargetedAuthenticationMethod *string `json:"targetedAuthenticationMethod,omitempty"`
+	// TargetType undocumented
+	TargetType *AuthenticationMethodTargetType `json:"targetType,omitempty"`
+}
+
+// AuthenticationMethodsRoot undocumented
+type AuthenticationMethodsRoot struct {
+	// Entity is the base model of AuthenticationMethodsRoot
+	Entity
 }
 
 // AuthenticationRequirementPolicy undocumented
 type AuthenticationRequirementPolicy struct {
 	// Object is the base model of AuthenticationRequirementPolicy
 	Object
-	// RequirementProvider undocumented
-	RequirementProvider *RequirementProvider `json:"requirementProvider,omitempty"`
 	// Detail undocumented
 	Detail *string `json:"detail,omitempty"`
+	// RequirementProvider undocumented
+	RequirementProvider *RequirementProvider `json:"requirementProvider,omitempty"`
 }

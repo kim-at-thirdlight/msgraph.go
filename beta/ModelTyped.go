@@ -6,8 +6,8 @@ package msgraph
 type TypedEmailAddress struct {
 	// EmailAddress is the base model of TypedEmailAddress
 	EmailAddress
-	// Type undocumented
-	Type *EmailType `json:"type,omitempty"`
 	// OtherLabel undocumented
 	OtherLabel *string `json:"otherLabel,omitempty"`
+	// Type undocumented
+	Type *EmailType `json:"type,omitempty"`
 }

@@ -11,14 +11,14 @@ import (
 	"github.com/yaegashi/msgraph.go/jsonx"
 )
 
-// PrivilegedSignupStatusCollectionSignUpRequestParameter undocumented
-type PrivilegedSignupStatusCollectionSignUpRequestParameter struct {
-}
-
 // PrivilegedSignupStatusCollectionCompleteSetupRequestParameter undocumented
 type PrivilegedSignupStatusCollectionCompleteSetupRequestParameter struct {
 	// TenantSetupInfo undocumented
 	TenantSetupInfo *TenantSetupInfo `json:"tenantSetupInfo,omitempty"`
+}
+
+// PrivilegedSignupStatusCollectionSignUpRequestParameter undocumented
+type PrivilegedSignupStatusCollectionSignUpRequestParameter struct {
 }
 
 // PrivilegedRoleSelfActivateRequestParameter undocumented
@@ -37,6 +37,10 @@ type PrivilegedRoleSelfActivateRequestParameter struct {
 type PrivilegedRoleSelfDeactivateRequestParameter struct {
 }
 
+// PrivilegedRoleAssignmentMakeEligibleRequestParameter undocumented
+type PrivilegedRoleAssignmentMakeEligibleRequestParameter struct {
+}
+
 // PrivilegedRoleAssignmentMakePermanentRequestParameter undocumented
 type PrivilegedRoleAssignmentMakePermanentRequestParameter struct {
 	// Reason undocumented
@@ -45,10 +49,6 @@ type PrivilegedRoleAssignmentMakePermanentRequestParameter struct {
 	TicketNumber *string `json:"ticketNumber,omitempty"`
 	// TicketSystem undocumented
 	TicketSystem *string `json:"ticketSystem,omitempty"`
-}
-
-// PrivilegedRoleAssignmentMakeEligibleRequestParameter undocumented
-type PrivilegedRoleAssignmentMakeEligibleRequestParameter struct {
 }
 
 // PrivilegedRoleAssignmentRequestObjectCancelRequestParameter undocumented
@@ -570,8 +570,8 @@ func (r *PrivilegedAccessRoleSettingsCollectionRequest) Add(ctx context.Context,
 	return
 }
 
-// RequestNavigation is navigation property
-func (b *PrivilegedApprovalRequestBuilder) RequestNavigation() *PrivilegedRoleAssignmentRequestObjectRequestBuilder {
+// RequestObject is navigation property
+func (b *PrivilegedApprovalRequestBuilder) RequestObject() *PrivilegedRoleAssignmentRequestObjectRequestBuilder {
 	bb := &PrivilegedRoleAssignmentRequestObjectRequestBuilder{BaseRequestBuilder: b.BaseRequestBuilder}
 	bb.baseURL += "/request"
 	return bb

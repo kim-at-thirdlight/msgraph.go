@@ -8,18 +8,18 @@ import "time"
 type Account struct {
 	// Entity is the base model of Account
 	Entity
-	// Number undocumented
-	Number *string `json:"number,omitempty"`
-	// DisplayName undocumented
-	DisplayName *string `json:"displayName,omitempty"`
-	// Category undocumented
-	Category *string `json:"category,omitempty"`
-	// SubCategory undocumented
-	SubCategory *string `json:"subCategory,omitempty"`
 	// Blocked undocumented
 	Blocked *bool `json:"blocked,omitempty"`
+	// Category undocumented
+	Category *string `json:"category,omitempty"`
+	// DisplayName undocumented
+	DisplayName *string `json:"displayName,omitempty"`
 	// LastModifiedDateTime undocumented
 	LastModifiedDateTime *time.Time `json:"lastModifiedDateTime,omitempty"`
+	// Number undocumented
+	Number *string `json:"number,omitempty"`
+	// SubCategory undocumented
+	SubCategory *string `json:"subCategory,omitempty"`
 }
 
 // AccountAlias undocumented

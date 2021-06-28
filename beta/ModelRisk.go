@@ -8,52 +8,56 @@ import "time"
 type RiskDetection struct {
 	// Entity is the base model of RiskDetection
 	Entity
-	// RequestID undocumented
-	RequestID *string `json:"requestId,omitempty"`
-	// CorrelationID undocumented
-	CorrelationID *string `json:"correlationId,omitempty"`
-	// RiskType undocumented
-	RiskType *RiskEventType `json:"riskType,omitempty"`
-	// RiskState undocumented
-	RiskState *RiskState `json:"riskState,omitempty"`
-	// RiskLevel undocumented
-	RiskLevel *RiskLevel `json:"riskLevel,omitempty"`
-	// RiskDetail undocumented
-	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
-	// Source undocumented
-	Source *string `json:"source,omitempty"`
-	// DetectionTimingType undocumented
-	DetectionTimingType *RiskDetectionTimingType `json:"detectionTimingType,omitempty"`
 	// Activity undocumented
 	Activity *ActivityType `json:"activity,omitempty"`
-	// TokenIssuerType undocumented
-	TokenIssuerType *TokenIssuerType `json:"tokenIssuerType,omitempty"`
-	// IPAddress undocumented
-	IPAddress *string `json:"ipAddress,omitempty"`
-	// Location undocumented
-	Location *SignInLocation `json:"location,omitempty"`
 	// ActivityDateTime undocumented
 	ActivityDateTime *time.Time `json:"activityDateTime,omitempty"`
-	// DetectedDateTime undocumented
-	DetectedDateTime *time.Time `json:"detectedDateTime,omitempty"`
-	// LastUpdatedDateTime undocumented
-	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
-	// UserID undocumented
-	UserID *string `json:"userId,omitempty"`
-	// UserDisplayName undocumented
-	UserDisplayName *string `json:"userDisplayName,omitempty"`
-	// UserPrincipalName undocumented
-	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 	// AdditionalInfo undocumented
 	AdditionalInfo *string `json:"additionalInfo,omitempty"`
+	// CorrelationID undocumented
+	CorrelationID *string `json:"correlationId,omitempty"`
+	// DetectedDateTime undocumented
+	DetectedDateTime *time.Time `json:"detectedDateTime,omitempty"`
+	// DetectionTimingType undocumented
+	DetectionTimingType *RiskDetectionTimingType `json:"detectionTimingType,omitempty"`
+	// IPAddress undocumented
+	IPAddress *string `json:"ipAddress,omitempty"`
+	// LastUpdatedDateTime undocumented
+	LastUpdatedDateTime *time.Time `json:"lastUpdatedDateTime,omitempty"`
+	// Location undocumented
+	Location *SignInLocation `json:"location,omitempty"`
+	// RequestID undocumented
+	RequestID *string `json:"requestId,omitempty"`
+	// RiskDetail undocumented
+	RiskDetail *RiskDetail `json:"riskDetail,omitempty"`
+	// RiskEventType undocumented
+	RiskEventType *string `json:"riskEventType,omitempty"`
+	// RiskLevel undocumented
+	RiskLevel *RiskLevel `json:"riskLevel,omitempty"`
+	// RiskState undocumented
+	RiskState *RiskState `json:"riskState,omitempty"`
+	// RiskType undocumented
+	RiskType *RiskEventType `json:"riskType,omitempty"`
+	// Source undocumented
+	Source *string `json:"source,omitempty"`
+	// TokenIssuerType undocumented
+	TokenIssuerType *TokenIssuerType `json:"tokenIssuerType,omitempty"`
+	// UserDisplayName undocumented
+	UserDisplayName *string `json:"userDisplayName,omitempty"`
+	// UserID undocumented
+	UserID *string `json:"userId,omitempty"`
+	// UserPrincipalName undocumented
+	UserPrincipalName *string `json:"userPrincipalName,omitempty"`
 }
 
 // RiskUserActivity undocumented
 type RiskUserActivity struct {
 	// Object is the base model of RiskUserActivity
 	Object
-	// EventTypes undocumented
-	EventTypes []RiskEventType `json:"eventTypes,omitempty"`
 	// Detail undocumented
 	Detail *RiskDetail `json:"detail,omitempty"`
+	// EventTypes undocumented
+	EventTypes []RiskEventType `json:"eventTypes,omitempty"`
+	// RiskEventTypes undocumented
+	RiskEventTypes []string `json:"riskEventTypes,omitempty"`
 }

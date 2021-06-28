@@ -6,10 +6,12 @@ package msgraph
 type DiscoveredSensitiveType struct {
 	// Object is the base model of DiscoveredSensitiveType
 	Object
-	// ID undocumented
-	ID *UUID `json:"id,omitempty"`
-	// Count undocumented
-	Count *int `json:"count,omitempty"`
+	// ClassificationAttributes undocumented
+	ClassificationAttributes []ClassificationAttribute `json:"classificationAttributes,omitempty"`
 	// Confidence undocumented
 	Confidence *int `json:"confidence,omitempty"`
+	// Count undocumented
+	Count *int `json:"count,omitempty"`
+	// ID undocumented
+	ID *UUID `json:"id,omitempty"`
 }

@@ -6,16 +6,16 @@ package msgraph
 type LicenseAssignmentState struct {
 	// Object is the base model of LicenseAssignmentState
 	Object
-	// SKUID undocumented
-	SKUID *UUID `json:"skuId,omitempty"`
-	// DisabledPlans undocumented
-	DisabledPlans []UUID `json:"disabledPlans,omitempty"`
 	// AssignedByGroup undocumented
 	AssignedByGroup *string `json:"assignedByGroup,omitempty"`
-	// State undocumented
-	State *string `json:"state,omitempty"`
+	// DisabledPlans undocumented
+	DisabledPlans []UUID `json:"disabledPlans,omitempty"`
 	// Error undocumented
 	Error *string `json:"error,omitempty"`
+	// SKUID undocumented
+	SKUID *UUID `json:"skuId,omitempty"`
+	// State undocumented
+	State *string `json:"state,omitempty"`
 }
 
 // LicenseDetails undocumented
@@ -36,10 +36,10 @@ type LicenseInfoDetail struct {
 	Object
 	// LicenseType undocumented
 	LicenseType *AzureADLicenseType `json:"licenseType,omitempty"`
-	// TotalLicenseCount undocumented
-	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
 	// TotalAssignedCount undocumented
 	TotalAssignedCount *int `json:"totalAssignedCount,omitempty"`
+	// TotalLicenseCount undocumented
+	TotalLicenseCount *int `json:"totalLicenseCount,omitempty"`
 	// TotalUsageCount undocumented
 	TotalUsageCount *int `json:"totalUsageCount,omitempty"`
 }

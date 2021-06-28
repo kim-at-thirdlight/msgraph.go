@@ -22,6 +22,10 @@ const (
 	PolicyPlatformTypeVWindows10AndLater PolicyPlatformType = "windows10AndLater"
 	// PolicyPlatformTypeVAndroidWorkProfile undocumented
 	PolicyPlatformTypeVAndroidWorkProfile PolicyPlatformType = "androidWorkProfile"
+	// PolicyPlatformTypeVWindows10XProfile undocumented
+	PolicyPlatformTypeVWindows10XProfile PolicyPlatformType = "windows10XProfile"
+	// PolicyPlatformTypeVAndroidAOSP undocumented
+	PolicyPlatformTypeVAndroidAOSP PolicyPlatformType = "androidAOSP"
 	// PolicyPlatformTypeVAll undocumented
 	PolicyPlatformTypeVAll PolicyPlatformType = "all"
 )
@@ -43,6 +47,10 @@ var (
 	PolicyPlatformTypePWindows10AndLater = &_PolicyPlatformTypePWindows10AndLater
 	// PolicyPlatformTypePAndroidWorkProfile is a pointer to PolicyPlatformTypeVAndroidWorkProfile
 	PolicyPlatformTypePAndroidWorkProfile = &_PolicyPlatformTypePAndroidWorkProfile
+	// PolicyPlatformTypePWindows10XProfile is a pointer to PolicyPlatformTypeVWindows10XProfile
+	PolicyPlatformTypePWindows10XProfile = &_PolicyPlatformTypePWindows10XProfile
+	// PolicyPlatformTypePAndroidAOSP is a pointer to PolicyPlatformTypeVAndroidAOSP
+	PolicyPlatformTypePAndroidAOSP = &_PolicyPlatformTypePAndroidAOSP
 	// PolicyPlatformTypePAll is a pointer to PolicyPlatformTypeVAll
 	PolicyPlatformTypePAll = &_PolicyPlatformTypePAll
 )
@@ -56,6 +64,8 @@ var (
 	_PolicyPlatformTypePWindows81AndLater  = PolicyPlatformTypeVWindows81AndLater
 	_PolicyPlatformTypePWindows10AndLater  = PolicyPlatformTypeVWindows10AndLater
 	_PolicyPlatformTypePAndroidWorkProfile = PolicyPlatformTypeVAndroidWorkProfile
+	_PolicyPlatformTypePWindows10XProfile  = PolicyPlatformTypeVWindows10XProfile
+	_PolicyPlatformTypePAndroidAOSP        = PolicyPlatformTypeVAndroidAOSP
 	_PolicyPlatformTypePAll                = PolicyPlatformTypeVAll
 )
 

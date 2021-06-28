@@ -4,14 +4,14 @@ package msgraph
 
 import "time"
 
-// OsVersionCount undocumented
+// OsVersionCount Count of devices with malware for each OS version
 type OsVersionCount struct {
 	// Object is the base model of OsVersionCount
 	Object
-	// OsVersion OS version
-	OsVersion *string `json:"osVersion,omitempty"`
 	// DeviceCount Count of devices with malware for the OS version
 	DeviceCount *int `json:"deviceCount,omitempty"`
 	// LastUpdateDateTime The Timestamp of the last update for the device count in UTC
 	LastUpdateDateTime *time.Time `json:"lastUpdateDateTime,omitempty"`
+	// OsVersion OS version
+	OsVersion *string `json:"osVersion,omitempty"`
 }

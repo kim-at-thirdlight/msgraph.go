@@ -14,20 +14,20 @@ type EncryptContent struct {
 type EncryptWithTemplate struct {
 	// EncryptContent is the base model of EncryptWithTemplate
 	EncryptContent
-	// TemplateID undocumented
-	TemplateID *string `json:"templateId,omitempty"`
 	// AvailableForEncryption undocumented
 	AvailableForEncryption *bool `json:"availableForEncryption,omitempty"`
+	// TemplateID undocumented
+	TemplateID *string `json:"templateId,omitempty"`
 }
 
 // EncryptWithUserDefinedRights undocumented
 type EncryptWithUserDefinedRights struct {
 	// EncryptContent is the base model of EncryptWithUserDefinedRights
 	EncryptContent
-	// DecryptionRightsManagementTemplateID undocumented
-	DecryptionRightsManagementTemplateID *string `json:"decryptionRightsManagementTemplateId,omitempty"`
-	// AllowMailForwarding undocumented
-	AllowMailForwarding *bool `json:"allowMailForwarding,omitempty"`
 	// AllowAdHocPermissions undocumented
 	AllowAdHocPermissions *bool `json:"allowAdHocPermissions,omitempty"`
+	// AllowMailForwarding undocumented
+	AllowMailForwarding *bool `json:"allowMailForwarding,omitempty"`
+	// DecryptionRightsManagementTemplateID undocumented
+	DecryptionRightsManagementTemplateID *string `json:"decryptionRightsManagementTemplateId,omitempty"`
 }

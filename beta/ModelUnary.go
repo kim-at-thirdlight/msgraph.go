@@ -2,12 +2,12 @@
 
 package msgraph
 
-// UnaryManagementConditionExpression undocumented
+// UnaryManagementConditionExpression A management condition expression that is evaluated using a unary operation.
 type UnaryManagementConditionExpression struct {
 	// ManagementConditionExpressionModel is the base model of UnaryManagementConditionExpression
 	ManagementConditionExpressionModel
-	// Operator The operator used in the evaluation of the unary operation.
-	Operator *UnaryManagementConditionExpressionOperatorType `json:"operator,omitempty"`
 	// Operand The operand of the unary operation.
 	Operand *ManagementConditionExpressionModel `json:"operand,omitempty"`
+	// Operator The operator used in the evaluation of the unary operation.
+	Operator *UnaryManagementConditionExpressionOperatorType `json:"operator,omitempty"`
 }

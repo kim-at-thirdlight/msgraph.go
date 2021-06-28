@@ -26,4 +26,38 @@ type DocumentCommentReply struct {
 	Entity
 	// Content undocumented
 	Content *string `json:"content,omitempty"`
+	// Location undocumented
+	Location *string `json:"location,omitempty"`
+}
+
+// DocumentSet undocumented
+type DocumentSet struct {
+	// Object is the base model of DocumentSet
+	Object
+	// AllowedContentTypes undocumented
+	AllowedContentTypes []ContentTypeInfo `json:"allowedContentTypes,omitempty"`
+	// DefaultContents undocumented
+	DefaultContents []DocumentSetContent `json:"defaultContents,omitempty"`
+	// PropagateWelcomePageChanges undocumented
+	PropagateWelcomePageChanges *bool `json:"propagateWelcomePageChanges,omitempty"`
+	// ShouldPrefixNameToFile undocumented
+	ShouldPrefixNameToFile *bool `json:"shouldPrefixNameToFile,omitempty"`
+	// WelcomePageURL undocumented
+	WelcomePageURL *string `json:"welcomePageUrl,omitempty"`
+	// SharedColumns undocumented
+	SharedColumns []ColumnDefinition `json:"sharedColumns,omitempty"`
+	// WelcomePageColumns undocumented
+	WelcomePageColumns []ColumnDefinition `json:"welcomePageColumns,omitempty"`
+}
+
+// DocumentSetContent undocumented
+type DocumentSetContent struct {
+	// Object is the base model of DocumentSetContent
+	Object
+	// ContentType undocumented
+	ContentType *ContentTypeInfo `json:"contentType,omitempty"`
+	// FileName undocumented
+	FileName *string `json:"fileName,omitempty"`
+	// FolderName undocumented
+	FolderName *string `json:"folderName,omitempty"`
 }

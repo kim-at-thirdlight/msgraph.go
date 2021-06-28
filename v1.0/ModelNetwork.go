@@ -14,6 +14,8 @@ type NetworkConnection struct {
 	DestinationAddress *string `json:"destinationAddress,omitempty"`
 	// DestinationDomain undocumented
 	DestinationDomain *string `json:"destinationDomain,omitempty"`
+	// DestinationLocation undocumented
+	DestinationLocation *string `json:"destinationLocation,omitempty"`
 	// DestinationPort undocumented
 	DestinationPort *string `json:"destinationPort,omitempty"`
 	// DestinationURL undocumented
@@ -38,10 +40,66 @@ type NetworkConnection struct {
 	RiskScore *string `json:"riskScore,omitempty"`
 	// SourceAddress undocumented
 	SourceAddress *string `json:"sourceAddress,omitempty"`
+	// SourceLocation undocumented
+	SourceLocation *string `json:"sourceLocation,omitempty"`
 	// SourcePort undocumented
 	SourcePort *string `json:"sourcePort,omitempty"`
 	// Status undocumented
 	Status *ConnectionStatus `json:"status,omitempty"`
 	// URLParameters undocumented
 	URLParameters *string `json:"urlParameters,omitempty"`
+}
+
+// NetworkInfo undocumented
+type NetworkInfo struct {
+	// Object is the base model of NetworkInfo
+	Object
+	// BandwidthLowEventRatio undocumented
+	BandwidthLowEventRatio *float64 `json:"bandwidthLowEventRatio,omitempty"`
+	// BasicServiceSetIdentifier undocumented
+	BasicServiceSetIdentifier *string `json:"basicServiceSetIdentifier,omitempty"`
+	// ConnectionType undocumented
+	ConnectionType *NetworkConnectionType `json:"connectionType,omitempty"`
+	// DelayEventRatio undocumented
+	DelayEventRatio *float64 `json:"delayEventRatio,omitempty"`
+	// DNSSuffix undocumented
+	DNSSuffix *string `json:"dnsSuffix,omitempty"`
+	// IPAddress undocumented
+	IPAddress *string `json:"ipAddress,omitempty"`
+	// LinkSpeed undocumented
+	LinkSpeed *int `json:"linkSpeed,omitempty"`
+	// MacAddress undocumented
+	MacAddress *string `json:"macAddress,omitempty"`
+	// Port undocumented
+	Port *int `json:"port,omitempty"`
+	// ReceivedQualityEventRatio undocumented
+	ReceivedQualityEventRatio *float64 `json:"receivedQualityEventRatio,omitempty"`
+	// ReflexiveIPAddress undocumented
+	ReflexiveIPAddress *string `json:"reflexiveIPAddress,omitempty"`
+	// RelayIPAddress undocumented
+	RelayIPAddress *string `json:"relayIPAddress,omitempty"`
+	// RelayPort undocumented
+	RelayPort *int `json:"relayPort,omitempty"`
+	// SentQualityEventRatio undocumented
+	SentQualityEventRatio *float64 `json:"sentQualityEventRatio,omitempty"`
+	// Subnet undocumented
+	Subnet *string `json:"subnet,omitempty"`
+	// WiFiBand undocumented
+	WiFiBand *WiFiBand `json:"wifiBand,omitempty"`
+	// WiFiBatteryCharge undocumented
+	WiFiBatteryCharge *int `json:"wifiBatteryCharge,omitempty"`
+	// WiFiChannel undocumented
+	WiFiChannel *int `json:"wifiChannel,omitempty"`
+	// WiFiMicrosoftDriver undocumented
+	WiFiMicrosoftDriver *string `json:"wifiMicrosoftDriver,omitempty"`
+	// WiFiMicrosoftDriverVersion undocumented
+	WiFiMicrosoftDriverVersion *string `json:"wifiMicrosoftDriverVersion,omitempty"`
+	// WiFiRadioType undocumented
+	WiFiRadioType *WiFiRadioType `json:"wifiRadioType,omitempty"`
+	// WiFiSignalStrength undocumented
+	WiFiSignalStrength *int `json:"wifiSignalStrength,omitempty"`
+	// WiFiVendorDriver undocumented
+	WiFiVendorDriver *string `json:"wifiVendorDriver,omitempty"`
+	// WiFiVendorDriverVersion undocumented
+	WiFiVendorDriverVersion *string `json:"wifiVendorDriverVersion,omitempty"`
 }

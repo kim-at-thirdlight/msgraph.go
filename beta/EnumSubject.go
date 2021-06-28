@@ -16,6 +16,8 @@ const (
 	SubjectAlternativeNameTypeVCustomAzureADAttribute SubjectAlternativeNameType = "customAzureADAttribute"
 	// SubjectAlternativeNameTypeVDomainNameService undocumented
 	SubjectAlternativeNameTypeVDomainNameService SubjectAlternativeNameType = "domainNameService"
+	// SubjectAlternativeNameTypeVUniversalResourceIdentifier undocumented
+	SubjectAlternativeNameTypeVUniversalResourceIdentifier SubjectAlternativeNameType = "universalResourceIdentifier"
 )
 
 var (
@@ -29,14 +31,17 @@ var (
 	SubjectAlternativeNameTypePCustomAzureADAttribute = &_SubjectAlternativeNameTypePCustomAzureADAttribute
 	// SubjectAlternativeNameTypePDomainNameService is a pointer to SubjectAlternativeNameTypeVDomainNameService
 	SubjectAlternativeNameTypePDomainNameService = &_SubjectAlternativeNameTypePDomainNameService
+	// SubjectAlternativeNameTypePUniversalResourceIdentifier is a pointer to SubjectAlternativeNameTypeVUniversalResourceIdentifier
+	SubjectAlternativeNameTypePUniversalResourceIdentifier = &_SubjectAlternativeNameTypePUniversalResourceIdentifier
 )
 
 var (
-	_SubjectAlternativeNameTypePNone                   = SubjectAlternativeNameTypeVNone
-	_SubjectAlternativeNameTypePEmailAddress           = SubjectAlternativeNameTypeVEmailAddress
-	_SubjectAlternativeNameTypePUserPrincipalName      = SubjectAlternativeNameTypeVUserPrincipalName
-	_SubjectAlternativeNameTypePCustomAzureADAttribute = SubjectAlternativeNameTypeVCustomAzureADAttribute
-	_SubjectAlternativeNameTypePDomainNameService      = SubjectAlternativeNameTypeVDomainNameService
+	_SubjectAlternativeNameTypePNone                        = SubjectAlternativeNameTypeVNone
+	_SubjectAlternativeNameTypePEmailAddress                = SubjectAlternativeNameTypeVEmailAddress
+	_SubjectAlternativeNameTypePUserPrincipalName           = SubjectAlternativeNameTypeVUserPrincipalName
+	_SubjectAlternativeNameTypePCustomAzureADAttribute      = SubjectAlternativeNameTypeVCustomAzureADAttribute
+	_SubjectAlternativeNameTypePDomainNameService           = SubjectAlternativeNameTypeVDomainNameService
+	_SubjectAlternativeNameTypePUniversalResourceIdentifier = SubjectAlternativeNameTypeVUniversalResourceIdentifier
 )
 
 // SubjectNameFormat undocumented

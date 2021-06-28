@@ -8,22 +8,22 @@ type Invitation struct {
 	Entity
 	// InvitedUserDisplayName undocumented
 	InvitedUserDisplayName *string `json:"invitedUserDisplayName,omitempty"`
-	// InvitedUserType undocumented
-	InvitedUserType *string `json:"invitedUserType,omitempty"`
 	// InvitedUserEmailAddress undocumented
 	InvitedUserEmailAddress *string `json:"invitedUserEmailAddress,omitempty"`
 	// InvitedUserMessageInfo undocumented
 	InvitedUserMessageInfo *InvitedUserMessageInfo `json:"invitedUserMessageInfo,omitempty"`
-	// SendInvitationMessage undocumented
-	SendInvitationMessage *bool `json:"sendInvitationMessage,omitempty"`
-	// InviteRedirectURL undocumented
-	InviteRedirectURL *string `json:"inviteRedirectUrl,omitempty"`
+	// InvitedUserType undocumented
+	InvitedUserType *string `json:"invitedUserType,omitempty"`
 	// InviteRedeemURL undocumented
 	InviteRedeemURL *string `json:"inviteRedeemUrl,omitempty"`
-	// Status undocumented
-	Status *string `json:"status,omitempty"`
+	// InviteRedirectURL undocumented
+	InviteRedirectURL *string `json:"inviteRedirectUrl,omitempty"`
 	// ResetRedemption undocumented
 	ResetRedemption *bool `json:"resetRedemption,omitempty"`
+	// SendInvitationMessage undocumented
+	SendInvitationMessage *bool `json:"sendInvitationMessage,omitempty"`
+	// Status undocumented
+	Status *string `json:"status,omitempty"`
 	// InvitedUser undocumented
 	InvitedUser *User `json:"invitedUser,omitempty"`
 }
@@ -32,10 +32,10 @@ type Invitation struct {
 type InvitationParticipantInfo struct {
 	// Object is the base model of InvitationParticipantInfo
 	Object
-	// Identity undocumented
-	Identity *IdentitySet `json:"identity,omitempty"`
 	// EndpointType undocumented
 	EndpointType *EndpointType `json:"endpointType,omitempty"`
+	// Identity undocumented
+	Identity *IdentitySet `json:"identity,omitempty"`
 	// ReplacesCallID undocumented
 	ReplacesCallID *string `json:"replacesCallId,omitempty"`
 }

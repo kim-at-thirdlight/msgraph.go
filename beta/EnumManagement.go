@@ -2,6 +2,68 @@
 
 package msgraph
 
+// ManagementActionStatus undocumented
+type ManagementActionStatus string
+
+const (
+	// ManagementActionStatusVToAddress undocumented
+	ManagementActionStatusVToAddress ManagementActionStatus = "toAddress"
+	// ManagementActionStatusVCompleted undocumented
+	ManagementActionStatusVCompleted ManagementActionStatus = "completed"
+	// ManagementActionStatusVError undocumented
+	ManagementActionStatusVError ManagementActionStatus = "error"
+	// ManagementActionStatusVTimeOut undocumented
+	ManagementActionStatusVTimeOut ManagementActionStatus = "timeOut"
+	// ManagementActionStatusVInProgress undocumented
+	ManagementActionStatusVInProgress ManagementActionStatus = "inProgress"
+	// ManagementActionStatusVPlanned undocumented
+	ManagementActionStatusVPlanned ManagementActionStatus = "planned"
+	// ManagementActionStatusVResolvedBy3rdParty undocumented
+	ManagementActionStatusVResolvedBy3rdParty ManagementActionStatus = "resolvedBy3rdParty"
+	// ManagementActionStatusVResolvedThroughAlternateMitigation undocumented
+	ManagementActionStatusVResolvedThroughAlternateMitigation ManagementActionStatus = "resolvedThroughAlternateMitigation"
+	// ManagementActionStatusVRiskAccepted undocumented
+	ManagementActionStatusVRiskAccepted ManagementActionStatus = "riskAccepted"
+	// ManagementActionStatusVUnknownFutureValue undocumented
+	ManagementActionStatusVUnknownFutureValue ManagementActionStatus = "unknownFutureValue"
+)
+
+var (
+	// ManagementActionStatusPToAddress is a pointer to ManagementActionStatusVToAddress
+	ManagementActionStatusPToAddress = &_ManagementActionStatusPToAddress
+	// ManagementActionStatusPCompleted is a pointer to ManagementActionStatusVCompleted
+	ManagementActionStatusPCompleted = &_ManagementActionStatusPCompleted
+	// ManagementActionStatusPError is a pointer to ManagementActionStatusVError
+	ManagementActionStatusPError = &_ManagementActionStatusPError
+	// ManagementActionStatusPTimeOut is a pointer to ManagementActionStatusVTimeOut
+	ManagementActionStatusPTimeOut = &_ManagementActionStatusPTimeOut
+	// ManagementActionStatusPInProgress is a pointer to ManagementActionStatusVInProgress
+	ManagementActionStatusPInProgress = &_ManagementActionStatusPInProgress
+	// ManagementActionStatusPPlanned is a pointer to ManagementActionStatusVPlanned
+	ManagementActionStatusPPlanned = &_ManagementActionStatusPPlanned
+	// ManagementActionStatusPResolvedBy3rdParty is a pointer to ManagementActionStatusVResolvedBy3rdParty
+	ManagementActionStatusPResolvedBy3rdParty = &_ManagementActionStatusPResolvedBy3rdParty
+	// ManagementActionStatusPResolvedThroughAlternateMitigation is a pointer to ManagementActionStatusVResolvedThroughAlternateMitigation
+	ManagementActionStatusPResolvedThroughAlternateMitigation = &_ManagementActionStatusPResolvedThroughAlternateMitigation
+	// ManagementActionStatusPRiskAccepted is a pointer to ManagementActionStatusVRiskAccepted
+	ManagementActionStatusPRiskAccepted = &_ManagementActionStatusPRiskAccepted
+	// ManagementActionStatusPUnknownFutureValue is a pointer to ManagementActionStatusVUnknownFutureValue
+	ManagementActionStatusPUnknownFutureValue = &_ManagementActionStatusPUnknownFutureValue
+)
+
+var (
+	_ManagementActionStatusPToAddress                          = ManagementActionStatusVToAddress
+	_ManagementActionStatusPCompleted                          = ManagementActionStatusVCompleted
+	_ManagementActionStatusPError                              = ManagementActionStatusVError
+	_ManagementActionStatusPTimeOut                            = ManagementActionStatusVTimeOut
+	_ManagementActionStatusPInProgress                         = ManagementActionStatusVInProgress
+	_ManagementActionStatusPPlanned                            = ManagementActionStatusVPlanned
+	_ManagementActionStatusPResolvedBy3rdParty                 = ManagementActionStatusVResolvedBy3rdParty
+	_ManagementActionStatusPResolvedThroughAlternateMitigation = ManagementActionStatusVResolvedThroughAlternateMitigation
+	_ManagementActionStatusPRiskAccepted                       = ManagementActionStatusVRiskAccepted
+	_ManagementActionStatusPUnknownFutureValue                 = ManagementActionStatusVUnknownFutureValue
+)
+
 // ManagementAgentType undocumented
 type ManagementAgentType string
 
@@ -30,6 +92,10 @@ const (
 	ManagementAgentTypeVGoogleCloudDevicePolicyController ManagementAgentType = "googleCloudDevicePolicyController"
 	// ManagementAgentTypeVMicrosoft365ManagedMDM undocumented
 	ManagementAgentTypeVMicrosoft365ManagedMDM ManagementAgentType = "microsoft365ManagedMdm"
+	// ManagementAgentTypeVWindowsManagementCloudAPI undocumented
+	ManagementAgentTypeVWindowsManagementCloudAPI ManagementAgentType = "windowsManagementCloudApi"
+	// ManagementAgentTypeVIntuneAosp undocumented
+	ManagementAgentTypeVIntuneAosp ManagementAgentType = "intuneAosp"
 )
 
 var (
@@ -57,6 +123,10 @@ var (
 	ManagementAgentTypePGoogleCloudDevicePolicyController = &_ManagementAgentTypePGoogleCloudDevicePolicyController
 	// ManagementAgentTypePMicrosoft365ManagedMDM is a pointer to ManagementAgentTypeVMicrosoft365ManagedMDM
 	ManagementAgentTypePMicrosoft365ManagedMDM = &_ManagementAgentTypePMicrosoft365ManagedMDM
+	// ManagementAgentTypePWindowsManagementCloudAPI is a pointer to ManagementAgentTypeVWindowsManagementCloudAPI
+	ManagementAgentTypePWindowsManagementCloudAPI = &_ManagementAgentTypePWindowsManagementCloudAPI
+	// ManagementAgentTypePIntuneAosp is a pointer to ManagementAgentTypeVIntuneAosp
+	ManagementAgentTypePIntuneAosp = &_ManagementAgentTypePIntuneAosp
 )
 
 var (
@@ -72,6 +142,97 @@ var (
 	_ManagementAgentTypePJamf                              = ManagementAgentTypeVJamf
 	_ManagementAgentTypePGoogleCloudDevicePolicyController = ManagementAgentTypeVGoogleCloudDevicePolicyController
 	_ManagementAgentTypePMicrosoft365ManagedMDM            = ManagementAgentTypeVMicrosoft365ManagedMDM
+	_ManagementAgentTypePWindowsManagementCloudAPI         = ManagementAgentTypeVWindowsManagementCloudAPI
+	_ManagementAgentTypePIntuneAosp                        = ManagementAgentTypeVIntuneAosp
+)
+
+// ManagementCategory undocumented
+type ManagementCategory string
+
+const (
+	// ManagementCategoryVCustom undocumented
+	ManagementCategoryVCustom ManagementCategory = "custom"
+	// ManagementCategoryVDevices undocumented
+	ManagementCategoryVDevices ManagementCategory = "devices"
+	// ManagementCategoryVIdentity undocumented
+	ManagementCategoryVIdentity ManagementCategory = "identity"
+	// ManagementCategoryVUnknownFutureValue undocumented
+	ManagementCategoryVUnknownFutureValue ManagementCategory = "unknownFutureValue"
+)
+
+var (
+	// ManagementCategoryPCustom is a pointer to ManagementCategoryVCustom
+	ManagementCategoryPCustom = &_ManagementCategoryPCustom
+	// ManagementCategoryPDevices is a pointer to ManagementCategoryVDevices
+	ManagementCategoryPDevices = &_ManagementCategoryPDevices
+	// ManagementCategoryPIdentity is a pointer to ManagementCategoryVIdentity
+	ManagementCategoryPIdentity = &_ManagementCategoryPIdentity
+	// ManagementCategoryPUnknownFutureValue is a pointer to ManagementCategoryVUnknownFutureValue
+	ManagementCategoryPUnknownFutureValue = &_ManagementCategoryPUnknownFutureValue
+)
+
+var (
+	_ManagementCategoryPCustom             = ManagementCategoryVCustom
+	_ManagementCategoryPDevices            = ManagementCategoryVDevices
+	_ManagementCategoryPIdentity           = ManagementCategoryVIdentity
+	_ManagementCategoryPUnknownFutureValue = ManagementCategoryVUnknownFutureValue
+)
+
+// ManagementParameterValueType undocumented
+type ManagementParameterValueType string
+
+const (
+	// ManagementParameterValueTypeVString undocumented
+	ManagementParameterValueTypeVString ManagementParameterValueType = "string"
+	// ManagementParameterValueTypeVInteger undocumented
+	ManagementParameterValueTypeVInteger ManagementParameterValueType = "integer"
+	// ManagementParameterValueTypeVBoolean undocumented
+	ManagementParameterValueTypeVBoolean ManagementParameterValueType = "boolean"
+	// ManagementParameterValueTypeVGUID undocumented
+	ManagementParameterValueTypeVGUID ManagementParameterValueType = "guid"
+	// ManagementParameterValueTypeVStringCollection undocumented
+	ManagementParameterValueTypeVStringCollection ManagementParameterValueType = "stringCollection"
+	// ManagementParameterValueTypeVIntegerCollection undocumented
+	ManagementParameterValueTypeVIntegerCollection ManagementParameterValueType = "integerCollection"
+	// ManagementParameterValueTypeVBooleanCollection undocumented
+	ManagementParameterValueTypeVBooleanCollection ManagementParameterValueType = "booleanCollection"
+	// ManagementParameterValueTypeVGUIDCollection undocumented
+	ManagementParameterValueTypeVGUIDCollection ManagementParameterValueType = "guidCollection"
+	// ManagementParameterValueTypeVUnknownFutureValue undocumented
+	ManagementParameterValueTypeVUnknownFutureValue ManagementParameterValueType = "unknownFutureValue"
+)
+
+var (
+	// ManagementParameterValueTypePString is a pointer to ManagementParameterValueTypeVString
+	ManagementParameterValueTypePString = &_ManagementParameterValueTypePString
+	// ManagementParameterValueTypePInteger is a pointer to ManagementParameterValueTypeVInteger
+	ManagementParameterValueTypePInteger = &_ManagementParameterValueTypePInteger
+	// ManagementParameterValueTypePBoolean is a pointer to ManagementParameterValueTypeVBoolean
+	ManagementParameterValueTypePBoolean = &_ManagementParameterValueTypePBoolean
+	// ManagementParameterValueTypePGUID is a pointer to ManagementParameterValueTypeVGUID
+	ManagementParameterValueTypePGUID = &_ManagementParameterValueTypePGUID
+	// ManagementParameterValueTypePStringCollection is a pointer to ManagementParameterValueTypeVStringCollection
+	ManagementParameterValueTypePStringCollection = &_ManagementParameterValueTypePStringCollection
+	// ManagementParameterValueTypePIntegerCollection is a pointer to ManagementParameterValueTypeVIntegerCollection
+	ManagementParameterValueTypePIntegerCollection = &_ManagementParameterValueTypePIntegerCollection
+	// ManagementParameterValueTypePBooleanCollection is a pointer to ManagementParameterValueTypeVBooleanCollection
+	ManagementParameterValueTypePBooleanCollection = &_ManagementParameterValueTypePBooleanCollection
+	// ManagementParameterValueTypePGUIDCollection is a pointer to ManagementParameterValueTypeVGUIDCollection
+	ManagementParameterValueTypePGUIDCollection = &_ManagementParameterValueTypePGUIDCollection
+	// ManagementParameterValueTypePUnknownFutureValue is a pointer to ManagementParameterValueTypeVUnknownFutureValue
+	ManagementParameterValueTypePUnknownFutureValue = &_ManagementParameterValueTypePUnknownFutureValue
+)
+
+var (
+	_ManagementParameterValueTypePString             = ManagementParameterValueTypeVString
+	_ManagementParameterValueTypePInteger            = ManagementParameterValueTypeVInteger
+	_ManagementParameterValueTypePBoolean            = ManagementParameterValueTypeVBoolean
+	_ManagementParameterValueTypePGUID               = ManagementParameterValueTypeVGUID
+	_ManagementParameterValueTypePStringCollection   = ManagementParameterValueTypeVStringCollection
+	_ManagementParameterValueTypePIntegerCollection  = ManagementParameterValueTypeVIntegerCollection
+	_ManagementParameterValueTypePBooleanCollection  = ManagementParameterValueTypeVBooleanCollection
+	_ManagementParameterValueTypePGUIDCollection     = ManagementParameterValueTypeVGUIDCollection
+	_ManagementParameterValueTypePUnknownFutureValue = ManagementParameterValueTypeVUnknownFutureValue
 )
 
 // ManagementState undocumented

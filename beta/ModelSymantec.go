@@ -10,20 +10,20 @@ type SymantecCodeSigningCertificate struct {
 	Entity
 	// Content The Windows Symantec Code-Signing Certificate in the raw data format.
 	Content *Binary `json:"content,omitempty"`
-	// Status The Cert Status Provisioned or not Provisioned.
-	Status *CertificateStatus `json:"status,omitempty"`
-	// Password The Password required for .pfx file.
-	Password *string `json:"password,omitempty"`
-	// SubjectName The Subject Name for the cert.
-	SubjectName *string `json:"subjectName,omitempty"`
-	// Subject The Subject value for the cert.
-	Subject *string `json:"subject,omitempty"`
-	// IssuerName The Issuer Name for the cert.
-	IssuerName *string `json:"issuerName,omitempty"`
-	// Issuer The Issuer value for the cert.
-	Issuer *string `json:"issuer,omitempty"`
 	// ExpirationDateTime The Cert Expiration Date.
 	ExpirationDateTime *time.Time `json:"expirationDateTime,omitempty"`
+	// Issuer The Issuer value for the cert.
+	Issuer *string `json:"issuer,omitempty"`
+	// IssuerName The Issuer Name for the cert.
+	IssuerName *string `json:"issuerName,omitempty"`
+	// Password The Password required for .pfx file.
+	Password *string `json:"password,omitempty"`
+	// Status The Cert Status Provisioned or not Provisioned.
+	Status *CertificateStatus `json:"status,omitempty"`
+	// Subject The Subject value for the cert.
+	Subject *string `json:"subject,omitempty"`
+	// SubjectName The Subject Name for the cert.
+	SubjectName *string `json:"subjectName,omitempty"`
 	// UploadDateTime The Type of the CodeSigning Cert as Symantec Cert.
 	UploadDateTime *time.Time `json:"uploadDateTime,omitempty"`
 }
